@@ -1,0 +1,25 @@
+[retriever]
+type = SimplePOP3SSLRetriever
+server = pop.gmail.com
+#type = SimpleIMAPSSLRetriever
+#server = imap.gmail.com
+# add username before @ sign
+# username =  epeerhelp-dev@ck12.org
+username =  epeerhelp-qa@ck12.org
+# add password for that account
+#password = Ehel2014
+password = lcpfraxjjmddvvpd
+
+[destination]
+type = MDA_external
+#path = /usr/sbin/sendmail
+#arguments = ("-i", "-bm", " @<domain_name>") # add username before @ sign
+#unixfrom = true
+path = /usr/bin/procmail
+arguments = ("/home/epeerhelp/.procmailrc", "-d", "%T")
+
+[options]
+verbose = 1
+read_all = false
+delete = false
+#---------> Leave Copy on server Enabled when it's set to (False)

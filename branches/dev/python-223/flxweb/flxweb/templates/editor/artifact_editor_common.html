@@ -1,0 +1,617 @@
+{% extends "base/2_column_right_detail.html" %}
+{% set artifact = c.artifact %}
+{% set page_url = h.url(artifact.perma, qualified=True) %}
+{% set embed_url = '%s%s' %( h.url('/embed/', qualified=True), artifact.getPermaHandle(False) ) %}
+{% set print_url = h.url('print_url',perma_handle = artifact.perma.rstrip('/'), qualified=True) %}
+{% set related_url = h.url('related_url',perma_handle = artifact.perma.rstrip('/'), qualified=True) %}
+<!-- Assuming user is collaborator when artifactID is odd -->
+{% set collaborator = False %}
+
+{% from "macros/browse_listing.html" import ck12_node_macro with context %}
+{% from "macros/artifact.html" import ck12_metadata_attributions_list_editable with context %}
+{% from "macros/attachments.html" import ck12_resources_tab with context %}
+{% from "macros/attachments.html" import ck12_artifact_resource_row_template with context %}
+{% from "macros/attachments.html" import ck12_artifact_edit_resource with context %}
+{% block head %}
+{{ super() }}
+<meta property="fb:app_id" content="{{ config.fb_app_id }}">
+<meta name="robots" content="noindex" />
+{% endblock %}
+
+{% block stylesheets %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.url_css('artifact_common.css') }}" />
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.url_css('editor_common.css') }}" />
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+<script language="JavaScript" type="text/javascript">
+	var artifactID = '{{c.artifact.id}}';
+	var artifactRevisionID = '{{c.artifact.get_revision_id()}}';
+	var editor_userid = '{{ c.user.id }}';
+	var artifact_json = null
+	var attachments = null;
+</script>
+<script language="JavaScript" type="text/javascript">
+	require(['main'], function(){
+		require(['jquery','main-editor']);
+	});
+</script>
+{% endblock %}
+
+{% block title %} {{ artifact.title }} {% endblock %}
+
+{% block pageinfotop %}
+<div class="contenttop-new contenttop">
+	<nav id="pageinfotop">
+		<div id="pagewrap" class="clearfix container_12">
+			<div class="editoractionbar grid_12"></div>
+			<div class="gclear"></div>
+		</div>
+	</nav>
+</div>
+{% endblock %}
+
+{% block content_left %}
+{{ super() }}
+{% endblock %}
+{% block content_left_inner %}
+	{% block artifact_coverimage %}
+	<figure class="coverimage imgborder">
+		<div>
+			<img class="js_coverimage" src="{{ artifact|ck12_artifact_cover_thumbnail_large }}" alt="{{ artifact.title|escape }}" title="{{ artifact.title|escape }}"/>
+		</div>
+		<!-- Don't show for collaborator -->
+		<div class="changeimagewrap hide-for-collaborator hide">
+			<a class="js_coverimage_edit" title="{{ _('Change Cover Image') }}">{{ _("Change Image") }}</a>
+		</div>
+	</figure>
+	{% endblock %}
+
+	{% block top_editoractionbar %}
+		<div>
+			{% if (c.user.hasAnyRole(['admin','support-admin','content-admin','content-de-author-admin','content-support-admin']) and not artifact.is_owner(c.user) and c.artifact.perma and c.artifact.artifactType in c.Book_Types) %}
+			<input type="checkbox" id="deep_copy" class="hide-for-collaborator hide" title = "Deep copy" /><span class="deep-copy-text hide-for-collaborator hide">{{_("Deep copy")}}</span><br>
+			<div id="book_publish_status" class="hide">
+				<input type="checkbox" id="deepCopy_phase" title = "deepCopy_phase" checked/><span class="deep-copy-text">{{_("Analysis Only")}}</span> <br />
+				<input type="checkbox" data-publish="{{c.artifact.is_published()}}" id="published_status" title = "Publish"/><span class="deep-copy-text">{{_("Publish")}}</span>
+			</div>
+			<div class="spacetoplarge"></div>
+			{% endif %}
+
+			<!-- Don't show Save for collaborator -->
+			{% block editor_save_action %}
+				<a class="button turquoise js_save_artifact hide-for-collaborator hide" id="btn_save_artifact" title="{{ _('Save') }}">{{ _("Save") }}</a>
+			{% endblock %}
+		</div>
+
+		<div class="spacetop"></div>
+
+		{% block artifact_add_content %}
+		{% endblock %}
+
+		{% if c.artifact.artifactType == 'book' or c.artifact.artifactType == 'tebook' or c.artifact.artifactType == 'workbook' or c.artifact.artifactType == 'quizbook'%}
+			<div id="finalizeBook" class="finalize-book hide-for-collaborator hide">
+				Finalize
+			</div>
+		{% endif %}
+
+		{% block artifact_details_extra %}
+		{% endblock %}
+
+		{% block editor_sidebar_items %}{% endblock %}
+
+	{% endblock %}
+
+{% endblock %}
+
+{% block content_right_inner %}
+<article>
+
+	{% block breadcrumbs %}
+	<div class="breadcrumbs_container">
+		<!-- Artifact Breadcrumbs -->
+		<div class="artifact_editor_breadcrumbs">
+			{% for crumb in c.breadcrumbs %}
+				{% if not loop.last %}
+					{% if loop.first %}
+						<span>{{ _("In") }}</span>
+					{% else %}
+						<span>&#47;</span>
+					{% endif %}
+					<span>{{ crumb.title }}</span>
+				{% endif %}
+			{% endfor%}
+			{% if c.position %}<span class="artifact_context_position">&#47; {{ c.position }}:</span>{% endif %}
+		</div>
+		<!-- /Artifact Breadcrumbs -->
+	</div>
+	{% endblock %}
+
+	<header class="artifactabout clearfix relative">
+		<div class="counter">
+		<div id="new-modality-title-label" class="new-modality-title-label hide"><span>To get started, please create a title</span><span id="editor-title-only"> and select a modality</span><span>.</span></div>
+		<div id="existing-modality-title-label" class="new-modality-title-label hide">Title</div>
+		<div class="relative">
+			<input type="txt" maxlength="100" id="txt_artifacttitle" readonly="readonly" class="readonly-for-collaborator js_artifacttitle txt_artifact_title {% if c.position %}with_context {% endif %}forminput" value="{{ c.artifact.title|escape }}"  />
+			<span class="absolute js-loading-icon hide">
+				<img alt="loading" src="{{ h.asset_image('common/images/loading.gif') }}">
+			</span>
+		</div>
+		<div class="artifact-title-error hide js-artifact-title-error">This resource title is already used. Please enter a new one.</div>
+		<div class="hint_edittitle clear"><span>(Edit Title) </span><span class="var_count">0 / 100</span></div>
+		</div>
+		{% if c.user.isAdmin() or c.user.isEditAllowed() %}
+			<div class="adminfields">
+				{% if c.user.isAdmin() %}
+					<div class="hint_edittitle clear">
+						<span>Encoded Id</span>
+						<input placeholder="Encoded Id" id="txt_artifactencodedid" type="txt" readonly="readonly" class="forminput readonly-for-collaborator" value="{% if artifact.is_owner(c.user) or (not (artifact.is_owner(c.user)) and not(c.artifact.artifactType in c.Book_Types)) %}{{ c.artifact.encodedID|escape|replace("None", '') }}{% endif %}" />
+					</div>
+            		{% if c.artifact.artifactType == 'book' or c.artifact.artifactType == 'tebook' or c.artifact.artifactType == 'workbook' or c.artifact.artifactType == 'quizbook'%}
+                	<div class="hint_edittitle clear">
+                		<span>Message to users</span>
+                		<textarea maxlength="1024" placeholder="This brief message will appear on the first page or screen below the title, to explain important facts about the resource or version. Limit to 1024 max characters." id="txt_artifactmessagetousers" type="txt" readonly="readonly" class="forminput message-textarea readonly-for-collaborator" rows="2" >{{ c.artifact.messageToUsers|escape|replace("None", "") }}</textarea>
+                	</div>
+            		{% endif %}
+                {% endif %}
+            	<div class="spacetoplarge"></div>
+			</div>
+		{% endif %}
+
+    {% block modalitytype_select %} {% endblock %}
+    {% block draft_label %} {% endblock %}
+    <div id="new-modality-save-container" class="new-modality-save-container hide">
+    	<a id="new-modality-save" class="button tangerine standard">Save</a>
+    	{% if c.page_referrer %}
+    		<a href="{{ c.page_referrer }}" class="button dusty-grey standard js-editor-back" title="Go Back">Go Back</a>
+    	{% else %}
+		   	{% if c.artifact.get('context') and c.artifact.context.perma %}
+				{% if c.artifact.context.revision or c.artifact.context.latestRevision %}
+					<a href="/editor/{{ c.artifact.context.perma }}r{{ c.artifact.context.revision or c.artifact.context.latestRevision }}" class="button dusty-grey standard js-editor-back" title="Go Back">Go Back</a>
+				{% else %}
+					<a href="/editor/{{ c.artifact.context.perma }}" class="button dusty-grey standard js-editor-back" title="Go Back">Go Back</a>
+				{% endif %}
+			{% elif c.artifact.perma %}
+				<a href="{{ h.artifact_url(c.artifact) }}" class="button dusty-grey standard js-editor-back" title="Go Back">Go Back</a>
+			{% else %}
+				<a class="button dusty-grey standard js-editor-back" title="Go Back" href="{{ c.returnTo|e or '/my/library' }}">Go Back</a>
+			{% endif %}
+		{% endif %}
+    </div>
+
+	</header>
+	<div id="editor_container" class="{% block extra_editor_classes %}{% endblock %}">
+	<div id="editor_tabs" class="js_editortabs">
+		<ul class='hide'>
+			<li>
+				<div class="topshadowfix"></div>
+				<a href="#edit_content" class="js-editor-tab">{{ _("Edit") }}</a>
+			</li>
+			<li>
+				<div class="topshadowfix"></div>
+				<a href="#edit_attachments" class="js-editor-tab">{{ _("Resources") }}</a>
+			</li>
+			{% block detailstab %}
+				<li>
+					<div class="topshadowfix"></div>
+					<a href="#edit_metadata" class="js-editor-tab">{{ _("Details") }}</a>
+				</li>
+			{% endblock %}
+			<li class="pointer new-modification-text js_different_link">What's different?</li>
+		</ul>
+		<div class="contentarea">
+			<!-- START - CONTENT VIEW -->
+			<div id="edit_content" class="contentview js_viewtab hide">
+				{% block artifact_navigation %}
+				{% endblock %}
+
+				<!-- content body -->
+				{% block before_content %}{% endblock %}
+				<div id="artifact_content" class="clearfix">{% block content_body %}{% endblock %}</div>
+				{% block after_content %}{% endblock %}
+				<!-- /content body -->
+				<div class="artifacteditorsubmitwrap"></div>
+
+				{% block extra_content %}
+				{% endblock %}
+			</div>
+			<!-- /END - CONTENT VIEW -->
+
+			<!-- START METADATA VIEW -->
+			<div id="edit_metadata" class="metadataview js_viewtab hide">
+				<!-- About the Artifact - cover image; summary; authors, relevant links -->
+
+				{% block metadata_edit %}
+				{% block summary %}
+				<section>
+					<h2>{{ _('Description') }}</h2>
+					<div class="articleinfowrap js_description">
+						<textarea id="txt_artifact_description" readonly="readonly" class="txt_description forminput readonly-for-collaborator" rows="4">{{ c.artifact.get('summary') or '' }}</textarea>
+					</div>
+				</section>
+		        {% endblock %}
+				{% block objectives_section %}
+				{% endblock %}
+
+				<section id="attributionscontainer">
+					<div class="divider spacetop"></div>
+					<h2>{{ _("Attributions") }}</h2>
+
+					<!-- Don't show for collaborator -->
+					<div class="hide-for-collaborator hide">
+						<a id="btn_addattributions">Add Attributions</a>
+					</div>
+
+					{% set _attributions = c.artifact.get_authors_by_role() %}
+					<div id="attribution_list" class="spacetop">
+					{{ ck12_metadata_attributions_list_editable('author',      _("Authors:"),      _attributions.get('author'), collaborator ) }}
+					{{ ck12_metadata_attributions_list_editable('contributor', _("Contributors:"), _attributions.get('contributor'), collaborator ) }}
+					{{ ck12_metadata_attributions_list_editable('editor',      _("Editors:"),      _attributions.get('editor'), collaborator ) }}
+					{{ ck12_metadata_attributions_list_editable('translator',  _("Translators:"),  _attributions.get('translator'), collaborator ) }}
+					{{ ck12_metadata_attributions_list_editable('source',      _("Sources:"),      _attributions.get('source'), collaborator ) }}
+					{{ ck12_metadata_attributions_list_editable('reviewer',      _("Reviewer:"),      _attributions.get('reviewer'), collaborator ) }}
+					{{ ck12_metadata_attributions_list_editable('technicalreviewer',      _("Technical Reviewer:"),      _attributions.get('technicalreviewer'), collaborator ) }}
+					</div>
+
+				</section>
+
+				<section id="subjectscontainer">
+					<div class="divider spacetop"></div>
+					<h2>{{ _('Subjects') }}</h2>
+
+					<!-- Don't show for collaborator -->
+					<div class="hide-for-collaborator hide">
+						<a class="inlineblock" id="btn_addsubjects">{{ _("Add Subjects") }}</a>
+					</div>
+
+					<div class="spacetop js_subjectslist_container">
+						{% for subject in c.artifact.get_subjects() %}
+						<span class="js_subject inlineblock">
+							<span> {{ subject.name|title }} </span>
+							<span class="js_metadata_remove removeimg" data-subjectname="{{ subject.name }}">
+								<!-- Don't show for collaborator -->
+								<span class="icon-close hide-for-collaborator hide"></span>
+							</span>
+						</span>
+						{% endfor %}
+					</div>
+				</section>
+
+				<section id="levelcontainer">
+					<div class="divider spacetop"></div>
+					<h2>{{ _('Difficulty') }}</h2>
+					<div>
+						<span>{{ _("Select Difficulty:") }}</span>
+						<span data-levelname="basic" class="metadata_level {% if c.artifact.get_level().lower() == 'basic' %} selected{% endif %}">Basic</span>
+						<span data-levelname="at grade" class="metadata_level {% if c.artifact.get_level().lower() == 'at grade' %} selected{% endif %}">At Grade</span>
+						<span data-levelname="advanced" class="metadata_level {% if c.artifact.get_level().lower() == 'advanced' %} selected{% endif %}">Advanced</span>
+
+					</div>
+				</section>
+
+				<section id="gradescontainer">
+					<div class="divider spacetop"></div>
+					<h2>{{ _('Grades') }}</h2>
+					<div>
+						<span>{{ _("Select Grades:") }}</span>
+						<span data-gradename="College" class="metadata_grade {% if 'college' in c.gradeslist %} selected{% endif %}">College</span>
+						{% for i in range(12,0,-1) %}
+						<span data-gradename="{{ i }}" class="metadata_grade {% if '%s'%i in c.gradeslist %} selected{% endif %}">{{ i }}</span>
+						{% endfor %}
+						<span data-gradename="Kindergarten" class="metadata_grade {% if 'kindergarten' in c.gradeslist %} selected{% endif %}">Kindergarten</span>
+					</div>
+				</section>
+{#
+				<!--section id="statescontainer">
+					<div class="divider spacetop"></div>
+					<h2>{{ _('States') }}</h2>
+					<div>
+						<a id="btn_addstates" class="inlineblock">{{ _("Add States") }}</a>
+					</div>
+					<div class="spacetop js_stateslist_container">
+						{% for state in c.artifact.get_states() %}
+							<span class="js_state inlineblock">
+								<span> {{ state.name }} </span>
+								<span class="js_metadata_remove removeimg" data-statename="{{ state.code }}">
+									<span class="icon-close"></span>
+								</span>
+							</span>
+						{% endfor %}
+					</div>
+				</section-->
+#}
+				<section id="tagscontainer">
+					<div class="divider spacetop"></div>
+					<h2>{{ _('Tags') }}</h2>
+
+					<!-- Don't show for collaborator -->
+					<div class="hide-for-collaborator hide">
+						<a id="btn_addtags" class="inlineblock">{{ _("Add Tags") }}</a>
+					</div>
+
+					<div class="spacetop js_tagslist_container">
+						{% for tag in c.artifact.get_tags('editor') %}
+							<span class="js_tag break-word">
+								<span> {{ tag.name|escape }} </span>
+								<span class="js_metadata_remove removeimg" data-tagname="{{ tag.name|escape }}">
+									<!-- Don't show for collaborator -->
+									<span class="icon-close hide-for-collaborator hide"></span>
+								</span>
+							</span>
+						{% endfor%}
+					</div>
+				</section>
+
+				<section id="search_keywords_container">
+					<div class="divider spacetop"></div>
+					<h2>{{ _('Search Keywords') }}</h2>
+
+					<!-- Don't show for collaborator -->
+					<div class="hide-for-collaborator hide">
+						<a id="btn_addsearch_keywords" class="inlineblock">{{ _("Add Search Keywords") }}</a>
+					</div>
+
+					<div class="spacetop js_search_keyword_list_container">
+						{% for keyword in c.artifact.get_seo_keywords_grid() %}
+							<span class="js_search_keywords break-word">
+								<span> {{ keyword.name|escape }} </span>
+								<span class="js_metadata_remove removeimg" data-keywordname="{{ keyword.name|escape }}">
+									<!-- Don't show for collaborator -->
+									<span class="icon-close hide-for-collaborator hide"></span>
+								</span>
+							</span>
+						{% endfor%}
+					</div>
+				</section>
+
+				{% endblock %}
+			</div>
+			<!-- END METADATA VIEW -->
+			<!-- START ATTACHMENTS VIEW -->
+			<div id="edit_attachments" class="resourceview js_viewtab hide">
+				{% block resources %}
+					{{ ck12_resources_tab(c.artifact, c.user, True) }}
+				{% endblock %}
+			</div>
+			<!-- END ATTACHMENTS VIEW -->
+		</div>
+	</div>
+	</div>
+	<!-- Hash href required to jump to top -->
+	<div class="backtotop">{{ _('Back to the <a href="#" title="Back to top of the page">top of the page &#8593;') }}</a></div>
+	<div class="divider"></div>
+</article>
+{% endblock %}
+{% block pageinfobottom %}
+{% endblock %}
+
+{% block hidden_divs %}
+{{ super() }}
+{{ ck12_artifact_resource_row_template() }}
+
+<div id="encoded-image-error-modal-template">
+	<div class="headerText">
+		<span class="encoded-image-error-image"><img src="{{ h.asset_image('common/images/confused_flexbook.svg') }}" alt="error due to encoded images"></span>
+		<span class="encoded-image-error-header">Looks like there are some issues with the images you've added</span>
+	</div>
+	<div class="contentText">
+		<div class="encoded-image-text">HERE ARE SOME SUGGESTIONS:</div>
+		<div class="encoded-image-suggestions">
+			<ul>
+				<li>Try saving these images locally by copying and downloading (ctrl+right click) to your computer.</li>
+				<li>Then, add them using our image upload plugin.</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div id="save-confirm-modal-template">
+	<div class="headerText">Are you finished with your draft?</div>
+	<div class="contentText">
+		<div>Remember, we automatically saved your work&mdash;</div>
+		<div>your current draft is accessible in your Library.</div>
+		<div>But if you're totally finished making changes</div>
+		<div>and ready to move on, click Finalize Draft.</div>
+	</div>
+</div>
+
+<div id="concept_encoding">{% if artifact.encodedID %}{{ artifact.encodedID }}{% endif %}</div>
+
+<div id="js_attributions_dialog" class="attributions_dialog" data-dialogtitle="{{ _('Add Attribution') }}">
+	<div class="formlabelwrap">
+		<div class="left">
+			<span>{{ _('Role:') }}</span>
+		</div>
+		<div class="right">
+			<select id="attribution_role" class="forminput">
+				<option value="author">{{ _("Author") }}</option>
+				<option value="editor">{{ _("Editor") }}</option>
+				<option value="contributor">{{ _("Contributor") }}</option>
+				<option value="translator">{{ _("Translator") }}</option>
+				<option value="source">{{ _("Source") }}</option>
+				<option value="reviewer">{{ _("Reviewer") }}</option>
+				<option value="technicalreviewer">{{ _("Technical Reviewer") }}</option>
+			</select>
+		</div>
+		<div class="clear"></div>
+	</div>
+
+	<div class="formlabelwrap">
+		<div class="left">
+			<span>{{ _("Name:") }}</span>
+		</div>
+		<div class="right">
+			<input id="txt_attribution_name" class="forminput" type="text" />
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="error hide">
+		<div class="left">&nbsp;</div>
+		<div class="right">{{ _("Please enter a valid name.") }}</div>
+		<div class="clear"></div>
+	</div>
+	<div class="buttonwrap">
+		<input type="submit" class="button turquoise js_add_attributions" value="{{ _('Add Attribution') }}" />
+	</div>
+</div>
+
+<div id="js_chapter_attributions_dialog" class="attributions_dialog" data-dialogtitle="{{ _('Add Attribution') }}">
+	<div class="formlabelwrap">
+		<div class="left">
+			<span>{{ _('Role:') }}</span>
+		</div>
+		<div class="right">
+			<select id="chapter_attribution_role" class="forminput">
+				<option value="author">{{ _("Author") }}</option>
+				<option value="editor">{{ _("Editor") }}</option>
+				<option value="contributor">{{ _("Contributor") }}</option>
+				<option value="translator">{{ _("Translator") }}</option>
+				<option value="source">{{ _("Source") }}</option>
+				<option value="reviewer">{{ _("Reviewer") }}</option>
+				<option value="technicalreviewer">{{ _("Technical Reviewer") }}</option>
+			</select>
+		</div>
+		<div class="clear"></div>
+	</div>
+
+	<div class="formlabelwrap">
+		<div class="left">
+			<span>{{ _("Name:") }}</span>
+		</div>
+		<div class="right">
+			<input id="txt_chapter_attribution_name" class="forminput" type="text" />
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="error hide">
+		<div class="left">&nbsp;</div>
+		<div class="right">{{ _("Please enter a valid name.") }}</div>
+		<div class="clear"></div>
+	</div>
+	<div class="buttonwrap">
+		<input type="submit" class="button turquoise js_add_attributions" value="{{ _('Add Attribution') }}" />
+	</div>
+</div>
+
+<div id="js_subjects_dialog" class="subjects_dialog" data-dialogtitle="{{ _('Add Subjects') }}">
+	<div id="browse_tree">
+	{{ ck12_node_macro(c.browseTerm,maxLevel=2,
+			nodeitem_class="conceptmap_nav_node js_conceptmap_node js_clickablenode",
+			nodeitem_leafnode_class="conceptmap_nav_leafnode js_conceptmap_leafnode js_clickablenode",
+			nodelink_class="js_nodelink") }}
+	</div>
+	<div class="error hide">{{ _("Please select one or more categories to add.") }}</div>
+	<div class="buttonwrap">
+		<input type="submit" class="button turquoise js_add_subjects" value="{{ _('Add Subjects') }}" />
+	</div>
+</div>
+
+<div id="js_tags_dialog" class="tags_dialog" data-dialogtitle="{{ _('Add Tags') }}" >
+	<div class="addtagtext">{{ _("Add one or more tags separated by comma:") }}</div>
+	<textarea id="txt_tags" class="forminput"></textarea>
+
+	<div class="error hide">{{ _("Please select one or more tags to add.") }}</div>
+	<div class="buttonwrap">
+		<input class="button turquoise js_add_tags" type="submit" value="{{ _('Add Tags') }}" />
+	</div>
+</div>
+
+<div id="js_states_dialog" classs="states_dialog" data-dialogtitle="{{ _('Add States') }}">
+	<div>
+		<div class="left">{{ _("Select States:") }}</div>
+		<div class="right">
+			<select class="js_stateselect" multiple="true">
+				{% for state in c.usstateslist %}
+				<option value="{{ state }}:{{ c.usstateslist[state] }}">{{ c.usstateslist[state] }}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="error hide">
+		<div class="left">&nbsp;</div>
+		<div class="right">{{ _("Please select one or more states.") }}</div>
+		<div class="clear"></div>
+	</div>
+
+	<div class="buttonwrap">
+		<input class="btn js_add_states" type="submit" value="{{ _('Add States') }}" />
+	</div>
+</div>
+
+<div id="js_search_keywords_dialog" class="search_keywords_dialog" data-dialogtitle="{{ _('Add Search Keywords') }}" >
+	<div class="addtagtext">{{ _("Add one or more search keywords separated by semicolon (;):") }}</div>
+	<textarea id="txt_search_keywords" class="forminput"></textarea>
+
+	<div class="error empty hide">{{ _("Please add one or more search keywords.") }}</div>
+	<div class="error length hide">{{ _("Maximum 80 chars allowed for each search keyword.") }}</div>
+	<div class="buttonwrap">
+		<input class="button turquoise js_add_search_keywords" type="submit" value="{{ _('Add Search Keywords') }}" />
+	</div>
+</div>
+
+<div id="attachment_row_template" data-resource-id="" data-resource-revision-id="" data-artifact-id="" data-artifact-revision-id="">
+	<div class="attachment_row js_attachment_row" >
+		<a class="js_attachment_uri" title="" target="_attachments"></a>
+		<div class="actions">
+			<div class="hide action ui-icon ui-icon-trash js_attachment_delete"></div>
+			<img class="loading" src="{{ h.url_images('icon_loading.gif') }}" width="43" height="11" />
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+
+<script id="ck12_template_new_tag" type="text/template">
+	<span class="js_tag break-word"><span> <%=  tag  %> </span> <span class="js_metadata_remove removeimg" data-tagname="<%=  tag  %>"><span class="icon-close"></span></span></span>
+</script>
+
+<script id="ck12_template_new_state" type="text/template">
+	<span class="js_state inlineblock"><span> <%=  state  %> </span> <span class="js_metadata_remove removeimg" data-statename="<%=  statecode  %>"><span class="icon-close"></span></span></span>
+</script>
+
+<script id="ck12_template_new_subject" type="text/template">
+	<span class="js_subject"><span> <%=  subject  %> </span> <span class="js_metadata_remove removeimg" data-subjectname="<%=  subject  %>"><span class="icon-close"></span></span></span>
+</script>
+
+<script id="ck12_template_new_attribution" type="text/template">
+	<span class="js_attribution break-word">
+		<span class="js_attribution_item"><%=  name  %> </span>
+		<a class="js_removeattribution js_attribution_remove removeimg" data-attribname="<%= name %>" data-attribrole="<%= role %>">
+			<span class="icon-close"></span>
+		</a>
+	</span>
+</script>
+<script id="ck12_template_new_domain" type="text/template">
+	<span class="js_concept_node inlineblock"><span> <%=  title %> </span> <span class="js_domain_remove removeimg" data-domainterm="<%=  browseTerm  %>" data-encodedid="<%= encodedid %>"><span class="icon-close"></span></span></span>
+</script>
+<script id="ck12_template_new_collection" type="text/template">
+	<span class="js_collection_node inlineblock">
+		<span> <%=  encodedID + ' (' + conceptCollectionTitle + '-'+ collectionTitle + ')'  %> </span>
+		<span class="js_collection_remove removeimg"
+		data-collectiontitle="<%=collectionTitle%>"
+		data-conceptcollectionhandle="<%=  conceptCollectionHandle  %>"
+		data-creatorid="<%= collectionCreatorID %>"
+		data-encodedid="<%= encodedID %>"
+		data-conceptcollectiontitle="<%= conceptCollectionTitle %>"
+		>
+		<span class="icon-close"></span>
+	</span>
+</span>
+</script>
+<script id="ck12_template_new_search_keywords" type="text/template">
+	<span class="js_search_keywords break-word"><span> <%=  keyword  %> </span> <span class="js_metadata_remove removeimg" data-keywordname="<%=  keyword  %>"><span class="icon-close"></span></span></span>
+</script>
+{{ ck12_artifact_edit_resource() }}
+<div id="artifact_json">{{ c.artifact|ck12_json|escape }}</div>
+{% if c.attachment_json %}
+<div id="attachments_json">{{ c.attachment_json|escape }}</div>
+{% endif %}
+<div id="revisionCommentInput">
+	<input type = "text" id="txt_artifact_revision_comment" value="{% if c.artifact.revisions and c.artifact.revisions[0]['comment'] and c.artifact.revisions[0]['comment'] != None %} {{ c.artifact.revisions[0]['comment']|escape }} {% endif %}" maxlength="100" placeholder="Revision Comments. Limit to 100 max characters." class="forminput"/>
+</div>
+<script id="ck12_template_chapter_revision_comment" type="text/template">
+	<input type = "text" value = '<%= comment %>' id="txt_chapter_revision_comment" maxlength="100" placeholder="Revision Comments. Limit to 100 max characters." class="forminput" />
+</script>
+{% endblock %}

@@ -1,0 +1,69 @@
+@import '../main';
+
+:local {
+    .cardOverlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: $white;
+        z-index: 1;
+        border-radius: rem-calc(10);
+
+        .header {
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+
+        .content {
+            transform: translateY(10%);
+        }
+
+        .sectionLeft {
+            i {
+                color: $SMOKE_GREY;
+                font-size: rem-calc(54);
+            }
+
+            h6, p {
+                color: $OCEAN;
+            }
+
+            h6 {
+                font-weight: bold;
+                font-size: rem-calc(24);
+                margin-bottom: 0;
+            }
+
+            p {
+                font-size: rem-calc(18);
+                line-height: 1.2;
+            }
+        }
+
+        .sectionRight {
+            :global(.button) {
+                font-size: rem-calc(20);
+            }
+
+            span {
+                color: $GREY_BROWN;
+                cursor: pointer;
+            }
+        }
+
+        @include breakpoint(small only){
+            .sectionLeft {
+                text-align: center;
+
+                p { margin-bottom: $global-padding * 2; }
+
+                i {
+                    display: block;
+                    margin-bottom: $global-padding;
+                }
+            }
+        }
+
+    }
+}

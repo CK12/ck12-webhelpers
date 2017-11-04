@@ -1,0 +1,112 @@
+$global-ns: ck12-md;
+
+$perspective-body-bg: #222;
+$perspective-body: 600px;
+
+$modal-width: 80vw;
+$modal-max-width: 980px;
+$modal-max-height: 80vh;
+$modal-zindex: 2000;
+
+$overlay-bg: rgba(137, 137, 135, 0.85);
+$overlay-transition: all 0.3s;
+$overlay-opacity: 1;
+$overlay-zindex: 1999;
+
+$content-bg: #fff;
+$content-text-color: #fff;
+$content-border-radius: 15px;
+
+$use-slideInFromBottom: true;
+
+/* General styles for the modal */
+
+/*
+Styles for the html/body for special modal where we want 3d effects
+Note that we need a container wrapping all content on the page for the
+perspective effects (not including the modals and the overlay).
+*/
+
+.#{$global-ns}-perspective {
+    height: 100%;
+    overflow: hidden;
+
+    body {
+        @extend .#{$global-ns}-perspective;
+        perspective: $perspective-body;
+        background: $perspective-body-bg;
+    }
+}
+
+.#{$global-ns}-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    max-width: $modal-max-width;
+    max-height: $modal-max-height;
+    width: $modal-width;
+    height: $modal-max-height;
+    z-index: $modal-zindex;
+    visibility: hidden;
+    backface-visibility: hidden;
+    transform: translateX(-50%) translateY(-50%);
+
+    &.#{$global-ns}-show {
+        visibility: visible;
+
+        &~ .#{$global-ns}-overlay {
+            opacity: $overlay-opacity;
+            visibility: visible;
+        }
+    }
+
+    .#{$global-ns}-content {
+        height: 100%;
+        padding: 0 50px;
+        border-radius: $content-border-radius;
+        color: $content-text-color;
+        background: $content-bg;
+
+        @import 'modal-content';
+
+    }
+
+    .#{$global-ns}-close {
+        background-color: #56544D;
+        border-radius: 50%;
+        color: #ffffff;
+        border: 0;
+        font-size: 2.5rem;
+        line-height: 0rem;
+        vertical-align: middle;
+        right: -1.25rem;
+        margin: 0;
+        padding: 0.9rem 0.45rem 1.4rem;
+        position: absolute;
+        z-index: 1;
+        top: -1.25rem;
+        &:focus {
+            outline : none;
+        }
+    }
+}
+
+
+.#{$global-ns}-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    top: 0;
+    left: 0;
+    z-index: $overlay-zindex;
+    opacity: 0;
+    background: $overlay-bg;
+    transition: $overlay-transition;
+}
+
+@media screen and (max-width: 32em) {
+    body { font-size: 75%; }
+}
+
+@import '../../bower_components/nifty-modal-sass/scss/modals/types/_slideInFromBottom';

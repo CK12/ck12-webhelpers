@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--[if IE 7]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie9 lt-ie10" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_css('common/css/master.css') }}" />
+	<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('bookmarklet/css/bookmarklet.css') }}" />
+</head>
+<!-- Main Content -->
+<body class="nochrome">
+	<!-- Main Page Content and Sidebar -->
+	<div id="loading-icon" class="loading-icon js-loading-icon">
+		<img alt="loading" src="{{ h.asset_image('common/images/icon_loading.gif') }}">
+	</div>
+	<div id="bookmarklet-content" class="row collapse bookmarklet-container"></div>
+	<!-- End Main Content and Sidebar -->
+	<script src="{{ h.asset_js('dexterjs/dexterjs.min.js') }}"></script>
+	<script data-main="{{ h.url_js('main') }}" src="{{ h.url_lib('require.js') }}"></script>
+	<script type='text/javascript'>
+    require(['main'], function(){
+        require(['bookmarklet/controllers/bookmarklet'],function(bookmarklet){
+            new bookmarklet().init(document.getElementById('bookmarklet-content'));
+        });
+    });
+    
+    {% if c.user %}
+        var ads_userid = '{{ c.user.id }}';
+        window.ck12_signed_in = true;
+    {% else %}
+        var ads_userid = '2';
+        window.ck12_signed_in = false;
+    {% endif %}
+    dexterjs.set("config", {
+        memberID: ads_userid,
+        clientID: {{config.fbs_client_id}},
+        trackPageTime: false
+    });
+    _ck12 = dexterjs;
+    </script>
+</body>
+</html>

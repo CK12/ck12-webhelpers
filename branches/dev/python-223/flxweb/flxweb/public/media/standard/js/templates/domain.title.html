@@ -1,0 +1,11 @@
+<li>
+	<div class="selected-set">
+		<span title="<%=data.model.description%>" data-dropdown="setsDropdown<%=data.view%>" class="hide-for-small small button dropdown sets-dropdown-link"> <%=data.model.description%> </span>
+		<div title="<%=data.model.description%>" data-reveal-id="setsDropdownsmall" data-id="<%=data.model.sid%>" class="button small split simple text-left show-for-small mobile-sets-dropdown js-mobile-sets-dropdown text-left"><%=data.model.description%><span></span></div>
+	</div>
+	<% if ('large' === data.view) { %>
+		<ul id="setsDropdownlarge" data-dropdown-content="" class="f-dropdown sets-dropdown js-sets-dropdown" style="left:-99999px"></ul>
+	<% } else { %>
+		<ul id="setsDropdownsmall" class="reveal-modal modal-uikit app-reveal-modal js-sets-dropdown sets-modal"></ul>
+	<% } %>
+</li>

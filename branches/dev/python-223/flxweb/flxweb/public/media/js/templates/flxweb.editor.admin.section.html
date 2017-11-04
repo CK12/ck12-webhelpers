@@ -1,0 +1,32 @@
+<div class="actions grandchild js_concept_actions">
+    <a class="js_row_handle" title="Rearrange" href="#"><span class="icon-arrow_drag row-action-icon"></span></a>
+    <a class="js_row_remove <% if (data.assigned) { %>hidden<% } %>" title="Remove" href="#"><span class="icon-delete_cc row-action-icon"></span></a>
+    <a class="js_row_assign_collab hide" title="Save Collaborator"><span class="icon-validated"></span></a>
+    <a class="js-more-options<% if (data.isNew || !data.isLatest) { %> hide<%}%>"><span class="icon-ellipsis"></span></a>
+    <div class="more-options-dropdown-wrapper hide">
+        <ul class="more-options-dropdown" data-dropdown-content="" id="">
+            <li class="js-dropdown-element<% if (data.assigned) { %> hide<%}%>" data-item="edit">
+                <a class="js_row_edit icon-edit" href="<%= data.href %>" title="Edit">
+                    <span>Edit</span>
+                </a>
+            </li>
+            <li class="js-dropdown-element js_row_assign <% if (data.assigned) { %>hide<% } %>">
+                <a title="Assign" class="icon-validated">
+                    <span class="menu-option">Assign</span>
+                </a>
+            </li>
+            <li class="js-dropdown-element js_row_unassign <% if (!data.assigned) { %>hide<% } %>">
+                <a title="Unassign" class="icon-validated">
+                    <span class="menu-option">Unassign</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <a href="#" class="js_row_update<% if (data.isNew || data.isLatest) { %> hide<%}%>"  title="Update"><span class="icon-loop"></span></a>
+</div>
+<span class="assignee-email" title="<% if (data.assigneeEmail) { %><%=data.assigneeEmail %><% } %>">
+    <% if (data.assigneeEmail) { %><%=data.assigneeEmail %><% } %>
+</span>
+<div class="collab-input-wrapper js-collab-input-wrapper hide-important">
+    <input class="collab-name js-collab-name" <% if (data.assigneeID) { %>value= <%=data.assigneeID %><% } %> />
+</div>

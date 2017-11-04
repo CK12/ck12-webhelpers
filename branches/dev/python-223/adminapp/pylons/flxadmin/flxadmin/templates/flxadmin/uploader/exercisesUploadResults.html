@@ -1,0 +1,94 @@
+{% extends "master.html" %}
+
+{% set math_errors = c.data['response']['mathErrors'] %}
+{% set eid_errors = c.data['response']['eidErrors'] %}
+{% set image_errors = c.data['response']['imageErrors'] %}
+{% set syntax_errors = c.data['response']['syntaxErrors'] %}
+{% set question_errors = c.data['response']['questionErrors'] %}
+{% set results = c.data['response']['results'] %}
+
+
+
+{% block admincontent %} 
+    <div class="sectionhead sectiontitle">{{c.pagetitle}}</div>
+        <div id = "content_bulk_upload" class="successbox">
+            <h4>{{ _( "Successfully uploaded Exercises" )}}</h4>
+            {% if results %}
+                <ol>
+                {% for result in results %}
+                                        {% if result.perma %}
+                        <li><a href="{{ result.perma }}" target="_blank">{{ result.title }}</a></li>
+                                        {% else %}
+                        <li>{{ result.title }}</li>
+                    {% endif %}
+                {% endfor %}
+                </ol>
+                <span>{{_("(Note:The listed exercise should be a link to the corresponding exercise if it is mapped with the concept correctly with proper encodedid)")}}</span>        
+            {% else %}
+                <p>{{_("No Exercises were uploaded")}}</p>
+            {% endif %}
+        </div>
+             
+        <div class="errorbox">
+                <h4>{{_("Math Image Errors")}}</h4>
+                <div id = "content_bulk_upload" class="math_errors">
+                    {% if math_errors %}
+                        <ol>
+                        {% for error in math_errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                        </ol>    
+                    {% else %}
+                        <p>{{_("No math image errors in the document")}}</p>
+                    {% endif %}
+                </div>
+                <h4>{{_("Wrong EncodedID Errors")}}</h4>
+                <div id = "content_bulk_upload" class="eid_errors">
+                    {% if eid_errors %}
+                        <ol>
+                        {% for error in eid_errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                        </ol>    
+                    {% else %}
+                        <p>{{_("No encodedID errors in the document")}}</p>
+                    {% endif %}
+                </div>
+                <h4>{{_("External Image Upload Errors")}}</h4>
+                <div id = "content_bulk_upload" class="image_errors">
+                    {% if image_errors %}
+                        <ol>
+                        {% for error in image_errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                        </ol>    
+                    {% else %}
+                        <p>{{_("No image upload errors in the document")}}</p>
+                    {% endif %}
+                </div>
+                <h4>{{_("Image Syntax Errors")}}</h4>
+                <div id = "content_bulk_upload" class="syntax_errors">
+                    {% if syntax_errors %}
+                        <ol>
+                        {% for error in syntax_errors %}
+                            <li>Row Number:{{ error.lineNumber }}, Error Image: {{ error.errorImage }}</li>
+                        {% endfor %}
+                        </ol>    
+                    {% else %}
+                        <p>{{_("No image syntax errors in the document")}}</p>
+                    {% endif %}
+                </div>
+                <h4>{{_("Question Errors")}}</h4>
+                <div class="question_errors">
+                    {% if question_errors %}
+                        <ol>
+                        {% for error in question_errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                        </ol>    
+                    {% else %}
+                        <p>{{_("No question errors in the document")}}</p>
+                    {% endif %}
+                </div>
+        </div>    
+{% endblock admincontent %}        

@@ -1,0 +1,108 @@
+{% extends "exercise_ae/modality_details_generic.html" %}
+{% set artifact = c.modality_data.artifact %}
+{% set perma = c.assessmentType +'/'+ c.modality_data.artifact.handle %}
+{% if c.modality_data_json and c.modality_data_json.artifact and c.modality_data_json.artifact['realm'] %}
+    {% set realm = c.modality_data_json.artifact['realm'] %}
+	{% set perma = perma + '/' + c.modality_data_json.artifact['realm'] %}
+{% else %}
+	{% set realm = 'None' %}
+{% endif %}
+{% block modality_js %}
+{{ super() }}
+<script language="JavaScript" type="text/javascript">
+	var showDonloadModalOptions = {{ c.show_download_modal_options }};
+	
+	require(['main'],function(){
+		require(['flxweb.details.modality.ae']);
+	})
+</script>
+{% endblock %}
+
+{% block meta_extra %}
+{{ super() }}
+{% if c.page_url %}
+  {% for term in ['user:','user%3a','user-generated-content']%}
+      {% if (c.page_url.lower().find(term) !=-1) %}
+          <meta name="robots" content="noindex" />
+      {% endif %}
+  {% endfor %}
+{% endif %}
+<meta property="og:title" content="{{ c.domain.name|escape }}" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="{{ c.modality_data.artifact.get('coverImageThumbLarge') }}" />
+<meta property="og:url" content="{{ h.url(c.page_url, qualified=True) }}" />
+<meta property="og:description" content="{{ c.modality_data.artifact.summary }}" />
+{% endblock %}
+
+{% block modality_content_main %}
+<!-- BEGIN EXERCISE VIEW -->
+	<div id="view_exercises" class="exerciseview smallpadding js_viewtab" itemscope itemtype="http://schema.org/WebPageElement">
+   	<!-- <meta itemprop="url" content="{{ request.host_url }}{{ h.url(controller='exercise', action='exercise_perma', exercise_title=c.modality_data.artifact.handle, realm=None, ext=None, render_context="embed" ) }}"> -->
+	<meta itemprop="educationalUse" content="self learning" />
+	<meta itemprop="interactivityType" content="active" />
+	<meta itemprop="learningResourceType" content="exercise" />
+	<div class="hide" id="concept_encoding">{{ c.modality_data.artifact.domain.encodedID }}</div>
+	<section id="exercise">
+		<div id="interactive_practice_block">
+			<input id='artifact_domain_handle' type='hidden' value='{{ c.modality_data.artifact.domain.handle }}' />
+			<input id='permaUrl' type='hidden' value='{{ perma|urlencode }}' />
+			<div id="exercisewidget">
+				<div id="exercisewrapper" class="active">
+					{% if artifact.domain.encodedID %}
+                        <input id="assessment_base_url" type="hidden" value="{{ h.url_assessment("?test/") }}" />
+						<iframe id="assessmentFrame" src="" style="width:100%;border:0px;height: 675px;" scrolling="no"></iframe> 
+					{% endif %}
+					<div id="exercise_mode" data-mode={{ exercise_mode }}></div>
+				</div>
+			</div>{% if c.next_artifact and c.url_next_artifact %} <!-- c.next_artifact is not available --> {% endif %}</div>
+	</section>
+	</div>
+	<div class="reveal-modal modal-uikit small download-modality-modal" id="downloadModalityModal"><a class="close-reveal-modal close hide-small sign-in-close">+</a>
+		<div class="downloadModal">
+			<div class="top-head">Do you want to get an answer key?</div>
+			<div>
+				<div>
+					<label><input type="radio" name="answerKeys" id="ansNone" value="none" checked="checked" />
+					No, thank you</label>
+				</div>
+				<div>
+					<label><input type="radio" name="answerKeys" id="ansOdd" value="odd" /> 
+					Only for odd numbered questions</label>
+				</div>
+				<div>
+				<label><input type="radio" name="answerKeys" id="ansAll" value="full" /> 
+					Yes, for all questions</label>
+				</div>
+				<div class="text-center">
+					<input id="download-pdf-btn" type="button" class="download-pdf-btn button standard turquoise" value="Download">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="reveal-modal modal-uikit ui-modal" id="customizeModalityModal"><a class="close-reveal-modal close sign-in-close">+</a>
+		<div class="row collapse">
+			<div class="columns small-9">
+				<div class="columns small-12 title-container"><span class="title">Ready to make this quiz your own?</span></div>
+				<div class="row collapse">
+					<div class="columns small-12">
+						<span class="text">To customize this quiz you could try:</span>
+						<ul>
+							<li><span class="text">Adding your own concepts, or</span></li>
+							<li><span class="text">Adding your own questions, </span></li>
+							<li><span class="text">Adding a time limit,</span></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="columns small-3"><img src ="/media/images/quiz_head.svg"></div>
+		</div>
+		<div class="row collapse">
+			<div class="columns small-12 middle-para"><span class="text">Or just keep it as is and share it with your students.</span></div>
+			<div class="columns small-12"><span class="text">This quiz will belong in your library and in the ck12  Community Contributed  content tab.</span></div>
+		</div>
+		<div class="row collapse text-center button-container">
+			<div class="button standard turquoise">OK, got it!</div>
+		</div>
+	</div>
+<!-- END EXERCISE VIEW -->
+{% endblock %}

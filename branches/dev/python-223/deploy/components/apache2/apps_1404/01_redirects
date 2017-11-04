@@ -1,0 +1,55 @@
+
+#Concept map redirects
+RewriteCond %{QUERY_STRING} ^view=mapview
+RewriteRule ^\/(.*?)\/$ /conceptmap/?subject=$1 [L,R=301]
+
+
+#Browse page redirects
+RedirectMatch 301 (?i)^/arithmetic/?$ /c/arithmetic/
+RedirectMatch 301 (?i)^/measurement/?$ /c/measurement/
+RedirectMatch 301 (?i)^/algebra/?$ /c/algebra/
+RedirectMatch 301 (?i)^/geometry/?$ /c/geometry/
+RedirectMatch 301 (?i)^/probability/?$ /c/probability/
+RedirectMatch 301 (?i)^/statistics/?$ /c/statistics/
+RedirectMatch 301 (?i)^/trigonometry/?$ /c/trigonometry/
+RedirectMatch 301 (?i)^/analysis/?$ /c/analysis/
+RedirectMatch 301 (?i)^/calculus/?$ /c/calculus/
+
+RedirectMatch 301 (?i)^/earth-science/?$ /c/earth-science/
+RedirectMatch 301 (?i)^/life-science/?$ /c/life-science/
+RedirectMatch 301 (?i)^/physical-science/?$ /c/physical-science/
+RedirectMatch 301 (?i)^/biology/?$ /c/biology/
+RedirectMatch 301 (?i)^/chemistry/?$ /c/chemistry/
+RedirectMatch 301 (?i)^/physics/?$ /c/physics/
+
+RedirectMatch 301 (?i)^/writing/?$ /c/writing/
+RedirectMatch 301 (?i)^/spelling/?$ /c/spelling/
+
+RedirectMatch 301 (?i)^/engineering/?$ /c/engineering/
+RedirectMatch 301 (?i)^/technology/?$ /c/technology/
+RedirectMatch 301 (?i)^/astronomy/?$ /c/astronomy/
+RedirectMatch 301 (?i)^/history/?$ /c/history/
+RedirectMatch 301 (?i)^/health/?$ /c/health/
+
+## Take care of Elementary Math Grades to use collection urls.
+## Redirect to /c/ urls and remove the trailing '-EM[1-5]' suffix.
+## This should be treated like all other redirects - no special case needed.
+## RedirectMatch 301 ^/elementary-math-grade-([1-5]?)/(.*?)(-EM[1-5]?([/]*))$ /c/elementary-math-grade-$1/$2$4
+
+#Mapped redirects with sqlite3
+DBDriver sqlite3
+DBDParams /opt/2.0/deploy/components/apache2/redirects/redirects.sqlite
+RewriteMap redirects "fastdbd:SELECT destination from redirects WHERE source = %s COLLATE NOCASE"
+# Enable logging only when debugging.
+# LogLevel alert rewrite:trace3
+
+RewriteCond %{REQUEST_URI} ^(\/(.*?)\/.*?)($|\/)(.*)$
+RewriteCond $2 ^(arithmetic|measurement|algebra|geometry|probability|statistics|trigonometry|analysis|calculus)$ [OR]
+RewriteCond $2 ^(earth-science|life-science|physical-science|biology|chemistry|physics)$ [OR]
+RewriteCond $2 ^(elementary-math|elementary-math-grade-1|elementary-math-grade-2|elementary-math-grade-3|elementary-math-grade-4|elementary-math-grade-5)$
+RewriteCond ${redirects:$1|NOT_FOUND} !NOT_FOUND
+RewriteRule ^(\/(.*?)\/.*?)($|\/)(.*)$ "${redirects:$1}/$4?%{QUERY_STRING}" [L,R=301,NE]
+
+RewriteCond %{REQUEST_URI} ^.*plix.html$
+RewriteCond %{QUERY_STRING} !plix_redirect
+RewriteRule ^(.*plix.html)$ $1?${redirects:%{QUERY_STRING}|%{QUERY_STRING}}&plix_redirect=1 [L,R=301,NE]

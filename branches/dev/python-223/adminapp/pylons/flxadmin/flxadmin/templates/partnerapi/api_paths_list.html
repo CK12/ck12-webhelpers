@@ -1,0 +1,13 @@
+{% for path in c.paths %}
+	<div class='tr'>
+		<div class='td' style="width:50px;">
+			{{ h.labelcheckbox('', path['id'], False)}}
+		</div>
+		<div class="td med">
+			{{ path['mask'] }}
+		</div>
+		<div class="td">
+			<span class='linklike path_delete' data-item-id="{{ path['id'] }}">[Delete]</span>
+		</div>
+	</div>
+{% endfor %}

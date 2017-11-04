@@ -1,0 +1,12 @@
+{% extends "search/results_common.html" %}
+{% from "search/new/artifact.html" import ck12_list_artifact with context %}
+
+{% block results_area %}
+<div class="contentarea row collapse">
+	<div id="view_search_result" class="columns small-12 large-12">
+	{% for artifact in c.search_paginator.current_page.items() %}
+		{{ ck12_list_artifact(artifact) }}
+	{% endfor %}
+	</div>
+</div>
+{% endblock %}

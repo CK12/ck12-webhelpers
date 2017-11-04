@@ -1,0 +1,32 @@
+<div class="xdtimport_container">
+	<div class="js_dlg_content">
+		<form id="js_xdtupload_form" method="POST" name="xdtupload" action="{{ h.url('xdt/upload/', qualified=True) }}">
+			<div class="js_xdt_titlecontainer">
+				<div>Title:</div>
+				<div>
+					<input id="txt_xdt_title" class="forminput" name="txt_xdt_upload" type="text" maxlength="100" />
+				</div>
+				<div class="error hide">
+					{{ _("Title cannot be blank.") }}
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="spacetop js_xdt_filecontainer">
+				Select a word file to upload:
+				<div>
+					<input id="file_xdt_upload" name="file_xdt_upload" type="file" />
+				</div>
+				<div class="error hide">
+					{{ _("Please select a .docx file to upload.") }}
+				</div>
+			</div>
+		</form>
+		<div class="dialogbuttons">
+			<input class='button turquoise' id="js_addfromword_confirm" type="submit" value="{{ _('Upload') }}" />
+		</div>
+	</div>
+	<div class="js_dialog_loading xdt_dialog_loading hide">
+		<img src="{{ h.url_images('icon_loading.gif') }}" width="43" height="11" title="loading" />
+		<div class="msg"></div>
+	</div>
+</div>

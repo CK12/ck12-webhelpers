@@ -1,0 +1,288 @@
+@import '../main';
+.modalityRowWrapper{
+    @media (max-width: 440px) {
+       border-bottom: 1px solid #e8e8e8;
+    }
+}
+.modalityRowTitleContainer {
+    padding-left: rem-calc(50);
+
+	img{
+		width: rem-calc(50);
+		height: rem-calc(50);
+	}
+	.modalityTitle{
+	    font-weight: bold;
+        font-size: rem-calc(18);
+        color: $LIGHT_GREY;
+        vertical-align: middle;
+        width:100%;
+        padding-left: $global-padding;
+        text-transform: uppercase;
+	}
+	span{
+    	vertical-align: middle;
+    	font-size:30px;
+    	color:#fece40;
+
+    	i{
+    	    vertical-align: middle;
+    	}
+	}
+
+
+    @include breakpoint(small only){
+
+    }
+}
+.modalityContentBody{
+
+	.arrowContainer{
+		text-align: center;
+	    vertical-align: top;
+		color:$SMOKE_GREY;
+		transition:all .2s ease;
+		font-size:rem-calc(40);
+		padding-top: rem-calc(60);
+
+		span{
+			display: none;
+		}
+
+		.active{
+			cursor:pointer;
+            display: inline-block;
+
+			&:hover{
+				background:$hover-tile;
+				color:$SMOKE_GREY;
+				box-shadow:$global-shadow;
+			}
+		}
+		i{
+			vertical-align:middle;
+		}
+
+        @include breakpoint(small only) {
+            font-size: rem-calc(20);
+        }
+	}
+
+	.tilesContainer {
+        padding: 0 0 rem-calc(260) rem-calc(1); // Card size 300 height
+	    overflow: hidden;
+	    margin: auto;
+
+		.tileRow{
+			transition: all .4s ease;
+            padding: rem-calc(5);
+            position: absolute;
+            width: 100%;
+            margin: 0;
+
+			.modalityTileIcon{
+			 	margin-right:rem-calc(8);
+			 	display: inline-block;
+    			vertical-align: top;
+			}
+			.modalityTileTitle{
+				width: 80%;
+			    display: inline-block;
+
+			    .modalityTileTitleText{
+			     	 	overflow: hidden;
+			    		text-overflow: ellipsis;
+			    		word-wrap: break-word;
+				   		 -webkit-line-clamp: 2;
+				   		 -moz-line-clamp: 2;
+				   		 -ms-line-clamp: 2;
+				   		 -o-line-clamp: 2;
+					    box-orient: vertical;
+					    display:-webkit-box;
+					    display:-moz-box;
+					    display:-ms-box;
+					    display:-o-box;
+					    -webkit-box-orient: vertical;
+					   	-ms-box-orient: vertical;
+					   	-o-box-orient: vertical;
+					   	max-height:rem-calc(44);
+			    }
+
+			}
+            .tile{
+                vertical-align: top;
+                padding: rem-calc(12);
+                height: auto;
+                cursor:pointer;
+                transition:all .2s ease;
+
+                &:hover{
+                    background:$hover-tile;
+                    box-shadow:$global-shadow;
+                    @include breakpoint(small only){
+                    	padding-bottom:1.8rem;
+                    }
+                }
+                &.activeTile{
+                    background:$hover-tile;
+                    box-shadow:$global-shadow;
+                }
+	            @include breakpoint(small only){
+                     .rowOffset {
+	                	margin-right : -.625rem;
+	                	margin-left : -.625rem;
+	                }
+                }
+                .tileImage{
+                    overflow: hidden;
+
+                    .image {
+                        background-color:$SMOKE_GREY;
+                        border-radius: rem-calc(10);
+                        height:rem-calc(150);
+                        width:100%;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        background-position: top center;
+                        position:relative;
+                    }
+
+                    @include breakpoint(medium only){
+                        .image { height: rem-calc(115); }
+                    }
+
+                    @include breakpoint(small only){
+                        .image { height: rem-calc(75); }
+                    }
+
+                    .score_circle {
+                    	position: relative;;
+                    	height: rem-calc(90);
+                    	width: rem-calc(90);
+                    	border: 6px solid #ffffff;
+                    	border-radius: 50%;
+                    	color: #ffffff;
+                      font-size: rem-calc(26);
+                      font-weight: bold;
+                      margin: auto;
+                      align-items:center;
+                      
+
+                        .content{
+                          position: relative;;
+                          line-height: 0.8;
+                          text-align: center;
+                          color: white;
+                          margin: auto;
+                          .span{
+                            position: relative;
+                            top: rem-calc(-20);
+                          }
+                          .small_text{
+                            top: 0;
+                            font-size: rem-calc(11);
+                            display: inherit;
+                          }
+                          .small_text.margin_top{
+
+                          }
+                          .large_text{
+                            top: 0;
+                            font-size: rem-calc(21);
+                          }
+                          .attach_text{
+                            top: 0;
+                            font-size: rem-calc(12);
+                          }
+                        }
+                      }
+                      @include breakpoint(small only){
+                        .score_circle{
+                          display: none;
+                        }
+                      };
+                }
+                .tileDescription{
+                    height: 70px;
+                    padding-top: rem-calc(10);
+                    color: $EARTH;
+
+                    .concept{
+                        font-size:rem-calc(15);
+                        font-weight:bold;
+                      	max-height:rem-calc(44);	
+                      	display: flex;
+                      		.conceptTitle{
+                      			overflow: hidden;
+					    		text-overflow: ellipsis;
+					    		word-wrap: break-word;
+						   		 -webkit-line-clamp: 2;
+						   		 -moz-line-clamp: 2;
+						   		 -ms-line-clamp: 2;
+						   		 -o-line-clamp: 2;
+							    box-orient: vertical;
+							    display:-webkit-box;
+							    display:-moz-box;
+							    display:-ms-box;
+							    display:-o-box;
+							    -webkit-box-orient: vertical;
+							   	-ms-box-orient: vertical;
+							   	-o-box-orient: vertical;
+							   	 max-height:rem-calc(44);
+                      		}
+                    }
+                    .subject{
+                        height:rem-calc(35);
+                        font-size:rem-calc(13);
+                        color: $OCEAN;
+                    }
+                     @include breakpoint(small only){
+                        .concept{
+                          max-height:81%;	
+                          display: inherit;
+                        }
+                       .subject{
+	                        height:auto;
+							overflow: hidden;
+				    		text-overflow: ellipsis;
+				    		word-wrap: break-word;
+					   		 -webkit-line-clamp: 1;
+					   		 -moz-line-clamp: 1;
+					   		 -ms-line-clamp: 1;
+					   		 -o-line-clamp: 1;
+						    box-orient: vertical;
+						    display:-webkit-box;
+						    display:-moz-box;
+						    display:-ms-box;
+						    display:-o-box;
+						    -webkit-box-orient: vertical;
+						   	-ms-box-orient: vertical;
+						   	-o-box-orient: vertical;
+                   		 }
+                      }
+                    @media (min-width:610px ) {
+                        .offsetLeft { padding-left: rem-calc(24); }
+                      }
+                    @media (max-width:609px) {
+                       .offsetLeft { padding:0px; }
+                    }
+                }
+            }
+
+		}
+	}
+
+
+    @include breakpoint(small only){
+        .tilesContainer {
+            padding-bottom: rem-calc(220);
+
+            .tileRow .tile .tileDescription {
+                -webkit-line-clamp: 3;
+                -moz-line-clamp: 3;
+                -ms-line-clamp: 3;
+                -o-line-clamp: 3;
+            }
+        }
+    }
+}

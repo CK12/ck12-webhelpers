@@ -1,0 +1,18 @@
+{% extends "master.html" %}  
+
+{% block content %} 
+  {% for section in c.nav %}
+  <div class="table home">
+    <div class="thead sectionhead">
+      <div class="tr"><div class="td wide">{{section.title}}</div></div>
+    </div>
+    <div class="tbody">
+    {% for link in section.links %}
+    {% if link.0 %}
+      <div class="tr"><div class="td">{{h.htmla_(link)}}</div></div>
+    {% endif %}
+    {% endfor %}
+    </div>
+  </div>
+  {% endfor %}
+{% endblock %}

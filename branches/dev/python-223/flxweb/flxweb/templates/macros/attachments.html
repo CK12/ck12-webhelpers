@@ -1,0 +1,370 @@
+<!--
+*************************************************************************** 
+Macro: ck12_artifact_upload
+Macro to display resource upload from
+***************************************************************************
+-->
+{% macro ck12_artifact_upload(artifact) %}
+<div class = "resource_action_holder">
+	<div id="resource_upload" class="button turquoise uploadbtn_container js_uploadbtn_container">
+		<form action="{{ config.webroot_url }}ajax/resource/upload/" method="POST" enctype="multipart/form-data">
+			<input type="hidden" name="type" value="attachment" />
+			<input type="hidden" name="isAttachment" value="true" />
+			<input type="file" name="uploadfile" class="uploadfile_input" />
+			<div class="uploadbtn_display js_uploadbtn_btn">{{ _("Upload Files") }}</div>
+		</form>
+	</div>
+</div><!--/resource_action_holder-->
+{% endmacro %}
+
+<!--
+*************************************************************************** 
+Macro: ck12_resources_tab
+Macro to display "associated material" tab contents
+***************************************************************************
+-->
+{% macro ck12_resources_tab(artifact, user, editable, loadlater='js_loadlater', pageType='editor') %}
+{% if pageType != 'details' %}
+<section class="resource_actions resource_wrapper">
+{% if artifact.is_flexbook() %} 
+    {% set artifact_type = artifact.display_label() %} 
+{% elif artifact.artifactType in ['lesson','concept']  %}
+    {% set artifact_type = 'Modality' %} 
+{% elif artifact.modality_display_label %}
+    {% set artifact_type = 'Modality' %} 
+{% else %} 
+    {% set artifact_type = artifact.artifactType %} 
+{% endif %}
+{% if artifact.is_latest() or artifact.is_new() %}
+	{% if editable %}
+		{{ ck12_artifact_upload(artifact) }}
+	{% else %}
+		{% if artifact_type == 'FlexBook' or artifact_type == 'chapter' %}
+			{% if artifact.is_owner(user) %}
+				{{ ck12_artifact_upload(artifact) }}
+			{% else %}
+				<div class="cannot_add_resources">
+					{% if artifact_type == 'FlexBook' %}
+					{{ _("<strong>Save or share your relevant files like activites, homework and worksheet.</strong><br/><span>To add resources, you must be the owner of the FlexBook&#174; textbook. Click </span>") }}<a href="/editor/{{ artifact.getPermaHandle(include_version=True) }}#edit_attachments" class="editAttachmentLink hide-for-lti-context">{{ _("Customize") }}</a>
+					<a href="/editor/{{ artifact.getPermaHandle(include_version=True) }}#edit_attachments" class="editAttachmentLink show-for-lti-context" target="lms-context-override">{{ _("Customize") }}</a>{{ _("<span> to make your own copy.</span>") }}
+					{% else %}
+						{{ _("<strong>Save or share your relevant files like activites, homework and worksheet.</strong><br/><span>To add resources, you must be the owner of the FlexBook&#174; textbook. Please Customize the FlexBook&#174; textbook. </span>") }}
+					{% endif%}
+				</div>
+			{% endif%}
+		{% else %}
+			<div class="cannot_add_resources">
+				{% if artifact.is_owner(user) %}
+					{{ _("<strong>Save or share your relevant files like activites, homework and worksheet.</strong><br/><span>To add resources, click </span>") }}<a href="/editor/{{ artifact.getPermaHandle(include_version=True) }}#edit_attachments" class="editAttachmentLink">{{ _("here") }}</a>{{ _("<span>.</span>") }}
+				{% else %}
+					{{ _("<strong>Save or share your relevant files like activites, homework and worksheet.</strong><br/><span>To add resources, you must be the owner of the %(artifact_type)s. Click </span>" % { 'artifact_type' : artifact_type }  ) }}<a href="/editor/{{ artifact.getPermaHandle(include_version=True) }}#edit_attachments" class="editAttachmentLink hide-for-lti-context">{{ _("Customize") }}</a>
+					<a href="/editor/{{ artifact.getPermaHandle(include_version=True) }}#edit_attachments" class="editAttachmentLink show-for-lti-context" target="lms-context-override">{{ _("Customize") }}</a>{{ _("<span> to make your own copy.</span>") }}
+				{% endif%}
+			</div>
+		{% endif%}
+	{% endif %}
+{% else %}
+	<div class="cannot_add_resources">
+		{% if artifact_type == 'FlexBook' %}
+			{{ _('Files can only be attached to the latest version of FlexBook&#174; textbooks' % { 'artifact_type' : artifact_type }  ) }}
+		{% else %}
+			{{ _('Files can only be attached to the latest version of %(artifact_type)s' % { 'artifact_type' : artifact_type }  ) }}
+		{% endif %}
+	</div>
+{% endif %}
+</section>
+{% endif %}
+	
+{% if artifact.is_new() %}
+<section class="resources_container {{loadlater}}" data-loadurl="{{ h.url( controller='details', action='ajax_get_resources_list', perma_handle=None,
+																										  editable=editable, owned=artifact.is_owner(user), artifact_id=artifact.get_artifact_id() ) }}">
+</section>
+{% else %}
+<section class="resources_container {{loadlater}}" data-loadurl="{{ h.url( controller='details', action='ajax_get_resources_list', perma_handle=artifact.getPermaHandle(True).rstrip('/'),
+																										  editable=editable, owned=artifact.is_owner(user), artifact_id=artifact.get_artifact_id() , artifact_revision_id=artifact.get('artifactRevisionID') ) }}">
+</section>
+{% endif %}
+{% endmacro %}
+
+
+<!--
+*************************************************************************** 
+Macro: ck12_resources_link
+Macro to display "answer key link"
+***************************************************************************
+-->
+{% macro ck12_resources_link(artifact, user, editable) %}
+	<div class="spacetop answer_key_wrapper" data-loadurl="{{ h.url( controller='details', action='ajax_get_resources_list_answer_key', perma_handle=artifact.getPermaHandle(True).rstrip('/'),
+																										  editable=editable, owned=artifact.is_owner(user), artifact_id=artifact.get_artifact_id() , artifact_revision_id=artifact.get('artifactRevisionID') ) }}">
+	</div>
+{% endmacro %}
+
+<!--
+***************************************************************************
+Macro: ck12_artifact_attachments_list
+Macro to display attachments list on artifact details and editor pages
+***************************************************************************
+-->
+
+{% macro ck12_artifact_attachments_list (artifact_id, artifact_revision_id, resources_list, owned, editable) %}
+	<div class="artifact_attachment_container js_resource_container">
+		{% if resources_list %}
+		{% for resource in resources_list %}
+			{{ ck12_artifact_resource_row(artifact_id, artifact_revision_id, resource, owned, editable) }}
+		{% endfor %}
+		{% else %}
+		      <div class="js_msg_no_resources">{{ _("Currently there are no resources to be displayed.") }}</div>
+		{% endif %}
+	</div>
+{% endmacro %}
+
+<!--
+*************************************************************************** 
+Macro: ck12_artifact_attachments_list_with_answerkey_list
+Macro to display resource quiz answer key and quiz answer demo for modalitiy details pages
+***************************************************************************
+-->
+
+{% macro ck12_artifact_attachments_list_with_answerkey_list (artifact_id, artifact_revision_id, resources_list, owned, editable) %}
+    <div class="artifact_attachment_container js_resource_container">
+        {% if resources_list %}
+			{% for resource in resources_list %}
+				{{ ck12_artifact_resource_row(artifact_id, artifact_revision_id, resource, owned, editable) }}
+        	{% endfor %}
+        {% else %}
+        	<div class="js_msg_no_resources">{{ _("Currently there are no resources to be displayed.") }}</div>
+        {% endif %}
+    </div>
+{% endmacro %}
+
+<!--
+***************************************************************************
+Macro: ck12_artifact_attachments_answerkey_link
+***************************************************************************
+-->
+
+{% macro ck12_artifact_attachments_answerkey_link (artifact_id, artifact_revision_id, resources_list, owned, editable) %}
+		{% if resources_list %}
+			{% for resource in resources_list %}
+				{% set flag = 'true' %}
+				{% if not resource.is_eo() and (resource.type == 'answer key') and (flag == 'true') %}
+					<a id="answer_keys_link" target="_blank" title="{{ resource.name|e }}" alt="{{ resource.name|e }}"
+						class="break-word js_resource_link{% if not c.user %} js_signinrequired {% endif %}"
+						href="{% if c.user and (owned or resource.isPublic) %}{{ resource.uri }}{% else %}#{% endif %}">
+							Answer Keys
+					</a>
+					{% set flag = 'false' %}
+				{% endif %}
+			{% endfor %}
+		{% endif %}
+{% endmacro %}
+
+
+<!--
+*************************************************************************** 
+Macro: ck12_artifact_resource_row
+Macro to display single row in the list of artifact attachments
+***************************************************************************
+-->
+
+{% macro ck12_artifact_resource_row (artifact_id, artifact_revision_id, resource, owned, editable) %}
+{% if (c.user and (owned or resource.isPublic) ) or not c.user %}
+<div class="resource_row js_resource_row" 
+    data-resource-id="{{resource.id}}" 
+    data-resource-name="{{resource.name|e}}" 
+    data-resource-type="{{resource.type}}"
+    data-resource-external="{{resource.isExternal}}"
+    data-resource-uri="{{ resource.uri }}">
+			<div class="js_row_info info">
+				<div class="resourceicons">
+					<span class="attachment_icon imgwrap type_{{ resource.type }}"></span>
+					<span class="noimage js_noimage {% if not resource.isPublic %} hide {% endif %}"></span>
+					<span class="js_publishstate_icon {% if resource.isPublic %} hide {% endif %}" title="{{ _('Private') }}" ></span>
+				</div>
+				<div class="resourcename">
+					<div class="resourcenamelinkwrap">
+						{% if resource.is_eo() %}
+                        <div class="hide js_resource_code"
+                            data-resource-width="{{ resource.embeddedObject.width}}"
+                            data-resource-height="{{resource.embeddedObject.height}}">
+                            {{ resource.embeddedObject.iframe|escape }}
+                        </div>
+						<a href="javascript:void(0);" title="{{ resource.name|e }}" alt="{{ resource.name|e }}"
+							class="break-word {% if not c.user %} js_signinrequired {% else %} js_resource_popup {% endif %}">
+								{{ resource.name|e }}
+						</a>
+						{% else %}
+						<a target="_blank" title="{{ resource.name|e }}" alt="{{ resource.name|e }}"
+							class="break-word js_resource_link{% if not c.user %} js_signinrequired {% endif %}" 
+							href="{% if c.user and (owned or resource.isPublic) %}{{ resource.uri }}{% else %}#{% endif %}">
+								{{ resource.name|e }}
+						</a>
+						{% endif %}
+					</div>
+				</div>
+				
+				{# Commented out type
+				<span class="js_resource_type resource_type">({{resource.type}})</span>
+				#}
+				<div class="clear"></div>
+			</div>
+			{% if editable %}
+				<!-- Don't show for collaborator -->
+				<div class="js_row_actions actions">
+					<a href="#" class="js_resource_remove remove" data-resource-id="{{ resource.id }}" data-resource-revision-id="{{ resource.resourceRevisionID }}" data-artifact-id="{{ artifact_id }}" data-artifact-revision-id="{{ artifact_revision_id }}">
+						<span class="icon-close"></span>
+					</a>
+					<a href="#" class="js_resource_edit myresource_edit" data-resource-id="{{ resource.id }}" data-resource-revision-id="{{ resource.resourceRevisionID }}" data-artifact-id="{{ artifact_id }}" data-artifact-revision-id="{{ artifact_revision_id }}" data-resource-name="{{resource.name|e}}" data-resource-public="{{resource.isPublic}}"><span class="icon-edit"></span></a>
+					<span class="hide js_resource_description" >{{ resource.description }}</span>
+					<a href="#" class="js_resource_public_toggle public_toggle hide" data-txtmakepublic="{{ _('Make Public') }}" data-txtmakeprivate="{{ _('Make Private') }}" data-ispublic="{{ resource.isPublic }}">
+						{% if resource.isPublic %}
+							{{ _('Make Private') }}
+						{% else %}
+							{{ _('Make Public') }}
+						{% endif %}
+					</a>
+				</div>
+			{% endif %}
+			<div class="clear"></div>
+			<div class="divider spacetop"></div>
+		</div>
+{% endif %}		
+{% endmacro %}
+
+<!--
+*************************************************************************** 
+Macro: ck12_resource_supported_extensions
+Macro for dialog that displays list of supported extensions.
+***************************************************************************
+-->
+{% macro ck12_resource_supported_extensions() %}
+<div class="js_dlg_supported_extensions">
+	<div>
+		<div>{{ _("List of supported file types:") }}</div>
+		<table border="0">
+			<tr><td>Text/Document</td><td>.doc, .dot, .docx, .dotx,.odt, .ott, .txt</td></tr>
+			<tr><td>Spreadsheet</td><td>.xlsx, .xltx, .xls, .xlt, .ods, .ots</td></tr>
+			<tr><td>Presentations</td><td>.ppt, .pps, .pot, pptx, potx, .ppsx, .odp, .otp, .swf</td></tr>
+			<tr><td>PDF</td><td>.pdf</td></tr>
+			<tr><td>ePub</td><td>.epub, .mobi</td></tr>
+			<tr><td>Zip</td><td>.zip, .tar, .tar.gz</td></tr>
+			<tr><td>Images</td><td>.jpg, .jpeg, .png, .gif, .bmp</td></tr>
+			<tr><td>iWorks</td><td>.key, .keynote, .pages, .numbers</td></tr>
+		</table>
+	</div>	
+</div>
+{% endmacro %}
+
+
+<!--
+*************************************************************************** 
+Macro: ck12_artifact_resource_row_template
+Macro for resource row template in artifact details and editor pages.
+***************************************************************************
+-->
+{% macro ck12_artifact_resource_row_template() %}
+<div id="ck12_template_resource_row">
+	<div class="resource_row js_resource_row">
+		<div class="js_row_info info">
+			<div class="resourceicons">
+				<span class="attachment_icon imgwrap"></span>
+				<span class="noimage js_noimage hide"></span>
+				<span class="js_publishstate_icon" title="{{ _('Private') }}" ></span>
+			</div>
+			<div class="resourcename">
+				<div class="resourcenamelinkwrap">
+					<a class="break-word js_resource_link" target="_blank" href="javscript:return false;" ></a>
+				</div>
+			</div>
+		 
+		 	{# Commented out type
+			<span class="js_resource_type resource_type">(attachment)</span>
+			#}
+			<div class="clear"></div>
+		</div>
+		<div class="js_row_actions actions">
+				<a href="#" class="js_resource_remove remove" data-resource-id="" data-resource-revision-id="" data-artifact-id="" data-artifact-revision-id="">
+				    <span class="icon-close"></span>
+				</a>
+				<a href="#" class="js_resource_edit myresource_edit"><span class="icon-edit"></span></a>
+				<span class="hide js_resource_description"></span>
+				<a href="#" class="js_resource_public_toggle public_toggle hide" data-txtmakepublic="{{ _('Make Public') }}" data-txtmakeprivate="{{ _('Make Private') }}" data-ispublic="false">
+					{{ _('Make Public') }}
+				</a>
+		</div>
+		<div class="js_row_actions loading">
+			<div class="progressbar"></div>
+		</div>
+		<div class="js_row_actions_failed failed hide">
+			<div class="message_resources warning">
+				<span class="imgwrap"></span>
+				<a href="javascript:void(0);" class="js_failed_link" title="{{_('Click to see error message')}}">{{_("Upload Failed")}}</a>
+				<a href="javascript:void(0);" class="js_failed_remove remove" title="{{_('Remove Resouce')}}"></a>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<div class="divider spacetop"></div>
+	</div>
+</div>
+{% endmacro %}
+
+<!--
+*************************************************************************** 
+Macro: ck12_artifact_edit_resource
+Macro to edit resource edit data
+
+artifactId, resourceId, artifactRevisionId, resourceRevisionId
+***************************************************************************
+-->
+{% macro ck12_artifact_edit_resource() %}
+<div id="js_edit_resource" data-dialogtitle="{{ _("Edit Resource") }}">
+	<form id="res_edit_form" action="ajax/resource/upload/" method="POST">
+		<div class="input_row title_row">{{_("Title:")}}<br/><input type="text" name="resource_name" id="res_name" maxlength="100" class="txt_resource_title"/></div>
+		<div class="error js_res_name_msg hide input_row"><label>{{ _("Please enter valid title for resource") }}</label></div>
+		<div class="input_row description_row">{{_("Description:")}}<br/><textarea class="txt_resource_desc" name="desc" id="res_desc" rows="5"></textarea></div>
+		<div class="error js_res_desc_msg hide input_row"><label>{{ _("Please enter description to make resource public") }}</label></div>
+		<div class="input_row type_input_row">{{_("Type:")}}&nbsp;&nbsp;
+			<select class="resource_type" name="type" id="res_type">
+				<option value="activity">{{ _('Activity') }}</option>
+				<option value="attachment">{{ _('Attachment') }}</option>
+				<option value="assessment">{{ _('Assessment') }}</option>
+				<option value="audio">{{ _('Audio') }}</option>
+				<option value="classwork">{{ _('Classwork') }}</option>
+				<option value="cthink">{{ _('Critical Thinking') }}</option>
+				<option value="handout">{{ _('Handout') }}</option>
+				<option value="homework">{{ _('Homework') }}</option>
+				<option value="image">{{_('Image') }}</option>
+				<option value="interactive">{{ _('Interactive Object') }}</option>
+				<option value="lab">{{ _('Lab') }}</option>
+				<option value="lessonplan">{{ _('Lesson Plan') }} </option>
+				<option value="notes">{{ _('Notes') }}</option>
+				<option value="reading">{{ _('Presentation') }}</option>
+				<option value="project">{{ _('Project') }}</option>
+				<option value="reading">{{ _('Reading') }}</option>
+				<option value="rubric">{{ _('Rubric') }}</option>
+				<option value="starter">{{ _('Starter/Do now') }}</option>
+				<option value="studyguide">{{ _('Study Guide') }}</option>
+				<option value="syllabus">{{ _('Syllabus') }}</option>
+				<option value="quiz">{{ _('Test/Quiz') }}</option>
+				<option value="video">{{ _('Video') }}</option>
+				<option value="web">{{_('Web') }}</option>
+				<option value="worksheet">{{ _('Worksheet') }}</option>
+				
+				{%if c.user and ( c.user.isTeacher() or c.user.isAdmin()) %}
+					<option value="answer key">{{_('Answer Key') }}</option>
+	                <option value="answer demo">{{ _('Answer Demo') }}</option>
+				{% endif %}
+				
+			</select>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="checkbox" name="isPublic" id="res_public"/>
+			<label class="label_publish" for="res_public">{{_('Published')}}</label>
+		</div>
+		<input type="hidden" name="isAttachment" value="true">
+		<input type="hidden" name="isExternal" id="res_external" value="">
+		<input type="hidden" name="src" id="res_uri" value="">
+        <input type="hidden" name="resourceid" id="res_id" value="">
+		<input type="hidden" name="resource_handle" id="res_handle" value="">
+	</form>
+</div>
+{% endmacro %}

@@ -1,0 +1,3 @@
+{% from "macros/attachments.html" import ck12_artifact_attachments_list_with_answerkey_list with context %}
+<!-- Modalities resources list with answer key and answer demo in list. -->
+{{ ck12_artifact_attachments_list_with_answerkey_list (c.artifact_id, c.artifact_revision_id, c.resources_list, c.owned, c.editable)  }}

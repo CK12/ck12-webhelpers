@@ -1,0 +1,209 @@
+{% extends "master.html" %}  
+{% from "macros/form_errors.html" import form_errors with context %}  
+
+{% block admincontent %}
+<div class="sectionhead sectiontitle">Import</div>
+<div class="section withfloatedsubmit">
+  <form method="post" enctype="multipart/form-data"> 
+    <div class="leftaligned">
+      {{ h.htmllabel("Note: Import from authors.ck12.org is now supported.") }}<div style="float:right;width:84px;margin-right:20px;">{{h.htmla_('/rebuild_cache','Rebuild Cache')}}</div>
+      {{ h.labelinput('Wiki URL', 'wiki_url', 'elong')}}
+      {{ h.labelfile('OR Upload ZIP File', 'file', 'xmed', labelWrapClass='label')}}
+      {{ h.labelinput('Import User Id', 'import_user_id', 'short')}}
+      {{ h.labelcheckboxes('Options', ['Metadata Only', 'is_metadata_mode'])}}
+      {{ h.labelradio('Content Version', 'contentVersion', c.form.version_choices)}}
+      {{ h.labelradio('Import Mode', 'import_drill_mode', c.form.mode_choices)}}
+      {{ h.labelselect('Splitter Guide', 'content_splitter_guide', c.form.splitter_select, '') }}
+    </div>
+      {{ h.submitbutton('Start Import')}}
+  </form>
+</div>
+
+<span class='ajaxError'></span>
+<div class="prethead"><span id='no' class="hide">No </span>Recent Wiki Imports</div>
+<div id='statmsg'></div>
+<div class="thead sectionhead hide">
+  <div class="tr">
+    <div class="td">Id</div>
+    <div class="td">Name</div>
+    <div class="td">Status</div>
+    <div class="td">Started</div>
+    <div class="td">Updated</div>
+    <div class="td">Url</div>
+    <div class="td">Result</div>
+    <div class="td">User Data</div>
+  </div>
+</div>
+<div class="tbody" id='results'></div>
+{% endblock admincontent %}
+
+{% block js_scripts %}
+<script type='text/javascript'>
+  CK12.wikiImportsUrl = "{{ h.url_('wiki_imports') }}";
+  {{ form_errors() }}
+
+$(document).ready(function(){
+  var 
+  updateInterval = Defaults.interval.med, 
+  pageSize = 25,
+  cacheUrl = CK12.admUrl('wiki_imports'),
+  tasksUrl = CK12.flxUrl('get/info/tasks?filters=name,WikiImporter&pageSize='+pageSize+'&sort=updated,desc'),
+  taskUrlRoot = CK12.flxUrl('get/status/task/'),
+  $thead = $('.thead'),
+  $results = $('#results'),
+  tasks = [],
+
+  formatTask = function(task){
+    var task_wiki_url = '';
+    if(task.userdata) {
+        task_user_data = $.parseJSON(task.userdata);
+        if(task_user_data){
+            task_wiki_url = task_user_data.wiki_url;
+        }
+    }
+    return '<div class="tr">\
+      <div class="td id" id = "' + task.id +'">'+task.id+'</div>\
+      <div class="td">'+CK12.admHtmla('/task/'+task.id, task.name)+'</div>\
+      <div class="td status">'+task.status+'</div>\
+      <div class="td">'+task.started+'</div>\
+      <div class="td">'+task.updated+'</div>\
+      <div class="td">'+(task.url||task_wiki_url||'N/A')+'</div>\
+      <div class="td">'+task.result+'</div>\
+      <div class="td">'+task.userdata+'</div>\
+    </div>';
+  },
+  addUrl = function(task, sessionData){
+    var _sessionTasks = sessionData.response || [];
+    $(_sessionTasks).each(function(i, sessionTask){
+      if (task.taskID == sessionTask.taskID)
+        task.url = sessionTask.url;
+    });
+    return task;
+  },
+  updateTasks = function(data, sessionData){
+    var _tasks = data.response? data.response.tasks : [];
+    $(_tasks).each(function(i, task){
+      tasks.push(addUrl(task, sessionData));
+    });
+  };
+
+  // Disable drill mode and guide if version != 1 
+  $('#contentVersion').change(function(){
+    var disable = $('[name="contentVersion"]:checked').val()!='1';
+    $('[name="import_drill_mode"]').prop('disabled', disable);
+    $('#content_splitter_guide').prop('disabled', disable);
+  });
+  $('#contentVersion').change();
+
+  // update recent wiki imports on page load
+  $.ajax({url: tasksUrl,
+    success: function(data) {
+      $.get(cacheUrl, function(sessionData){
+        updateTasks(data, sessionData); // add url info to tasks
+
+        var currentRow = '';
+        $(tasks).each(function(i, task){
+          $thead.removeClass('hide');
+          currentRow = formatTask(task);
+          $('div.tbody').append(currentRow);
+          Fns.colorStatus();
+          var obj = $.parseJSON(task.userdata);
+          
+          if(obj != null){
+              var artifactID = obj.artifactID
+              if( artifactID != undefined){
+                  forPerma = CK12.admUrl('artifact/'+artifactID+'/raw');
+                  $.ajax({url: forPerma,
+                      success: function(data){
+                          var artifactData = data;
+                          if (artifactData){
+                              var parentElement = $("#" + task.id +"").parent()
+                              var statusCol = $(parentElement).find(".status")
+                              if(Fns.isSuccess($(statusCol).text())){
+                                  permaLink = 'SUCCESS' + ' ' +Fns.htmla(artifactData.newModalityURL,'[Content]') +' '+CK12.admHtmla('/artifact/'+artifactID, '[Artifact Details]');
+                              } else{
+                                  permaLink = $(statusCol).text() + ' ' +Fns.htmla(artifactData.newModalityURL,'[Content]') +' '+CK12.admHtmla('/artifact/'+artifactID, '[Artifact Details]');
+                              }
+                              $(statusCol).html(permaLink);
+                          }
+                     },
+                     error: function(obj,code,msg){
+                         var parentElement = $("#" + task.id +"").parent();
+                         var statusCol = $(parentElement).find(".status");
+                         var permaLink = $(statusCol).text() + ' (Failed to get details)';
+                         $(statusCol).html(permaLink);
+                         $('.ajaxError').html('');
+                     }
+                 });
+              }
+          }
+        });
+        $('#no').toggleClass('hide', currentRow != '');
+      });
+    }
+  });
+
+  // update statuses if still in progress
+  Fns.pollStatus = function(){
+    $('.status').each(function (i, elm){
+      var 
+        $elm = $(elm),
+        status = $elm.text().trim();
+      if ((Fns.inProgress(status))||(Fns.fetchFailed(status))){
+        var id = $elm.siblings('.id').text();
+        if (id){
+          $.ajax({url: taskUrlRoot+id,
+            success: function(data) {
+              // see if session saved wikiimport (url info)
+              $.get(cacheUrl, function(sessionData){
+                var 
+                  task = data.response,
+                  $row = $elm.parent();
+                // add url info to tasks display
+                var obj = $.parseJSON(task.userdata);
+                if ( (obj != null) && (obj.artifactID) ){
+                    var artifactID = obj.artifactID;
+                    if( artifactID != undefined){
+                        forPerma = CK12.admUrl('artifact/'+artifactID+'/raw');
+                            $.ajax({url: forPerma,
+                                success: function(data){
+                                    var artifactData = data;
+                                    if (artifactData){
+                                        var parentElement = $("#" + task.id +"").parent()
+                                        var statusCol = $(parentElement).find(".status")
+                                        var permaLink = $(statusCol).text() + ' ' +Fns.htmla(artifactData.newModalityURL,'[Content]') +' '+CK12.admHtmla('/artifact/'+artifactID, '[Artifact Details]');
+                                        if(Fns.isSuccess($(statusCol).text())){
+                                            permaLink = 'SUCCESS' + ' ' +Fns.htmla(artifactData.newModalityURL,'[Content]') +' '+CK12.admHtmla('/artifact/'+artifactID, '[Artifact Details]');
+                                        } else {
+                                            permaLink = $(statusCol).text() + ' ' +Fns.htmla(artifactData.newModalityURL,'[Content]') +' '+CK12.admHtmla('/artifact/'+artifactID, '[Artifact Details]');
+                                        }
+                                    }
+                                    $(statusCol).html(permaLink);
+                                },
+                                error: function(obj,code,msg){
+                                    var parentElement = $("#" + task.id +"").parent();
+                                    var statusCol = $(parentElement).find(".status");
+                                    var permaLink = $(statusCol).text() + ' (Failed to get details)';
+                                    $(statusCol).html(permaLink);
+                                    $('.ajaxError').html('');
+                                }
+                            });
+                    }
+                    if(!Fns.fetchFailed(status)){
+                        pdfUrl = CK12.flxUrl('render/pdf/'+obj.artifactID+'/nocache');
+                        $.ajax({url: pdfUrl});
+                    }
+                }
+                $row.replaceWith(formatTask(addUrl(task, sessionData)));
+                Fns.colorStatus();
+              });
+            }
+          });
+        }
+      }
+    });
+  };
+  Poll = setInterval("Fns.pollStatus()", updateInterval); 
+});
+</script>
+{% endblock %}

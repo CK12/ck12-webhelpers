@@ -1,0 +1,23 @@
+@import '../main';
+
+:local {
+    .closeButton {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1;
+        background-color: $EARTH;
+        border-radius: 50%;
+        text-align: center;
+        height: rem-calc(18);
+        width: rem-calc(18);
+        line-height: 1.2;
+        transform: translate(50%, -50%);
+        cursor: pointer;
+
+        i {
+            color: $IVORY;
+            font-size: rem-calc(9);
+        }
+    }
+}

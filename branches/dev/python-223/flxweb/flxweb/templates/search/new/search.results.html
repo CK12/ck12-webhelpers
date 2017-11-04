@@ -1,0 +1,28 @@
+{% extends "common/master.html" %}
+{% block stylesheets %}
+{{ super() }}
+	<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('common/css/search.results.css') }}" />
+{% endblock %}
+<!-- RIGHT SIDE as MAIN CONTENT -->
+{% block content %}
+	<div class="row collapse search-result-content">
+		{% block content_left %}
+		<aside id="leftsecondary" class="columns small-12 large-2">
+			{% block content_left_inner %}
+				left content
+			{% endblock %}
+		</aside>
+		{% endblock %}
+		{% block content_right %}
+			{% block rightinfotop %}{% endblock %}
+			<div id="content" class="columns small-12 large-10">
+				{% block content_right_inner %}
+					right content
+				{% endblock %}
+				{% block rightinfobottom %}{% endblock %}
+			</div>
+		{% endblock %}
+		<div class="gclear"></div>
+		{% block pagination_bottom %}{% endblock %}
+	</div>
+{% endblock %}

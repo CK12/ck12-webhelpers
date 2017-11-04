@@ -1,0 +1,123 @@
+#js_guided_practice_section .guided-header{
+	border-top: 1px solid #e6e6e6;
+	padding-top: 15px;
+	font-weight: bold;
+	margin: 2em 0 .4em;
+}
+.text-desc{
+	display: inline-block;
+    width: calc(100% - 151px);
+    vertical-align: top;
+}
+.download-dd{
+	display: inline-block;
+	margin-top :19px;
+}
+#js_guided_practice_section .js_signinrequired {
+	margin-left : 5px;
+}
+
+.guided_practice_container {
+	list-style-type : none;
+	counter-reset : pq-row;
+	margin : 1.25em 0;
+}
+
+.guided_practice_container>li {
+    margin : 10px 0 20px;
+    counter-increment : pq-row;
+    position : relative;
+}
+
+.guided_practice_container>li:before {
+	content : counter(pq-row)". ";
+	float : left;	
+}
+
+.guided-practice-question {
+    /*white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: -webkit-calc(100% - 80px);
+    float: left;
+    height: 100%;*/
+    padding-left : 25px;
+    width : -webkit-calc(100% - 80px);
+    width : 	calc(100% - 80px);
+}
+
+.guided-practice-question p {
+	margin-bottom : 9px;
+}
+
+.js-guided-practice {
+	text-transform : uppercase;
+	text-decoration : none;
+	font-weight: bold;
+	font-size: 14px;
+	width: 70px;
+	padding-left: 5px;
+	position : absolute;
+	right : 0;
+	top : 0;
+}
+
+.js-open-practice {
+	margin-left : 10px;
+} 
+
+.js-guided-practice .icon-arrow_right {
+	font-size : 0.7em;
+}
+
+
+.js-open-practice  .icon-arrow_right {
+	padding-left : 5px;
+}
+
+.iframe-container{
+	width : 100%;
+	border : 0;
+}
+
+#guidedPracticeModal {
+	padding : 10px;
+}
+
+#guidedPracticeModal .row{
+	max-width : 100%;
+}
+
+@media all and (max-width: 767px) {
+	#guidedPracticeModal {
+		left : 40%;
+		padding : 0;
+		/*top : 0 !important;*/
+		width : 100%;
+		border : 0;
+		border-radius : 0;
+	}
+	
+	.guided-modal-header {
+		position: absolute;
+		z-index: 999;
+	}
+	
+	.guided-modal-close {
+	    background-color: #FF6633;
+	    height: 47px;
+	    width: 47px;
+	}
+	
+	.guided-modal-close i:after, .guided-modal-close i:before {
+		background-color: #FFFFFF;
+    	right: 22px;
+    	top: 6px;
+    }
+}
+@media all and (min-width:601px) and (max-width: 767px) {
+	.guided-modal-header {
+	    right: 1px;
+	    top: 5px;
+  }
+}

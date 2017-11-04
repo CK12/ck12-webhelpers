@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cmap xmlns:dcterms="http://purl.org/dc/terms/" xmlns="http://cmap.ihmc.us/xml/cmap/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:vcard="http://www.w3.org/2001/vcard-rdf/3.0#">
+    <res-meta>
+        <dc:title>Calculus</dc:title>
+        <dc:creator>
+            <vcard:FN>Chris Yu</vcard:FN>
+            <vcard:EMAIL>christopher@ck12.org</vcard:EMAIL>
+            <vcard:ORG>
+                <vcard:Orgname>CK-12</vcard:Orgname>
+            </vcard:ORG>
+        </dc:creator>
+        <dc:contributor>
+            <vcard:FN>Chris Yu</vcard:FN>
+            <vcard:EMAIL>christopher@ck12.org</vcard:EMAIL>
+            <vcard:ORG>
+                <vcard:Orgname>CK-12</vcard:Orgname>
+            </vcard:ORG>
+        </dc:contributor>
+        <dcterms:rightsHolder>
+            <vcard:FN>Chris Yu</vcard:FN>
+            <vcard:EMAIL>christopher@ck12.org</vcard:EMAIL>
+            <vcard:ORG>
+                <vcard:Orgname>CK-12</vcard:Orgname>
+            </vcard:ORG>
+        </dcterms:rightsHolder>
+        <dcterms:created>2011-07-27T11:15:02-07:00</dcterms:created>
+        <dcterms:modified>2011-07-27T12:48:37-07:00</dcterms:modified>
+        <dc:language>en</dc:language>
+        <dc:format>x-cmap/x-storable</dc:format>
+        <dc:publisher>FIHMC CmapTools 5.04.02</dc:publisher>
+        <dc:extent>16751 bytes</dc:extent>
+        <dc:source>cmap:1JL4LSB3Q-1JMC4MV-1:1JL4LSHYY-59CBFS-Y:1JP22ZVXC-1R37Y4Q-745X</dc:source>
+    </res-meta>
+    <map width="2959" height="2617">
+        <concept-list>
+            <concept id="1JP26V08B-1ZG0V5Y-78CX" label="Trigonometric&#xa;Substitutions&#xa;[MAT.CAL.770]"/>
+            <concept id="1JP23X85S-C13CCT-74K6" label="Applications of&#xa;Definte Integrals&#xa;[MAT.CAL.500]"/>
+            <concept id="1JP24MRZ4-25RZ8VL-75K2" label="Derivatives of&#xa;Trigonometric Functions&#xa;[MAT.CAL.157]"/>
+            <concept id="1JP24W00P-5MGC5M-75XY" label="The First Derivative&#xa;Test&#xa;[MAT.CAL.295]"/>
+            <concept id="1JP274801-11WMJ2-78R8" label="Infinite Series&#xa;[MAT.CAL.885]"/>
+            <concept id="1JP24WZSR-1GDMH9S-761C" label="Analyzing the Graph&#xa;of a Function&#xa;[MAT.CAL.340]"/>
+            <concept id="1JP23VYVQ-JV7Q24-74GC" label="Applications of&#xa;Derivatives&#xa;[MAT.CAL.250]"/>
+            <concept id="1JP255N3M-1YWHL9R-76GP" label="Indefinite Integrals&#xa;Calculus&#xa;[MAT.CAL.385]"/>
+            <concept id="1JP2699GJ-140R5BV-77RR" label="Differentiation and Integration&#xa;of Logarithmic and Exponential&#xa;Functions&#xa;[MAT.CAL.649] "/>
+            <concept id="1JP24WP80-1ZFMJR-760D" label="Limits at Inifinity&#xa;[MAT.CAL.325]"/>
+            <concept id="1JP248PP3-MMZTWC-74TT" label="Equations and Graphs&#xa;[MAT.CAL.015]"/>
+            <concept id="1JP26L12W-Z57D9L-785L" label="Integration by Substitution&#xa;[MAT.CAL.754]"/>
+            <concept id="1JP24BJY0-1HMKQTH-74ZY" label="Evaluating Limits&#xa;[MAT.CAL.090]"/>
+            <concept id="1JP23VPNS-1QD9K90-74FN" label="Derivatives&#xa;[MAT.CAL.125]"/>
+            <concept id="1JP26TLVJ-18FKP5L-78BR" label="Trigonometric&#xa;Integrals&#xa;[MAT.CAL.766]"/>
+            <concept id="1JP24P09T-1GP34JL-75P2" label="Linearization and&#xa;Newton's Method&#xa;[MAT.CAL.181]"/>
+            <concept id="1JP268GT5-CBPTQ8-77P5" label="Inverse Functions&#xa;[MAT.CAL.633]"/>
+            <concept id="1JP24MDTN-JFL6F1-75HS" label="Techniques of&#xa;Differentiation&#xa;[MAT.CAL.149]"/>
+            <concept id="1JP24XWJ3-13VV0KL-764H" label="Approximation&#xa;Errors&#xa;[MAT.CAL.370]"/>
+            <concept id="1JP262LMZ-88LVBP-77D1" label="Area of a Surface&#xa;Revolution&#xa;[MAT.CAL.544]"/>
+            <concept id="1JP249X7T-NQ28HL-74Y4" label="The Calculus&#xa;[MAT.CAL.060]"/>
+            <concept id="1JP268V5P-BYDV7X-77Q2" label="Exponential and&#xa;Logarithmic Functions&#xa;[MAT.CAL.641]"/>
+            <concept id="1JP26BJ7B-T8W7MF-77X5" label="Derivatives and Integrals Involving&#xa;Inverse Trigonometric Functions&#xa;[MAT.CAL.665]"/>
+            <concept id="1JP2571Z3-24W0D5P-76ML" label="Evaluating Definite&#xa;Integrals&#xa;[MAT.CAL.425]"/>
+            <concept id="1JP24VM67-2BRTDZW-75W7" label="Extrema and The Mean&#xa;Value Theorem&#xa;[MAT.CAL.280]"/>
+            <concept id="1JP262YLM-57GL7C-77FC" label="Applications from Physics,&#xa;Engineering, and Statistics&#xa;[MAT.CAL.555]"/>
+            <concept id="1JP2626J6-1N35TQX-77BP" label="The Length of&#xa;a Plane Curve&#xa;[MAT.CAL.533]"/>
+            <concept id="1JP24BS20-1KQMVHC-750X" label="Continuity&#xa;[MAT.CAL.105]"/>
+            <concept id="1JP2616ML-25NZ479-777X" label="Area Between Two&#xa;Curves&#xa;[MAT.CAL.511]"/>
+            <concept id="1JP26RK17-298YYZ-7892" label="Integration by Partial&#xa;Fractions&#xa;[MAT.CAL.762]"/>
+            <concept id="1JP2498N9-19FBMNM-74W6" label="Relations and Functions&#xa;[MAT.CAL.030]"/>
+            <concept id="1JP23YPHZ-9XPDZW-74PH" label="Integration Techniques&#xa;[MAT.CAL.750]"/>
+            <concept id="1JP2300BR-29TR9K0-746D" label="Calculus"/>
+            <concept id="1JP24KST5-2CNW1SX-75FR" label="The Derivative&#xa;[MAT.CAL.141]"/>
+            <concept id="1JP23TX6V-TM2D7K-74BR" label="Functions, Limits, and&#xa;Continuity&#xa;[MAT.CAL.000]"/>
+            <concept id="1JP258M8D-24XYGJY-76S6" label="Numerical Integration&#xa;[MAT.CAL.455]"/>
+            <concept id="1JP257WVY-44V6HJ-76QN" label="Integration by Substitution&#xa;[MAT.CAL.445]"/>
+            <concept id="1JP2561FT-1XZP16P-76J5" label="The Initial Value&#xa;Problem&#xa;[MAT.CAL.395]"/>
+            <concept id="1JP23WXDT-2C70V1V-74J9" label="Integration&#xa;[MAT.CAL.375]"/>
+            <concept id="1JP24K9PJ-K3WFRW-75D6" label="Tangent Lines and&#xa;Rate of Change&#xa;[MAT.CAL.133]"/>
+            <concept id="1JP273Z0V-1J66P5X-78QK" label="Sequences&#xa;[MAT.CAL.877]"/>
+            <concept id="1JP256RLJ-P2SV9Z-76LN" label="Definite Integrals&#xa;[MAT.CAL.415]"/>
+            <concept id="1JP256G2G-G4MPLZ-76KN" label="The Area Problem&#xa;[MAT.CAL.405]"/>
+            <concept id="1JP24XNJT-5M7RQ0-763R" label="Optimization&#xa;[MAT.CAL.355]"/>
+            <concept id="1JP24VBPH-1WJY7V1-75VG" label="Related Rates&#xa;[MAT.CAL.265]"/>
+            <concept id="1JP24C3HW-1YFS4N7-751L" label="Infinite Limits&#xa;[MAT.CAL.120]"/>
+            <concept id="1JP257FFT-2DGXFQX-76P2" label="The Fundametal Theorem&#xa;of Calculus&#xa;[MAT.CAL.435]"/>
+            <concept id="1JP26VN52-GYQL36-78G2" label="Ordinary Differential&#xa;Equations&#xa;[MAT.CAL.779]"/>
+            <concept id="1JP261RJ5-1NXKGZ7-779N" label="Volumes&#xa;[MAT.CAL.522]"/>
+            <concept id="1JP275Q6V-77RF3K-78X7" label="Taylor and Maclaurin&#xa;Series&#xa;[MAT.CAL.916]"/>
+            <concept id="1JP26VCH4-29NNCXZ-78F4" label="Improper Integrals&#xa;[MAT.CAL.774]"/>
+            <concept id="1JP276SKY-CRTTQ8-78Z5" label="Calculations with Series&#xa;[MAT.CAL.925]"/>
+            <concept id="1JP26B2W4-10KJ3J6-77VN" label="Exponential Growth&#xa;and Decay&#xa;[MAT.CAL.657]"/>
+            <concept id="1JP274J5H-20FQ5P6-78S5" label="Series Without Negative&#xa;Terms&#xa;[MAT.CAL.896]"/>
+            <concept id="1JP23Z8TQ-1X32RV2-74RJ" label="Infinite Series&#xa;[MAT.CAL.875]"/>
+            <concept id="1JP23Y3S8-24F7H1M-74N8" label="Transcendental&#xa;Functions&#xa;[MAT.CAL.625]"/>
+            <concept id="1JP24B6PV-7SYVJ5-74YW" label="Finding Limits&#xa;[MAT.CAL.075]"/>
+            <concept id="1JP275G6L-1B56FR7-78WH" label="Power Series&#xa;[MAT.CAL.910]"/>
+            <concept id="1JP274ZMY-1B5TMXJ-78TV" label="Series With Odd or Even&#xa;Negative Terms&#xa;[MAT.CAL.903]"/>
+            <concept id="1JP249NCB-XK0FFL-74X9" label="Models and Data&#xa;[MAT.CAL.045]"/>
+            <concept id="1JP24N5DZ-XTBJWR-75LP" label="The Chain Rule&#xa;[MAT.CAL.165]"/>
+            <concept id="1JP24W87F-1BKKF1D-75Z3" label="The Second Derivative&#xa;Test&#xa;[MAT.CAL.310]"/>
+            <concept id="1JP26CJL2-7ZDYKM-77ZT" label="L'Hospital's Rule&#xa;[MAT.CAL.673] "/>
+            <concept id="1JP24NJHG-1NZY9R9-75MM" label="Implicit Differentiation&#xa;[MAT.CAL.173]"/>
+            <concept id="1JP26LX5L-221SXQ6-7872" label="Integration by Parts&#xa;[MAT.CAL.758]"/>
+        </concept-list>
+        <linking-phrase-list>
+            <linking-phrase id="1JP24H8QG-16CQWKF-759N" label="&#x2219;"/>
+            <linking-phrase id="1JP25J4R9-243H7R2-76YL" label="&#x2219;"/>
+        </linking-phrase-list>
+        <connection-list>
+            <connection id="1JP26534Q-23ZP106-77KN" from-id="1JP23X85S-C13CCT-74K6" to-id="1JP2626J6-1N35TQX-77BP"/>
+            <connection id="1JP27DKQX-1ZG77H8-7957" from-id="1JP23Z8TQ-1X32RV2-74RJ" to-id="1JP273Z0V-1J66P5X-78QK"/>
+            <connection id="1JP2659XJ-1SRD877-77M4" from-id="1JP23X85S-C13CCT-74K6" to-id="1JP262YLM-57GL7C-77FC"/>
+            <connection id="1JP24DS0Y-1N5CXQW-754D" from-id="1JP248PP3-MMZTWC-74TT" to-id="1JP2498N9-19FBMNM-74W6"/>
+            <connection id="1JP24F3HV-1N85Q26-755S" from-id="1JP24BJY0-1HMKQTH-74ZY" to-id="1JP24C3HW-1YFS4N7-751L"/>
+            <connection id="1JP24F08Q-B7HKNJ-7559" from-id="1JP24B6PV-7SYVJ5-74YW" to-id="1JP24BJY0-1HMKQTH-74ZY"/>
+            <connection id="1JP24TPMZ-1VQKFGC-75TZ" from-id="1JP24MDTN-JFL6F1-75HS" to-id="1JP23VYVQ-JV7Q24-74GC"/>
+            <connection id="1JP27D6B9-1D79XCK-793M" from-id="1JP274801-11WMJ2-78R8" to-id="1JP274J5H-20FQ5P6-78S5"/>
+            <connection id="1JP264XWF-VGV94L-77JR" from-id="1JP23X85S-C13CCT-74K6" to-id="1JP2616ML-25NZ479-777X"/>
+            <connection id="1JP25992J-2BDC4BM-76TN" from-id="1JP23WXDT-2C70V1V-74J9" to-id="1JP255N3M-1YWHL9R-76GP"/>
+            <connection id="1JP2533YB-L243NM-76CF" from-id="1JP24W87F-1BKKF1D-75Z3" to-id="1JP24XNJT-5M7RQ0-763R"/>
+            <connection id="1JP2658SF-23JK6TB-77LR" from-id="1JP23X85S-C13CCT-74K6" to-id="1JP262LMZ-88LVBP-77D1"/>
+            <connection id="1JP26J4TQ-2485ZWL-783R" from-id="1JP268V5P-BYDV7X-77Q2" to-id="1JP26B2W4-10KJ3J6-77VN"/>
+            <connection id="1JP25CBTZ-188LZ5W-76WW" from-id="1JP256RLJ-P2SV9Z-76LN" to-id="1JP2571Z3-24W0D5P-76ML"/>
+            <connection id="1JP25VLKM-2D7V2L9-773G" from-id="1JP25J4R9-243H7R2-76YL" to-id="1JP23Y3S8-24F7H1M-74N8"/>
+            <connection id="1JP25HZWH-2CS5DQX-76XZ" from-id="1JP2571Z3-24W0D5P-76ML" to-id="1JP258M8D-24XYGJY-76S6"/>
+            <connection id="1JP279TRS-1LS9H9V-791M" from-id="1JP274ZMY-1B5TMXJ-78TV" to-id="1JP275G6L-1B56FR7-78WH"/>
+            <connection id="1JP26X83N-1XXX3H0-78K3" from-id="1JP26TLVJ-18FKP5L-78BR" to-id="1JP26V08B-1ZG0V5Y-78CX"/>
+            <connection id="1JP25C8C3-PL78KT-76WF" from-id="1JP256G2G-G4MPLZ-76KN" to-id="1JP256RLJ-P2SV9Z-76LN"/>
+            <connection id="1JP254NM0-18W6QGH-76DV" from-id="1JP23VYVQ-JV7Q24-74GC" to-id="1JP24VM67-2BRTDZW-75W7"/>
+            <connection id="1JP24SGFR-F4DSKF-75R4" from-id="1JP24KST5-2CNW1SX-75FR" to-id="1JP24MRZ4-25RZ8VL-75K2"/>
+            <connection id="1JP26Y9F6-29MHGZN-78MC" from-id="1JP23YPHZ-9XPDZW-74PH" to-id="1JP26VN52-GYQL36-78G2"/>
+            <connection id="1JP24L5WK-1WKT907-75GV" from-id="1JP23VPNS-1QD9K90-74FN" to-id="1JP24K9PJ-K3WFRW-75D6"/>
+            <connection id="1JP26X42L-26ZF72D-78JP" from-id="1JP23YPHZ-9XPDZW-74PH" to-id="1JP26TLVJ-18FKP5L-78BR"/>
+            <connection id="1JP24SZYH-2DKXCRQ-75SF" from-id="1JP24MDTN-JFL6F1-75HS" to-id="1JP24N5DZ-XTBJWR-75LP"/>
+            <connection id="1JP254R3P-MR6BPK-76FM" from-id="1JP23VYVQ-JV7Q24-74GC" to-id="1JP24WZSR-1GDMH9S-761C"/>
+            <connection id="1JP24H8QL-4R9XNM-759Z" from-id="1JP24H8QG-16CQWKF-759N" to-id="1JP23VPNS-1QD9K90-74FN"/>
+            <connection id="1JP25V8S4-1008VQX-772T" from-id="1JP2571Z3-24W0D5P-76ML" to-id="1JP23X85S-C13CCT-74K6"/>
+            <connection id="1JP26H7RF-FXP86B-781B" from-id="1JP23Y3S8-24F7H1M-74N8" to-id="1JP268GT5-CBPTQ8-77P5"/>
+            <connection id="1JP27DCLX-DRQBRX-794Q" from-id="1JP273Z0V-1J66P5X-78QK" to-id="1JP274801-11WMJ2-78R8"/>
+            <connection id="1JP27C749-15Z3RXC-792N" from-id="1JP274J5H-20FQ5P6-78S5" to-id="1JP274ZMY-1B5TMXJ-78TV"/>
+            <connection id="1JP24JHR0-4YMDQH-75CL" from-id="1JP24H8QG-16CQWKF-759N" to-id="1JP23WXDT-2C70V1V-74J9"/>
+            <connection id="1JP254Q0C-1DSN7GL-76F7" from-id="1JP23VYVQ-JV7Q24-74GC" to-id="1JP24W00P-5MGC5M-75XY"/>
+            <connection id="1JP27948G-1R8Y1BW-7914" from-id="1JP275G6L-1B56FR7-78WH" to-id="1JP275Q6V-77RF3K-78X7"/>
+            <connection id="1JP26HS7D-DY2ZQ1-782M" from-id="1JP268GT5-CBPTQ8-77P5" to-id="1JP26BJ7B-T8W7MF-77X5"/>
+            <connection id="1JP248J0F-JYHT0-74TB" from-id="1JP2300BR-29TR9K0-746D" to-id="1JP23TX6V-TM2D7K-74BR"/>
+            <connection id="1JP26HCC5-1PL4CWB-7824" from-id="1JP23Y3S8-24F7H1M-74N8" to-id="1JP26CJL2-7ZDYKM-77ZT"/>
+            <connection id="1JP25BXMF-1YTMZPD-76VL" from-id="1JP255N3M-1YWHL9R-76GP" to-id="1JP256G2G-G4MPLZ-76KN"/>
+            <connection id="1JP25J4RD-192WJ6Z-76YV" from-id="1JP25J4R9-243H7R2-76YL" to-id="1JP257FFT-2DGXFQX-76P2"/>
+            <connection id="1JP25TVC5-TD0MKS-771S" from-id="1JP2571Z3-24W0D5P-76ML" to-id="1JP257WVY-44V6HJ-76QN"/>
+            <connection id="1JP24SWC0-25RGZKD-75RZ" from-id="1JP24N5DZ-XTBJWR-75LP" to-id="1JP24NJHG-1NZY9R9-75MM"/>
+            <connection id="1JP2790LM-2D1XYCF-790P" from-id="1JP275Q6V-77RF3K-78X7" to-id="1JP276SKY-CRTTQ8-78Z5"/>
+            <connection id="1JP24DTVQ-T3K82Y-754T" from-id="1JP2498N9-19FBMNM-74W6" to-id="1JP249NCB-XK0FFL-74X9"/>
+            <connection id="1JP24DHYC-P2XVMW-7530" from-id="1JP23TX6V-TM2D7K-74BR" to-id="1JP248PP3-MMZTWC-74TT"/>
+            <connection id="1JP26J0L8-8P1N1S-7839" from-id="1JP268V5P-BYDV7X-77Q2" to-id="1JP2699GJ-140R5BV-77RR"/>
+            <connection id="1JP25TXVT-11W2F15-7725" from-id="1JP257WVY-44V6HJ-76QN" to-id="1JP23YPHZ-9XPDZW-74PH"/>
+            <connection id="1JP26Y6GJ-28J0Z72-78LY" from-id="1JP23YPHZ-9XPDZW-74PH" to-id="1JP26VCH4-29NNCXZ-78F4"/>
+            <connection id="1JP24H8QJ-237NSQ5-759S" from-id="1JP249NCB-XK0FFL-74X9" to-id="1JP24H8QG-16CQWKF-759N"/>
+            <connection id="1JP26MC86-20YT66P-788R" from-id="1JP26L12W-Z57D9L-785L" to-id="1JP26LX5L-221SXQ6-7872"/>
+            <connection id="1JP24HY5J-1L7L9W-75BZ" from-id="1JP24BS20-1KQMVHC-750X" to-id="1JP24H8QG-16CQWKF-759N"/>
+            <connection id="1JP25Y5JV-1LHTN44-7758" from-id="1JP2571Z3-24W0D5P-76ML" to-id="1JP25J4R9-243H7R2-76YL"/>
+            <connection id="1JP26H9DK-29TYZZG-781R" from-id="1JP23Y3S8-24F7H1M-74N8" to-id="1JP268V5P-BYDV7X-77Q2"/>
+            <connection id="1JP2530FQ-110M06Z-76BZ" from-id="1JP24W00P-5MGC5M-75XY" to-id="1JP24W87F-1BKKF1D-75Z3"/>
+            <connection id="1JP254X1F-1H56Z9F-76GF" from-id="1JP23VYVQ-JV7Q24-74GC" to-id="1JP24XWJ3-13VV0KL-764H"/>
+            <connection id="1JP26XGKD-9DD664-78KZ" from-id="1JP23YPHZ-9XPDZW-74PH" to-id="1JP26L12W-Z57D9L-785L"/>
+            <connection id="1JP24DL7C-Y4F1X7-753T" from-id="1JP23TX6V-TM2D7K-74BR" to-id="1JP249X7T-NQ28HL-74Y4"/>
+            <connection id="1JP25JY1S-1LX371X-76ZC" from-id="1JP24KST5-2CNW1SX-75FR" to-id="1JP25J4R9-243H7R2-76YL"/>
+            <connection id="1JP26XF5K-16TF5JP-78KL" from-id="1JP23YPHZ-9XPDZW-74PH" to-id="1JP26RK17-298YYZ-7892"/>
+            <connection id="1JP254M4K-2181L1D-76DF" from-id="1JP23VYVQ-JV7Q24-74GC" to-id="1JP24VBPH-1WJY7V1-75VG"/>
+            <connection id="1JP271P65-1X93STW-78Q2" from-id="1JP25J4R9-243H7R2-76YL" to-id="1JP23Z8TQ-1X32RV2-74RJ"/>
+            <connection id="1JP24LBXX-1D99RNY-75HF" from-id="1JP24K9PJ-K3WFRW-75D6" to-id="1JP24KST5-2CNW1SX-75FR"/>
+            <connection id="1JP24DK3S-Z7D1VV-753F" from-id="1JP23TX6V-TM2D7K-74BR" to-id="1JP24B6PV-7SYVJ5-74YW"/>
+            <connection id="1JP24SFB5-27C1485-75QQ" from-id="1JP24KST5-2CNW1SX-75FR" to-id="1JP24MDTN-JFL6F1-75HS"/>
+            <connection id="1JP25B40B-1N07MR9-76V4" from-id="1JP255N3M-1YWHL9R-76GP" to-id="1JP2561FT-1XZP16P-76J5"/>
+            <connection id="1JP264ZBS-1Y2WVLX-77K5" from-id="1JP23X85S-C13CCT-74K6" to-id="1JP261RJ5-1NXKGZ7-779N"/>
+            <connection id="1JP24FZS8-18L88NH-756L" from-id="1JP249X7T-NQ28HL-74Y4" to-id="1JP24BS20-1KQMVHC-750X"/>
+            <connection id="1JP24T177-M292XY-75SV" from-id="1JP24MDTN-JFL6F1-75HS" to-id="1JP24P09T-1GP34JL-75P2"/>
+            <connection id="1JP24HWFB-124RDK3-75BL" from-id="1JP24C3HW-1YFS4N7-751L" to-id="1JP24H8QG-16CQWKF-759N"/>
+            <connection id="1JP254VKV-DYJ4NX-76G1" from-id="1JP23VYVQ-JV7Q24-74GC" to-id="1JP24WP80-1ZFMJR-760D"/>
+        </connection-list>
+        <concept-appearance-list>
+            <concept-appearance id="1JP26V08B-1ZG0V5Y-78CX" x="2626" y="1661" width="105" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP23X85S-C13CCT-74K6" x="3106" y="1273" width="116" height="55" background-color="0,255,0,255"/>
+            <concept-appearance id="1JP24MRZ4-25RZ8VL-75K2" x="1808" y="1039" width="162" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP24W00P-5MGC5M-75XY" x="978" y="1320" width="134" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP274801-11WMJ2-78R8" x="2427" y="2062" width="105" height="41" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP24WZSR-1GDMH9S-761C" x="1149" y="1320" width="139" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP23VYVQ-JV7Q24-74GC" x="1060" y="1190" width="105" height="55" background-color="0,255,0,255"/>
+            <concept-appearance id="1JP255N3M-1YWHL9R-76GP" x="2723" y="819" width="129" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP2699GJ-140R5BV-77RR" x="2134" y="2152" width="204" height="69" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP24WP80-1ZFMJR-760D" x="1305" y="1313" width="116" height="41" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP248PP3-MMZTWC-74TT" x="2024" y="286" width="149" height="41" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP26L12W-Z57D9L-785L" x="2282" y="1536" width="177" height="41" background-color="255,255,0,255"/>
+            <concept-appearance id="1JP24BJY0-1HMKQTH-74ZY" x="2199" y="377" width="119" height="41" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP23VPNS-1QD9K90-74FN" x="1626" y="721" width="105" height="41" background-color="0,255,0,255"/>
+            <concept-appearance id="1JP26TLVJ-18FKP5L-78BR" x="2626" y="1544" width="105" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP24P09T-1GP34JL-75P2" x="1775" y="1196" width="120" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP268GT5-CBPTQ8-77P5" x="1721" y="2004" width="122" height="41" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP24MDTN-JFL6F1-75HS" x="1453" y="1038" width="105" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP24XWJ3-13VV0KL-764H" x="1445" y="1320" width="105" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP262LMZ-88LVBP-77D1" x="3256" y="1397" width="120" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP249X7T-NQ28HL-74Y4" x="2356" y="286" width="105" height="41" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP268V5P-BYDV7X-77Q2" x="2034" y="2011" width="149" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP26BJ7B-T8W7MF-77X5" x="1721" y="2145" width="225" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP2571Z3-24W0D5P-76ML" x="2807" y="1111" width="131" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP24VM67-2BRTDZW-75W7" x="650" y="1320" width="156" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP262YLM-57GL7C-77FC" x="3440" y="1398" width="177" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP2626J6-1N35TQX-77BP" x="3106" y="1398" width="105" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP24BS20-1KQMVHC-750X" x="2356" y="378" width="105" height="41" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP2616ML-25NZ479-777X" x="2826" y="1397" width="129" height="54" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP26RK17-298YYZ-7892" x="2471" y="1543" width="143" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP2498N9-19FBMNM-74W6" x="2024" y="377" width="160" height="41" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP23YPHZ-9XPDZW-74PH" x="2626" y="1391" width="155" height="41" background-color="0,255,0,255"/>
+            <concept-appearance id="1JP2300BR-29TR9K0-746D" x="2197" y="58" width="129" height="35" font-size="24" font-style="bold" background-color="255,100,0,255" stylesheet-id="1JP2300BR-711YZS-746H"/>
+            <concept-appearance id="1JP24KST5-2CNW1SX-75FR" x="1626" y="928" width="105" height="41" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP23TX6V-TM2D7K-74BR" x="2197" y="165" width="148" height="55" background-color="0,255,0,255"/>
+            <concept-appearance id="1JP258M8D-24XYGJY-76S6" x="2422" y="1270" width="147" height="41" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP257WVY-44V6HJ-76QN" x="2626" y="1269" width="177" height="41" background-color="255,255,0,255"/>
+            <concept-appearance id="1JP2561FT-1XZP16P-76J5" x="2647" y="930" width="113" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP23WXDT-2C70V1V-74J9" x="2723" y="720" width="105" height="41" background-color="0,255,0,255"/>
+            <concept-appearance id="1JP24K9PJ-K3WFRW-75D6" x="1626" y="823" width="127" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP273Z0V-1J66P5X-78QK" x="2427" y="1964" width="105" height="40" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP256RLJ-P2SV9Z-76LN" x="2807" y="1009" width="120" height="41" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP256G2G-G4MPLZ-76KN" x="2807" y="923" width="123" height="41" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP24XNJT-5M7RQ0-763R" x="978" y="1526" width="105" height="41" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP24VBPH-1WJY7V1-75VG" x="820" y="1313" width="105" height="41" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP24C3HW-1YFS4N7-751L" x="2199" y="472" width="105" height="41" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP257FFT-2DGXFQX-76P2" x="1640" y="1871" width="171" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP26VN52-GYQL36-78G2" x="2937" y="1544" width="139" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP261RJ5-1NXKGZ7-779N" x="2973" y="1390" width="105" height="41" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP275Q6V-77RF3K-78X7" x="2425" y="2517" width="142" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP26VCH4-29NNCXZ-78F4" x="2771" y="1537" width="128" height="41" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP276SKY-CRTTQ8-78Z5" x="2425" y="2635" width="159" height="41" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP26B2W4-10KJ3J6-77VN" x="1933" y="2145" width="134" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP274J5H-20FQ5P6-78S5" x="2427" y="2175" width="162" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP23Z8TQ-1X32RV2-74RJ" x="2427" y="1866" width="105" height="41" background-color="0,255,0,255"/>
+            <concept-appearance id="1JP23Y3S8-24F7H1M-74N8" x="2034" y="1872" width="109" height="55" background-color="0,255,0,255"/>
+            <concept-appearance id="1JP24B6PV-7SYVJ5-74YW" x="2197" y="286" width="105" height="41" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP275G6L-1B56FR7-78WH" x="2425" y="2408" width="105" height="41" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP274ZMY-1B5TMXJ-78TV" x="2425" y="2292" width="162" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP249NCB-XK0FFL-74X9" x="2024" y="470" width="117" height="41" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP24N5DZ-XTBJWR-75LP" x="1609" y="1192" width="107" height="41" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP24W87F-1BKKF1D-75Z3" x="978" y="1424" width="152" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP26CJL2-7ZDYKM-77ZT" x="2249" y="2002" width="115" height="41" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP24NJHG-1NZY9R9-75MM" x="1609" y="1313" width="151" height="41" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP26LX5L-221SXQ6-7872" x="2282" y="1648" width="135" height="41" background-color="255,255,255,255"/>
+        </concept-appearance-list>
+        <linking-phrase-appearance-list>
+            <linking-phrase-appearance id="1JP24H8QG-16CQWKF-759N" x="2199" y="559" width="13" height="7" font-size="18"/>
+            <linking-phrase-appearance id="1JP25J4R9-243H7R2-76YL" x="2034" y="1187" width="13" height="7" font-size="18"/>
+        </linking-phrase-appearance-list>
+        <connection-appearance-list>
+            <connection-appearance id="1JP26534Q-23ZP106-77KN" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP27DKQX-1ZG77H8-7957" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP2659XJ-1SRD877-77M4" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="3106" y="1327"/>
+                <control-point x="3440" y="1327"/>
+            </connection-appearance>
+            <connection-appearance id="1JP24DS0Y-1N5CXQW-754D" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP24F3HV-1N85Q26-755S" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP24F08Q-B7HKNJ-7559" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP24TPMZ-1VQKFGC-75TZ" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="1453" y="1108"/>
+                <control-point x="1060" y="1108"/>
+            </connection-appearance>
+            <connection-appearance id="1JP27D6B9-1D79XCK-793M" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP264XWF-VGV94L-77JR" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="3106" y="1327"/>
+                <control-point x="2826" y="1327"/>
+            </connection-appearance>
+            <connection-appearance id="1JP25992J-2BDC4BM-76TN" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP2533YB-L243NM-76CF" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP2658SF-23JK6TB-77LR" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="3106" y="1327"/>
+                <control-point x="3256" y="1327"/>
+            </connection-appearance>
+            <connection-appearance id="1JP26J4TQ-2485ZWL-783R" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="2034" y="2070"/>
+                <control-point x="1933" y="2070"/>
+            </connection-appearance>
+            <connection-appearance id="1JP25CBTZ-188LZ5W-76WW" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP25VLKM-2D7V2L9-773G" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP25HZWH-2CS5DQX-76XZ" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="2807" y="1187"/>
+                <control-point x="2422" y="1187"/>
+            </connection-appearance>
+            <connection-appearance id="1JP279TRS-1LS9H9V-791M" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP26X83N-1XXX3H0-78K3" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP25C8C3-PL78KT-76WF" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP254NM0-18W6QGH-76DV" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="1060" y="1243"/>
+                <control-point x="650" y="1243"/>
+            </connection-appearance>
+            <connection-appearance id="1JP24SGFR-F4DSKF-75R4" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="1626" y="976"/>
+                <control-point x="1808" y="976"/>
+            </connection-appearance>
+            <connection-appearance id="1JP26Y9F6-29MHGZN-78MC" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="2626" y="1458"/>
+                <control-point x="2937" y="1458"/>
+            </connection-appearance>
+            <connection-appearance id="1JP24L5WK-1WKT907-75GV" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP26X42L-26ZF72D-78JP" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP24SZYH-2DKXCRQ-75SF" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="1453" y="1108"/>
+                <control-point x="1609" y="1108"/>
+            </connection-appearance>
+            <connection-appearance id="1JP254R3P-MR6BPK-76FM" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="1060" y="1243"/>
+                <control-point x="1149" y="1243"/>
+            </connection-appearance>
+            <connection-appearance id="1JP24H8QL-4R9XNM-759Z" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="2199" y="636"/>
+                <control-point x="1626" y="636"/>
+            </connection-appearance>
+            <connection-appearance id="1JP25V8S4-1008VQX-772T" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="2807" y="1187"/>
+                <control-point x="3106" y="1187"/>
+            </connection-appearance>
+            <connection-appearance id="1JP26H7RF-FXP86B-781B" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="2034" y="1933"/>
+                <control-point x="1721" y="1933"/>
+            </connection-appearance>
+            <connection-appearance id="1JP27DCLX-DRQBRX-794Q" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP27C749-15Z3RXC-792N" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP24JHR0-4YMDQH-75CL" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="2199" y="636"/>
+                <control-point x="2723" y="636"/>
+            </connection-appearance>
+            <connection-appearance id="1JP254Q0C-1DSN7GL-76F7" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="1060" y="1243"/>
+                <control-point x="978" y="1243"/>
+            </connection-appearance>
+            <connection-appearance id="1JP27948G-1R8Y1BW-7914" from-pos="center" to-pos="bottom" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP26HS7D-DY2ZQ1-782M" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP248J0F-JYHT0-74TB" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP26HCC5-1PL4CWB-7824" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="2034" y="1933"/>
+                <control-point x="2249" y="1933"/>
+            </connection-appearance>
+            <connection-appearance id="1JP25BXMF-1YTMZPD-76VL" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="2724" y="870"/>
+                <control-point x="2807" y="870"/>
+            </connection-appearance>
+            <connection-appearance id="1JP25J4RD-192WJ6Z-76YV" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="2034" y="1762"/>
+                <control-point x="1640" y="1762"/>
+            </connection-appearance>
+            <connection-appearance id="1JP25TVC5-TD0MKS-771S" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="2807" y="1187"/>
+                <control-point x="2626" y="1187"/>
+            </connection-appearance>
+            <connection-appearance id="1JP24SWC0-25RGZKD-75RZ" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP2790LM-2D1XYCF-790P" from-pos="center" to-pos="bottom" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP24DTVQ-T3K82Y-754T" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP24DHYC-P2XVMW-7530" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="2197" y="222"/>
+                <control-point x="2024" y="222"/>
+            </connection-appearance>
+            <connection-appearance id="1JP26J0L8-8P1N1S-7839" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="2034" y="2070"/>
+                <control-point x="2134" y="2070"/>
+            </connection-appearance>
+            <connection-appearance id="1JP25TXVT-11W2F15-7725" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP26Y6GJ-28J0Z72-78LY" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="2626" y="1458"/>
+                <control-point x="2771" y="1458"/>
+            </connection-appearance>
+            <connection-appearance id="1JP24H8QJ-237NSQ5-759S" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="2024" y="559"/>
+            </connection-appearance>
+            <connection-appearance id="1JP26MC86-20YT66P-788R" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP24HY5J-1L7L9W-75BZ" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="2356" y="559"/>
+            </connection-appearance>
+            <connection-appearance id="1JP25Y5JV-1LHTN44-7758" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="2807" y="1187"/>
+            </connection-appearance>
+            <connection-appearance id="1JP26H9DK-29TYZZG-781R" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP2530FQ-110M06Z-76BZ" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP254X1F-1H56Z9F-76GF" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="1060" y="1243"/>
+                <control-point x="1445" y="1243"/>
+            </connection-appearance>
+            <connection-appearance id="1JP26XGKD-9DD664-78KZ" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="2626" y="1458"/>
+                <control-point x="2282" y="1458"/>
+            </connection-appearance>
+            <connection-appearance id="1JP24DL7C-Y4F1X7-753T" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="2197" y="222"/>
+                <control-point x="2356" y="222"/>
+            </connection-appearance>
+            <connection-appearance id="1JP25JY1S-1LX371X-76ZC" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="1626" y="976"/>
+                <control-point x="2034" y="976"/>
+            </connection-appearance>
+            <connection-appearance id="1JP26XF5K-16TF5JP-78KL" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="2626" y="1458"/>
+                <control-point x="2471" y="1458"/>
+            </connection-appearance>
+            <connection-appearance id="1JP254M4K-2181L1D-76DF" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="1060" y="1243"/>
+                <control-point x="820" y="1243"/>
+            </connection-appearance>
+            <connection-appearance id="1JP271P65-1X93STW-78Q2" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="2034" y="1762"/>
+                <control-point x="2427" y="1762"/>
+            </connection-appearance>
+            <connection-appearance id="1JP24LBXX-1D99RNY-75HF" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP24DK3S-Z7D1VV-753F" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP24SFB5-27C1485-75QQ" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="1626" y="976"/>
+                <control-point x="1453" y="976"/>
+            </connection-appearance>
+            <connection-appearance id="1JP25B40B-1N07MR9-76V4" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="2724" y="870"/>
+                <control-point x="2648" y="870"/>
+            </connection-appearance>
+            <connection-appearance id="1JP264ZBS-1Y2WVLX-77K5" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="3106" y="1327"/>
+                <control-point x="2973" y="1327"/>
+            </connection-appearance>
+            <connection-appearance id="1JP24FZS8-18L88NH-756L" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP24T177-M292XY-75SV" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="1453" y="1108"/>
+                <control-point x="1775" y="1108"/>
+            </connection-appearance>
+            <connection-appearance id="1JP24HWFB-124RDK3-75BL" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP254VKV-DYJ4NX-76G1" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="1060" y="1243"/>
+                <control-point x="1305" y="1243"/>
+            </connection-appearance>
+        </connection-appearance-list>
+        <style-sheet-list>
+            <style-sheet id="_Default_">
+                <map-style background-color="255,255,255,0" image-style="full" image-top-left="0,0"/>
+                <concept-style font-name="Verdana" font-size="12" font-style="plain" font-color="0,0,0,255" text-margin="4" background-color="237,244,246,255" background-image-style="full" border-color="0,0,0,255" border-style="solid" border-thickness="1"
+                    border-shape="rounded-rectangle" text-alignment="center" shadow-color="none"/>
+                <linking-phrase-style font-name="Verdana" font-size="12" font-style="plain" font-color="0,0,0,255" text-margin="1" background-color="0,0,255,0" background-image-style="full" border-color="0,0,0,0" border-style="solid" border-thickness="1"
+                    border-shape="rectangle" text-alignment="center" shadow-color="none"/>
+                <connection-style color="0,0,0,255" style="solid" thickness="1" type="straight" arrowhead="if-to-concept-and-slopes-up"/>
+                <resource-style font-name="SanSerif" font-size="12" font-style="plain" font-color="0,0,0,255" background-color="192,192,192,255"/>
+            </style-sheet>
+            <style-sheet id="_LatestChanges_">
+                <concept-style background-color="255,255,255,255"/>
+                <linking-phrase-style font-size="18"/>
+                <connection-style arrowhead="if-to-concept"/>
+            </style-sheet>
+            <style-sheet id="1JP2300BR-711YZS-746H">
+                <concept-style font-name="Verdana" font-size="12" font-style="plain" font-color="0,0,0,255" text-margin="4" background-color="237,244,246,255" background-image-style="full" border-color="0,0,0,255" border-style="solid" border-thickness="1"
+                    border-shape="rounded-rectangle" text-alignment="center" shadow-color="none"/>
+                <linking-phrase-style font-name="Verdana" font-size="12" font-style="plain" font-color="0,0,0,255" text-margin="1" background-color="0,0,255,0" background-image-style="full" border-color="0,0,0,0" border-style="solid" border-thickness="1"
+                    border-shape="rectangle" text-alignment="center" shadow-color="none"/>
+                <connection-style color="0,0,0,255" style="solid" thickness="1" type="straight" arrowhead="if-to-concept-and-slopes-up"/>
+                <resource-style font-name="SanSerif" font-size="12" font-style="plain" font-color="0,0,0,255" background-color="192,192,192,255"/>
+            </style-sheet>
+        </style-sheet-list>
+        <extra-graphical-properties-list>
+            <properties-list id="1JP22ZVXC-1R37Y4Q-745X">
+                <property key="StyleSheetGroup_0" value="//*@!#$%%^&amp;*()() No Grouped StyleSheets @"/>
+            </properties-list>
+        </extra-graphical-properties-list>
+    </map>
+</cmap>

@@ -1,0 +1,157 @@
+<html>
+    <head>
+        <title>Import from Word</title>
+        <script src="{{ c.prefix }}/media/js/jquery-1.5.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){ 
+                $('#target_iframe').hide();
+                initUpload();
+            });
+
+            var taskID;
+
+            function checkForResponse() {
+                $('#target_iframe').show();
+                content = $('#target_iframe').contents().find('body').text();
+                $('#target_iframe').hide();
+                if(content == "")
+                    setTimeout("checkForResponse()",1000)
+                else {
+                    content = $.parseJSON(content);
+                    taskID = content.response.task_id;
+                    if (taskID) {
+                        checkStatus();
+                    } else {
+                        alert("Could not get task id: " + JSON.stringify(content));
+                    }
+                }
+            }
+  
+            function initUpload() {
+                document.getElementById('xdt').onsubmit=function() {
+                    taskID = null;
+                    doc = document.getElementById('target_iframe');
+                    if( doc.document ) {
+                        document.target_iframe.document.body.innerHTML = ""; //Chrome, IE
+                    } else {
+                        doc.contentDocument.body.innerHTML = ""; //FireFox
+                    }
+                    document.getElementById('xdt').target = 'target_iframe';
+                    $('#result').html('<p><img src="{{ c.prefix }}/media/images/ajax-loader.gif" /></p>');
+                    checkForResponse();
+                    return true;
+                }
+            }
+ 
+            function checkStatus() {
+                $.ajax({
+                    url: '{{ c.prefix }}/get/status/task/' + taskID,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        if (data.responseHeader.status != 0) {
+                            alert("Error getting task status: " + data.response.message);
+                            return;
+                        }
+
+                        var taskStatus  = data.response.status;
+                        if (taskStatus == 'PENDING' || taskStatus == 'IN PROGRESS') {
+                            setTimeout("checkStatus()", 1000);
+                        } else if (taskStatus == 'SUCCESS') {
+                            var userdata = jQuery.parseJSON(data.response.userdata);
+                            var artifactID = userdata.artifactID
+                            $.ajax({
+                                url: "{{ c.prefix }}/get/info/"+artifactID,
+                                type: 'GET',
+                                dataType: 'json',
+                                success: function(data) {
+                                    var info = data.response.artifact;
+                                    var perma = '';
+                                    if (info.realm) {
+                                        perma += '/' + info.realm;
+                                    }
+                                    perma += '/concept/' + info.handle;
+                                    $('#result').html('<p>The Word document has been imported. <a href="' + perma + '" target="_blank">View</a></p>');
+                                }
+                            });
+                        } else {
+                            $('#result').html('<p style="color:red;">Failed to import document. <br/>' + data.response.result + '</p>');
+                            alert("Task did not end successfully: " + JSON.stringify(data.response));
+                        }
+                    }
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <h2>Import a lesson from a Word document</h2>
+        <div id="result">
+        {% if c.imported %}
+        <p>
+            The lesson was imported. <a href="{{ c.perma }}" target="_blank">View</a>
+            <br/><br/>
+            {% if c.warnings %}
+            <p>
+                Warnings:<br/>
+                <span style="font-size:8pt;">
+                    {{ c.warnings }}
+                </span>
+            </p>
+            {% endif %}
+        </p>
+        {% endif %}
+        </div>
+        <form id="xdt" name="xdt" method="POST" 
+            enctype="multipart/form-data"
+            action="{{ c.prefix }}/import/xdt">
+        <table>
+            <tr>
+                <td>
+                    Lesson title:
+                </td>
+                <td>
+                    <input type="text" name="title" />
+                    <input type="hidden" name="nonJSON" value="true" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    MS Word file:
+                </td>
+                <td>
+                    <input type="file" name="fromFile" />
+                </td>
+            </tr>
+            <tr>
+                <td>Choose conversion type:
+                </td>
+                <td>
+                    <select name="command">
+                        <option selected="selected" value="docx2xhtml">MS Word to XHTML</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Choose artifact type:
+                </td>
+                <td>
+                    <select name="artifactType">
+                        <!-- <option value="concept">Concept</option> -->
+                        <option selected="selected" value="lesson">Lesson</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>User: </td>
+                <td>{{ c.member.login }}</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:right;">
+                    <input type="submit" name="submit" value="Import" id="submit" /> <!-- onclick="startImport();" /> -->
+                </td>
+            </tr>
+        </table>
+    </form>
+    <iframe id="target_iframe" name="target_iframe" src="" frameborder="0" style="height:0px; width:0px; overflow:none;"></iframe>
+</body>
+</html>

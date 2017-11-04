@@ -1,0 +1,233 @@
+{% extends "details.html" %}  
+
+{% block admincontent %} 
+<div class="sectionhead sectiontitle">{{ c.pagetitle }}</div>
+<div class="section">
+  <div class="leftaligned">
+  {% for field in c.form.ordered_fields %}
+    {{ field }}
+  {% endfor %}
+    {{ h.htmllabel('Updated')}}<div id='_updated' class='td nowrap'>{{c.task.updated}}</div>
+    {{ h.htmllabel('Owner')}}<div>{{h.userlink(c.owner)}}{{h.id_in_parens(c.owner)}}</div>
+    {{ h.htmllabel('Status')}}<div id='_status' class='td nowrap'>{{c.task.status}}</div>
+    {{ h.htmllabel('Hostname')}}<div id='_hostname' class='td nowrap'>{{c.task.hostname}}</div>
+  {% if c.task.name=='ModalityLoaderTask' or c.task.name=='VocabularyLoaderTask' %}
+    {{ h.htmllabel('Result')}}<div id='_result' class='td'></div>
+    {{ h.htmllabel('User Data')}}<div id='_userdata' class='td'>(below)</div>
+  {% elif c.task.name=='assembleArtifactTask' and 'analysis_dict' in c.task.userdata %}
+    {{ h.htmllabel('Result')}}<div id='_result' class='td'>{{c.task.result}}</div>
+    {{ h.htmllabel('User Data')}}<div id='_userdata' class='td'>(below)</div>
+  {% else %}
+    {{ h.htmllabel('Result')}}<div id='_result' class='td'>{{c.task.result}}</div>
+    {{ h.htmllabel('User Data')}}<div id='_userdata' class='td'>{{c.task.userdata|e}}</div>
+  {% endif %}
+  </div>
+</div>
+
+<div id='assembleTaskResult_head' class="detailed thead sectionhead hide">
+  <div class="tr">
+    <div class="td">Serial No.</div>
+    <div class="td">Sequence No.</div>
+    <div class="td">Type</div>
+    <div class="td">Title</div>
+    <div class="td">Status</div>
+    <div class="td">URLs</div>
+
+  </div>
+</div>
+<div id='assembleTaskResult_body' class="detailed tbody hide"></div>
+
+<div id='loaderTaskResult_head' class="detailed thead sectionhead hide">
+  <div class="tr">
+    <div class="td">Row</div>
+    <div class="td">Message</div>
+  </div>
+</div>
+<div id='loaderTaskResult_body' class="detailed tbody hide"></div>
+{% endblock admincontent %}
+
+
+{% block js_scripts %}
+<script type="text/javascript" src="{{ h.url_js('task_result_formatter.js') }}"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  var 
+  updateInterval = Defaults.interval.short, 
+  id = '{{c.id}}',
+  url = CK12.flxUrl('get/status/task/'+id),
+  $status = $('#_status'),
+  $result = $('#_result'),
+
+  showTaskResult = function(userdata){
+    $('.detailed.thead').removeClass('hide');
+    $('.detailed.tbody').html(TaskResultFormatter.formatRows(userdata)).removeClass('hide');
+  };
+
+  if ('{{c.task.name}}'=='ModalityLoaderTask' || '{{c.task.name}}'=='VocabularyLoaderTask'){
+    $.get(url, function(data){
+      $result.text(TaskResultFormatter.rows_errs_str(data.response.userdata));
+      showTaskResult(data.response.userdata);
+    });
+  }
+
+  createAnalysisList = function(analysisDict){
+    createList = analysisDict.create;
+    updateList = analysisDict.update;
+    sameRevList = analysisDict.sameRev;
+    for(var i=0;i<createList.length;i++)
+      createList[i]["status"] = "create"; 
+    for(var i=0;i<updateList.length;i++)
+      updateList[i]["status"] = "update";
+    for(var i=0;i<sameRevList.length;i++)
+      sameRevList[i]["status"] = "sameRev";
+    
+    analysisList = createList.concat(updateList).concat(sameRevList);
+    //Now sort the list by the sequence Nos.
+    var myCompare = function(a, b) {
+      var aVal = parseFloat(a.sequence);
+      var bVal = parseFloat(b.sequence);
+      if (a.sequence == "")
+        aVal = 0;
+      if(b.sequence == "")
+        bVal = 0;
+      //We want sequences like 12.7 to be less than 12.18 and hence the below logic
+      if(Math.floor(aVal) == Math.floor(bVal)) {
+        aVal = parseFloat(a.sequence.replace('.',''));
+        bVal = parseFloat(b.sequence.replace('.',''));
+      }       
+      return aVal - bVal;
+    }
+    analysisList = analysisList.sort(myCompare);
+    return analysisList;
+  }
+
+  //remove concepts and only leave lessons - considering them as a single Unit
+  var removeConcepts = function(analysisList){
+    for(var i=0;i<analysisList.length;){
+      if(analysisList[i].type == "concept"){
+        lessonStatus = "";
+        conceptStatus = analysisList[i].status;
+        if(i < (analysisList.length -1) && analysisList[i+1].type == "lesson" && 
+          analysisList[i+1].sequence == analysisList[i].sequence){
+          lessonStatus = analysisList[i+1].status;
+          lessonI = i+1;
+        }
+        else if(i>0 && analysisList[i-1].type == "lesson" && analysisList[i-1].sequence == analysisList[i].sequence){
+          lessonStatus = analysisList[i-1].status;
+          lessonI = i-1;
+        } 
+        if(lessonStatus != "" && lessonStatus!=conceptStatus){
+          if(conceptStatus=="update"){
+            analysisList[lessonI].status = "update";
+            analysisList[lessonI].contentChanged = analysisList[i].contentChanged;
+            analysisList[lessonI].targetHandle = analysisList[i].targetHandle;
+          }
+        }
+        analysisList.splice(i, 1);
+      }
+      else
+        i++;
+    }
+    return analysisList;
+  }
+
+  var traverseList = function(list, analysisDict){
+    var html = '', serialNo = 0;
+    var hostName = "http://" + window.location.hostname;
+    var sourceURL = hostName + "/user:" + analysisDict.source.owner_login + "/book/" + analysisDict.source.handle + "/";
+    var targetURL = hostName + "/user:" + analysisDict.target.owner_login + "/";
+    for(var i=0; i<list.length; i++){
+      var status = ""; type = "", sourceSuffix="",targetSuffix="";
+      
+      //Set target URL if any
+      if(list[i].status == "update")
+        targetSuffix = list[i].type + "/" + list[i].targetHandle;
+      
+      //Rename Lessons to Sections for display purpose
+      if(list[i].type == "lesson")
+        type = "section";
+      else
+        type = list[i].type;
+      
+      //Set proper status for display
+      if(list[i].status == "create")
+        status = "New";
+      else if(list[i].status == "update"){
+        if(list.contentChanged == "True")
+          status = "Will be modified";
+        else
+          status = "Same content";
+      }
+      else if(list[i].status == "sameRev")
+        status = "Same Revision";
+
+      //Set source URL
+      if(list[i].type != "book")
+        sourceSuffix = "section/" + list[i].sequence;
+      if(list[i].type == "chapter")
+        sourceSuffix += ".0";
+
+      serialNo += 1;
+      html += '<div class="tr">\
+      <div class="td">'+serialNo+'</div>\
+      <div class="td">'+list[i].sequence+'</div>\
+      <div class="td">'+type+'</div>\
+      <div class="td">'+list[i].name+'</div>\
+      <div class="td">'+status+'</div>\
+      <div class="td"><a href="'+sourceURL+sourceSuffix+'" target="_blank">Source</a>';
+      if (targetSuffix == "")
+        html += '</div></div>';
+      else
+        html += '&nbsp<a href="'+targetURL+targetSuffix+'" target="_blank">Target</a></div></div>';
+    }
+    return html;
+  }
+
+  var deepCopyAnalysisResult = function(userdata){
+    userdata = $.parseJSON(userdata);
+    var analysisDict = userdata.analysis_dict;
+    var analysisList = createAnalysisList(analysisDict);
+    analysisList = removeConcepts(analysisList);
+    console.log(analysisList);
+    html_data = traverseList(analysisList, analysisDict);
+    console.log(analysisList);
+
+    return html_data;
+  }
+
+  if ('{{c.task.name}}'=='assembleArtifactTask'){
+    $.get(url, function(data){
+      $('#assembleTaskResult_head').removeClass('hide');
+      $('#assembleTaskResult_body').html(deepCopyAnalysisResult(data.response.userdata)).removeClass('hide');
+    });
+  }
+
+  Fns.pollStatus = function(){
+    var status = $status.text().trim();
+
+    if (id && Fns.inProgress(status)){
+      $.get(url, function(data){
+        var task = data.response;
+        $('#_updated').text(task.updated||'');
+        $status.text(task.status||'');
+        if (task.name=='ModalityLoaderTask' || task.name=='VocabularyLoaderTask'){
+          showTaskResult(task.userdata);
+        }else{
+          $result.text(task.result||'');
+          $('#_userdata').text(task.userdata||'');
+        }
+      {% if c.is_pane %}
+        $('#panes').width($('#leftpane').width()+$('#rightpane').width());
+      {% endif %}
+      });
+      Fns.colorStatus($status);
+    }
+    else if (Poll2){
+      clearInterval(Poll2);
+    }
+  };
+  Fns.colorStatus($status);
+  Poll2 = setInterval("Fns.pollStatus()", updateInterval); 
+});
+</script>
+{% endblock %}

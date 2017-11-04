@@ -1,0 +1,49 @@
+{% extends "common/master.html" %}
+
+{% block title %}{{ _("Standards") }}{% endblock %}
+
+{% block stylesheets %}
+    {{ super() }}
+    <link rel="stylesheet" type="text/css" media="all" href="{{ h.url_css('landing.css') }}" />
+    <link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('standard/css/standard.css') }}" />
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+<!-- Main Content -->
+    <script>
+    document.getElementsByClassName('page-title')[0].innerHTML = 'Standards';
+    if ('classList' in document.createElement('a')) {
+		document.getElementsByClassName('back-icon')[0].classList.remove('hide-one', 'hidden');
+		document.getElementsByClassName('name')[0].classList.add('hide-small');
+	} else { // IE-9 :(
+		var temp = document.getElementsByClassName('back-icon')[0]; 
+		temp.className = temp.className.replace(/\bhide-one\b/, '');
+		temp.className = temp.className.replace(/\bhidden\b/, '');
+		document.getElementsByClassName('name')[0].className += 'hide-small'; 
+	}
+    require(['main'], function(){
+        require(['standard/controllers/standard'],function(standard){
+            new standard().load();
+        });
+    });
+    </script>
+{% endblock %}
+
+{% block header %}
+    {% include 'standard/header.html' %}
+{% endblock %}
+  <!-- Main Page Content and Sidebar -->
+ {% block content %}
+ {{ super() }}
+ 	<div id="page-disable" class="page-disable js-page-disable hide"></div>
+    <div id="loading-icon" class="loading-icon js-loading-icon">
+           <img alt="loading" src="{{ h.asset_image('common/images/icon_loading.gif') }}">
+    </div>
+    <div id="standard-content" class="row collapse standards-container"></div>
+ {% endblock %}
+  <!-- End Main Content and Sidebar -->
+ 
+  
+
+

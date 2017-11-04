@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Import Concept Map from CXL</title>
+        <script src="{{ c.prefix }}/media/js/jquery-1.5.min.js"></script>
+    </head>
+    <body>
+        <h2>Import a Concept Map from CXL File</h2>
+        <div id="result">
+        {% if c.imported %}
+        <p>
+            The concept map was imported. <a href="{{ c.url }}" target="_blank">View</a>
+            <br/><br/>
+        </p>
+        {% endif %}
+        </div>
+        <form id="xdt" name="xdt" method="POST" 
+            enctype="multipart/form-data"
+            action="{{ c.prefix }}/import/conceptMap">
+        <table>
+            <tr>
+                <td>
+                    CXL File:
+                </td>
+                <td>
+                    <input type="file" name="file" />
+                </td>
+            </tr>
+            <tr>
+                <td>User: </td>
+                <td>{{ c.member.login }}
+                    <input type="hidden" name="userform" value="true" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:right;">
+                    <input type="submit" name="submit" value="Import" id="submit" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

@@ -1,0 +1,126 @@
+{% extends "master.html" %}  
+{% from "macros/form_errors.html" import form_errors with context %}  
+
+{% block admincontent %} 
+<div class="sectionhead sectiontitle">Cache Rebuild</div>
+	<div class="section withfloatedsubmit">
+		{% set counter = 1 %}
+		<div class="table clear" style="margin-top:0px;width:90%">
+			<div class="thead sectionhead">
+				<div class="tr">
+					<div class="td" style="width:25px;">
+						<input type="checkbox" name="selectall" checked='checked' id="selectall" title = "Unselect All" style="margin-top: 5px;"/>
+						<div class='sort-indicator hide'></div>
+					</div>
+					<div class="td med">
+						Branch Name<div class='sort-indicator hide'></div>
+					</div>
+					<div class="td xlong">
+						URL<div class='sort-indicator hide'></div>
+					</div>
+					<div class="td short">
+						Status<div class='sort-indicator hide'></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="tbody">
+			{% for cache_url in c.form.cache_rebuild_urls[0]%}
+				<div class='tr'>
+					<div class='td' style="width:25px;">
+						{{ h.labelcheckbox('', counter, True)}}
+						{% set counter = counter + 1%}
+					</div>
+					<div class='td med'>
+						{{ cache_url | title }}
+					</div>
+					<div class='td xlong api'>
+						<input class='efull' type='text' name='title' value='http://{{ h.flxweb_server_root() }}/{{ cache_url }}/?nocache=true'/>
+					</div>
+					<div class="td short status">
+						-
+					</div>
+				</div>
+			{% endfor %}
+			</div>
+		</div>
+		
+		<div id='cache_rebuild_stat' style="margin-top:10px;"></div>
+			{{ h.submitbutton('Rebuild Cache', id='rebuild_cache')}}
+		</div>
+	</div>
+	
+	<span class='ajaxError'></span>
+</div>
+
+{% endblock admincontent %}
+
+{% block js_scripts %}
+<script type='text/javascript'>
+{{ form_errors() }}
+
+$(document).ready(function(){
+	var cache_urls, cache_urls_len,
+  
+	check_cache_urls = function(i){
+		// check cache rebuild urls in serial, updates timestamp when done.
+		if (i < cache_urls_len){
+		    var currentURLTD = $(cache_urls[i]).parent().siblings().filter('.api')[0];
+			var url = $(currentURLTD).find('input').val();
+			$($(currentURLTD).siblings().filter('.status')[0]).html('IN PROGRESS');
+			Fns.colorStatus();
+			if (url){
+				$('#cache_rebuild_stat').html("<b>Rebuilding cache for : "+ url + "</b>");
+				$.ajax({url: url, 
+					type: 'GET', 
+					data: {},
+					timeout: 600000, //10 mins
+					success: function(data, status, xhr){
+						$($(currentURLTD).siblings().filter('.status')[0]).html('SUCCESS');
+						Fns.colorStatus();
+						check_cache_urls(++i);
+					},
+					error: function(xhr, textStatus, errorThrown){
+						$($(currentURLTD).siblings().filter('.status')[0]).html('FAILURE');
+						Fns.colorStatus();
+						$($(currentURLTD).siblings().filter('.status')[0]).attr('title', errorThrown);
+						check_cache_urls(++i);
+					}
+				});
+			}else{
+				check_cache_urls(++i);
+			}
+		}else{
+			var 
+				now = new Date(),
+				dtstr = now.toString();
+			$('#cache_rebuild_stat').html("<b>Last updated "+dtstr + "</b>");
+		}
+	};
+
+	$('#rebuild_cache').click(function(){
+		cache_urls = $('.td').children().filter('input:checked');
+		cache_urls_len = cache_urls.length;
+		$.each(cache_urls, function(index,value){
+			$($(value).parent().siblings().filter('.status')[0]).html('PENDING');
+		});
+		if (cache_urls_len > 0){
+			Fns.colorStatus();
+			check_cache_urls(0);
+		}
+	});
+
+	$('#selectall').click(function(){
+		if ($(this).is(':checked')){
+			$('.td').find(':checkbox').attr("checked", "checked");
+			$(this).attr('title', 'Unselect All');
+		}else{
+			$('.td').find(':checkbox').removeAttr('checked');
+			$(this).attr('title', 'Select All');
+		}
+	});
+
+	$('input[type="checkbox"]').css('margin-top','5px');
+});
+</script>
+{% endblock %}

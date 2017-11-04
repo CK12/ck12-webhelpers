@@ -1,0 +1,113 @@
+.symbolCont{
+	border-top:1px solid;
+}
+
+.symbolCont > * {
+    margin-top: 2px !important;
+}
+.symbolCont input {
+    margin-top: 4px !important;
+}
+.symbolContainer.lineOverExpressionsContainer .specialCharacter{
+	width:0;
+}
+.specialCharacterCont{
+	margin-top:4px !important;
+}
+.symbolContainer .specialCharacter {
+    display: block;
+    font-size: 20px;
+    line-height: 10px;
+    text-align: center;
+    font-family:Symbola,"Times New Roman",serif;
+    position:relative;
+}
+
+.symbolContainer .wildeTildeContainer span:nth-of-type(2){
+	margin-top: -7px;
+}
+.symbolContainer .longArrow{
+	transform: scale(1.5, 1);
+	-ms-transform:scale(1.5, 1); /* IE 9 */
+	-webkit-transform:scale(1.5, 1);/* Safari and Chrome */
+}
+
+.symbolContainer .longArrowLeft{
+	transform: scale(1.5, 1);
+	-ms-transform:scale(1.5, 1); /* IE 9 */
+	-webkit-transform:scale(1.5, 1);/* Safari and Chrome */
+    margin-right: 10px;
+    width:0;
+}
+.symbolContainer .longArrowRight{
+	/* transform: scale(1.5, 1); */
+	/* -ms-transform:scale(1.5, 1); */ /* IE 9 */
+	/* -webkit-transform:scale(1.5, 1); *//* Safari and Chrome */
+    width:0; 
+}
+.symbolContainer .arrowLeft {
+    float: left;
+    margin-top: 0px;
+    margin-left:1px;
+}
+.symbolContainer.rightarrowOverExpressionContainer .specialCharacter{
+	 text-align:left; 
+}
+.symbolContainer.leftarrowOverExpressionContainer .specialCharacter{
+	text-align:left;
+}
+.symbolContainer .arrowRight {
+     border-right: 1px solid #000000;
+    border-top: 1px solid #000000;
+    display: inline-block;
+    height: 5px;
+    line-height: 7px;
+    position: absolute;
+    right: 0px;
+    top: -2px;
+    width: 5px;
+     -ms-transform:rotate(45deg);
+    -moz-transform:rotate(45deg);
+    -webkit-transform:rotate(45deg);
+    transform:rotate(45deg);
+}
+.symbolContainer .arrowLeft{
+     -ms-transform:rotate(225deg);
+    -moz-transform:rotate(225deg);
+    -webkit-transform:rotate(225deg);
+    transform:rotate(225deg);
+	border-right: 1px solid #000000;
+    border-top: 1px solid #000000;
+    display: inline-block;
+    height: 5px;
+    left: -2px;
+    line-height: 7px;
+    position: absolute;
+    top: -2px;
+    width:5px;
+}
+.symbolContainer .bothLeft {
+    margin-left: 3px;
+    top: -2px;
+}
+.symbolContainer .bothRight {
+}
+.tooltip-tools-inner.alignCharacter > div{
+	 font-family:Symbola,"Times New Roman",serif;
+	 font-style:normal;
+}
+.baseScale.arrowScale {
+    display: block;
+    text-align: center;
+    width: 0;
+    line-height:10px;
+}
+.symbolContainer .tilde{
+ 	display: block;
+    text-align: center;
+    font-family:Symbola,"Times New Roman",serif;
+    transform: scale(1.8, 2);
+    -ms-transform:scale((1.8, 2); /* IE 9 */
+	-webkit-transform:scale(1.8, 2);/* Safari and Chrome */
+}
+

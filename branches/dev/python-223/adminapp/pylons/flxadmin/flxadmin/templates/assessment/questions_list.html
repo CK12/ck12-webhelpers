@@ -1,0 +1,129 @@
+{% from "macros/pagination.html" import paginate with context %}  
+
+{% macro level_display_name(level_) %}
+    {% if level_ == 'easy' %}
+        {{ "Basic" }}
+    {% elif level_ == 'medium' %}
+        {{ "At Grade" }}
+    {% elif level_ == 'hard' %}
+        {{ "Advance" }}
+    {% endif %}
+{% endmacro %}
+
+{% if c.paginator.item_count > 0 %}
+  {% if c.asOverlay|lower == 'false'  %}
+
+  {% for i in c.paginator.items %}
+  	{% if i.questionType.name == 'geometry-interactive' or i.questionType.name == 'ilo-component' or not i.questionData.stem %}
+      	{% set displayText = 'Detail' %}
+  	{% else %}
+  	 	{% set displayText = i.questionData.stem.displayText %}
+  	{% endif %}
+    <div class="tr question-row {% if i.generative %}generative{% endif %} paneview {{ h.hide_if_full(c.viewmode)}}">
+      <div class="td id">{{i._id}}</div>
+      <div class="td viewtrigger" data-id="{{i._id}}"><span class="tiptrigger">{{h.idlink2('assessment/question/', i, alttext=displayText|truncate(32), idkey='_id')}}</span></br>
+        {{i.questionType.name}},
+        by: {{h.userlink(i.owner, 'email', idkey='uID', truncate=10)}},
+        Published: {{i.isPublic}}
+        <div class='hide tipdiv'>{{displayText|escape}}</div>
+      </div>
+      <div class="td nowrap">{{i.updated|parseISODate}}</div>
+    </div>
+    <div class="tr question-row {% if i.generative %}generative{% endif %} fullview {{ h.hide_if_pane(c.viewmode)}}">
+      <div class='td' style="width:10px;">
+          {{ h.labelcheckbox('',i['_id'], False, 'true', i.encodedIDs[0])}}
+      </div>	
+      {% if c.mismatchedLevel %}
+	      {% if i.questionType.name == 'geometry-interactive' %}
+	          <div class="td">
+	          {{ h.htmla('/assessment/tools/geometry-tool/embed.html?url=/assessment/api/render/questionInstance?qID=%s'%(i._id), (i._id), 'preview')}}
+	          </div>
+		  {% else %}
+		      <div class="td">
+		      {{ h.htmla('/assessment/ui/?question/preview/%s'%(i._id), (i._id), 'preview')}}
+		      </div>
+		  {% endif %}
+	  {% else %}
+	  	  <div class="td id">{{i._id}}</div>
+	  {% endif %}
+      <div class="td">{{i.questionType.name}}</div>
+      <div class="td">{{ i.tags.level }}</div>
+      {% if c.mismatchedLevel %}
+      	<div class="td">{{ i.deduced.level }}</div>
+      {% endif %}
+      <div class="td">{{i.encodedIDs | join(', ')  or "N/A" }}</div>
+      <div class="td viewtrigger tiptrigger" data-id="{{i._id}}">{{h.idlink2('assessment/question/', i, alttext=displayText|truncate(50), idkey='_id')}}</div>
+      <div class="td">{{i.isPublic}}</div>
+      <div class="td" style="max-width: 100px; overflow: auto;">{{h.userlink(i.owner, 'email', idkey='uID')}}</div>
+      <div class="td nowrap">{{i.updated|parseISODate}}</div>
+      <div class='hide tipdiv'>{{displayText|escape}}</div>
+      <div class="td">{{ i.hints|length }}</div>
+    </div> 
+  {% endfor %}
+
+  {% else %}
+
+  {% for i in c.paginator.items %}
+  	{% if i.questionType.name == 'geometry-interactive' or i.questionType.name == 'ilo-component' or not i.questionData.stem %}
+      	{% set displayText = 'Detail' %}
+  	{% else %}
+  		{% set displayText = i.questionData.stem.displayText %}
+  	{% endif %}
+  	
+  	{% if c.mismatchedLevel %}
+  		<div class="tr {% if i.generative %}generative{% endif %} paneview {{ h.hide_if_full(c.viewmode)}}">
+        	<div class="td id">{{i._id}}</div>
+        	<div class="td viewtrigger" data-id="{{i._id}}"><span class="tiptrigger">{{h.idlink2('assessment/question/', i, alttext=displayText|truncate(32), idkey='_id')}}</span></br>
+		        {{i.questionType.name}},
+		        by: {{h.userlink(i.owner, 'email', idkey='uID', truncate=10)}},
+		        Published: {{i.isPublic}}
+        	<div class='hide tipdiv'>{{displayText|escape}}</div>
+      		</div>
+      		<div class="td nowrap">{{i.updated|parseISODate}}</div>
+    	</div>
+  	{% endif %}
+  	
+    <div class="tr  {% if i.generative %}generative{% endif %}">
+        <div class='td' style="width:10px;">
+            {{ h.labelcheckbox('',i['_id'], False, 'true', i.encodedIDs[0])}}
+        </div>
+      {% if c.mismatchedLevel %}
+	      {% if i.questionType.name == 'geometry-interactive' %}
+	          <div class="td">
+	          {{ h.htmla('/assessment/tools/geometry-tool/embed.html?url=/assessment/api/render/questionInstance?qID=%s'%(i._id), (i._id), 'preview')}}
+	          </div>
+		  {% else %}
+		      <div class="td">
+		      {{ h.htmla('/assessment/ui/?question/preview/%s'%(i._id), (i._id), 'preview')}}
+		      </div>
+		  {% endif %}
+	  {% else %}
+	  	  <div class="td id">{{h.idlink('assessment/question/', i, alttext=i['_id']|truncate(32), idkey='_id')}}</div>
+	  {% endif %}
+      <div class="td">{{i.questionType.name}}</div>
+      <div class="td">{{ i.tags.level }}</div>
+      {% if c.mismatchedLevel %}
+          {% if i.deduced.verified %}
+      	      <div class="td">{{ i.deduced.level }} (Yes)</div>
+      	  {% else %}
+      	      <div class="td">{{ i.deduced.level }} (No)</div>
+      	  {% endif %}
+      {% endif %}
+      <div class="td">{{i.encodedIDs | join(', ')  or "N/A" }}</div>
+      {% if c.mismatchedLevel %}
+	      <div class="td viewtrigger tiptrigger" data-id="{{i._id}}">{{h.idlink2('assessment/question/', i, alttext=displayText|truncate(50), idkey='_id')}}</div>
+	      <div class='hide tipdiv'>{{displayText|escape}}</div>
+	  {% else %}
+	  	  <div class="td expand">{{displayText|truncate(50) | escape}}</div>
+	  {% endif %}
+      <div class="td">{{i.isPublic}}</div>
+      <div class="td" style="max-width: 100px; overflow: auto;">{{h.userlink(i.owner, 'email', idkey='uID')}}</div>
+      <div class="td nowrap">{{i.updated | parseISODate}}</div>
+      <div class='hide expanded'>{{displayText|escape}}</div>
+      <div class="td">{{ i.hints|length }}</div>
+    </div>
+  {% endfor %}
+
+  {% endif %}
+{{ paginate(c.paginator) }}
+{% endif %}

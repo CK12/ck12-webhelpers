@@ -1,0 +1,32 @@
+{% from "macros/pagination.html" import paginate with context %}  
+
+{% if c.paginator.item_count > 0 %}
+  {% for i in c.paginator.items %}
+    <div class="tr paneview {{ h.hide_if_full(c.viewmode)}}">
+      <div class="td id">{{i._id}}</div>
+      <div class="td viewtrigger tiptrigger" data-id="{{i._id}}">{{h.idlink2('/assessment/error', i, alttext=i.reason|truncate(32)|escape, idkey='_id')}}<br/>
+        {{i.errorType.name}} - {{i.status}}
+      </div>
+      <div class='hide tipdiv'>{{i.reason|escape}}</div>
+      <div class="td nowrap">{{i.updated|parseISODate}}</div>
+    </div>
+
+    <div class="tr fullview {{ h.hide_if_pane(c.viewmode)}}">
+      <div class="td id">{{i._id}}</div>
+      <div class="td">{{i.errorType.name}}</div>
+      <div class="td viewtrigger tiptrigger" data-id="{{i._id}}">{{h.idlink2('/assessment/error', i, alttext=i.reason|truncate(36)|escape, idkey='_id')}}</div>
+      <div class='hide tipdiv'>{{i.reason|escape}}</div>
+      <div class="td">{{i.status}}</div>
+      <div class="td">{{i.branch}}</div>
+      <div class="td" style="width: 100px;word-break: break-all;white-space: normal;">{{h.userlink(i.user, 'email', idkey='uID')}}</div>
+      <div class="td" style="width: 100px;word-break: break-all;white-space: normal;">{{h.userlink(i.reviewedBy, 'email', idkey='uID')}}</div>
+      <div class="td nowrap viewtrigger tiptrigger">{{i.updated|parseISODate|compact}}</div>
+      <div class='hide tipdiv'>{{i.updated|parseISODate}}</div>
+      <div class="td nowrap viewtrigger tiptrigger">{{i.created|parseISODate|compact}}</div>
+      <div class='hide tipdiv'>{{i.created|parseISODate}}</div>
+      <div class="td nowrap viewtrigger tiptrigger">{{i.unresolvedReportCount}}</div>
+      <div class='hide tipdiv'>{{i.unresolvedReportCount|parseISODate}}</div>       
+    </div>
+  {% endfor %}
+  {{ paginate(c.paginator) }}
+{% endif %}

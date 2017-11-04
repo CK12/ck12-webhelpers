@@ -1,0 +1,88 @@
+/*****************************************************************************************
+ * Standards Correlations dialogs
+ ****************************************************************************************/
+.dialog_standards {
+    font-size: 14px;
+    width: 100%;
+    text-shadow: none;
+}
+.dialog_standards #std_drop_down_wrapper {
+    text-align: left;
+    padding-bottom: 10px;
+}
+
+.dialog_standards .column {
+    float: left;
+    width: 45%;
+    text-align: left;
+    padding: 5px;
+}
+
+.dialog_standards .column.title {
+    font-weight: bold;
+    color: #eee;
+}
+
+.dialog_standards .column_titlewrapper {
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+    background: #00aba4;
+    color: #eee;
+}
+
+.dialog_standards .nochildren {
+    padding: 5px;
+    text-align: left;
+}
+
+.dialog_standards .chaptertitle {
+    border-top: 1px solid #999;
+    border-bottom: 1px solid #999;
+    margin: 5px 0;
+    padding: 5px;
+    color: #666;
+    text-align: left;
+    font-weight: bold;
+}
+
+.dialog_standards .chaptertitle .chaptersequence {
+    padding-right: 20px;
+}
+.dialog_standards .correlations {
+    font-size: 13px;
+}
+
+.dialog_standards .column .sectionsequence {
+    float: left;
+    width: 20%;
+    text-align: center;
+}
+.dialog_standards .column .sectionname {
+    float: left;
+    width: 80%;
+}
+div.std_drop_down_wrapper {
+    color: #666;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 10px 16px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+div.std_drop_down_wrapper select {
+    font-weight: normal;
+}
+#std_drop_down{
+	width:100%;
+}
+.js_ck12_dialog_common.standards_dialog {
+    left: 50% !important;
+    margin-left: -35%;
+}
+@media all and (max-width: 767px) {
+    .js_ck12_dialog_common.standards_dialog {
+	    left: 50% !important;
+	    width: 90% !important;
+	    margin-left: -45%;
+	}
+}

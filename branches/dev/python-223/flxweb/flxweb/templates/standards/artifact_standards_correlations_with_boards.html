@@ -1,0 +1,17 @@
+{% extends "standards/artifact_standard_corrleation_rev.html" %}
+
+{% block std_drop_down_containerDummy %}
+{% endblock %}
+
+{% block std_drop_down_container %}
+    <div class="std_drop_down_wrapper">
+        <div>{{_("Standards:") }}&nbsp;</div>
+        <select id="std_drop_down" data-artifactid="{{c.artifact_id}}">
+    {% for board in c.standardBoardsList %}
+        <option value="{{board.id}}" {% if c.standard_board_id == board.id %}
+        selected='selected' {% endif %}>
+        {{board.name}}</option>
+    {% endfor %}
+    </select>
+    </div>
+{% endblock %}

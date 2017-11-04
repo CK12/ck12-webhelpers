@@ -1,0 +1,66 @@
+{% extends "base/1column.html" %}
+
+{% block extra_metatags %}
+{{ super() }}
+<meta name="robots" content="noindex, nofollow">
+{% endblock extra_metatags %}
+
+{% block js %}
+{{ super() }}
+ <script language="JavaScript" type="text/javascript">
+ 	require(['main'],function(){
+	 	require(['jquery'],function($){
+	 		function domready(){
+	            var _url = window.location.href;
+	            var support_url = $("#supportlink");
+	            var support_mailto = $(support_url).attr('href');
+	            var mail_msg = "Help: Old URL";
+	            var mail_body = "URL: " + window.location.href;
+	            support_mailto +=  '?subject=' + escape(mail_msg);
+	            support_mailto +=  '&body=' + escape(mail_body);
+	            $(support_url).attr('href', support_mailto);
+	 		}
+	 		$(document).ready(domready);
+ 		});
+ 	})
+ </script>
+{% endblock %}
+
+{% block pageinfotop %}
+<div class="contenttop"></div>
+{% endblock %}
+
+{% block content %}
+
+<div class="contentarea">
+	<div class="unmigrated_artifact_info contentarea prefix_2 grid_8 suffix_2">
+		<div class="spacetopxlarge"></div>&nbsp;<div class="spacetopxlarge"></div>
+		
+		<h1 class="toptitle">{{ _('<img src="%(logo)s" alt="CK-12" /> is new and improved...' % {'logo':h.url_images('logo_ck12.png') }  ) }}</h1>
+		<h2>{{ _('Darn! It looks like you\'ve stumbled upon an old URL.') }}</h2>
+		<div class="divider spacetop"></div>
+		<div class="spacetopxlarge"></div>
+		<p>
+		{{ _('We have recently upgraded our FlexBook&#174; textbook Platform&reg; with many <a href="%(features_url)s">new features</a>.' % {'features_url': config.get('features_url')} ) }}<br />
+		</p>
+		<p class="spacetoplarge">
+		{{ _('Some URLs from the older version may no longer work with our new site.') }}
+		</p>
+		<p class="spacetoplarge">
+		{{ _('You may use the Search function (see above) to find what you are looking for,') }}
+		{{ _('or click the  "Explore Now" button to browse our content.') }}<br />
+		</p>
+		<div class="spacetopxlarge"></div>
+		
+		<p class="spacetoplarge">
+			<a class="btn" href="{{ h.url('home', qualified=True) }}" style="display:inline"> {{ _("Explore Now") }}</a>
+		</p>
+		<div class="spacetopxlarge"></div>
+		<div class="divider"></div>
+		<p>{{  _('Contact <a id="supportlink" href="mailto:%(support_email)s">support</a> for more assistance.' % {'support_email' : config.support_email}) }}</p>
+		<p>{{  _('Thanks for your patience.') }}</p>
+		<div class="spacetopxlarge"></div>&nbsp;
+		<div class="spacetopxlarge"></div>
+	</div>
+</div>
+{% endblock %}

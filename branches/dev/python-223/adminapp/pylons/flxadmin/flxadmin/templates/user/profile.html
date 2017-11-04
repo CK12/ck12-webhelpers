@@ -1,0 +1,262 @@
+{% extends "details.html" %}  
+{% from "macros/form_errors.html" import form_errors with context %}  
+
+{% block admincontent %} 
+{% if c.profile %}
+<div class="sectionhead sectiontitle">{{c.pagetitle}}</div>
+<div class="section withfloatedsubmit">
+  <form id="mainform" method="post">
+    <div class="leftaligned">
+
+      {{ h.labeldiv('User ID', c.id, '', 'UserId') }}
+      {{ h.labeldiv('Username/Login', h.username(c.profile))}}
+      {{ h.labelinput('Email', 'email', 'xmed') }}
+      {{ h.labelinput('First Name', 'firstName', 'xmed') }}
+      {{ h.labelinput('Last Name', 'lastName', 'xmed') }}
+      {{ h.labelinput('Suffix', 'suffix', 'short') }}
+      {{ h.labelinput('Title', 'title', 'short') }}
+      {{ h.labelselect('Gender', 'gender', ['male', 'female', '']) }}
+      {{ h.labelinput('License Accepted Time', 'licenseAcceptedTime', 'med') }}
+    {% if c.edit_self %}
+      {{ h.labeldiv('Admin Role ID', c.current_roles| join(', '), 'med info') }}
+      {{ h.labelselect('', 'roleID', c.role_choices, class_='hide', multiple=True, size='3') }}
+    {% else %}
+      {{ h.labelselect('User Role', 'roleID', c.role_choices, multiple=True, size='3') }}
+    {% endif %}
+
+      <div class='actionitemwrap'>
+        {{ h.labelreadonly('Activation', 'state', 'short actionstat floatleft info') }}
+        <div class='actionitem'></div>
+        <div class='disableitem'></div>
+        <div class='actionmsg hide'></div>
+      </div>
+
+    {% for field in c.form.ordered_fields %}
+      {{ field }}
+    {% endfor %}
+
+    {% if c.nArtifacts %}
+      {{ h.htmllabel('User Created')}}
+      <div>{{h.htmla_('/artifacts?search=creatorID,%s'%c.flxID, '%s Artifacts'%c.nArtifacts)}}</div>
+    {% endif %}
+
+    {% if c.n1xBooks %}
+      {{ h.htmllabel('User Imported')}}
+      <div>{{h.htmla_('/user/1xbooks?userid=%s'%c.flxID, '%s of 1.x Books'%c.n1xBooks)}}</div>
+    {% endif %}
+
+    {# disable for now
+      {{ h.htmllabel('Actions') }}
+      <span id="deleteReports" class="linklike red">[Delete User's Report Data]</span>&nbsp;
+    #}
+
+	{{ h.htmllabel('Actions')}}
+	  <div>
+        <span id='invalidate_cache' class='linklike'>[Invalidate Cache]</span>
+        {% if c.has_switch_access and c.id != c.self_id %} &nbsp; | &nbsp;
+            <span class="linklike js_switch_action" data-id="{{c.id}}">[Switch User]</span>
+        {% endif %}
+      </div>
+    </div>
+    {{ h.submitbutton('Save', 'short')}}
+    {{ h.cancelbutton(c.cancel)}}
+  </form>
+    <input type="hidden" name="sw_auth_url"  id="sw_auth_url" />
+    <input type="hidden" name="sw_returnto"  id="sw_returnto" />
+</div>
+<span class='ajaxError'></span>
+{% if c.authTypeCK12 %}
+<div class="sectionhead sectiontitle">User Password</div>
+<div class="section withfloatedsubmit">
+  <form id='passwordForm' class='doNotBlockUI'>
+    <div class="leftaligned">
+      {{ h.htmllabel('Reset Password')}}
+      <div class='field'>
+        <span id='resetPassword' class='linklike'>[Send Reset Password Email]</span>
+        <span id='resetPasswordMsg' class='hide'></span>
+      </div>
+      {{ h.htmllabel('New Password')}}
+      <div class='field'>
+        <div>
+          <input type="text" name="password" id="password" class='med margin-rt'/>
+          <span id='changePasswordMsg' class='hide'></span>
+        </div>
+      </div>
+    </div>
+    {{ h.submitbutton('Set New Password')}}
+  </form>
+</div>
+{% endif %}
+
+  <span class='ajaxError'></span>
+  <div class="prethead title">Groups Associated With</div>
+  <div class="inline table">
+    <div class="thead sectionhead">
+      <div class="tr">
+      {% for head in c.form.user_groups_list_head %}
+        <div class="td">{{head}}</div>
+      {% endfor %}
+      </div>
+    </div>
+    <div class="tbody"></div>
+  </div>
+
+<div class="sectionhead sectiontitle">School Claim</div>                                                                                          
+<div class="section">                                                                                                                             
+    <div class="inline table">                                                                                                                      
+        <div class="">                                                                                                                                
+            {% for school in c.schools %}
+                <div class="tr">
+                {% if loop.index == 1 %}                                                                                                              
+                    <div class="td wide first-child">Claimed Schools</div>                                                                            
+                {% else %}                                                                                                                            
+                    <div class="td"></div>                                                                                                            
+                {% endif %}                                                                                                                          
+                    <div class="td wide"><a href='/flxadmin/update/school/{{school.schoolID}}' class='linklike'>[{{school.schoolName}}]</a></div>         
+                </div>
+            {% else %}
+                <div class="tr">
+                    <div class="td wide">Claimed Schools</div>                                                                                        
+                    <div class="td wide"> No Schools claimed.</div>                                                                                   
+                </div>
+            {% endfor %}
+        </div>                                                                                                                                        
+    </div>                                                                                                                                          
+</div>   
+{% endif %}
+{% endblock %}
+
+{% block js_scripts %}
+  <script type="text/javascript" src="{{ h.url_js('inlineList.js') }}"></script>
+  {% if not c.is_pane %} {# o/w profiles.html already included it #}
+  <script type="text/javascript" src="{{ h.url_js('activation_action.js') }}"></script>
+  {% endif %}
+<script type='text/javascript'>
+{{ form_errors('after') }}
+
+$(document).ready(function(){
+  var
+    email = $.trim('{{c.profile.email}}'),
+    passwordChangeUrl = CK12.authUrl('update/member/password/'+'{{c.profile.id}}'),
+    resetPasswordUrl = CK12.admUrl('update/member/forget/password/'+email),
+    invalidateCacheUrl = CK12.flxUrl('invalidate/cache/member/{{c.flxID}}')
+    $passwordForm = $('#passwordForm'),
+    $changePasswordMsg = $('#changePasswordMsg'),
+    $resetPasswordMsg = $('#resetPasswordMsg'),
+    $content = $('#content'),
+    params = $.deparam.querystring(window.location.href),
+
+    validate = $passwordForm.validate({
+      rules: {
+        password: {
+          required: true,
+          minlength: CK12.minlength.password
+        }
+      }
+    });
+    // code from flxweb for digit check:
+    // $.validator.addMethod("ck12_password", function(value,element) {
+    //     return /^(?=.*\d).*$/.test(value);
+    // }, "Password must contain at least one number");
+
+  ActivationAction('input', '#email', '{{c.edit_self}}', '#mainform');
+  
+  // Reset Password
+  $('#resetPassword').click(function(){
+    if (confirm("Send Reset Password Email to User?")){
+      $.ajax({url: resetPasswordUrl,
+        success: function(data){
+          try{
+              data = $.parseJSON(data);
+          }catch (e){
+              data = {'status':'error', 'response':data};
+          }
+          if (data.status != 'error'){
+              Fns.setActionMsg($resetPasswordMsg, 'success', data.response);
+          }else{
+              Fns.setActionMsg($resetPasswordMsg, 'error', 'Unable to send email' , data.response);
+          }
+        },
+        error: function(xhr, textStatus, errorThrown){
+          Fns.setActionMsg($resetPasswordMsg, 'error', textStatus, errorThrown);
+        }
+      });
+    }
+  });
+
+  // Change Password
+  $passwordForm.submit(function(e){
+    if (!validate.form()){
+      $changePasswordMsg.addClass('hide');
+    }else{
+      $.ajax({url: passwordChangeUrl,
+        type: 'POST',
+        data: {password: $.trim($('#password').val())},
+        success: function(data){
+          Fns.setActionMsg($changePasswordMsg, 'success', 
+            'Password changed successfully');
+          $('#password').val('');
+        },
+        error: function(xhr, textStatus, errorThrown){
+          var msg = Fns.formatResponseError(xhr, textStatus, errorThrown);
+          $content.block({
+            message: $('<p class="error">'+msg+'</p>'),
+            css: Defaults.modal.style.error
+          });
+          Fns.setActionMsg($changePasswordMsg, 'error', textStatus, errorThrown);
+        },
+        complete: function(data){
+          validate.resetForm();
+        }
+      }); 
+    }
+    e.preventDefault();
+  });
+
+  $('#deleteReports').click(function(){
+    if (confirm("Are you sure you want to delete user's report data?")){
+      $.ajax({url: CK12.admUrl('user/report/delete/{{c.id}}'),
+      // $.ajax({url: CK12.adsUrl('/delete/data'), data: {userID: '{{c.id}}'},
+        type: 'POST',
+        success: function(data, status, xhr){
+          if (data && data.response) alert(data.response.result);
+        },
+        error: function(xhr, textStatus, errorThrown){
+          var err = Fns.formatResponseError(xhr, textStatus, errorThrown);
+          alert('API Error: '+err);
+          console.error(err);
+        }
+      });
+    }
+  }); 
+
+  $("#invalidate_cache").click(function(){
+	  $.ajax({url: invalidateCacheUrl,
+          success: function(data) {
+      			if (data && data.responseHeader && data.responseHeader.status == '0'){
+      				alert("Invalidated member cache successfully");
+      			}
+          }
+   	  });
+  });
+  
+    $(document).on("click", ".js_switch_action", function(e){
+        var selectedUser = $(this).data("id");
+        if (!selectedUser || $.trim(selectedUser) == '') {
+
+            return false;
+        }
+
+        window.top.location.href = $('#sw_auth_url').val() + selectedUser
+                + "?returnTo=" + $('#sw_returnto').val();
+        return false;
+    });
+
+	$( "#licenseAcceptedTime" ).datepicker({ dateFormat: 'yy-mm-dd' });
+    
+    InlineList({
+      ajaxRoot: CK12.admUrl('/member_groups_list/'+'{{c.profile.id}}')
+    });
+});
+</script>
+{% endblock %}

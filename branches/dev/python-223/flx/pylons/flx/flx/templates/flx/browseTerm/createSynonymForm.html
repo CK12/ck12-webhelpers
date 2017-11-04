@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <title>Create BrowseTerm</title>
+        <script type="text/javascript" src="{{ c.prefix }}/media/js/prototype.js"></script>
+        <script type="text/javascript">
+          function choosePrimary(obj) {
+            var termName = $(obj).innerHTML;
+            var termID = $(obj).identify().replace("term_", "");
+            $("primaryTerm").value = '{"id": ' + termID + ', "name": "' + termName + '"}';
+          }
+
+          function chooseSynonym(obj) {
+            var termName = $(obj).innerHTML;
+            var termID = $(obj).identify().replace("synterm_", "");
+            $("synonyms").value += ('{"id": ' + termID + ', "name": "' + termName + '"}\n');
+          }
+
+          function saveSynonyms() {
+            $("message").value = "";
+            var termID = $F("primaryTerm");
+            if (termID == "") {
+              alert("Please choose a primary term");
+              return false;
+            }
+            var term = termID.evalJSON(true);
+            var synonyms = $F("synonyms").split("\n");
+            if (synonyms == '') {
+              alert("Nothing to save!");
+              return false;
+            }
+            for (var i = 0; i < synonyms.length; i++) {
+              var syn = synonyms[i];
+              if (syn == '') {
+                continue;
+              }
+              var synTerm = syn.evalJSON(true);
+              new Ajax.Request('{{ c.prefix }}/create/browseTermSynonym', {
+                  method: "POST",
+                  parameters: {
+                    'termID': term.id,
+                    'synonymTermID': synTerm.id
+                  },
+                  onSuccess: function(r) {
+                    $("message").value += r.responseText + "\n";
+                  }
+              });
+            }
+          }
+        </script>
+        <style>
+          .terms_c { float:left; height: 400px; overflow: auto; padding: 10px; border: 1px solid gray; margin:10px;}
+          .term_c { font-size:8pt; width:100%; cursor:pointer; }
+          div.term_c:hover { background-color: lightgray; }
+        </style>
+    </head>
+    <body>
+          <div id="terms" class="terms_c">
+            <strong>Choose a term:</strong> <br/><br/>
+            {% for item in c.browseTerms %}
+              <div id="term_{{ item.id }}" class="term_c" onclick="choosePrimary(this);">{{ item.name }}</div>
+            {% endfor %}
+          </div>
+          <div id="termSynonyms" class="terms_c">
+            <strong>Choose one or more synonyms:</strong> <br/><br/>
+            {% for item in c.browseTerms %}
+              <div id="synterm_{{ item.id }}" class="term_c" onclick="chooseSynonym(this);">{{ item.name }}</div>
+            {% endfor %}
+          </div>
+          <div style="float:left; margin:10px;">
+            BrowseTerm: <input type="text" value="" id="primaryTerm" name="primaryTerm" /><br/>
+            Synonyms: <textarea style="height:200px;width:300px;vertical-align:top;" id="synonyms" name="synonyms"></textarea><br/>
+            <input type="button" value="Save" onclick="saveSynonyms();" /><br/><br/>
+            Output: <textarea style="height:200px; width:300px;vertical-align:top;" id="message" readonly="readonly"></textarea>
+          </div>
+          <br clear="all" />
+    </body>
+</html>

@@ -1,0 +1,20 @@
+{% extends "MASTER_CK12_LOGO.html" %}
+{% block email_body %}
+<html>
+  <body>
+    <p>Dear {{ member.name }},</p>
+
+    <p>Greetings from CK-12 Foundation!</p>
+
+    <p></p>
+    <p>Unfortunately we are unable to process your request to generate the {{ events[0].eventData['printType'] }} for "{{ events[0].eventData['title'] | escape }}". We are actively working on it to get it fixed. </p>
+    <p></p>
+
+    <p>Please direct any questions or feedback to <a href="mailto:support@ck12.org">support@ck12.org</a>.</p>
+    <p></p>
+
+    <p> Sincerely,</p>
+    <p>The CK-12 Team </p>
+  </body>
+</html>
+{% endblock %}

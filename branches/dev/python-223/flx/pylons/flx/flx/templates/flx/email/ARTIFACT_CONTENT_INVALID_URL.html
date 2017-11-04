@@ -1,0 +1,40 @@
+{% extends "MASTER_CK12_LOGO.html" %}
+{% block email_body %}
+<html>
+    <body>
+    <p>Dear {{ member.name }},</p>
+    {% if events[0]['eventData'] %}
+    <p>CK-12 artifact content validator utility has detected invalid urls in CK-12 contents, below are details.</p>
+    <p>
+    <table>
+        <thead>
+            <tr>
+                <th>ArtifactID</th>
+                <th>Title</th>
+                <th>Artifact Link</th>
+                <th>Reason</th>
+                <th>External</th>
+            </tr>
+        </thead>
+        <tbody>
+        
+        {% for event in events[0]['eventData'] %}
+                    <tr>
+                        <td><a target="_blank" href="http://www.ck12.org/flxadmin/artifact/{{event.artifactID}}">{{event.artifactID}}</a></td>
+                        <td>{{event.artifact_title}}</td>
+                        <td>{{event.artifact_url}}</td>
+                        <td>{{event.reason}}</td>
+                        <td>{% if event.external %}{{event.external}}{% endif %}</td>
+                    </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <strong>No modalities with broken links were found at {{ events[0].created }}</strong>
+    {% endif %}
+    </p>
+    <p>Sincerely,</p>
+    <p>The CK-12 Team</p>
+    </body>
+</html>
+{% endblock %}

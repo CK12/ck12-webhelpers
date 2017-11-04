@@ -1,0 +1,126 @@
+<html>
+    <head>
+        <title>Export to Word</title>
+        <script src="{{ c.prefix }}/media/js/jquery-1.5.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){ 
+                $('#target_iframe').hide();
+                initUpload();
+            });
+
+            var taskID;
+            var downloadFile;
+
+            function checkForResponse() {
+                $('#target_iframe').show();
+                content = $('#target_iframe').contents().find('body').text();
+                $('#target_iframe').hide();
+                if(content == "")
+                    setTimeout("checkForResponse()",1000)
+                else {
+                    content = $.parseJSON(content);
+                    downloadFile = content.response.output;
+                    taskID = content.response.task_id;
+                    if (taskID) {
+                        checkStatus();
+                    } else {
+                        alert("Could not get task id: " + JSON.stringify(content));
+                        $('#result').html('Error!');
+                    }
+                }
+            }
+  
+            function initUpload() {
+                document.getElementById('xdt').onsubmit=function() {
+                    taskID = null;
+                    doc = document.getElementById('target_iframe');
+                    if( doc.document ) {
+                        document.target_iframe.document.body.innerHTML = ""; //Chrome, IE
+                    } else {
+                        doc.contentDocument.body.innerHTML = ""; //FireFox
+                    }
+                    var artifactID = $('#artifactID').val();
+                    var command = $('#command').val();
+                    var revisionID = $('#revisionID').val();
+                    document.getElementById('xdt').action = '{{ c.prefix }}/export/xdt/' + command + '/' + artifactID;
+                    if (revisionID != '') {
+                        document.getElementById('xdt').action += '/' + revisionID;
+                    }
+                    document.getElementById('xdt').target = 'target_iframe';
+                    $('#result').html('<p><img src="{{ c.prefix }}/media/images/ajax-loader.gif" /></p>');
+                    checkForResponse();
+                    return true;
+                }
+            }
+ 
+            function checkStatus() {
+                $.ajax({
+                    url: '{{ c.prefix }}/get/status/task/' + taskID,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        if (data.responseHeader.status != 0) {
+                            alert("Error getting task status: " + data.response.message);
+                            return;
+                        }
+
+                        var taskStatus  = data.response.status;
+                        if (taskStatus == 'PENDING' || taskStatus == 'IN PROGRESS') {
+                            setTimeout("checkStatus()", 1000);
+                        } else if (taskStatus == 'SUCCESS') {
+                            var perma  = '{{ c.prefix }}/download/xdt/' + downloadFile;
+                            $('#result').html('<p>The lesson/section has been exported. <a href="' + perma + '" target="_blank">Download the Word Document</a></p>');
+                        } else {
+                            $('#result').html('<p style="color:red;">Failed to export lesson/section. <br/>' + data.response.result + '</p>');
+                            alert("Task did not end successfully: " + JSON.stringify(data.response));
+                        }
+                    }
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <div id="result">
+        </div>
+        <form id="xdt" name="xdt" method="POST" enctype="multipart/form-data">
+    <table>
+        <tr>
+            <td>
+                Lesson/Section ID:
+            </td>
+            <td>
+                <input type="text" id="artifactID" name="artifactID" value="" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Lesson/Section Revision ID (optional):<br/>
+                <span style="font-size:9pt;">(Leave empty for latest revision)</span>
+            </td>
+            <td>
+                <input type="text" id="revisionID" name="revisionID" value="" />
+            </td>
+        </tr>
+        <tr>
+            <td>Choose conversion type:
+            </td>
+            <td>
+                <select name="command" id="command">
+                    <option selected="selected" value="xhtml2docx">XHTML to MS Word</option>
+                </select>
+            </td>
+        </tr>
+            <tr>
+                <td>User: </td>
+                <td>{{ c.member.login }}</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:right;">
+                    <input type="submit" name="submit" value="Export" id="submit" /> <!-- onclick="startImport();" /> -->
+                </td>
+            </tr>
+    </table>
+    </form>
+    <iframe id="target_iframe" name="target_iframe" src="" frameborder="0" style="height:0px; width:0px; overflow:none;"></iframe>
+</body>
+</html>

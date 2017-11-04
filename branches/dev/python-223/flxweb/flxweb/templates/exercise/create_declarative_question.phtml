@@ -1,0 +1,222 @@
+	<form class="createquestionform declarativequestionform ">
+		<h4>{{ _('Write down your question text') }} <span class="helppanel" id="dec-question-help" ><span class="ex-help-icon"></span></span> </h4>
+		<div class="input_question">
+			<textarea class="ui-corner-all questiontext exerciseinput forminput" name="declarativeQuestion" value="" ></textarea>
+			<span class="errorspan" id="er_invalid_question"></span>
+		</div>
+		<h4>{{ _('Choose a question format') }} <span class="helppanel" id="dec-options-help" ><span class="ex-help-icon"></span></span></h4>
+		<div class="input_questiontype">
+			<div class="questiontypebox selected" id="shortanswertype">
+				<div class="qtype_choosebtn" title="{{ _('Choose Short Answer') }}">
+				</div>
+				<div class="qtype_display">
+					<label>{{ _('Short-Answer Question') }}</label>
+				</div>
+			</div>
+			<div class="questiontypebox" id="multichoicetype">
+				<div class="qtype_choosebtn" title="{{ _('Choose Multichoice Answer') }}">
+				</div>
+				<div class="qtype_display">
+					<label>{{ _('Multiple-Choice Question') }}</label>
+				</div>
+			</div>
+			<div class="questiontypebox" id="truefalsetype">
+				<div class="qtype_choosebtn" title="{{ _('Choose True/False Answer') }}">
+				</div>
+				<div class="qtype_display">
+					<label>{{ _('True/False Question') }}</label>
+				</div>
+			</div>
+		</div>
+		<div class="clear">
+		</div>
+		<div class="ui-corner-all input_options exerciseinput" >
+			<div class="shortanswer optionsblock currentblock">
+				<div class="field-title">
+					{{ _('Enter the answer') }}
+				</div>
+                                <table>
+                                        <tr id="option1">
+                                                <td class="optionlabel">
+                                                        <div class="iscorrect_checkbox selected" title="{{ _('Answer') }}">
+                                                                <span class="optionno">1</span>
+                                                        </div>
+                                                </td>
+                                                <td class="optionfields">
+							<input type="text" class="forminput optiontext" name="declarativeOption_short" placeholder="{{ _('Answer') }}"></>
+                                                </td>
+                                        </tr>
+                                        </tr>   <td></td> <td></td> </tr>
+				</table>
+				<!--
+				<div class="optionbox" id="option1">
+					<div class="iscorrect_checkbox selected" title="{{ _('Answer') }}">
+						<span class="optionno">1</span>
+					</div>
+					<div class="question_option">
+						<input type="text" class="forminput" name="declarativeOption_short" placeholder="{{ _('Answer') }}"></>
+					</div>
+				</div>
+				-->
+			</div>
+			<div class="multiplechoiceoptions optionsblock">
+				<div class="field-title">
+					{{ _('Enter the options and mark the correct answer') }}
+				</div>
+                                <table>
+                                        <tr id="option1">
+                                                <td class="optionlabel">
+                                                        <div class="iscorrect_checkbox " title="{{ _('Tick Correct Option') }}">
+                                                                <span class="optionno">1</span>
+                                                        </div>
+                                                </td>
+                                                <td class="optionfields">
+							<input type="text" class="forminput optiontext" name="declarativeOption_multiple_1" placeholder="{{ _('option one') }}"></>
+                                                </td>
+                                        </tr>
+                                        </tr>   <td></td> <td></td> </tr>
+                                        <tr id="option2">
+                                                <td class="optionlabel">
+                                                        <div class="iscorrect_checkbox " title="{{ _('Tick Correct Option') }}">
+                                                                <span class="optionno">2</span>
+                                                        </div>
+                                                </td>
+                                                <td class="optionfields">
+							<input type="text" class="forminput optiontext" name="declarativeOption_multiple_2" placeholder="{{ _('option two') }}"></>
+                                                </td>
+                                        </tr>
+                                        </tr>   <td></td> <td></td> </tr>
+                                        <tr id="option3">
+                                                <td class="optionlabel">
+                                                        <div class="iscorrect_checkbox " title="{{ _('Tick Correct Option') }}">
+                                                                <span class="optionno">3</span>
+                                                        </div>
+                                                </td>
+                                                <td class="optionfields">
+							<input type="text" class="forminput optiontext" name="declarativeOption_multiple_3" placeholder="{{ _('option three') }}"></>
+                                                </td>
+                                        </tr>
+                                        </tr>   <td></td> <td></td> </tr>
+                                        <tr id="option4">
+                                                <td class="optionlabel">
+                                                        <div class="iscorrect_checkbox " title="{{ _('Tick Correct Option') }}">
+                                                                <span class="optionno">4</span>
+                                                        </div>
+                                                </td>
+                                                <td class="optionfields">
+							<input type="text" class="forminput optiontext" name="declarativeOption_multiple_4" placeholder="{{ _('option four') }}"></>
+                                                </td>
+                                        </tr>
+                                        </tr>   <td></td> <td></td> </tr>
+				</table>
+				<!--
+				<div class="optionbox" id="option1">
+					<div class="iscorrect_checkbox " title="{{ _('Tick Correct Option') }}">
+						<span class="optionno">1</span>
+					</div>
+					<div class="question_option">
+						<input type="text" class="forminput" name="declarativeOption_multiple_1" placeholder="{{ _('option one') }}"></>
+					</div>
+				</div>
+				<div class="optionbox" id="option2">
+					<div class="iscorrect_checkbox " title="{{ _('Tick Correct Option') }}">
+						<span class="optionno">2</span>
+					</div>
+					<div class="question_option">
+						<input type="text" class="forminput" name="declarativeOption_multiple_2" placeholder="{{ _('option two') }}"></>
+					</div>
+				</div>
+				<div class="optionbox" id="option3">
+					<div class="iscorrect_checkbox " title="{{_('Tick Correct Option') }}">
+						<span class="optionno">3</span>
+					</div>
+					<div class="question_option">
+						<input type="text" class="forminput" name="declarativeOption_multiple_3" placeholder="{{ _('option three') }}"></>
+					</div>
+				</div>
+				<div class="optionbox" id="option4">
+					<div class="iscorrect_checkbox " title="{{ _('Tick Correct Option') }}">
+						<span class="optionno">4</span>
+					</div>
+					<div class="question_option">
+						<input type="text" class="forminput" name="declarativeOption_multiple_4" placeholder="{{ _('option four') }}"></>
+					</div>
+				</div>
+				-->
+				<span class="errorspan er_hasnotick"></span>
+				<span class="errorspan er_noduplicateoption"></span>
+				
+			</div>
+			<div class="truefalseoptions optionsblock">
+				<div class="field-title">
+					{{ _('Mark whether your question is true or false') }}
+				</div>
+                                <table>
+                                        <tr id="option1">
+                                                <td class="optionlabel">
+							<div class="iscorrect_checkbox " title="{{ _('Tick True') }}">
+							</div>
+                                                </td>
+                                                <td class="optionfields">
+							<input type="text" class="forminput tfoptiontext" name="declarativeOption_truefalse_1" value="True" readonly="readonly"></>
+                                                </td>
+                                        </tr>
+                                        </tr>   <td></td> <td></td> </tr>
+                                        <tr id="option2">
+                                                <td class="optionlabel">
+							<div class="iscorrect_checkbox " title="{{ _('Tick False') }}">
+							</div>
+                                                </td>
+                                                <td class="optionfields">
+							<input type="text" class="forminput tfoptiontext" name="declarativeOption_truefalse_2" value="False" readonly="readonly"></>
+                                                </td>
+                                        </tr>
+                                        </tr>   <td></td> <td></td> </tr>
+				</table>
+				<!--
+				<div class="optionbox" id="option1">
+					<div class="iscorrect_checkbox " title="{{ _('Tick True') }}">
+					</div>
+					<div class="question_option">
+						<input type="text" class="forminput" name="declarativeOption_truefalse_1" value="True" readonly="readonly"></>
+					</div>
+				</div>
+				<div class="optionbox" id="option2">
+					<div class="iscorrect_checkbox " title="{{ _('Tick False') }}">
+					</div>
+					<div class="question_option">
+						<input type="text" class="forminput" name="declarativeOption_truefalse_2" value="False" readonly="readonly"></>
+					</div>
+				</div>
+				-->
+				<span class="errorspan"></span>
+			</div>
+			
+		</div>
+		<h4>{{ _('Choose difficulty level') }}</h4>
+		<div class="input_difficultylevel">
+			<div class="difficultylevelbox" id="easy">
+				<div class="difficulty_choosebtn" title="{{ _('Easier than typical') }}">
+				</div>
+				<div class="difficulty_display">
+					<label>{{ _('Easy') }}</label>
+				</div>
+			</div>
+			<div class="difficultylevelbox selected" id="normal">
+				<div class="difficulty_choosebtn" title="{{ _('Normal difficulty level') }}">
+				</div>
+				<div class="difficulty_display">
+					<label>{{ _('Normal') }}</label>
+				</div>
+			</div>
+			<div class="difficultylevelbox" id="hard">
+				<div class="difficulty_choosebtn" title="{{ _('Harder than typical') }}">
+				</div>
+				<div class="difficulty_display">
+					<label>{{ _('Hard') }}</label>
+				</div>
+			</div>
+		</div>
+		<div class="clear">
+		</div>
+	</form>

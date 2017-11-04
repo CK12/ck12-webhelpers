@@ -1,0 +1,40 @@
+{% extends "listings.html" %}  
+
+{% block filters %} 
+{% endblock %}
+
+{% block searches %}
+    <div class="col wider padleft">
+        {{ h.labelinput('Term', 'termLike', 'med searchby')}}
+        <img id="admin_search_icon" src="{{h.url_images('icon_magnifier2.png')}}"/>
+    </div>
+{% endblock %}
+
+{% block aftersearches %} 
+    {{ super() }}
+    <div style="display:block">
+            <input id='disableListOnEmptySearch' type='checkbox' checked='true'>
+        <label>Disable Listing on Empty Searches</label>
+    </div>
+{% endblock %}
+
+
+
+{% block js_scripts %}
+{{ super() }}
+<script type='text/javascript'>
+
+  Listings({
+    sort: '',
+    postLoad: function(){
+      $('.tiptrigger').tooltip({
+        bodyHandler: function(){ return $(this).siblings('.tipdiv').html(); }
+      });
+    },
+    ajaxRoot: CK12.admUrl('tryspecialsearch_list'),
+    formAjax: CK12.admUrl('tryspecialsearch/'),
+  });
+</script>
+{% endblock %}
+
+

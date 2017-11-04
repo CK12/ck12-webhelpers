@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns:dc="http://www.ck12.org/dc/will_create_ns"
+unique-identifier="chapterid" version="2.0">
+
+  <chapter>
+    <metadata>
+<chapterSeq>14</chapterSeq>
+
+<book>Biology I</book>
+
+      <chapterid></chapterid>
+      <title>Classification</title>
+      <description>Topics in this chapter include:Phylogenetic_Classification,Modern_Classification_Systems.
+     </description>
+    </metadata>
+    
+    <lessons>
+      <item id="Form_and_Function" href="Form_and_Function.html" sequence="1" />
+      <item id="Phylogenetic_Classification" href ="Phylogenetic_Classification.html" sequence="2" />
+      <item id="Modern_Classification_Systems" href ="Modern_Classification_Systems.html" sequence="3" />
+    </lessons>
+  </chapter>
+
+</package>

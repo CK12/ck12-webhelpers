@@ -1,0 +1,9 @@
+<div class="retrolation-widget"> 
+    <h2>Related Concepts</h2>
+    <div class="divider"></div>
+    <div>
+        <% _.each(data.concepts, function (concept) { %>
+        <a class="concept-link" href="<%= concept.href %>"><%= concept.content %></a>
+        <% }); %>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+{% set question = c.question %}
+{% if question %}
+<div class="questionarea">
+        {% if c.quizMode %}
+        	<h2>{{ c.displayOrder }}. {{ question.displayText }}</h2>
+        {% else %}
+		<h2>{{ question.displayText }}</h2>
+	{% endif %}
+	<div id="canvasdiv"></div>
+</div>
+<div class="js_questionhintresourcewrap">
+</div>
+<div class="questiondisplayresourcewrap">
+	{% for resource in question.resources %}
+		{% if resource.purpose == 'display' %}
+			{% if resource.resourceType == 'image' %}
+				<img src="{{ resource.uri }}" class="exerciseresource resourcedisplayimg " title="{{ resource.title }}" />
+			{% endif %}
+		{% endif %}
+	{% endfor %}
+</div>
+<div class="useranswerwrap"> 
+	{% if question.questionTypeID == 1 %}
+	<input class="ui-corner-all" type='text' name="answer" id="answer" autocomplete="off" placeholder="{{ _("Enter your answer here") }}" />
+	{% else %}  
+		{% if question.questionTypeID == 2 or question.questionTypeID == 3 %}
+			{% for option in question.options %}
+				{% set optionID = question.questionID ~ 'option' ~ option.displayOrder %}
+				<div class="useranswerwrap-select clearfix">
+					<input type="radio" name="answer" value="{{ option.optionKey|ck12_json|e}}" id="{{ optionID }}" /> 
+					<label for="{{ optionID }}">
+                        {% if question.questionTypeID == 3 %}
+                            {{ option.orderText.upper() }})
+                        {% endif %}
+                        {{ option.displayText }}
+                    </label>
+				</div>
+			{% endfor %}
+		{% endif %}	
+	{% endif %}	
+</div>
+<div class="clear"></div>
+
+<!-- Hidden question attributes for JS -->
+<div class="hide" id="js_varvalmap">{{ question.variableValueMap|ck12_json|e}}</div>
+<div class="hide" id="js_questionid">{{ question.questionID }}</div>
+<div class="hide" id="js_questionclass">{{ question.questionClass }}</div>
+<div class="hide" id="js_questiontypeid">{{ question.questionTypeID }}</div>
+<div class="hide" id="js_difficultylevel">{{ question.difficultyLevel }}</div>
+{% else %}
+   {% if c.signalQuit == True %}
+	<!-- This will signal the js know that quiz is finished -->
+	<div id="signal_quit_quiz">
+        </div>
+   {% endif %}
+{% endif %}

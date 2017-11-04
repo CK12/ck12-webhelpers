@@ -1,0 +1,29 @@
+{% extends "listings.html" %}  
+
+{% block filters %} 
+{% endblock %}
+
+{% block searches %} 
+  <div class="col wider">
+    {{ h.labelinput('Admin ID', 'adminID', 'med searchby')}}
+    <img id="admin_search_icon" src="{{h.url_images('icon_magnifier2.png')}}"/>
+  </div>
+  <div class="col wider">
+    {{ h.labelinput('Member ID', 'memberID', 'med searchby')}}
+    <img id="admin_search_icon" src="{{h.url_images('icon_magnifier2.png')}}"/>
+  </div>
+{% endblock %} 
+{% block aftersearches %}
+{% endblock %}
+{% block js_scripts %}
+{{ super() }}
+<script type='text/javascript'>
+  Listings({
+    sort: '',
+    ajaxRoot: CK12.admUrl('admin/traces_list'),
+    formAjax: CK12.admUrl('admin/traces/'),
+    viewmode: '{{c.viewmode}}',
+    searchFilters: ['adminID', 'memberID'],
+  });
+</script>
+{% endblock %}

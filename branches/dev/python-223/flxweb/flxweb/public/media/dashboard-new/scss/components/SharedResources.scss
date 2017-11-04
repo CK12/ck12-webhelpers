@@ -1,0 +1,111 @@
+@import '../main';
+
+$header-height: 25%;
+$header-height-small: rem-calc(100);
+
+:local {
+
+    .header {
+        margin-bottom: $global-padding;
+        position: absolute;
+        top: 0;
+        z-index: 1;
+        background-color: $white;
+        height: $header-height;
+        width: 100%;
+        box-shadow: $global-shadow;
+        border-bottom: $global-border;
+
+        .headerTitle {
+            text-transform: uppercase;
+            margin-bottom: rem-calc(10);
+            display: block;
+        }
+
+        label {
+            font-weight: bold;
+            font-size: rem-calc(14);
+        }
+
+        .selector {
+            @include selectBox();
+            margin-bottom: 0;
+        }
+
+    }
+
+
+
+    .contentBackground {
+        position: absolute;
+        background-color: $IVORY;
+        height: 100%;
+        width: 100%;
+    }
+
+    .content {
+        position: absolute;
+        top: $header-height;
+        height: calc(100% - #{$header-height} + #{$global-padding});
+        width: 100%;
+        z-index: 1;
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        .contentItems {
+            position: relative;
+            padding-bottom: $global-padding;
+
+            :global(.row > .column > .row){
+                &:last-child {
+                    // Needed to keep last item from being partially hidden
+                    margin-bottom: $global-padding * 2;
+                }
+            }
+        }
+    }
+
+
+    .title {
+        color: $EARTH;
+        text-transform: uppercase;
+        position: relative;
+        padding-left: $global-padding;
+        display: block;
+        font-weight: bold;
+        font-size: rem-calc(14);
+        margin-top: $global-padding;
+
+        &:before {
+            color: $EARTH;
+            position: absolute;
+            content: '\2022';
+            font-size: rem-calc(32);
+            display: block;
+            line-height: rem-calc(16);
+            left: 0;
+        }
+
+        & + .item {
+            margin-top: rem-calc(5);
+        }
+    }
+
+    .item {
+        font-size: rem-calc(18);
+        padding-left: $global-padding;
+        @include truncateText();
+    }
+
+    @include breakpoint(small only){
+        .header { height: $header-height-small;     
+        		  position: relative;
+    			  width: auto;
+    			  }
+
+        .content {
+			    height: auto;
+			    position: relative;
+        }
+    }
+}

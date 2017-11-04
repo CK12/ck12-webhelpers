@@ -1,0 +1,31 @@
+{% extends "MASTER_CK12_LOGO.html" %}
+{% block email_body %}
+    <style type="text/css">
+        ol { counter-reset: item }
+        li { display: block }
+        li:before { content: counters(item, ".") " "; counter-increment: item }
+        h4, h5, h3 { display: inline; padding: 0; }
+     </style>
+    <body>
+    <br><br>
+    Hi,<br>
+    Unpublished Book details<br>
+        <ol>
+            {% for book in books %}
+            <li><h3><u><a href="{{book['url']}}">{{book['name']}}</a> ({{book['id']}}) {{book['status']}} </u></h3>
+                <ol>
+                {% for chapter in book['chapters'] %}
+                    <li><h4><a href="{{chapter['url']}}">{{chapter['name']}}</a> ({{chapter['id']}}) {{chapter['status']}} </h4>
+                        <ol>
+                            {% for section in chapter['section'] %}
+                               <li><h5><a href="{{section['url']}}">{{section['name']}}</a> ({{section['id']}}) {{section['status']}} </h5></li>
+                            {% endfor %}
+                        </ol>
+                    </li>
+                {% endfor %}
+                </ol>
+            </li>
+            {% endfor %}
+        </ol>
+    </body>
+{% endblock %}

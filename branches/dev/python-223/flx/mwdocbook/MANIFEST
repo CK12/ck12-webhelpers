@@ -1,0 +1,12 @@
+README
+setup.cfg
+setup.py
+bin/mwdocbook
+mwdocbook/__init__.py
+mwdocbook/build.py
+mwdocbook/artifacts.py
+mwdocbook/docbook.py
+mwdocbook/hacks.py
+mwdocbook/lisp.py
+mwdocbook/render.py
+mwdocbook/translation.py

@@ -1,0 +1,10 @@
+Hello {{ events[0]['eventData']['invitee']['name'] }} ,
+
+{% if events[0]['eventData']['inviter']['name'] %}
+    {{events[0]['eventData']['inviter']['name']}} has invited you to follow the "{{ events[0]['eventData']['forum']['forumName'] }}" forum  on CK-12. Please click the link below to follow the forum.    
+    {{site}}{{"forum/"}}{{events[0]['eventData']['forum']['forumID']}}{{"/home"}}
+{% else %}
+    You have been invited to follow the "{{ events[0]['eventData']['forum']['forumName'] }}" forum on CK-12. Please click the link below to access the forum.
+    {{site}}{{"forum/"}}{{events[0]['eventData']['forum']['forumID']}}{{"/home"}}
+{% endif %}
+

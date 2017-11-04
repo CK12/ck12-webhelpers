@@ -1,0 +1,24 @@
+{% extends "base/1column.html" %}
+{% from "macros/artifact.html" import ck12_grid_artifact with context %}
+
+{% block title %} {{ c.artifact.title }} : {{ _("Related") }} {{ c.artifact.artifactType }}s {% endblock %}
+{% block content %} 
+	<div id="pageinfotop"></div>
+	<p>
+		<span class="resultkey">{{ _("Related %(type)ss to: ") % {'type':c.artifact.artifactType} }}</span>
+		<span class="js_resultvalue">"{{ c.artifact.title }}"</span>
+	</p>
+	<div id="contentgrid">
+	{% for artifact in c.related_items %}
+		{{ ck12_grid_artifact(artifact) }}
+	{% endfor %}
+	</div>
+{% endblock %}
+{% block pageinfobottom %}
+<div class="backtotop">{{ _('Back to the <a href="#" title="Back to top of the page">top of the page &#8593;') }}</a></div>
+<div class="divider"></div>
+{% endblock %}
+{% block js %}
+{{ super() }}
+<script language="javascript" type="text/javascript" src="{{ h.url_js('flxweb.ui.grid.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends "master.html" %}  
+{% from "macros/form_errors.html" import form_errors with context %}  
+
+{% block admincontent %}
+
+<div class="sectionhead sectiontitle">Most Number of User Generated Contents</div>
+<div class="section withfloatedsubmit">
+  <form method="post"> 
+    <div class="leftaligned">
+      {{ h.labelcheckbox('Published Only','published', False)}}
+      {{ h.labelradio('Contribution Type', 'contribution_type', c.contribution_choices)}}
+      {{ h.labelselect('Artifact Type', 'artifactType', c.form.type_choices, 'filter')}}
+      {{ h.labelreadonly('Start Date', 'fromDate', 'searchby short', c.startDate) }}
+      {{ h.labelreadonly('End Date', 'toDate', 'searchby short', c.endDate) }}
+    </div>
+      {{ h.submitbutton('Submit','','user_artifact')}}
+  </form>
+</div>
+
+<span class='ajaxError'></span>
+{% if c.post_data %}
+    <p>Users who have created the most number of content: </p>
+    <div class="thead sectionhead">
+        <div class="tr">
+            <div class="td">
+                {{"Member ID"}}</div>
+            <div class="td">Artifacts Created</div>
+        </div>
+    </div>
+    
+    <div class="tbody">
+        {% for content in c.ugc_contents_counts %}
+        <div class="tr">
+            <div class="td">
+                <a href="user/profile/{{ content[0] }}"> {{c.post_data[content[0]][0]['givenName']}} {{c.post_data[content[0]][0]['surname']}}</a>
+            </div>
+            <div class="td">
+                {% set moreElments = False %}
+                {% for user_content in c.post_data[content[0]] %}
+                    {% if moreElements %} {{', '}} {% endif %}
+                    <a href="artifacts?search=creatorID,{{ content[0] }};fromDate,{{c.params.fromDate}};toDate,{{c.params.toDate}}&filters=artifactType,{{user_content['artifactTypeName']}};published,{{c.params.published}}{% if c.params.published %};contribution_type,{{c.params.contribution_type}} {% endif %}">
+                        {{user_content['count']}} {{user_content['artifactTypeName']}}{{"(s)"}}
+                    </a>
+                    {% set moreElements = True %}
+                {% endfor %}
+                {{ "created" }}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endif %}
+{% if c.not_contents_found %}
+        {{"No contents found for selected date range..."}}
+{% endif %}
+{% endblock %}
+
+
+{% block js_scripts %}
+<script type="text/javascript">
+{{ form_errors('after') }}
+    $(document).ready(function () {
+        $('#published').change(function(){
+            var selected = !$("#published").prop("checked");
+            $('[name="contribution_type"]').prop('disabled', selected);
+        });
+        $('#published').change();
+        $("#fromDate").datepicker({
+            dateFormat: 'mm-dd-yy',
+            maxDate: '+0d'
+        });
+        $("#toDate").datepicker({
+            dateFormat: 'mm-dd-yy',
+            maxDate: '+0d',
+            beforeShow: function () {
+                $(this).datepicker('option', 'minDate', $('#fromDate').val());
+            }
+        });
+
+    });
+</script>
+{% endblock %}

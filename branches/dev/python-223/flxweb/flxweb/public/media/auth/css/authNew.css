@@ -1,0 +1,118 @@
+body {
+	background-color: #fff;
+}
+.action-header {
+	font-size: 30px;
+	font-weight: bold;
+}
+.signup-mail-container {
+	background-color: #EFECE6;
+	position: relative;
+}
+.signup-separator {
+	background-color: #FFFFFF;
+	border-radius: 13px;
+	height: 26px;
+	left: -moz-calc(50% - 13px);
+	left: -webkit-calc(50% - 13px);
+	left: calc(50% - 13px);
+	position: absolute;
+	top: -13px;
+	width: 26px;
+}
+.signup-email-button {
+	width:100%;
+}
+.signup-mail-button-container {
+	height: 100%;
+	padding: 33px 0px;
+	height: 115px;
+}
+.signin-button-wrapper {
+	padding: 30px 0;
+}
+.signin-button-container {
+	border-bottom: 1px solid #CCCCCC;
+	/* height: 142px; */
+	overflow: hidden;
+	padding: 0 0 15px;
+	position: relative;
+	transition: height 1s ease 0s;
+}
+.signin-button-container.show-all {
+	border: medium none;
+}
+.signin-button-container .button i {
+    color: #FFFFFF;
+}
+.signin-button-container .signin-button {
+    margin: 0 0 15px;
+    padding: 11px 10px 12px !important;
+    width: 100%;
+}
+.show-more-buttons {
+	background-color: #FFFFFF;
+	bottom: -10px;
+	color: #B4AFA6;
+	left: -moz-calc(50% - 51px);
+	left: -webkit-calc(50% - 51px);
+	left: calc(50% - 51px);
+	padding: 0 12px;
+	position: absolute;
+}
+.prompt-message {
+	padding-top: 20px;
+}
+.icon-facebook, .icon-google {
+	vertical-align: middle;
+}
+.signup-join-wrapper .icon-google {
+	margin-left: -20px;
+}
+.member-icon img {
+	height: 70px;
+}
+.action-header {
+	padding-left: 6px;
+}
+.icon-email {
+	vertical-align: middle;
+}
+.account-exist {
+	padding-top: 25px;
+}
+.account-exist a {
+	margin-left: 5px;
+}
+.sign-up-form-container {
+	padding: 38px 30px;
+}
+.setup-account-message {
+	color: #8e8774;
+	line-height: 18px;
+	padding: 6px 0 21px 0;
+}
+.sign-up-form-container input.forminput {
+	height: 45px;
+	font-size: 16px;
+	border: 2px solid #CDCCCA;
+	border-radius: 5px;
+	color: #56544D;
+}
+.date-input.button {
+	width: 90%;
+	height: 45px;
+	border-radius: 5px;
+	font-size: 16px;
+	padding-top: 11px;
+}
+.signup-terms-content span, .signup-terms-content a {
+	font-size: 14px;
+}
+.signup-terms-content {
+	margin-bottom: 4px;
+	padding-top:15px !important;
+}
+.signup-user-button {
+	padding: 24px 0 13px 0;
+}

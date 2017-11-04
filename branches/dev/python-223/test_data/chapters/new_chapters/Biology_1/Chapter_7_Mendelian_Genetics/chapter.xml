@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns:dc="http://www.ck12.org/dc/will_create_ns"
+unique-identifier="chapterid" version="2.0">
+
+  <chapter>
+    <metadata>
+<chapterSeq>7</chapterSeq>
+
+<book>Biology I</book>
+
+      <chapterid></chapterid>
+      <title>Mendelian Genetics</title>
+      <description>Topics in this chapter include:Mendel_s_Investigations,Mendelian_Inheritance.
+     </description>
+    </metadata>
+    
+    <lessons>
+      <item id="Mendel_s_Investigations" href="Mendel_s_Investigations.html" sequence="1" />
+      <item id="Mendelian_Inheritance" href ="Mendelian_Inheritance.html" sequence="2" />
+    </lessons>
+  </chapter>
+
+</package>

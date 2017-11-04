@@ -1,0 +1,13 @@
+#
+# Peer Help configuration that allows all requests
+#
+
+WSGIScriptAlias /peerhelp/api /opt/2.0/peerhelp/core/pyramid/peer_help.wsgi
+
+<Directory /opt/2.0/peerhelp/core/pyramid/>
+    Require all granted
+</Directory>
+    <Location /peerhelp/api>
+        WSGIProcessGroup peerhelp_wsgi
+    </Location>
+

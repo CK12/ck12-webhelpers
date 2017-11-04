@@ -1,0 +1,96 @@
+$module-ns: 'conceptmap__ui-button';
+
+$aerial-icon-height: 80px;
+$aerial-icon-hover-y: (-$aerial-icon-height / 3);
+$aerial-icon-active-y: $aerial-icon-hover-y * 2;
+
+$button-height: rem-calc(40);
+$button-width: $button-height;
+
+$button-disabled-bg: #DDD;
+$button-disabled-color: #999;
+
+$aerial-button-starting-pos: 0 2px;
+
+button.#{$module-ns} {
+    background-color: $light-gray;
+    color: $medium-gray;
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+    border: 0;
+    border-radius: 3px;
+
+    display: block;
+    padding: rem-calc(6);
+    font-size: $icon-font-size;
+    line-height: 1rem;
+    transition: all 0.1s;
+
+    &:hover {
+        background-color: $light-blue;
+        color: $navy;
+
+        + .tooltip-left {
+            @include tooltip--visible();
+        }
+    }
+
+    &:active {
+        background-color: $turquoise;
+        color: white;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &+ .tooltip-left {
+        @include tooltip-left();
+    }
+    &[disabled] {
+        background-color: $button-disabled-bg;
+        color: $button-disabled-color;
+        opacity: 1;
+
+        &:hover, &:focus {
+            background-color: $button-disabled-bg;
+            color: $button-disabled-color;
+        }
+    }
+}
+
+button#aerial {
+    width: $button-width;
+    height: $button-height;
+
+    i.custom-icon-aerial {
+        background: url('/media/conceptmap/images/aerial-icon.png') no-repeat;
+        background-position: $aerial-button-starting-pos;
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    &:hover {
+        i.custom-icon-aerial {
+            background-position: 0 $aerial-icon-hover-y;
+        }
+    }
+
+    &:active {
+        i.custom-icon-aerial {
+            background-position: 0 $aerial-icon-active-y;
+        }
+    }
+
+    &[disabled] {
+        &:hover, &:active {
+            i.custom-icon-aerial {
+                background-position: $aerial-button-starting-pos;
+            }
+        }
+    }
+}
+
+button#zoom-in {
+    margin-top: rem-calc(12);
+}

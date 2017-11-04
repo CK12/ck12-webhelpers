@@ -1,0 +1,17 @@
+{% set artifacts = c.paginator.current_page.items() %}
+{% extends "mylibrary/fileslist.html" %}
+
+{% block title %}{{ _("Library") }}{% endblock %}
+
+{% block top_actions %}
+	<div class="prefix_2 grid_2">
+		<a class="btn secondary" id="restore" href="#" title="{{ _('Restore Items') }}">{{ _('Restore Items') }}</a>
+	</div>
+	<div class="prefix_6 grid_2">
+		<a class="btn" href="{{ h.url('mylib-type',tab='content',object_type=c.object_type,item_type=c.item_type) }}" title="{{ _('View Library') }}">{{ _('View Library') }}</a>
+	</div>
+{% endblock %}
+
+{% block filter_labels %}
+<!-- Archive page has no LHS -->
+{% endblock %} 

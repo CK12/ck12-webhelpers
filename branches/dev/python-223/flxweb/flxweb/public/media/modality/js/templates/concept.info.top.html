@@ -1,0 +1,108 @@
+<div class="row collapse relative concept-wrapper">
+	<div class="small-12 large-9 column">
+		<% if (data.domain.branchInfo && 'TST' !== data.domain.branch){ %><!--   TST is for software testing -->
+			<div class="left text-center concept_top_icon hide-for-small">
+				<% if (data.domain.collectionInfo){ %>
+					<span title="<%= _.escape(data.domain.collectionInfo.collectionTitle) %>" class="icon-<%= _.escape(data.domain.collectionInfo.collectionHandle) %>"></span>
+				<% } else {%>
+					<span title="<%= data.domain.branchInfo.name %>" class="icon-<%= data.branch_handle %>"></span>
+				<% } %>
+			</div>
+		<% } %>
+		<div class="left relative concept_info_label">
+			<h1 id="artifact_title" class="artifact_title">
+				<% if (data.domain.collectionInfo){ %>
+				    <% if ('prevHref' in data.domain.collectionInfo){ %>
+						<a style="margin-right:3px;" title="<%= _.escape(data.domain.collectionInfo.prevTitle) %>" href="<%= _.escape(data.domain.collectionInfo.prevHref) %>" >
+							<svg width="26" height="26"  >
+							   <circle cx="13" cy="13" r="13" fill="#00aba4" />
+							   <path d="M16 6 L8 14" stroke="white" stroke-width="3"/>
+							   <path d="M16 20 L8 12" stroke="white" stroke-width="3"/>
+							</svg>
+						</a>
+					<% } else {%>
+						<a style="margin-left:3px; cursor:default" >
+							<svg width="26" height="26">
+							   <circle cx="13" cy="13" r="13" fill="#cccccc" />
+							   <path d="M16 6 L8 14" stroke="white" stroke-width="3"/>
+							   <path d="M16 20 L8 12" stroke="white" stroke-width="3"/>
+							</svg>
+						</a>
+					<% } %>
+					<% if ('nextHref' in data.domain.collectionInfo){ %>
+						<a style="margin-left:3px;" title="<%= _.escape(data.domain.collectionInfo.nextTitle) %>" href="<%= _.escape(data.domain.collectionInfo.nextHref) %>" >
+							<svg width="26" height="26">
+							   <circle cx="13" cy="13" r="13" fill="#00aba4" />
+							   <path d="M10 6 L18 14" stroke="white" stroke-width="3"/>
+							   <path d="M10 20 L18 12" stroke="white" stroke-width="3"/>
+							</svg>
+						</a>
+					<% } else {%>
+						<a style="margin-left:3px; cursor:default" >
+							<svg width="26" height="26">
+							   <circle cx="13" cy="13" r="13" fill="#cccccc" />
+							   <path d="M10 6 L18 14" stroke="white" stroke-width="3"/>
+							   <path d="M10 20 L18 12" stroke="white" stroke-width="3"/>
+							</svg>
+						</a>
+					<% } %>
+					</br>
+					<span class="artifact_title_text" itemprop="name"><%= _.escape(data.domain.collectionInfo.conceptCollectionTitle) %></span>
+					
+				<% } else { %>
+					<span class="artifact_title_text" itemprop="name"><%= _.escape(data.domain.name) %></span>
+					<% if ( !data.domain.encodedID.match('UGC') && data.domain.collectionInfo){ %>
+						<span id="artifact_dropdown" class="pointer text-center relative artifact_dropdown"><span class="drop-arrow hide-small"></span></span>
+						<img id="concept-dropdown-loading" class="js-loading-icon hide" alt="loading" src="/media/common/images/loading.gif">
+					<% } %>
+				<% } %>
+			</h1>
+			<% if ( data.domain.description ){ %>
+				<h2 class="artifact_description"><%= _.escape(data.domain.description) %></h2>
+			<% } %>
+			<% if (data.domain.descendantOf){ %>
+				<div id="concept_list_container" class="hide concept_list_container">
+					<div class="row collapse concept_list_header">
+						<div class="left concept_list_header_wrapper">
+							<% if (data.domain.branchInfo && 'TST' !== data.domain.branch){ %><!--   TST is for software testing -->
+								<a href="/<%= data.branch_handle %>/" title="<%= data.domain.branchInfo.name %>" class="topic_title"><%= data.domain.branchInfo.name %></a>
+								<i class="icon-arrow3_right"></i>
+							<% } %>
+							<span class="topic_title name_wrap" title="<%= data.domain.descendantOf.name %>"><%= data.domain.descendantOf.name %></span>
+							<div id="concept_list_count" class="row collapse hide-small concept_list_count"></div>
+						</div>
+						<div class="right pointer concept-close-icon js-concept-close-icon">
+    						<i class="close-icon"></i>
+    					</div>
+    				</div>
+    				<div class="relative concept_list_wrapper">
+    					<span id="concept_line" class="concept_line">&nbsp;</span>
+						<span id="top_button" class="concept_button top_button js-concept_button">...</span>
+						<div>
+							<ul id="concept_list" class="row collapse relative concept_list" data-encodedID="<%= data.domain.descendantOf.encodedID %>"></ul>
+						</div>
+						<span id="bottom_button" class="concept_button bottom_button js-concept_button">...</span>
+    				</div>
+				</div>
+			<% } %>
+		</div>
+	</div>
+	<%
+	 //if (!((data.domain.branchInfo.name.toLowerCase() === "spelling") || (data.domain.branchInfo.name.toLowerCase() === "writing"))) { 
+	%>
+	<% if (false) { %>
+        <div class="large-3 small-3 column">
+            <a href="/conceptmap?eid=<%= data.domain.encodedID %>" class="conceptmap-button">
+                Concept Map
+            </a>
+            <div class="tooltip-bottom conceptmap-button__tooltip">
+                <button class="conceptmap-button__tooltip__close-button">×</button>
+                <p>Explore connections in math and science</p>
+                <a href="/conceptmap?eid=<%= data.domain.encodedID %>">Find other related concepts</a>
+            </div>
+            <div class="tooltip-bottom conceptmap-button__tooltip-hover">
+                Discover related concepts in Math and Science.
+            </div>
+        </div>
+    <% } %>
+</div>

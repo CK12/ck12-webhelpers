@@ -1,0 +1,17 @@
+{% extends "master.html" %}
+{% block title %}Invalid Session{% endblock %}
+
+{% block pageinfotop %}
+<div class="contenttop"></div>
+{% endblock %}
+
+{% block content %}
+<div class="prefix_3 grid_6 suffix_3">
+    <h1 class="toptitle">{{ _("Invalid Session") }}</h1>
+    <div class="sectiondivider divider spacetoplarge"></div>
+    <p>{{ _("This action requires 'Admin' user Permissions/Rights. It seems, you have logged-in as a non-admin user.") }}</p>
+    <p>{{ _("This action will sign-out you from the current session. Click ")}} <a href="{{ '%s?returnTo=%s' % (url('auth-signout'), c.next) }}"> {{_("here")}} </a> {{ _(" to Continue.")}} </p>
+    <div class="sectiondivider divider spacetop"></div>
+    <div class="sectiondivider divider"></div>
+</div>
+{% endblock %}

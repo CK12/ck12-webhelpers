@@ -1,0 +1,38 @@
+{% extends "common/master.html" %}
+
+{% block title %}{{ _("Search") }}{% endblock %}
+
+{% block meta_extra %} {{ super() }} <meta name="robots" content="noindex" /> {% endblock %}
+
+{% block stylesheets %}
+{{ super() }}
+	<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('search/css/tangerine.search.css') }}" />
+{% endblock %}
+ 
+{% block js %}
+{{ super() }}
+	<script>
+		document.getElementsByClassName('page-title')[0].innerHTML = 'Search';
+    	require(['main'], function(){
+        	require(['search/controllers/search'],function(search){
+        		search.init(document.getElementById('search-container'));
+        	});
+    	});
+	</script>
+{% endblock %}
+ 
+<!-- Main Page Content and Sidebar -->
+{% block content %}
+{{ super() }}
+	<div id="page-disable" class="page-disable js-page-disable hide"></div>
+	<div class="loading-icon new-spinner js-new-spinner">
+        <div class="dot1"></div>
+        <div class="dot2"></div>
+    </div>
+	<div id="search-container" class="row collapse"></div>
+{% endblock %}
+<!-- End Main Content and Sidebar -->
+ 
+  
+
+

@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns:dc="http://www.ck12.org/dc/will_create_ns"
+unique-identifier="chapterid" version="2.0">
+
+  <chapter>
+    <metadata>
+      <chapterid>5</chapterid>
+      <title>Relationships Within Triangles</title>
+      <description>Topics in this chapter include:midsegments of a triangle,perpendicular bisectors in triangles,angle bisectors in triangles,medians in triangles,altitudes in triangles,inequalities in triangles,inequalities in two triangles,indirect proof.
+     </description>
+    </metadata>
+    
+    <lessons>
+      <item id="midsegments_of_a_triangle" href="midsegments_of_a_triangle.html" sequence="1" />
+      <item id="perpendicular_bisectors_in_triangles" href ="perpendicular_bisectors_in_triangles.html" sequence="2" />
+	<item id="angle_bisectors_in_triangles" href="angle_bisectors_in_triangles.html" sequence="3" />
+		<item id="medians_in_triangles" href="medians_in_triangles.html" sequence="4" />
+		<item id="altitudes_in_triangles" href="altitudes_in_triangles.html" sequence="5" />
+		<item id="inequalities_in_triangles" href="inequalities_in_triangles.html" sequence="6" />
+		<item id="inequalities_in_two_triangles" href="inequalities_in_two_triangles.html" sequence="7" />
+	<item id="indirect_proof.html" href="indirect_proof.html" sequence="8" />
+	
+      </lessons>
+  </chapter>
+
+</package>

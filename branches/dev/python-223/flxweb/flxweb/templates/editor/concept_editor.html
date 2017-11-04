@@ -1,0 +1,282 @@
+{% extends "editor/artifact_editor_common.html" %}
+{% block js %}
+{{ super() }}
+<script language="JavaScript" type="text/javascript">
+	require(['main'],function(){
+		require(['flxweb.editor.concept','flxweb.editor.concept.node']);
+	});
+</script>
+
+{% endblock %}
+
+{% block extra_head %}
+{{ super() }}
+<script type="text/javascript">
+var pageType = "Concept Editor";
+</script>
+{% endblock %}
+
+{% block extra_editor_classes %}concept_editor{% endblock %}
+
+{% block before_content %}
+	<div class="editor-top-container">
+		<div class="editor-tips pointer js-edit-tips">
+			<a class="edit-icon"><span>?</span></a>
+			<a class="edit-text">Are you stuck?</a>
+		</div>
+		<div style="display:none;" class="editor-tips-container relative">
+			<div class="pointer editor-tips-close js-editor-tips-close"><i class="icon-close2"></i></div>
+			<div class="editor-tips-title"><span>Need Help Editing?</span></div>
+			<div class="editor-tips-text editor-tips-link">
+				<a id="EDITOR_FAQ_VALIDATION" class="js-editing_link" href="https://ck12support.zendesk.com/hc/en-us/articles/207918948-CK-12-Content-Editor-Overview" target="_blank">
+					<span>CK-12 Editing Tools Overview</span><i class="icon-arrow3_right"></i>
+				</a>
+			</div>
+			<div class="editor-tips-text editor-tips-link">
+				<a id="EDITOR_FAQ_VALIDATION" class="js-editing_link" href="https://ck12support.zendesk.com/hc/en-us/articles/207918948" target="_blank">
+					<span>What's new in the CK-12 content editor</span><i class="icon-arrow3_right"></i>
+				</a>
+			</div>
+			<div class="editor-tips-text editor-tips-link">
+				<a id="EDITOR_FAQ_MATHEDITOR" class="js-editing_link" href="https://ck12support.zendesk.com/hc/en-us/articles/204320584-How-to-Use-the-Math-Editor" target="_blank">
+					<span>Math Editor Authoring Tips</span><i class="icon-arrow3_right"></i>
+				</a>
+			</div>
+			<div class="editor-tips-text editor-tips-link">
+				<a id="EDITOR_FAQ_MATH_TIPS" class="js-editing_link" href="https://ck12support.zendesk.com/hc/en-us/articles/204549440-Math-Editor-LaTex-Equation-Reference" target="_blank">
+					<span>LaTex Equation Reference</span><i class="icon-arrow3_right"></i>
+				</a>
+			</div>
+			<div class="editor-tips-text editor-tips-faq">
+				<span>To learn more, see </span>
+				<a id="EDITOR_FAQ_CONTENT_CUSTOMIZATION" class="js-editing_link" href="https://ck12support.zendesk.com/hc/en-us/sections/200062604-FlexBook-Textbook-and-Modality-Customization" target="_blank">Flexbook&#174; Textbook and Modality Customization FAQ</a>
+			</div>
+		</div>
+		<div class="editor-new-visitor-prompt hide">
+			<button class="js-editor-new-visitor-prompt-close">&times;</button>
+			<strong>We hope you like the new editor</strong>
+			<a href="https://ck12support.zendesk.com/hc/en-us/articles/207918948" target="_blank">What's the difference?</a>
+		</div>
+	</div>
+{% endblock %}
+
+{% block pageinfotop %}
+<div class="contenttop-new contenttop">
+	<nav id="pageinfotop">
+		<div id="pagewrap" class="clearfix container_12"></div>
+	</nav>
+</div>
+{% endblock %}
+
+{% block resources %}
+	{{ ck12_resources_tab(c.artifact, c.user, True, loadlater='clickload') }}
+{% endblock %}
+
+ {% block modalitytype_select %}
+	 {% if c.enable_modalities %}
+	     <!-- Select Modality type while creating -->
+	           {% if not c.context_query_perma %}
+		           <div class="hint_edittitle clear">
+	                <span>Modality Type</span>
+		            {% if not c.artifact.perma %}
+	                <select class="forminput" id="modality_select" url="{{ c.context_query_perma }}">
+	                    <option selected="selected" value="lesson">Read</option>
+	                    <option value="lecture">Video</option>
+	                    <optgroup label="Activities">
+	                            <option value="worksheet">Worksheet</option>
+	                            <option value="lab">Lab Kit</option>
+	                            <option value="preread">Pre Read</option>
+	                            <option value="postread">Post Read</option>
+	                            <option value="activity">Activity</option>
+	                            <option value="prepostread">Pre and Post Read</option>
+	                            <option value="whileread">While Read</option>
+	                    </optgroup>
+	                    <optgroup label="Study Aids">
+	                            <option value="flashcard">Flashcards</option>
+	                            <option value="studyguide">Study Guide</option>
+	                    </optgroup>
+	                    <optgroup label="Lesson Plans">
+	                            <option value="lessonplan">Lesson Plan</option>
+	                            <option value="handout">Handout</option>
+	                            <option value="rubric">Rubric</option>
+	                            <option value="presentation">Presentation</option>
+	                    </optgroup>
+	                    <optgroup label="Web Links">
+	                            <option value="web">Link</option>
+	                    </optgroup>
+	                    <optgroup label="Real World">
+	                            <option value="rwa">Real World Application</option>
+	                    </optgroup>
+	                </select>
+		            {% else %}
+		               <select disabled="disabled" class="forminput disabled" id="modality_select" >
+		                       {% for modality in c.modality_artifact_types %}
+		                          {% if modality.type == c.artifact.artifactType  %}
+		                               <option selected="selected" value="{{modality.type}}">{{modality.display_label|title}}</option>
+		                          {% endif %}
+		                       {% endfor %}
+		               </select>
+		            {% endif %}
+		           </div>
+		       {% else %}
+		           {% if c.user.isAdmin() or c.user.isEditAllowed() %}
+		               <div class="spacetopxlarge"></div>
+		           {% else %}
+		               <div class="spacetoplarge"></div>
+		           {% endif %}
+	           {% endif %}
+	 {% endif %}
+ {% endblock %}
+
+{% block draft_label %}
+	<div id="draft-label" class="draft-label" style="display:none">DRAFT</div>
+{% endblock %}
+{% block artifact_coverimage %}
+{{ super() }}
+    <!-- <div class="nocoverimageeditor"></div>  -->
+	<!-- If breadcrumbs then also create this empty div for alignment -->
+	{% for crumb in c.breadcrumbs %}
+		{% if loop.last %}
+			<div class="artifact_editor_breadcrumbs">&nbsp;</div>
+		{% endif %}
+	{% endfor%}
+{% endblock %}
+
+{% block objectives_section %}
+{% if c.artifact.artifactType not in  ["section","rwa"] %}
+{% if c.artifact.artifactType in  ["lesson","concept"] %}
+<section>
+	<div class="divider spacetop"></div>
+	<h2>{{ _("Learning Objectives") }}</h2>
+	<div id="lesson_objectives"  class="objectives_content" style="width:100%">
+
+	</div>
+	<h2>{{ _("Vocabulary") }}</h2>
+	<div id="lesson_vocabulary"  class="vocabulary_content" style="width:100%">
+
+	</div>
+</section>
+{% endif %}
+{% endif %}
+
+{% endblock %}
+
+{% block editor_save_action %}
+	{% if c.artifact.get('context') and c.artifact.context.perma %}
+		{% if c.artifact.context.revision or c.artifact.context.latestRevision %}
+			<a href="/editor/{{ c.artifact.context.perma }}r{{ c.artifact.context.revision or c.artifact.context.latestRevision }}" id="btn_cancel_artifact" class="spacetoplarge block button tangerine" title="Go Back">Go Back</a>
+		{% else %}
+			<a href="/editor/{{ c.artifact.context.perma }}" id="btn_cancel_artifact" class="spacetoplarge block button tangerine" title="Go Back">Go Back</a>
+		{% endif %}
+	{% elif c.artifact.perma %}
+		<a href="{{ h.artifact_url(c.artifact) }}" id="btn_cancel_artifact" class="spacetoplarge block button tangerine" title="Go Back">Go Back</a>
+	{% else %}
+		<a class="spacetoplarge block button tangerine" id="btn_cancel_artifact" title="Go Back" href="{{ c.returnTo|e or '/my/library' }}">Go Back</a>
+	{% endif %}
+	<a class="button dusty-grey hide js_save_artifact" id="btn_save_artifact" title="{{ _('Finalize Draft') }}">{{ _("Finalize Draft") }}</a>
+	<a class="button dusty-grey hide js_discard_artifact" id="btn_discard_artifact" title="Discard Draft">Discard Draft</a>
+{% endblock %}
+
+{% block editor_sidebar_items %}
+<div id="data-image-alert-container" class="data-image-alert-container js-sticky hide">
+	<div class="relative data-image-alert-wrapper">
+		<div><a class="alert-close icon-close2 js-close-icon"></a></div>
+		<div class="alert-header">These things can go wrong, please try these:</div>
+		<div class="alert-message">
+			<span>Remove formatting, btw, you can format it afterwards.</span>
+			<span>Remove the affected area and try typing it again.</span>
+			<span>Split the paragraph into 2 smaller chunks.</span>
+		</div>
+		<div class="alert-buttons">
+			<a class="button tangerine" target="_blank" href="https://ck12support.zendesk.com/hc/en-us/articles/204861640"><span>I still need help</span><i class="icon-new-window"></i></a>
+			<a class="js-next-error hide">Next Error</a>
+		</div>
+		<div class="pointer contact-support js-contact-support">
+			<i class="icon-email"></i>
+			<span>Still can't fix it? Contact us.</span>
+		</div>
+	</div>
+</div>
+<div class="validation-container relative js-sticky">
+	<div id="auto-save" class="validating-check-container hide">
+		<span id="auto-save-progress" class="hide">Auto Saving...</span>
+		<span id="auto-save-success" class="hide"><span>Last saved </span><span class="js-last-save-time"></span></span>
+	</div>
+	<!-- <div id="validating-check" class="validating-check-container hide">
+		<span id="validating-progress" class="hide">Checking for errors...</span>
+		<span id="validating-success" class="hide">All clean!</span>
+	</div> -->
+	<div id="image-check" class="validating-check-container hide">
+		<span id="image-progress" class="hide">optimizing images...</span>
+		<span id="image-success" class="hide">images optimized</span>
+	</div>
+</div>
+{% endblock %}
+
+{% block after_content %}
+{% endblock %}
+
+{% block metadata_edit %}
+{{ super() }}
+	<section id="taxonomycontainer">
+		<div class="divider spacetop"></div>
+		<h2>{{ _('Concept Node') }}</h2>
+		<div>
+			<a class="inlineblock" id="btn_addtaxonomy">{{ _("Choose a Concept Node") }}</a>
+		</div>
+		<div class="spacetop js_domain_container">
+			{% for domain in c.artifact.get_domains() %}
+				<span class="js_concept_node inlineblock">
+					<span> {{domain.title}}</span>
+					<span class="js_domain_remove removeimg"
+					data-encodedid="{{domain.encodedid}}"
+					data-domainterm="{{ domain.name }}"
+					data-conceptcollectionhandle="{{ domain.conceptCollectionHandle  }}"
+					data-creatorid="{{ domain.collectionCreatorID }}"
+					><span class="icon-close"></span></span>
+				</span>
+			{% endfor %}
+		</div>
+	</section>
+
+{% endblock %}
+
+{% block hidden_divs %}
+{{ super() }}
+<div id="ck12_template_tinymce">
+	<div class="ck12_tinymce_container">
+		<div class="sectioneditbuttonwrap">
+			<!-- a class="btn_apply btn" title="{{_('Apply')}}">{{_('Apply')}}</a -->
+			<a class="btn_cancel" "{{_('Cancel')}}">{{_('Discard')}}</a>
+		</div>
+		<textarea style="width:100%" class="editor_content"></textarea>
+		<div class="sectioneditbuttonwrap">
+			<!-- a class="btn_apply btn" title="{{_('Apply')}}">{{_('Apply')}}</a -->
+			<a class="btn_cancel" "{{_('Cancel')}}">{{_('Discard')}}</a>
+		</div>
+	</div>
+</div>
+<div id="ck12_template_editlink">
+	<a class="ck12-editor-editlink ck12-editor-discard" title="{{ _('Edit') }}"> [ {{ _('Edit') }} ]</a>
+</div>
+<!-- <div id="js_dialog_addtaxonomy" data-dialogurl="{{ h.url('dialog/addconceptnode/',qualified=True) }}" style="display:none" data-dialogtitle="{{ _("Choose a Concept Node") }}"></div> -->
+<div id="js_dialog_addtaxonomy" data-dialogurl="{{ h.url('dialog/addconceptnode/',qualified=True) }}" data-dialogtitle="{{ _("Choose a Concept Node") }}"></div>
+<div id="js_dialog_customcover" data-dialogtitle="{{ _("Change Cover Image") }}">
+    <img id="cover_preview" style="border:1px solid #CCCCCC" src="{{ artifact|ck12_artifact_cover_thumbnail_large }}" title="Cover Image" />
+    <div class="js_loading hide" style="display:block"> <img src="{{ h.url_images('icon_loading.gif') }}" width="43" height="11" /> </div>
+    <div class="cover_image_upload_holder">
+        <div id="customcover_form_container" class="button turquoise">
+            <form id="frm_customcover" name="frm_customcover"  method="POST" enctype="multipart/form-data" action="{{ h.url('customcover',qualified=True) }}">
+            <input type="hidden" id="customcover_booktitle" name="book_title" value="{{ c.artifact.title|escape }}" />
+            <input type="hidden" id="useOriginal" name="useOriginal" value="true" />
+            <input id="file_coverimage" type="file" title="Upload Image" class="coverimage_input" name="file_coverimage" />
+            <div class="coverimage_btn_display js_cover_image_btn">{{ _("Upload Image") }}</div>
+            </form>
+        </div>
+        <div class="covereditapplywrap">
+            <input id="btn_coveredit_apply" class="button dusty-grey" type="submit" value="{{ _('Apply') }}" />
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block extra_content %}{% endblock %}

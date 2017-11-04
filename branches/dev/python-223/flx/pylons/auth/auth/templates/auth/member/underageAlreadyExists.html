@@ -1,0 +1,44 @@
+{% extends "base/auth/1column.html" %}
+{% block title %} {{ _('Underage Already Exists') }} {% endblock %}
+
+{% block content %}
+<div class="signup">
+	<div class="large-8 large-centered columns">
+		<h1 class="toptitle">{{ _("Ck-12 Account Exists") }}</h1>
+		<div class="spacetoplarge"></div>
+	</div>
+	<div id="signup" class="contentarea large-8 large-centered columns">
+		<div class="signup-area">
+		<div class="spacetopxlarge"></div>
+		{% if c.form_errors %}
+			<div id="signin_errors">
+				<ul class="messaging error">
+					{% for error in c.form_errors %}
+					<span class="icon-close"></span>
+					<li>{{error}}
+						{% if c.form_errors[error] %}
+						- {{ c.form_errors[error] }}
+						{% endif %}
+					</li>
+					{% endfor %}
+				</ul>
+			</div>
+		{% else %}
+			<div class="divider"></div>
+				<p>Hi {{ c.member.givenName }},</p>
+				<div class="divider spacetop"></div>
+				<p>
+					{{ _("We got your request to signup for CK-12. However your parent or guardian hasn't yet approved your request.")}}
+					<img src="/auth/media/images/smiley-frown.gif"/> {{_("If you want to remind them again,")}}
+					<a href="{{h.url('underage_approval_resend',qualified=True)}}?t={{ c.token }}">{{ _("click here") }}</a>
+					{{_("and we will send them an email.") }}
+					{{ _("If you want to re-enter your parents email address") }}
+					<a href="{{h.url('member_underage_signup',qualified=True)}}?underageinfo={{c.encodedData}}">{{ _("click here.") }}</a>
+				</p>
+				<div class="divider spacetop"></div>
+				<p> {{ _("Hope to see you learning soon!") }}
+		{% endif %}
+		</div>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% from "macros/pagination.html" import paginate with context %}  
+
+{% if c.paginator.item_count > 0 %}
+  {% if not c.asOverlay %}
+
+  {% for i in c.paginator.items %}
+    <div class="tr paneview {{ h.hide_if_full(c.viewmode)}}">
+      <div class="td id">{{i._id}}</div>
+      <div class="td viewtrigger" data-id="{{i._id}}"><span class="tiptrigger"><a href="/assessment/test/{{ i._id }}" alt="View details">{{ i.title|escape }}</a></span><br/>
+        {{i.testType.name}}, Qs: {{i.questionsCount}}, {% if i.isPublic %}Published{% endif %} <br/>
+        by: {{h.userlink(i.owner, 'email', idkey='uID', truncate=10)}}
+        <div class='hide tipdiv'>{{i.title|escape}}</div>
+      </div>
+      <div class="td nowrap">{{i.updated|parseISODate}}</div>
+    </div>
+    <div class="tr fullview {{ h.hide_if_pane(c.viewmode)}}">
+      <div class="td id">{{i._id}}</div>
+      <div class="td">{{i.encodedIDs | join(', ') or "N/A" }}</div>
+      <div class="td">{{i.testType.name }}</div>
+      <div class="td viewtrigger tiptrigger" data-id="{{i._id}}"><a href="/flxadmin/assessment/test/{{ i._id }}" alt="View details">{{ i.title|escape }}</a></div>
+      <!-- {{h.idlink2('/assessment/test/', i, textkey=i.title, alttext='View details', idkey='_id')}}</div> -->
+      <div class="td">{{i.questionsCount }}</div>
+      <div class="td">{{i.isPublic }}</div>
+      <div class="td">{{h.userlink(i.owner, 'email', idkey='uID')}}</div>
+      <div class="td nowrap">{{i.created|parseISODate}}</div>
+      <div class="td nowrap">{{i.updated|parseISODate}}</div>
+      <div class='hide tipdiv'>{{i.title|escape}}</div>
+    </div>
+  {% endfor %}
+
+  {% else %}
+
+  {% for i in c.paginator.items %}
+    <div class="tr">
+      <div class="td id">{{h.idlink('/exercise/', i, 'id')}}</div>
+      <div class="td">{{i.encodedIDs | join(', ') or "N/A" }}</div>
+      <div class="td expand">{{i.title|escape}}</div>
+      <div class="td nowrap">{{i.created|parseISODate}}</div>
+      <div class="td nowrap">{{i.updated|parseISODate}}</div>
+      <div class='hide expanded'>{{i.title|escape}}</div>
+    </div>
+  {% endfor %}
+  
+  {% endif %}
+{{ paginate(c.paginator) }}
+{% endif %}

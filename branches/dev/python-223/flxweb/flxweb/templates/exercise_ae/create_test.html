@@ -1,0 +1,162 @@
+{% extends "base/1column.html" %}
+{% if c.mode == "edit" %}
+	{% set mode_title = "Edit Quiz" %}
+	{% set url = h.url_assessment("?test/edit/") + c.type +"/"+ c.mhandle %}
+	
+	{% if c.questionPage and c.encoded_id %}
+		{% set url = h.url_assessment("?test/edit/") + c.type +"/"+ c.mhandle + "?encoded_id=" + c.encoded_id + "&questionPage=true" %}
+		{% if c.question_id %}
+			{% set url = url + "&question_id=" + c.question_id %}
+		{% endif %}
+	{% endif %}
+	
+{% else %}
+	{% set mode_title = "Create Quiz" %}
+	{% if c.mhandle %}
+		{% set url = h.url_assessment("?test/create/") + c.type +"/"+ c.mhandle + "?encoded_id=" + c.encoded_id %}
+	{% else %}
+		{% set url = h.url_assessment("?test/create/") %}
+	{% endif %}
+{% endif %}
+
+{% if c.referrer %}
+	{% set url = url + "&referrer=" + c.referrer %}
+{% endif %}
+
+{% if c.incoming_ex_title %}
+	{% set incoming_ex_title = c.incoming_ex_title %}
+{% else %}
+	{% set incoming_ex_title = "My Quizzes" %}
+{% endif %}
+
+{% set mode_title =  mode_title %}
+
+{% block title %}{{ _("Create Quiz") }}{% endblock %}
+
+{% block stylesheets %}
+{{ super() }}
+<style>
+.back-button, .back-button:active, .back-button:hover {
+	    display: inline;
+    height: 40px;
+    width: 40px;
+    font-size: 14px;
+    color: #00aba4;
+    line-height: 40px;
+    border-radius: 2px;
+    cursor: pointer;
+    top: 0;
+    text-decoration: none;
+    padding-left: 5px;
+}
+/* 
+.back-button:hover {
+	color : #fff;
+} */
+span.back-title {
+    font-size: 21px;
+    padding-left: 10px;
+    font-family: proximaNova, sans-serif !important;
+}
+span#mode_title {
+    font-size: 21px;
+    font-weight: normal;
+    padding-left:25px;
+}
+
+text-center {
+		text-align : center;
+}
+
+a.padding-small-left{
+	padding-left: 50px;
+	line-height: 1.8em;
+}
+
+.concept_link.disable a{
+	pointer-events : none;
+	opacity : 0.5;
+}
+
+
+</style>
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+<script language="JavaScript" type="text/javascript">
+	require(['main'], function(main){
+		require(['flxweb.assessmentFrameListener'], function(frameListener){ 
+			frameListener.init({"apis": ["resize", "loadMyTests", "contributeQuestionForConcept", "setParentURL"]});
+			
+			window.assessmentFrameListener["redirectBackButtonToMyTest"] = function(){
+				$(".back-button").attr("href", "/my/library/content/assessment/");
+			};
+			
+			window.assessmentFrameListener["setTitle"] = function(title){
+		 		document.title = title;
+		 	};
+		 	
+		 	window.assessmentFrameListener["renderEditMode"] = function(isEditMode){
+		 		var title = "";
+		 		
+		 		if(isEditMode){
+		 			title = "Edit Questions";
+		 			$(".concept_link").addClass("disable");
+		 		}else{
+		 			title = "Edit Quiz";
+		 			$(".concept_link").removeClass("disable");
+		 		}
+
+		 		if($("#mode_title").length > 0){
+		 			$("#mode_title").text(title);
+		 		}
+		 	};
+		 	
+		 	$("h1.concept_link a").off("click.concept_link").on("click.concept_link", function(e){
+		 		if($("h1.concept_link").hasClass("disable")){
+		 			e.preventDefault();
+		 		}
+		 	});
+		});
+	});
+</script>
+{#
+#}
+{% endblock %}
+
+{% block pageinfotop %}
+<div class="contenttop container_12">
+	<nav id="pageinfotop grid_12"></nav>
+	<div class="gclear"></div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div id="workbookcontainer">
+	<div id="createworkbookwrapper">
+		{% if c.practice_page_url %}
+            <h1 class="concept_link">
+	            <a class="padding-small-left hide" href="{{ c.practice_page_url }}">{{ incoming_ex_title|escape }}</a>
+	            <a class="back-button icon-arrow2_left text-center" href="{{ c.practice_page_url }}"><span class="back-title">Back</span></a>
+	            <span id="mode_title"> {{ mode_title }}</span>
+	            <a class="js-quiz-back hide" href=""></a>	<!-- Change made for US 98609792, bug 39687 -->
+            </h1>
+        {% else %}
+            <h1 class="concept_link">
+            	<!-- <a class="padding-small-left" href="{{ h.url('modality_branch',branch=c.branch,handle=c.domain,mtype=c.incoming_ex_artifact_type,mhandle=c.incoming_ex_handle,qualified=True) }}"> --> 
+            	<a class="padding-small-left hide" href="{{ c.practice_page_url }}">{{ incoming_ex_title|escape }}</a>
+            	<a class="back-button icon-arrow2_left text-center" href="/my/library/content/assessment/"> <span class="back-title">Back</span></a>
+            	<span id="mode_title"> {{ mode_title }}</span>
+            	<a class="js-quiz-back hide" href="/create/exercise/test/?referrer=my_content"></a>
+            </h1>
+        {% endif %}
+        <div class="contentarea">
+			<div id="view_workbook" class="contentview" style="padding: 0px;">
+				<iframe id="assessmentFrame" src="{{ url }}" style="height:675px;width:100%;border:0px;" scrolling="no"></iframe>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+

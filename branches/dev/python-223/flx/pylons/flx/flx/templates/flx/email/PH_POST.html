@@ -1,0 +1,128 @@
+{% extends "MASTER_CK12_LOGO.html" %}
+{% macro get_view_on_ck12_link(group_type, group_id, group_url, postInfo) %}
+{% if group_type and group_type == 'public-forum' %}
+{{site}}{{"/forum/"}}{{group_id}}{{"/question/"}}{% if postInfo.postType == 'question' %}{{postInfo._id}}{% else%}{{postInfo.ancestorIDs[0]}}{% endif %}
+{% else %}
+{{group_url}}
+{% endif %}
+{% endmacro %}
+
+{% macro get_group_url(group_type, group_id) %}
+{% if group_type and group_type == 'public-forum' %}
+{{site}}{{"/forum/"}}{{group_id}}{{"/home"}}
+{% else %}
+{{ site }}{{"/group/"}}{{group_id}}
+{% endif %}
+{% endmacro %}
+
+{% macro get_group_qa_url(group_type, group_id) %}
+{% if group_type and group_type == 'public-forum' %}
+{{site}}{{"/forum/"}}{{group_id}}{{"/home"}}
+{% else %}
+{{ site }}{{"/group-discussions/"}}{{group_id}}
+{% endif %}
+{% endmacro %}
+
+{% macro get_group_settings_url(group_type, group_id) %}
+{% if group_type and group_type == 'public-forum' %}
+{{site}}{{"/forum/"}}{{group_id}}{{"/setting"}}
+{% else %}
+{{site}}{{"/group-settings/"}}{{group_id}}
+{% endif %}
+{% endmacro %}
+
+{% block email_body %}
+    <body style="margin:0px;">
+        <table style="width:100%;text-align:center;" cellpadding="0" cellspacing="0">
+            <tr>
+                <td align="center">
+                    <table style="width:600px; text-align:left; padding:40px 28px; font-family:Arial, Helvetica, sans-serif;font-size:14px;color:#333333;" cellpadding="0" cellspacing="0">
+                        {% if notificationFrequency == 'instant' %}
+                            <tr>
+                                <td valign="top" style="padding-bottom:30px; border-bottom:1px solid #cec9be;">
+                                    <img style="border:1px solid #b5b1a7; vertical-align: middle; margin-bottom:10px;" src="{{ events[0]['eventData']['ownerImg'] }}" alt="{{ events[0]['eventData']['ownerName'] }}" width="33" height="32" />
+                                    <b>{{ events[0]['eventData']['ownerName'] }}</b>
+                                    <span style="color:#8e8774;"> from </span>
+                                    <a href="{{get_group_url(group_type=events[0]['eventData']['groupType'],group_id=events[0]['eventData']['groupID']) }}?{{ utm_email_title_link }}" style="color:#32ABA1;text-decoration:none"><b>{{ events[0]['eventData']['groupName'] | escape }}</b></a>
+                                    {% if events[0]['eventData']['postType'] == 'question' %}
+                                        <span style="color:#8e8774;">posted a new {{ events[0]['eventData']['postType'] }}.</span><br />
+                                    {% else %}
+                                        <span style="color:#8e8774;">posted a new {{ events[0]['eventData']['postType'] }}.</span><br />
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" valign="top" style="padding:0px 22px 22px 22px; color:#56544d; font-size:16px;">
+                                    <a href="{{ get_view_on_ck12_link(group_type=events[0]['eventData']['groupType'], group_id=events[0]['eventData']['groupID'],group_url=events[0]['eventData']['postURL'],
+                                    postInfo=events[0]['eventData']['post']) }}?{{ utm_email_view_on_ck12_button }}" style="background-color:#00aba4; border-radius:4px; border-bottom:3px solid #0089a6; display:inline-block; padding:12px 12px 10px; font-weight:bold; font-size:16px; text-decoration:none; color:#fff; width:155px;">View on CK-12</a>
+                                </td>
+                            </tr>
+                        {% else %}
+                            {% for phEvent in events %}
+                                <tr>
+                                    <td valign="top" style="">
+                                        <b>{{ phEvent['eventData']['ownerName'] }}</b>
+                                        <span style="color:#8e8774;"> from </span>
+                                        <a href="{{ get_group_url(group_type=phEvent['eventData']['groupType'], group_id=phEvent['eventData']['groupID']) }}?{{ utm_email_title_link }}"><b>{{ phEvent['eventData']['groupName'] | escape }}</b></a>
+                                        {{ phEvent['eventData']['action'] }}
+                                        {% if phEvent['eventData']['post']['postType'] != 'question' %}
+                                            <span style="color:#8e8774;">to:</span><br />
+                                            <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 400px; margin: 5px;">
+                                                <a href="{{ get_view_on_ck12_link(group_type=phEvent['eventData']['groupType'], group_id=phEvent['eventData']['groupID'], group_url=phEvent['eventData']['postURL'],postInfo=phEvent['eventData']['post']) }}?{{ utm_email_view_on_ck12_link }}">{{ phEvent['eventData']['title'] }}</a>
+                                            </p>
+                                        {% else %}
+                                            :
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td valign="top" style="padding-bottom:30px; border-bottom:1px solid #cec9be;">
+                                        <table>
+                                            <tr>
+                                                <td stype="width:40px">
+                                                    <img style="border:1px solid #b5b1a7; vertical-align: middle; margin-bottom:10px;"
+                                                        src="{{ phEvent['eventData']['ownerImg'] }}" alt="{{ phEvent['eventData']['ownerName'] }}"
+                                                        width="33" height="32" />
+                                                </td>
+                                                <td>
+                                                    <div style="padding:10px; background-color:#F2F2F1; margin:10px;">
+                                                        {{ phEvent['eventData']['post']['content'] }}
+                                                        <br>
+                                                        <a href="{{ get_view_on_ck12_link(group_type=phEvent['eventData']['groupType'], group_id=phEvent['eventData']['groupID'], group_url=phEvent['eventData']['postURL'],
+                                                        postInfo=phEvent['eventData']['post']) }}?{{ utm_email_read_more_link }}">Read More</a>  
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        {% endif %}
+                    </table>
+                </td>
+            </tr>
+
+            <tr>
+                <td align="center" style="background-color:#56544d; color:#BBBBBB; padding:10px; height:100px; font-family:Arial, Helvetica, sans-serif; font-size:12px;">
+                    <table style="width:600px; padding:0px 30px; text-align:left;font-family:Arial, Helvetica, sans-serif;font-size:12px;" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td style="padding: 10px;">
+                                <span>Please do not reply to this email.</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px;">
+                                <span>Prefer not to receive these emails? <a href="{{ get_group_settings_url(group_type=events[0]['eventData']['groupType'],group_id=events[0]['eventData']['groupID']) }}" style="color:#FFFFFF;text-decoration:none;">Change your email settings for this group</a></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px;">
+                                © CK-12 Foundation | 3430 West Bayshore Road, Palo Alto, CA 94303
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </body>
+{% endblock %}

@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns:dc="http://www.ck12.org/dc/will_create_ns"
+unique-identifier="chapterid" version="2.0">
+
+  <chapter>
+    <metadata>
+<chapterSeq>11</chapterSeq>
+
+<book>Biology I</book>
+
+      <chapterid></chapterid>
+      <title>History of Life</title>
+      <description>Topics in this chapter include:Early_Life,Multicellular_Life.
+     </description>
+    </metadata>
+    
+    <lessons>
+      <item id="Studying_the_History_of_Life" href="Studying_the_History_of_Life.html" sequence="1" />
+      <item id="Early_Life" href ="Early_Life.html" sequence="2" />
+      <item id="Multicellular_Life" href ="Multicellular_Life.html" sequence="3" />
+    </lessons>
+  </chapter>
+
+</package>

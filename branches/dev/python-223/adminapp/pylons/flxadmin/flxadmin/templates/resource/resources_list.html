@@ -1,0 +1,20 @@
+{% from "macros/pagination.html" import paginate with context %}  
+
+{% if c.paginator.item_count > 0 %}
+  {% for i in c.paginator.items %}
+  <div class="tr paneview {{ h.hide_if_full(c.viewmode)}}">
+    <div class="td id">{{i.id}}</div>
+    <div class="td viewtrigger" data-id="{{i.id}}">{{h.idlink2('/resource/', i, alttext=i.name|shorten(24))}}</div>
+    <div class="td">{{i.type}}</div>
+    <div class="td nowrap">{{i.created|compact}}</div>
+  </div>
+  <div class="tr fullview {{ h.hide_if_pane(c.viewmode)}}">
+    <div class="td id">{{i.id}}</div>
+    <div class="td viewtrigger" data-id="{{i.id}}">{{h.idlink2('/resource/', i, alttext=i.name|shorten(48))}}</div>
+    <div class="td">{{i.type}}</div>
+    <div class="td">{{i.description|escape}}</div>
+    <div class="td nowrap">{{i.created|compact}}</div>
+  </div>
+  {% endfor %}
+  {{ paginate(c.paginator) }}
+{% endif %}

@@ -1,0 +1,101 @@
+$side-padding: 15;
+$max-width: 240 - ($side-padding * 2);
+
+body, html {
+    font-family: "ProximaNova", "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-size: $rem-base;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.loader {
+    background-image: url('../images/icon_loading.gif');
+    height: 48px;
+    width: 48px;
+    margin: 0 auto;
+}
+
+.main {
+    box-shadow: 0 1px 5px 0px rgba(0,0,0,0.4);
+    text-align: center;
+    padding: rem-calc(30) rem-calc($side-padding) rem-calc(18);
+    max-width: rem-calc($max-width);
+    border-radius: 5px;
+    background: $white;
+    position: relative;
+    left: 3px;
+    top: 2px;
+
+    hgroup {
+
+        h1 {
+            font-size: rem-calc(14);
+            color: $color-1;
+            letter-spacing: 0.025em;
+            margin: 0 0 rem-calc(16);
+            font-weight: normal;
+            text-transform: uppercase;
+        }
+        h2 {
+            font-size: rem-calc(18);
+            line-height: rem-calc(21);
+            font-weight: bold;
+            color: $color-1;
+            margin: 0 0 rem-calc(25);
+        }
+
+    }
+    footer {
+        margin: rem-calc(18) 0 0;
+        font-size: rem-calc(14);
+        color: $color-2;
+
+        @import 'sprites-other';
+        span {
+            display: inline-block !important;
+            vertical-align: middle;
+        }
+
+    }
+}
+
+.search {
+    .search-bar {
+        width: rem-calc($max-width - 2);
+        height: rem-calc(36);
+        border-radius: 3px;
+        border: 1px solid #CEC9BE;
+        color: #999;
+
+        &::-webkit-input-placeholder {
+            color: #999;
+        }
+    }
+}
+
+#modality-types {
+    margin: 0;
+    padding: 0;
+
+    .item {
+        color: $white;
+        font-size: rem-calc(27);
+        font-weight: bold;
+        letter-spacing: 0.4em;
+        text-align: center;
+        margin-bottom: rem-calc(20px);
+        cursor: pointer;
+        line-height: $img-height;
+
+        .title {
+            display: inline-block;
+            vertical-align: middle;
+            line-height: normal;
+            text-transform: uppercase;
+        }
+
+    }
+    @import 'sprites-items';
+}

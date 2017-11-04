@@ -1,0 +1,124 @@
+<div class="listitem js-listitem row collapse">
+    <% for (var index = 0, len = data.labels?data.labels.length:0; index < len; index++ ) { %>
+        <% if (data.labels[index].label == 'Collaboration') { %>
+            <% data.collaboration = 'true;' %>
+        <% } %>
+    <% } %>
+	<div class="custom-box large-1 small-1 columns row-check">
+		<input class="library-row-checkbox" type="checkbox" id="checkbox<%= data.artifactID||data.id %>"
+			data-revisionID="<%= data.artifactID ? data.artifactRevisionID:data.resourceRevisionID%>"
+			data-itemtype="<%= data.artifactID?"artifactRevision":"resourceRevision" %>"
+			>
+		<label for="checkbox<%= data.artifactID||data.id %>" class="checkbox"><span><i class="icon-validated"></i></span></label>
+	</div>
+	<div class="listitemimg small-3 large-2 columns">
+		<a class="listitemimglink" href="<%= data.details_url %><% if (data.hasDraft) { %>?previewdraft=true <% } %>">
+			<% if (data.artifactID) { %>
+			<img src="<%= data.thumbnail %>" alt="<%- data.title %>" title="<%- data.title %>">
+			<% } %>
+		</a>
+	</div>
+	<div class="listiteminfo small-7 small-offset-1 large-offset-1 large-8 columns left">
+		<div>
+			<% if (data.lmsContext && data.artifactType === 'plix') { %>
+			<a id="lms_plix" title="<%- data.title %>" class="bold lms_interactive show-for-lti-context" href="<%= data.details_url %><% if (data.collaboration) { %>?collaboration=true <% } %>" ><%- data.title %></a>
+			<% } else if (data.lmsContext && data.artifactType === 'simulationint') { %>
+			<a id="lms_simulation" title="<%- data.title %>" class="bold lms_interactive show-for-lti-context" href="<%= data.details_url %><% if (data.collaboration) { %>?collaboration=true <% } %>" ><%- data.title %></a>
+			<% } else { %>
+			<a title="<%- data.title %>" class="bold" href="<%= data.details_url %><% if (data.collaboration) { %>?collaboration=true <% } %>"><%- data.title %></a>
+			<% } %>
+			<span>
+
+			<% if (data.artifactID) { %>
+					-
+				</span>
+				<span class="artifacttype">
+					<%= data.modalityTypeInfo.display_label %>
+				</span>
+			<% } %>
+		</div>
+		<% if (data.hasDraft) { %>
+			<div class="draft-label">DRAFT</div>
+		<% } %>
+
+		<% if (data.artifactType == 'plix') { %>
+			<% if (data.domain.name) { %>
+				<span class="description-link hide-small">
+					<span>View Description</span>
+					<i class="icon-arrow-up"></i>
+				</span>
+				<div class="item_description hide-small hide">
+					<%- data.domain.name %> Interactive
+				</div>
+			<% } %>
+		<% } else { %>
+			<% if (data.summary || data.description) { %>
+				<span class="description-link hide-small">
+					<span>View Description</span>
+					<i class="icon-arrow-up"></i>
+				</span>
+			<% } %>
+			<div class="item_description hide-small hide">
+				<%- data.description %>
+			</div>
+		<% } %>
+
+		<% if (data.artifactID) { %>
+			<div class="modality_details_wrapper hide-for-small">
+				<span class="creator">Created by: <%= data.creator.name %></span>
+				<% if (data.subject){ %>
+					<span class="subjects">Subject: <%= data.subject %></span>
+				<% } %>
+				<% if (data.grades){ %>
+					<span>Grade: <%= data.grades %></span>
+				<% } %>
+			</div>
+		<% } %>
+
+		<div class="js_artifact_labels">
+			<% for (var index = 0, len = data.labels?data.labels.length:0; index < len; index++ ) { %>
+				<span class="labels" data-label="<%= data.labels[index].label %>" data-systemLabel="<%= data.labels[index].systemLabel %>" title="<%= data.labels[index].label %>">
+					<%= data.labels[index].label %>
+					<% if (data.labels[index].label == 'Collaboration') { %>
+					    <% data.collaboration = 'true;' %>
+					<% } %>
+				</span>
+			<% } %>
+		</div>
+		<% if(data.draftLastUpdatedTimeStamp || data.modified) { %>
+			<div class="last-updated-wrapper">
+				<div class="left">Last Updated: </div>
+				<% var date = new Date(data.draftLastUpdatedTimeStamp || data.modified) %>
+				<div class="left last-updated-date"><%= date.getMonth() + 1 %>/<%= date.getDate() %>/<%= date.getFullYear() %></div>
+			</div>
+		<% } %>
+		<div class="actions">
+			<!-- new code -->
+			<span class="more-options icon-ellipsis<% if (data.collaboration) {%> hide-for-small <% } %>"></span>
+			<div class="more-options-dropdown-wrapper hide">
+				<ul class="more-options-dropdown" data-dropdown-content="" id="">
+					<% if (data.artifactType === "asmtquiz") {%>
+						<% if (data.currentUser.id === data.creator.id) { %>
+							<li class="js-dropdown-element hide-for-lti-context" data-item="edit"><a title="Edit" class="mylibrary_edit hide-for-small icon-edit" href="<%= data.editor_url %>"><span class="menu-option">Edit</span></a></li>
+							<li class="js-dropdown-element show-for-lti-context" data-item="edit"><a title="Edit" class="mylibrary_edit hide-for-small icon-edit" href="<%= data.editor_url %>" target="lms-context-override"><span class="menu-option">Edit</span></a></li>
+						<% } %>
+						<li class="js-dropdown-element mylibrary_preview" data-sort="preview"><a title="Preview"class="icon-untitled"><span class="menu-option">Preview</span></a></li>
+						<li class="js-dropdown-element mylibrary_copy" data-sort="make-a-copy"><a title="Make a copy" class="hide-for-small icon-copy"><span class="menu-option">Make a copy</span></a></li>
+					<% } else if ((data.artifactType !== 'asmtpractice' && (data.ownerID === data.currentUser.id || data.currentUser.id === data.creator.id)) || data.collaboration) { %>
+						<li class="js-dropdown-element hide-for-lti-context" data-item="edit"><a title="Edit" class="mylibrary_edit hide-for-small icon-edit" href="<%= data.editor_url %>"><span class="menu-option">Edit</span></a></li>
+						<li class="js-dropdown-element show-for-lti-context" data-item="edit"><a title="Edit" class="mylibrary_edit hide-for-small icon-edit" href="<%= data.editor_url %>" target="lms-context-override"><span class="menu-option">Edit</span></a></li>
+					<% } %>
+                    <% if (!data.collaboration) {%>
+                        <li class="js-dropdown-element" data-sort="archive">
+                            <a title="Move to Archived" class="js_archive icon-remove" href="#"
+                            data-revisionID="<%= data.artifactRevisionID?data.artifactRevisionID:data.resourceRevisionID %>"
+                            data-itemtype="<%= data.artifactID?'artifactRevision':'resourceRevision' %>"><span class="menu-option">Archive</span>
+                            </a>
+                        </li>
+                    <% } %>
+				</ul>
+			</div>
+
+		</div>
+	</div>
+</div>

@@ -1,0 +1,56 @@
+{% extends "details.html" %}  
+{% block admincontent %} 
+<a id='manageSchoolArtifacts' href="manage/school/artifacts" class='linklike'>[Manage School Artifacts]</a>
+<div class="sectionhead sectiontitle">{{c.pagetitle}} </div>
+<div class="section withfloatedsubmit">
+<form id="mainform" method="get" action="javascript:void(0)">
+	<div class='leftaligned'>
+	{{ h.labelinput("School Name",'schoolName', 'info xmed')}}
+	{{ h.labelinput("State",'state', 'info xmed')}}
+	{{ h.labelinput("City",'city', 'info xmed')}}
+	{{ h.labelinput("Zip Code",'zipcode', 'info xmed')}}
+	</div>
+	{{ h.submitbutton(c.save_prefix, id='create_school')}}
+    {{ h.cancelbutton(c.cancel)}}
+    
+</form>
+</div>
+
+{% endblock admincontent %}
+
+{% block js_scripts %}
+<script type='text/javascript'>
+
+$("#create_school").click(function(event){
+    event.stopPropagation();
+    data = {}
+    data['schoolName'] = $("#schoolName").val();
+    data['state'] = $("#state").val();
+    data['city'] = $("#city").val();
+    data['zipcode'] = $("#zipcode").val();
+    createSchool(data);
+  });
+function createSchool(data){
+  	// Ajax call to create school
+  	console.log(data);
+  	$.ajax({
+          "url" : "/dexter/create/school",
+          "type" : "GET",
+          "dataType" : "json",
+          "data" : data,
+          "success" : function(response){
+          	if(response.responseHeader.status === 0){
+	    		alert("School created successfully");
+         		return true;
+            }else{
+            	alert(response.response.message);
+                return false;
+              }
+          },
+          "error" : function(){
+              return false;
+          }
+      });
+  }
+</script>
+{% endblock %}

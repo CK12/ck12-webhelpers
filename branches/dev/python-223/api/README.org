@@ -1,0 +1,91 @@
+* Installation
+  - Clone the API repository (if necessary, [[https://help.github.com/articles/managing-deploy-keys][add a deploy key]]):
+    #+BEGIN_SRC sh
+      git clone git@github.com:CK-12/api.git /opt/2.0/api
+    #+END_SRC
+  - Download and install [[http://www.fastcgi.com/dist/fcgi-2.4.1-SNAP-0910052249.tar.gz][FastCGI]]:
+    #+BEGIN_SRC sh
+      sudo apt-get install libfcgi-dev
+    #+END_SRC
+  - Download and install [[http://www.fastcgi.com/dist/mod_fastcgi-SNAP-0910052141.tar.gz][mod_fastcgi]]:
+    #+BEGIN_SRC sh
+      sudo apt-get install libapache2-mod-fastcgi
+    #+END_SRC
+  - Download and install [[http://code.call-cc.org/releases/4.8.0/chicken-4.8.0.1.tar.gz][Chicken]]:
+    #+BEGIN_SRC sh
+      make PLATFORM=linux PREFIX=/usr/local
+      sudo make PLATFORM=linux PREFIX=/usr/local install
+    #+END_SRC
+  - Create a home directory for =www-data=:
+    #+BEGIN_SRC sh
+      mkdir -v /home/www-data
+      chown -Rv www-data:www-data /home/www-data
+    #+END_SRC
+  - Modify [[file:/etc/apache2/envvars][/etc/apache2/envvars]] with the appropriate
+    environment variables:
+    #+BEGIN_EXAMPLE
+      export HOME=/home/www-data
+      export CK12_HOST=mysql.master
+      export CK12_USER=dbadmin
+      export CK12_PASSWORD=D-coD#43
+      export CK12_API_DB=api
+      # This can either be "deny" or "log".
+      export CK12_API_UNAUTHORIZED=deny
+    #+END_EXAMPLE
+  - Enable FastCGI:
+    #+BEGIN_SRC sh
+      a2enmod fastcgi
+    #+END_SRC
+  - Modify [[file:/etc/apache2/mods-available/mod_fastcgi.conf][/etc/apache2/mods-available/mod_fastcgi.conf]] to configure the
+    FastCGI module:
+    #+BEGIN_EXAMPLE
+      FastCgiConfig -autoUpdate \
+        -initial-env HOME \
+        -initial-env PATH \
+        -initial-env CK12_HOST \
+        -initial-env CK12_USER \
+        -initial-env CK12_PASSWORD \
+        -initial-env CK12_API_DB \
+        -initial-env CK12_API_UNAUTHORIZED \
+        -pass-header x-ck12-meta-appid
+      AddHandler fastcgi-script .scm
+    #+END_EXAMPLE
+  - Modify [[file:/etc/apache2/apps/70_api][/etc/apache2/apps/70_api]] to enable API key-management:
+    #+BEGIN_EXAMPLE
+      WSGIScriptAlias /api-manager /opt/2.0/api/api.wsgi
+    #+END_EXAMPLE
+  - Modify [[file:/etc/apache2/apps/70_api][/etc/apache2/apps/70_api]] to enable access checking:
+    #+BEGIN_EXAMPLE
+      <Location ~ "/2.0/.*">
+         FastCgiAccessChecker /opt/2.0/api/api.scm
+      </Location>
+    #+END_EXAMPLE
+  - Move into [[file:/opt/2.0/api][/opt/2.0/api]]:
+    #+BEGIN_SRC sh
+      cd /opt/2.0/api
+    #+END_SRC
+  - Install the API module:
+    #+BEGIN_SRC sh
+      chicken-install -s
+    #+END_SRC
+  - Create api Database
+    #+BEGIN_SRC sh
+      echo create database api | mysql
+    #+END_SRC
+    #If api database schema is previously created, run the sql patch to create many-to-many mapping 
+    #for application<->paths and alter existing table structure
+    # [[file:/opt/2.0/api/mysql/20130422-api.sql] [[file:/opt/2.0/api/mysql/20130423-api.sql]
+    #+BEGIN_SRC sh
+      sudo mysql -u dbadmin -pD-coD#43 api < /opt/2.0/api/mysql/20130422-api.sql
+      sudo mysql -u dbadmin -pD-coD#43 api < /opt/2.0/api/mysql/20130423-api.sql
+    #+END_SRC
+    #After successful execution of sql script initialize the database schema as mentioned below(To register new api mappinges),
+    #restart apache server and Populate the initial DB
+  - Initialize the database schema:
+    #+BEGIN_SRC sh
+      CK12_HOST=mysql.master CK12_USER=dbadmin CK12_PASSWORD=D-coD#43 CK12_API_DB=api ./api.py
+    #+END_SRC
+  - Populate the database with initial data:
+    #+BEGIN_SRC sh
+      ./api.sh
+    #+END_SRC

@@ -1,0 +1,57 @@
+STANDARD ID,TITLE,DESCRIPTION
+MAT.UT.9-12.ALG.1.1,,Represent real numbers as points on the number line and distinguish rational numbers from irrational numbers.
+MAT.UT.9-12.ALG.1.1.a,,"Define a rational number as a point on the number line that can be expressed as the ratio of two integers, and points that cannot be so expressed as irrational."
+MAT.UT.9-12.ALG.1.1.b,,"Classify numbers as rational or irrational, knowing that rational numbers can be expressed as terminating or repeating decimals and irrational numbers can be expressed as non-terminating, non-repeating decimals."
+MAT.UT.9-12.ALG.1.1.c,,Classify pi and square roots of non-perfect square numbers as irrational.
+MAT.UT.9-12.ALG.1.1.d,,Place rational and irrational numbers on a number line between two integers.
+MAT.UT.9-12.ALG.1.2,,Compute fluently and make reasonable estimates with rational and irrational numbers.
+MAT.UT.9-12.ALG.1.2.a,,"Simplify, add, subtract, multiply, and divide expressions with square roots."
+MAT.UT.9-12.ALG.1.2.b,,Evaluate and simplify numerical expressions containing rational numbers and square roots using the order of operations.
+MAT.UT.9-12.ALG.1.2.c,,"Compute solutions to problems, represent answers in exact form, and determine the reasonableness of answers."
+MAT.UT.9-12.ALG.1.2.d,,Calculate the measures of the sides of a right triangle using the Pythagorean Theorem.
+MAT.UT.9-12.ALG.2.1,,Represent and analyze the slope of a line.
+MAT.UT.9-12.ALG.2.1.a,,"Identify the slope of a line when given points, a graph, or an equation."
+MAT.UT.9-12.ALG.2.1.b,,Identify horizontal and vertical lines given the equations or slopes.
+MAT.UT.9-12.ALG.2.1.c,,Determine the effect of changes in slope or y-intercept in y = mx + b.
+MAT.UT.9-12.ALG.2.1.d,,Determine and explain the meaning of slopes and intercepts using real-world examples.
+MAT.UT.9-12.ALG.2.2,,Model and interpret problems having a constant rate of change using linear functions.
+MAT.UT.9-12.ALG.2.2.a,,"Write algebraic expressions or equations to generalize visual patterns, numerical patterns, relations, data sets, or scatter plots."
+MAT.UT.9-12.ALG.2.2.b,,"Represent linear equations in slope-intercept form, y = mx + b, and standard form, Ax+ By=C."
+MAT.UT.9-12.ALG.2.2.c,,"Distinguish between linear and non-linear functions by examining a table, equation, or graph."
+MAT.UT.9-12.ALG.2.2.d,,Interpret the slope of a linear function as a rate of change in real-world situations.
+MAT.UT.9-12.ALG.2.3,,"Represent and analyze linear relationships using algebraic equations, expressions, and graphs."
+MAT.UT.9-12.ALG.2.3.a,,Write the equation of a line when given two points or the slope and a point on the line.
+MAT.UT.9-12.ALG.2.3.b,,Approximate the equation of a line given the graph of a line.
+MAT.UT.9-12.ALG.2.3.c,,Identify the x- and y-intercepts from an equation or graph of a line or a table of values.
+MAT.UT.9-12.ALG.2.3.d,,"Graph linear relations and inequalities by plotting points, by finding x- and y-intercepts, or by using the slope and any point on the line."
+MAT.UT.9-12.ALG.3.1,,Simplify polynomials and the quotient of monomials.
+MAT.UT.9-12.ALG.3.1.a,,Simplify and evaluate monomial expressions and formulas.
+MAT.UT.9-12.ALG.3.1.b,,Add and subtract polynomials.
+MAT.UT.9-12.ALG.3.1.c,,Multiply monomials by a polynomial.
+MAT.UT.9-12.ALG.3.1.d,,Multiply binomials.
+MAT.UT.9-12.ALG.3.1.e,,Simplify the quotient of monomials using positive exponents.
+MAT.UT.9-12.ALG.3.2,,Solve and interpret linear equations and inequalities in various situations including real-world problems.
+MAT.UT.9-12.ALG.3.2.a,,Solve single-variable linear equations and inequalities algebraically and graphically.
+MAT.UT.9-12.ALG.3.2.b,,Solve real-world problems involving constant rates of change.
+MAT.UT.9-12.ALG.3.2.c,,Solve equations for a specified variable.
+MAT.UT.9-12.ALG.3.2.d,,Solve proportions that include algebraic first-degree expressions.
+MAT.UT.9-12.ALG.3.3,,Solve and interpret pairs of linear equations and inequalities.
+MAT.UT.9-12.ALG.3.3.a,,Solve systems of two linear equations graphically and algebraically with and without technology.
+MAT.UT.9-12.ALG.3.3.b,,Determine the number of possible solutions for a system of two linear equations.
+MAT.UT.9-12.ALG.3.3.c,,Graph a system of linear inequalities and identify the solution.
+MAT.UT.9-12.ALG.3.4,,Factor polynomials with common monomial factors and factor simple quadratic expressions.
+MAT.UT.9-12.ALG.3.4.a,,Find the greatest common monomial factor of a polynomial.
+MAT.UT.9-12.ALG.3.4.b,,Factor trinomials with integer coefficients of the form x2 + bx + c.
+MAT.UT.9-12.ALG.3.4.c,,Factor the difference of two squares and perfect square trinomials.
+MAT.UT.9-12.ALG.3.5,,Solve quadratic equations using factoring or by taking square roots.
+MAT.UT.9-12.ALG.3.5.a,,Solve quadratic equations that can be simplified to the form x2 = a where a ≥ 0 by taking square roots.
+MAT.UT.9-12.ALG.3.5.b,,Solve quadratic equations using factoring.
+MAT.UT.9-12.ALG.3.5.c,,Write a quadratic equation when given the solutions.
+MAT.UT.9-12.ALG.4.1,,"Summarize, display, and analyze bivariate data."
+MAT.UT.9-12.ALG.4.1.a,,"Collect, record, organize, and display a set of data with at least two variables."
+MAT.UT.9-12.ALG.4.1.b,,Determine whether the relationship between two variables is approximately linear or non-linear by examination of a scatter plot.
+MAT.UT.9-12.ALG.4.1.c,,"Characterize the relationship between two linear related variables as having positive, negative, or approximately zero correlation."
+MAT.UT.9-12.ALG.4.2,,"Estimate, interpret, and use lines fit to bivariate data."
+MAT.UT.9-12.ALG.4.2.a,,Estimate the equation of a line of best fit to make and test conjectures.
+MAT.UT.9-12.ALG.4.2.b,,Interpret the slope and y-intercept of a line through data.
+MAT.UT.9-12.ALG.4.2.c,,Predict y-values for given x-values when appropriate using a line fitted to bivariate numerical data.

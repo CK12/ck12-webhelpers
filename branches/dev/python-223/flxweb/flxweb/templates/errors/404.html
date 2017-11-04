@@ -1,0 +1,44 @@
+{% from "macros/browse_listing.html" import ck12_branch_browse_grid with context%}
+{% extends "base/1column.html" %}
+{% block title %}{{ _("File Not Found Error") }}{% endblock %}
+
+{% block extra_head %}
+{{ super() }}
+<script type="text/javascript">
+var pageType = "404";
+</script>
+{% endblock %}
+
+
+{% block pageinfotop %}
+<div class="contenttop"></div>
+{% endblock %}
+
+{% block content %}
+<div id="errorcontent" class="clearfix row">
+	<div class="toptitleWrapper">
+		{% if c.orig_request and 'project-based-economics' in c.orig_request.path.lower() %}
+			<h1 class="toptitle">{{ _("This content is no longer available") }}</h1>
+			<div class="divider spacetoplarge"></div>
+			<p>{{ _("This content has been removed from our site and is no longer available. We apologize for the inconvenience caused.") }}</p>
+		{% else %}
+			<h1 class="toptitle">{{ _("Oops! We can't find the page you're looking for.") }}</h1>
+		{% endif %}
+		<br>
+		<h1 class="toptitle">{{ _("But don't let us get in your way! Continue browsing below.") }}</h1>
+		<br>
+	</div>
+	<div class="divider spacetop"></div>
+	{{ ck12_branch_browse_grid(c.subjects) }}
+</div>
+{% endblock %}
+{% block js %}
+	{{ super() }}
+	<script>
+		require(['main'], function(){
+			require(['jquery'], function($){
+				$('#resources').css('visibility', 'visible');
+			});
+		})
+	</script>
+{% endblock %}

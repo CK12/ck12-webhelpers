@@ -1,0 +1,70 @@
+{% set artifacts = c.paginator.current_page.items() %}
+{% extends "mylibrary/common.html" %}
+
+{% block js %}
+{{ super() }}
+<script>
+var items_json = [];
+
+{% if c.labels_json %}
+var labels_json = {{c.labels_json}};
+{% else %}
+var labels_json = []
+{% endif %}
+
+{% if c.selected_label %}
+var selected_label = "{{c.selected_label}}";
+{% endif %}
+
+</script>
+{% endblock %}
+
+{% block results_area %} 
+	{% for artifact in artifacts %}
+	<ul id="item_{{artifact.get_revision_id()}}" class="rowlist js_library_row my_content clearfix">
+		<li><input class="js_row_check" type="checkbox"></li>
+		{% if artifact.is_flexbook() %}
+		<li><img class="imgborder" src="{{ artifact|ck12_artifact_cover_thumbnail_small }}" alt="{{ artifact.title|escape }}" title="{{ artifact.title|escape }}" width="30" height="40"/></li>
+		{% else %}
+		<li><div class="missingimage"></div></li>
+		{% endif %}
+		<li class="libraryartifacttitle">
+			<a href="{{ h.artifact_url(artifact,True) }}">{{ artifact.title|escape }}</a> - <span class="artifacttype">
+			{% if artifact.is_flexbook() %}
+				{{ _('FlexBook&#174; textbook') }}
+			{% elif artifact.artifactType in ['lesson','concept'] %}
+			 	{{ artifact.display_label() }} 
+			 {% else %} 
+			 	{{ artifact.modality_display_label }} 
+			 {% endif %}</span>
+			<div class="js_artifact_labels">
+				{% for label in artifact.getLibraryLabels() %}
+				<span title="{{label|escape}}" data-label="{{label}}" class="labels">
+					{{ label|truncate(20,killwords=true)|escape}}
+				</span>
+				{% endfor %}
+			</div>
+		</li>
+		{% if not c.selected_label == 'archived' %}
+		<li class="actions">
+			<a href="#" class="js_archive" title="{{ _('Move to Archived') }}">
+				<span class="icon-remove"></span>
+            </a>
+            {% if (not artifact.type.modality) or (artifact.hasXhtml) %}
+			<a class="mylibrary_edit" href="/editor/{{ artifact.getPermaHandle(include_version=True) }}" title="{{ _('Edit') }}">
+				<span class="icon-edit"></span>
+            </a>
+            {% endif %}
+		</li>
+		{% endif %}
+		<div class="divider"></div>
+	</ul>
+	{% endfor %}
+{% endblock %}
+
+{% block hidden_divs %}
+{{ super() }}
+<div id="items_json_data">
+	{{ artifacts|ck12_json|escape }}
+</div>
+{% endblock %}

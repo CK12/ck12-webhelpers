@@ -1,0 +1,2 @@
+update EmbeddedObjects set code = replace(code, 'http://fmcore.ck12.org/', 'https://fmcore.ck12.org/'), uri = replace(uri, 'http://fmcore.ck12.org/', 'https://fmcore.ck12.org/') where code like '%fmcore.ck12.org/%' or uri like '%fmcore.ck12.org/%';
+update EmbeddedObjects set code = replace(code, 'http://iloserver.ck12.org/', 'https://iloserver.ck12.org/'), uri = replace(uri, 'http://iloserver.ck12.org/', 'https://iloserver.ck12.org/') where code like '%iloserver.ck12.org/%' or uri like '%iloserver.ck12.org/%';

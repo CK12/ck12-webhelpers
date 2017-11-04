@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+	<title>Insert/Edit image</title>
+		<script type="text/javascript" src="../../jquery-1.7.min.js"></script>
+		<script type="text/javascript" src="../../jquery-ui/js/jquery-ui-1.8.17.custom.min.js"></script>
+		<script type="text/javascript" src="../../../flxweb/flxweb.utils.base64.js"></script>
+  	<script type="text/javascript" src="../../tinymce/jscripts/tiny_mce/tiny_mce_popup.js"></script>
+  	<script type="text/javascript" src="../../tinymce/jscripts/tiny_mce/utils/mctabs.js"></script>
+  	<script type="text/javascript" src="../../tinymce/jscripts/tiny_mce/utils/form_utils.js"></script>
+	  <script type="text/javascript" src="../../tinymce/jscripts/tiny_mce/utils/validate.js"></script>
+  	<script type="text/javascript" src="../../tinymce/jscripts/tiny_mce/utils/editable_selects.js"></script>
+  	<script type="text/javascript" src="../../jquery.form.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/ck12image.css"/>
+		<script type="text/javascript" src="js/image.js"></script>
+
+</head>
+<body id="ck12image" style="display: none">
+    <!-- <form onsubmit="ImageDialog.insert();return false;" action="#"> -->
+<div id="fileupload">
+    <form id="imageform" target="_docUploadForm" enctype="multipart/form-data" method="POST" action="">	 
+		<div class="tabs">
+			<ul>
+				<li id="general_tab" class="current"><span><a href="javascript:mcTabs.displayTab('general_tab','general_panel');" onmousedown="return false;">general</a></span></li>
+				<li id="appearance_tab"><span><a href="javascript:mcTabs.displayTab('appearance_tab','appearance_panel');" onmousedown="return false;">image options</a></span></li>
+			    <!--<li id="advanced_tab"><span><a href="javascript:mcTabs.displayTab('advanced_tab','advanced_panel');" onmousedown="return false;">advanced</a></span></li> -->
+			</ul>
+		</div>
+
+		<div class="panel_wrapper">
+			<div id="general_panel" class="panel current">
+				<fieldset>
+						<legend>Image ( jpeg, png, gif and bmp are supported )</legend>
+						<table class="properties">
+							<tr><td colspan="2">Upload an image from your computer</td></tr>
+							<tr>
+								<td colspan="2">
+									<div class="fileupload-buttonbar">
+                    <label class="fileinput-button">
+											<input name="resourcePath" type="file" id="uploadfile" value="" 
+											onchange="ImageDialog.notifyImageChange();"/>&nbsp;
+											<input name="forceUnique" type="hidden" value="true" />
+											<input name="type" type="hidden" value="image" />&nbsp;
+                    </label>
+                  </div>
+								</td> 
+							</tr>
+							<tr><td colspan="2">Or choose an image from the web</td></tr>
+							<tr>
+								<td class="column1"><label id="srclabel" for="src">src</label></td>
+								<td><table border="0" cellspacing="0" cellpadding="0">
+									<tr> 
+									  <td><input name="src" type="text" id="src" value="" class="mceFocus" onchange="ImageDialog.showPreviewImage(this.value);" /></td> 
+									  <td id="srcbrowsercontainer">&nbsp;</td>
+									</tr>
+								  </table></td>
+							</tr>
+						</table>
+				</fieldset>
+
+				<fieldset>
+					<legend>preview</legend>
+					<div id="prev"></div>
+				</fieldset>
+			</div>
+
+			<div id="appearance_panel" class="panel">
+				<fieldset>
+					<legend>image options</legend>
+
+					<table border="0" cellpadding="4" cellspacing="0">
+						<tr> 
+							<td class="column1"><label id="typelabel" for="align">type</label></td> 
+							<td><select id="type_list" name="type_list" onchange="ImageDialog.changeType();"> 
+									<option value="figure">figure</option>
+									<option value="inline">inline</option>
+								</select> 
+							</td>
+						</tr>
+
+						<tr>
+							<td><label for="class_list">size</label></td>
+							<td colspan="2">
+							<select id="class_list" name="class_list" class="mceEditableSelect" 
+							onchange="ImageDialog.changeClass();">
+									<option value="x-ck12-img-postcard">postcard</option>
+									<option value="x-ck12-img-thumbnail">thumbnail</option>
+									<option value="x-ck12-img-fullpage">fullpage</option>
+							</select></td>
+						</tr>
+						<tr>
+							<td><label for="align_list">position</label></td>
+							<td colspan="2">
+							<select id="align_list" name="align_list" class="mceEditableSelect">
+									<option value="x-ck12-nofloat">normal</option>
+									<option value="x-ck12-float">left aligned</option>
+							</select></td>
+						</tr>
+
+						<tr> 
+								<td class="column1"><label id="longdesclabel" for="longdesc">caption</label></td> 
+								<td collspan="2"><textarea id="longdesc" name="longdesc" type="text" value="" ></textarea></td> 
+						</tr>  
+						<tr> 
+								<td class="column1"><label id="titlelabel" for="title">title</label></td> 
+								<td collspan="2"><input id="title" name="title" type="text" value="" /></td> 
+						</tr>  
+						<tr> 
+								<td class="column1"><label id="altlabel" for="alt">alt</label></td> 
+								<td collspan="2"><input id="alt" name="alt" type="text" value="" /></td> 
+						</tr>  
+						<tr>
+								<td class="column1"><label id="widthlabel" for="width">width</label></td>
+								<td collspan="2"><input id="width" name="width"  size="5" maxlength="3" type="text" value="" disabled="disabled" onchange="ImageDialog.changeWidth();" />&nbsp;px </td> 
+						</tr>
+
+					</table>
+				</fieldset>
+			</div>
+			<div id="advanced_panel" class="panel">
+				<fieldset>
+					<legend>swap_image</legend>
+
+					<input type="checkbox" id="onmousemovecheck" name="onmousemovecheck" class="checkbox" onclick="ImageDialog.setSwapImage(this.checked);" />
+					<label id="onmousemovechecklabel" for="onmousemovecheck">alt_image</label>
+
+					<table border="0" cellpadding="4" cellspacing="0" width="100%">
+							<tr>
+								<td class="column1"><label id="onmouseoversrclabel" for="onmouseoversrc">mouseover</label></td> 
+								<td><table border="0" cellspacing="0" cellpadding="0"> 
+									<tr> 
+									  <td><input id="onmouseoversrc" name="onmouseoversrc" type="text" value="" /></td> 
+									  <td id="onmouseoversrccontainer">&nbsp;</td>
+									</tr>
+								  </table></td>
+							</tr>
+							<tr>
+								<td><label for="over_list">image_list</label></td>
+								<td><select id="over_list" name="over_list" onchange="document.getElementById('onmouseoversrc').value=this.options[this.selectedIndex].value;"></select></td>
+							</tr>
+							<tr> 
+								<td class="column1"><label id="onmouseoutsrclabel" for="onmouseoutsrc">mouseout</label></td> 
+								<td class="column2"><table border="0" cellspacing="0" cellpadding="0"> 
+									<tr> 
+									  <td><input id="onmouseoutsrc" name="onmouseoutsrc" type="text" value="" /></td> 
+									  <td id="onmouseoutsrccontainer">&nbsp;</td>
+									</tr> 
+								  </table></td> 
+							</tr>
+							<tr>
+								<td><label for="out_list">image_list</label></td>
+								<td><select id="out_list" name="out_list" onchange="document.getElementById('onmouseoutsrc').value=this.options[this.selectedIndex].value;"></select></td>
+							</tr>
+					</table>
+				</fieldset>
+
+				<fieldset>
+					<legend>misc</legend>
+
+					<table border="0" cellpadding="4" cellspacing="0">
+						<tr>
+							<td class="column1"><label id="idlabel" for="id">id</label></td> 
+							<td><input id="id" name="id" type="text" value="" /></td> 
+						</tr>
+
+						<tr>
+							<td class="column1"><label id="dirlabel" for="dir">langdir</label></td> 
+							<td>
+								<select id="dir" name="dir" onchange="ImageDialog.changeAppearance();"> 
+										<option value="">not_set</option> 
+										<option value="ltr">ltr</option> 
+										<option value="rtl">rtl</option> 
+								</select>
+							</td> 
+						</tr>
+
+						<tr>
+							<td class="column1"><label id="langlabel" for="lang">langcode</label></td> 
+							<td>
+								<input id="lang" name="lang" type="text" value="" />
+							</td> 
+						</tr>
+
+						<tr>
+							<td class="column1"><label id="usemaplabel" for="usemap">map</label></td> 
+							<td>
+								<input id="usemap" name="usemap" type="text" value="" />
+							</td> 
+						</tr>
+						<!--
+						<tr>
+							<td class="column1"><label id="widthlabel" for="width">dimensions</label></td>
+							<td nowrap="nowrap">
+								<input name="width" type="text" id="width" value="" size="5" maxlength="5" class="size" onchange="ImageDialog.changeHeight();" /> x 
+								<input name="height" type="text" id="height" value="" size="5" maxlength="5" class="size" onchange="ImageDialog.changeWidth();" /> px
+							</td>
+						</tr> -->
+						
+					</table>
+				</fieldset>
+			</div>
+		</div>
+
+		<div class="mceActionPanel">
+			<div style="float: left">
+				<input type="button" id="insert" name="insert" value="Insert" onclick="ImageDialog.insert(this.value);" /> 
+			</div>
+
+			<div style="float: right">
+				<input type="button" id="cancel" name="cancel" value="cancel" onclick="tinyMCEPopup.close();" />
+			</div>
+		</div>
+    </form></div><iframe id="_imgUploadForm" src="" name="_imgUploadForm" style="display:none" ></iframe>
+</body> 
+</html> 

@@ -1,0 +1,56 @@
+{% extends "base/auth/1column.html" %}
+{% block title %}{{ _("Authorization Required") }}{% endblock %}
+
+{% block content %}
+<div id="content" class="prefix_3 grid_6 suffix_6">
+    {% if c.form_errors %}
+        <ul class="messaging error">
+            {% for error in c.form_errors %}
+            <span class="icon-close"></span>
+            <li>{{error}}
+                {% if c.form_errors[error] %}
+                - {{ c.form_errors[error] }}
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if c.client %}
+    <h2>
+        {{ _("An application is requesting access to your data.") }}
+    </h2>
+    <div class="divider spacetoplarge"></div>
+    <table class="infobox">
+        <tr>
+            <td>{{ _("Application name:") }}</td>
+            <td>{{ c.client.name }}</td>
+        </tr>
+        <tr>
+            <td>{{ _("Description:") }}</td>
+            <td>{{ c.client.description }}</td>
+        </tr>
+        <tr>
+            <td>{{ _("Owner:") }}</td>
+            <td>{{ c.client.member.fix().name }}</td>
+        </tr>
+        <tr>
+            <td>Website:</td>
+            <td><a target="_blank" href="{{ c.client.url }}">{{ c.client.url }}</a></td>
+        </tr>
+    </table>
+    <div class="spacetoplarge"></div>
+    <p>
+        {{ _("You should authorize this only if you initiated the request and trust the application with your data.") }}
+    </p>
+    <div class="spacetop">
+        <form id="oauth_authorize_form" method="POST" action="{{ h.url(controller='oAuthServer', action='authorize') }}?oauth_token={{ c.token }}">
+            <div class="formsubmitwrap">
+                <a href="{{ c.callback }}?&denied={{ c.token }}"><button type="button" class="button formrightcolumn">{{ _('Deny') }}</button></a>
+                <button type="submit" class="button turquoise">{{ _('Accept') }}</button>
+            </div>
+        </form>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

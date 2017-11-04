@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>Create Featured Artifact</title>
+    </head>
+    <body>
+        <form name="featureddata" method="POST" action="{{ c.prefix }}/create/featured">
+            <table>
+                <tr>
+                    <td colspan="2">
+                        <select name="id">
+                            <option value="">Choose an artifact...</option>
+                            {% for key in c.artifactKeys %}
+                            <option value="{{ c.artifactDict[key] }}">{{ key }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        List order:
+                    </td>
+                    <td>
+                        <input name="order" size=10>
+                        </input>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Comments:
+                    </td>
+                    <td>
+                        <textarea name="comments" cols=60 size=1024>
+                        </textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" name="submit" value="OK" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

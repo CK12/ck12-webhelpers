@@ -1,0 +1,7 @@
+<% var index; %>
+<% for (index = 0; index < data.filters.label.length; index++) { %>
+	<div class="custom-box show-small">
+		<input type="checkbox" id="country<%= data.filters.value[index] %>_small" name="country-filter" <% if (data.selected && -1 !== data.selected.indexOf(data.filters.value[index])) { %>checked<% } %>>
+		<label for="country<%= data.filters.value[index] %>_small" class="checkbox"><%= data.filters.label[index] %><span class="right"><i class="icon-validated"></i></span></label>
+	</div>
+<% } %>

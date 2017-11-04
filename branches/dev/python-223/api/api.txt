@@ -1,0 +1,9 @@
+Hi, ; your API key is ready:
+
+  
+
+Please append it to all queries against the API like so:
+
+  http://api.ck12.org/2.0/flx/get/version?key=
+
+and email me if you have any questions.

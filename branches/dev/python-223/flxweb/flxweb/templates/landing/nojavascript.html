@@ -1,0 +1,70 @@
+{% extends "base/1column.html" %}
+{% block title %} {{_('Javascript is Disabled') }} {% endblock %}
+
+{% block meta_extra %} {{ super() }} <meta name="robots" content="noindex" /> {% endblock %}
+
+{% block pageinfotop %}
+<div class="contenttop"></div>
+{% endblock %}
+
+{% block content %}
+{% block noscript %}
+{% endblock %}
+
+<div class="contentarea prefix_2 grid_8 suffix_2">
+	<div class="spacetopxlarge"></div>
+	<div class="contentwrap">
+		<h2> {{_('Our site requires Javascript to be enabled.') }} </h2>
+		<div class="divider"></div>
+		<div class="spacetop" style="padding-right:15px;">
+			{{_('In order to use the CK-12 FlexBook&#174; textbook System, you will need to have JavaScript enabled in your browser.') }} <br/>
+			{{_('To do so, please follow the instructions below:') }} 
+			<p><h2 class="toptitle"> {{_('Internet Explorer (6.0 & 7.0)') }} </h2></p>
+			<div class="divider"></div>
+			<ol>
+			  <li> {{_("Select 'Tools' from the top menu.") }} </li>
+			  <li> {{_("Choose 'Internet Options'.") }} </li>
+			  <li> {{_("Click on the 'Security' tab.") }} </li>
+			  <li> {{_("Click on 'Custom Level'.") }} </li>
+			  <li> {{_("Scroll down until you see section labled 'Scripting'.") }} </li>
+			  <li> {{_("Under 'Active Scripting', select 'Enable' and click 'OK'.") }} </li>
+			</ol>
+			<p><h2 class="toptitle"> {{_("Mozilla Firefox (1.5+ & Up)") }} </h2></p>
+			<div class="divider"></div>
+			<ol>
+			  <li> {{_("Select 'Tools' from the top menu.") }} </li>
+			  <li> {{_("Choose 'Options'.") }} </li>
+			  <li> {{_("Choose 'Content' from the top navigation.") }} </li>
+			  <li> {{_("Select the checkbox next to 'Enable JavaScript' and click 'OK'.") }} </li>
+			</ol>
+			<p><h2 class="toptitle"> {{_("Google Chrome") }} </h2></p>
+            <div class="divider"></div>
+            <ol>
+                <li> {{_("Click the wrench at upper right and click 'Options' from the drop-down menu.") }} </li>
+                <li> {{_("Click the 'Under the Hood' tab.") }} </li>
+                <li> {{_("Click 'Content Settings' button under 'Privacy' section.") }} </li>
+                <li> {{_("Select 'Allow all sites to run JavaScript' under the 'JavaScript settings' drop-down menu.") }} </li>
+                <li> {{_("Click 'Close'.") }} </li>
+            </ol>
+			<p><h2 class="toptitle"> {{_("Apple Safari") }} </h2></p>
+			<div class="divider"></div>
+			<ol>
+			  <li> {{_("Select 'Safari'/'Edit' from the top menu.") }} </li>
+			  <li> {{_("Choose 'Preferences'.") }} </li>
+			  <li> {{_("Click the 'Security' tab.") }}</li>
+			  <li> {{_("Select the checkbox next to 'Enable JavaScript'.") }} </li>
+			  <li> {{_("Close 'Preferences' by clicking the 'X' at the upper-right corner of the Preferences box.") }} </li>
+			</ol>
+			<!--CK-12 supports the following browsers:
+			<ul>
+				<li>Internet Explorer 6+, Internet Explorer 7+</li>
+				<li>Firefox 2.x, Firefox 3.x</li>
+				<li>Safari Windows</li>
+			</ul-->
+			<div class="divider"></div>
+			<p> {{_("Please keep in mind that upgrading your browser or installing new security software or security patches may affect your JavaScript settings. It is a good idea to double-check that JavaScript is still enabled if you notice problems displaying in the CK-12 FlexBook&#174; textbook System.") }} </p>
+		</div>
+	</div>
+	<div class="spacetopxlarge"></div>
+</div>
+{% endblock%}

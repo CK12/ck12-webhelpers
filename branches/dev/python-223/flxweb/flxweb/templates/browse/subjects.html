@@ -1,0 +1,67 @@
+{% from "macros/browse_listing.html" import ck12_branch_browse_grid with context%}
+{% from "macros/lti_help_banner.html" import lti_help_banner_macro %}
+{% extends "common/master.html" %}
+{% block title %}
+	{{ _('Subjects') }}
+{% endblock %}
+
+{% block stylesheets %}
+{{ super() }}
+{% endblock %}
+
+{% block extra_head %}
+{{ super() }}
+<script type="text/javascript">
+var pageType = "Browse";
+</script>
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+
+<script>
+require(['main'],function() {
+    require(['jquery', 'common/views/footer.view','common/utils/utils','js/flxweb.load.my.subjects','js/flxweb.lms.banner'],function($, FooterView, util, loadMySubjects, lmsBanner){
+        FooterView.initShare({
+        	'shareImage': window.location.protocol + '//' + window.location.host + '/media/common/images/logo_ck12.png',
+            'shareUrl': window.location.href,
+            'shareTitle': 'Subjects',
+            'context': 'Share Subjects',
+            'payload': {
+                    'memberID': ads_userid,
+                    'page': 'browse'
+            },
+            'userSignedIn': window.ck12_signed_in || false,
+            '_ck12': true
+        });
+
+		$(document).ready(function(){
+			loadMySubjects();
+			lmsBanner('browse');
+		});
+    });
+});
+</script>
+{% endblock %}
+
+{% block pageinfotop %}
+<div class="contenttop container_12">
+	<nav id="pageinfotop grid_12"></nav>
+	<div class="gclear"></div>
+</div>
+{% endblock %}
+
+{% block ltiHelpBanner %}
+<a id="lti_classic_switch" class="show-for-lti-context" onclick="backToPreviousLTI(event);" href="{{ config.webroot_url }}lmspractice/ltiApp/index.html?appReturn" title="{{ _('Switch back to the old version') }}"> Switch back to the old version</a>
+    {{ lti_help_banner_macro('browse') }}
+{% endblock %}
+
+{% block subjects %}
+{% endblock %}
+
+{% block content %}
+<!-- Subject Listing -->
+<div id="resources_container" class="browse relative">
+	{{ ck12_branch_browse_grid(c.subjects) }}
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+        <div class="td tdcenter" >
+        {% if c.service_status['status'] == 0 %}
+            <img class="health_status_image" src="{{h.url_images('iconcorrectanswer.png')}}" alt='Ok'/>
+        {% else %}
+            <img class="health_status_image" src="{{h.url_images('icon_form_error.png')}}" alt='Error'/>
+        {% endif %}
+        <div class='sort-indicator hide'></div>
+      </div>
+      
+      <div class="td">
+        {{c.host_name}}<div class='sort-indicator hide'></div>
+      </div>
+      
+      <div class="td">
+      <a href = "{{c.host_name}}{{c.service_status['completeapi']}}" target="_blank">
+        {{c.service_name}}</a><div class='sort-indicator hide'></div>
+      </div>
+      
+      <div class="td">
+        {% if c.service_status['status'] == 0 %}
+            {{_("Service is operating normally.") }}<div class='sort-indicator hide'></div>
+        {% else %}
+            {{c.service_status['description']}}<div class='sort-indicator hide'></div>
+        {% endif %}
+      </div>
+      <div class="td tdcenter">
+        <div class='actionitem' title={{_("Re-check") }} ><img class="health_reload_image" src="{{h.url_images('icon_reloadexercise.png')}}" alt={{_("Re-check") }}></img></div>
+      </div>
+      <div id='timeStampHide' class='sort-indicator hide'>{{c.time_stamp}}</div>

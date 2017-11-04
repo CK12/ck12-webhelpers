@@ -1,0 +1,14 @@
+{% extends "MASTER_CK12_LOGO.html" %}
+{% block email_body %}
+<html>
+    <body>
+    <p>Greetings from CK-12 Foundation!</p>
+
+    <p>We're sorry to inform you that you your request to join the group {{ events[0].eventData['groupName'] | escape }} has been declined by the group admin.
+
+    <p></p>
+    <p>Sincerely,</p>
+    <p>The CK-12 Team</p>
+    </body>
+</html>
+{% endblock %}

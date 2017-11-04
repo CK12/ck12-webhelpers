@@ -1,0 +1,114 @@
+{% extends "listings.html" %}  
+
+{% block admintop %}
+    {% block filters %} 
+    {% endblock %}
+ 
+    {% block searches %} 
+    {% endblock %}
+{% endblock %}
+
+{% block admincontent %}
+<div class="sectionhead sectiontitle">Access Control Management</div>
+<div class="section withfloatedsubmit">
+    <div>
+        <div class="col wider">
+            {{ h.labelselect('User Role', 'role_filter', c.form.role_sel, 'filter')}}
+        </div>
+        <div class='floatright'>
+        <input type="submit" value="Invalidate Cache" name="invalidatecache" id="invalidate_cache" class="btn primaryaction floatleft">
+        <input type="submit" value="Update" name="update" id="update_acl_btn_up" class="btn primaryaction floatright update_acl">
+        </div>
+    </div>
+    {{ super() }}
+    <input type="submit" value="Update" name="update" id="update_acl_btn_down" class="btn primaryaction floatright update_acl">
+</div>
+{% endblock %}
+{% block js_scripts %}
+{{ super() }}
+<script type='text/javascript'>
+var idsStrSep = ',';
+$(document).ready(function(){
+  Listings({
+    sort: '',
+    enableMultipleIdsFilter: true,
+    idsStrSep: idsStrSep,
+    params: '{{c.query}}',
+    ajaxRoot: CK12.admUrl('user/acl_list')
+  });
+
+  $('#select_all').off('click.selectall').on('click.selectall', function(){
+    if($(this).is( ':checked' )){
+        $('#leftpane .table .tbody input:checkbox').attr('checked', 'checked');
+    }else{
+        $('#leftpane .table .tbody input:checkbox').removeAttr('checked');
+    }
+  })
+
+  $('.update_acl')
+    .css({'margin':'0px'})
+    .off('click.updateacl')
+    .on('click.updateacl', function(){
+        var checkedInput = $('#leftpane .table .tbody input:checked'),
+        paths = [];
+        var user_role = $('#role_filter option:selected').val().replace('role,','');
+        if (!user_role){
+            alert("Please select user role and update necessary paths");
+            return false;
+        }
+        checkedInput.each(function(){
+            path = $(this).parent().parent().find('.js_path_name').text();
+            permission = $(this).parent().parent().find('.js_permissoinselect option:selected').val();
+            var pathObj = new Object();
+            //pathObj[path] = permission;
+            pathObj.url = path;
+            pathObj.permission = parseInt(permission);
+            paths.push(pathObj);
+        });
+        
+        // Bug - 54974 Send Base64 encoded payload data to the backend.
+        var payLoad = JSON.stringify({'user_role': user_role, 'allowed_routes':paths});
+        var payLoad = {"payload":admin.utils.b64EncodeUnicode(payLoad)};
+
+        url = "/flx/update/admin/userrole/acl";
+        $.ajax({url: url, 
+            type: 'POST',
+            data : JSON.stringify(payLoad),
+            contentType: "application/json",
+            success: function(response, status, xhr){
+                if (response){
+                    response = $.parseJSON(response);
+                    if (response.responseHeader.status == 0 && response.response && response.response.user_acl.isUpdated){
+                        alert('Changes Saved.');
+                        $('#invalidate_cache').click();
+                    }else if (response.responseHeader.status == 0 && response.response && response.response.user_acl.message){
+                        alert(response.response.user_acl.isUpdated);
+                    }
+                }
+            },
+            error: function(xhr, textStatus, errorThrown){
+                alert('API Error: '+ Fns.formatResponseError(
+                    xhr, textStatus, errorThrown));
+            }
+        });
+    });
+    
+    $('#invalidate_cache').css({'margin':'0px 10px'}).off('click.invalidatecache').on('click.invalidatecache', function(){
+            var url = 'user/acl_list?nocache=true&key=aclconfig&filters='+ $('#role_filter option:selected').val();
+            $.ajax({url: CK12.admUrl(url), 
+            type: 'GET',
+            success: function(response, status, xhr){
+                if (response){
+                    $('#leftpane .table .tbody').html(response);
+                }
+            },
+            error: function(xhr, textStatus, errorThrown){
+                alert('API Error: '+ Fns.formatResponseError(
+                    xhr, textStatus, errorThrown));
+            }
+        });
+    });
+});
+
+</script>
+{% endblock %}

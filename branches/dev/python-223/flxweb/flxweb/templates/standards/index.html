@@ -1,0 +1,61 @@
+{% extends "base/1column.html" %}
+{% block title %}{{ _("Standards Aligned") }} {% endblock %}
+
+{% block js %}
+<script type='text/javascript' src="{{ h.asset_lib('common/vendor/react-0.14.0/build/react-with-addons.min.js') }}"></script>
+<script type='text/javascript' src="{{ h.asset_lib('standardSelections/build/standardSelections.js') }}"></script>
+{{ super() }}
+<script>
+	require(['main'],function() {
+	require(['flxweb.standards.boards.new'],function() {
+		require([
+			'flxweb.standards']);
+	});
+    });
+
+</script>
+{% endblock %}
+{% block stylesheets %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" href="{{ h.url_css('standards_correlation_dialog.css') }}"/>
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('standardSelections/build/css/standardSelections.css') }}" />
+{% endblock %}
+
+{% block content %}
+
+<h1 class="standards-flexbook-heading">{{ _('Standards Aligned FlexBook&#174; Textbooks') }}</h1>
+
+<form id="standards_form"  class="standard-drop-form" action="{{ h.url('standards') }}" method="GET">
+<!-- Subjects/Branches -->
+	<div class="row collapse relative subjectsbrancheswrap">
+		<div class="large-1 columns">
+			<h2>{{ _('Filter:') }}</h2>
+		</div>
+		<div class="large-11 columns">
+			<div id="standardsApp" class="row"></div>
+		</div>
+	</div>
+	<div class="spacetoplarge spacetop-contentarea row collapse"></div>
+	<div class="contentarea row collapse">
+		<div id="standards_books" class="standard-books-container contentview large-12 columns">
+		{% if c.message %}
+		<div id="js_old_fb_notification" class="nostandardsmatch">
+		{{ c.message }}
+		</div>
+		{% else %}
+		    <div id="js_old_fb_notification" class="nostandardsmatch hide"></div>
+		{% endif%}
+
+	        <div id="select_subject_message">
+           		 &#187; {{ _('Select a <strong>state &#8593;</strong> to get started.') }}
+        	</div>
+
+		{% if c.books %}
+			{% include 'standards/ajax_list.html' %}
+		{% endif %}
+		</div>
+	</div>
+</form>
+<div class="backtotop clear">{{ _('Back to the <a href="#" title="Back to top of the page">top of the page &#8593;') }}</a></div>
+<div class="divider"></div>
+{% endblock %}

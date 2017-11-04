@@ -1,0 +1,15 @@
+<% if (modality.resource){ %>
+        <% if (modality.resource.thumbnail){ %>
+        <div class="thumb_imgwrap">
+        <a href="/flx/show<%= data.resource.permaUri %>"><img class="modality_resource_thumb" src="<%= modality.resource.thumbnail %>" title="<%= modality.resource.name %>" alt="<%= modality.resource.name %>" /></a> 
+        </div>
+        <% } %>
+        <div class="modality_resource_desc">
+            <%= _.escape(modality.resource.description).replace("None",'') %>
+        </div> 
+        <div class="divider spacetop"></div>
+        <div>
+            <a class="button turquoise download" href="/flx/show<%= modality.resource.permaUri %>">Download</a>
+        </div>
+        <div class="divider"></div>
+<% } %>

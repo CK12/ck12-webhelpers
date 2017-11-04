@@ -1,0 +1,196 @@
+@import '../main';
+
+$transition: 0.25s ease-out;
+
+:local{
+    .controlCenter {
+        background-color: $TAUPE;
+        padding: ($global-padding * 3) 0;
+        transition: max-height $menu-transition;
+        position: relative;
+        z-index: $z-index-controlCenter;
+    }
+
+    .menu {
+        list-style-type: none;
+
+        li {
+            opacity: 0.5;
+            transform: scale(1);
+            transition: opacity $transition, transform $transition;
+            position: relative;
+            margin-right: $global-padding * 4;
+
+            &:last-child { margin-right: 0; }
+
+            &.active {
+
+            }
+
+            a { display: block; }
+
+            .icon {
+                transition: transform $menu-transition;
+                transform: scale(1);
+
+                i {
+                    font-size: rem-calc(42);
+                    color: $EARTH;
+                }
+            }
+
+            &.active {
+                opacity: 1;
+
+                .title, .subtitle {
+                    font-weight: bold;
+                }
+
+                .activeBar {
+                    transform: translateY(100%)translateX(-50%)scaleX(1);
+                }
+            }
+        }
+    }
+    @include breakpoint(small only){
+        .rowOffset {
+			margin-right : -.625rem !important;
+	        margin-left : -.625rem !important;
+	    }
+	}
+
+    .title {
+        margin-top: rem-calc(5);
+        color: $GREY_BROWN;
+        font-size: rem-calc(14);
+    }
+
+    .subtitle {
+        font-size: rem-calc(20);
+        color: $EARTH;
+        margin-bottom: rem-calc(10);
+    }
+
+    .title, .subtitle {
+        text-transform: uppercase;
+        white-space: nowrap;
+        line-height: 1;
+    }
+
+    .titles, .icon {
+        @include shrink();
+    }
+
+    .groupsMenuItem {
+        .title, .subtitle {
+            color: $EARTH;
+        }
+    }
+
+    .activeBar {
+        display: block;
+        background: $SUNSET;
+        width: 90%;
+        height: rem-calc(7);
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateY(100%)translateX(-50%)scaleX(0);
+    }
+
+    .createGroupButton {
+        background-color: $TIFFANY_BLUE;
+        font-weight: bold;
+        margin-bottom: 0;
+        border: $global-border;
+
+        &:hover {
+            background-color: darken($TIFFANY_BLUE, 5%);
+        }
+    }
+
+    .tooltipContainer {
+        position: absolute;
+        width: 100%;
+    }
+
+    @include breakpoint(small only){
+        .controlCenter {
+            padding: ($global-padding * 2) 0;
+        }
+
+        .menu li {
+            transform: scale(0.8);
+            margin-right: 0;
+            padding: 0;
+        }
+    }
+
+    // Menu animations on scroll
+    @media screen and #{breakpoint(medium)}{
+        :global(#{$menu-fixed}) {
+            .controlCenter {
+                min-height: $menu-control-center-height;
+                max-height: $menu-control-center-height;
+                z-index: $z-index-controlCenter;
+                top: $menu-control-center-top;
+                position: fixed;
+                padding: 0;
+            }
+
+            .menu {
+                animation: shiftMenuDownward $menu-animation;
+                margin-bottom: 0;
+
+                li {
+                    transform: scale(0.75);
+
+                    &.active {
+                        .activeBar {
+                            transform: translateY(20%)translateX(-50%)scaleX(0.9)scaleY(0.8);
+                        }
+                        button + .activeBar {
+                            opacity: 0;
+                        }
+                    }
+                }
+
+                .title {
+                    display: none;
+                }
+
+                .icon {
+                    display: none;
+                }
+
+
+            }
+
+        }
+
+        :global(#{$menu-normal}) .menu {
+            animation: shiftMenuBack $menu-animation;
+        }
+    }
+
+
+    @keyframes shiftMenuBack {
+        from {
+            transform: translateY($global-padding * 4);
+        }
+        to {
+            transform: translateY(0%);
+        }
+    }
+
+    @keyframes shiftMenuDownward {
+        from {
+            transform: translateY(-100%);
+        }
+        to {
+            transform: translateY(0%);
+        }
+    }
+
+}
+

@@ -1,0 +1,56 @@
+{% extends "common/master.html" %}
+
+{% block title %}{{ _("Groups") }}{% endblock %}
+
+{% block stylesheets %}
+{{ super() }}
+    <link rel="stylesheet" href="{{ h.asset_lib('groups/assets/css/tangerine.groups.css') }}">
+    <link rel="stylesheet" href="{{ h.asset_lib('groups/assets/css/tangerine.discussions.css') }}">
+    <link rel="stylesheet" href="{{ c.peerhelp_base_url }}/css/main_peerhelp.css">
+    <link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('roster/build/css/roster.css') }}" />
+{% endblock %}
+
+{% block js %}
+    <script type='text/javascript' src="{{ h.asset_lib('common/vendor/react-0.14.0/build/react-with-addons.min.js') }}"></script>
+    <script type='text/javascript' src="{{ h.asset_lib('roster/build/roster.js') }}"></script>
+{{ super() }}
+
+    <script data-main="{{ c.peerhelp_base_url }}/peerhelp.js" 
+        src="{{ c.peerhelp_base_url }}/vendor/require/require-full-2.1.8.js">
+    </script>
+
+    <script>
+    if ('classList' in document.createElement('a')) {
+		document.getElementsByClassName('name')[0].classList.add('hide-small');
+	} else { // IE-9 :(
+		document.getElementsByClassName('name')[0].className += 'hide-small'; 
+	}
+	    document.getElementsByClassName('page-title')[0].innerHTML = 'Q&A';
+		var backElement = document.getElementsByClassName('back-icon')[0];
+		//backElement.className = backElement.className + " visible";
+        require(['main'], function() {
+            require(['groups/controllers/group.discussions'],function(groups){
+                groups.load(document.getElementById('group-discussions'));
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        window.dexter = [];
+        window.dexter.config = {
+            clientID:24839961 
+        };
+        require(["//dvninqhj78q4x.cloudfront.net/dexterjs/dexterjs.min.js"]);
+    </script>
+{% endblock %}
+ 
+<!-- Main Page Content and Sidebar -->
+{% block content %}
+{{ super() }}
+	<div id="page-disable" class="page-disable js-page-disable hide"></div>
+    <div id="loading-icon" class="loading-icon js-loading-icon hide-small">
+           <img alt="loading" src="{{ h.asset_image('common/images/icon_loading.gif') }}">
+    </div>
+    <div id="group-discussions" class="row collapse groups-container" data-user="{{c.user.id}}" data-user-role="{{c.user.role.description}}"></div>
+   <!--  <div class="row collapse show-for-small text-center header2" style="padding-top: 120px;">You can view this page in landscape mode</div> -->
+{% endblock %}
+<!-- End Main Content and Sidebar -->

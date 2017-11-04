@@ -1,0 +1,145 @@
+<div id="group-assignments-home"></div>
+<div class="row collapse ie8text hide-for-small">
+	<div class="large-12 columns">
+		<div class="individual-section-title js-for-study">
+			<span class="encircled-number">1</span>
+			<span class="section-title-header">Invite others to join your group!</span>
+		</div>
+
+        <!-- Begin zero state section wrapper-->
+        <div id="zero-state-home-wrapper" class="js-for-class large-12 columns hide-for-medium-down">
+            <!-- Begin no group members section-->
+            <section>
+                <div class="text-center">
+                    <h2 class="zero-state-home-welcome-title">Welcome to your new class!</h2>
+                    <p class="zero-state-home-group-code-count"> Group code: <span class="js-join-group-code"></span> <span class="settings-grey-divider">|</span> <span class="js-group-members-count"></span>0 students </p>
+                </div>
+                <div class="no-student-card text-center small-10 columns">
+                    <div class="no-students-img-container">
+                        <img src="/media/groups/assets/images/groups.png">
+                    </div>
+                    <h3> This class is empty.</h3>
+                    <div class="zero-state-add-btn-container text-center">
+                        <a data-reveal-id="rosterModal" class="zero-state-add-students-btn button large tangerine dxtrack-user-action" data-dx-desc="roster_zero_state_home_add_students_button">Add Students</a>
+                    </div>
+              </div>
+            </section>
+            <!-- End no group members section-->
+            <section>
+              <div class="zero-state-home-create-assignment-container text-center">
+                 <img  src="/media/groups/assets/images/assignments.png">
+                 <p class="zero-state-home-create-assignment-cta-container">Find resources on CK-12 to assign to your class</p> 
+	        <div class="zsh-create-assignment-btn-container text-center">
+		  <a id="create-assignment-btn" class="button large turquoise dxtrack-user-action" data-dx-desc="roster_zero_state_home_create_assignment_button">Create Assignment</a>
+	        </div>
+              </div>
+            </section>
+        </div>
+        <!-- End zero state section wrapper -->
+		<div style="" class="section-container auto js-for-study-zero-home show-for-medium-down" data-section="" data-options="deep_linking: true; one_up: false">
+			<section style="padding-top: 48px;" class="active activity-wrapper-theme">
+				<p data-section-title="" class="title menu-tab" style="left: 0px;"><a class="menu-links">Instructions</a></p>
+				<div data-section-content="" data-slug="panel1" class="content" style="">
+					<div class="row collapse ie8text">
+						<div class="large-12 columns">
+							<p class="group-activity-content">Share these registration Instructions:</p>
+						</div>
+					</div>
+					<div class="row collapse ie8text">
+						<div class="large-8 columns">
+							<div class="instructions-container">
+								<div class="instructions-text-value js-email-instr-wrapper">
+									<span class="instructions">Hi there:</span><br><br>
+									<span id="group-type" class="instructions">I’d like you to join my CK-12 </span><br>
+									<span id="group-name-instructions" class="group-name instructions"></span><br><br>
+									<span class="instructions js-for-class">Joining my class allows me to share content with you and keep track of how well you do on your CK-12 practice assignments.</span>
+									<span class="instructions js-for-study">Study groups allow you to share and receive resources from the CK-12 site with others in the group.</span><br><br>
+									<span class="instructions">To join:</span><br>
+									<span class="instructions js-instructions-goToUrl"></span><br>
+
+									<span class="instructions">3. Click Groups.</span><br>
+									<span class="instructions">4. Click Join a Group. (If you are a teacher, Click on the Plus Sign and choose 'Join a Group')</span><br>
+									<span class="instructions js-instructions-group-code">5. Enter code: </span><br>
+									<span class="instructions link_class">You can also join the class by using this link:</span><br>
+									<span class="instructions link_studygroup">You can also join the study group by using this link:</span><br>
+									<span class="instructions js-instructions-group-link"></span>
+								</div>
+								<textarea class="instructions-textarea round hide js-instructions-edit" contenteditable="true">Hello there: I’d like you to join my CK-12 group: Here’s how: 1. Go to www.ck12.org 2. Create a Ck-12 account and sign in. Thanks!</textarea>
+							</div>                                    
+						</div>
+						<div class="large-4 columns activity-button-container text-center">
+							<a class="button standard tangerine js-email-instructions">Email Instructions</a>
+						</div>
+						<div class="large-12 columns">
+							<p class="user-shorcut-wrapper">Use <span class="short-key">Control + C </span>(Windows) or <span class="short-key">Command + C </span>(Mac) to copy these instructions.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section style="" class="group activity-wrapper-theme">
+				<p data-section-title="" class="title menu-tab"><a class="menu-links">Group Link</a></p>
+				<div data-section-content="" data-slug="panel2" class="content group-link-container" style="">
+					<div class="row collapse ie8text">
+						<div class="large-12 columns">
+							<p class="group-activity-content">Share this link with people who <span class="existing-account">already</span> have a ck12 account.</p>
+							<input class="ck12link-input js-join-group-link" type="text" readonly/>                                    
+						</div>
+						<div class="large-12 columns">
+							<p class="user-shorcut-wrapper">Use <span class="short-key">Control + C </span>(Windows) or <span class="short-key">Command + C </span>(Mac) to copy this link.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section style="" class="code activity-wrapper-theme">
+				<p data-section-title="" class="title menu-tab"><a class="menu-links">Code</a></p>
+				<div data-section-content="" data-slug="panel3" class="content group-link-container" style="">
+					<p class="group-activity-content">Share this code to invite new members who don't have a link.</p>
+					<div class="row collapse ie8text">
+						<div class="large-2 columns">
+							<input type="text" class="ck12link-input" id="join-group-code" readonly/>
+						</div>
+						<div class="large-12 columns">
+							<p class="user-shorcut-wrapper">Use <span class="short-key">Control + C </span>(Windows) or <span class="short-key">Command + C </span>(Mac) to copy this code.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+</div>
+<div class="row collapse ie8text hide-for-small js-for-study">
+	<div class="large-6 columns group-share-wrapper">
+		<span class="encircled-number">2</span>
+		<span class="section-title-header">Share resources with members.</span>
+		<section class="get-started-section">Get started right away – Start sharing with this group before members even join</section>
+		<section class="sources-middle-section">Use the share link on readings, videos, and more.</section>
+		<img src="/media/groups/assets/images/long-arrow-group-share.png" alt="arrow-mark" class="long-arrow">
+		<img src="/media/groups/assets/images/short-arrow-group-share.png" alt="arrow-mark" class="short-arrow">
+	</div>
+	<div class="large-6 columns share-img-container">
+		<img src="/media/groups/assets/images/sample-group-share.png" alt="sample-share">
+	</div>
+</div>
+
+<div class="row collapse ie8text show-for-small zero-state-mobile text-center">
+	<div class="row collapse groups-home-page-mobile-wrapper">
+		<div class="row collapse groups-home-page-mobile left">
+			<span class="encircled-number">1</span>
+			<div class="row collapse activity-message">Invite others to join your group!</div>
+			<div class="row collapse activity-instruction">Invite group members by emails, sharing your unique group link or group code.</div>
+			<div><a id="visit-settings" class="button standard tangerine">Go to Registration Instructions</a></div>
+		</div>
+		<div class="row collapse groups-home-page-mobile left">
+			<span class="encircled-number">2</span>
+			<div class="row collapse activity-message">Share resources with members</div>
+			<div class="row collapse activity-instruction">Get started right away - start sharing with this groups before members even join. Use the share link on readings, videos and more.</div>
+			<div>
+				<img src="/media/groups/assets/images/share.png" alt="email">
+			</div>
+		</div>
+	</div>
+	<div class="row collapse pagination">
+		<span class="option-button active"></span>
+		<span class="option-button"></span>
+	</div>
+</div>

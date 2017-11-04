@@ -1,0 +1,24 @@
+{% from "macros/pagination.html" import paginate with context %}  
+
+{% if c.paginator.item_count > 0 %}
+  {% for i in c.paginator.items %}
+  <div class="tr paneview {{ h.hide_if_full(c.viewmode)}}">
+    <div class="td viewtrigger" data-id="{{i._id}}">{{h.idlink2('assessment/task/', i, alttext=i.name|truncate(60)|escape, idkey='taskID')}}</div>
+    <div class="td status">{{i.status}}</div>
+    <div class="td">{{h.pprint(i.message)|escape|truncate(20)}}</br>
+    {{h.pprint(i.userdata)|escape|truncate(20)}}</div>
+    <div class="td">{{i.updated|parseISODate}}</div>
+  </div>
+  <div class="tr fullview {{ h.hide_if_pane(c.viewmode)}}">
+    <div class="td viewtrigger" data-id="{{i.taskID}}">{{i.taskID}}</div>
+    <div class="td viewtrigger" data-id="{{i._id}}">{{h.idlink2('assessment/task/', i, alttext=i.name|truncate(60)|escape, idkey='taskID')}}</div>
+    <div class="td status">{{i.status}}</div>
+    <div class="td">{{i.hostname}}</div>
+    <div class="td">{{h.pprint(i.message)|escape}}</div>
+    <div class="td">{{h.pprint(i.userdata)|escape}}</div>
+    <div class="td">{{i.started|parseISODate}}</div>
+    <div class="td">{{i.updated|parseISODate}}</div>
+  </div>
+  {% endfor %}
+  {{ paginate(c.paginator) }}
+{% endif %}

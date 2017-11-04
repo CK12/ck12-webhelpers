@@ -1,0 +1,559 @@
+{#
+	modality_common.html
+	base template for concept and modality details pages.
+#}
+{% extends "common/master.html" %}
+{% from "macros/artifact.html" import ck12_artifact_myreview_feedback with context %}
+{% from "macros/artifact.html" import ck12_artifact_review_feedback_bottom with context %}
+{% from "macros/lti_help_banner.html" import lti_help_banner_macro %}
+{% set resource = c.modality_data.artifact.get_modality_resource() %}
+{% block title %}
+{{ c.page_title }}
+{% endblock %}
+
+{% block js_data_main %}{{ h.url_js('main') }}{% endblock %}
+
+{% block stylesheets %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('lib/jquery-ui/css/smoothness/jquery-ui-1.8.17.custom.css') }}" />
+<link type="text/css" rel="stylesheet" href="{{ h.url_css('modalities.css') }}" />
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('modality/css/concept.css') }}" />
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('common/vendor/jquery-plugins/appdownload/css/jquery.appdownload.css') }}" />
+
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+
+{% block mathjax %}
+<script language="JavaScript" type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+		tex2jax: {
+			inlineMath: [['@$','@$']],
+			displayMath: [['@$$','@$$']],
+			skipTags: ["script","noscript","style","textarea","code"]
+		},
+		showMathMenu : false,
+		jax: ["input/TeX","output/HTML-CSS"],
+		messageStyle: "none",
+		TeX: {
+			extensions: ["cancel.js", "color.js", "autoload-all.js"]
+		}
+	});
+</script>
+<script language="JavaScript" type="text/javascript" src="//d3lkjnwva6z405.cloudfront.net/mathjax-min-2.6-20160201/MathJax.js"></script>
+{% endblock %}
+
+{% block block_lms_banner_js %}
+<script type="text/javascript">
+    //mod common
+    require(['main'],function(){
+        require(['js/flxweb.lms.banner'],function(lmsBanner){
+            lmsBanner('concept');
+	});
+    });
+</script>
+{% endblock %}
+
+{% endblock %}
+
+
+{% block ads_js %}
+<script>
+    require(['main'],function(){
+        require(['jquery'],function($){
+            $(document).ready(function() {
+                var payload = {};
+                var branch ='';
+                // Get the subject.
+                {% for crumb in c.breadcrumbs %}
+                    {% if loop.first %}
+                        branch = "{% if crumb.is_subject %}{{ _('Subject: ') }}{% endif %}{{ crumb.title|escape }}";
+                    {% endif %}
+                {% endfor %}
+                payload['page'] = 'concept_details';
+                payload['context_eid'] = '{{c.domain.encodedID}}';
+                payload['branch'] = branch;
+                _ck12.logEvent('fbs_view', payload);
+            });
+        });
+    });
+</script>
+{% endblock %}
+
+{% block schema_itemscope %} itemscope itemtype="http://schema.org/CollectionPage" {% endblock %}
+
+{% block meta_extra %}
+	{{ super() }}
+	<meta name="title" content="{{ c.page_title|escape }}">
+	{% if c.domain.isElementary and not c.domain.description and not c.modality_data.artifact.summary %}
+		<meta name="description" content="{{ c.domain.name }}">
+	{% elif c.modality_data.artifact.summary %}
+		<meta name="description" content="{{ c.modality_data.artifact.summary|escape }}">
+	{% else %}
+		<meta name="description" content="{{ c.domain.description }}">
+	{% endif %}
+	<meta name="google-play-app" content="app-id=org.ck12.app.practice">
+    <meta name="apple-itunes-app-internal" content="app-id=909343639">
+    <meta name="description" content="">
+{% endblock %}
+
+{% block canonical %}
+	{% set canonical_url = h.canonical_url() %}
+	{% if canonical_url %}
+	<link rel="canonical" href="{{ canonical_url }}"/>
+	{% endif %}
+{% endblock %}
+
+{% block ltiHelpBanner %}
+    {{ lti_help_banner_macro('concept') }}
+{% endblock %}
+
+{% block content %}
+<div id="contentwrap" class="{% if c.hideContentWrap %}hide{% endif %}">
+	<div class="grey-back">
+		<div class="relative desktop_view">
+			<div class="desktop_view row collapse desktop-view_margin modalities-common modalities-header-wrapper modality-details-row">
+				<div class="column large-12">
+		        	 <!-- Modality details which is old revision -->
+		        	{% if c.modality_data.artifact and not c.modality_data.artifact.is_latest() %}
+			        	<div class="row collapse">
+			            	<div class="notificationwrap clearfix">
+			                	<div id="js_old_fb_notification" class="notification">
+			                    	{{ _('You are viewing an older version of this %(type)s.' % {'type': c.modality_data.artifact.display_label()} )}}
+			                    	{% if c.modality_data.artifact.get('realm') %}
+			                    		{% if c.modality_data.artifact.domain.encodedID.startswith('UGC') %}
+				                        	<a class="notificationlink" href="{{ h.url('modality_realm_ext',
+			                              	handle=c.domain.get('handle'),
+			                              	realm=c.modality_data.artifact.get('realm'),
+			                              	mtype=c.modality_data.artifact.get('artifactType'),
+			                              	mhandle=c.modality_data.artifact.get('handle'),
+			                              	ext = 'r%s' % (c.modality_data.artifact.getLatestVersionNumber()),
+			                              	qualified=True ) }}"  >{{ _("Go to the latest version.") }}</a>
+			                        	{% else %}
+			                        	    {% if 'collection' in c.collection_data_json %}
+			                        	        {% set latest_modality_url = '/c/' + c.collection_data_json.collection.handle + 
+			                        	        '/' + c.collection_data_json.collection.descendantCollection.absoluteHandle + 
+			                        	        '/' + c.modality_data.artifact.get('artifactType') + 
+			                        	        '/' + c.modality_data.artifact.get('realm') + 
+			                        	        '/' + c.modality_data.artifact.get('handle') %}
+			                        	    {% else %}
+			                        	        {% set latest_modality_url = h.url('modality_branch_realm_ext', 
+			                        	                                            branch=c.branch.get('handle').lower(),
+			                              	                                        handle=c.domain.get('handle'),
+			                              	                                        realm=c.modality_data.artifact.get('realm'),
+			                              	                                        mtype=c.modality_data.artifact.get('artifactType'),
+			                              	                                        mhandle=c.modality_data.artifact.get('handle'),
+			                              	                                        ext = 'r%s' % (c.modality_data.artifact.getLatestVersionNumber()),
+			                              	                                        qualified=True ) %}
+			                        	    {% endif %}
+			                            	<a class="notificationlink" href="{{ latest_modality_url }}"  >{{ _("Go to the latest version.") }}</a>
+			                        	{% endif %}
+		                        	{% else %}
+		                        		{% if c.modality_data.artifact.domain.encodedID.startswith('UGC') %}
+			                            	 <a class="notificationlink" href="{{ h.url('modality_ext',
+			                              	handle=c.domain.get('handle'),
+			                              	mtype=c.modality_data.artifact.get('artifactType'),
+			                              	mhandle=c.modality_data.artifact.get('handle'),
+			                              	ext = 'r%s' % (c.modality_data.artifact.getLatestVersionNumber()),
+			                              	qualified=True ) }}"  >{{ _("Go to the latest version.") }}</a>
+			                        	{% else %}
+			                            	<a class="notificationlink" href="{{ h.url('modality_branch_ext',
+			                              	branch=c.branch.get('handle').lower(),
+			                              	handle=c.domain.get('handle'),
+			                              	mtype=c.modality_data.artifact.get('artifactType'),
+			                              	mhandle=c.modality_data.artifact.get('handle'),
+			                              	ext = 'r%s' % (c.modality_data.artifact.getLatestVersionNumber()),
+			                              	qualified=True ) }}"  >{{ _("Go to the latest version.") }}</a>
+			                        	{% endif %}
+		                        	{% endif %}
+			                	</div>
+			            	</div>
+			        	</div>
+		        	{% endif %}
+
+					<div class="row collapse concept-wrapper">
+						{% block artifact_title %}
+						<div class="left concept-info-wrapper">
+							{% block artifact_coverimageimage %}
+							<div class="left text-center concept_top_icon hide-small{% if c.modality_data.artifact and (not c.modality_data.artifact.domain) or c.modality_data.artifact.domain.encodedID.startswith('UGC') or '/software-testing/' ==  c.breadcrumbs[0].perma %} hide{%endif %}">
+								{% if 'collection' in c.collection_data_json %}
+									<span  title="{{ c.collection_data_json.collection.title }}" class="icon-{{ c.collection_data_json.collection.handle }}"></span>
+								{% else %}
+									{% for crumb in c.breadcrumbs %}
+										{% if loop.first %}
+											<span  title="{{ crumb.title|escape }}" class="icon-{{ crumb.perma.replace("/", "") }}"></span>
+										{% endif %}
+									{% endfor%}
+								{% endif %}
+							</div>
+							{% endblock %}
+							<div class="left concept_info_label">
+								<h1 id="artifact_title" class="row collapse artifact_title artifact_title_modality_details">
+									{% if 'collection' in c.collection_data_json %}
+										{% if 'previousDescendantCollection' in c.collection_data_json.collection %}
+											<a style="margin-right:3px;" title="Previous: {{c.collection_data_json.collection.previousDescendantCollection.title}}" href="{{c.collection_data_json.collection_url}}/{{c.collection_data_json.collection.previousDescendantCollection.absoluteHandle}}" >
+												<svg width="26" height="26"  >
+												   <circle cx="13" cy="13" r="13" fill="#00aba4" />
+												   <path d="M16 6 L8 14" stroke="white" stroke-width="3"/>
+												   <path d="M16 20 L8 12" stroke="white" stroke-width="3"/>
+												</svg>
+											</a>
+										{% else %}
+											<a style="margin-left:3px; cursor:default" >
+												<svg width="26" height="26">
+												   <circle cx="13" cy="13" r="13" fill="#cccccc" />
+												   <path d="M16 6 L8 14" stroke="white" stroke-width="3"/>
+												   <path d="M16 20 L8 12" stroke="white" stroke-width="3"/>
+												</svg>
+											</a>
+										{% endif %}
+										{% if 'nextDescendantCollection' in c.collection_data_json.collection %}
+											<a style="margin-left:3px;" title="Next: {{c.collection_data_json.collection.nextDescendantCollection.title}}" href="{{c.collection_data_json.collection_url}}/{{c.collection_data_json.collection.nextDescendantCollection.absoluteHandle}}" >
+												<svg width="26" height="26">
+												   <circle cx="13" cy="13" r="13" fill="#00aba4" />
+												   <path d="M10 6 L18 14" stroke="white" stroke-width="3"/>
+												   <path d="M10 20 L18 12" stroke="white" stroke-width="3"/>
+												</svg>
+											</a>
+										{% else %}
+											<a style="margin-left:3px; cursor:default" >
+												<svg width="26" height="26">
+												   <circle cx="13" cy="13" r="13" fill="#cccccc" />
+												   <path d="M10 6 L18 14" stroke="white" stroke-width="3"/>
+												   <path d="M10 20 L18 12" stroke="white" stroke-width="3"/>
+												</svg>
+											</a>
+										{% endif %}
+										</br>
+										<span class="artifact_title_text" itemprop="name">{{ c.collection_data_json.collection.descendantCollection.title|escape }}</span>
+									{% else %}
+											<span itemprop="name">{{ c.domain.name|escape }}</span>
+									{% endif %}
+									{% if c.previewdraft == True %}
+										<span id="draft-label" class="draft-label-details">DRAFT</span>
+									{% endif %}
+								</h1>
+							</div>
+							{% if c.domain.description %}
+								<h2 class="artifact_description artifact_description_details">{{ c.domain.description|e }}</h2>
+							{% endif %}
+						</div>
+						{% endblock %}
+
+						<!-- practice badge markup starts -->
+						<div class="practice-badge-wrapper">
+							<div class="practice-badge hide" data-encodedid="" data-handle=""  id="practiceBadge">
+								<div class="practice-badge-container large hide-for-small">
+								<div  class="img-bg">
+				                		<img src="{{ h.asset_image('images/modality_generic_icons/practice_image.png') }}" alt="Atoms Practice" style="height: 91px;">
+				                	</div>
+									<div class="row collapse">
+										<div class="columns small-5 practice-badge-column">
+											<div class="pie-container">
+												<div class="inner-circle">
+												</div>
+												<div class="hold">
+													<div class="pie"></div>
+													<div class="pie"></div>
+												</div>
+												<div class="content">
+													<span class="large-text">%</span>
+												</div>
+											</div>
+											<div class="text-center capitalize bottom pie-container-label">Progress</div>
+										</div>
+										<div class="columns small-7 practice-badge-column">
+											<div class="practice-badge-detail">
+						                        <div class="top-section">
+							                        <div class="icon-container hide"><i class=""></i></div>
+							                        <div class="description"></div>                        
+						                        </div>
+												<div class="memory-boost-section hide">
+													<div class="row">
+														<div class="columns small-5">&nbsp;</div>
+														<div class="boost-icon columns small-1"></div>
+														<div class="columns small-6">&nbsp;</div>
+													</div>
+													<div class="row">	
+														<div class="columns small-1">&nbsp;</div>
+														<div class="boost-message columns small-9"></div>
+														<div class="boost-tooltip tooltip-icon icon icon-help_icon columns small-2"></div>				
+													</div>
+													<div class="boost-tooltip tooltip-info hide">
+														<div class="boost-tooltip tooltip-title">MEMORY METER</div>
+														<div class="boost-tooltip tooltip-msg">This indicates how strong in your memory this concept is</div>
+													</div>				
+												</div>
+												<div class="bottom">
+													<div class="badge-option-container">
+														<div class="button tangerine standard redirect-button hide-for-lti-context">
+															<span class="button-text">Practice</span>
+															<span class="js-badge-pipe badge-pipe"></span>															
+															<i class="js-badge-icon icon-arrow_right"></i>
+														</div>
+														<div class="more-badge-option js-more-badge-option hide">
+														  	<ul class="more-badge-list-option">
+														  		<li class="js-preview-btn" data-render="preview">Preview</li>
+														  		<li class="js-assign-btn" data-render="assign">Assign Practice</li>
+														  	</ul>
+													  	</div>
+														<div class="button tangerine standard show-for-lti-context js-preview-btn" sytle="display:inline-block;">
+														    <span class="button-text js-preview-btn">Preview</span>
+                                                                                                                    <i class="icon-arrow_right"></i>
+													        </div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+							</div>
+							<div class="small practice-badge-container">
+								<div class="table text-center">
+									<div class="table-cell capitalize hide best-score-block pie-container-label text-right">Progress</div>
+									<div class="table-cell hide graph-block">
+										<div class="pie-container">
+											<div class="inner-circle">
+											</div>
+											<div class="hold">
+												<div class="pie"></div>
+												<div class="pie"></div>
+											</div>
+										</div>
+									</div>
+									<div class="table-cell small-score hide">%</div>
+									<div class="table-cell tangerine redirect-button"><i></i><span class="small-button-text">Practice Now</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- practice badge markup ends -->
+                    <!-- Assign to class button for mobile -->
+					{% if c.modality_data.artifact.get('artifactType') in ('lesson', 'lecture', 'enrichment', 'asmtpractice', 'asmtquiz', 'rwa') and ((c.user and c.user.isTeacher()) or request.cookies.get('flxweb_role') == "teacher") %}
+                        <div class="assign-to-class-wrap text-center">
+                            <div class="button turquoise modality-info assign_to_class">
+                            <i class="icon-grps_assgnmts"></i><span>Assign to Class</span></div>
+                        </div>
+					{% endif%}
+					</div>
+				</div>
+			<!-- concept dropdown markup -->
+			</div>
+			{% if c.modality_data.domain.descendantOf %}
+			<div id="concept_list_container" class="hide concept_list_container">
+				<div class="row collapse concept_list_header">
+					<div class="left concept_list_header_wrapper">
+						{% if c.breadcrumbs and c.breadcrumbs[0] %}
+							{% if "/software-testing/" !=  c.breadcrumbs[0].perma %}
+								<a href="{{ c.breadcrumbs[0].perma }}" title="{{ c.breadcrumbs[0].title|escape }}" class="topic_title">{{ c.breadcrumbs[0].title|escape }}</a>
+								<i class="icon-arrow3_right"></i>
+							{% else %}
+								<a href="{{ c.breadcrumbs[0].perma }}" title="{{ c.breadcrumbs[0].title|escape }}" class="topic_title hide">{{ c.breadcrumbs[0].title|escape }}</a>
+							{% endif %}
+						{% endif %}
+						<span class="topic_title name_wrap" title="{{ c.modality_data.domain.descendantOf.name }}">{{ c.modality_data.domain.descendantOf.name }}</span>
+						<div id="concept_list_count" class="row collapse hide-small concept_list_count"></div>
+					</div>
+					<div class="right pointer concept-close-icon js-concept-close-icon">
+   						<i class="close-icon"></i>
+   					</div>
+   				</div>
+   				<div class="relative concept_list_wrapper">
+   					<span id="concept_line" class="concept_line">&nbsp;</span>
+					<span id="top_button" class="concept_button top_button js-concept_button">...</span>
+					<div>
+						<ul id="concept_list" class="row collapse relative concept_list" data-encodedID="{{ c.modality_data.domain.descendantOf.encodedID }}"></ul>
+					</div>
+					<span id="bottom_button" class="concept_button bottom_button js-concept_button">...</span>
+   				</div>
+			</div>
+			{% endif %}
+		</div>
+        {% if 'collection' in c.collection_data_json %}
+            <div class="desktop_view">
+                <div id="modality_filters_container" class="row collapse desktop-view_margin modality_filters_container">
+                    {% block modalities_navbar %}
+                    {% endblock %}
+                </div>
+            </div>
+        {% endif %}
+
+	<div class="desktop_view quick-assignment-notification">
+	</div>
+
+	<div class="desktop_view">
+		<div id="modalities_container" class="contentarea modalities-common">
+			<section class="clearfix">
+				<div class="clear"></div>
+				{% block modality_content %}
+				<div class="modalitieslistwrap">
+					<ul id="modalities_list"></ul>
+				</div>
+				{% endblock %}
+					{% block no_modalities%}
+						{% if not c.artifacts and (c.domain.modalityCount == 0 or c.domain.modalityCount == {}) %}
+							<div class="no_modalities_message_wrapper">
+								<span>
+								{% if c.by == 'ck12' %}
+									{{_("At present we don't have any CK-12 content for %(modality_name)s." % {'modality_name':c.modality_data.artifact.title}) }}
+								{% elif c.by == 'community' %}
+									{{_("At present we don't have any community contributed content for %(modality_name)s." % {'modality_name':c.modality_data.artifact.title}) }}
+								{% else %}
+									{{_("At present we don't have any public modalites for %(modality_name)s." % {'modality_name':c.modality_data.artifact.title}) }}
+								{% endif %}
+								</span>
+							</div>
+						{% endif %}
+					{% endblock %}
+				</section>
+			</div>
+		</div>
+		<div class="desktop_view">
+			<div class="small-12 columns">
+				{% block artifact_review_feedback %}
+				{% endblock %}
+			</div>
+		</div>
+
+		<div class="desktop_view">
+			<div class="small-12 columns">
+				<div class="backtotop clear">{{ _('Back to the <a href="#" id="back_to_top_page" title="Back to top of the page">top of the page &#8593;') }}</a></div>
+				<div class="divider"></div>
+				<div class="gclear"></div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block hidden_divs %}
+{{ super() }}
+<script id="tmpl_modality_filter" type="text/template">
+	<a class="lnk_modality_filter group_<%= data.group_classname %> <% if (data.active) { %> selected <% } %>" href="{{ c.concept_url }}<%= window.location.search %><% if (window.location.search) { %>&by={{ c.conceptSource or 'ck12' }}&difficulty={{ (c.conceptDifficulty or 'all').replace(' ', '+') }}<% } else { %>?by={{ c.conceptSource or 'ck12' }}&difficulty={{ (c.conceptDifficulty or 'all').replace(' ', '+') }}<% } %>#<%= data.group_classname %>">
+		<i class="js-modality-icon"></i>
+        <span class="group_label">
+			<span class="js-modality-label"><%= data.display_text %></span>
+        	<br class="show-small"/>
+        	<span>(<%= data.count || 99 %>)</span>
+        </span>
+	</a>
+</script>
+
+<script id="tmpl_modality" type="text/template">
+	<div class="modality_inner">
+		<div class="modalitywrap">
+			<div class="modality_info_wrapper">
+				<div class='resource_meta'>
+					<span class="label"><span class="imgwrap"></span><%= data.modality_display_label %></span>
+				</div>
+				<% if (data.thumbnail_img) { %>
+					<div class="thumbnail_wrapper">
+						<a href="<%= data.details_url %>" class="thumbnaillink" title="<%= data.title %>"><img src="<%= data.thumbnail_img %> " alt="<%= data.title %>" /></a>
+					</div>
+				<% } else { %>
+					<div class="thumbnail_wrapper">
+						<a href="<%= data.details_url %>" class="thumbnaillink" title="<%= data.title %>"><img src="{{ h.url_images('modality_generic_icons') }}/<%= data.modality_group.group_classname %>_ic.png" alt="<%= data.title %>" /></a>
+					</div>
+				<% } %>
+				<div class="data_wrapper">
+					<div class="modalitybody">
+						<h2><a href="<%= data.details_url %>"><%= data.title %></a></h2>
+						<!-- Contributed By -->
+						<% if (data.contributed_by){ %>
+						<p class="contributiondesc"><%= data.contributed_by %></p>
+						<% } %>
+						<p class="resource_desc"><%= data.summary %></p>
+						<!-- Difficulty Level -->
+						<% if (data.level && data.artifactType=='lesson' && window.modality_data && window.modality_data.read_modality_count > 1  && !window.modality_data.difficulty) { %>
+						<p class="difficulty">Difficulty Level:&nbsp; <span class="level"><%= data.level %></span></p>
+						<% } %>
+					</div>
+				</div>
+			</div>
+			<div class="modality_actions_wrap">
+				<div class='modality_actions'>
+					<div class="modality_action share">
+						<div class="sharemenuwrap js_sharemenuwrap">
+							<a href="#" class="js_lnk_share"><span class="imgwrap"></span><span class="label"> </span></a>
+							<ul class='share_menu hide'>
+								<li>
+									<a class="twitter" target="_blank" title="{{ _("Share on Twitter") }} "
+									href="http://twitter.com?status=<%= escape(data.share_url) %>">
+										<span class="imgwrap"></span>
+										<span class="label">{{ _("Twitter") }}</span>
+									</a>
+								</li>
+								<li>
+									<a class="facebook" target="_blank" title="{{ _("Share on Facebook") }}"
+									href="http://www.facebook.com/sharer.php?u=<%= escape(data.share_url) %>">
+										<span class="imgwrap"></span>
+										<span class="label">{{ _("Facebook") }}</span>
+									</a>
+								</li>
+								<li>
+									<a class="email" target="_blank" title="{{ _("Share via Email") }}"
+									href="mailto:?subject=<%= escape(data.title) %>&body=<%= escape(data.title) %>: <%= escape(data.details_url) %>">
+										<span class="imgwrap"></span>
+										<span class="label">{{ _("Email") }}</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="voting">
+					<% if (data.feedbacks && data.feedbacks.voting)  { %>
+						<% if (data.feedbacks.voting.like) { %>
+							<span class="imgwrap like" title="{{ _("Helpful") }}"></span>  {{ _(" <%= data.feedbacks.voting.like %> ") }}
+					    <% } else { %>
+							<span class="imgwrap nolike"  title="{{ _("Not yet reviewed") }}"></span>
+					    <% } %>
+					<% } %>
+					</div>
+				</div>
+				<!--
+				<div class="modality_action bookmark">
+					<a href="#"><span class="imgwrap"></span><span class="label">{{ _('Bookmark') }}</span></a>
+				</div>
+				-->
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+</script>
+
+<!-- Template used for concept dropdown on modalities pages -->
+<script id="conceptDropdownTemplate" type="text/x-template">
+	<li title="<%= (data.conceptName) %>">
+		<div class="concept_list_display">
+    		<span class="concept_list_button"><span class="concept_list_select"></span></span>
+    	</div>
+    	<div class="concept_descriptions"><a href="<%= data.conceptURL %>/"><%= _.escape(data.conceptName) %></a></div>
+	</li>
+</script>
+
+{% block modality_data %}
+<script type="text/javascript">
+	window.js_modality_data = {{ (c.modality_data_json|ck12_json) }};
+	var jsCollectionData = [{{ c.collection_data_json|ck12_json }}]
+    if (jsCollectionData.length > 0)
+    { 
+    	window.js_collection_data = jsCollectionData[0];
+    	/* Setting canonical url */
+    	var urlElements = window.location.href.split('/')
+    	var l = urlElements.length
+    	var originalConceptCollectionHandle = ('taxonomyComposistionsInfo' in jsCollectionData[0].collection.descendantCollection) ? jsCollectionData[0].collection.descendantCollection.taxonomyComposistionsInfo[0].branches[0].concepts[0].handle.toLowerCase() : jsCollectionData[0].collection.descendantCollection.absoluteHandle;
+		var canonical_url = "https://www.ck12.org/" + jsCollectionData[0].collection.handle + "/" + originalConceptCollectionHandle.toLowerCase() + '/' + urlElements[l - 3] + '/' + urlElements[l - 2] + '/'
+        var link = document.createElement('link');
+        link.rel = 'canonical'
+        link.href = canonical_url;
+        document.head.appendChild(link);
+        console.log("Canonical url: " + document.querySelector("link[rel='canonical']").href)
+	}
+</script>
+{% endblock %}
+<!--
+    Templates for reviews
+-->
+{% include "jstemplates/reviews.html" %}
+{% endblock %}

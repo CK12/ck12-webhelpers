@@ -1,0 +1,230 @@
+{% extends "base/auth/1column.html" %}
+{% block title %} {{_('Sign Up') }} {% endblock %}
+
+{% block js %}
+{{ super() }}
+<script>
+require(['main'], function(){
+   require(['auth/flx.signup']);
+});
+function signin_click(provider, url) {
+    var url = '/auth/login/member/' + provider + '?url=' + encodeURIComponent(url);
+    var left= (screen.width -880)/2;
+    if (!window.isWebView()) {
+        window.open(url, provider + '_window', 'location=no, menubar=no, resizable=yes status=no, scrollbars=no, width=880, height=400,top=350,left='+left);
+    } else {
+        url = url + '&popup=false' + '&returnTo=' + encodeURIComponent('{{ c.returnTo }}') + '&requestor=' + encodeURIComponent('{{ c.requestor }}');
+        window.location.href = url;
+    }
+    return false;
+}
+</script>
+{% endblock %}
+
+{% block pageinfotop %}
+<div class="contenttop"></div>
+{% endblock %}
+
+{% block content %}
+<div class="signup">
+<div class="large-12 column">
+	<h1 class="toptitle">{{ _("Create a CK-12 Account") }}</h1>
+</div>
+
+<div class="signup_section column ck12signup">
+	<!-- Form Error Message -->
+	{% if c.form_error %}
+	<ul class="messaging error">
+		<span class="icon-close"></span>
+		<li>{{ c.form_error }}</li>
+	</ul>
+	{% endif %}
+
+	<!-- Error Messages -->
+	{% if c.form_errors %}
+	<ul class="messaging error">
+		{% for error in c.form_errors %}
+		<span class="icon-close"></span>
+		<li>{{error}} - {{ c.form_errors[error] }}</li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+
+	<div >
+		<form id="signup_form" method="POST" action="{{ h.url('signup_complete') }}?returnTo={{ h.urlQuote(c.returnTo) }}">
+
+			<div class="signup_form_main">
+
+				<!-- <div class="row">
+					<div class="formlabelwrap large-3 column">
+						<label class="required formlabel" for="roleID">
+							{{ _("I'm a") }}
+						</label>
+					</div>
+					<div class="large-9 column">
+						<select id="roleID" name="roleID" value="{{ c.form.roleID }}">
+							{% for roleID in c.form.roleKeys %}
+								{% if roleID == c.form.roleID %}
+								<option selected value="{{ roleID }}">{{ c.form.roleDict[roleID] }}</option>
+								{% else %}
+								<option value="{{ roleID }}">{{ c.form.roleDict[roleID] }}</option>
+								{% endif %}
+							{% endfor %}
+						</select>
+					</div>
+				</div> -->
+
+				<div class="row">
+					<div class="error large-offset-3 large-9 small-6 column" data-for="name">&nbsp;</div>
+					<div class="formlabelwrap large-3 small-6 column">
+						<label class="required formlabel" for="name">
+							{{ _("Full Name") }}
+						</label>
+					</div>
+					<div class="large-9 column">
+						<input type="text" id="name" class="forminput" name="name" value="{{c.form['name']}}" placeholder="e.g. Emma Brown" />
+					</div>
+				</div>
+
+
+				<div class="row">
+					<div class="error large-offset-3 large-9 small-9 column" data-for="email">&nbsp;</div>
+					<div class="formlabelwrap large-3 small-3 column">
+						<label class="required formlabel" for="email">
+							{{ _("Email") }}
+						</label>
+					</div>
+					<div class="large-9 column">
+						<input type="email" id="email" class="forminput" name="email" value="{{c.form['email']}}" placeholder="e.g. emma@gmail.com"
+								data-required="{{ c.messages.ACCOUNT_EMAIL_EMPTY }}"
+								data-maxlength="{{ c.messages.ACCOUNT_EMAIL_MAXLENGTH  }}"
+								data-simple_email="{{ c.messages.ACCOUNT_EMAIL_INVALID  }}"
+								data-remote="{{ c.messages.ACCOUNT_EMAIL_TAKEN }}"/>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="error large-offset-3 large-9 small-7 column" data-for="password">&nbsp;</div>
+					<div class="formlabelwrap large-3 small-5 column">
+						<label class="required formlabel" for="password">
+							{{ _("Password") }}
+						</label>
+					</div>
+					<div class="large-9 column">
+						<div>
+						<input type="password" id="password" class="forminput" name="password" placeholder="password"
+								data-required="{{ c.messages.ACCOUNT_PASSWORD_EMPTY }}"
+								data-minlength="{{ c.messages.ACCOUNT_PASSWORD_MINLENGTH }}"
+								data-ck12_password="{{ c.messages.ACCOUNT_PASSWORD_INVALID }}"/>
+						</div>
+						<div class="custom-box pwd-toggle-container">
+						<input type="checkbox" id="password_display_toggle">
+						<label for="password_display_toggle" class="checkbox lbl_show_password"><span><i class="icon-validated"></i></span>&nbsp;&nbsp;Show my password</label>
+					</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="error large-offset-3 large-9 small-7 column" data-for="birthday">&nbsp;</div>
+					<div class="formlabelwrap large-3 small-5 column">
+						<label class="required formlabel" for="birthday" title="{{ _('Date of Birth') }}">
+							{{ _("Birthday") }}<br />
+						</label>
+					</div>
+					<div class="large-9 column">
+						<input type="text" id="birthday" class="forminput" name="birthday" value="{{c.form['birthday']}}" placeholder="mm/dd/yyyy"
+						 />
+					</div>
+				</div>
+			</div>
+
+			<div class="row down-arrow"></div>
+
+			<div class="form-submit-wrap row">
+                                <input type="hidden" name="firstName" id="firstName" value="{{ c.firstName }}" />
+                                <input type="hidden" name="lastName" id="lastName" value="{{ c.lastName }}" />
+                                <input type="hidden" name="returnTo" id="returnTo" value="{{ h.urlQuote(c.returnTo) }}" />
+                                <input type="hidden" name="fromSignupForm" id="fromSignupFrom" value="true" />
+				<div class="custom-box column large-12 notify_newsletter_checkbox">
+						<input type="checkbox" checked="checked" value="true" id="newNewsletter" name="newNewsletter" class="hidden-field">
+						<label for="newNewsletter" class="checkbox inline"><span class="checked"><i class="icon-validated"></i></span> Keep me updated with the latest news, content, and helpful tips from CK-12. </label>
+				</div>
+				<div class="column large-12 submit-btn-wrap">
+					<input type="submit" id="signup_form_submit" class="signup-submit disabled" value="{{ _('Sign up') }}" />
+				</div>
+				<div class="column large-12 signup-terms">
+					<div class="signup-terms-content">
+						By signing up, I confirm that I have read and agree to the
+						<a href="https://www.ck12info.org/about/terms-of-use/" target="_blank">Terms of use</a> and
+				        <a href="https://www.ck12info.org/about/technology-2/privacy-policy/" target="_blank">Privacy Policy</a>.
+					 </div>
+				</div>
+			</div>
+
+		</form>
+	</div>
+</div>
+<div class="signup_social_testimonials column hide-for-small">
+    <div class="social-auth-container">
+        <div class="social-auth-header">{{ _("or connect with") }}</div>
+        <div class="social-auth-btns">
+            <div class="login-btn-wrap google">
+                <a id="js_ck12googlesignin" class="loginbtn" onclick="signin_click('google', '{{ h.url(controller='google', action='authenticated', qualified=True) }}', 'student');" href="javascript:;" alt="{{ _('Sign In with Google') }}" title="{{ _('Sign In with Google') }}"><span class="signup-google-plus"></span>&nbsp;</a>
+            </div>
+            <div class="login-btn-wrap facebook">
+                <a id="js_ck12fbsignin" class="loginbtn" onclick="signin_click('facebook', '{{ h.url(controller='facebook', action='authenticated', qualified=True) }}', 'student');" href="javascript:;" alt="{{ _('Sign In with Facebook') }}" title="{{ _('Sign In with Facebook') }}"><span class="signup-facebook"></span>&nbsp;</a>
+            </div>
+            <div class="login-btn-wrap twitter">
+                <a id="js_ck12twittersignin" class="loginbtn" onclick="signin_click('twitter', '{{ h.url(controller='twitter', action='authenticated', qualified=True) }}', 'student');" href="javascript:;" alt="{{ _('Sign In with Twitter') }}" title="{{ _('Sign In with Twitter') }}"><span class="signup-twitter"></span>&nbsp;</a>
+            </div>
+            <div class="login-btn-wrap microsoft">
+                <a id="js_ck12microsoftsignin" class="loginbtn" onclick="signin_click('azure', '{{ h.url(controller='azure', action='authenticated', qualified=True) }}', 'student');" href="javascript:;" alt="{{ _('Sign In with Microsoft') }}" title="{{ _('Sign In with Microsoft') }}"><span class="signup-microsoft"></span>&nbsp;</a>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+    <div class="signup-benefits row">
+        <h2 class="">{{ _("Great Reasons to Join") }}</h2>
+
+        <div class="signup_testimonials">
+            <div>
+				<span class="signup_testimonial_content">"It helps exceptionally with additional practice and study sessions outside of class time."</span>
+				<span>&#8212; Kunal M., Student</span>
+			</div>
+            <div class="signup_teacher_testimonial">
+				<span class="signup_testimonial_content">"I love how I can customize textbooks and assign practice for my class!"</span>
+				<span>&#8212; Betty W., Teacher</span>
+            </div>
+<!-- parent not available yet
+            <div class="signup-benefit parent">
+            	{{ _('Track your child\'s progress on quizzes.') }}
+            </div>
+-->
+        </div>
+
+    </div>
+
+</div>
+ <div class="signup_social_testimonials column show-for-small">
+	   <div class="social-auth-container">
+	 	<div class="social-auth-header">{{ _("or connect with") }}</div>
+	   	<div class="social-auth-btns">
+	   		<div class="signup_loginbtnwrap google">
+				<a title="Sign In with Google" alt="Sign In with Google" onclick="signin_click('google', '{{ h.url(controller='google', action='authenticated', qualified=True) }}');" class="loginbtn" id="js_ck12googlesignin"><i class="icon icon-google-plus"></i>Sign In with Google</a>
+			</div>
+			<div class="signup_loginbtnwrap facebook">
+				<a title="Sign In with Facebook" alt="Sign In with Facebook" onclick="signin_click('facebook', '{{ h.url(controller='facebook', action='authenticated', qualified=True) }}');" class="loginbtn" id="js_ck12fbsignin"><i class="icon icon-facebook"></i>Sign In with Facebook</a>
+			</div>
+			<div class="signup_loginbtnwrap twitter">
+				<a title="Sign In with Twitter" alt="Sign In with Twitter" class="loginbtn" onclick="signin_click('twitter', '{{ h.url(controller='twitter', action='authenticated', qualified=True) }}');" id="js_ck12twittersignin"><i class="icon icon-twitter"></i>Sign In with Twitter</a>
+			</div>
+			<div class="signup_loginbtnwrap microsoft">
+				<a title="Sign In with Microsoft" alt="Sign In with " class="loginbtn" onclick="signin_click('azure', '{{ h.url(controller='azure', action='authenticated', qualified=True) }}');" id="js_ck12microsoftsignin"><i class="icon icon-microsoftlive"></i>Sign In with Microsoft</a>
+			</div>
+	  	 </div>
+	   </div>
+   </div>
+<div class="gclear"></div>
+</div>
+{% endblock %}

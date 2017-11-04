@@ -1,0 +1,8 @@
+<li id="<%=data.model.sid.replace(/\./g, '_') %>">
+	<div class="list-item">
+		<a href="<%= data.url %>"><%=data.model.description %></a>
+		<% if (data.model.sid === data.dataId) { %>
+			<i class="icon-checkmark current-set show-for-small"></i>
+		<% } %>
+	</div>
+</li>

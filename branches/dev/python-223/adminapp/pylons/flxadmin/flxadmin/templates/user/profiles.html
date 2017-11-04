@@ -1,0 +1,152 @@
+{% extends "listings.html" %}  
+
+{% block filters %} 
+  <div class="col med">
+    {{ h.labelselect('Filter', '', c.form.filter_sel, 'filter') }}
+  </div>
+  <div class="col med">
+    {{ h.labelselect('LMS Name', 'providerID', c.form.lms_filter_sel, 'filter') }}
+  </div>
+  <div class="col">
+    {{ h.labelselect('LMS App Name', 'appName', [('',"Select LMS App")], 'filter', disabled='true') }}
+  </div>
+{% endblock %} 
+
+{% block searches %}
+    {{ super() }}
+    <div class="col wide padleft">
+        {{ h.labelinput('LMS User Token', 'lms_token', 'med searchby')}}
+        <img id="lms_search_icon" src="{{h.url_images('icon_magnifier2.png')}}"/>
+    </div>
+{% endblock %}
+
+{% block aftersearches %} 
+  {{ super() }}
+  <div style="display:block">
+    <input id='disableListOnEmptySearch' type='checkbox' checked='true' disabled='true'>
+    <label>Disable Listing on Empty Searches</label>
+  </div>
+{% endblock %}
+
+{% block admincontent %}
+{{ super() }}
+    <input type="hidden" name="sw_auth_url" id="sw_auth_url" value="{{ h.url('auth-switchuser') }}" />
+    <input type="hidden" name = "sw_returnto" id="sw_returnto" value="{{ h.url('authorized_switch',qualified='True') }}" />
+{% endblock %}
+{% block js_scripts %}
+{{ super() }}
+<script type="text/javascript" src="{{ h.url_js('activation_action.js') }}"></script>
+<script type='text/javascript'>
+  $(document).ready(function(){
+    var getLMSInformationForUsers = function(){
+        var userIDStr = '';
+        $.each($('.tr:not(".hide") .td.id'), function(index, user_id){
+            if (userIDStr){
+                userIDStr += ",";
+            }
+            userIDStr += $(user_id).html();
+        });
+        if (!userIDStr){
+            return;
+        }
+        var params = 'userIDs=' + userIDStr;
+        $.get(CK12.admUrl('/get/lms/providerapp/users?' + params), function(data){
+            $.each(data, function(index,each_user){
+                var that = $('#leftpane .table .tbody .tr#' + each_user.memberID + " .td.js_lms_user_token"),
+                    val = $(that).html(),
+                        isProviderMemberIDExists = false;
+                if($.trim(val) && $.trim(val).indexOf(each_user.providerMemberID) != -1) {
+                    isProviderMemberIDExists = true;
+                }
+                if ($.trim(val) != '-' && ! isProviderMemberIDExists){
+                    //if ((val + ', ' + each_user.providerMemberID).length >= 20){
+                    //    $('#leftpane .table .tbody .tr#' + each_user.memberID + " .td.js_lms_user_token").attr({'title': val + ', ' + each_user.providerMemberID});
+                    //    $('#leftpane .table .tbody .tr#' + each_user.memberID + " .td.js_lms_user_token").html((val + ', ' + each_user.providerMemberID).substring(0,5) + "...");
+                    //}else{
+                        $('#leftpane .table .tbody .tr#' + each_user.memberID + " .td.js_lms_user_token").html(val + ', ' + each_user.providerMemberID);
+                    //}
+                }else if (! isProviderMemberIDExists){
+                    //if ((each_user.providerMemberID).length >= 20){
+                    //    $('#leftpane .table .tbody .tr#' + each_user.memberID + " .td.js_lms_user_token").attr({'title': each_user.providerMemberID});
+                    //    $('#leftpane .table .tbody .tr#' + each_user.memberID + " .td.js_lms_user_token").html((each_user.providerMemberID).substring(0,50) + "...");
+                    //}else{
+                        $('#leftpane .table .tbody .tr#' + each_user.memberID + " .td.js_lms_user_token").html(each_user.providerMemberID);
+                    //}
+                }
+                //if LMS token length is long, then resize the columns
+                if (each_user.providerMemberID.length >= 20){
+                    $(that).addClass('xmed')
+                        .next().addClass('xmed')
+                        .next().addClass('med');
+                }
+            });
+        });
+    }
+      Listings({
+        sort: 'lastLogin,desc',
+        ajaxRoot: CK12.admUrl('user/profiles_list'),
+        formAjax: CK12.admUrl('user/profile/'),
+        viewmode: '{{c.viewmode}}',
+        postLoad: getLMSInformationForUsers,
+        actionFns: [function(){ActivationAction('div', '.mailto', {{c.self_id}});}]
+      });
+    
+    var loadLMSApps = function(providerID, appID){
+        if (providerID){
+            $.get(CK12.admUrl('lms/provider/apps/'+ providerID + '/raw'), function(data){
+                $.each(JSON.parse(data), function(index,each_app){
+                    $('#appName').append('<option value=appID,'+ each_app.appID +'>' + each_app.appName + ' (' + each_app.appID + ')' + '</option>');
+                });
+                if(appID)
+                {
+                    $("#appName option[value='appID,"+appID+"']").attr("selected","selected");
+                    $("#appName").trigger("change");
+                }                
+            });
+        }
+    }
+
+    $('#providerID').off('change').on('change', function(e){
+        $('#appName').find('option').remove();
+        $('#appName').append('<option value="appID,">Select LMS App</option>');
+        if ($(this).val().split(',')[1]){
+            $('#appName').removeAttr('disabled').addClass('med');
+            loadLMSApps($(this).val().split(',')[1])
+        }else{
+            $("#leftpane .table .tbody .tr.{{c.viewmode}}view").removeClass('hide');
+            $('#appName').attr({'disabled':'disabled'}).removeClass('med');
+        }
+    });
+    
+    if(location.search){
+        var urlSearchParams = $.deparam(location.search.slice(1,));
+        if ("filters" in urlSearchParams){
+            var searchFilters = urlSearchParams["filters"];
+            searchFilters = searchFilters.split(";").join("&");
+            searchFilters = searchFilters.split(",").join("=");
+            searchFilters = $.deparam(searchFilters);
+            if($("#appName").is(":disabled"))
+            {   
+                $('#appName').find('option').remove();
+                $('#appName').append('<option value="appID,">Select LMS App</option>');                        
+                $('#appName').removeAttr('disabled').addClass('med');
+                loadLMSApps(searchFilters["providerID"], searchFilters["appID"]);
+            }
+        }
+    }
+
+    $(document).on("click", ".js_switch_action", function(e){
+        var selectedUser = $(this).data("id");
+        if (!selectedUser || $.trim(selectedUser) == '') {
+
+            return false;
+        }
+
+        window.top.location.href = $('#sw_auth_url').val() + selectedUser
+                + "?returnTo=" + $('#sw_returnto').val();
+        return false;
+    });
+
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "details.html" %}
+{% block admincontent %}
+<div class="sectionhead sectiontitle">{{c.pagetitle}} </div>
+<div class="section withfloatedsubmit">
+<form id="mainform" method="get" action="javascript:void(0)">
+        <div class='leftaligned'>
+        {{ h.labelinput("School Name",'schoolName', 'info xmed')}}
+        {{ h.labelinput("State",'state', 'info xmed')}}
+        {{ h.labelinput("City",'city', 'info xmed')}}
+        {{ h.labelinput("Zip Code",'zipcode', 'info xmed')}}
+        </div>
+        {{ h.submitbutton(c.save_prefix, id='create_school')}}
+    {{ h.cancelbutton(c.cancel)}}
+
+</form>
+</div>
+
+{% endblock admincontent %}
+
+{% block js_scripts %}
+<script type='text/javascript'>
+
+$("#create_school").click(function(event){
+    event.stopPropagation();
+    data = {}
+    data['schoolName'] = $("#schoolName").val();
+    data['state'] = $("#state").val();
+    data['city'] = $("#city").val();
+    data['zipcode'] = $("#zipcode").val();
+    createSchool(data);
+  });
+function createSchool(data){
+        // Ajax call to create school
+        $.ajax({
+          "url" : "/flx/create/school",
+          "type" : "POST",
+          "dataType" : "json",
+          "data" : data,
+          "success" : function(response){
+                var msg = '';
+                if(response.responseHeader.status != 0){
+                    if(response.response.message) 
+                        msg = 'Error: ' + response.response.message;                    
+                  $('#admintop').html('<div class="success messaging" style="color:red">Unable to create the school.  ' + msg +'. </div>')
+            }else{
+                $('#admintop').html('<div class="success messaging">School created Successfully!</div>')
+              }
+          },
+          "error" : function(){
+           $('#admintop').html('<div class="success messaging" style="color:red">Unabli to create the school./div>')
+          }
+      });
+  }
+</script>
+
+{% endblock %}

@@ -1,0 +1,9 @@
+<% function replaceTags(str) {
+    return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+} %>
+<% if (data.label != "Collaboration") { %>
+<div class="js-dropdown-element custom-box label-checkbox-container" data-label="<%= data.label %>" data-cid="<%= data.cid %>">
+	<input type="checkbox" id="label_<%= data.label %>" data-label="<%= data.label %>" data-systemLabel="<%= data.systemLabel %>">
+	<label for="label_<%= data.label %>" class="checkbox"><span><i class="icon-validated"></i></span><div title="<%= data.label %>"><%= replaceTags(data.label) %></div></label>
+</div>
+<% } %>

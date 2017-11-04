@@ -1,0 +1,174 @@
+{% extends "listings.html" %}  
+
+{% block filters %} 
+  <style>
+    .td.content img{
+        max-height:100px;
+        max-width:150px;
+    }
+    .td.content p{
+        padding-left: 0 !important;
+    }
+  </style>
+  <div class="col sml">
+    {{ h.labelselect('Group Type', '', c.form.group_type_filter_sel, 'filter') }}
+  </div>
+  <div class="col sml">
+    {{ h.labelselect('Post Type', 'postType', c.form.post_type_filter_sel, 'filter') }}
+  </div>
+  <div class="col sml">
+    {{ h.labelselect('Marked For Review', 'markedForReview', c.form.review_flag_type_filter_sel, 'filter') }}
+  </div>
+  <div class="col sml">
+    {{ h.labelselect('Created', 'created', c.form.posted_type_filter_sel, 'filter') }}
+  </div>  
+  
+{% endblock %} 
+
+{% block searches %}
+    <div class="col wide padleft">
+        {{ h.labelinput('Poster ID', 'memberID', 'med searchby')}}
+        <img id="admin_search_icon" src="{{h.url_images('icon_magnifier2.png')}}"/>
+    </div>
+    <div class="col wide padleft">
+        {{ h.labelinput('Group ID', 'groupIDs', 'med searchby')}}
+        <img id="admin_search_icon" src="{{h.url_images('icon_magnifier2.png')}}"/>
+    </div>
+
+{% endblock %}
+
+{% block js_scripts %}
+{{ super() }}
+<script type='text/javascript'>
+$(document).ready(function(){
+    Listings({
+        sort: 'd_created',
+        ajaxRoot: CK12.admUrl('posts_list'),
+        postLoad: function(){
+            $('.tiptrigger').tooltip({
+                bodyHandler: function(){ return $(this).siblings('.tipdiv').html(); }
+            });
+        }
+    });
+
+    $('#content').on('click', '.deletePost', function(){
+        var $t = $(this),
+            data = {
+                    postID : $t.data('id'),
+                    clientID : $t.data('clientid'),
+                    deleteChildren : true
+                  },
+            confirmMsg = 'Are you sure to delete this post and all childrens?';
+        if (confirm(confirmMsg)){
+            $.ajax({url: '/peerhelp/api/delete/post', 
+                type: 'POST',
+                data: JSON.stringify(data),
+                contentType: "application/json",
+                success: function(data, status, xhr){
+                    if (data && data.responseHeader && data.responseHeader.status == 0){
+                        alert("Post deleted successfully");
+                        window.updateListingsResult();
+                    }else{
+                        alert(data.response.message);
+                    }
+                },
+                error: function(xhr, textStatus, errorThrown){
+                    alert('API Error: '+Fns.formatResponseError(xhr, textStatus, errorThrown));
+                }
+            });
+        }
+    });
+    
+    $('#content').on('click', '.hidePost', function(){
+        var $t = $(this),
+            data = {
+                    postID : $t.data('id'),
+                    clientID : $t.data('clientid'),
+                    isHidden: $t.data('ishidden').toString().toLowerCase() != 'true',
+                    updateChildrens: 'true'
+                  },
+            confirmMsg = 'Are you sure to make this post and it\'s childrens ' + (data.isHidden ? 'hidden' : 'visible') + '?';
+        if (confirm(confirmMsg)){
+            $.ajax({url: '/peerhelp/api/hide/post', 
+                type: 'POST',
+                data: JSON.stringify(data),
+                contentType: "application/json",
+                success: function(data, status, xhr){
+                    if (data && data.responseHeader && data.responseHeader.status == 0){
+                        alert("Post updated successfully");
+                        window.updateListingsResult();
+                    }else{
+                        alert(data.response.message);
+                    }
+                },
+                error: function(xhr, textStatus, errorThrown){
+                    alert('API Error: '+Fns.formatResponseError(xhr, textStatus, errorThrown));
+                }
+            });
+        }
+    });
+    
+    $('#content').on('click', '.resetFlagCount', function(){
+        var $t = $(this),
+            data = {
+                    postID : $t.data('id'),
+                    clientID : $t.data('clientid')
+                  },
+            confirmMsg = 'Are you sure to reset flag count for this post?';
+        if (confirm(confirmMsg)){
+            $.ajax({url: '/peerhelp/api/post/rest_flag_count', 
+                type: 'POST',
+                data: JSON.stringify(data),
+                contentType: "application/json",
+                success: function(data, status, xhr){
+                    if (data && data.responseHeader && data.responseHeader.status == 0){
+                        alert("Post updated successfully");
+                        window.updateListingsResult();
+                    }else{
+                        alert(data.response.message);
+                    }
+                },
+                error: function(xhr, textStatus, errorThrown){
+                    alert('API Error: '+Fns.formatResponseError(xhr, textStatus, errorThrown));
+                }
+            });
+        }
+    });
+    
+    $('#content').on('click', '.flagForReview', function(){
+        var $t = $(this),
+            dataPayload = {
+                    postID : $t.data('id'),
+                    clientID : $t.data('clientid'),
+                    markedForReview: $t.data('is-flagged').toString().toLowerCase() == 'none' || $t.data('is-flagged') == ""
+                  },
+            confirmMsg = 'Are you sure to flag this post for review?';
+        if (confirm(confirmMsg)){
+            $.ajax({url: '/peerhelp/api/post/rest_flag_count', 
+                type: 'POST',
+                data: JSON.stringify(dataPayload),
+                contentType: "application/json",
+                success: function(data, status, xhr){
+                    if (data && data.responseHeader && data.responseHeader.status == 0){
+                    	if (dataPayload.markedForReview){
+                    		$t.text("[Unmark For Review]");
+                    		$t.data("is-flagged", "true");
+                    	}else{
+                    		$t.text("[Mark For Review]");
+                    		$t.data("is-flagged", "false");
+                    	}
+                    	window.updateListingsResult();
+                        alert("Post updated successfully");
+                    }else{
+                        alert(data.response.message);
+                    }
+                },
+                error: function(xhr, textStatus, errorThrown){
+                    alert('API Error: '+Fns.formatResponseError(xhr, textStatus, errorThrown));
+                }
+            });
+        }
+    });
+});
+</script>
+{% endblock %}

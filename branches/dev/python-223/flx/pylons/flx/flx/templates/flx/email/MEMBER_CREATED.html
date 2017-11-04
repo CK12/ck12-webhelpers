@@ -1,0 +1,125 @@
+{% extends "MASTER_EMAIL_TEMPLATE.html" %}
+{% block email_body %}
+	<tr>
+		<td valign="top" style="font-size:18px;padding:31px 0 0;"><b>Hi {% if member.name %}{{ member.name }}{% else %}{{ events[0]['eventData']['firstName'] }} {{events[0]['eventData']['lastName']}}{% endif %},</b></td>
+	</tr>
+	{% if events[0]['eventData']['roleName'] == 'teacher' %}
+	<tr>
+		<td valign="top" style="padding:20px 0 0;line-height:18px;font-size:14px;color:#56544d;">
+            Welcome to the CK-12 family! You've just joined a global community of teachers. You can now access the most up-to-date STEM resources, 
+            manage your classes online, and connect with other teachers from around the world.
+		</td>
+	</tr>
+	<tr>
+		<td valign="top" style="padding:20px 0 0;line-height:18px;font-size:14px;color:#56544d;">
+			<b>Here are a couple of tips to help you get started:</b>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top" style="padding:21px 0 14px;color:#56544d;">
+			<table cellpadding="0" cellspacing="0">
+				<tr>
+					<td valign="top" style="padding:6px 12px 0 0;">
+						<img alt="friends" style="" src="{{ site }}/media/common/images/friends.gif" width="60" height="38" >
+					</td>
+					<td valign="top" style="padding:1px 0 0 0">
+						<table cellpadding="0" cellspacing="0">
+							<tr>
+								<td style="font-size:20px;color:#56544d;"><b>Continue Classroom Discussions Online</b></td>
+							</tr>
+							<tr>
+								<td style="font-size:14px;line-height:18px;color:#56544d;">
+									Create a class group that will enable you to assign practice & assignments, set due dates, and track student progress.
+									Communicate with your students and answer their questions even outside class time.
+									<a href="{{ site }}/my/groups" style="color:#1aaba3;text-decoration:underline;"><b>Create a Class Group</b></a>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top" style="padding:15px 0px 0px 0px;color:#56544d;">
+			<table cellpadding="0" cellspacing="0">
+				<tr>
+					<td valign="top" style="padding:5px 12px 0 0">
+						<img alt="free-material" src="{{ site }}/media/common/images/free-material.gif" width="61" height="55" >
+					</td>
+					<td valign="top">
+						<table cellpadding="0" cellspacing="0">
+							<tr>
+								<td style="font-size:20px;color:#56544d;"><b>Discover High - Quality FREE Class Material</b></td>
+							</tr>
+							<tr>
+								<td style="font-size:14px;line-height:18px;color:#56544d;">
+									Find Common Core and State-standards, aligned digital Flexbook&reg; textbooks, bite-sized concepts, videos, interactive content, lesson plans, and a lot more.
+									<a href="{{ site }}" style="color:#1aaba3;text-decoration:underline;"><b>Get Started</b></a>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	{% else %}
+	<tr>
+		<td valign="top" style="padding:20px 0 0;line-height:18px;color:#56544d;">
+            Welcome to the CK-12 family! You now have access to math and science content so that you can study in your own way (and at your own pace), get homework help online, find practice questions, and connect with other students from all around the world.
+		</td>
+	</tr>
+	<tr>
+		<td valign="top" style="padding:20px 0 0;line-height:18px;font-size:14px;color:#56544d;">
+			<b>Here are a couple tips to help you get started:</b>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top" style="padding:21px 0 14px;color:#56544d;">
+			<table cellpadding="0" cellspacing="0">
+				<tr>
+					<td valign="top" style="padding:6px 12px 0 0;">
+						<img alt="practice" style="" src="{{ site }}/media/common/images/practice.gif" width="60" height="63" >
+					</td>
+					<td valign="top">
+						<table cellpadding="0" cellspacing="0">
+							<tr>
+								<td style="font-size:20px;color:#56544d;"><b>Practice Whenever, Wherever</b></td>
+							</tr>
+							<tr>
+								<td style="font-size:14px;line-height:18px;color:#56544d;">Study, practice, and prepare for your tests in Math and Science with over 200,000 questions. Go ahead, ace that test!
+									<a href="{{ site }}/browse" style="color:#1aaba3;text-decoration:underline;"><b>Practice Now</b></a>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td valign="top" style="padding:13px 0px 0px 0px;color:#56544d;">
+			<table cellpadding="0" cellspacing="0">
+				<tr>
+					<td valign="top" style="padding:2px 12px 0 0">
+						<img alt="friends" src="{{ site }}/media/common/images/friends.gif" width="60" height="38" >
+					</td>
+					<td valign="top">
+						<table cellpadding="0" cellspacing="0">
+							<tr>
+								<td style="font-size:20px;color:#56544d;"><b>Get Help from your Friends &#8212; Online, Anytime</b></td>
+							</tr>
+							<tr>
+								<td  style="font-size:14px;line-height:18px;color:#56544d;">Create a study group with friends so you can learn together, help each other with homework, and even chat after class.
+									<a href="{{ site }}/my/groups" style="color:#1aaba3;text-decoration:underline;"><b>Create a Study Group</b></a>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	{% endif %}
+{% endblock %}

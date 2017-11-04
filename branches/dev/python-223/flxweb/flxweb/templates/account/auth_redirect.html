@@ -1,0 +1,13 @@
+<html>
+  <head>
+    <script type="text/javascript" language="javascript">
+      var url = "{{ c.login_url }}";
+      if(self.document.location.hash) {
+        url = url.replace(/___HASH___/g,encodeURIComponent(encodeURIComponent(self.document.location.hash)));
+        } else {
+        url = url.replace(/___HASH___/g,"");
+      }
+      window.location.assign(url);
+    </script>
+  </head>
+</html>

@@ -1,0 +1,7 @@
+{% extends "master.html" %}  
+
+{% block head %}  {% if not c.is_pane %} {{super()}} {% endif %}{% endblock %}
+{% block header %}{% if not c.is_pane %} {{super()}} {% endif %}{% endblock %}
+{% block crumbs %}{% if not c.is_pane %} {{super()}} {% endif %}{% endblock %}
+{% block footer %}{% if not c.is_pane %} {{super()}} {% endif %}{% endblock %}
+{% block js_globals %}{% if not c.is_pane %}{{super()}}{% endif %}{% endblock %}

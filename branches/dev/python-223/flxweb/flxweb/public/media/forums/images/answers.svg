@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="0.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.1 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Cafe-2.0" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Home-Tiles" transform="translate(-410.000000, -628.000000)" fill="#FFFFFF">
+            <g id="Graphics" transform="translate(181.000000, 133.000000)">
+                <g id="Cards" transform="translate(0.000000, 214.000000)">
+                    <g filter="url(#filter-1)" id="Row-1">
+                        <g transform="translate(0.000000, 2.000000)">
+                            <g id="Card-1">
+                                <g id="Copy" transform="translate(15.000000, 162.000000)">
+                                    <g id="Icons" transform="translate(139.000000, 111.000000)">
+                                        <path d="M92,20.8597094 L91.2602378,19.6338177 C89.8863937,17.3511229 87.2866579,15.9984148 84.1162483,15.8927345 L84.1162483,20.2890357 L76,13.3141347 L84.0951123,6.78309115 L84.0951123,11.1582563 C88.4702774,11.3484808 91.9788639,14.8993395 91.9788639,19.2322325 L91.9788639,20.8597094 L92,20.8597094 Z M77.2470277,13.3352708 L83.334214,18.5770145 L83.334214,15.1107001 L83.7357992,15.1107001 C86.8216645,15.1107001 89.4425363,16.1886394 91.1334214,18.1120211 C90.5627477,14.6245707 87.4768824,11.9614267 83.7357992,11.9614267 L83.334214,11.9614267 L83.334214,8.4317041 L77.2470277,13.3352708 Z" id="Shape"></path>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

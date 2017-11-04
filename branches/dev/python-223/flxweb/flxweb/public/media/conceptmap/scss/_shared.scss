@@ -1,0 +1,17 @@
+$close-button-font-size: 1rem;
+$close-button-padding: 0.5rem;
+$close-button-top: -($close-button-font-size / 2 + $close-button-padding);
+$close-button-right: $close-button-top;
+
+.conceptmap__close-button{
+    color: white;
+    background-color: $dark-gray;
+    font-size: $close-button-font-size;
+    border-radius: 50%;
+    position: absolute;
+
+    padding: $close-button-padding;
+    top: $close-button-top;
+    right: $close-button-right;
+    cursor: pointer;
+}

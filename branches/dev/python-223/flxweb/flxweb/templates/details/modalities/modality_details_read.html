@@ -1,0 +1,260 @@
+{% extends "details/modalities/modality_details_generic.html" %}
+{% from "macros/attachments.html" import ck12_resources_tab with context %}
+
+{% block meta_extra %}
+{{ super() }}
+<meta property="ck12:content_div_id" content="modality_content">
+<meta property="og:title" content="{{ c.domain.name|escape }}" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="{{ c.modality_data.artifact.get('coverImageThumbLarge') }}" />
+<meta property="og:url" content="{{ h.url(c.page_url, qualified=True) }}" />
+<meta property="og:description" content="{{ c.modality_data.artifact.summary }}" />
+{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{{ h.url_css('jquery.qtip.v2.min.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ h.url_css('noty_theme_twitter.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ h.url_css('jquery.noty.css') }}" />
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('annotatorjs/css/annotator.css') }}" />
+
+{{ super() }}
+{% endblock %}
+
+{% block modality_js %}
+<script language="JavaScript" type="text/javascript">
+	var artifactID = '{{c.modality_data.artifact.get_artifact_id()}}';
+	var artifactRevisionID = '{{c.modality_data.artifact.get_revision_id()}}';
+	var standardBoards = "";
+	require(['main'],function(){
+		require(['flxweb.details.modality.read']);
+	})
+</script>
+{% endblock %}
+
+{% block modality_actions %}
+<ul>
+	{% if c.previewdraft != True %}
+        {% if c.modality_data.artifact.artifactType in ('lesson', 'lecture', 'enrichment', 'rwa') %}
+            <li class="modality-info assign-to-class hide hide-for-lti-context"><a title="Assign to Class" class="assign_to_class">Assign to Class</a><span class="assign-info-img icon-Info"></span><div id="reveal-overlay" class="reveal-modal-bg"></div></li>	<!-- This change is for READ MODALITY -->
+	    <li class="assign-to-lms hide show-for-lti-context"><a title="Create Assignment" class="assign_to_lms">Create Assignment</a><span class="assign-info-img icon-Info"></span><div id="reveal-overlay" class="reveal-modal-bg"></div></li>
+        {% endif %}
+		{% if c.modality_data_json.artifact.revisionInLibrary == None %}
+			<li> <a id="add_to_library" title="Add to Library"> Add to Library </a> </li>
+		{% else %}
+			<li> <a class="already_in_library" title="Already in Library"> Add to Library </a> </li>
+		{% endif %}
+		<li class="hide-for-lti-context"> <a class="js-shareGroupLink" data-sharetype="group" data-artifactID="{{ c.modality_data.artifact.id }}" title="{{ _('Share via Groups') }}">Share to Groups</a> </li>
+	{% endif %}
+	{% if c.modality_data.artifact.artifactType in  ["lesson", "concept"] %}
+		<li class="hide-for-lti-context"> {{ ck12_modality_add_to_fb( c.modality_data.artifact ) }} </li>
+	{% endif %}
+	<li> {{ ck12_modality_edit( c.modality_data.artifact ) }} </li>
+	{% if c.show_details %}<li> {{ ck12_modality_details( c.modality_data.artifact ) }} </li>{% endif %}
+	<li> {{ ck12_modality_resources( c.modality_data.artifact ) }} </li>
+{# commented out report an error
+  <li> {{ ck12_modality_report_error( c.modality_data.artifact ) }} </li>
+#}
+	{% if c.previewdraft != True %}
+		{% if c.modality_data.artifact.get('artifactType') == 'lesson'  %}<li class="hide-for-lti-context"> {{ ck12_modality_print_download( c.modality_data.artifact ) }} </li>{% endif %}
+		{% if c.modality_data.artifact.is_owner(c.user) %}
+			{% if c.modality_data.artifact|ck12_can_publish(c.user) and not c.modality_data.artifact.is_published() %}
+			<li class="book_unpublished"> {{ ck12_modality_publish( c.modality_data.artifact ) }} </li>
+			{% else %}
+			<li can="{{c.modality_data.artifact|ck12_can_publish(c.user)}}" class="book_published {{c.modality_data.artifact.is_published()}}"> Published </li>
+			{% endif %}
+		{% endif %}
+		<li class="book_published hide"> Published </li>
+	{% endif %}
+{% if c.modality_data.artifact.type.name in ["lesson", "concept", "section", "rwa"] %}
+  <li class="hide-for-lti-context">
+    <div data-magellan-expedition="fixed" class="quick-tips-wrapper">
+      <div class="alternate-h2">{{_('Quick Tips')}}</div>
+      <ul class="quick-tips">
+        <li data-magellan-arrival="unselect-quicktips" class="hide"></li>
+        <li data-magellan-arrival="myAnnotations"> <i class="icon-play"></i><a href="#myAnnotations" name="myAnnotations">Notes/Highlights</a></li>
+        <li class="hide"> <i class="icon-play"></i><a title="Summary" id="artifact_summary_dialog">Summary</a></li>
+        <li data-magellan-arrival="vocabulary"> <i class="icon-play"></i><a href="#vocabulary" name="vocabulary">Vocabulary</a></li>
+      </ul>
+    </div>
+  </li>
+{% endif %}
+</ul>
+{% endblock %}
+
+{% block modality_content_main %}
+<article>
+{% if c.modality_data.artifact.is_resource() and c.modality_data.boxviewer_session_id %}
+    {% set resource = c.modality_data.artifact.get_modality_resource() %}
+    {% if resource.thumbnail %}
+    <div class="thumb_imgwrap">
+    <a href="/flx/show{{ resource.permaUri }}"><img class="modality_resource_thumb" src="{{ resource.thumbnail }}" title="{{ resource.name }}" alt="{{ resource.name }}" /></a>
+    </div>
+    {% endif %}
+    <div class="modality_resource_desc">
+        {{ resource.description|escape|replace("None", "") }}
+    </div>
+    <div class="divider spacetop"></div>
+    <div>
+        {% if c.modality_data.boxviewer_session_id %}
+                <iframe class="viewer" allowfullscreen="" seamless=""
+                style="width: 100%; border: none;"
+                src="{{ config.box_iframe_url }}{{c.modality_data.boxviewer_session_id}}/view?theme=light"
+                ></iframe>
+        {% else %}
+              <a class="button turquoise download" href="/flx/show{{ resource.permaUri }}">{{ _('Download') }}</a>
+        {% endif %}
+    </div>
+    <div class="divider"></div>
+{% else %}
+	<div class="annotator-wrapper">
+		<div id="modality_content" class="modality_content modality_type_read"
+			data-loadurl="{{c.content_url}}">
+			{{ _("Loading...")}}&nbsp;<img title="{{ _('Loading...') }}" class="js_loadingplaceholder" src="{{ h.url_images('icon_loading.gif') }}" width="43" height="11" />
+		</div>
+	</div>
+{% endif %}
+</article>
+{% endblock %}
+
+{% block after_modality_content_main %}
+{% if c.modality_data.artifact.type.name in ["lesson", "concept", "section", "rwa"] %}
+<div data-magellan-destination="unselect-quicktips" class="hide"></div>
+<div class="clearfix">
+    <section data-magellan-destination="myAnnotations" class="myAnnotations-container">
+        <h3 class="myAnnotations">Notes/Highlights
+          <span class="report-link hide">
+            Having trouble? <a href="#" target="_blank">Report an issue.</a>
+          </span>
+        </h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Color</th>
+              <th>Highlighted Text</th>
+              <th>Notes</th>
+							<th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class='hide'>
+              <td colspan="4" id="notes-pagination">Show More <i class="icon-arrow3-down"></i></td>
+            </tr>
+          </tbody>
+        </table>
+    </section>
+</div>
+<!-- Vocabulary -->
+<div class="vocab-pos" data-magellan-destination="vocabulary"></div>
+<div class="clearfix">
+	<section class="vocabulary_content" data-loadurl="{{ h.url( controller='details', action='ajax_get_vocabulary_list', perma_handle=c.modality_data.artifact.getPermaHandle(True).rstrip('/')) }}">
+	</section>
+</div>
+<div class="clearfix">
+	<section id="img_attributions_wrapper" class="img_attribution">
+		<h3>Image Attributions</h3>
+		<ol id="img_attributions">
+		</ol>
+	</section>
+</div>
+{% endif %}
+{% endblock %}
+
+
+{% block before_metadata %}
+<!-- Artifact Summary -->
+<section>
+	<h2 class="toptitle spacetopmedium">{{ _("Description") }}</h2>
+	<div class="articleinfowrap js_moreinfo">
+		<div itemprop="description" id="artifact_summary">
+		{% if c.modality_data.artifact.summary %}
+			{{ c.modality_data.artifact.summary|escape }}
+		{% else %}
+			{{ _("No description available here...") }}
+		{% endif %}
+		</div>
+	</div>
+</section>
+{% if c.modality_data.artifact.artifactType in  ["lesson", "concept"] %}
+<section class="objectives_container js_metadata_objectives_container hide">
+	<h2 class="toptitle">{{ _("Learning Objectives") }}</h2>
+	<div class="articleinfowrap js_moreinfo objectives_content"></div>
+</section>
+
+<section class="objectives_container js_metadata_vocabulary_container hide">
+	<h2 class="toptitle">{{ _("Vocabulary") }}</h2>
+	<div class="articleinfowrap js_moreinfo objectives_content"></div>
+</section>
+{% endif %}
+{% if c.user and c.user.isAdmin() %}
+    {% block comment_edit %}
+        <section>
+            <h2 class="toptitle">{{ _('Comments') }}</h2>
+            <div class="articleinfowrap js_rev_comment">
+                <p class="listitemsummary">{% if c.modality_data.artifact.revisions and c.modality_data.artifact.revisions[0]['comment'] and c.modality_data.artifact.revisions[0]['comment'] != None %} {{ c.modality_data.artifact.revisions[0]['comment'] }} {% else %} No revision comments available here... {% endif %}
+                </p>
+            </div>
+        </section>
+    {% endblock %}
+{% endif %}
+
+{% endblock %}
+
+{% block guided_practice %}
+	{% if c.modality_data.artifact.domain.encodedID and c.modality_data.artifact.get_artifact_id() %}
+		<section id="js_guided_practice_section" class="hide guided-practice-section" data-eid="{{ c.modality_data.artifact.domain.encodedID }}" data-handle="{{ c.modality_data.artifact.domain.handle }}" data-name="{{ c.modality_data.artifact.domain.name }}" data-artifactid="{{ c.modality_data.artifact.get_artifact_id() }}">
+			<div class="guided-header">
+			<h3 class="text-desc">Explore More</h3>
+			<div class="signInRequired download-dd">
+              <a class="dropdowntop">Download <span class="tip"></span></a>
+              <ul class="dropdown">
+                  <li>
+                      <a class="js_renderlink_pdf" href="#" target="_blank">PDF</a>
+                  </li>
+                  <li>
+                      <a class="js_renderlink_html" href="#" target="_blank">HTML</a>
+                  </li>
+                  {% if c.user and not c.user.isStudent() %}
+                      <li>
+                          <a class="js_renderlink_pdf_withAns" href="#" target="_blank">PDF with Answer</a>
+                      </li>
+                      <li>
+                          <a class="js_renderlink_html_withAns" href="#" target="_blank">HTML with Answer</a>
+                      </li>
+                  {% endif %}
+              </ul>
+            </div>
+           </div>
+			<div><b>Directions:</b> Use what you have learned to solve each problem.</div>
+			<div>
+				<ul class="guided_practice_container"></ul>
+			</div>
+			<div>
+				<b>Ready to improve your skills in {{ c.modality_data.artifact.domain.handle }}?</b>
+				<a type="button" class="button tangerine normal js-open-practice"><i class="icon-running"></i>Practice<i class="icon-arrow_right"></i></a>
+			</div>
+		</section>
+	{% endif %}
+{% endblock %}
+
+{% block after_metadata %}
+{{ super() }}
+{% block resources %}
+<div class="clear"></div>
+<div class="resourcesview hide-for-small">
+    <h3 class=" js_block_toggle js_resources_toggle" data-toggle=".js_resources_toggle" data-container=".js_resources_container">
+        <span class="show">{{ _('Show') }}</span><span class="noshow hide">{{ _('Hide') }}</span> {{ _('Resources') }} <span class="tip"></span>
+    </h3>
+    <div class="divider thin"></div>
+    <div class="js_resources_container" style="display: none">
+    <!-- Resources -->
+    {{ ck12_resources_tab(c.modality_data.artifact, c.user, loadlater='clickload') }}
+    </div>
+</div>
+{% endblock %}
+{% endblock %}
+
+
+{% block hidden_divs %}
+{{ super () }}
+<div id="temp_lesson_xhtml_content"></div>
+{% endblock %}

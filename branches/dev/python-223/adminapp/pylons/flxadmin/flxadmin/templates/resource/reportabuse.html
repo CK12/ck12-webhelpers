@@ -1,0 +1,26 @@
+{% extends "details.html" %}  
+{% from "macros/form_errors.html" import form_errors with context %}  
+
+{% block admincontent %} 
+<div class="sectionhead sectiontitle">{{c.pagetitle}}</div>
+<div class="section withfloatedsubmit">
+  <form id="mainform" method="post">
+    <div class="leftaligned">
+
+      {{ h.htmla_('resource/'+c.id, 'For Resource '+c.id)}}
+      {{ h.htmllabel('Reason', 'reason')}}
+      {{ h.htmltextarea('reason', 5, 82, 'clear')}}
+      {{ h.htmlinput('resourceID', 'hide')}}
+
+    </div>
+      {{ h.submitbutton('Create', 'short')}}
+      {{ h.cancelbutton(c.cancel)}}
+  </form>
+</div>
+{% endblock %}
+
+{% block js_scripts %}
+<script type="text/javascript">
+{{ form_errors() }}
+</script>
+{% endblock %}

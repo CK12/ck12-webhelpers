@@ -1,0 +1,20 @@
+<div>
+{% if not c.comments %}
+  <div class="feedbacksection" id="nocomment">
+    <p>No messages</p>
+  </div>
+{% else %}
+  {% for comment in c.comments %}
+          <div class="feedbacksection" id="{{ comment['rowCount'] }}">
+              <div class="feedbackauth">
+                  <span class="membername"> {{ comment['from'].title() }} </span>
+                  <span class="date">  {{ comment['timestamp']|ck12_date }}</span>
+              </div>
+              <div class="feedbackcomment">
+                  {{ comment['comment']|e }}
+              </div>
+              <div class="divider spacetop"></div>
+          </div>
+  {% endfor %}
+{% endif %}
+</div>

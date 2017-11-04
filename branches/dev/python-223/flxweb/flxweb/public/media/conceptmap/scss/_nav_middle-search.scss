@@ -1,0 +1,103 @@
+$module-ns: "concept__search";
+$search-icon-height: $nav-icon-line-height;
+$search-box-height: $search-icon-height;
+$transition-duration: 0.4s;
+$left: 0;
+
+$search-icon-width: $search-icon-height;
+
+$search-icon-bg: $light-gray;
+$search-icon-color: #56544D;
+$search-icon-color-disabled: #9d9c9b;
+
+$search-icon-active-bg: #FC673F;
+$search-icon-active-color: white;
+$search-icon-active-color-zero-state: #C44115;
+
+
+
+.#{$module-ns} {
+    display: none;
+    height: $search-box-height;
+    width: 100%;
+    position: relative;
+    top: $top-center-offset;
+    z-index: 1;
+    margin: 0;
+    transition: transform 0.5s;
+
+    // Specifity override with ID...
+    &__input, ##{$module-ns}__input {
+        transition: all $transition-duration;
+
+        border: 0;
+        background-color: white;
+        box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+
+        position: absolute;
+        left: $left;
+        height: $search-box-height;
+        width: calc(100% - #{$search-icon-width});
+
+        padding-top: 0;
+        padding-bottom: 0;
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+
+    }
+    &__input[disabled], ##{$module-ns}__input[disabled] {
+        // jquery UI inserts a span after the input so we need to select the next sibling's sibling
+        &+ .#{$module-ns}-icon, &+ span + .#{$module-ns}-icon {
+            color: $search-icon-color-disabled;
+
+            &:hover {
+                background-color: $search-icon-bg;
+                color: $search-icon-color-disabled;
+            }
+        }
+    }
+
+    &-icon {
+        transition: all $transition-duration;
+
+        width: $search-icon-width;
+        height: $search-icon-height;
+        position: absolute;
+        right: $left;
+        cursor: pointer;
+        z-index: 1;
+        border-radius: 3px;
+
+        font-size: $nav-icon-font-size;
+        line-height: $search-box-height;
+        background-color: $search-icon-bg;
+        text-align: center;
+
+        &:hover {
+            background-color: $search-icon-active-bg;
+            color: $search-icon-active-color;
+        }
+    }
+
+    &-loading-icon {
+        right: 50px;
+        position: absolute;
+        width: 20px;
+        top: 10px;
+    }
+}
+
+
+$zero-state-search-margin-top: 3vh;
+
+#{$zero-state} {
+    .#{$module-ns} {
+        transform: calc-translateY( #{$title-font-size}, #{$zero-state-search-margin-top}, #{$search-box-height}, #{$base-middle-nav-bar-pos} );
+
+        &-icon {
+            background-color: $search-icon-active-bg;
+            color: $search-icon-active-color;
+        }
+
+    }
+}

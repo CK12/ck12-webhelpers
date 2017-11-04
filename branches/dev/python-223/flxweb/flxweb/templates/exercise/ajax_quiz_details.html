@@ -1,0 +1,101 @@
+{% set exercise = c.exercise %}
+{% from "exercise/exercise_macros.html" import ck12_display_latest_test_result with context %}
+{% from "exercise/exercise_macros.html" import ck12_display_exercise with context %}
+{% from "exercise/exercise_macros.html" import ck12_display_add_exercise with context %}
+{% from "exercise/exercise_macros.html" import ck12_display_error_exercise with context %}
+<div id="quizwrapper">
+	{% if c.quiz %}
+	<div id="quizinfowrapper">
+		<div id="quizcountdownwrapper">
+			<div id="countdownheader" class="quizinfoheader">
+				<span>{{ _('Quiz Starting in:') }}</span>
+			</div>
+                        <div id="countdownclock"></div>
+
+			<div id="quizdetailswrapper">
+				<div class="quizinforow secondrow">
+					<div class="quizinfocolumn column1">{{ _('No. of Questions') }}</div><div class="quizinfocolumn column2" ><span id="quiz_info_noq">{{ c.questionsCount }}</span> {{ _('questions') }}</div>			 
+				</div>
+				<div class="quizinforow">
+					<div class="quizinfocolumn column1">{{ _('Quiz Duration') }}</div><div class="quizinfocolumn column2" ><span id="quiz_info_duration">{{ c.quizDuration }}</span> {{ _('minutes') }}</div>
+				</div>
+			</div>
+			
+		</div>	
+			<div id="btnpanel">
+				<a class="cancel_quiz_btn" title="{{ _('Cancel Quiz') }}">{{ _('Cancel Quiz') }}</a>
+			</div>
+	</div>
+	<div id="quizdetailwrapper" class="hide">
+		<div id="topquizsection">
+			<div id="quizheaderbar">
+				<img id="headerbgleft" src="{{ h.asset_image('images/quiz_header_left.png') }}" />
+				<img id="headerbgright" src="{{ h.asset_image('images/quiz_header_right.png') }}"/>
+			</div>
+			<div id="quiztitlewrap">
+				<img id="titleborderleft" src="{{ h.asset_image('images/quiz_title_border.png') }}" />
+				<span id="quiztitle">{{ c.title }} : {{ _("Quiz")}}</span>
+				<img id="titleborderright" src="{{ h.asset_image('images/quiz_title_border.png') }}" />
+			</div>
+			<div id="clockpanel">
+				<div class="titleborderleft"><img src="{{ h.asset_image('images/quiz_title_border.png') }}" /></div>
+				<div class="ex_test_timer">
+	               			<div id="timer_display">
+		               			<ul id="timer_box">
+          						<li id ="timer-hours-box"><span class="timer-digits" id="timer-hours">0</span><div class="timer-text">Hr</div></li>
+	     						<li id ="timer-minutes-box"><span class="timer-digits" id="timer-minutes">00</span><div class="timer-text">Mins</div></li>
+							<li id ="timer-seconds-box"><span class="timer-digits" id="timer-seconds">00</span><div class="timer-text">Secs</div></li>
+						</ul>
+			   		</div>
+				</div>
+				<div class="titleborderright"><img src="{{ h.asset_image('images/quiz_title_border.png') }}" /></div>
+			</div>
+			<div id="quizprogressbarwrap">
+				<div class="titleborderleft"><img src="{{ h.asset_image('images/quiz_title_border.png') }}" /></div>
+				<div id="quizprogressbar">
+					<div id="quizprogressbarwrapper">
+						<div id="quizprogress_indicator">
+							{% for qnumber in range(1,c.questionsCount+1) %}
+								<div class="qprogressbox unanswered" data-displayorder="{{ qnumber }}" id="qprogress-{{ qnumber }}"><div class="currentindicator"></div> 
+								</div>
+							{% endfor %}
+						</div>
+						<div class="progressbarrow">
+                                                	<span id="quiz_progress_total_attempt">Attempted: 0</span>
+                                                	<span id="quiz_progress_total_questions">Total: 0</span>
+                                     		</div>
+					</div>
+				</div>
+				<div class="titleborderright"><img src="{{ h.asset_image('images/quiz_title_border.png') }}" /></div>
+			</div>
+			<div id="skipindicator" class="hidden">
+				{{ _('Previously Skipped') }}
+			</div>
+		</div>
+                <div class="clear"></div>
+		<div id="quizmainsection">
+	 		<div id="quizquestionarea">
+				<!-- Exercise content -->
+				{{ ck12_display_exercise(c, render_context="quiz") }}
+			</div>
+		</div>
+		<div id="bottomquizsection">
+		</div>
+	</div>
+	<div id="quizendwrapper" class="hide">
+		<div id="quizendmessage">
+			<span>{{ _('The quiz has ended')}}</span>
+		</div>
+		<div id="btnpanel">
+			<a class="btn see_quiz_result_btn" title="{{ _('See Quiz Result') }}">{{ _('See Quiz Result') }}</a>
+		</div>		
+	</div>
+	{% else %}
+                {% if c.quiz_error %}
+                    <div id="quizerrormessage" data-message="{{ c.quiz_error }}"></div>
+                {% else %}  
+		{{ ck12_display_add_exercise(c.title) }}
+                {% endif %}
+	{% endif %}
+</div>
+

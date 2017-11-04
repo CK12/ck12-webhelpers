@@ -1,0 +1,21 @@
+{
+  "name": "lmspractice",
+  "version": "0.0.0",
+  "description": "CK-12 Foundation's Practice App for LMS integration.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nachiket Karve",
+  "dependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-qunit": "~0.4.0",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-requirejs": "~0.4.1",
+    "grunt-config": "~0.1.4",
+    "grunt-string-replace": "~0.2.7",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-symlink": "~0.3.0"
+  }
+}

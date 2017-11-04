@@ -1,0 +1,251 @@
+
+<div id="e2n-tooltip" class="tooltip-content">
+	<div class="tipcontainter">
+		<div class="header">{{ _("English words to number converter") }}</div>
+		<div class="helpcontent">
+			<ul>
+				<li>{{ _("This package is used to convert the number in English words to number") }}</li>
+				<li><span class="highlight">{{ _("Usage:") }}</span><br/>
+				{{ _(">> e2n('fifteen') ") }}<br/>
+				{{ _("15") }}<br/>
+				{{ _(">> e2n('three hundred and sixty five')") }}<br/>
+				{{ _("365") }}<br/>
+				{{ _(">> e2n('one hundred seven thousand seven hundred seventy-five')") }}<br/>
+				{{ _("107775") }}</li>
+				<li><span class="highlight">{{ _("Example:") }}</span><br/>
+					<ul>
+				    	<li>	<i>{{ _("Question:") }}</i> {{ _("Translate the following number from words to digit : $words$") }}</li>
+                                    	<li>	<i>{{ _("Answer Expression:") }}</i> {{ _("number") }}</li>
+                                    	<li>	<i>{{ _("Variable Rule 1:") }}</i> {{ _("number=choice([1,10,15,20,25,30])") }}</li>
+                                    	<li>	<i>{{ _("Variable Rule 2:") }}</i> {{ _("words=n2e(number)") }}</li>
+                                    	<li>	<i>{{ _("Question Format:") }}</i> {{ _("Short Answer Question") }}</li>
+					</ul>
+				</li>                				
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div id="n2e-tooltip" class="tooltip-content">
+	<div class="tipcontainter">
+		<div class="header">{{ _("Number to English words converter") }}</div>
+		<div class="helpcontent">
+			<ul>
+				<li>{{ _("This package is used to convert the number to English words") }}</li>
+				<li><span class="highlight">{{ _("Usage:") }}</span><br/>
+				{{ _(">> n2e('110') ") }}<br/>
+				{{ _("one hundred ten ") }}<br/>
+				{{ _(">> n2e('365')") }}<br/>
+				{{ _("three hundred sixty-five") }}<br/>
+				{{ _(">> n2e('107775')") }}<br/>
+				{{ _("one hundred seven thousand seven hundred seventy-five") }}</li>
+				<li><span class="highlight">{{ _("Example:") }}</span><br/>
+					<ul>
+				    	<li>	<i>{{ _("Question:") }}</i> {{ _("What is the sum of $a$ and $b$ in words?") }}</li>
+                                    	<li>	<i>{{ _("Answer Expression:") }}</i> {{ _("c=n2e(a+b)") }}</li>
+                                    	<li>	<i>{{ _("Variable Rule 1:") }}</i> {{ _("a = choice([20,30,60,75,80,105])") }}</li>
+                                    	<li>	<i>{{ _("Variable Rule 2:") }}</i> {{ _("b = choice([10,15,20,30,90,100])") }}</li>
+                                    	<li>	<i>{{ _("Question Format:") }}</i> {{ _("Multiple-Choice Question") }}</li>
+                                    	<li>	<i>{{ _("False Option 1:") }}</i> {{ _("c=n2e(a+b+5)") }}</li>
+                                    	<li>	<i>{{ _("False Option 2:") }}</i> {{ _("c=n2e(a+b-5)") }}</li>
+                                    	<li>	<i>{{ _("False Option 3:") }}</i> {{ _("c=n2e(a+b+10)") }}</li>
+					</ul>
+				</li>                				
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div id="dec-question-tooltip" class="tooltip-content">
+	<div class="tipcontainter">
+		<div class="header">{{ _("Create declarative question help") }}</div>
+		<div class="helpcontent">
+			<ul>
+				<li>{{ _("A Declarative Question is one which the question text and the correct answer are precisely determined") }}</li>
+				<li><span class="highlight">{{ _("Example:") }}</span><br/>
+				{{ _("What is the biggest animal in the world?") }}</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div id="dec-options-tooltip" class="tooltip-content">
+	<div class="tipcontainter">
+		<div class="header">{{ _("Choose question format help") }}</div>
+		<div class="helpcontent">
+			<ul>
+				<li>{{ _("For Short Answer questions") }} 
+					<ul>				
+						<li>{{ _("Make sure that the answer will require only a few words.") }}</li>
+						<li>{{ _("Design for recall of specific names, facts, and basic knowledge") }}</li>
+						<li>{{ _("Focus the question so there a limited number of possible correct responses (or only one) in order to discriminate achievement.") }}</li>
+						<li><span class="highlight">{{ _("Example:") }}</span> <br/>
+							 {{ _("What is the the name of Earth's natural satellite?") }}<br/>
+							 {{ _("moon") }}
+						</li>
+					</ul>
+				</li>
+				<li>{{ _("For Multi-Choice questions") }}
+                                        <ul>
+                                                <li>{{ _("The multiple choice question consists of a stem, which presents a problem situation, and several alternatives, which provide possible solutions to the problem. The stem may be a question or an incomplete statement.") }}</li>
+                                                <li>{{ _("The alternatives include the correct answer and several plausible wrong answers, called distracters.") }}</li>
+                                                <li>{{ _("The function of the distracters is to distract those students who are uncertain of the answer.") }}</li>
+                                                <li><span class="highlight">{{ _("Example:") }}</span> {{ _("Thailand is located in:") }}
+                                                        <ul>
+                                                                <li>{{ _("Southeast Asia") }}</li>
+                                                                <li>{{ _("South Asia") }}</li>
+                                                                <li>{{ _("Southwest Asia") }}</li>
+                                                                <li>{{ _("West Asia") }}</li>
+                                                        </ul>
+                                                </li>
+                                        </ul>
+                                </li>
+				<li>{{ _("For True/False questions") }}
+                                        <ul>
+                                                <li>{{ _('The true-false item format is straightforward. Write the stem as a direct statement and label the two alternatives “true” or “false.”') }}</li>
+                                                <li>{{ _("Make the statement concise and clear, include all relevant information and conditions required for the students to correctly answer the item in the descriptive statement.") }}</li>
+                                                <li>{{ _("When possible, make a false statement consistent with a typical misconception") }}</li>
+                                                <li>{{ _("Keep items short. Long items are harder to read and more difficult to judge true or false.") }}</li>
+                                                <li><span class="highlight">{{ _("Example:") }}</span> {{ _("The smallest living thing is a cell") }}
+                                                        <ul>
+                                                                <li>{{ _("True") }}</li>
+                                                                <li>{{ _("False") }}</li>
+                                                        </ul>
+                                                </li>
+                                        </ul>
+                                </li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div id="alg-question-tooltip" class="gentooltip tooltip-content">
+	<div class="tipcontainter">
+		<div class="header">{{ _("Algorithmic question text help") }}</div>
+		<div class="helpcontent">
+			<ul>
+				<li>{{ _("Variables are enclosed betwen dollar signs.") }}<br/>
+				    <span class="highlight">{{ _("Example:") }}</span> $a$/$b$</li>
+				<li>{{ _("You can use the math symbol editor(") }}<img src="{{ h.asset_image('lib/ck12-tinymce-plugins/mathimage/img/icon_math.gif') }}">) {{ _("to insert mathematical expressions, or you can write latex notation by hand. Enclose variable inside latex expressions with dollar signs.") }}<span class="highlight"> {{ _("Example:") }}</span>\frac{$a$}{$b$}</li>
+				<li>{{ _("When the question is rendered, all the variables(") }}<i>eg: </i>$a$) {{ _("will be substituted into values based on the variable rules.") }}</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div id="alg-inputrules-tooltip" class="gentooltip tooltip-content">
+	<div class="tipcontainter">
+		<div class="header">{{ _("Variable generation help") }}</div>
+		<div class="helpcontent">
+			<ul>
+				<li>{{ _("Click the 'Add Variable' button to open the variable editor widget.") }}</li>
+				<li>{{ _("Use 'Constant' type if you want to fix your variable to a specific value.") }}</li>
+				<li>{{ _("Use 'Random' type if you want to assign a value that is chosen from a certain parameters.") }}</li>
+				<li>{{ _("Use 'Rule Based' type if you want to assign a value that is defined by performing arithmetic operations on previously defined variables.") }}</li>
+				<li><span class="highlight">{{ _("Guidelines: ") }}</span><br/>
+				    {{ _("The constant value must be a valid number.") }}<br/>
+                                    {{ _("Variable names must be unique.") }} <br/>
+                                    {{ _("Only simple arithmetic operations can be used for the Rule Based
+                                    expression. Use the Python Language operator
+                                    notations, i.e. (), +, -, *, /, and %.") }}<br />
+			</ul>
+		</div>
+	</div>
+</div>
+<div id="gen-question-tooltip" class="gentooltip tooltip-content">
+	<div class="tipcontainter">
+		<div class="header">{{ _("Programmatic question text help") }}</div>
+		<div class="helpcontent">
+			<ul>
+				<li>{{ _("Variables are enclosed betwen dollar signs.") }}<br/>
+				    <span class="highlight">{{ _("Example:") }}</span> $a$/$b$</li>
+				<li>{{ _("You can use the math symbol editor(") }}<img src="{{ h.asset_image('lib/ck12-tinymce-plugins/mathimage/img/icon_math.gif') }}">) {{ _("to insert mathematical expressions, or you can write latex notation by hand. Enclose variable inside latex expressions with dollar signs.") }}<span class="highlight"> {{ _("Example:") }}</span>\frac{$a$}{$b$}</li>
+				<li>{{ _("When the question is rendered, all the variables(") }}<i>eg: </i>$a$) {{ _("will be substituted into values based on the variable rules.") }}</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div id="gen-algebraictext-tooltip" class="gentooltip tooltip-content">
+	<div class="tipcontainter">
+		<div class="header">{{ _("Create answer expression help") }}</div>
+		<div class="helpcontent">
+			<ul>
+				<li>{{ _("This expression represents the correct answer for the question.") }}</li>
+				<li> <span class="highlight">{{ _("Example:") }}</span><br/>
+				    <i>{{ _("Question:") }}</i> {{ _("Find the value of") }} $a$/$b$.<br/>
+                                    <i>{{ _("Answer Expression:") }}</i> a/b </li>
+				<li>{{ _("While evaluating the answer, All the variables(") }}<i>{{ _("eg:") }} </i>{{ _("a) will be replaced with numbers based on the variable rules and then the mathematical expression will be evaluated.") }}</li>
+				<li>Be careful with shorthand math: a(b+c) is not valid in Python. You need to write a*(b+c)</li>
+				<li>{{ _("For True/False questions") }}
+					<ul>
+						<li>{{ _("This field must define a variable (i.e. c=a+b) which is used in the question (i.e $c$). Below, you will provide an alternative definition for the same variable which makes the question false.") }}</li>                                           
+                                               <li> <span class="highlight">{{ _("Example:") }}</span><br/>
+				    		<i>{{ _("Question:") }}</i> {{ _("The sum of $a$+$b$ is $c$.") }}<br/>
+                                    		<i>{{ _("Answer Expression:") }}</i> {{ _("c=a+b") }}
+                                        </li>                                          
+					</ul></li>                				
+			</ul>
+		</div>
+	</div>
+</div>
+<div id="gen-answerdisplaytext-tooltip" class="gentooltip tooltip-content">
+	<div class="tipcontainter">
+		<div class="header">{{ _("Answer associated text help") }}</div>
+		<div class="helpcontent">
+			<ul>
+				<li>{{ _("Answer associated text is used for adding additional text with the answer. This is optional.") }}</li>
+				<li>{{ _("It is mainly used for adding units(") }}<i>{{ _("eg:") }}&nbsp;&nbsp;</i> {{ _("m, cm") }}<sup>{{ _("2") }}</sup>{{ _(", m/s, m") }}<sup>{{ _("3") }}</sup>{{ _(") with evaluated answer") }}</li>
+				<li><span class="highlight">{{ _("Example:") }}</span><br/>
+                                    <i>{{ _("Question:") }}</i> {{ _("Find the area of circle if radius of the circle is $radius$.") }}<br/>
+                                    <i>{{ _("Answer Expression:") }}</i>{{ _("area = 3.14*radius^2") }} <br/>
+                                    <i>{{_("Answer associated text:") }}</i>{{ _("$area$ m^2") }} <br/>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div id="gen-inputrules-tooltip" class="gentooltip tooltip-content">
+	<div class="tipcontainter">
+		<div class="header">{{ _("Variable input rules help") }}</div>
+		<div class="helpcontent">
+			<ul>
+				<li>{{ _("Variable rules are used to define the value of a variable. Once defined, variables can be used in question text (i.e. I have $x$ cookies.), answer options, and even subsequent variable definitions.") }}</li>
+				<li>{{ _("Variable rules allow questions to have different values each time they are displayed.") }}</li>
+				<li><span class="highlight">{{ _("Example") }}</span><br/>
+				    <i>{{ _("Question:") }}</i> {{ _("Find the value of $a$/$b$.") }}<br/>
+                                    <i>{{ _("Answer Expression:") }}</i> {{ _("a/b") }} <br/>
+                                    <i>{{ _("Variable rules for a and b:") }}</i><br/>
+					 {{ _("a = choice(range(1,100))") }}<br/>
+					 {{ _("b = choice([5,10,15,20,25,30])") }}</li>
+				<li>{{ _("In the above example the value") }} <i>a</i> {{ _("would be any number between 1 to 100 and the the value") }} <i>{{ _("b") }}</i> {{ _("would be any number within [5,10,15,20,25,30]") }}
+                                <li>{{ _("When this question is displayed, it will look like: Find the value of 22/15.") }}<br/>
+			</ul>
+		</div>
+	</div>
+</div>
+<div id="gen-distractors-tooltip" class="gentooltip tooltip-content">
+	<div class="tipcontainter">
+		<div class="header">{{ _("Choose question format Help") }}</div>
+		<div class="helpcontent">
+			<ul>
+				<li>{{ _("For Short Answer questions") }}
+					<ul>				
+						<li>{{ _("In a short answer programmatic question, the student inputs free text answer in response to the question. The submitted answer will be evaluated using the question's answer expression and the value assigned to each variable.") }}</li>
+					</ul>
+				</li>
+				<li>{{ _("For Multiple-Choice questions") }}
+					<ul>
+						<li>{{ _("The multiple choice question consists of a stem, which presents a problem situation, and several alternatives, which provide possible solutions to the problem. The stem may be a question or an incomplete statement.") }}</li> 
+						<li>{{ _("The alternatives include the correct answer and several plausible but incorrect answers, called distracters.") }}</li> 
+						<li>{{ _("Write an expression in Python code to define the form of each distractor. You may also optionally add answer text (usually this is to add units to answers).") }}</li>
+					</ul>
+				</li>
+				<li>{{ _("For True/False questions") }}
+					<ul>
+						<li>{{ _("This field must define a variable (i.e. c=a+b) which is used in the question (i.e $c$). Below, you will provide an alternative definition for the same variable which makes the question false.") }}</li>                                           
+                                               <li> <span class="highlight">{{ _("Example:") }}</span><br/>
+				    		<i>{{ _("Question:") }}</i> {{ _("The sum of $a$+$b$ is $c$.") }}<br/>
+                                    		<i>{{ _("Answer Expression:") }}</i> {{ _("c=a+b") }}
+                                        </li>                                          
+					</ul></li>
+			</ul>
+		</div>
+	</div>
+</div>

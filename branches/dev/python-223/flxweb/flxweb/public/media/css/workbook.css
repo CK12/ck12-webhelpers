@@ -1,0 +1,38 @@
+/* CSS placed here will be applied to workbook page */
+
+/* CK-12 Workbook Styles */
+
+/* nested ordered lists */
+.questionsection ol {
+	list-style-type:decimal
+}
+.questionsection ol ol {
+	list-style-type:lower-alpha
+}
+.questionsection ol ol ol {
+	list-style-type:lower-roman
+}
+.questionsection ul {
+	list-style-type:disc
+}
+.questionsection ul ul {
+	list-style-type:circle
+}
+.questionsection ul ul ul {
+	list-style-type:square
+}
+span.x-ck12-img-inline img{
+	display: block;
+}
+h2, h3, h4{
+	font-family: "proxima-nova",sans-serif;
+}
+h2, h3{
+	color: #cf5726;
+}
+h3 {
+	border-bottom: 4px solid #A7CB65;
+	display: inline-block;
+	margin: 10px 0;
+	padding: 5px 0;
+}

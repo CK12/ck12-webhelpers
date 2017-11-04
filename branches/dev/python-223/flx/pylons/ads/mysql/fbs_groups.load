@@ -1,0 +1,1 @@
+select g.id, g.name from flx2.Groups g

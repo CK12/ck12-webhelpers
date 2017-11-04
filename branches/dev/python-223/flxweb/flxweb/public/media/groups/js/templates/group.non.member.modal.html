@@ -1,0 +1,28 @@
+<a id="nonMemberModalLink" data-reveal-id="joinGroupModal" class="hide"></a>
+<div id="joinGroupModal" class="reveal-modal modal-uikit app-reveal-modal">
+	<a class="close-reveal-modal close">+</a>
+	<div class="row collapse ie8text">
+		<div class="large-12 columns">
+			<div class="modal-description">
+				<p>Sorry, you are not a member of the group you are trying to access.</p>
+			</div>
+			<div class="modal-description">Enter the code that was given to you by the group leader.</div>
+			<div class="group-code-wrapper">
+				<div class="join-error-msg-wrapper">
+					<span id="group-join-empty-error" class="hide js-join-group-error">You did not enter code.  Please enter the code of the group you want to join.</span>
+					<span id="group-join-wrong-error" class="hide js-join-group-error">That code doesn’t belong to this group. Are you sure it’s spelled correctly?</span>
+					<span id="group-join-member-error" class="hide js-join-group-error">You are already a member of this group.</span>
+				</div>
+				<div class="group-code">
+					<span>Group Code: </span>
+					<input type="text" id="join-group-code" maxlength="5"/>
+				</div>
+			</div>
+			<div class="joingroup-button-wrapper">
+				<a id="join-group" class="button standard turquoise no-margin">Join Group</a>
+				<span>or</span>
+				<a class="link-green" href="/my/groups/">Cancel</a>
+			</div>
+		</div>
+	</div>
+</div>

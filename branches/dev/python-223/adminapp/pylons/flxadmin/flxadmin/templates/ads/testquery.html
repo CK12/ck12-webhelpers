@@ -1,0 +1,52 @@
+{% extends "master.html" %}  
+
+{% block admincontent %} 
+<div class="sectionhead sectiontitle">Query Specifications</div>
+<div class="section withfloatedsubmit">
+  <form method="post"> 
+    <div class="leftaligned">
+      {{ h.htmllabel('Server') }}
+      {{ h.htmlinput('server', 'clear', val=c.server)}}
+      {{ h.htmllabel('Params Dict to convert to URL params (If inner quotes needs to be used in values, leave them off and manually add them in the url after clicking on the result.)') }}
+      {{ h.htmltextarea('params', 8, 82, 'clear', val=c.json_str)}}
+      <br>
+      {{ h.labelcheckbox('Add debug flag', 'debug', True)}}
+      {{ h.labelcheckbox('Replace all single quotes with double quotes', 'replaceQuotes', True)}}
+    </div>
+      {{ h.submitbutton('Update Result', id='go')}}
+  </form>
+</div>
+
+<div class="sectionhead sectiontitle">Result</div>
+<div class="section">
+  <span id='result'></span>
+</div>
+{% endblock admincontent %}
+
+{% block js_scripts %}
+<script type='text/javascript'>
+$(document).ready(function(){
+  Defaults.UIAlreadyBlocked = true;
+  var 
+    encodeUrl = CK12.admUrl('/ads/encodequery'),
+    renderResult = function(s){
+      var server = $('#server').val();
+      $('#result').html('<a href="http://'+server+'/ads/query?'+s+'" target="_blank">'+s+'</a>');
+    };
+  renderResult("{{c.result}}");
+  $('#go').click(function(){
+    var 
+    raw = $('#params').val(),
+    debug = $('#debug').val(),
+    replaceQuotes = $('#replaceQuotes').val(),
+    str = replaceQuotes? raw.replace(new RegExp("'", 'g'), '"') : raw;
+
+    $.get(encodeUrl, {params: str, debug: debug}, function(d){
+      renderResult(d.url);
+    });
+    return false;
+  });
+
+});
+</script>
+{% endblock %}

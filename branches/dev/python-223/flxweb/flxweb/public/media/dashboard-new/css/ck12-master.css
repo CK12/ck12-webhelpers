@@ -1,0 +1,44 @@
+@import url('../../common/css/fontck12.css');
+@import url('../../common/css/webfont.css');
+@import url('../../common/css/main.css');
+@import url('../../common/css/tangerine-ui.css');
+@import url('../../common/css/header.css');
+@import url('../../common/css/tangerine.search.css');
+@import url('../../notification/css/notification.css');
+@import url('../../common/css/tangerine.pagination.css');
+@import url('../../css/animate.css');
+@import url('../../common/css/3d-book.css');
+@import url('../../lib/jquery-ui/css/smoothness/jquery-ui-1.8.17.custom.css');
+/* Contain notifications within parent */
+.notification-panel .notification-header,
+.notification-panel .notification-list .notification-item {
+    margin: 0;
+}
+
+/* userinfo in header needs this to make sure it floats to right */
+.top-nav .user-settings .user-info {
+    margin-left:auto;
+}
+
+.top-nav .user-settings .user-info li .user_name {
+    padding: 5px 0;
+}
+body #footer{
+	position:relative;
+}
+body .footer-space{
+	display:none !important;
+}
+.footer-link-wrapper > div {
+    padding: 5px;
+}
+.share-via-email-modal .row{
+	display:inline-block ;
+	min-width:100%;
+}
+@media only screen and (min-width: 48em) {
+    .reveal-modal.small {
+        margin-left: -20%;
+        width: 40%;
+    }
+}

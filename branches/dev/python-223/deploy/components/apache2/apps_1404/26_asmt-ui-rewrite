@@ -1,0 +1,17 @@
+    RewriteEngine On
+    LogLevel warn rewrite:trace3
+
+    ## Backport all previous build urls
+    #RewriteRule ^/assessment/ui/build[^/]*/(.*)$ /assessment/ui/$1 [R=301,L]
+
+    ## Redirect non-build urls to latest build (always versioned - no browser caching)
+    RewriteCond %{REQUEST_URI} !^/assessment/ui/build.*
+    RewriteRule ^/assessment/ui/(.*) /assessment/ui/build-20150908114042/$1 [L,PT]
+
+    ## Geometry tool
+    ## Backport all previous build urls
+    #RewriteRule ^/assessment/tools/geometry-tool/build[^/]*/(.*)$ /assessment/tools/geometry-tool/$1 [R=301,L]
+
+    ## Redirect non-build urls to latest build (always versioned - no browser caching)
+    RewriteCond %{REQUEST_URI} !^/assessment/tools/geometry-tool/build.*
+    RewriteRule ^/assessment/tools/geometry-tool/(.*) /assessment/tools/geometry-tool/build-20150908114042/$1 [L,PT]

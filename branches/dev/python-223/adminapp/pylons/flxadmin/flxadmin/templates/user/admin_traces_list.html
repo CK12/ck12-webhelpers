@@ -1,0 +1,13 @@
+{% from "macros/pagination.html" import paginate with context %}  
+
+{% if c.paginator.item_count > 0 %}
+  {% for i in c.paginator.items %}
+    <div class="tr fullview {{ h.hide_if_pane(c.viewmode)}}">
+      <div class="td">{{h.userlink(i, 'adminID', 'adminID', truncate=15)}}</div>
+      <div class="td">{{h.userlink(i, 'memberID', 'memberID', truncate=15)}}</div>
+      <div class="td">{{i.state | capitalize}}</div>
+      <div class="td nowrap">{{i.updateTime|compact}}</div>
+    </div>
+  {% endfor %}
+  {{ paginate(c.paginator) }}
+{% endif %}

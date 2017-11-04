@@ -1,0 +1,704 @@
+Level 1,Level 2,Level 3,Handle,EncodedID,Original EncodedIDs,Description
+"
+Introduction to Earth Science",,,,SCI.ESC.001,,
+,The Nature of Science,,,SCI.ESC.002,,
+,,"Scientific Explanations and Interpretations
+",,SCI.ESC.003,SCI.ESC.110,"Describes how facts determined by observations or experiments lead to explanations, not opinions."
+,,"Scientific Method
+",Scientific-Method-in-Earth-Science,SCI.ESC.004,SCI.ESC.114.1,The goal of science is to answer questions about the natural world using the scientific method.
+,,"Developing Hypotheses
+",,SCI.ESC.005,SCI.ESC.114.2,Defines a hypothesis as a reasonable explanation that must be testable and falsifiable.
+,,"Testing Hypotheses
+",,SCI.ESC.006,SCI.ESC.114.3,Presents the steps of the scientific method and how they are used to test hypotheses.
+,,"Correlation and Causation
+",,SCI.ESC.007,SCI.ESC.114.4,"Distinguishes between correlation, the mutual relationship between things, and causation, the effect on one thing of changes in another."
+,,"Observations and Experiments
+",,SCI.ESC.008,SCI.ESC.114.5,Illuminates the use of scientific method to test hypotheses using observations and experiments.
+,,"Theories
+",,SCI.ESC.009,SCI.ESC.114.6,Describes a theory as an explanation supported by evidence with no major inconsistencies; defines law.
+,,"Evolution, Plate Tectonics, and Climate Change",,SCI.ESC.010,SCI.ESC.114.7,"Introduces three of the important theories in Earth Science: the theory of evolution, the theory of plate tectonics, and the theory of climate change due to human activities. "
+,,Modeling,Modelling-in-Earth-Science,SCI.ESC.011,SCI.ESC.116,Discusses the main types of scientific models and illuminates their value and limitations.
+,,"Scientific Community
+",,SCI.ESC.012,SCI.ESC.114.8,Learn how the scientific community shares results and monitors scientific integrity. 
+,Principles of Earth Science,,,SCI.ESC.013,,
+,,"Branches of Earth Science
+",,SCI.ESC.014,SCI.ESC.120.1,"Presents the branches of earth science including geology, oceanography, meteorology, climatology, environmental science, and astronomy."
+,,"Earth Science Field Work
+",,SCI.ESC.015,SCI.ESC.120.2,Describes the importance of fieldwork in earth science for gathering data and also some of the important locations featured in this concepts collection.
+,,Uniformitarianism,,SCI.ESC.016,SCI.ESC.120.3,Uniformitarianism states that what happens today also happened in the past with the same results.
+,,"Latitude, Longitude, and Direction",,SCI.ESC.017,SCI.ESC.121,"Explains the purpose of using latitude, longitude, and direction as an expression of location on Earth. "
+,,Location,,SCI.ESC.018,SCI.ESC.121.1,Location on Earth is usually expressed using latitude and longitude; how GPS works. 
+,,Direction  ,Direction-in-Earth-Science,SCI.ESC.019,SCI.ESC.121.2,How we express direction; how to use a compass.
+,,Elevation,,SCI.ESC.020,SCI.ESC.121.3,Elevation is height above sea level; elevation data reveals the shape of landforms.
+,"Topographic, Bathymetric, and Geologic Maps",,,SCI.ESC.021,,
+,,"Maps 
+",,SCI.ESC.022,SCI.ESC.122,"Explores types of maps and the information they show, including topographic, bathymetric, and geologic. "
+,,Map Projections ,,SCI.ESC.023,SCI.ESC.122.1,"Explains the different types of map projections, as well as their individual distortions. "
+,,Topographic and Geologic Maps ,,SCI.ESC.024,SCI.ESC.122.2,Using topographic and geologic maps.
+,,"Seafloor
+",,SCI.ESC.025,"SCI.ESC.123
+",Examines how oceanographers learn about the seafloor and water column. 
+,Tools for Space Science,,,SCI.ESC.026,,
+,,"Telescopes
+",,SCI.ESC.027,"SCI.ESC.124.1
+",Categorizes telescopes by the part of the electromagnetic spectrum they use and how they work.
+,,Study of Space by the Electromagnetic Spectrum ,,SCI.ESC.028,SCI.ESC.124.3,Scientists use the electromagnetic spectrum to learn about objects in space.
+,,"Satellites, Shuttles, and Space Stations
+",,SCI.ESC.029,SCI.ESC.124.2,"Reveals how rockets propel objects into space, such as satellites and space stations. "
+Planet Earth,,,,SCI.ESC.050,,
+,Matter,,,SCI.ESC.051,,
+,,Atoms and Molecules,,SCI.ESC.052,SCI.ESC.212,"Examines the particles that make up matter such as subatomic particles, atoms, and molecules."
+,,Chemical Bonds,Chemical-Bonding-in-Earth-Science,SCI.ESC.053,SCI.ESC.216,"Discusses types of chemical bonding including ionic, covalent, and hydrogen. "
+,Earth's Structure and Motion,,,SCI.ESC.054,,
+,,"Earth's Shape
+",,SCI.ESC.055,SCI.ESC.300.1,Clarifies how people know that Earth is round and how it is divided into hemispheres.
+,,"Earth's Magnetic Field
+",,SCI.ESC.056,SCI.ESC.300.2,Describes that the magnetic field is like a bar magnet inside Earth and the properties of the field to flip.
+,,Earth's Rotations ,,SCI.ESC.057,SCI.ESC.300.4,Looks at Earth's rotation on its axis and how that leads to the day-night cycle.
+,,"Earth's Revolutions
+",,SCI.ESC.058,SCI.ESC.300.3,Describes how Earth revolves around the Sun with the other seven planets of the solar system in an orbit that is slightly elliptical.
+,,"Coriolis Effect
+",,SCI.ESC.059,"SCI.ESC.300.5
+",Coriolis is an effect of Earth's rotation that helps to determine the directions of air and water currents. 
+,,"Seasons
+",,SCI.ESC.060,"SCI.ESC.300.6
+",Shows how seasons are the result of Earth's axial tilt and describes solstices and equinoxes.
+,,Eclipses ,,SCI.ESC.061,SCI.ESC.300.7,"Presents the configuration of the Sun, Moon, and Earth that leads to solar and lunar eclipses."
+,,Solar Eclipses ,,SCI.ESC.062,SCI.ESC.301.1,"Explains what happens when the Sun, Moon, and Earth lead to a solar eclipse."
+,,Lunar Eclipses  ,,SCI.ESC.063,SCI.ESC.301.2,"Explains what happens when the Sun, Moon, and Earth lead to a lunar eclipse."
+,,Lunar Phases ,,SCI.ESC.064,SCI.ESC.301.3,Describes lunar phases as phases of the Moon cause by Earth's shadow. 
+,Earth's Interior and Layers,,,SCI.ESC.065,, 
+,,"
+Earth's Interior 
+",,SCI.ESC.066,"SCI.ESC.310,
+SCI.ESC.312.1","Discover how scientists learn about Earth's interior using seismic waves, meteorites, density, and the magnetic field. "
+,,Earth's Layers ,,SCI.ESC.067,SCI.ESC.314,"Identifies the various layers of the Earth, including the crust, mantle, core, lithosphere, and asthenosphere."
+,,Earth's Outer Layers ,,SCI.ESC.068,SCI.ESC.314.5,Looks at Earth's rotation on its axis and how that leads to the day-night cycle.
+,,Earth's Inner Layers ,,SCI.ESC.069,SCI.ESC.314.6,"The crust, mantle and core are defined by composition; the lithosphere and asthenosphere from mechanical properties."
+,,"Earth's Crust
+",,SCI.ESC.070,"SCI.ESC.314.1
+","Distinguishes between the two types of crust: thin, dense, mafic oceanic and thicker, less dense, felsic continental."
+,,"Earth's Mantle
+",,SCI.ESC.071,"SCI.ESC.314.2
+",Presents fundamental information about the composition of Earth's mantle and how heat moves within and from it.
+,,"Earth's Core
+",,SCI.ESC.072,SCI.ESC.314.3,Summarizes what we know about the core's properties.
+,,Lithosphere and Asthenosphere,,SCI.ESC.073,SCI.ESC.314.4,The lithosphere is made of the brittle crust and uppermost mantle and lies on the plastic asthenosphere. 
+Earth's Minerals ,,,,SCI.ESC.100,,
+,Minerals Overview,,,SCI.ESC.101,,
+,,"Minerals 
+",,SCI.ESC.102,SCI.ESC.221,"Discusses the definition of a mineral as a naturally occurring, inorganic substance, with a definite composition and crystal form. "
+,,"Mineral Groups
+",,SCI.ESC.103,SCI.ESC.222,Explores the composition and properties of the mineral groups.
+,,"Mineral Identification
+",,SCI.ESC.104,SCI.ESC.223,"Elucidates the properties that allow us to identify minerals such as color, streak, luster, density, hardness, cleavage, fracture, and others."
+,,"Mineral Formation
+",,SCI.ESC.105,SCI.ESC.224,Examines the way minerals form from magma and solutions such as salt water and geothermal water.
+Earth's Rocks,,,,SCI.ESC.150,,
+,Rocks Overview,,,SCI.ESC.151,,
+,,Rocks,,SCI.ESC.152,SCI.ESC.238.1,"Minerals make up the three types of rocks: igneous, sedimentary, and metamorphic."
+,,Rock Cycle Processes,,SCI.ESC.153,SCI.ESC.238.2,Presents the three major rock types and the processes that lead to their formation in the rock cycle.
+,Igneous Rocks Overview ,,,SCI.ESC.154,,
+,,"Igneous Rocks
+",,SCI.ESC.155,SCI.ESC.232.1,"Presents igneous rocks, which form from magma, and the two types: dense, dark mafic and less dense, light felsic. "
+,,"Intrusive and Extrusive Igneous Rocks
+",,SCI.ESC.156,SCI.ESC.232.2,"Describes the features of intrusive and extrusive igneous rocks that cool slowly and rapidly, respectively."
+,,"Igneous Rock Classification
+",,SCI.ESC.157,SCI.ESC.232.3,Presents the classifications of igneous rocks based on silica content.
+,Sedimentary Rocks Overview,,,SCI.ESC.158,,
+,,"Sedimentary Rocks
+",,SCI.ESC.159,SCI.ESC.234.1,"Describes how sediments weather, erode, and are deposited in a sedimentary environment."
+,,"Lithification of Sedimentary Rocks
+",,SCI.ESC.160,SCI.ESC.234.2,"Describes how sediments become sedimentary rocks by compression, compaction, and cementation."
+,,"Sedimentary Rock Classification
+",,SCI.ESC.161,SCI.ESC.234.3,Explains that sedimentary rocks are classified by how they formed and by grain size.
+,Metamorphic Rocks Overview,,,SCI.ESC.162,,
+,,"Metamorphic Rocks
+",,SCI.ESC.163,SCI.ESC.236.1,"Covers metamorphic rocks, which form from previous rocks exposed to heat and/or pressure.
+"
+,,"Metamorphic Rock Classification
+",,SCI.ESC.164,SCI.ESC.236.2,"Explains that metamorphic rocks are classified on the basis of texture (grain size, shape, orientation) and mineral composition."
+Earth's Energy and Resources ,,,,SCI.ESC.200,,
+,Energy,,Energy-in-Earth-Science,SCI.ESC.201,,
+,,"Energy Resources
+",,SCI.ESC.202,SCI.ESC.252,"Introduces energy, which can change forms but cannot be created nor destroyed."
+,,Obtaining Energy Resources,,SCI.ESC.203,SCI.ESC.252.1,"Describes usable energy and energy efficiency, which are important to understanding the value of energy resources."
+,,"Energy Conservation
+",,SCI.ESC.204,"SCI.ESC.252.2,
+SCI.ESC.252.4","Presents energy use and conservation, which is less expensive than harnessing new energy sources."
+,,"Renewable vs. Nonrenewable Energy Resources
+",,SCI.ESC.205,"SCI.ESC.252.3,
+SCI.ESC.254,
+SCI.ESC.256
+","Compares and contrasts renewable and nonrenewable energy resources, which is based on whether a resource can be replaced faster than it is used or not."
+,Nonrenewable Energy Resources,,,SCI.ESC.206,,
+,,"Fossil Fuel Formation
+",,SCI.ESC.207,SCI.ESC.254.1,Fossil fuels are created when organisms are buried quickly and altered by intense heat and pressure.
+,,"Coal Power
+",,SCI.ESC.208,SCI.ESC.254.2,Coal is a solid fossil fuel that forms from ancient swamps and is currently the source of most electricity.
+,,"Petroleum Power
+",,SCI.ESC.209,SCI.ESC.254.3,"Explains how petroleum forms, what it is used for, and the consequences its usage has for the environment."
+,,"Natural Gas Power
+",,SCI.ESC.210,SCI.ESC.254.4,Describes that natural gas forms like crude oil but at higher temperatures. The techniques for obtaining it may be environmentally damaging. 
+,,"Fossil Fuel Reserves
+",,SCI.ESC.211,SCI.ESC.254.5,"Reveals the presence of alternative sources of fossil fuels, like shale and tar sands, and their limitations."
+,,"Nuclear Power
+",Nuclear-Power-in-Earth-Science,SCI.ESC.212,SCI.ESC.254.6,Describes the energy that is harnessed in nuclear power plants and some of the costs and benefits.
+,Renewable Energy Resources,,,SCI.ESC.213,,
+,,"Solar Energy
+",,SCI.ESC.214,SCI.ESC.256.1,"Explains what solar energy is, how it is harnessed, and some of its benefits and costs."
+,,"Hydroelectric Power
+",,SCI.ESC.215,SCI.ESC.256.2,Provides an overview of where hydroelectric power and some of its benefits and costs.
+,,"Wind Energy
+",,SCI.ESC.216,SCI.ESC.256.3,"Explains how wind energy is harnessed and used, and some of its benefits and costs."
+,,"Geothermal Energy
+",,SCI.ESC.217,SCI.ESC.256.4,Presents the way geothermal energy is harnessed and some of its benefits and costs.
+,,"Biomass Energy
+",,SCI.ESC.218,SCI.ESC.256.5,"Describes biomass energy, its future, and some of its benefits and costs."
+,Natural Resources,,,SCI.ESC.219,,
+,,"Materials Humans Use
+",,SCI.ESC.220,SCI.ESC.260.1,Identifies a few of the reneweable and nonrenewable resources used by our species.
+,,Finding and Mining Ores,,SCI.ESC.221,SCI.ESC.260.2,"Identifies some of the valuable minerals and metals, and how they are located, mined, and refined."
+,,Renewable vs. Nonrenewable Resources ,,SCI.ESC.222,SCI.ESC.262,"Compares and contrasts renewable and nonrenewable resources, which is based on whether a resource can be replaced faster than it is used or not."
+,,Ore Deposits ,,SCI.ESC.223,SCI.ESC.261.1,Valuable minerals and metals may make up an ore deposit.
+,,Ore Mines ,,SCI.ESC.224,SCI.ESC.261.2,"Valuable minerals and metals are located, mined, and refined."
+,,Ore Extraction,,SCI.ESC.225,SCI.ESC.261.3,Ore deposits are mined and refined to become useful materials.
+,,"Availability of Natural Resources
+",,SCI.ESC.226,SCI.ESC.260.3,"Explores some of the factors that affect the cost of resources, such as availability, ease of extraction, and politics."
+,,"Natural Resource Conservation
+",,SCI.ESC.227,SCI.ESC.260.4,Presents ways to conserve natural resources and why conservation is important.
+Plate Tectonics ,,,,SCI.ESC.250,,
+,Continental Drift Overview,,,SCI.ESC.251,,
+,,Continental Drift ,,SCI.ESC.252,"SCI.ESC.320
+","Illuminates Wegener's continental drift hypothesis and his supporting evidence including the distribution of fossils, rocks, structures, and the climate zones."
+,,"Wegener and the Continental Drift Hypothesis
+",,SCI.ESC.253,SCI.ESC.322,Discusses how the lack of a plausible mechanism kept Wegener's colleagues from accepting his continental drift hypothesis.
+,,"Magnetic Polarity Evidence for Continental Drift
+",,SCI.ESC.254,"SCI.ESC.326
+",Discusses how the lack of a plausible mechanism kept Wegener's colleagues from accepting his continental drift hypothesis.
+,Seafloor Spreading,,,SCI.ESC.255,,
+,,"Bathymetric Evidence for Seafloor Spreading
+",,SCI.ESC.256,SCI.ESC.334,Describes features of the seafloor and how they are mapped by echo sounding.
+,,"Magnetic Evidence for Seafloor Spreading
+",,SCI.ESC.257,SCI.ESC.336,Explains how magnetic polarity frozen into seafloor basalts reveals evidence for the creation of new seafloor at mid-ocean ridges.
+,,"Seafloor Spreading Hypothesis
+",,SCI.ESC.258,SCI.ESC.338,"Reveals how seafloor topography, magnetic polarity, and age are evidence for the sea floor spreading hypothesis."
+,Plate Tectonics Theory,,,SCI.ESC.259,,
+,,"Earth's Tectonic Plates
+",,SCI.ESC.260,SCI.ESC.341,The tectonic plates are slabs of lithosphere that are outlined by earthquake epicenters.
+,,Tectonic Plate Motions ,,SCI.ESC.261,SCI.ESC.341.1,Explains how convection in the mantle moves the tectonic plates on Earth's surface.
+,,Theory of Plate Tectonics ,,SCI.ESC.262,SCI.ESC.340.1,"Plate tectonics theory predicts the locations of earthquakes, volcanoes, mountain ranges, ore deposits, and other geological phenomena."
+,Plate Boundary Interactions,,,SCI.ESC.263,,
+,,"Divergent Plate Boundaries in the Oceans
+",,SCI.ESC.264,SCI.ESC.342.1,Describes how the divergence of plates in the oceans leads to seafloor spreading.
+,,Divergent Plate Boundaries,,SCI.ESC.265,SCI.ESC.342.2,Describes how the divergence of plates on a continent leads to continental rifting.
+,,"Transform Plate Boundaries
+",,SCI.ESC.266,SCI.ESC.342.3,Looks at transform plate boundaries in which two plates slide past each other at a transform fault.
+,,"Ocean-Continent Convergent Plate Boundaries
+",,SCI.ESC.267,SCI.ESC.342.4,"Covers ocean-ocean and ocean-continent convergent plate boundaries, including the creation of volcanic arcs and earthquakes."
+,,Ocean-Ocean Convergent Plate Boundaries,,SCI.ESC.268,SCI.ESC.342.5,"Learn that subduction of the older, denser oceanic crust leads to the formation of a volcanic island arc and accompanying earthquakes."
+,,"Continent-Continent Convergent Plate Boundaries
+",,SCI.ESC.269,SCI.ESC.342.6,Explains that mountain ranges are created where two continental plates come together at a convergent plate boundary.
+,,Continental Margins ,,SCI.ESC.270,SCI.ESC.342.7,Discusses the differences between active and passive continental margins are their relationships with plate tectonic activity.
+,,"Supercontinent Cycle and Pangaea
+",,SCI.ESC.271,"SCI.ESC.343,
+SCI.ESC.340",Descibes the supercontinent cycle and its relationship to past and future plate tetonic activity. 
+,,Intraplate Activity,,SCI.ESC.272,"SCI.ESC.344
+",Describes how volcanic activity can take place within an oceanic or continental lithospheric plate above a hotspot. 
+Earthquakes ,,,,SCI.ESC.300,,
+,Stress in Earth's Crust,,,SCI.ESC.301,,
+,,"Geological Stresses
+",,SCI.ESC.302,"SCI.ESC.352
+",Defines types of stress in rocks and the possible strain effects.
+,,"Principle of Horizontality
+",,SCI.ESC.303,SCI.ESC.354.1,Discusses a basic principle in geology in which sedimentary rocks are laid down horizontally from oldest at the bottom to youngest at the top.
+,,"Folds
+",,SCI.ESC.304,SCI.ESC.354.2,"Presents types of folds including monoclines, anticlines, and synclines. "
+,,"Faults
+",,SCI.ESC.305,SCI.ESC.354.3,"Designates types of faults based on the movement of the two blocks of crust including reverse, normal, thrust, and strike-slip."
+,,"Mountain Building
+",,SCI.ESC.306,SCI.ESC.356,"Describes how mountain ranges are built by continent-continent convergence, subduction of an oceanic plate, and continental rifting."
+,Nature of Earthquakes,,,SCI.ESC.307,,
+,,"Earthquake Characteristics
+",,SCI.ESC.308,SCI.ESC.361,Illuminates the causes of earthquakes by elastic rebound theory and earthquake location as focus and epicenter. 
+,,"Earthquake Zones
+",,SCI.ESC.309,SCI.ESC.362,"Reviews the locations of earthquakes at plate boundaries, and the numbers of quakes of different sizes."
+,,"Earthquakes at Transform Plate Boundaries
+",,SCI.ESC.310,SCI.ESC.362.1,"Discusses the large, shallow focus earthquakes at transform plate boundaries with particular emphasis on the San Andreas Fault Zone.  "
+,,"Earthquakes at Convergent Plate Boundaries
+",,SCI.ESC.311,SCI.ESC.362.2,Describes how massive earthquakes occur at convergent plate boundaries.
+,,"Intraplate Earthquakes
+",,SCI.ESC.312,SCI.ESC.362.3,Discusses how intraplate earthquakes are the result of a solid slab of crust moving on a round Earth and the reactivation of faults.
+,,"Seismic Waves
+",,SCI.ESC.313,"SCI.ESC.363, 
+SCI.ESC.312
+",The seismic waves that emanate from earthquakes include body waves and surface waves. 
+,,Tsunami,,SCI.ESC.314,SCI.ESC.364,"Discusses tsunamis which are also known as seismic sea waves - a series of enormous waves created by underwater disturbances such as earthquakes, landslides, volcanic eruptions, or meteorites. "
+,,"21st Century Tsunami
+",,SCI.ESC.315,SCI.ESC.364.1,Looks at two recent devastating tsunami: the Indian Ocean in 2004 and Japan in 2011.  
+,Measuring and Predicting Earthquakes,,,SCI.ESC.316,,
+,,"Measuring Earthquake Magnitude
+",,SCI.ESC.317,SCI.ESC.365,Covers the instruments scientists use to measure earthquake magnitude and learn about Earth's interior.
+,,"Locating Earthquake Epicenters
+",,SCI.ESC.318,SCI.ESC.366,Explains how to find an earthquake epicenter using at least three seismograph stations. 
+,,"Earthquake Magnitude Scales 
+",,SCI.ESC.319,SCI.ESC.367,"Describes the scales scientists use to indicate the intensity and magnitude of an earthquake including the Mercalli, Richter, and moment magnitude."
+,,"Predicting Earthquakes
+",,SCI.ESC.320,SCI.ESC.368,Introduces the signs that scientist see prior to an earthquake occuring.  
+,Earthquake Safety,,,SCI.ESC.321,,
+,,"Earthquake Damage
+",,SCI.ESC.322,SCI.ESC.369.1,"Identifies the factors that contribute to the damage caused to a region by an earthquake, including ground type and size."
+,,"Earthquake Safe Structures
+",,SCI.ESC.323,SCI.ESC.369.2,Reveals how buildings can be made to withstand earthquakes and how pipes can be designed to reduce fire hazard after an earthquake.
+,,"Staying Safe in an Earthquake
+",,SCI.ESC.324,SCI.ESC.369.3,Describes how individuals can prepare for an earthquake and stay safe in and after an earthquake. 
+Volcanoes,,,,SCI.ESC.350,,
+,Where Volcanoes Occur,,,SCI.ESC.351,,
+,,"Volcano Characteristics
+",,SCI.ESC.352,SCI.ESC.370.1,"Looks at where volcanoes are found, where magma arises, and if they are active, dormant, or extinct."
+,,"Volcanoes at Plate Boundaries
+",,SCI.ESC.353,SCI.ESC.371.1,"Volcanoes are found at convergent plate boundaries due to melting resulting from subduction, and at divergent plate boundaries due to pressure release."
+,,Volcanic Hot Spots,,SCI.ESC.354,SCI.ESC.371.2,Elucidates hotspot activity and how it leads to volcanism in the oceans.
+,Volcanic Eruptions,,,SCI.ESC.355,,
+,,"Magma Composition 
+",,SCI.ESC.356,SCI.ESC.372.1,Reveals that the amount of silica in a magma determines if it erupts explosively or effusively. 
+,,"Explosive Eruptions
+",,SCI.ESC.357,SCI.ESC.372.2,"Explains that felsic magmas erupt explosively, causing widespread damage."
+,,"Effusive Eruptions
+",,SCI.ESC.358,SCI.ESC.372.3,Mafic magmas erupt effusively causing large lava flows that are easy to get away from.
+,,"Predicting Volcanic Eruptions
+",,SCI.ESC.359,SCI.ESC.373,Discusses the signs that scientists use to predict volcanic eruptions. 
+,Volcano Types,,,SCI.ESC.360,,
+,,"Types of Volcanoes
+",,SCI.ESC.361,SCI.ESC.374.1,Describes the types of volcanoes produced by different magma types.
+,,"Supervolcanoes
+",,SCI.ESC.362,SCI.ESC.374.2,"Supervolcano eruptions are rare, but unimaginably large. "
+,Volcanic Landforms and Geothermal Activity,,,SCI.ESC.363,,
+,,"Volcanic Landforms
+",,SCI.ESC.364,SCI.ESC.375,"Describes the landforms created by different types of magma, including domes by felsic magmas and lava plateaus by mafic lavas."
+,,"Hot Springs and Geysers
+",,SCI.ESC.365,SCI.ESC.376,Water that is heated by hot rock or magma flows to the surface as a hot spring or erupts as a geyser.
+Weathering and Formation of Soil,,,,SCI.ESC.400,,
+,Weathering,,,SCI.ESC.401,,
+,,"Weathering and Erosion
+",,SCI.ESC.402,SCI.ESC.410,"Delineates weathering, the breakdown of solid rock into smaller pieces, from erosion, the transport of those pieces to another location, both of which modify landscapes."
+,,"Mechanical Weathering
+",,SCI.ESC.403,SCI.ESC.412,Describes mechanical weathering as the breakdown of rocks and minerals without changing their chemical composition.
+,,"Chemical Weathering
+",,SCI.ESC.404,SCI.ESC.414,"Describes chemical weathering as the breakdown of rocks and minerals by changing their chemical composition by water, carbon dioxide, oxygen, and other compounds."
+,,"Influences on Weathering
+",,SCI.ESC.405,SCI.ESC.416,Identifies and explains factors that lead to differences in the rate and intensity of weathering. 
+,Soils,,,SCI.ESC.406,,
+,,"Soil Characteristics
+",,SCI.ESC.407,SCI.ESC.421,"Reveals the characteristics of soils that result from the proportion of silt, clay, and sand, and the interactions with air, water, and living things."
+,,"Soil Formation
+",,SCI.ESC.408,SCI.ESC.422,"Discusses the factors that affect soil formation like climate, rock type, slope, time, and biological activity."
+,,"Soil Horizons and Profiles
+",,SCI.ESC.409,SCI.ESC.424,"Describes the characteristics of different layers of soil including topsoil, subsoil, and the C-horizon."
+,,"Types of Soils
+",,SCI.ESC.410,SCI.ESC.425,"Defines different types of soils including pedalfer, pedocal, and laterite."
+Erosion and Deposition,,,,SCI.ESC.450,,
+,Water Erosion and Deposition ,,,SCI.ESC.451,,
+,,Erosion by Streams ,,SCI.ESC.452,"SCI.ESC.431.2
+","Streams erode sediments and create landscape features, like meanders."
+,,Deposition by Streams ,,SCI.ESC.453,SCI.ESC.431.3,"Rivers erode, carry, and deposit sediments."
+,,"Landforms from Stream Erosion and Deposition
+",,SCI.ESC.454,SCI.ESC.431,"Elucidates how and where rivers erode and deposit sediments, including particles and dissolved ions."
+,,Erosion by Groundwater ,,SCI.ESC.455,SCI.ESC.431.4,"Groundwater erodes rock, especially carbonate rock, to create caves."
+,,Deposition by Groundwater ,,SCI.ESC.456,SCI.ESC.431.5,"Groundwater creates features like caves and their interior formations, such as stalactites and stalagmites."
+,,Landforms from Groundwater Erosion and Deposition,,SCI.ESC.457,SCI.ESC.431.1,Reveals how groundwater creates features like caves and their interior formations.
+,Wave Erosion and Deposition ,,,SCI.ESC.458,,
+,,Erosion by Waves ,,SCI.ESC.459,SCI.ESC.432.1,Wave erosion creates landforms like sea cliffs.
+,,Deposition by Waves  ,,SCI.ESC.460,SCI.ESC.432.2,Waves deposit sediments to create coastal features like barrier islands and spits.
+,,Landforms from Wave Erosion and Deposition,,SCI.ESC.461,SCI.ESC.432,Distinguishes between erosional and depositional features created by waves on a shoreline.
+,,Protecting Shorelines,,SCI.ESC.462,SCI.ESC.432.3,"Humans attempt to protect shorelines from erosion by constructing breakwaters, groins, and seawalls."
+,Wind Erosion and Deposition ,,,SCI.ESC.463,,
+,,Erosion by Wind ,,SCI.ESC.464,SCI.ESC.433.1,"Wind erodes sediments to form terrain features, especially in the desert."
+,,Deposition by Wind  ,,SCI.ESC.465,SCI.ESC.433.2,Wind transports and deposits sediments to create features like sand dunes and loess deposits.
+,,Landforms from Wind Erosion and Deposition,,SCI.ESC.466,SCI.ESC.433,"Explains wind erosion and deposition, where ventifacts and sand dunes are created."
+,Erosion and Deposition by Glaciers,,,SCI.ESC.467,,
+,,Erosion by Glaciers ,,SCI.ESC.468,SCI.ESC.434.1,"Features created by glacial erosion may be massive, like hanging valleys and horns, or smaller, like glacial striations."
+,,Deposition by Glaciers ,,SCI.ESC.469,SCI.ESC.434.2,Features created by glacial deposition include glacial tills and moraines.
+,,Landforms from Glacial Erosion and Deposition,,SCI.ESC.470,SCI.ESC.434,Describes the mostly massive features created by glacial erosion and deposition.
+,Erosion and Deposition by Gravity ,,,SCI.ESC.471,,
+,,"Landforms from Erosion and Deposition by Gravity
+",,SCI.ESC.472,"SCI.ESC.435
+","Indicates the factors that lead to landslides and other mass movements, what their characteristics are, and how to avoid them."
+Evidence About Earth's Past,,,,SCI.ESC.500,,
+,Fossils,,,SCI.ESC.501,,
+,,"How Fossilization Creates Fossils
+",,SCI.ESC.502,SCI.ESC.711.1,"Defines different types of fossils, including body and trace fossils, and what characteristics in an organism most likely lead to fossilization."
+,,"Types of Fossilization
+",,SCI.ESC.503,SCI.ESC.711.2,Describes five processes that create fossils.
+,,"Earth History and Clues from Fossils
+",,SCI.ESC.504,SCI.ESC.711.3,Explains how scientists can use fossils to reveal details about Earth history.
+,Relative Ages of Rocks,,,SCI.ESC.505,,
+,,"Principles of Relative Dating
+",,SCI.ESC.506,SCI.ESC.712.1,"Introduces Steno's laws, which allow scientists to decipher the geological events that occurred and the order in which they took place."
+,,"Determining Relative Ages
+",,SCI.ESC.507,SCI.ESC.712.2,Distinguishes how to tell which rock unit is older than the ones around it and so reveal the geologic history of the region.
+,,"Correlation Using Relative Ages
+",,SCI.ESC.508,SCI.ESC.712.3,Describes how a single rock unit can be used as the basis of piecing together a geologic history for the region.
+,,"Geologic Time Scale
+",,SCI.ESC.509,"SCI.ESC.712.4
+",Discusses how major events in the evolution of life are divided into units and used by scientists to divide up the geologic time scale to refer to times in Earth history.
+,Absolute Ages of Rocks,,,SCI.ESC.510,,
+,,"Tree Rings, Ice Cores, and Varves
+",,SCI.ESC.511,SCI.ESC.714.1,"Introduces three methods scientists use to determine the absolute age of a material: tree rings, ice cores, and varves."
+,,"Radioactive Decay as a Measure of Age
+",,SCI.ESC.512,SCI.ESC.714.2,"Explains radioactive decay, including parent and daughter isotopes, and half lives, and its importance."
+,,"Radiometric Dating
+",,SCI.ESC.513,SCI.ESC.714.3,"Elaborates on radioactive decay as a tool for determining the age of certain minerals and other materials, including the limits of the technique."
+,,"Age of Earth
+",,SCI.ESC.514,SCI.ESC.716,"Presents some of the ways scientists have tried to determine Earth's age over time, and how we now know that Earth is about 4.6 billion years old. "
+Earth's History,,,,SCI.ESC.550,,
+,Early Earth,,,SCI.ESC.551,,
+,,"Formation of the Sun and Planets
+",,SCI.ESC.552,SCI.ESC.722.1,Describes the nebular hypothesis for the formation of the sun and planets of our solar system and the scientific evidence for the hypothesis. 
+,,"Formation of Earth
+",,SCI.ESC.553,SCI.ESC.722.2,"Discusses how Earth formed and evolved during its early days, and the evidence scientists have for this."
+,,Formation of the Moon,,SCI.ESC.554,SCI.ESC.722.3,Presents the hypothesis for how our Moon formed.
+,,"Early Atmosphere and Oceans
+",,SCI.ESC.555,SCI.ESC.724,Describes the evolution of Earth's atmosphere from volcanic outgassing and comet impacts through the evolution of photosynthesis.
+,Precambrian ,,,SCI.ESC.556,,
+,,"Precambrian Continents
+",,SCI.ESC.557,SCI.ESC.732,Discusses how the early continents formed and where we can see evidence of them in cratons today. 
+,,Precambrian Plate Tectonics,,SCI.ESC.558,SCI.ESC.732.1,Traces plate tectonics from early in Earth's history through the formation of supercontinents about 1.1 billion years ago.
+,Paleozoic,,,SCI.ESC.559,,
+,,"Paleozoic Plate Tectonics
+",,SCI.ESC.560,SCI.ESC.742.2,Describes how the continents came together in a giant landmass known as Pangaea around 250 million years ago and how mountain ranges were created from these collisions.
+,,"Paleozoic and Mesozoic Seas
+",,SCI.ESC.561,SCI.ESC.742.3,"Reveals that during the Paleozoic and Mesozoic, six marine transgressions and regressions caused sea level to rise over the continents, leaving evidence in rocks in the Grand Canyon and elsewhere."
+,Mesozoic,,,SCI.ESC.562,,
+,,"Mesozoic Plate Tectonics
+",,SCI.ESC.563,SCI.ESC.744.2,"Describes why and how a supercontinent would break apart, by continental rifting that caused the breakup of Pangaea along with the formation of the Atlantic Ocean. "
+,Cenozoic,,,SCI.ESC.564,,
+,,"Cenozoic Plate Tectonics
+",,SCI.ESC.565,SCI.ESC.746.4,"Traces the geology of the Cenozoic from the drifting apart of the Pangaean continents, the subduction of the Farallon plate, and the Pleistocene Ice Age."
+Water on Earth,,,,SCI.ESC.600,,
+,Fresh Water,,,SCI.ESC.601,,
+,,"Distribution of Water on Earth
+",,SCI.ESC.602,SCI.ESC.511.1,Reviews the distribution of water on Earth: 97% in oceans and most of the fresh water frozen into ice.
+,,"States of Water
+",,SCI.ESC.603,SCI.ESC.511.2,Water is a polar molecule and the only substance that can be any of the three states of matter on Earth.
+,,The Water Cycle,,SCI.ESC.604,SCI.ESC.511.3,"Describes how the three processes of water, evaporation, precipitation, and sublimination, carry water between reservoirs. "
+,Surface Water,,,SCI.ESC.605,,
+,,"Streams and Rivers
+",,SCI.ESC.606,SCI.ESC.521,"Defines the features of streams including headwater, base level, and tributary."
+,,"Ponds and Lakes
+",,SCI.ESC.607,SCI.ESC.522,"Distinguishes between ponds and lakes, their characteristics, and zonation. "
+,,"Flooding
+",,SCI.ESC.608,"SCI.ESC.524
+","Describes the causes of floods, their effects, how humans prevent them, and the consequences of preventing them."
+,,"Glaciers
+",,SCI.ESC.609,SCI.ESC.520,"Reveals the characteristics of continental and alpine glaciers including their formation, movement, and features."
+,Underground Water,,,SCI.ESC.610,,
+,,Groundwater ,,SCI.ESC.611,SCI.ESC.531,Explains the location of groundwater and where most of the water in aquifers today came from.
+,,"Groundwater Aquifers
+",,SCI.ESC.612,SCI.ESC.532,An aquifer is made of porous rock between impermeable layers; the water table rises and falls. 
+,,Springs and Geysers ,,SCI.ESC.613,SCI.ESC.533,Hot water can flow to the surface at a hot spring or erupt as a geyser.
+Earth's Oceans,,,,SCI.ESC.650,,
+,Oceans ,,,SCI.ESC.651,,
+,,"Importance of the Oceans
+",,SCI.ESC.652,SCI.ESC.541,"Learn about how important the oceans are to the water cycle, climate, and biodiversity."
+,,"Seawater Chemistry
+",,SCI.ESC.653,SCI.ESC.542,"Reveals the composition of seawater and the sources of the materials, especially the salts."
+,,"Ocean Zones
+",,SCI.ESC.654,SCI.ESC.540,Identifies and describes vertical and horizontal zones in the ocean.
+,Ocean Movements,,,SCI.ESC.655,,
+,,"Wind Waves
+",,SCI.ESC.656,SCI.ESC.543,"Describes the characteristics of different layers of soil including topsoil, subsoil, and the C-horizon."
+,,"Tides
+",,SCI.ESC.657,"SCI.ESC.544
+",Reveals tidal patterns and that tides are caused by the gravitational attraction of the Sun and Moon to Earth.
+,,"Surface Currents
+",,SCI.ESC.658,SCI.ESC.545,Describes how surface ocean currents are the result of the global wind patterns and Coriolis effect
+,,"Ocean Currents and Climate
+",,SCI.ESC.659,SCI.ESC.545.1,Reveals how ocean currents transfer heat around the globe using the Gulf Stream as an example.
+,,"Deep Currents
+",,SCI.ESC.660,SCI.ESC.546,Learn how water with different densities drive deep ocean circulation.
+,Ocean Life,,,SCI.ESC.661,,
+,,"Types of Marine Organisms 
+",,SCI.ESC.662,SCI.ESC.831,"Introduces some of the organisms living in the sea, such as tiny plankton, submerged fish, and shorebirds."
+,,Marine Food Chains ,,SCI.ESC.663,SCI.ESC.835,Food energy in the marine environment comes from photosynthesis at the surface or chemosynthesis at hydrothermal vents.
+,,"Ocean Ecosystems
+",,SCI.ESC.664,SCI.ESC.830,Describes some ocean ecosystem including those two different energy sources: photosynthesizing phytoplankton and chemosynthetic bacteria.
+Atmosphere,,,,SCI.ESC.700,,
+,The Atmosphere,,,SCI.ESC.701,,
+,,"Importance of the Atmosphere
+",,SCI.ESC.702,SCI.ESC.612,"Reviews some of the functions of the atmosphere including as part of the water cycle, moderating global temperature and protecting the surface from harmful solar radiation."
+,,Composition ,,SCI.ESC.703,SCI.ESC.616.1,Outlines the composition of the atmosphere with the major gases nitrogen and oxygen and the minor gases like carbon dioxide that are greenhouse gases.
+,,"Pressure and Density 
+",,SCI.ESC.704,SCI.ESC.616.2,"Looks at the relationships between altitude, air pressure, density, and their causes."
+,,"Temperature 
+",Temperature-in-Earth-Science,SCI.ESC.705,SCI.ESC.616.3,"Learn that different layers of the atmosphere are separated by their different temperature gradients, and that warm air rises and cool air sinks."
+,Atmospheric Layers,,,SCI.ESC.706,,
+,,"Troposphere
+",,SCI.ESC.707,SCI.ESC.614.1,"Describes the troposphere, the layer of the atmosphere closest to the surface. "
+,,"Stratosphere
+",,SCI.ESC.708,SCI.ESC.614.2,"The stratosphere contains the ozone layer, which protects life on Earth from harmful ultraviolet radiation."
+,,"Mesosphere
+",,SCI.ESC.709,SCI.ESC.614.3,Delineates the mesosphere as the layer above the stratosphere with a very low density of gas molecules.
+,,"Thermosphere and Beyond
+",,SCI.ESC.710,SCI.ESC.614.4,"Defines the outer atmosphere, including the thermosphere and exosphere, as having magnetic field lines that protect Earth from the solar wind."
+,Energy in the Atmosphere,,,SCI.ESC.711,,
+,,"Electromagnetic Energy 
+",,SCI.ESC.712,SCI.ESC.621,Identifies and defines types of electromagnetic radiation. 
+,,Temperature and Heat ,,SCI.ESC.713,SCI.ESC.622,Explains that temperature is the speed of vibration of molecules in a substance and heat is the energy transferred between substances. 
+,,"Solar Energy on Earth
+",,SCI.ESC.714,SCI.ESC.623,Describes the radiation Earth receives from the Sun from ultraviolet to infrared.
+,,"Heat Transfer 
+",,SCI.ESC.715,SCI.ESC.624,"Explains how in the atmosphere, heat is transferred by radiation, conduction, and convection. "
+,,Heat Budget of Planet Earth,,SCI.ESC.716,SCI.ESC.624.1,Reveals what happens to the solar energy that enters Earth's atmosphere and how that affects the heat budget.
+,,Solar Energy and Latitude ,,SCI.ESC.717,SCI.ESC.623.1,"Earth receives different amounts of solar energy at different latitudes, with the most at the equator and the least at the poles."
+,,"Greenhouse Effect
+",,SCI.ESC.718,SCI.ESC.625,"Describes how greenhouse gases, such as carbon dioxide, methane, and water vapor, trap heat in the atmosphere, and that levels of these gases are increasing due to human activities."
+,Air Movement,,,SCI.ESC.719,,
+,,"Circulation 
+",,SCI.ESC.720,SCI.ESC.632,"Illustrates the six convection cells in the atmosphere, three in each hemisphere. "
+,,"Global Wind Belts
+",,SCI.ESC.721,SCI.ESC.638,"Reveals how differences in solar radiation create the global wind belts, and how global winds influence climate."
+,,"Local Winds
+",,SCI.ESC.722,SCI.ESC.634,"Describes local winds as occurring between high and low pressure regions, including land, sea, and mountain breezes."
+Weather,,,,SCI.ESC.750,,
+,Weather and Atmospheric Water,,,SCI.ESC.751,,
+,,Introduction to Weather ,,SCI.ESC.752,SCI.ESC.652.4,"Weather is a short-term phenomenon that primarily considers temperature, precipitation, with winds."
+,,"Weather vs. Climate
+",,SCI.ESC.753,SCI.ESC.652.1,"Compares and contrasts the short-term phenomenon of weather with the long-term average of weather, otherwise known as climate. "
+,,Humidity ,,SCI.ESC.754,SCI.ESC.652.5,The amount of water vapor in air is its humidity; the water condenses when the temperature reaches its dew point. 
+,,"Clouds
+",,SCI.ESC.755,SCI.ESC.652.2,Describes how clouds form and explains how different cloud types may reveal a change in weather.
+,,Fog ,,SCI.ESC.756,SCI.ESC.652.6,Fog is like a cloud on the ground; water vapor condenses to form a mist.
+,,"Precipitation
+",,SCI.ESC.757,SCI.ESC.652.3,Elucidates the various types of precipitation and how convection in a cloud can cause raindrops to grow.
+,Changing Weather,,,SCI.ESC.758,,
+,,"Air Masses
+",,SCI.ESC.759,SCI.ESC.654,"Describes that air masses have the same temperature and humidity, and what happens when air masses move."
+,,"Fronts
+",,SCI.ESC.760,SCI.ESC.656,Reveals the fronts that arise when two or three air masses collide.
+,Storms,,,SCI.ESC.761,,
+,,"Thunderstorms
+",,SCI.ESC.762,SCI.ESC.658.1,"Explains how thunderstorms arise, grow by convection, produce lightning and thunder, and may appear in a squall line."
+,,"Tornadoes
+",,SCI.ESC.763,SCI.ESC.658.2,"Describes what tornadoes are, how they form, and the scale on which they are measured."
+,,"Cyclones
+",,SCI.ESC.764,SCI.ESC.658.3,"States that cyclones are systems of rotating winds, and how and where mid-latitude cyclones form."
+,,"Hurricanes
+",,SCI.ESC.765,SCI.ESC.658.4,Distinguishes hurricanes as tropical cyclones that form in warm water and can do tremendous amounts of damage.
+,,"Blizzards
+",,SCI.ESC.766,SCI.ESC.658.5,"Presents blizzards as storms that form when cold, dry air contacts warm, moist air, or a lake allowing lots of precipitation to fall as snow."
+,,"Heat Waves and Droughts
+",,SCI.ESC.767,SCI.ESC.650,Describes heat waves and droughts as phenomena that are more extreme versions of normal weather.
+,Weather Forecasting,,,SCI.ESC.768,,
+,,"Collecting Weather Data
+",,SCI.ESC.769,SCI.ESC.662,"Introduces the instruments scientists use to measure weather conditions, including advanced tools like satellites and radar."
+,,Predicting Weather,,SCI.ESC.770,SCI.ESC.664,Elucidates the work of meteorologists who predict weather using data entered into mathematical models run on computers.
+,,"Weather Maps
+",,SCI.ESC.771,SCI.ESC.666,"Describes how meteorologists use weather maps to illustrate temperature, pressure, and other weather phenomena."
+Climate,,,,SCI.ESC.800,,
+,Climate and Its Causes,,,SCI.ESC.801,,
+,,"Latitude 
+",,SCI.ESC.802,SCI.ESC.672,Describes how latitude determines the amount of solar radiation a region will receive and how that will affect the temperature and climate.
+,,"Atmospheric Circulation 
+",,SCI.ESC.803,SCI.ESC.674,Explains how the atmospheric circulation cells and the high and low pressure zones between them help to determine a region's climate.
+,,"Continental Position 
+",,SCI.ESC.804,SCI.ESC.676,Defines marine and continental climates and how the position of a location on a continent relative to the ocean affects its climate.
+,,"Altitude and Mountains
+",,SCI.ESC.805,SCI.ESC.678,Studies the effects of altitude and mountain ranges on weather and climate.
+,World Climates,,,SCI.ESC.806,,
+,,"Climate Zones and Biomes
+",,SCI.ESC.807,SCI.ESC.681,"Describes how biomes are regions with similar climate and, as a result, with similar organisms."
+,,Tropical Moist Climates,,SCI.ESC.808,SCI.ESC.682,Warm and wet tropical climates are found near the equator; they are home to tropical rainforests.
+,,Dry Climates ,,SCI.ESC.809,SCI.ESC.683,Dry climates are found in high pressure zones; they produce deserts and steppes.
+,,Temperate Climates ,,SCI.ESC.810,SCI.ESC.684.1,Temperate climates have moderate temperatures and differ in the amount of rain they get.
+,,Continental Climates ,,SCI.ESC.811,SCI.ESC.685,Continental climates have large swings in temperature because they are away from the ocean's moderation of climate. 
+,,Polar Climates  ,,SCI.ESC.812,SCI.ESC.686,Polar climates are found near the polar regions; they include permafrost and tundra.
+Ecosystems and Human Populations,,,,SCI.ESC.850,,
+,Ecosystems,,,SCI.ESC.851,,
+,,"Biological Communities
+",,SCI.ESC.852,SCI.ESC.811,"Identifies the component parts and types of biological communities, including living and nonliving factors."
+,,"Roles in an Ecosystem
+",,SCI.ESC.853,SCI.ESC.812,Describes the different roles in an ecosystem by what an organism eats and its relationship to other organisms.
+,,"Flow of Energy in Ecosystems
+",,SCI.ESC.854,SCI.ESC.813,"Reveals that energy is transferred between organisms in one direction in a food chain, but that interconnected food chains make a food web."
+,,"Flow of Matter in Ecosystems
+",,SCI.ESC.855,SCI.ESC.815,Describes that matter circulates through ecosystems in many directions.
+,,"Nitrogen Cycle in Ecosystems
+",,SCI.ESC.856,SCI.ESC.816,Nitrogen is essential to living things but to be useful to organisms it must be fixed by bacteria.
+,,"Fresh Water Ecosystems
+",,SCI.ESC.857,SCI.ESC.820,"Describes freshwater ecosystems, including wetlands, which perform extremely important ecosystem services."
+,How Life Changes through Time,,,SCI.ESC.858,,
+,,"Modern Biodiversity
+",,SCI.ESC.859,SCI.ESC.746.3,"Briefly pictures modern biodiversity, which results from the evolution of billions of organisms into a tremendous variety of habitats."
+,,"Adaptation and Evolution of Populations
+",,SCI.ESC.860,SCI.ESC.850.1,Explains how natural selection favors certain traits in a population so that the organism adapts to its environment and that changes in the genes over time is evolution.
+,,Theory of Evolution by Natural Selection ,,SCI.ESC.861,,Natural selection favors certain traits in a population so that the organism adapts to its environment; changes in the genes over time is evolution.
+,,"Population Size
+",,SCI.ESC.862,SCI.ESC.850.2,Describes how limiting factors determine the carrying capacity for a population in an environment.
+,,"Extinction and Radiation of Life
+",,SCI.ESC.863,SCI.ESC.856,Reveals that after a mass extinction evolution works rapidly to create new species that can fill the vacant habitats.
+,,"Characteristics and Origins of Life
+",,SCI.ESC.864,SCI.ESC.734.1,Discusses the characteristics of living organisms and how life may have originated.
+,,"Metabolism and Replication
+",,SCI.ESC.865,SCI.ESC.734.2,"Chemical reactions make an organism's metabolism, and nucleic acids pass genetic information to the next generation."
+,,"Evolution of Simple Cells
+",,SCI.ESC.866,SCI.ESC.734.3,Discusses the characteristics of living organisms and how life may have originated.
+,,"Evolution of Eukaryotes to Multicellular Life
+",,SCI.ESC.867,SCI.ESC.734.4,"Describes how chemical reactions make an organism metabolism, and nucleic acids pass genetic information to the next generation."
+,History of Earth's Complex Life Forms,,,SCI.ESC.868,,
+,,Life of the Phanerozoic Eon ,,SCI.ESC.869,SCI.ESC.741,Life has come a long way in the Phanerozoic beginning with the Cambrian explosion and going through multiple extinctions and radiations.
+,,"History of Paleozoic Life
+",,SCI.ESC.870,SCI.ESC.742.1,"Reveals the patterns of biological evolution during the Paleozoic, from the Cambrian explosion to the largest extinction of all time at the end of the Permian."
+,,"History of Mesozoic Life
+",,SCI.ESC.871,SCI.ESC.744.1,"Describes the diversification of life during the Mesozoic, including the dinosaurs, and the mass extinction that came from a giant asteroid impact."
+,,"History of Cenozoic Life
+",,SCI.ESC.872,SCI.ESC.746.1,"Reveals the radiation of life into niches left vacant by the Cretaceous extinction, as well as the evolution and extinction of the Pleistocene megafauna."
+,,"Human Evolution
+",,SCI.ESC.873,SCI.ESC.746.2,"Identifies and describes very briefly the evolution of large-brained, bipedal humans from a common ancestor with apes."
+,,Life and the Geologic Time Scale ,,SCI.ESC.874,SCI.ESC.746.5,Major events in the evolution of life are used to divide up the geologic time scale.
+Human Impacts on the Earth's Environment,,,,SCI.ESC.900,,
+,Population Growth,,,SCI.ESC.901,,
+,,"Growth of Human Populations
+",,SCI.ESC.902,SCI.ESC.861,Explains the more than exponential growth of human populations and predicts what the population might be at the end of this century.
+,,Agriculture and Human Population Growth,,SCI.ESC.903,SCI.ESC.862,"Reveals how human population growth has paralleled advances in agriculture, such as the advent of agriculture, and the onset of the Green Revolution."
+,,Revolutions in Human Population Growth,,SCI.ESC.904,SCI.ESC.861.1,"Human population growth has paralleled advances in agriculture, such as the advent of agriculture, and the onset of the Green Revolution."
+,,"Overpopulation and Over-Consumption
+",,SCI.ESC.905,SCI.ESC.863,"Describes the consequences of the Green Revolution, and how overconsumption impacts Earth systems."
+,,Future Human Population Growth,,SCI.ESC.906,SCI.ESC.861.2,The Green Revolution allowed populations to grow extremely large; growth in the future may depend on new advances.
+,,"Sustainable Development
+",,SCI.ESC.907,SCI.ESC.864,"Describes sustainable development, its goals, and how humans might become more conscious of ways to meet those goals."
+,Effects on Land,,,SCI.ESC.908,,
+,,"Soil Erosion
+",,SCI.ESC.909,"SCI.ESC.426,
+SCI.ESC.428","Explains soil erosion and the processes that cause exacerbate it, including human activities."
+,,"Avoiding Soil Loss
+",,SCI.ESC.910,SCI.ESC.427,Describes the importance of soil as a renewable resource and techniques for lessening soil erosion.
+,,"Hazardous Waste
+",,SCI.ESC.911,SCI.ESC.428.1,"Describes hazardous waste as materials that are toxic, chemically active, corrosive or flammable, and how these materials impact\ the environment. "
+,,Impacts of Hazardous Waste,,SCI.ESC.912,SCI.ESC.428.2,"Discusses the impacts of hazardous waste on the environment and human health, and the provisions of the Superfund Act."
+,,"Preventing Hazardous Waste Problems
+",,SCI.ESC.913,SCI.ESC.428.3,Explains how to prevent hazardous waste pollution and how the Superfund Act regulates this type of pollution.
+,,"Environmental Impacts of Mining
+",,SCI.ESC.914,SCI.ESC.428.4,"Describes types of mining, their environmental costs, and reclamation."
+,Effects on Water,,,SCI.ESC.915,,
+,,"Uses of Water
+",,SCI.ESC.916,SCI.ESC.513,Describes the ways in which humans use water.
+,,"Water Distribution
+",,SCI.ESC.917,SCI.ESC.512,Explains the distribution of water around the world and the causes and consequences of water scarcity.
+,,"Safety of Water
+",,SCI.ESC.918,SCI.ESC.514.1,Reveals the hazards of waterborne illnesses that infect more than 1 billion people who do not have access to safe water.
+,,"Water Pollution
+",,SCI.ESC.919,SCI.ESC.514.2,"Describes the sources of water pollution, such as municipal, industrial, and agricultural."
+,,"Protecting Water From Pollution
+",,SCI.ESC.920,SCI.ESC.515,"Explains why keeping water from being polluted is preferable to cleaning it after being polluted, and what has happened since the passage of the Clean Water Act in the U.S."
+,,"Groundwater Depletion
+",,SCI.ESC.921,SCI.ESC.534,"Discusses what happens when groundwater is pumped from an aquifer, including some of the negative consequences."
+,,Groundwater Pollution,,SCI.ESC.922,SCI.ESC.535,Describes how pollution enters and spreads within a groundwater aquifer.
+,,"Cleaning Up Groundwater
+",,SCI.ESC.923,SCI.ESC.536,Explains the steps needed to clean a groundwater aquifer.
+,,"Conserving Water
+",,SCI.ESC.924,SCI.ESC.516,Encourages people to conserve water collectively and individually.
+,,Coastal Pollution,,SCI.ESC.925,SCI.ESC.547.1,Explains how dead zones form in coastal regions where excess fertilizer causes rampant algal growth.
+,,Ocean Garbage Patch,,SCI.ESC.926,SCI.ESC.547.2,"Discusses how trash ends up in the ocean and the ways that plastic trash can harm marine organisms, even if it breaks down."
+,,"Oil Spills
+",,SCI.ESC.927,SCI.ESC.547.3,"Describes the damage that occurs from oil spills, and what can be done to clean them up."
+,Effects on the Atmosphere,,,SCI.ESC.928,,
+,,Air Quality,,SCI.ESC.929,SCI.ESC.641,"Presents information on the compounds that pollute the air, their sources, and the regions in which air quality is chronically bad."
+,,"Types of Air Pollution
+",,SCI.ESC.930,SCI.ESC.642,Distinguishes between primary and secondary pollutants and identifies examples of each.
+,,Causes Of Air Pollution,,SCI.ESC.931,SCI.ESC.643,"Describes the pollutants released from fossil fuels, biomass burning, and volatile organic compounds."
+,,"Effects of Air Pollution on the Environment
+",,SCI.ESC.932,SCI.ESC.644,"Explores how air pollutants harm the environment by reducing photosynthesis, changing temperature and precipitation, and causing acid rain."
+,,Effects of Air Pollution on Human Health,,SCI.ESC.933,SCI.ESC.645,Describes the human health consequences of air pollution such as asthma and lung cancer.
+,,Mercury Pollution,,SCI.ESC.934,SCI.ESC.642.1,"Explains how mercury enters the environment, alters to a toxic form, and poses a threat to human health."
+,,"Acid Rain
+",,SCI.ESC.935,SCI.ESC.642.2,Acid rain is caused by sulfur and nitrous oxides mixing with water in the atmosphere and can cause tremendous consequences in the environment.
+,,"Ozone Depletion
+",,SCI.ESC.936,SCI.ESC.646,Describes how the ozone hole forms and the effects on the environment and life beneath it.
+,,"Reducing Air Pollution
+",,SCI.ESC.937,SCI.ESC.647,"Explores some of the technologies that reduce air pollution, and some types of clean energy that can be developed."
+,,Reducing Ozone Destruction,,SCI.ESC.938,SCI.ESC.647.1,Describes how ozone depletion was discovered and how governments worldwide work together to regulate the production and consumption of ozone-destroying chemicals.
+,Effects on Climate,,,SCI.ESC.939,,
+,,"Climate Change in Earth History
+",,SCI.ESC.940,SCI.ESC.691,"Traces changes in Earth's climate through Earth history, especially in the past 2,000 years."
+,,"Short-Term Climate Change
+",,SCI.ESC.941,SCI.ESC.692,Discusses how El Niño and La Niña form and how various regions on Earth are affected by those changes in the atmosphere and oceans.
+,,Long-Term Climate Change,,SCI.ESC.942,SCI.ESC.693,"Explains mechanisms that have long-term impacts on climate, like Milankovitch cycles and changes in atmospheric greenhouse gases."
+,,Carbon Cycle and Climate,,SCI.ESC.943,SCI.ESC.696,"Explains the cycle of carbon through the atmosphere, geosphere, and biosphere."
+,,"Global Warming
+",,SCI.ESC.944,SCI.ESC.694,Reveals that the increase in greenhouse gases in the atmosphere correlates with the rise in global temperatures.
+,,Causes and Effects of Global Warming ,,SCI.ESC.945,SCI.ESC.694.1,Warmer global temperatures are the result of increased greenhouse gases in the troposphere; there are many possible consequences of global warming.
+,,"Impact of Continued Global Warming
+",,SCI.ESC.946,SCI.ESC.695,"Describes the likely impacts of continued global warming, such as increases in ocean acidity and changes in snow packs."
+,,"Reducing Greenhouse Gas Pollution
+",,SCI.ESC.947,SCI.ESC.690,"Explores some of the methods for lessening greenhouse gas pollution that have been proposed, including cap-and-trade, carbon taxes, and geoengineering."
+Astronomy,,,,SCI.ESC.950,,
+,The Sun,,,SCI.ESC.951,,
+,,Sun,,SCI.ESC.952,SCI.ESC.923,Our Sun is a star undergoing nuclear fusion in its core.
+,,"Interior of the Sun
+",,SCI.ESC.953,SCI.ESC.923.1,"Identifies the internal layers of the Sun, which are made of plasa, including where nuclear fusion takes place."
+,,Outer Layers of the Sun,,SCI.ESC.954,SCI.ESC.923.3,Describes how heat moves through the outer layers of the Sun.
+,,"Surface Features of the Sun
+",,SCI.ESC.955,SCI.ESC.923.2,"Describes the surface features of the Sun, including sunspots, solar prominences, solar flares, and coronal mass ejections."
+,The Solar System,,,SCI.ESC.956,,
+,,History of Astronomy ,,SCI.ESC.957,SCI.ESC.930.3,Covers the history of astronomy from the ancient Greeks through the Big Bang.
+,,"Planets of the Solar System
+",,SCI.ESC.958,SCI.ESC.932,"Reviews the planets of the solar system with increasing distance from the sun, their orbits, and rotations."
+,,Planet Orbits in the Solar System,,SCI.ESC.959,SCI.ESC.932.1,Describes the size and shapes of the orbits of the eight planets.
+,,"Gravity in the Solar System
+",,SCI.ESC.960,SCI.ESC.930.1,Defines Newton's Universal Law of Gravitation that all objects have a gravitational attraction proportional to their mass and distance from each other.
+,Inner Planets,,,SCI.ESC.961,,
+,,Inner vs. Outer Planets,,SCI.ESC.962,SCI.ESC.930.2,Compares and contrasts the characteristics of the inner and outer planets.
+,,"Mercury
+",,SCI.ESC.963,SCI.ESC.933.1,"Describes Mercury, the closest planet to the Sun."
+,,"Venus
+",,SCI.ESC.964,SCI.ESC.933.2,"Describes Venus, with its active volcanoes and runaway greenhouse effect."
+,,"Moon
+",,SCI.ESC.965,SCI.ESC.922,"Identifies the characteristics of the Moon, including the internal structure and surface rock types."
+,,"Mars
+",,SCI.ESC.966,SCI.ESC.933.3,"Mars, the planet we know best, has interesting surface features including evidence for running water."
+,Outer Planets,,,SCI.ESC.967,,
+,,"Jupiter
+",,SCI.ESC.968,SCI.ESC.934.1,Jupiter's Great Red Spot is a storm that has been active for more than 300 years; its moon Europa has liquid water.
+,,"Saturn
+",,SCI.ESC.969,SCI.ESC.934.2,"Describes Saturn, its beautiful rings, and its moon Titan, which may have liquid water."
+,,"Uranus
+",,SCI.ESC.970,SCI.ESC.934.3,"Describes Uranus, the tilted ringed, blue outer planet. "
+,,"Neptune
+",,SCI.ESC.971,SCI.ESC.934.4,"Describes Neptune, the farthest planet from the Sun, its reverse orbit, and blue color."
+,Other Bodies,,,SCI.ESC.972,,
+,,"Exoplanets
+",,SCI.ESC.973,SCI.ESC.934.5,"Covers the methods scientists use to locate, study, and describe exoplanets, which are planets outside of our solar system that orbit a star."
+,,"Asteroids
+",,SCI.ESC.974,SCI.ESC.935.1,"Explains the locations and characteristics of asteroids, including ones that someday may strike Earth."
+,,"Comets
+",,SCI.ESC.975,SCI.ESC.935.2,"Describes comets, their composition, where they originate, and what happens to them."
+,,Meteors,,SCI.ESC.976,SCI.ESC.935.3,"Defines meteors, meteoroids, and meteorites and summarizes their properties."
+,,"Dwarf Planets
+",,SCI.ESC.977,SCI.ESC.935.4,"Identifies and describes the dwarf planets, including Pluto, and why they are not planets."
+,"Stars, Galaxies, and the Universe",,,SCI.ESC.978,,
+,,Star Constellations,,SCI.ESC.979,SCI.ESC.941.1,Reviews the constellations and explains how distance works in space.
+,,"Star Power
+",,SCI.ESC.980,SCI.ESC.941.2,"Examines the role of nuclear fusion in the life cycle of stars, and what particle accelerators reveal."
+,,"Star Classification
+",,SCI.ESC.981,SCI.ESC.941.3,Identifies how stars are classified by color and temperature.
+,,Life Cycles of Stars,,SCI.ESC.982,SCI.ESC.941.4,Summarizes the life cycles of different types of stars.
+,,Star Formation ,,SCI.ESC.983,SCI.ESC.945.1,"Stars are formed from a nebula, and have different life cycles depending on their size."
+,,Main Sequence Star Lives  ,,SCI.ESC.984,SCI.ESC.945.2,"Stars spend much of their lives on the main sequence, which classifies stars that are fusing hydrogen into helium."
+,,Red Giants and White Dwarfs  ,,SCI.ESC.985,SCI.ESC.945.3,"Stars may become a red giant or a white dwarfs, depending on its size."
+,,Supergiants and Supernovas  ,,SCI.ESC.986,SCI.ESC.945.4,Supernova explosions fuse the heavier elements and blow them around that part of space. 
+,,Neutron Stars and Black Holes  ,,SCI.ESC.987,SCI.ESC.945.5,"Neutron stars and black holes evolve from old, dense stars."
+,,Distance Between Stars,,SCI.ESC.988,SCI.ESC.941.5,"Explains that parallax is used to measure distances to objects a few hundred light years from Earth, but brightness is used for objects at greater distances."
+,,Star Clusters,,SCI.ESC.989,SCI.ESC.945.6,Star clusters can be open clusters or globular clusters.
+,,"Galaxies
+",,SCI.ESC.990,SCI.ESC.942,"Examines types of galaxies - spiral, elliptical, irregular, and dwarf galaxies."
+,,"The Milky Way
+",,SCI.ESC.991,SCI.ESC.942.1,"Describes the characteristics of our galaxy, the Milky Way, the location of our solar system within it, and the supermassive black hole at its center."
+,,"Universe
+",,SCI.ESC.992,SCI.ESC.943.1,Explains how the concept of a universe has changed and what the universe is currently understood to be.
+,,"Expansion of the Universe
+",,SCI.ESC.993,SCI.ESC.943.2,Explains what redshift is and how it is used to indicate that the universe is expanding.
+,,"Big Bang
+",,SCI.ESC.994,SCI.ESC.943.3,"Reveals the Big Bang Theory, the evidence for it, and how the universe has evolved,"
+,,"Dark Matter
+",,SCI.ESC.995,SCI.ESC.944,Describes dark matter which is matter in the universe that does not emit light.

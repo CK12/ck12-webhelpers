@@ -1,0 +1,1018 @@
+/****
+#
+# Copyright 2007-2013 CK-12 Foundation
+#
+# All rights reserved
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under this License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+# implied.  See the License for the specific language governing
+# permissions and limitations.
+#
+# This file originally written by Hana Zavadska
+#
+# $Id$
+****/
+/************************************************************************************
+ COMMON
+ *************************************************************************************/
+.button, .button.standard {
+    border-left: medium none !important;
+    border-right: medium none !important;
+    display: inline-block;
+    padding: 7px 10px 9px !important;
+}
+
+/************************************************************************************
+ DETAIL
+ *************************************************************************************/
+.error_content div.div_as_h1 {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.2em;
+    margin: 15px 0 .4em;
+}
+.content-wrap {
+    padding-top: 30px;
+}
+#nav_artifact {
+    width: 100%;
+    padding: 10px 0;
+    line-height: 1.2;
+    margin: 20px 0 15px;
+}
+#nav_artifact .prior {
+    float: left;
+    width: 49%;
+    word-wrap: break-word;
+}
+#nav_artifact a {
+    text-decoration: none;
+}
+#nav_artifact a .navartifactlinkwrap .nolink {
+    color: #707070;
+}
+#nav_artifact a:hover .navartifactlinkwrap .nolink {
+    color: #333;
+}
+#nav_artifact a:hover .navartifactlinkwrap .link {
+    text-decoration: underline;
+}
+#nav_artifact .prior .navartifactlinkwrap {
+    position: relative;
+    padding-left: 30px;
+}
+#nav_artifact .prior .navartifactlinkwrap .icon-arrow3_left {
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 13px;
+    height: 21px;
+    font-size: 22px;
+    color: #b5b1a8;
+}
+#nav_artifact .prior .navartifactlinkwrap:hover .icon-arrow3_left {
+    color: #00aba4;
+}
+#nav_artifact .next {
+    float: right;
+    text-align: right;
+    width: 49%;
+    word-wrap: break-word;
+}
+#nav_artifact .next a {
+    display: block;
+}
+#nav_artifact .next .navartifactlinkwrap {
+    position: relative;
+    padding-right: 30px;
+    right: 0;
+}
+#nav_artifact .next .navartifactlinkwrap .icon-arrow3_right {
+    position: absolute;
+    right: 0;
+    top: 6px;
+    width: 13px;
+    height: 21px;
+    font-size: 22px;
+    color: #b5b1a8;
+}
+#nav_artifact .next .navartifactlinkwrap:hover .icon-arrow3_right {
+    color: #00aba4;
+}
+
+.rightinsidewidth {
+    width: 200px;
+}
+
+/**** image popup dialog ****/
+#js_imgdialog {
+    font-size: 1em;
+    height: auto;
+}
+#js_imgdialog #js_imgdialogheader {
+    padding-top: 5px;
+}
+#js_imgdialog #js_imgdialogheader #js_imgdialogtitle {
+    float: left;
+    font-weight: bold;
+    font-size: 1.25em;
+}
+#js_imgdialog #js_imgdialogheader #js_imgdialogclose {
+    float: right;
+    font-weight: bold;
+    font-size: 1.25em;
+}
+
+#js_imgdialog a {
+    color: #f60;
+    text-decoration: none;
+}
+#js_imgdialog a:hover {
+    color: #f40;
+    text-decoration: underline;
+}
+#js_imgdialog #js_imgdialognav {
+    padding: 5px 0;
+    text-align: left;
+}
+/**** /image popup dialog ****/
+
+#view_content_footer {
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
+#view_content_footer .imgwrap{
+    display:inline-block;
+    width:32px;
+    height:17px;
+    vertical-align:bottom;
+    background:url('../images/sprite_icons.png') no-repeat -125px -1px;
+}
+
+#answer_keys_link {
+    font-size: 15px; /*currently wraps at 15px*/
+}
+
+/************/
+.js_downloadlink .popupbubble, .js_signinrequired .popupbubble {
+    font-size: 13px;
+    padding: 1px 5px 0 5px;
+    top: 1px;
+}
+#epubdownload .popupbubble {
+    right: 0;
+}
+
+#mobidownload .popupbubble {
+    right: 48px;
+}
+
+#pdfonecolumndownload .popupbubble {
+    right: 15px;
+}
+
+#pdfonecolumndownload {
+    position: relative;
+}
+
+#pdfonecolumndownload:hover .popupbubble {
+    display: block;
+}
+
+#epubdownload, #mobidownload {
+    position: relative; /*required to absolutely position tool tips*/
+}
+
+#sideNav2 {
+	opacity: 0;
+}
+
+#sideNav2 #sidebarDownloads a {
+    display: block;
+}
+
+.hide-for-sidenav2 {
+	display: none !important;
+}
+
+#answer_keys_link {
+    font-size: 15px;
+}
+
+/******************/
+#resource_content .fileicon_container {
+    background: url(../images/filetype_icons/file_default.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 114px;
+    height: 135px;
+    margin: auto;
+}
+#resource_content .fileicon_container .fileicon {
+    width: 106px;
+    height: 131px;
+    padding: 0 4px 4px;
+}
+
+#resource_content .fileicon_container .filetype_avi {
+    background: url(../images/filetype_icons/file_avi.png) top center no-repeat;
+}
+
+#resource_content .fileicon_container .filetype_css {
+    background: url(../images/filetype_icons/file_css.png) top center no-repeat;
+}
+
+#resource_content .fileicon_container .filetype_docx {
+    background: url(../images/filetype_icons/file_docx.png) top center no-repeat;
+}
+
+#resource_content .fileicon_container .filetype_eps {
+    background: url(../images/filetype_icons/file_eps.png) top center no-repeat;
+}
+
+#resource_content .fileicon_container .filetype_gif {
+    background: url(../images/filetype_icons/file_gif.png) top center no-repeat;
+}
+
+#resource_content .fileicon_container .filetype_html {
+    background: url(../images/filetype_icons/file_html.png) top center no-repeat;
+}
+
+#resource_content .fileicon_container .filetype_jpeg {
+    background: url(../images/filetype_icons/file_jpeg.png) top center no-repeat;
+}
+
+#resource_content .fileicon_container .filetype_jpg {
+    background: url(../images/filetype_icons/file_jpg.png) top center no-repeat;
+}
+
+#resource_content .fileicon_container .filetype_mp3 {
+    background: url(../images/filetype_icons/file_mp3.png) top center no-repeat;
+}
+
+#resource_content .fileicon_container .filetype_mp4 {
+    background: url(../images/filetype_icons/file_mp4.png) top center no-repeat;
+}
+
+#resource_content .fileicon_container .filetype_pdf {
+    background: url(../images/filetype_icons/file_pdf.png) top center no-repeat;
+}
+
+#resource_content .fileicon_container .filetype_png {
+    background: url(../images/filetype_icons/file_png.png) top center no-repeat;
+}
+
+#resource_content .fileicon_container .filetype_pptx {
+    background: url(../images/filetype_icons/file_pptx.png) top center no-repeat;
+}
+
+#resource_content .fileicon_container .filetype_psd {
+    background: url(../images/filetype_icons/file_psd.png) top center no-repeat;
+}
+
+#resource_content .fileicon_container .filetype_txt {
+    background: url(../images/filetype_icons/file_txt.png) top center no-repeat;
+}
+
+#resource_content .fileicon_container .filetype_wav {
+    background: url(../images/filetype_icons/file_wav.png) top center no-repeat;
+}
+
+#resource_content .fileicon_container .filetype_xls {
+    background: url(../images/filetype_icons/file_xls.png) top center no-repeat;
+}
+
+#resource_content .fileicon_container .filetype_xlsx {
+    background: url(../images/filetype_icons/file_xlsx.png) top center no-repeat;
+}
+
+#resource_content .fileicon_container .filetype_zip {
+    background: url(../images/filetype_icons/file_zip.png) top center no-repeat;
+}
+
+#resource_content .download_btn {
+    width: 114px;
+    margin: 20px auto;
+}
+
+.draft-section {
+    border: 2px solid #95e3ff;
+    color: #95e3ff;
+    font-size: 12px;
+    padding: 2px 5px 0px 4px;
+    margin-left: 11px;
+    position: relative;
+    top: -2px;
+}
+
+/************************************************************************************
+ Related Modalities
+ *************************************************************************************/
+#view_content {
+    transition: max-height 2s ease;
+    overflow: hidden;
+}
+.hide-modalities {
+    display: none !important;
+}
+.related-modalities-container, .related-modalities-container *, .related-modalities-container *:before, .related-modalities-container *:after {
+    box-sizing: border-box;
+}
+.related-modalities-container {
+    margin-top: 40px !important;
+    text-shadow: none;
+}
+.related-modalities-container.movable-mod-cont {
+    margin-top: 0px;
+    opacity: 0.95;
+    text-align: center;
+    -webkit-transition: bottom 2s;
+    transition: bottom 2s;
+    -webkit-transition: height 1s;
+    transition: height 1s;
+}
+.related-modalities-container.movable-mod-cont {
+    bottom: 0px;
+    height: 0px;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+.movable-mod-cont .related-modalities-content {
+	background: #56544d;
+    padding: 14px 100px;
+}
+.movable-mod-cont.hide-movable-mod-cont {
+	display: none !important;
+}
+.related-help-wrapper {
+    background-color: #b6b2a9;
+    border-radius: 50%;
+    display: inline-block;
+    height: 15px;
+    line-height: 26px;
+    margin-left: 2px;
+    margin-top: -3px;
+    position: relative;
+    vertical-align: middle;
+    width: 16px;
+}
+
+.movable-mod-cont .related-help-wrapper{
+    float: left;
+}
+
+.related-help {
+    color: #ffffff;
+    display: table;
+    font-size: 8px;
+    padding-left: 4px;
+    padding-top: 4px;
+    text-shadow: none;
+}
+.related-text-header {
+    font-weight: bold;
+    font-size: 24px;
+}
+.movable-mod-cont .related-text-header {
+	font-weight: bold;
+	font-size: 16px;
+	margin-bottom: 4px;
+}
+.animate-scroll .movable-mod-cont .related-text .related-text-movable-mod {
+	display: inline-block;
+}
+.animate-scroll .related-text .default {
+	display: none;
+}
+
+.movable-mod-cont .related-header-icons {
+    position: relative;
+    top: -7px;
+    margin-left: 100px;
+}
+
+.related-icons-wrapper {
+    display: none;
+}
+
+.animate-scroll .related-icons-wrapper {
+    display: inline-block;/* !important;*/
+}
+
+.movable-mod-cont .related-icons-wrapper{
+    /*right: 100px;*/
+    right: 12%;
+    position: relative;
+    display: inline-block;
+    font-size: 25px;
+}
+
+ .related-modalities-container.animate-scroll .related-text span{
+	color: #ffffff;
+}
+
+.related-modalities-wrapper {
+    left: 0;
+    margin-top: 20px; /* !important;*/
+    transition: left 1s;
+}
+.movable-mod-cont .related-modalities-wrapper{
+    left: 0;
+    margin-top: 0px !important;
+    padding-bottom: 2px;
+}
+.individual-modality-wrapper {
+    padding-right: 15px;
+    width: 33.33%;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    min-width: 117px;
+}
+.movable-mod-cont .individual-modality-wrapper {
+	display: inline-block;
+	float: none !important;
+	padding-left: 0px;
+    padding-right: 20px;
+    width: 270px;
+    vertical-align: top;
+}
+.individual-modality {
+    background-color: #fff;
+    border: 1px solid #efede7;
+    border-radius: 15px;
+    display: block;
+    overflow: hidden;
+    padding-bottom: 12px;
+    min-height: 255px;
+}
+.movable-mod-cont .individual-modality {
+    border: 0px;
+	height: 108px;
+	margin-top: 5px;
+    padding-bottom: 0px;
+}
+.individual-modality:hover {
+    box-shadow: 0 0 6px rgba(142, 135, 115, 0.6);
+    border: none;
+}
+.movable-mod-cont .individual-modality:hover {
+    /* box-shadow: 0px 0px 7px 3px #fff; */
+}
+.individual-modality:hover .practice-summary {
+    color: #0c89a4;
+}
+.individual-modality:hover .modality-title span {
+    color: #0c89a4;
+}
+.modality-type-wrapper {
+    margin-top: 12px;
+    padding-left: 23px;
+}
+.movable-mod-cont .modality-type-wrapper {
+	margin-top: 0px;
+    padding-left: 0px;
+}
+.modality-type {
+    color: #aaa287;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    margin-left: 8px;
+    position: relative;
+    text-transform: uppercase;
+    top: -2px;
+}
+.movable-mod-cont .modality-type {
+    margin-left: 0px;
+}
+.modality-icon {
+    color: #aaa287;
+    font-size: 18px;
+}
+.movable-mod-cont .modality-icon{
+    font-size: 15px;
+}
+.modality-title {
+    max-height: 48px;
+    overflow: hidden;
+    padding: 0 20px;
+    text-overflow: ellipsis;
+    border: none !important;
+}
+.movable-mod-cont .modality-title {
+    padding: 0;
+    max-height: 62px;
+    text-overflow: ellipsis;
+}
+.modality-title span {
+    color: #1aaba3;
+    font-size: 18px;
+}
+.movable-mod-cont .modality-title span {
+    font-weight: bold;
+    font-size: 15px;
+}
+.individual-modality .image-wrapper img {
+    border-radius: 10px 10px 0 0;
+    height: auto;
+    width: 100%;
+}
+.movable-mod-cont .individual-modality .image-wrapper img {
+    border-radius: 0;
+    height: 109px;
+}
+
+.modality-details-wrapper {
+	/*width: 189px;*/
+	text-align: left;
+}
+.image-wrapper, .modality-details-wrapper {
+    /*display: inline-block;*/
+     max-height: 160px;
+    overflow: hidden;
+    position: relative;
+}
+.image-wrapper.no-cover {
+    background-color: #cec9be;
+	height: 160px;
+}
+.image-wrapper.no-cover .icon-simulations {
+    position: absolute;
+    top: 33%;
+    color: #FFFFFF;
+    font-size: 51px;
+    left: 39%;
+}
+.image-wrapper.no-cover img {
+    display: none;
+}
+.movable-mod-cont .image-wrapper, .movable-mod-cont .modality-details-wrapper {
+	width: 120px;
+	height: 110px;
+	display: inline-block;
+}
+
+.modality-details-wrapper.related-practice {
+	text-align: center;
+}
+.movable-mod-cont .modality-details-wrapper {
+	padding: 11px;
+}
+.related-modalities-parent {
+    overflow: hidden;
+}
+.movable-mod-cont .related-modalities-parent {
+	margin-left: auto;
+	margin-right: auto;
+}
+.navigate-related-modalities {
+    text-align: center;
+    margin-top: 19px !important;
+}
+.navigate-related-modalities .nextPrevArrow {
+    display: inline-block;
+    float: none;
+}
+.navigate-related-modalities .prev-next-link {
+    padding-top: 5px !important;
+}
+.navigate-related-modalities .prev-link {
+    padding-left: 2px !important;
+}
+.modality-tooltip {
+    display: none;
+    text-shadow: none;
+    font-weight: bold;
+}
+.related-help-wrapper:hover .modality-tooltip, .modality-tooltip.open {
+    display: inline-block;
+    z-index: 4;
+    width: 210px;
+    position: absolute;
+    left: -93px;
+    top: 29px;
+}
+.thumbnail_wrapper {
+    background-color: #fff;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 3;
+    opacity: 0.5;
+}
+.thumbnail_wrapper i {
+    color: #000;
+    display: inline-block;
+    font-size: 74px;
+    margin-top: 43px;
+    opacity: 0.5;
+}
+.movable-mod-cont .thumbnail_wrapper i {
+    font-size: 50px;
+    margin-top: 30px;
+}
+.score_circle {
+    position: absolute;
+    top: 12px;
+    left: 20px;
+    height: 87px;
+    width: 87px;
+    border: 6px solid #ffffff;
+    border-radius: 44px;
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: bold;
+}
+.score_circle span {
+    left: 8px;
+    position: relative;
+    top: 20px;
+    display: inline-block;
+    text-align: center;
+    width: 60px;
+}
+
+.practice-button, .related-practice-button {
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+	
+}
+
+.movable-mod-cont .practice-button {
+    width: 90%;
+    font-weight: bold;
+    margin-left: 25px;
+    /*margin-top: 2px;*/
+    margin-top: 0.45em;
+    margin-bottom: 0px;
+    padding: 3px 11px !important;
+}
+.movable-mod-content #content .modality-details-wrapper .practice-button {
+	padding: 5px 11px !important;
+	width: 115px;
+	margin-left: 8px;
+}
+.practice-summary {
+    color: #1aaba3;
+    margin-top: 10px;
+    max-height: 45px;
+    overflow: hidden;
+    padding: 0 20px;
+    width: 100%;
+}
+.movable-mod-content #content .practice-summary {
+	text-align: left !important;
+}
+.movable-mod-cont .practice-summary {
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 0px;
+    max-height: 55px;
+    padding: 0 10px;
+    width: 100%;
+    text-overflow: ellipsis;
+}
+.practice-arrow {
+    right: -6px;
+    position: absolute;
+}
+
+/*
+* Related Modalities
+*/
+.related-modalities-mini p {
+    color: #ffffff;
+}
+
+.toggle-mod-cont i{
+    color: #ffffff;
+}
+
+.animate-scroll.movable-mod-cont .practice-arrow {
+    right: -6px;
+    top: 3px;
+    position: absolute;
+}
+.movable-mod-cont .toggle-mod-cont{
+	background-color: #E84C3D;
+        height: 35px;
+        padding-top: 8px;
+        position: relative;
+        right: 25px;
+        top: 0px;
+        width: 35px;
+        padding: 5px;
+        z-index: 20;
+}
+.movable-mod-cont .close-mod-cont {
+	background-color: #E84C3D;
+	height: 40px;
+	position: relative;
+	right: 25px;
+	top: -40px;
+	width: 40px;
+}
+.movable-mod-cont .close-parent {
+	margin: 0 auto;
+	width: 1111px;
+}
+.close-mod-cont .close-icon:before, .close-mod-cont .close-icon:after {
+	background-color: #ffffff;
+	height: 22px;
+	right: 19px;
+	top: 11px;
+}
+.individual-modality .practice-badge{
+	position: absolute;
+    top: Calc(50% - 39px);
+    left: Calc(50% - 39px);
+}
+
+.vocab-pos{
+    margin-bottom: 100px;
+}
+ .hide-badge{
+    	display: none !important;
+    	visibility: hidden !important;
+    }
+@media all and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .movable-mod-cont .close-parent {
+	width: 900px;
+    }
+}
+
+@media all and ( min-width: 1023px) {
+    .related-modalities-container.animate-scroll .image-wrapper {
+	left: -3px;
+/*	width: 150px;*/
+    }
+    .animate-scroll .modality-details-wrapper.related-practice .button {
+        margin-left: 0;
+    }
+    .movable-mod-cont .related-header-icons {
+       margin-left: 70px;
+    }
+    .movable-mod-cont .related-icons-wrapper{
+       /*right: 50px;*/
+    }
+    .hide-for-desktop {
+    	display : none;
+    }
+}
+
+
+@media all and (min-width: 768px) and (max-width: 1023px){
+    .score_circle {
+        height: 72px;
+        left: 31%;
+        top: 23px;
+        width: 72px;
+    }
+    .score_circle span {
+        left: 7px;
+        top: 15px;
+        width: 49px;
+    }    
+    .practice-button .practice-arrow{
+    	display: none;
+    }
+}
+@media all and (max-width: 1023px){
+    .related-text {
+	left: 0 !important;
+    }
+    .related-text span {
+	color: #56544D !important;
+    }
+    .related-modalities-wrapper {
+        width: 100% !important;
+    }
+    .individual-modality-wrapper:last-child {
+        padding-bottom: 5px;
+    }
+    /* .individual-modality-wrapper.asmtpractice ,.related-modalities-container{
+    	display: block !important;
+    	visibility: visible !important;
+    } */
+    .hide-badge{
+    	display: block !important;
+    	visibility: visible !important;
+    }
+}
+@media all and (max-width: 767px){
+    .image-wrapper.no-cover .icon-simulations {
+        font-size: 32px;
+    }
+    .individual-modality-wrapper {
+        width: 100% !important;
+        padding-bottom: 15px;
+    }
+    .related-modalities-parent .individual-modality {
+        min-height: 80px;
+        /*height: 80px;*/
+        border-radius: 10px;
+    }
+    .image-wrapper {
+		float: left;
+		height: 80px;
+		width: 120px;
+	}
+	.image-wrapper.no-cover {
+	    height: 80px;
+	}
+	.individual-modality .image-wrapper img {
+		border-radius: 10px 0px 0px 10px;
+		height: 79px;
+		max-width: none;
+	}
+	.modality-details-wrapper {
+		float: left;
+		width: -webkit-calc(100% - 120px);
+		width: calc(100% - 120px);
+	}
+     .modality-type-wrapper {
+		line-height: 15px;
+		padding-left: 8px;
+		margin-top: 4px;
+	}
+	.thumbnail_wrapper i {
+		margin-top: 17px;
+	}
+	.modality-type {
+		margin-left: 0px;
+		font-size: 12px;
+	}
+	.modality-title {
+		line-height: 18px;
+		max-height: 55px;
+		overflow: hidden;
+		padding: 0 8px;
+	}
+	.modality-title span {
+		font-size: 13px;
+	}
+	.modality-icon {
+        display: none;
+    }
+    .practice-summary {
+        font-size: 13px;
+        max-height: 37px;
+        overflow: hidden;
+        padding: 0 8px;
+        margin-top: 5px;
+        text-align: left;
+    }/* End related modalites */
+    .content-wrap {
+        padding-top: 3px;
+    }
+    #artifact_title {
+        line-height: 25px;
+        margin-bottom: 5px;
+    }
+    .difficulty-level-wrapper {
+        font-size: 14px;
+    }
+    .breadcrumb-container {
+        padding: 15px;
+    }
+    .actions-wrapper {
+        margin-bottom: 10px !important;
+    }
+    .book-details-action {
+        background-color: #fff;
+        border: 1px solid #e0ddd5;
+        border-radius: 5px;
+        padding: 3px 8px;
+    }
+    .book-details-action span {
+        color: #8e8774;
+        font-size: 14px;
+    }
+    .book-details-action i {
+        color: #00cccc;
+        font-size: 11px;
+    }
+    .book-details-action.flexbook-deeplink{
+        background-color: #00aba4;
+
+        text-shadow: none;
+        margin-right: 8px;
+    }
+    .book-details-action.flexbook-deeplink a{
+        color: #ffffff;
+        font-size: 14px;
+    }
+    .book-details-action.already_in_library i {
+        color: #8e8774;
+    }
+    .share-group-link {
+        margin-left: 8px;
+    }
+    .tabs-list a {
+        width: 135px !important;
+    }
+    .practice-button, .related-practice-button {
+        font-size: 14px !important;
+        margin-top: 2px;
+        padding: 5px !important;
+    }
+    .individual-modality:hover {
+        border: 1px solid #efede7;
+    }
+    .navigate-related-modalities {
+        display: none;
+    }
+    .score_circle {
+        border: 4px solid #ffffff;
+        height: 55px;
+        left: 35px;
+        top: 16px;
+        width: 55px;
+    }
+    .score_circle span {
+        font-family: regular;
+        font-size: 18px;
+        font-weight: normal;
+        left: 4px;
+        top: 4px;
+        width: 39px;
+    }
+    .practice-image-wrapper img {
+        left: -8px;
+        position: relative;
+    }
+    .image-fix-height {
+        height: 80px !important;
+        width: auto !important;
+    }
+    .image-fix-width {
+        width: 120px !important;
+        height: auto !important;
+    }
+    #view_details.show {
+        display: block !important;
+    }
+    #view_content, #view_details {
+        padding: 0px !important;
+    }
+    body {
+        background-color: #fff;
+    }
+    .contentarea {
+       box-shadow: none;
+    }
+    .artifactbreadcrumbs {
+        display: none;
+    }
+    .artifactabout .spacetoplarge {
+        margin-top: 9px;
+    }
+    #artifact_content {
+        padding-top: 0px;
+    }
+    .actions-wrapper {
+        margin-bottom: 0px !important;
+    }
+    .artifactabout {
+        padding-bottom: 10px;
+    }
+    .artifactabout.with-practice-badge {
+        margin-bottom: 5px;
+    }
+    .collapse-details {
+        color: #00aba4;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: normal;
+    }
+    .collapse-details .tip {
+        border-color: #00aba4 transparent transparent;
+        border-style: solid dashed dashed;
+        border-width: 6px 3px 4px;
+        display: inline-block;
+        margin-left: 0;
+        position: relative;
+        top: 2px;
+    }
+    .collapse-details .tip.up {
+        border-color: transparent transparent #00aba4;
+        border-style: dashed dashed solid;
+        border-width: 4px 3px 6px;
+        display: inline-block;
+        margin-left: 0;
+        position: relative;
+        top: -3px;
+    }
+    .metadataview .columnwrap {
+        margin-right: 0px !important;
+        width: 100% !important;
+    }
+}

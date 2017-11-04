@@ -1,0 +1,1 @@
+db.EventTypes.insert({ "clientID" : 24839961, "eventType" : "FBS_LMS_INSTALL", "parameters" : [ { "mandatory" : true, "name" : "appName" }, { "mandatory" : true, "name" : "lmsProvider" }, { "mandatory" : true, "name" : "userToken" } ] })

@@ -1,0 +1,47 @@
+{
+	"smallAlpha" : {
+		"data" : "\\alpha ",
+		"pos" : [0,7],
+		"length" : 7
+	},
+	"smallBeta" : {
+		"data" : "\\beta ",
+		"pos" : [0,6],
+		"length" : 6
+	},
+	"capitalDelta" : {
+		"data" : "\\Delta ",
+		"pos" : [0,7],
+		"length" : 7
+	},
+	"capitalTheta" : {
+		"data" : "\\Theta ",
+		"pos" : [0,7],
+		"length" : 7
+	},
+	"smallTheta" : {
+		"data" : "\\theta ",
+		"pos" : [0,7],
+		"length" : 7
+	},
+	"smallPi" : {
+		"data" : "\\pi ",
+		"pos" : [0,4],
+		"length" : 4
+	},
+	"smallSigma" : {
+		"data" : "\\sigma ",
+		"pos" : [0,7],
+		"length" : 7
+	},
+	"capitalSigma" : {
+		"data" : "\\Sigma ",
+		"pos" : [0,7],
+		"length" : 7
+	},
+	"micro" : {
+		"data" : "\\mu ",
+		"pos" : [0,4],
+		"length" : 4
+	}
+}

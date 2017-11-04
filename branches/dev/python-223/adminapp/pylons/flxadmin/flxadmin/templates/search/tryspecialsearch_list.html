@@ -1,0 +1,23 @@
+{% from "macros/pagination.html" import paginate with context %}  
+{% if c.paginator.item_count > 0 %}
+  {% for i in c.paginator.items %}
+    <div class="tr paneview {{ h.hide_if_full(c.viewmode)}}">
+      <div class="td id">{{i._id|truncate(10, True)}}  </div>
+      <div class="td" data-id="{{i._id}}">{{h.idlink2('specialsearchentry/', i, alttext=i.term|truncate(50), idkey='term')}}</div>
+      <div class="td viewtrigger tiptrigger long">{{ i.entry.keys()[0] | escape }}:{{ i.entry[i.entry.keys()[0]] | escape }}</div>
+      <div class='hide tipdiv'>{{ i.entry.keys()[0] | escape }}:{{ i.entry[i.entry.keys()[0]] | escape }}</div>
+      <div class="td">{{ "%.2f"|format(i.score) }}</div>
+    </div>
+    
+    <div class="tr fullview {{ h.hide_if_pane(c.viewmode)}}">
+      <div class="td id">{{i._id}}  </div>
+      <div class="td" data-id="{{i._id}}">{{h.idlink2('specialsearchentry/', i, alttext=i.term|truncate(50), idkey='term')}}</div>
+      <div class="td">{{ i.termTxt }}</div>
+      <div class="td viewtrigger tiptrigger long">{{ i.entry.keys()[0] | escape }}:{{ i.entry[i.entry.keys()[0]] | escape }}</div>
+      <div class='hide tipdiv'>{{ i.entry.keys()[0] | escape }}:{{ i.entry[i.entry.keys()[0]] | escape }}</div>
+      <div class="td">{{ "%.2f"|format(i.score) }}</div>
+      <div class="td">{{ i.updated|parseISODate|compact }}</div> 
+    </div>
+  {% endfor %}
+  {{ paginate(c.paginator) }}
+{% endif %}

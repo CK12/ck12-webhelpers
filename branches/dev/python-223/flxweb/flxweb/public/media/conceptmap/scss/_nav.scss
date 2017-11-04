@@ -1,0 +1,27 @@
+$ns-module: "conceptmap-nav";
+
+$nav-icon-font-size: $icon-font-size;
+$nav-icon-line-height: $icon-line-height;
+$nav-icon-height: $nav-icon-line-height;
+$nav-icon-width: $nav-icon-line-height;
+
+$top-center-offset: rem-calc(5);
+
+.#{$ns-module} {
+    background-color: $nav-bar-bg;
+    box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.1);
+    padding: rem-calc(7) 0;
+    transition: all $zero-state-duration;
+
+}
+
+#{$zero-state} {
+    .#{$ns-module} {
+        background-color: transparent;
+        box-shadow: 0 0 0 0 transparent;
+    }
+}
+
+@import "nav_left",
+        "nav_middle",
+        "nav_right";

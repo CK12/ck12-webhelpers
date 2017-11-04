@@ -1,0 +1,169 @@
+Collection Name,Collection Handle,Collection Description,Collection Canonical ID,Collection Parent Subject ID,Level 1,Level 2,Level 3,Level 4,EncodedID,Original EncodedIDs,ModalityIDs,Preview EID
+Elementary Math Grade 2,elementary-math-grade-2,Elementary Math for Grade 2,MAT.EM2,MAT,,,,,,,,
+,,,,,Addition and Subtraction,,,,,,,MAT.EM2.200
+,,,,,,Addition and Subtraction to 10,,,,,,MAT.EM2.203
+,,,,,,,Adding Two Numbers (Sums to 10) - Word Problems,,MAT.ARI.103.0105,"MAT.EM2.203.05, MAT.EM2.203.01","1880107, 1867157, 1867153",
+,,,,,,,Subtract to 10 with Images,,MAT.ARI.103.0401,"MAT.EM2.203.06, MAT.EM2.203.08, MAT.EM2.203.09","2813412, 1867158, 1880105, 1867160, 1879583, 1867161",
+,,,,,,,Subtract to 10 with Images Word Problems,,MAT.ARI.103.0402,"MAT.EM2.203.07, MAT.EM2.203.1, MAT.EM2.203.11","1880106, 1867159, 1880104, 1867162, 1879827, 1867163",
+,,,,,,,Subtract to 20 Word Problems,,MAT.ARI.103.0406,"MAT.EM2.203.12, MAT.EM2.203.13","1880103, 1867164, 1880102",
+,,,,,,Addition and Subtraction to 20,,,,,,MAT.EM2.206
+,,,,,,,Add to 20 with Images,,MAT.ARI.103.0103,"MAT.EM2.206.02, MAT.EM2.206.03, MAT.EM2.206.06, MAT.EM2.206.01","1879826, 1867166, 1879825, 1867167, 1879901, 1867170, 1867165",
+,,,,,,,Add to 20 Word Problems,,MAT.ARI.103.0105,"MAT.EM2.206.04, MAT.EM2.206.05, MAT.EM2.206.07","1880453, 1867168, 1879402, 1867169, 1879900, 1867171",
+,,,,,,,Subtracting by Counting Backward with Pictures (Numbers up to 20),,MAT.ARI.103.0405,"MAT.EM2.206.09, 
+MAT.EM2.206.08","1879899, 1867173, 1867172",
+,,,,,,Addition and Subtraction to 20: Knowledge-Based Questions,,,,,,MAT.EM2.209
+,,,,,,,Higher Order Addition Statements to 20,,MAT.ARI.103.0107,"MAT.EM2.209.02, MAT.EM2.209.06, MAT.EM2.209.01","1879824, 1867179, 1879895, 1867183, 1867178",
+,,,,,,,Identify Equal Sums to 20,,MAT.ARI.103.0109,"MAT.EM2.209.03, MAT.EM2.209.04, MAT.EM2.209.05","1879486, 1867180, 1879484, 1867181, 1879482, 1867182",
+,,,,,,,Higher Order Subtraction Statements to 20,,MAT.ARI.103.0407,"MAT.EM2.209.08, MAT.EM2.209.11, MAT.EM2.209.07","1879893, 1867185, 1879891, 1867188, 1867184",
+,,,,,,,Identify Equal Differences to 20,,MAT.ARI.103.0408,"MAT.EM2.209.09, MAT.EM2.209.1, MAT.EM2.209.12","1879480, 1867186, 1880452, 1867187, 1879478, 1867189",
+,,,,,,,Subtracting Word Problems (Numbers up to 20),,MAT.ARI.103.0406,MAT.EM2.209.13,"1879889, 1867190",
+,,,,,,,Add and Subtract Numbers to 20 Word Problems,,MAT.ARI.103.0701,"MAT.EM2.209.14, MAT.EM2.209.15","1879887, 1867191, 1879822",
+,,,,,,Addition and Subtraction to 100: Mixed Operations and Word Problems,,,,,,MAT.EM2.212
+,,,,,,,Addition Word Problems to 100,,MAT.ARI.103.0209,"MAT.EM2.212.02, MAT.EM2.212.03,
+MAT.EM2.212.01","1879820, 1867193, 1879819, 1867194, 1867192",
+,,,,,,,Add and Subtract Numbers to 100,,MAT.ARI.103.0703,"MAT.EM2.212.07, MAT.EM2.212.08, MAT.EM2.212.04, MAT.EM2.215.06","2075120, 1867198, 1867203, 1867195, 1867208",
+,,,,,,"Addition and Subtraction to 1,000: Word Problems",,,,,,MAT.EM2.215
+,,,,,,,Add and Subtract Numbers to 100 - Word Problems,,MAT.ARI.103.0705,"MAT.EM2.215.02, MAT.EM2.215.03, MAT.EM2.215.04, MAT.EM2.215.05","1879818, 1867204, 1879870, 1867205, 1867206, 1879817, 1867207",
+,,,,,,,Subtracting 3 Numbers - Word Problems,,MAT.ARI.103.0509,MAT.EM2.215.08,"1879815, 1867210",
+,,,,,,"Addition and Subtraction to 1,000: Enrichment",,,,,,MAT.EM2.216
+,,,,,,,Guessing the Correct Numbers,,MAT.ARI.103.0703,"MAT.EM2.216.02, MAT.EM2.216.01","1879869, 1867212, 1867211",
+,,,,,,,Compare Sums and Differences of Numbers to 100,,MAT.ARI.103.0707,"MAT.EM2.216.03, MAT.EM2.216.04","1880380, 1867213, 1879868, 1867214",
+,,,,,,,Compare Sums and Differences of Numbers to 100 with Multiple Steps,,MAT.ARI.103.0709,"MAT.EM2.216.05, MAT.EM2.216.06, MAT.EM2.216.07","1880444, 1867215, 1879867, 1867216, 1879814, 1867217",
+,,,,,,,Add and Subtract Numbers to 1000,,MAT.ARI.103.0805,"MAT.EM2.216.08, MAT.EM2.216.13, MAT.EM2.216.14","1867218, 1879469, 1867223, 1880442, 1867224",
+,,,,,,,Compare Sums and Differences over 100,,MAT.ARI.103.0808,"MAT.EM2.216.09, MAT.EM2.216.1, MAT.EM2.216.11","1879472, 1867219, 1879470, 1867220, 1879865, 1867221",
+,,,,,,,"Fact Families for Numbers to 1,000",,MAT.ARI.103.0806,"MAT.EM2.216.12, MAT.EM2.216.15","1867222, 1880378, 1867225",
+,,,,,,Fluency in Addition and Subtraction (up to 100),,,,,,MAT.EM2.217
+,,,,,,,Add Numbers to 100,,MAT.ARI.103.0203,"MAT.EM2.217.01, MAT.EM2.217.02, MAT.EM2.217.03, MAT.EM2.217.04","1867420, 1880101, 1867421, 1880099, 1867422, 1880097, 1867423",
+,,,,,,,Higher Order Addition Statements to 100,,MAT.ARI.103.0206,"MAT.EM2.217.05, MAT.EM2.217.06, MAT.EM2.217.07","1879582, 1867424, 1879580, 1867425, 1880095, 1867426",
+,,,,,,,Subtract Numbers to 100,,MAT.ARI.103.0503,"MAT.EM2.217.08, MAT.EM2.217.09, MAT.EM2.217.1","1867427, 1880093, 1867428, 1880091, 1867429",
+,,,,,,,Higher Order Subtraction Statements to 100,,MAT.ARI.103.0506,"MAT.EM2.217.11, MAT.EM2.217.12, MAT.EM2.217.13","1879578, 1867430, 1879576, 1867431, 1880089, 1867432",
+,,,,,,Fluency in Addition and Subtraction (up to 1000),,,,,,MAT.EM2.218
+,,,,,,,Sums of Whole Numbers to 1000,,MAT.ARI.103.0801,"MAT.EM2.218.01, MAT.EM2.218.02","1867433, 1867434, 1880085",
+,,,,,,,Higher Order Sums of Whole Numbers to 1000,,MAT.ARI.103.0802,"MAT.EM2.218.03, MAT.EM2.218.04, MAT.EM2.218.05","1867435, 1879572, 1867436, 1879569, 1867437, 1880082",
+,,,,,,,Differences of Whole Numbers to 1000,,MAT.ARI.103.0803,"MAT.EM2.218.06, MAT.EM2.218.07, MAT.EM2.218.08","1867438, 1867439, 1880079, 1867440, 1880076",
+,,,,,,,Higher Order Differences of Whole Numbers to 1000,,MAT.ARI.103.0804,"MAT.EM2.218.09, MAT.EM2.218.1, MAT.EM2.218.11","1867442, 1879445, 1867443, 1879566, 1880073, 1867444",
+,,,,,Multiplication,,,,,,,MAT.EM2.220
+,,,,,,"Multiplication by 2, 3, 4, 5, 10: Basics",,,,,,MAT.EM2.221
+,,,,,,,Multiply to 12 with Pictures,,MAT.ARI.105.005,"MAT.EM2.221.01, MAT.EM2.221.02","1867226, 1879502, 1867227",
+,,,,,,,Multiplying by 2,,MAT.ARI.105.01005,MAT.EM2.221.03,"1880492, 2054281, 1867228",
+,,,,,,,Multiplying by 3,,MAT.ARI.105.0101,MAT.EM2.221.04,"1880491, 1867229",
+,,,,,,,Multiplying by 4,,MAT.ARI.105.01015,MAT.EM2.221.05,"1880490, 1867230",
+,,,,,,,Multiplying by 5,,MAT.ARI.105.0102,MAT.EM2.221.06,"1880489, 1867231",
+,,,,,,,Multiplying by 10,,MAT.ARI.105.01045,MAT.EM2.221.07,"1880488, 1867232",
+,,,,,,,Multiplication Stories and Illustrations I - Word Problems,,MAT.ARI.105.0106,MAT.EM2.221.08,"1879965, 1867233",
+,,,,,,"Multiplication by 6, 7, 8, 9, 11, 12: Basics",,,,,,MAT.EM2.224
+,,,,,,,"Multiplication Sentences from Illustrations II (Numbers 6, 7, 8, 9, 11 and 12)",,MAT.ARI.105.005,MAT.EM2.224.02,"1879501, 1867235",
+,,,,,,,Multiplying by 6,,MAT.ARI.105.01025,MAT.EM2.224.03,"1880481, 1867236",
+,,,,,,,Multiplying by 7,,MAT.ARI.105.0103,MAT.EM2.224.04,"1893315, 1867237",
+,,,,,,,Multiplying by 8,,MAT.ARI.105.01035,MAT.EM2.224.05,"1880480, 1867238",
+,,,,,,,Multiplying by 9,,MAT.ARI.105.0104,MAT.EM2.224.06,"1880479, 1867239",
+,,,,,,,Multiplying by 11,,MAT.ARI.105.0105,MAT.EM2.224.07,"1880478, 1867240",
+,,,,,,,Multiplying by 12,,MAT.ARI.105.01055,MAT.EM2.224.08,"1880477, 1867241",
+,,,,,,,Expressing Multiplication Sentences,,MAT.ARI.105.0608,MAT.EM2.227.03,"1879864, 1867246",
+,,,,,,,Group and Share by 6 to 12 with Pictures,,MAT.ARI.105.06005,"MAT.EM2.230.01, MAT.EM2.230.03","1879813, 1867250, 1879964, 1867252",
+,,,,,Place Value,,,,,,,MAT.EM2.414
+,,,,,,"Place Values to 1,000",,,,,,MAT.EM2.415
+,,,,,,,Describe Place Values to 1000,,MAT.ARI.101.0602,"MAT.EM2.415.01, MAT.EM2.415.08, MAT.EM2.415.1, MAT.EM2.415.11","1880221, 2328702, 1867445, 1880213, 1867452, 1879639, 1867454, 1867455, 1879636",
+,,,,,,,"Convert Between Words and Numbers to 1,000",,MAT.ARI.101.0601,"MAT.EM2.415.02, MAT.EM2.415.03, MAT.EM2.415.04, MAT.EM2.415.05, MAT.EM2.415.06","1880220, 1867446, 2336426, 1879643, 1867447, 1880219, 1867448, 1880396, 1867449, 1880216, 1867450",
+,,,,,,,"Recognize Place Values to 1,000",,MAT.ARI.101.06015,"MAT.EM2.415.07, MAT.EM2.415.09, MAT.EM2.415.12","1880568, 1867451, 2144979, 1879642, 1867453, 1880567",
+,,,,,,"Place Value to 10,000",,,,,,MAT.EM2.420
+,,,,,,,Counting Cubes and Creating a Place Value Model,,MAT.ARI.101.0602,MAT.EM2.420.01,"1880212, 1867456",
+,,,,,,,"Convert Between Words and Numbers to 10,000",,MAT.ARI.101.0603,"MAT.EM2.420.02, MAT.EM2.420.03, MAT.EM2.420.09","1879444, 1867457, 1879635, 1867458, 1879630, 1867464",
+,,,,,,,"Recognize Place Values to 10,000",,MAT.ARI.101.06035,"MAT.EM2.420.04, MAT.EM2.420.05, MAT.EM2.420.1","1880211, 1867459, 1879634, 1867460, 1879629, 1867465",
+,,,,,,,"Describe Place Values to 10,000",,MAT.ARI.101.0604,"MAT.EM2.420.06, MAT.EM2.420.07, MAT.EM2.420.08","1879633, 1867461, 1879632, 1867462, 1879631, 1867463",
+,,,,,,"Comparing Numbers to 1,000",,,,,,MAT.EM2.425
+,,,,,,,"Compare Numbers to 1,000",,MAT.ARI.102.02,"MAT.EM2.425.02, MAT.EM2.425.05","1879873, 1867467, 1880446, 1867470",
+,,,,,Decimals,,,,,,,MAT.EM2.429
+,,,,,,Introduction to Decimals,,,,,,MAT.EM2.430
+,,,,,,,Expressing Decimals in Tenths,,MAT.ARI.501.01,"MAT.EM2.430.03,
+MAT.EM2.430.01","1879729, 1867475, 1867473",
+,,,,,,,Decomposing Decimals into Place Values to Tenths,,MAT.ARI.501.02,MAT.EM2.430.06,"1880356, 1867478",
+,,,,,,,Expressing Decimals in Hundredths,,MAT.ARI.501.05,"MAT.EM2.430.09, MAT.EM2.430.07","1879443, 1867481, 1867479",
+,,,,,,,Decomposing Decimals into Place Values up to Hundredths,,MAT.ARI.501.06,MAT.EM2.430.12,"1880355, 1867484",
+,,,,,,,Place Value Charts and Decimals to Thousandths,,MAT.ARI.501.08,"MAT.EM2.430.13, MAT.EM2.430.15, MAT.EM2.430.18","1867485, 1879724, 1867487, 1880354, 1867490",
+,,,,,,Comparing and Arranging Decimals,,,,,,MAT.EM2.435
+,,,,,,,Compare and Order Decimals,,MAT.ARI.503.02,"MAT.EM2.435.01, MAT.EM2.435.06, MAT.EM2.435.09","1867495, 1880624, 1867501, 1879721, 1867503",
+,,,,,,,Compare and Identify Decimal Inequalities,,MAT.ARI.503.03,"MAT.EM2.435.02, MAT.EM2.435.03","1880409, 1867496, 1880351, 1867497",
+,,,,,,,Comparing and Writing Decimal Inequalities in Word Problems,,MAT.ARI.503.08,MAT.EM2.435.11,"1880408, 1867505",
+,,,,,,,Solving Decimal Word Puzzles,,MAT.ARI.503.06,MAT.EM2.435.13,1879745,
+,,,,,,Rounding Decimals,,,,,,MAT.EM2.440
+,,,,,,,Round Decimals,,MAT.ARI.505.02,"MAT.EM2.440.01, MAT.EM2.440.02","1867507, 1880349, 1867508",
+,,,,,,,"Rounding to the Nearest 2 Decimal Places, or the Hundredths Place",,MAT.ARI.505.04,MAT.EM2.440.04,"1880347, 1867511",
+,,,,,Time,,,,,,,MAT.EM2.611
+,,,,,,Time to 1 minute,,,,,,MAT.EM2.612
+,,,,,,,Overview of Telling Time to 1-minute Intervals,,MAT.MEA.204.0207,MAT.EM2.612.01,1867670,
+,,,,,,,Determine Elapsed Time,,MAT.MEA.206.0503,"MAT.EM2.612.05, MAT.EM2.612.06, MAT.EM2.612.07","1867674, 1880599, 1867675, 1867676, 1880278",
+,,,,,,,Elapsed Time Applications,,MAT.MEA.206.0504,"MAT.EM2.612.08, MAT.EM2.612.09, MAT.EM2.612.15, MAT.EM2.612.2","1867677, 1879690, 1867678, 1879687, 1867684, 1867689",
+,,,,,,,Read a Schedule,,MAT.MEA.208.02,"MAT.EM2.612.1, MAT.EM2.612.12, MAT.EM2.612.13, MAT.EM2.612.14","1867679, 1879434, 1867681, 1879431, 1867682, 1867683",
+,,,,,,,Use a Timeline,,MAT.MEA.208.04,"MAT.EM2.612.11, MAT.EM2.612.18","1879437, 1867680, 1880272, 1867687",
+,,,,,,,Elapsed Time in a Sequence of Events Applications,,MAT.MEA.206.0505,"MAT.EM2.612.17, MAT.EM2.612.19","1879794, 1867686, 1879793, 1867688",
+,,,,,,AM and PM,,,,,,MAT.EM2.614
+,,,,,,,AM and PM Times,,MAT.MEA.202.015,"MAT.EM2.614.01, MAT.EM2.614.02, MAT.EM2.614.03, MAT.EM2.614.04","1867696, 1880374, 1867697, 1880435, 1867698, 1880434, 1867699",
+,,,,,,Time Before and After,,,,,,MAT.EM2.616
+,,,,,,,Tell Times Before and After,,MAT.MEA.206.0501,"MAT.EM2.616.01, MAT.EM2.616.02","1867700, 1879429",
+,,,,,,,Difference between Two Time Intervals,,MAT.MEA.206.0507,"MAT.EM2.616.03, MAT.EM2.616.04, MAT.EM2.616.05","1879855, 1867701, 1880432, 1867703, 1879853, 1867704",
+,,,,,,Time patterns,,,,,,MAT.EM2.618
+,,,,,,,Time Patterns with Numbers and Clocks,,MAT.MEA.206.03,"MAT.EM2.618.01, MAT.EM2.618.02, MAT.EM2.618.03, MAT.EM2.618.04","1867705, 1879457, 1867706, 1879851, 1867707, 1867708",
+,,,,,Money,,,,,,,MAT.EM2.619
+,,,,,,Recognizing money,,,,,,MAT.EM2.620
+,,,,,,,Find Total Value of Coins and Bills,,MAT.MEA.107.04,"MAT.EM2.620.01, MAT.EM2.620.02, MAT.EM2.620.07","1867709, 1880605, 1867710, 1880289, 1867715",
+,,,,,,,Convert Between Coin Values,,MAT.MEA.103.04,"MAT.EM2.620.03, MAT.EM2.620.04, MAT.EM2.620.05, MAT.EM2.622.03","1880291, 1867711, 1880604, 1867712, 1880290, 1867713, 1880423",
+,,,,,,,Which Amount is not Equal to a Given Amount of Money?,,MAT.MEA.105.03,MAT.EM2.620.06,"1879700, 1867714",
+,,,,,,Dollars and Cents,,,,,,MAT.EM2.622
+,,,,,,,Convert Prices from Numbers to Words,,MAT.MEA.101.03,"MAT.EM2.622.01, MAT.EM2.622.05, MAT.EM2.622.06","1880603, 1867716, 1879407, 1867719, 1879698, 1867720",
+,,,,,,,Writing the Value of the Money in Each Purse,,MAT.MEA.107.04,MAT.EM2.622.02,"1880602, 1867717",
+,,,,,,,The Fewest Number of Coins and Bills to Equal a Given Amount,,MAT.MEA.103.08,MAT.EM2.622.04,"1879699, 1867718",
+,,,,,,,Convert Prices from Words to Numbers,,MAT.MEA.101.06,"MAT.EM2.622.07, MAT.EM2.622.08","1879697, 1867721, 1880401",
+,,,,,,Converting and Counting Money,,,,,,MAT.EM2.624
+,,,,,,,Converting Dollars into Cents,,MAT.MEA.103.06,MAT.EM2.624.02,"1879488, 1867722",
+,,,,,,,Converting Coins and Dollars in Words,,MAT.MEA.103.08,MAT.EM2.624.03,"1879902, 1867723",
+,,,,,,,Bills and Coins - Word Problems,,MAT.MEA.107.07,MAT.EM2.624.05,"1879792, 1867725",
+,,,,,,Comparing and Arranging Money,,,,,,MAT.EM2.626
+,,,,,,,Ordering Money,,MAT.MEA.105.01,"MAT.EM2.626.05, MAT.EM2.626.01, MAT.EM2.626.03",1879461,
+,,,,,,,Identify Greater and Lesser Monetary Amounts,,MAT.MEA.105.07,"MAT.EM2.626.07, MAT.EM2.626.09","1879459, 1880436",
+,,,,,Measurement,,,,,,,MAT.EM2.707
+,,,,,,Length (English): Operations,,,,,,MAT.EM2.708
+,,,,,,,Visual Differences in Length (English Units),,MAT.MEA.501.05,MAT.EM2.708.01,"1880609, 1867654",
+,,,,,,,Determine Distance Using Addition,,MAT.MEA.502.01,"MAT.EM2.708.02, MAT.EM2.708.03","1867655, 1880312, 1867656",
+,,,,,,,Using Symbol Maps with Compound Units,,MAT.MEA.501.53,MAT.EM2.708.04,1867657,
+,,,,,,,Length Comparison Applications,,MAT.MEA.502.05,"MAT.EM2.708.05, MAT.EM2.708.08","1867658, 1879703, 1867661",
+,,,,,,,Adding Unit Lengths in One Step (English Units),,MAT.MEA.502.02,MAT.EM2.708.06,"1880310, 1867659",
+,,,,,,,Add and Subtract Unit Lengths,,MAT.MEA.502.04,"MAT.EM2.708.07, MAT.EM2.708.09","1880308, 1867660, 1880306, 1867662",
+,,,,,,,Multiplying Lengths (English Units),,MAT.MEA.502.06,MAT.EM2.708.1,"1880304, 1867663",
+,,,,,,,Dividing Lengths (English Units),,MAT.MEA.502.07,MAT.EM2.708.11,"1880302, 1867664",
+,,,,,,,Conversion Word Problems (English Units),,MAT.MEA.501.58,MAT.EM2.708.12,"1867665, 1880607",
+,,,,,,Capacity (Metric): Introduction,,,,,,MAT.EM2.728
+,,,,,,,Visually Identify and Compare Measures of Capacity,,MAT.MEA.600.5,"MAT.EM2.728.01, MAT.EM2.728.04, MAT.EM2.728.08, MAT.EM2.728.09, MAT.EM2.728.1","1867726, 1879506, 1867729, 1879503, 1867734, 1867735, 1880497, 1867736",
+,,,,,,,Compare Capacity in Liters,,MAT.MEA.605.02,"MAT.EM2.728.03, MAT.EM2.728.07","1867728, 1879508, 1867732",
+,,,,,,,Finding the Capacity of Water with Illustrations (Metric Units),,MAT.MEA.606.02,MAT.EM2.728.05,"1879504, 1867730",
+,,,,,,,Finding the Amount of Water with Illustrations and Calculations,,MAT.MEA.605.06,MAT.EM2.728.06,"1880500, 1867731",
+,,,,,,Area and Perimeter Basics,,,,,,MAT.EM2.732
+,,,,,,,Perimeter with Side Lengths,,MAT.GEO.504.07,"MAT.EM2.732.03, MAT.EM2.732.01","1880366, 1867748, 1867746",
+,,,,,,,Area in Grid,,MAT.GEO.506.01,"MAT.EM2.732.06, MAT.EM2.732.05","1867751, 1880364, 1867750",
+,,,,,,Capacity (English): Converting and Comparing,,,,,,MAT.EM2.736
+,,,,,,,Comparing Cups and Pints by Pictures,,MAT.MEA.601.01,MAT.EM2.736.17,"1879602, 1867784",
+,,,,,,,Comparing Pints and Quarts by Pictures,,MAT.MEA.601.02,MAT.EM2.736.19,"1879600, 1867786",
+,,,,,,,Comparing Cups and Quarts by Pictures,,MAT.MEA.601.03,MAT.EM2.736.21,"1879598, 1867788",
+,,,,,,,Compare Cups Pints and Quarts,,MAT.MEA.601.05,"MAT.EM2.736.23, MAT.EM2.736.24, MAT.EM2.736.47","1879597, 1867790, 1879596, 1867791, 1867813",
+,,,,,,,Compare Gallons and Quarts,,MAT.MEA.601.04,"MAT.EM2.736.33, MAT.EM2.736.34","1867800, 1879595, 1867801",
+,,,,,,,Compare Pints Quarts and Gallons,,MAT.MEA.601.06,"MAT.EM2.736.36, MAT.EM2.736.37","1879594, 1867802, 1879593, 1867803",
+,,,,,,,Capacity Problems with Illustrations - Word Problems,,MAT.MEA.604.01,MAT.EM2.736.45,"1880119, 1867811",
+,,,,,,,Capacity Comparison Problems with Illustrations - Word Problems,,MAT.MEA.601.07,MAT.EM2.736.46,"1880544, 1867812",
+,,,,,Fractions,,,,,,,MAT.EM2.790
+,,,,,,What is a Fraction?,,,,,,MAT.EM2.795
+,,,,,,,Parts of a Whole with Pictures,,MAT.ARI.401.02,"MAT.EM2.795.01, MAT.EM2.795.03","1879610, 1868109, 1879400",
+,,,,,Geometry,,,,,,,MAT.EM2.800
+,,,,,,2D Shapes I,,,,,,MAT.EM2.805
+,,,,,,,Identify Basic Shapes,,MAT.GEO.101.01,"MAT.EM2.805.01, MAT.EM2.805.02, MAT.EM2.805.03, MAT.EM2.805.04","1868090, 1868091, 1879394, 1879391, 1868092, 1868093, 1880244",
+,,,,,,,Counting the Number of Different 2D Shapes in a Composite Figure,,MAT.GEO.101.05,MAT.EM2.805.05,"1868094, 1879384",
+,,,,,,2D Shapes II,,,,,,MAT.EM2.810
+,,,,,,,Identifying Semicircles and Quarter Circles,,MAT.GEO.600.5,"MAT.EM2.810.01, MAT.EM2.810.02, MAT.EM2.810.03","1868095, 1868096, 1879388, 1880415, 1868097",
+,,,,,,,Identify Less Common Basic Shapes,,MAT.GEO.101.03,"MAT.EM2.810.04, MAT.EM2.810.05, MAT.EM2.810.06","1868098, 1868099, 1879519, 1879516, 1868100",
+,,,,,,,Identify Shapes within Composite Shapes,,MAT.GEO.101.05,"MAT.EM2.810.07, MAT.EM2.810.08, MAT.EM2.810.09","1868101, 1879514, 1868102, 1868103",
+,,,,,,,Basic Visual Patterns,,MAT.GEO.201.01,"MAT.EM2.810.1, MAT.EM2.810.11, MAT.EM2.810.13","1868104, 2054280, 1879511, 1868105, 1868107",
+,,,,,,"Lines, Curves, Vertices, and Surfaces",,,,,,MAT.EM2.820
+,,,,,,,Basic Shapes,,MAT.GEO.101,"MAT.EM2.820.01, MAT.EM2.820.02, MAT.EM2.820.03","1868113, 1879683, 1868114, 1880587, 1868115",
+,,,,,,,"Faces, Edges, and Vertices of Solids",,MAT.GEO.900.5,"MAT.EM2.820.04, MAT.EM2.820.05, MAT.EM2.820.06, MAT.EM2.820.07","1868116, 1879678, 1868117, 1868118, 1879681",
+,,,,,,,Solid Figures,,MAT.GEO.900,"MAT.EM2.820.08, MAT.EM2.820.09","1868119, 1879676, 1880241, 1868120",
+,,,,,,,Visually Evaluating Parallel Lines Cut by a Traversal,,MAT.GEO.302,MAT.EM2.835.09,"1880629, 1868138",
+,,,,,,,Identifying Parallel and Perpendicular Lines,,MAT.GEO.301,MAT.EM2.835.1,"1879733, 1868139",

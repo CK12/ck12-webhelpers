@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                      "http://www.w3.org/TR/html4/loose.dtd"> 
+<html>
+    <head>
+        <title>Create a new Concept Node</title>
+    </head>
+    <body>
+        <form action="/taxonomy/create/concept"
+            method="POST">
+            
+            <table>
+                <tr>
+                    <td>Login ID:</td>
+                    <td>{{ c.memberLogin }}</td>
+                </tr>
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text" name="name" /></td>
+                </tr>
+                <tr>
+                    <td>Handle:</td>
+                    <td><input type="text" name="handle" /></td>
+                </tr>
+                <tr>
+                    <td>Description:</td>
+                    <td<input type="text" name="description" /></td>
+                </tr>
+                <tr>
+                    <td>Parent ID:</td>
+                    <td><input type="text" name="parentID" /></td>
+                </tr>
+                <tr>
+                    <td>Subject:</td>
+                    <td><input type="text" name="subjectID" /></td>
+                </tr>
+                <tr>
+                    <td>Branch:</td>
+                    <td><input type="text" name="branchID" /></td>
+                </tr>
+                <tr><td colspan="2">&nbsp;</td></tr>
+                <tbody style="border: 2px solid #000000;">
+                  <tr>
+                      <td>Encoded ID:</td>
+                      <td><input type="text" name="encodedID" /> OR</td>
+                  </tr>
+                    <tr>
+                        <td>Insert after:</td> 
+                        <td><input type="text" name="insertAfter" /> OR</td>
+                    </tr>
+                    <tr>
+                        <td>Insert before:</td>
+                        <td><input type="text" name="insertBefore" /> OR </td>
+                    </tr>
+                    <tr>
+                        <td>Insert as First:</td>
+                        <td><input type="checkbox" name="insertFirst" value="true" /></td>
+                    </tr>
+                </tbody>
+                <tr><td colspan="2">&nbsp;</td></tr>
+                <tr>
+                    <td>Keywords:</td>
+                    <td><input type="text" name="keywords" /></td>
+                </tr>
+                <tr>
+                    <td>Dependencies:</td>
+                    <td><input type="text" name="prereqs" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align:right;"><input type="submit" value="Create" /></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

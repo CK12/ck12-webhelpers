@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!--[if IE 7]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie9 lt-ie10" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<title>{{ c.modality_data.artifact.get_modality_resource().name }} | CK-12 Foundation</title>
+	<style type="text/css">
+		body{margin: 0;}
+    	iframe{border: 0;}
+  </style>
+</head>
+<!-- Main Content -->
+<body class="nochrome">
+	<!-- Main Page Content and Sidebar -->
+	<iframe id="simulation-frame" width="100%" height="100%" src="{{ c.modality_data.artifact.get_modality_resource().embeddedObject.url }}"></iframe>
+	<!-- End Main Content and Sidebar -->
+	<script>
+		document.getElementById('simulation-frame').height = window.innerHeight;
+		window.addEventListener('resize', function () {
+			document.getElementById('simulation-frame').height = window.innerHeight;
+			document.getElementById('simulation-frame').width = window.innerWidth;
+		});
+	</script>
+</body>
+</html>

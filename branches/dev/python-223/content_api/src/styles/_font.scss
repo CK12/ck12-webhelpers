@@ -1,0 +1,77 @@
+/* @license
+ * MyFonts Webfont Build ID 2532189, 2013-04-16T19:17:17-0400
+ *
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are
+ * explicitly restricted from using the Licensed Webfonts(s).
+ *
+ * You may obtain a valid license at the URLs below.
+ *
+ * Webfont: Proxima Nova Italic by Mark Simonson
+ * URL: http://www.myfonts.com/fonts/marksimonson/proxima-nova/regular-it/
+ *
+ * Webfont: Proxima Nova Bold Italic by Mark Simonson
+ * URL: http://www.myfonts.com/fonts/marksimonson/proxima-nova/bold-it/
+ *
+ * Webfont: Proxima Nova Regular by Mark Simonson
+ * URL: http://www.myfonts.com/fonts/marksimonson/proxima-nova/regular/
+ *
+ * Webfont: Proxima Nova Bold by Mark Simonson
+ * URL: http://www.myfonts.com/fonts/marksimonson/proxima-nova/bold/
+ *
+ *
+ * License: http://www.myfonts.com/viewlicense?type=web&buildid=2532189
+ * Webfonts copyright: Copyright (c) Mark Simonson, 2005. All rights reserved.
+ *
+ * © 2013 MyFonts Inc
+*/
+
+
+/* @import must be at top of file, otherwise CSS will not work */
+@import url("//hello.myfonts.net/count/26a35d");
+@font-face {
+    font-family: 'ProximaNova';
+    src: url('//www.ck12.org/media/common/font/proximanova/italic.eot');
+    src: url('//www.ck12.org/media/common/font/proximanova/italic.eot?#iefix') format('embedded-opentype'),
+         url('//www.ck12.org/media/common/font/proximanova/italic.woff') format('woff'),
+         url('//www.ck12.org/media/common/font/proximanova/italic.ttf') format('truetype'),
+         url('//www.ck12.org/media/common/font/proximanova/italic.svg#wf') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}
+
+
+@font-face {
+    font-family: 'ProximaNova';
+    src: url('//www.ck12.org/media/common/font/proximanova/bold_italic.eot');
+    src: url('//www.ck12.org/media/common/font/proximanova/bold_italic.eot?#iefix') format('embedded-opentype'),
+         url('//www.ck12.org/media/common/font/proximanova/bold_italic.woff') format('woff'),
+         url('//www.ck12.org/media/common/font/proximanova/bold_italic.ttf') format('truetype'),
+         url('//www.ck12.org/media/common/font/proximanova/bold_italic.svg#wf') format('svg');
+    font-weight: 600;
+    font-style: italic;
+}
+
+
+@font-face {
+    font-family: 'ProximaNova';
+    src: url('//www.ck12.org/media/common/font/proximanova/regular.eot');
+    src: url('//www.ck12.org/media/common/font/proximanova/regular.eot?#iefix') format('embedded-opentype'),
+         url('//www.ck12.org/media/common/font/proximanova/regular.woff') format('woff'),
+         url('//www.ck12.org/media/common/font/proximanova/regular.ttf') format('truetype'),
+         url('//www.ck12.org/media/common/font/proximanova/regular.svg#wf') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'ProximaNova';
+    src: url('//www.ck12.org/media/common/font/proximanova/bold.eot');
+    src: url('//www.ck12.org/media/common/font/proximanova/bold.eot?#iefix') format('embedded-opentype'),
+         url('//www.ck12.org/media/common/font/proximanova/bold.woff') format('woff'),
+         url('//www.ck12.org/media/common/font/proximanova/bold.ttf') format('truetype'),
+         url('//www.ck12.org/media/common/font/proximanova/bold.svg#wf') format('svg');
+    font-weight: 600;
+    font-style: normal;
+}

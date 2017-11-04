@@ -1,0 +1,32 @@
+{
+	"simpleFunction" : {
+		"data" : "f\\left(x\\right)",
+		"pos" : [1,8,15],
+		"length" : 15
+	},
+	"gFunction" : {
+		"data" : "g\\left(x\\right)",
+		"pos" : [1,8,15],
+		"length" : 15
+	},
+	"hFunction" : {
+		"data" : "h\\left(x\\right)",
+		"pos" : [1,8,15],
+		"length" : 15
+	},
+	"simpleFunctionSuffix" : {
+		"data" : "f^{}\\left(x\\right)",
+		"pos" : [1,3,4,11,18],
+		"length" : 18
+	},
+	"gFunctionSuffix" : {
+		"data" : "g^{}\\left(x\\right)",
+		"pos" : [1,3,4,11,18],
+		"length" : 18
+	},
+	"hFunctionSuffix" : {
+		"data" : "h^{}\\left(x\\right)",
+		"pos" : [1,3,4,11,18],
+		"length" : 18
+	}
+}

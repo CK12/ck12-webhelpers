@@ -1,0 +1,417 @@
+.content-wrap{
+	max-width: 100% !important;
+	padding:0;
+}
+.sample-image{
+	background:url("/media/images/landing/max-banner.png") no-repeat scroll 0 0 / 84% 84% rgba(0, 0, 0, 0);
+	height: 372px;
+}
+.feature-container{
+    background: #f9f9f5;
+}
+.feature-container-1{
+	background: #ffffff;
+}
+
+.feature-name{
+	color: #56544d;
+    font-family: proximanova;
+    font-size: 30px;
+    font-weight: bold;
+}
+.feature-description{
+	font-size: 24px;
+	line-height:30px;
+	color:#56544d;
+	padding-top: 3px;
+	padding-right:24%;
+}
+.feature-name-container{
+    padding-top: 12%;
+}
+.feature-name-container .try-now{
+	margin-top:21px;
+}
+.feature-name-container > div,.answer-adaptive{
+	padding-left: 8%;
+    padding-right: 8%;
+}
+.feature-info{
+	font-weight:bold;
+	font-size:21px;
+}
+.feature-info-explained{
+	font-size:16px;
+	line-height:21px;
+	margin-top:8px;
+}
+.answer-adaptive{
+	padding-top: 11%;
+}
+.level-container div{
+	padding-left:12%;
+	padding-right:12%;
+}
+.level-container{
+	padding-top: 33px;	
+}
+.recommendation-container{
+	padding-left: 11%;
+    padding-right: 11%;
+    padding-top: 17%;
+}
+.try-now-btn{
+	margin-top:54px;
+}
+.using-practice{
+	font-size:21px;
+}
+.using-practice-info{
+	font-size:16px;
+	line-height:21px;
+	margin-bottom: 34px;
+    margin-top: 5px;
+}
+.faq-help{
+	background:#f9f9f5;
+	border: 1px solid #f9f9f5;
+    border-radius: 8px;
+    padding-left: 18px !important;
+    padding-top: 18px;
+}
+.faq-help-wrapper ul {
+    margin-bottom: 9px;
+}
+ul{
+	list-style:none;
+}
+.center-content{
+	margin-left:auto;
+	margin-right:auto;
+	max-width:1020px;
+}
+.adaptive-correct{
+	padding-bottom: 65px;
+    padding-top: 65px;
+}
+.adaptive_landing .difficulty-level{
+	padding-bottom: 67px;
+    padding-top: 67px;
+}
+.adaptive_landing .feature-sims{
+	padding-bottom: 18px;
+    padding-top: 18px;
+}
+.adaptive_landing .existing-users{
+	padding-bottom:60px;
+}
+.role{
+	color:#8e8774;
+	font-size:16px;
+}
+.faq-help-title{
+	font-weight:bold;
+	font-size:18px;
+	color:#56544d;
+	margin-left: 7px;
+    vertical-align: sub;
+}
+.faq-help-topics a{
+	color:#1aaba3;
+}
+.adaptive_image_container_768{
+	display:none;
+}
+.existing-user-wrapper{
+	width:33.333%;
+}
+.show_image_320{
+	display:none;
+}
+.faq-help-container{
+	padding-left:11%;
+	padding-right:11%;
+}
+.faq-help-wrapper {
+    width: 44.333%;
+}
+.show_image_1024_only{
+	padding-top: 26px;
+}
+.adaptive-correct .show_image_1024{
+	padding-left:7% !important;
+	/* padding-right:5%; */
+}
+.faq-image-wrapper {
+    padding-bottom: 8px;
+}
+.difficulty-level .show_image_1024{
+	padding-left:4% !important;
+}
+.faqs h3{
+	cursor:pointer; 
+}
+.faqs div {
+	height:0; overflow:hidden;
+	position:relative;
+}
+.faqs div p	{
+	padding:0;
+	margin-bottom:15px;
+}
+.faq-help-topics {
+    color: #1aaba3;
+    font-size: 16px;
+    display:block;
+    font-weight: normal;
+    margin-top: 3px;
+}
+.faqs div p {
+    color: #56544d;
+    margin-bottom: 15px;
+    padding: 0;
+}
+.feature-sims .show_image_1024{
+	padding-left:7% !important;
+}
+.teacher-faq {
+    margin-bottom: 11px;
+}
+.more-link{
+	margin-bottom:8px;
+}
+.practice-hero-container:hover {
+    cursor: pointer;
+}
+.practice-advantage {
+    font-size: 16px;
+    font-weight : bold;
+}
+img.head-img {
+    margin-right: 5px;
+}
+@media only screen and (min-width: 768px) and (max-width: 1023px){
+	.feature-container-1,.feature-container{
+		padding-left:15px;
+		padding-right:15px;
+	}
+	.adaptive_image_container_768{
+		display:block;
+		margin-top: 20px;
+	}
+	.adaptive_image_container{
+		display:none;
+	}
+	.feature-name{
+		font-size:27px;
+	}
+	.feature-description{
+		font-size:21px;
+		line-height:27px;
+		padding-top: 4px;
+	}
+	.difficulty-level .show_image_1024{
+		padding-left:0% !important;
+	}
+	.feature-name-container > div, .answer-adaptive{
+		padding-left:0;
+		padding-right:0;
+	}
+	.feature-name-container .try-now {
+ 	    margin-top: 23px;
+	}
+	.image_resize{
+		width:80%;
+		height:auto;
+		float:right;
+	}
+	.adaptive_landing .difficulty-level {
+	    padding-bottom: 56px;
+	    padding-top: 56px;
+	}
+	.level-container {
+    	padding-top: 11px;
+	}
+	.recommendation-container{
+		padding-top: 13%;
+	}
+	.faq-help-wrapper{
+		width:48%;
+	}
+	.existing-user-wrapper{
+		width:37.33%;
+	}
+	.faq-help{
+		margin:0;
+	}
+	.show_image_1024_only{
+		display:none;
+	}
+	.feature-name-container{
+		padding-top: 9.5%;
+	}
+	.answer-adaptive{
+		padding-top: 3%;
+	}
+	.faq-help-container{
+		padding-left:0;
+		padding-right:0;
+	}
+}
+@media only screen and (max-width: 767px){
+	.show_image_320{
+		display:block;
+	}
+	.show_image_1024{
+		display:none;
+	}
+	.show_image_1024_only{
+		display:none;
+	}
+	.feature-container-1,.feature-container{
+		padding-left:15px;
+		padding-right:15px;
+	}
+	.feature-name-small{
+		font-size:24px;
+		font-weight:bold;
+	}
+	.feature-description-small{
+		font-size:18px;
+		line-height:24px;
+		margin-top:24px;
+		margin-bottom:10px;
+	}
+	.feature-name-container{
+		padding-top:0;
+		margin-bottom: 13px;
+    	margin-top: 17px;
+	}
+	.feature-name-container-small .try-now{
+		margin-bottom:30px;
+	}
+	.adaptive-correct .center-content{
+		display:table;
+	}
+	.answer-correct{
+		display: table-footer-group;
+    	float: none !important;
+	}
+	.adaptive-correct .show_image_320{
+		display: table-header-group;
+	}
+	.adaptive-correct {
+	    padding-top: 29px;
+	    padding-bottom: 24px;
+	}
+	.answer-adaptive{
+		padding-left:0;
+		padding-right:0;
+		padding-top: 7%;
+	}
+	.level-container div{
+		padding-left:0;
+		padding-right:0;
+	}
+	.adaptive_landing .difficulty-level {
+	    padding-bottom: 24px;
+	    padding-top: 28px;
+	}
+	.level-container {
+    	padding-top: 21px;
+	}
+	.feature-sims .center-content {
+    	display: table;
+	}
+	.feature-sims .show_image_320{
+		display: table-header-group;
+	}
+	.feature-sims .feature-sims-content{
+		display: table-footer-group;
+		float:none !important;
+	}
+	.recommendation-container{
+		padding-top: 6%;
+		padding-left:0;
+		padding-right:0;
+	}
+	.adaptive_landing .feature-sims {
+	    padding-bottom: 24px;
+	    padding-top: 27px;
+	}
+	.existing-user-wrapper{
+		width:100%;
+	}
+	.using-practice-info{
+		margin-top: 1px;
+	}
+	.faq-help{
+		margin:0;
+		padding-left:0 !important;
+		border: medium none;
+		background:none;
+		padding-top:0;
+		padding-bottom:12px;
+	}
+	.faq-help-wrapper {
+    	width: 100%;
+	}
+	.feature-container-1.existing-users{
+		padding-left:0;
+		padding-right:0;
+	}
+	.existing-user-wrapper{
+		padding-left:15px !important;
+		padding-right:15px !important;
+	}
+	.faq-image-wrapper{
+		background: #f9f9f5;
+		padding-bottom: 5px;
+    	padding-top: 5px;
+    	margin-bottom: 16px !important;
+	}
+	.faq-help > div {
+	    padding-left: 15px;
+	    padding-right: 15px;
+	}
+	.faq-image-wrapper span{
+		margin-right:12px;
+	}
+	.faq-help-title{
+		vertical-align:sub;
+	}
+	.faq-help-topics {
+    	line-height: 18px;
+    	margin-top: 5px;
+    	margin-bottom:11px;
+	}
+	.teacher-faq {
+    	margin-bottom: 19px;
+	}
+	.faq-help-wrapper ul{
+		margin-top:5px;
+	}
+	.faq-help-wrapper ul li{
+		margin-bottom:11px;
+	}
+	.help-section ul {
+	    padding-left: 15px;
+	    padding-right: 15px;
+	}
+	.adaptive_landing .existing-users {
+    	padding-bottom: 7px;
+	}
+	.faq-help-container{
+		padding-left:0;
+		padding-right:0;
+	}
+	.adaptive-correct .show_image_320 img {
+    	width: 290px;
+	}
+	.feature-sims .show_image_320 img {
+    	width: 290px;
+	}
+	.content-inner-wrapper{
+    	text-align: center;
+	}
+}

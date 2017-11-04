@@ -1,0 +1,514 @@
+<div class="row collapse">
+	<div id="account-settings-main" class="small-12 large-12 columns hide">
+		<div class="row collapse account-settings-main-container hide-small">
+			<span class="account-settings-main-header">Account Settings</span>
+		</div>
+		<div class="row collapse account-settings-main-container">
+			<div class="small-12 large-12 columns account-settings-main-wrapper">
+				<div class="hide-for-small account-settings-space">
+					<div class="bottom"></div>
+				</div>
+				<div class="row collapse name-section">
+					<div class="small-12 large-12 columns account-settings-border accounts-settings-padding">
+						<div class="row collapse">
+							<span class="text-center icon-wrapper"><i class="icon-user left-icon"></i></span>
+							<span class="account-settings-header">Profile</span>
+						</div>
+						<form id="nameForm" novalidate="novalidate" class="row collapse account-email-settings" method="POST" autocomplete="on">
+							<div class="row collapse hide-small">
+								<div class="error-wrapper"><div data-for="name" class="right error hide user-name-error"></div></div>
+							</div>
+							<div class="row collapse">
+								<div class="left email-label">
+									<span class="user-text">Full Name</span>
+								</div>
+								<div data-for="name" class="left error hide user-name-error-small show-small"></div>
+								<div class="left input large email-id account-username">
+									<input autocomplete="on" type="text" id="name" name="name" placeholder="full name" title="<%- data.name %>" autocorrect="off" autocapitalize="on" spellcheck="false" maxlength="63"/>
+									<i class="icon-validated hide-important hide-for-small"></i>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="row collapse signing-in-section">
+					<div class="small-12 large-12 columns account-settings-border accounts-settings-padding account-signin-wrapper">
+						<div class="row collapse">
+							<span class="text-center icon-wrapper"><i class="icon-signin left-icon"></i></span>
+							<span class="account-settings-header">Signing In</span>
+						</div>
+						<div class="row collapse account-email-settings social-topic-text">You can also sign in with an email address or username</div>
+						<form id="usernameForm" novalidate="novalidate" class="row collapse account-email-settings" method="POST" autocomplete="on">
+							<div class="row collapse hide-small">
+								<div class="error-wrapper"><div data-for="email" class="right error hide user-name-error"></div></div>
+							</div>
+							<% if (!data.isUnderage && !data.hideEmailField) {%>
+								<div class="row collapse">
+									<div class="left email-label">
+										<span class="user-text">Email</span>
+									</div>
+									<div data-for="email" class="left error hide user-name-error-small show-small"></div>
+									<div class="left input large email-id account-username">
+										<input autocomplete="on" type="text" id="email" name="email" placeholder="email" title="<%- data.email %>" class="js-user-info" autocorrect="off" autocapitalize="off" spellcheck="false" />
+										<i class="icon-validated hide-important hide-for-small"></i>
+									</div>
+								</div>
+							<% } %>
+							<div class="row collapse hide-small">
+								<div class="error-wrapper"><div data-for="login" class="right error hide user-name-error"></div></div>
+							</div>
+							<div class="row collapse">
+								<div class="left email-label">
+									<span class="user-text">Username</span>
+								</div>
+								<div data-for="login" class="left error hide user-name-error-small show-small"></div>
+								<div id="username-change" class="relative error-wrapper hide">
+									<div class="username-change">
+										<i class="icon-notification"></i>
+										<span class="hide-small">Note: Username once updated cannot be changed later.</span>
+										<span class="show-small">Username can't be changed later.</span>
+									</div>
+								</div>
+								<div class="left input large account-username">
+									<input autocomplete="on" autocorrect="off" autocapitalize="off" spellcheck="false" <% if (data.login) { %>readonly="readonly" disabled="disabled"<% } %> type="text" id="login" name="login" placeholder="ex: starfish" title="<%= data.login %>" class="js-user-info"/>
+									<% if (!data.login) { %>
+										<i class="icon-validated hide-important hide-for-small"></i>
+									<% } %>
+								</div>
+							</div>
+							<div class="row collapse hide-small">
+								<div class="error-wrapper"><div data-for="password" class="right error hide user-name-error"></div></div>
+							</div>
+							<div class="row collapse password">
+								<div class="left password-label">
+									<span class="user-text">New Password</span>
+								</div>
+								<div data-for="password" class="left error hide user-name-error-small show-small"></div>
+								<div class="left input large account-username">
+									<input autocomplete="off" autocorrect="off" autocapitalize="off" type="password" id="password" name="password" placeholder="password"/>
+									<i id="password-check" class="icon-validated hide-important hide-for-small"></i>
+								</div>
+							</div>
+							<div class="row collapse">
+								<div class="left email-label hide-small">
+									<span class="user-text">&nbsp;</span>
+								</div>
+								<div class="custom-box password-box">
+									<input autocomplete="off" type="checkbox" id="password-show">
+									<label class="checkbox" for="password-show"><span><i class="icon-validated"></i></span>Show my password</label>
+								</div>
+							</div>
+							<div class="row collapse">
+								<div class="hide-for-small left email-label">
+									<span>&nbsp;</span>
+								</div>
+								<div class="text-center left save-changes">
+									<input type="text" class="no-show" />
+									<a class="button standard tangerine disabled" id="usernameFormSubmit">Save Changes</a>
+								</div>
+								<div id="user-info-save" class="user-info-save hide">
+									<i class="icon-validated"></i>
+									<span>Your settings have been saved.</span>
+								</div>
+							</div>
+							<input autocomplete="on" type="hidden" id="emailID" name="emailID" placeholder="email" value="<%- data.email %>"/>
+						</form>
+					</div>
+				</div>
+				<div class="row collapse social-section">
+					<div class="small-12 large-12 columns account-settings-border accounts-settings-padding">
+						<div class="row collapse">
+							<span class="text-center icon-wrapper"><i class="icon-shuffle left-icon"></i></span>
+							<span class="account-settings-header">Connected Social Accounts</span>
+						</div>
+						<div class="row collapse account-email-settings social-account-container">
+							<div class="row collapse social-account-wrapper">
+								<div class="left social-text-wrapper">
+									<i class="icon-google2"></i>
+									<span>Google</span>
+								</div>
+								<div class="social-button-wrapper">
+									<a id="google-connect" class="button small turquoise js-social-connect">Connect</a>
+									<a class="social-disconnect hide-important js-disconnect-link" title="disconnect">Disconnect</a>
+									<div class="disconnect-tooltip">
+										<div>
+											<span class="social-arrow"></span>
+										</div>
+										<div>
+											<span class="text">Are you sure you want to disconnect this account?</span>
+											<i class="right pointer icon-close js-social-close"></i>
+										</div>
+										<div>
+											<a class="button tangerine small right js-social-disconnect">OK</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row collapse social-account-wrapper">
+								<div class="left social-text-wrapper">
+									<i class="icon-facebook-2"></i>
+									<span>Facebook</span>
+								</div>
+								<div class="social-button-wrapper">
+									<a id="facebook-connect" class="button small turquoise js-social-connect">Connect</a>
+									<a class="social-disconnect hide-important js-disconnect-link" title="disconnect">Disconnect</a>
+									<div class="disconnect-tooltip">
+										<div>
+											<span class="social-arrow"></span>
+										</div>
+										<div>
+											<span class="text">Are you sure you want to disconnect this account?</span>
+											<i class="right pointer icon-close js-social-close"></i>
+										</div>
+										<div>
+											<a class="button tangerine small right js-social-disconnect">OK</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row collapse social-account-wrapper">
+								<div class="left social-text-wrapper">
+									<i class="icon-twitter-2"></i>
+									<span>Twitter</span>
+								</div>
+								<div class="social-button-wrapper">
+									<a id="twitter-connect" class="button small turquoise js-social-connect">Connect</a>
+									<a class="social-disconnect hide-important js-disconnect-link" title="disconnect">Disconnect</a>
+									<div class="disconnect-tooltip">
+										<div>
+											<span class="social-arrow"></span>
+										</div>
+										<div>
+											<span class="text">Are you sure you want to disconnect this account?</span>
+											<i class="right pointer icon-close js-social-close"></i>
+										</div>
+										<div>
+											<a class="button tangerine small right js-social-disconnect">OK</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row collapse social-account-wrapper">
+								<div class="left social-text-wrapper">
+									<i class="icon-microsoftlive"></i>
+									<span>Microsoft</span>
+								</div>
+								<div class="social-button-wrapper">
+									<a id="azure-connect" class="button small turquoise js-social-connect">Connect</a>
+									<a class="social-disconnect hide-important js-disconnect-link" title="disconnect">Disconnect</a>
+									<div class="disconnect-tooltip">
+										<div>
+											<span class="social-arrow"></span>
+										</div>
+										<div>
+											<span class="text">Are you sure you want to disconnect this account?</span>
+											<i class="right pointer icon-close js-social-close"></i>
+										</div>
+										<div>
+											<a class="button tangerine small right js-social-disconnect">OK</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="wait-disconnect-tooltip" class="row collapse relative wait-disconnect-tooltip">
+							<div class="relative">
+								<span class="wait-social-arrow"></span>
+							</div>
+							<div class="left wait-header">
+								<span class="left">Wait!</span>
+								<i class="icon-close right pointer js-wait-tooltip-close"></i>
+							</div>
+							<div class="left social-alert">
+								<span>Before disconnecting </span>
+								<span class="js-wait-social-text"></span><span>, connect another social account, or provide an email address/username and password, so you can sign in next time.</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="change-password" class="row collapse hide change-password-section">
+					<div class="small-12 large-12 columns account-settings-border accounts-settings-padding">
+						<div class="row collapse">
+							<span class="text-center icon-wrapper"><i class="icon-lock left-icon icon-center"></i></span>
+							<span class="account-settings-header">Password</span>
+						</div>
+						<form id="passwordForm" novalidate="novalidate" class="row collapse account-email-settings" method="POST" autocomplete="off">
+							<div class="row collapse hide-small">
+								<div class="error-wrapper"><div data-for="currentpassword" class="right error hide user-name-error"></div></div>
+							</div>
+							<div class="row collapse">
+								<div class="left email-label">
+									<span class="user-text">Current Password</span>
+								</div>
+								<div data-for="currentpassword" class="left error hide user-name-error-small show-small"></div>
+								<div class="left input large email-id account-username">
+									<input autocomplete="off" type="password" id="currentpassword" name="currentpassword" class="js-password-change"/>
+								</div>
+							</div>
+							<div class="row collapse hide-small">
+								<div class="error-wrapper"><div data-for="newpassword" class="right error hide user-name-error"></div></div>
+							</div>
+							<div class="row collapse">
+								<div class="left email-label">
+									<span class="user-text">New Password</span>
+								</div>
+								<div data-for="newpassword" class="left error hide user-name-error-small show-small"></div>
+								<div class="left input large email-id account-username">
+									<input autocomplete="off" type="password" id="newpassword" name="newpassword" class="js-password-change"/>
+									<i class="icon-validated hide-important hide-for-small"></i>
+								</div>
+							</div>
+							<div class="row collapse">
+								<div class="left email-label hide-small">
+									<span class="user-text">&nbsp;</span>
+								</div>
+								<div class="custom-box password-box">
+									<input autocomplete="off" type="checkbox" id="passwords-show">
+									<label class="checkbox" for="passwords-show"><span><i class="icon-validated"></i></span>Show my passwords</label>
+								</div>
+							</div>
+							<div class="row collapse">
+								<div class="hide-for-small left email-label">
+									<span>&nbsp;</span>
+								</div>
+								<div class="text-center left save-changes">
+									<input type="text" class="no-show" />
+									<a class="button standard tangerine disabled" id="passwordFormSubmit">Save Changes</a>
+								</div>
+								<div id="password-save" class="user-info-save hide">
+									<i class="icon-validated"></i>
+									<span>Your settings have been saved.</span>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="row collapse profile-link-section">
+					<div class="small-12 large-12 columns account-settings-border accounts-settings-padding">
+						<div class="left email-label">
+							<span class="text-center icon-wrapper"><i class="icon-user left-icon"></i></span>
+							<span class="account-settings-header">Profile</span>
+						</div>
+						<div class="left account-email-settings account-links">
+							<a href="/auth/profile?returnTo=<%= data.returnTo %>&appHome=<%= data.appHome %>" title="Change profile">Change profile</a>
+						</div>
+					</div>
+				</div>
+				<div class="row collapse timezone-section">
+					<div class="small-12 large-12 columns account-settings-border accounts-settings-padding">
+						<div class="row collapse">
+							<span class="text-center icon-wrapper"><i class="icon-clock left-icon"></i></span>
+							<span class="account-settings-header">Time Zone</span>
+						</div>
+						<div class="account-email-settings timezone-wrapper">
+							<div class="row collapse timezone-label">To receive digest emails at the right time, set your time zone.</div>
+							<div class="row collapse timezone-dropdown">
+								<div data-dropdown="account-timezone" class="button small split simple js-dropdown"><a class="dropdown-label timezone-dropdown-label js-close-drop-down">US/Pacific</a><span class="js-close-drop-down"></span></div>
+								<ul id="account-timezone" class="f-dropdown tangerine-list simple account-timezone" data-dropdown-content="" style="position: absolute; top: 31px; left: -99999px;">
+									<li><a>US/Pacific</a></li>
+								</ul>
+							</div>
+							<div class="row collapse account-timezone-save">
+								<a class="button standard tangerine left js-timezone-save">Save Changes</a>
+								<div id="timezone-save-confirmation" class="timezone-save-confirmation hide">
+									<i class="icon-validated hide-small"></i>
+									<span>Your settings</span>
+									<i class="icon-validated show-small"></i>
+									<span>have been saved.</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row collapse notification-section">
+					<div id="notification-summary-wrapper" class="small-12 large-12 columns account-settings-border accounts-settings-padding account-notification-wrapper">
+						<div class="row collapse">
+							<span class="text-center icon-wrapper"><i class="icon-bell left-icon"></i></span>
+							<span class="account-settings-header">Notifications</span>
+						</div>
+						<div class="row collapse account-email-settings account-notifications-wrapper account-notifications-border">
+							<span class="left notification-information">
+								<span class="settings-image settings-notification-image"></span>
+								<span class="settings-image-label">On CK-12</span>
+
+							</span>
+							<span class="notification-right-text inapp-notification-text">Instant notifications on all activity</span>
+						</div>
+						<div class="row collapse account-email-settings account-notifications-wrapper">
+							<span class="left notification-information">
+								<span class="settings-image settings-email-image"></span>
+								<span class="settings-image-label">Email</span>
+							</span>
+							<span class="notification-right-text">
+								<span class="left small-link js-small-link">
+									<span class="js-on-notify">
+										<span>Notifications about </span><span id="marketing-notification" class="hide">content, tips</span><span id="on-connect" class="hide js-no-groups">, and </span><span id="groups-notifications" class="js-no-groups"><span id="groups-count">2</span><span><span> group</span><span id="more-multiple-groups">s</span></span></span>
+									</span>
+									<span class="js-off-notify hide">
+										<span>No notification about content</span><span class="js-no-groups">,</span><span class="js-yes-groups"> and</span><span> tips</span><span class="js-no-groups"> or groups</span>
+									</span>
+									<i id="edit-notifications" class="icon-edit pointer edit-notifications"></i>
+								</span>
+							</span>
+						</div>
+					</div>
+				</div>
+				<div id="notification-details" class="row collapse hide notification-details-main notification-details-section">
+					<div class="small-12 large-12 columns">
+						<div id="notification-detail-wrapper" class="row collapse background-vanilla account-notification-padding marketing-notification-section">
+							<div class="small-12 large-12 columns">
+								<a id="notification-detail-close" class="close-notification-details">Done</a>
+								<div class="row collapse account-email-detail">
+									<span>Email me notifications about:</span>
+								</div>
+								<div class="row collapse account-notification-secondary-padding">
+									<div class="notification-switch">
+										<div class="onoffswitch cyan">
+											<input type="checkbox" id="marketing-notification-switch" name="marketing-notification" class="onoffswitch-checkbox">
+											<label class="onoffswitch-label" for="marketing-notification-switch">
+												<div class="onoffswitch-inner"></div>
+												<div class="onoffswitch-switch"></div>
+											</label>
+										</div>
+									</div>
+									<div class="notification-switch-label">
+										<span>New content or helpful tips</span>
+									</div>
+								</div>
+								<div class="row collapse account-notification-secondary-padding notification-promise">
+									<span class="dark-grey">We'll always send you updates about your account, privacy, and security.</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row collapse app-notification-section">
+					<div id="app-notification-summary-wrapper" class="large-12 small-12 column account-settings-border accounts-settings-padding">
+						<div class="row collapse hide">
+							<span class="text-center icon-wrapper"><i class="icon-mobile-phone left-icon"></i></span>
+							<span class="account-settings-header">CK-12 Apps</span>
+						</div>
+						<div class="row collapse account-app-settings account-app-notifications-wrapper">
+							<span class="left notification-information">
+								<span class="practice-app-image"></span>
+								<span class="settings-image-label settings-app-label">CK-12 App</span>
+							</span>
+							<span class="notification-right-text">
+								<span class="left small-link js-app-small-link">
+									<span>
+										<span>Push notifications</span>
+									</span>
+									<i id="edit-app-notifications" class="icon-edit pointer edit-notifications"></i>
+								</span>
+							</span>
+						</div>
+
+					</div>
+				</div>
+				<div id="app-notification-details" class="row collapse hide notification-details-main notification-details-section">
+					<div class="small-12 large-12 columns">
+						<div class="row collapse  account-notification-padding marketing-notification-section app-notification-detail-wrapper">
+							<div class="small-12 large-12 columns">
+								<a id="app-notification-detail-close" class="close-notification-details">Done</a>
+								<div class="row collapse account-notification-secondary-padding app-notification-switch-wrapper">
+									<div class="notification-switch-label">
+											<span>Push notifications</span>
+										</div>
+										<div class="notification-switch">
+											<div class="onoffswitch cyan">
+												<input type="checkbox" id="in-app-notification-switch" name="in-app-notification" class="onoffswitch-checkbox js-app-notification-switch">
+												<label class="onoffswitch-label" for="in-app-notification-switch">
+													<div class="onoffswitch-inner"></div>
+													<div class="onoffswitch-switch"></div>
+												</label>
+											</div>
+										</div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="brainflex-section brainflex-notification-section hide">
+                      <span class="left notification-information">
+                          <span class="brainflex-image"></span>
+                          <span class="settings-image-label settings-app-label">CK-12 BrainFlex</span>
+                      </span>
+                  </div>
+                  <div class="small-12 large-12 columns brainflex-notification-section hide">
+                      <div class="row collapse  account-notification-padding marketing-notification-section app-notification-detail-wrapper">
+                          <div class="small-12 large-12 columns">
+                              <div id="summerChellengeEnrolled">
+												<div class="row collapse account-notification-secondary-padding app-notification-remainder-wrapper">
+											<div class="notification-switch-label">
+												<span>Reminder emails</span>
+											</div>
+											<div class="remainder-switch">
+												<div class="onoffswitch cyan">
+													<input type="checkbox" id="remainder-switch" name="remainder-switch" class="onoffswitch-checkbox js-remainder-notification-switch">
+													<label class="onoffswitch-label" for="remainder-switch">
+														<div class="onoffswitch-inner"></div>
+														<div class="onoffswitch-switch"></div>
+													</label>
+												</div>
+											</div>
+									</div>
+									<div class="row collapse coach-section">
+										<div class="coach-label">Your coach</div>
+										<div class="sc-coach-form-section">
+												<div class="sc-coach-name-error-msg sc-coach-error-msg hide"></div>
+												<input type="text" placeholder="Coach's name" class="sc-coach-name">
+												<div class="sc-coach-email-error-msg sc-coach-error-msg hide"></div>
+												<input type="email" placeholder="Coach's email" class="sc-coach-email">
+												<div class="sc-coach-type-section">
+													<div class="sc-coach-type-error-msg sc-coach-error-msg hide"></div>
+													<input type="text" data-val="teacher" readonly="readonly" placeholder="Teacher" class="sc-coach-type">
+													<div class="sc-coach-type-arrow"></div>
+													<div class="sc-coach-type-options hide">
+														<div class="sc-coach-option" data-val="teacher">Teacher/Parent</div>
+														<div class="sc-coach-option" data-val="friend">Friend</div>
+														<div class="sc-coach-option" data-val="other">Other</div>
+													</div>
+												</div>
+
+											</div>
+									</div>
+										<div class="row collapse">
+											<div class="text-center hide errorMsg" id="server-error">
+
+												</div>
+											<div class="text-center save-changes">
+													<input type="text" class="no-show">
+													<a class="button standard tangerine" id="saveAppNotifications">Save Changes</a>
+												</div>
+												<div id="notification-save" class="user-info-save hide">
+													<i class="icon-validated"></i>
+													<span>Your settings have been saved.</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+						</div>
+				</div>
+				<div class="hide-small account-settings-space"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="wait-disconnect" class="reveal-modal modal-uikit app-reveal-modal medium">
+	<a class="close-reveal-modal close">+</a>
+	<div class="row collapse social-alert-wrapper">
+		<div>
+			<span class="social-alert-icon">
+				<i class="icon-notification"></i>
+			</span>
+			<span class="social-alert-text">Wait!</span>
+		</div>
+		<div class="social-alert">
+			<span>Before disconnecting </span>
+			<span class="js-wait-social-text"></span><span>, connect another social account, or provide an email address/username and password, so you can sign in next time.</span>
+		</div>
+		<div class="text-center">
+			<a id="wait-disconnect-ok" class="button turquoise standard">OK</a>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns:dc="http://www.ck12.org/dc/will_create_ns"
+unique-identifier="chapterid" version="2.0">
+
+  <chapter>
+    <metadata>
+<chapterSeq>10</chapterSeq>
+
+<book>Algebra I</book>
+
+      <chapterid></chapterid>
+      <title>Quadratic Equations and Quadratic Functions </title>
+      <description>Topics in this chapter:Quadratic_Equations_by_Graphing,Quadratic_Equations_by_Square_Roots,Solving_Quadratic_Equations_by_Completing_the_Square,Solving_Quadratic_Equations_by_the_Quadratic_Formula,The_Discriminant,Problem_Solving_Strategies.
+     </description>
+    </metadata>
+    
+    <lessons>
+      <item id="Graphs_of_Quadratic_Functions" href="Graphs_of_Quadratic_Functions.html" sequence="1" />
+      <item id="Quadratic_Equations_by_Graphing" href ="Quadratic_Equations_by_Graphing.html" sequence="2" />
+      <item id="Quadratic_Equations_by_Square_Roots" href ="Quadratic_Equations_by_Square_Roots.html" sequence="3" />      
+      <item id="Solving_Quadratic_Equations_by_Completing_the_Square" href ="Solving_Quadratic_Equations_by_Completing_the_Square.html" sequence="4" />
+      <item id="Solving_Quadratic_Equations_by_the_Quadratic_Formula" href ="Solving_Quadratic_Equations_by_the_Quadratic_Formula.html" sequence="5" />
+      <item id="The_Discriminant" href ="The_Discriminant.html" sequence="6" />
+      <item id="Linear_Exponential_and_Quadratic_Models" href ="Linear_Exponential_and_Quadratic_Models.html" sequence="7" />
+      <item id="Problem_Solving_Strategies" href ="Problem_Solving_Strategies.html" sequence="8" />
+    </lessons>
+  </chapter>
+
+</package>

@@ -1,0 +1,394 @@
+{
+    "response": {
+        "assignments": [{
+            "assignmentID": 25850,
+            "assignmentType": "assignment",
+            "concepts": [{
+                "encodedID": "MAT.MEA.120",
+                "handle": "Standard-Units",
+                "id": 21941,
+                "name": "Standard Units"
+            }, {
+                "encodedID": "MAT.MEA.130",
+                "handle": "Nonstandard-Units",
+                "id": 21942,
+                "name": "Nonstandard Units"
+            }, {
+                "encodedID": "MAT.MEA.140",
+                "handle": "Reading-Maps-Legends-Scale",
+                "id": 21943,
+                "name": "Reading Maps, Legends/Scale"
+            }, {
+                "encodedID": "MAT.MEA.200",
+                "handle": "Linear-Measure",
+                "id": 21944,
+                "name": "Linear Measure"
+            }, {
+                "encodedID": "MAT.MEA.210",
+                "handle": "Measurement-of-Distance",
+                "id": 21945,
+                "name": "Measurement of Distance"
+            }],
+            "creationTime": "2013-08-13 12:26:28",
+            "description": "My Assignments",
+            "due": "2013-08-09 02:27:14",
+            "groupID": 6,
+            "isPastDue": 1,
+            "name": "Fourth Assignment",
+            "totalCount": 5
+        }, {
+            "assignmentID": 25854,
+            "assignmentType": "assignment",
+            "concepts": [{
+                "encodedID": "MAT.ARI.100",
+                "handle": "Whole-Numbers-and-Integers",
+                "id": 21899,
+                "name": "Whole Numbers and Integers"
+            }, {
+                "encodedID": "MAT.ARI.110",
+                "handle": "Addition-of-Integers",
+                "id": 21900,
+                "name": "Addition of Integers"
+            }, {
+                "encodedID": "MAT.ARI.120",
+                "handle": "Whole-Number-Subtraction",
+                "id": 21901,
+                "name": "Whole Number Subtraction"
+            }, {
+                "encodedID": "MAT.ARI.130",
+                "handle": "Whole-Number-Multiplication",
+                "id": 21902,
+                "name": "Whole Number Multiplication"
+            }, {
+                "encodedID": "MAT.ARI.132",
+                "handle": "Whole-Number-Exponents",
+                "id": 21903,
+                "name": "Whole Number Exponents"
+            }],
+            "creationTime": "2013-08-13 12:34:14",
+            "description": "First Study Track",
+            "due": "2013-08-19 02:27:14",
+            "groupID": 6,
+            "isPastDue": 1,
+            "name": "First Study Track",
+            "totalCount": 5
+        }, {
+            "assignmentID": 25853,
+            "assignmentType": "assignment",
+            "concepts": [{
+                "encodedID": "MAT.ARI.140",
+                "handle": "Whole-Number-Division",
+                "id": 21904,
+                "name": "Whole Number Division"
+            }, {
+                "encodedID": "MAT.ARI.150",
+                "handle": "Estimation-and-Rounding",
+                "id": 21905,
+                "name": "Estimation and Rounding"
+            }, {
+                "encodedID": "MAT.ARI.160",
+                "handle": "Prime-and-Composite-Numbers",
+                "id": 21906,
+                "name": "Prime and Composite Numbers"
+            }, {
+                "encodedID": "MAT.ARI.170",
+                "handle": "Factors-Multiples-Divisibility",
+                "id": 21907,
+                "name": "Factors, Multiples, Divisibility"
+            }, {
+                "encodedID": "MAT.ARI.200",
+                "handle": "Decimals",
+                "id": 21908,
+                "name": "Decimals"
+            }],
+            "creationTime": "2013-08-13 12:29:38",
+            "description": "Third Study Track",
+            "due": "None",
+            "groupID": 6,
+            "isPastDue": 0,
+            "name": "Third Study Track",
+            "totalCount": 10
+        }, {
+            "assignmentID": 25855,
+            "assignmentType": "assignment",
+            "concepts": [{
+                "encodedID": "MAT.ARI.140",
+                "handle": "Whole-Number-Division",
+                "id": 21904,
+                "name": "Whole Number Division"
+            }, {
+                "encodedID": "MAT.ARI.150",
+                "handle": "Estimation-and-Rounding",
+                "id": 21905,
+                "name": "Estimation and Rounding"
+            }, {
+                "encodedID": "MAT.ARI.160",
+                "handle": "Prime-and-Composite-Numbers",
+                "id": 21906,
+                "name": "Prime and Composite Numbers"
+            }, {
+                "encodedID": "MAT.ARI.170",
+                "handle": "Factors-Multiples-Divisibility",
+                "id": 21907,
+                "name": "Factors, Multiples, Divisibility"
+            }, {
+                "encodedID": "MAT.ARI.200",
+                "handle": "Decimals",
+                "id": 21908,
+                "name": "Decimals"
+            }],
+            "creationTime": "2013-08-13 12:34:33",
+            "description": "Second Study Track",
+            "due": "None",
+            "groupID": 6,
+            "isPastDue": 0,
+            "name": "Second Study Track",
+            "totalCount": 10
+        }],
+        "groupMembers": [{
+            "email": "aditya.deshpande@ck12.org",
+            "groupMemberRole": "groupmember",
+            "groupMemberRoleID": 14,
+            "id": 1,
+            "joinTime": "2013-08-20 16:01:05",
+            "name": "CK12 Administrator",
+            "status": "active",
+            "statusID": 2,
+            "userRole": "admin",
+            "userRoleID": 1
+        }, {
+            "email": "javed@ck12.org",
+            "groupMemberRole": "groupmember",
+            "groupMemberRoleID": 14,
+            "id": 1542,
+            "joinTime": "2013-05-08 12:26:32",
+            "name": "Javed Attar",
+            "status": "active",
+            "statusID": 2,
+            "userRole": "teacher",
+            "userRoleID": 5
+        }],
+        "limit": 2,
+        "member_assignment": [{
+            "1-25850": {
+                "completedCount": 0,
+                "incompleteCount": 0
+            },
+            "1-25853": {
+                "21904": {
+                    "lastAccess": "",
+                    "score": 26,
+                    "status": "incomplete",
+                    "studyTrackItemID": 21904
+                },
+                "21905": {
+                    "lastAccess": "",
+                    "score": "",
+                    "status": "incomplete",
+                    "studyTrackItemID": 21905
+                },
+                "21906": {
+                    "lastAccess": "",
+                    "score": 78,
+                    "status": "incomplete",
+                    "studyTrackItemID": 21906
+                },
+                "21907": {
+                    "lastAccess": "",
+                    "score": "",
+                    "status": "incomplete",
+                    "studyTrackItemID": 21907
+                },
+                "21908": {
+                    "lastAccess": "",
+                    "score": 65,
+                    "status": "incomplete",
+                    "studyTrackItemID": 21908
+                },
+                "completedCount": 0,
+                "incompleteCount": 5
+            },
+            "1-25854": {
+                "completedCount": 0,
+                "incompleteCount": 0
+            },
+            "1-25855": {
+                "21904": {
+                    "lastAccess": "",
+                    "score": 51,
+                    "status": "incomplete",
+                    "studyTrackItemID": 21904
+                },
+                "21905": {
+                    "lastAccess": "",
+                    "score": "",
+                    "status": "incomplete",
+                    "studyTrackItemID": 21905
+                },
+                "21906": {
+                    "lastAccess": "",
+                    "score": "100",
+                    "status": "incomplete",
+                    "studyTrackItemID": 21906
+                },
+                "21907": {
+                    "lastAccess": "",
+                    "score": 49,
+                    "status": "incomplete",
+                    "studyTrackItemID": 21907
+                },
+                "21908": {
+                    "lastAccess": "",
+                    "score": "",
+                    "status": "incomplete",
+                    "studyTrackItemID": 21908
+                },
+                "completedCount": 0,
+                "incompleteCount": 5
+            },
+            "1542-25850": {
+                "21941": {
+                    "lastAccess": "",
+                    "score": 90,
+                    "status": "completed",
+                    "studyTrackItemID": 21941
+                },
+                "21942": {
+                    "lastAccess": "",
+                    "score": 35,
+                    "status": "completed",
+                    "studyTrackItemID": 21942
+                },
+                "21943": {
+                    "lastAccess": "",
+                    "score": "",
+                    "status": "incomplete",
+                    "studyTrackItemID": 21943
+                },
+                "21944": {
+                    "lastAccess": "",
+                    "score": "",
+                    "status": "incomplete",
+                    "studyTrackItemID": 21944
+                },
+                "21945": {
+                    "lastAccess": "",
+                    "score": "",
+                    "status": "incomplete",
+                    "studyTrackItemID": 21945
+                },
+                "completedCount": 2,
+                "incompleteCount": 3
+            },
+            "1542-25853": {
+                "21904": {
+                    "lastAccess": "",
+                    "score": 40,
+                    "status": "completed",
+                    "studyTrackItemID": 21904
+                },
+                "21905": {
+                    "lastAccess": "",
+                    "score": 60,
+                    "status": "completed",
+                    "studyTrackItemID": 21905
+                },
+                "21906": {
+                    "lastAccess": "",
+                    "score": "",
+                    "status": "completed",
+                    "studyTrackItemID": 21906
+                },
+                "21907": {
+                    "lastAccess": "",
+                    "score": "",
+                    "status": "completed",
+                    "studyTrackItemID": 21907
+                },
+                "21908": {
+                    "lastAccess": "",
+                    "score": "",
+                    "status": "completed",
+                    "studyTrackItemID": 21908
+                },
+                "completedCount": 5,
+                "incompleteCount": 5
+            },
+            "1542-25854": {
+                "21899": {
+                    "lastAccess": "",
+                    "score": "",
+                    "status": "incomplete",
+                    "studyTrackItemID": 21899
+                },
+                "21900": {
+                    "lastAccess": "",
+                    "score": "",
+                    "status": "incomplete",
+                    "studyTrackItemID": 21900
+                },
+                "21901": {
+                    "lastAccess": "",
+                    "score": "",
+                    "status": "incomplete",
+                    "studyTrackItemID": 21901
+                },
+                "21902": {
+                    "lastAccess": "",
+                    "score": "",
+                    "status": "incomplete",
+                    "studyTrackItemID": 21902
+                },
+                "21903": {
+                    "lastAccess": "",
+                    "score": "",
+                    "status": "incomplete",
+                    "studyTrackItemID": 21903
+                },
+                "completedCount": 0,
+                "incompleteCount": 5
+            },
+            "1542-25855": {
+                "21904": {
+                    "lastAccess": "",
+                    "score": "",
+                    "status": "incomplete",
+                    "studyTrackItemID": 21904
+                },
+                "21905": {
+                    "lastAccess": "",
+                    "score": "",
+                    "status": "incomplete",
+                    "studyTrackItemID": 21905
+                },
+                "21906": {
+                    "lastAccess": "",
+                    "score": "",
+                    "status": "incomplete",
+                    "studyTrackItemID": 21906
+                },
+                "21907": {
+                    "lastAccess": "",
+                    "score": "",
+                    "status": "incomplete",
+                    "studyTrackItemID": 21907
+                },
+                "21908": {
+                    "lastAccess": "",
+                    "score": "",
+                    "status": "incomplete",
+                    "studyTrackItemID": 21908
+                },
+                "completedCount": 10,
+                "incompleteCount": 0
+            }
+        }],
+        "offset": 0,
+        "total": 2
+    },
+    "responseHeader": {
+        "QTime": "0:00:00.107576",
+        "source": "wnggne",
+        "status": 0
+    }
+}

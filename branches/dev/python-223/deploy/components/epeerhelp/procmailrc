@@ -1,0 +1,12 @@
+SHELL=/bin/sh
+MAILDIR=/home
+LOGFILE=$MAILDIR/$LOGNAME/procmailrc.log
+DEFAULT=$MAILDIR/$LOGNAME/mailbox/
+VERBOSE=on
+
+:0c:
+$DEFAULT
+
+:0fw
+| /bin/bash /opt/2.0/deploy/scripts/runas_using_phvenv.sh -d /opt/2.0/peerhelp/core/pyramid python /opt/2.0/peerhelp/core/pyramid/invoke_epeerhelp.py "https://qaasmtcore1.ck12.org/peerhelp/api/"
+

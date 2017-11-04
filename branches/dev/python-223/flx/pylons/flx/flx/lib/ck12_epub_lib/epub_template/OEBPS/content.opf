@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns="http://www.idpf.org/2007/opf" 
+            xmlns:dc="http://purl.org/dc/elements/1.1/" 
+            unique-identifier="bookid" version="2.0">
+  <metadata>
+    <dc:title>__book_title__</dc:title>
+    <dc:creator>CK-12 Foundation</dc:creator>
+    <dc:publisher>CK-12 Foundation</dc:publisher>
+    <dc:identifier id="bookid">urn:uuid:__isbn_number__</dc:identifier>
+    <dc:language>en-US</dc:language>
+    <meta name="cover" content="cover-image" /> 
+  </metadata>
+  <manifest>
+    <item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>
+    <item id="html_toc" href="toc.html" media-type="application/xhtml+xml"/>
+    <item id="cover" href="title.html" media-type="application/xhtml+xml"/>
+    <item id="ck12_epub_licence" href="ck12_epub_licence.html" media-type="application/xhtml+xml"/>	
+    <item id="ck12_author_attribution" href="ck12_author_attribution.html" media-type="application/xhtml+xml"/>	
+__MANIFEST__
+    <item id="cover-image" href="images/cover.png" media-type="image/png"/>
+    <item id="table-image" href="images/table.png" media-type="image/png"/>
+    <item id="cc-by-nc-image" href="images/by-nc.png" media-type="image/png"/>
+__IMAGE_MANIFEST__
+__TABLE_MANIFEST__
+    <item id="css1" href="stylesheet.css" media-type="text/css"/>
+    <item id="css2" href="ck12_stylesheet.css" media-type="text/css"/>
+  </manifest>
+  <spine toc="ncx">
+    <itemref idref="cover" linear="no"/>
+    <itemref idref="ck12_epub_licence"/>
+    <itemref idref="ck12_author_attribution"/>
+__SPINE__
+__TABLE_SPINE__
+  </spine>
+  <guide>
+    <reference href="title.html" type="cover" title="Cover"/>
+    <reference href="toc.html" type="toc" title="Table of Contents"/>
+  </guide>
+</package>

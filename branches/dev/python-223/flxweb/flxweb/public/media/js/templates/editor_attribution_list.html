@@ -1,0 +1,16 @@
+<% var item; %>
+<div class="<% if (!data.attribution_list) { %>hide<% } %>" id="attribution_<%= data.attribution_type %>">
+	<span class="attribution_title"><%= data.attribution_label %></span>
+	<span class="js_attributionlist_container" data-attribrole="<%= data.attribution_type %>" >
+	<% if (data.attribution_list) { %>
+		<% for (item = 0; item < data.attribution_list.length; item++) { %>
+			<span class="js_attribution break-word">
+				<span><%= data.attribution_list[item] %></span>
+				<a class="js_removeattribution js_attribution_remove removeimg" data-attribname="<%= _.escape(data.attribution_list[item]) %>" data-attribrole="<%= data.attribution_type %>">
+					<span class="icon-close"></span>
+				</a>
+			</span>
+		<% } %>
+	<% } %>
+	</span>
+</div>

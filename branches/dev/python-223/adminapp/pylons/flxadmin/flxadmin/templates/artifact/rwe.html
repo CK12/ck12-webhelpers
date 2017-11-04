@@ -1,0 +1,87 @@
+{% extends "details.html" %}  
+
+{% block admincontent %} 
+<div class="sectionhead sectiontitle">{{c.pagetitle}}</div>
+<div class="section withfloatedsubmit">
+  <form id="mainform" method="post" class="clickonly">
+    <div class="leftaligned">
+    {{ h.labelreadonly('Id', '_id', 'info xmed')}}
+    {{ h.labelinput("Title",'title','info xmed')}}
+    {{ h.labeltextarea('Description', 'description', 5, 82)}}
+	{% for field in c.form.ordered_fields %}
+	    {{ field }}
+	{% endfor %}
+	{{ h.labelinput("Encoded Id(s)",'eids','info xmed')}}
+    {{ h.labelinput('Image Url', 'imageUrl', 'info xmed')}}
+    <div style="padding-left:150px;">{{ c.rwe.imageLink }}</div>
+    {{ h.labelinput("Sim ID",'simID','info xmed')}}
+    <div style="padding-left:150px;">{{ c.rwe.simLink }}</div>
+    {{ h.labelinput("Level",'level','info xmed')}}
+    </div>
+    {{ h.deletebutton('Delete')}}
+    {{ h.submitbutton(c.save_prefix, name='update')}}
+    {{ h.cancelbutton(c.cancel)}}
+    
+  </form>
+</div>
+{% endblock %}
+
+{% block js_scripts %}
+<script type="text/javascript" src="{{ h.url_js('colorbox_popup_resize.js') }}"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  // Delete Rwe 
+  var deleteRwe = {
+      confirmMsg : 'Are you sure to delete the Rwe?',
+      successMsg : 'Rwe deleted successfully',
+      this : null,
+              
+      deleteRweTask : function(){
+          if (confirm(deleteRwe.confirmMsg)){
+        	  deleteRwe.this = $(this)
+            $(this).hide();
+            $.ajax({url: '/flx/delete/rwe/{{ c.rwe._id }}', 
+              type: 'POST', 
+              data:{'error_response_format':'JSON'},
+              success: function(data, status, xhr){
+                  $(deleteRwe.this).show();
+                  try{
+                      data = $.parseJSON(data);
+                  }catch (e){
+                  }
+                  if (data && data.status == 'error'){
+                      var message = '';
+                      if(data.api_status_code){
+                          message += data.api_status_code;
+                      }
+                      if (data.response){
+                          message += ' - ' + data.response;
+                      }else{
+                          message += 'Unknow Reason'
+                      }
+                      alert('API Error: ' + message);
+                  }else{
+                      alert(deleteRwe.successMsg);
+                      window.action = 'delete';
+                      reloadRweListingPage();
+                  }
+              },
+              error: function(xhr, textStatus, errorThrown){
+                  alert('API Error: '+ Fns.formatResponseError(
+                  xhr, textStatus, errorThrown));
+              }
+           });
+         }
+      }
+    };
+    $("#delete").click(deleteRwe.deleteRweTask);
+  });
+
+function  reloadRweListingPage(options){
+    if (window.action == 'delete'){
+        window.action = '';
+        window.location.href = CK12.admUrl('rwes');
+    }
+}
+</script>
+{% endblock %}

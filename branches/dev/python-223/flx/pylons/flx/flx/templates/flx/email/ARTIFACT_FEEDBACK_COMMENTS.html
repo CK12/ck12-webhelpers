@@ -1,0 +1,37 @@
+{% extends "MASTER_CK12_LOGO.html" %}
+{% block email_body %}
+    <body>
+        <div style="width: 100%;font-size: 14px;">
+
+        <p style="font-size: 18px; font-weight: bold">Dear {{ events[0]['eventData']['memberName'] }},</p>
+
+        <p>Greetings from CK-12 Foundation!</p>
+
+        {% if events[0]['eventData']['feedback_type'] == 'comments' %}
+            <p>A CK-12 user, "{{ events[0]['eventData']['commentsBy'] }}" has commented on content(s) <a href="{{ site }}{{ events[0]['eventData']['artifact_url'] | escape}}">{{ events[0]['eventData']['title'] | escape}}</a> you own.</p>
+        {% else %}
+            <p>A CK-12 user, "{{ events[0]['eventData']['commentsBy'] }}" has replied on content(s) <a href="{{ site }}{{ events[0]['eventData']['artifact_url'] | escape}}">{{ events[0]['eventData']['title'] | escape}}</a> you have commented on.</p>
+        {% endif %}
+        <p>If clicking on the above link does not work, then you can copy/paste it in your browser address bar.</p>
+        <p></p>
+        <p><b>User Comments:</b> {{ events[0]['eventData']['comments'] | escape }} </p>
+        <p><hr></p>
+  
+        <p> Sincerely,</p>
+        <p>The CK-12 Team </p>
+    </div>
+
+        <table style="width:100%; padding:0px 30px; text-align:left; font-family:Arial, Helvetica, sans-serif; font-size:12px; background-color:#56544d; color:#BBBBBB;" cellpadding="0" cellspacing="0">
+            <tr>
+                <td style="padding: 10px;">
+                    <span>Please do not reply to this email.</span>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 10px;">
+                    © CK-12 Foundation | 3430 West Bayshore Road, Palo Alto, CA 94303
+                </td>
+            </tr>
+        </table>
+    </body>
+{% endblock %}

@@ -1,0 +1,44 @@
+<div class="labels-dropdown">
+	<div class="dropdownwrap">
+		<div class="labelswrap">
+			<ul id="lblchooser">
+				<li class="labelitems">
+					<ul id="lblchooser_labels">
+					{% for label in c.labels.system %}
+						<li title="{{label.label}}" class="js_label" data-label="{{label.label}}" ><input type="checkbox"/>{{ label.label|escape }}</li>
+					{% endfor %}
+					{% for label in c.labels.my %}
+						<li title="{{label.label}}" class="js_label" data-label="{{label.label}}" ><input type="checkbox"/>{{ label.label|truncate(10,killwords=true)|escape }}</li>
+					{% endfor %}
+					</ul>
+				</li>
+				<li>
+					<div id="new_label_div">
+						<input id="newLabel" class="forminput" type="text" placeholder="{{_('New Label') }}"/>
+						<button id="createLabel" class="button turquoise">
+							<span class="icon-checkmark"></span>
+						</button>
+						<div class="clear"></div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="applylabelswrap">
+			<div>
+				<input id="applyLabels" class="button turquoise" type="button" value="{{ _('Save Labels') }}"/>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	if (!labels_json) {
+	var labels_json = {{c.all_labels_json}};
+	}
+</script>
+
+{# template for new JS objects. Uses underscore.js template syntax #} 
+<!-- new label template -->
+<script type="text/template" id="tmpl_chooser_new_label">
+	<li title="<%= _.escape(label) %>" class="js_label" data-label="<%=  label  %>"><input type="checkbox"/><%= _.escape(_(label).truncate(10))  %></li>
+</script>
+

@@ -1,0 +1,23 @@
+{% extends "base/1column.html" %}
+
+{% block pageinfotop %}
+<div class="contenttop"></div>
+{% endblock %}
+
+{% block content %}
+<div id="errorcontent" class="prefix_3 grid_6 suffix_3">
+	<h1 class="toptitle">{{ _("Oops, the old version is old!") }}</h1>
+	<div class="divider spacetoplarge"></div>
+	<p>{{ _("You have landed on the editor for an older version of %(title)s") }}</p>
+	<div class="divider spacetop"></div>
+	<p>{{ _('Although the old version can not be edited, you can <a href="%(edit_link)s">edit the latest version</a>') </p>
+	<p>or</p>
+	<p>Read the older version, where you can</p>
+	<ul>
+		<li>Download PDF, Epub and Mobi versions of the %(artifact_type)s</li>
+		<li>Add %(artifact_type)s contents into your book</li>
+	</ul>
+	
+	<div class="divider spacetop"></div>
+</div>
+{% endblock %}

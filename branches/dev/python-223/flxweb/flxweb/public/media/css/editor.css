@@ -1,0 +1,336 @@
+/****
+ #
+ # Copyright 2007-2011 CK-12 Foundation
+ #
+ # All rights reserved
+ #
+ # Unless required by applicable law or agreed to in writing, software
+ # distributed under this License is distributed on an "AS IS" BASIS,
+ # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ # implied.  See the License for the specific language governing
+ # permissions and limitations.
+ #
+ # This file originally written by Nachiket Karve
+ #
+ # $Id$
+ ****/
+/* Page Elements */
+
+body {
+	font: 0.81em /150% Arial, Helvetica, sans-serif;
+}
+h3 {
+	font-size: 1.4em;
+}
+h1, h2, h3, h4, h5, h6 {
+	color: #000000;
+	line-height: 1.4em;
+	margin: 20px 0 0.4em;
+}
+span { 
+	/* font-size: 1em !important; */
+	font-size: 1em;
+}
+/* .x-ck12-mathEditor span {
+	font-size: initial !important;
+} */
+.ck12-editor-editlink {
+	font-size:0.8em;
+}
+
+.ck12-media-placeholder{
+	display: block;
+	background:url(/media/lib/ck12-tinymce-plugins/ck12embed/images/embed_placeholder.jpg) no-repeat center center #FFFFE0;
+	border: 1px dotted #aaaaaa;
+}
+
+
+table caption{
+	border: 1px solid #CCCCCC;
+	border-bottom: 0px;
+}
+
+.x-ck12-element-box-placeholder {
+    margin:20px 0;
+    border: 1px solid #000;
+    background:#eee;
+    overflow:auto;
+}
+
+table ul, table ul li {
+    margin: 1em 0 1.4em 22px;
+}
+
+body :last-child {
+    clear:both;
+}
+
+/* bogus br to resize editor.*/
+.x-ck12-editor-clearbottom {
+    clear:both; 
+    height: 0px; 
+    padding: 0px; 
+    margin: 0px;
+}
+
+/* td of element box divs changed to table in editor.*/
+.x-ck12-editor-header-td-element-box {
+    background: #ccc;
+    border-bottom: 1px solid #000;
+    padding: 5px;
+    font-weight: bold;
+}
+.x-ck12-editor-body-td-element-box{
+    padding: 10px;
+}
+
+dl dt, dl dd{
+    color:#5D5858;
+}
+dl dt{
+    font-weight: bold;
+}
+
+
+
+/** Math editor css **/
+
+@CHARSET "ISO-8859-1";
+
+@font-face {
+    font-family: MathJax_Main; src: url('//d3lkjnwva6z405.cloudfront.net/mathjax-min-2.6-20160201/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff') format('woff'), url('//d3lkjnwva6z405.cloudfront.net/mathjax-min-2.6-20160201/fonts/HTML-CSS/TeX/otf/MathJax_Main-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: MathJax_Main; src: url('//d3lkjnwva6z405.cloudfront.net/mathjax-min-2.6-20160201/fonts/HTML-CSS/TeX/woff/MathJax_Main-Bold.woff') format('woff'), url('//d3lkjnwva6z405.cloudfront.net/mathjax-min-2.6-20160201/fonts/HTML-CSS/TeX/otf/MathJax_Main-Bold.otf') format('opentype'); font-weight: bold;
+}
+
+@font-face {
+    font-family: MathJax_Main; src: url('//d3lkjnwva6z405.cloudfront.net/mathjax-min-2.6-20160201/fonts/HTML-CSS/TeX/woff/MathJax_Main-Italic.woff') format('woff'), url('//d3lkjnwva6z405.cloudfront.net/mathjax-min-2.6-20160201/fonts/HTML-CSS/TeX/otf/MathJax_Main-Italic.otf') format('opentype'); font-style: italic;
+}
+
+@font-face {
+    font-family: MathJax_Math; src: url('//d3lkjnwva6z405.cloudfront.net/mathjax-min-2.6-20160201/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff') format('woff'), url('//d3lkjnwva6z405.cloudfront.net/mathjax-min-2.6-20160201/fonts/HTML-CSS/TeX/otf/MathJax_Math-Italic.otf') format('opentype'); font-style: italic;
+}
+
+@font-face {
+    font-family: MathJax_Caligraphic; src: url('//d3lkjnwva6z405.cloudfront.net/mathjax-min-2.6-20160201/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Regular.woff') format('woff'), url('//d3lkjnwva6z405.cloudfront.net/mathjax-min-2.6-20160201/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: MathJax_Size1; src: url('//d3lkjnwva6z405.cloudfront.net/mathjax-min-2.6-20160201/fonts/HTML-CSS/TeX/woff/MathJax_Size1-Regular.woff') format('woff'), url('//d3lkjnwva6z405.cloudfront.net/mathjax-min-2.6-20160201/fonts/HTML-CSS/TeX/otf/MathJax_Size1-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: MathJax_Size2; src: url('//d3lkjnwva6z405.cloudfront.net/mathjax-min-2.6-20160201/fonts/HTML-CSS/TeX/woff/MathJax_Size2-Regular.woff') format('woff'), url('//d3lkjnwva6z405.cloudfront.net/mathjax-min-2.6-20160201/fonts/HTML-CSS/TeX/otf/MathJax_Size2-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: MathJax_Size3; src: url('//d3lkjnwva6z405.cloudfront.net/mathjax-min-2.6-20160201/fonts/HTML-CSS/TeX/woff/MathJax_Size3-Regular.woff') format('woff'), url('//d3lkjnwva6z405.cloudfront.net/mathjax-min-2.6-20160201/fonts/HTML-CSS/TeX/otf/MathJax_Size3-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: MathJax_Size4; src: url('//d3lkjnwva6z405.cloudfront.net/mathjax-min-2.6-20160201/fonts/HTML-CSS/TeX/woff/MathJax_Size4-Regular.woff') format('woff'), url('//d3lkjnwva6z405.cloudfront.net/mathjax-min-2.6-20160201/fonts/HTML-CSS/TeX/otf/MathJax_Size4-Regular.otf') format('opentype');
+}
+
+.math {
+    border: 0 none;
+    display: inline;
+    line-height: normal;
+    margin: 0;
+    padding: 0;
+    position: static;
+    text-decoration: none;
+    vertical-align: 0;
+}
+
+/* .mn {
+    position: absolute;
+    top: 1em;
+} */
+.MathJax {
+    font-size: 14px;
+}
+body.mce-content-body{
+	font-size:100%;
+}
+MathJax_Hover_Frame {
+    border-radius: .25em;
+    -webkit-border-radius: .25em;
+    -moz-border-radius: .25em;
+    -khtml-border-radius: .25em;
+    box-shadow: 0px 0px 15px #83A;
+    -webkit-box-shadow: 0px 0px 15px #83A;
+	-moz-box-shadow: 0px 0px 15px #83A;
+    -khtml-box-shadow: 0px 0px 15px #83A;
+    border: 1px solid #A6D ! important;
+    display: inline-block;
+    position: absolute;
+}
+
+.MathJax_Hover_Arrow {
+    position: absolute;
+    width: 15px;
+    height: 11px;
+    cursor: pointer;
+}
+
+.MathJax_Display {
+    text-align: center;
+    margin: 1em 0em;
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.x-ck12-mathEditor .MathJax_Display {
+	margin: 0.3em 0em;
+}
+
+.MathJax .merror {
+    background-color: #FFFF88;
+    color: #CC0000;
+    border: 1px solid #CC0000;
+    padding: 1px 3px;
+    font-style: normal;
+    font-size: 90%;
+}
+
+#MathJax_Tooltip {
+    background-color: InfoBackground;
+    color: InfoText;
+    border: 1px solid black;
+    box-shadow: 2px 2px 5px #AAAAAA;
+    -webkit-box-shadow: 2px 2px 5px #AAAAAA;
+    -moz-box-shadow: 2px 2px 5px #AAAAAA;
+    -khtml-box-shadow: 2px 2px 5px #AAAAAA;
+    filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true');
+    padding: 3px 4px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: auto;
+    height: auto;
+    display: none;
+}
+
+.x-ck12-mathEditor {
+    display: inline-block;
+}
+
+.x-ck12-mathEditor[data-mathmethod="block"] {
+    text-align: center;
+    width: 100%;
+} 
+
+.MathJax {
+    display: inline;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 100%;
+    font-size-adjust: none;
+    text-indent: 0;
+    text-align: left;
+    text-transform: none;
+    letter-spacing: normal;
+    word-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    float: none;
+    direction: ltr;
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.MathJax img, .MathJax nobr, .MathJax a {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    max-width: none;
+    max-height: none;
+    vertical-align: 0;
+    line-height: normal;
+    text-decoration: none;
+}
+
+img.MathJax_strut {
+    border: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    vertical-align: 0 !important;
+}
+
+.MathJax span {
+    display: inline;
+    position: static;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    vertical-align: 0;
+    line-height: normal;
+    text-decoration: none;
+}
+
+.MathJax nobr {
+    white-space: nowrap ! important;
+}
+
+.MathJax img {
+    display: inline ! important;
+    float: none ! important;
+}
+
+.MathJax_Processing {
+    visibility: hidden;
+    position: fixed;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+.MathJax_Processed {
+    display: none!important;
+}
+
+.MathJax_ExBox {
+    display: block;
+    overflow: hidden;
+    width: 1px;
+    height: 60ex;
+}
+
+.MathJax .MathJax_EmBox {
+    display: block;
+    overflow: hidden;
+    width: 1px;
+    height: 60em;
+}
+
+.MathJax .MathJax_HitBox {
+    cursor: text;
+    background: white;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.MathJax .MathJax_HitBox * {
+    filter: none;
+    opacity: 1;
+    background: transparent;
+}
+
+#MathJax_Tooltip * {
+    filter: none;
+    opacity: 1;
+    background: transparent;
+}
+
+.MathJax .noError {
+    vertical-align: ; font-size: 90%;
+    text-align: left;
+    color: black;
+    padding: 1px 3px;
+    border: 1px solid;
+}

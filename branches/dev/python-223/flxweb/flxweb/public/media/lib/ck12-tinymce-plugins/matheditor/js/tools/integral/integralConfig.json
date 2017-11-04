@@ -1,0 +1,37 @@
+{
+	"definate" : {
+		    			"data" : "\\int_{}^{}{}",
+						"pos" : [0,6,9,11,12],
+						"length" : 12
+		   		 },
+	"indefinite":{
+						"data" : "\\int{}",
+						"pos" : [0,5,6],
+						"length" : 6
+	   			 },
+	"antiderivative" : {
+		    			"data" : "{}\\Bigg|_{}^{}",
+						"pos" : [0,1,10,13,14],
+						"length" : 14
+		   		 },
+	"doubleIndefinite":{
+						"data" : "\\iint{}",
+						"pos" : [0,6,7],
+						"length" : 7
+	    				},
+	"doubleDefinite":{
+						"data" : "\\iint_{}^{}{}",
+		    			"pos": [0,7,10,12,13],
+						"length" : 13
+					 },
+	"firstDerivative" : {
+		"data" : "f^\\prime\\left(x\\right)",
+		"pos" : [1,15,22],
+		"length" : 22
+	},
+	"secondDerivative" : {
+		"data" : "f^{\\prime \\prime}\\left(x\\right)",
+		"pos" : [1,24,31],
+		"length" : 31
+	}
+}

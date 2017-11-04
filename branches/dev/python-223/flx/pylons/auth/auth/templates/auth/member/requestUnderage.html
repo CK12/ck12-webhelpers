@@ -1,0 +1,108 @@
+{% extends "base/auth/1column.html" %}
+{% block title %} {{_('Student Sign Up') }} {% endblock %}
+
+{% block js %}
+{{ super() }}
+<script>
+require(['main'], function(){
+   require(['auth/flx.signup']);
+});
+function signin_click(provider, url) {
+    var url = '/auth/login/member/' + provider + '?url=' + encodeURIComponent(url);
+    var left= (screen.width -880)/2;
+    if (!window.isWebView()) {
+        window.open(url, provider + '_window', 'location=no, menubar=no, resizable=yes status=no, scrollbars=no, width=880, height=400,top=350,left='+left);
+    } else {
+        url = url + '&popup=false' + '&returnTo=' + encodeURIComponent('{{ c.returnTo }}') + '&requestor=' + encodeURIComponent('{{ c.requestor }}');
+        window.location.href = url;
+    }
+    return false;
+}
+</script>
+{% endblock %}
+
+{% block pageinfotop %}
+<div class="contenttop"></div>
+{% endblock %}
+
+{% block content %}
+<form id="request_u13_form" class="signup-form-wrapper" method="POST" action="{{ h.url('request_u13_signup') }}">
+	<div class="row collapse">
+		<div class="row collapse">
+			<div class="large-6 columns large-offset-3">
+				<div class="row text-center collapse signup-header">
+					<span class="role-header">
+						Sign up request for underage
+					</span>
+					<span class="member-image">
+						<img alt="student" src="{{ config.url_media }}/auth/images/student-signup.png"/>
+					</span>
+				</div>
+				<div class="signup-form-container row collapse">
+					<div class="error" data-for="name">&nbsp;</div>
+					<input type="text" placeholder="Full name" value="{{c.form['name']}}" name="name" class="forminput name" id="name">
+                                        <div class="birthday-text">
+                                                Birthday
+                                        </div>
+                                        <div class="hide-for-small">
+                                                <div data-dropdown="monthDropDown" class="button small split simple birthdate-dropdown">Month<span></span></div>
+                                                <div data-dropdown="dayDropDown" class="button small split simple birthdate-dropdown">Day<span></span></div>
+                                                <div data-dropdown="yearDropDown" class="button small split simple birthdate-dropdown">Year<span></span></div>
+                                                <ul id="monthDropDown" class="f-dropdown date-drop-down tangerine-list simple text-left">
+                                                        <li class="month-list date-list" data-date="1">Jan</li>
+                                                        <li class="month-list date-list" data-date="2">Feb</li>
+                                                        <li class="month-list date-list" data-date="3">Mar</li>
+                                                        <li class="month-list date-list" data-date="4">Apr</li>
+                                                        <li class="month-list date-list" data-date="5">May</li>
+                                                        <li class="month-list date-list" data-date="6">Jun</li>
+                                                        <li class="month-list date-list" data-date="7">Jul</li>
+                                                        <li class="month-list date-list" data-date="8">Aug</li>
+                                                        <li class="month-list date-list" data-date="9">Sep</li>
+                                                        <li class="month-list date-list" data-date="10">Oct</li>
+                                                        <li class="month-list date-list" data-date="11">Nov</li>
+                                                        <li class="month-list date-list" data-date="12">Dec</li>
+                                                </ul>
+                                                <ul id="dayDropDown" class="f-dropdown date-drop-down tangerine-list simple text-left">
+
+                                                </ul>
+                                                <ul id="yearDropDown" class="f-dropdown date-drop-down tangerine-list simple text-left">
+
+                                                </ul>
+                                        </div>
+					<div class="error" data-for="email">&nbsp;</div>
+					<input type="email" placeholder="Email of parent/teacher" value="{{c.form['email']}}" name="email" class="forminput email" id="email"
+									data-required="{{ c.messages.ACCOUNT_EMAIL_EMPTY }}"
+									data-maxlength="{{ c.messages.ACCOUNT_EMAIL_MAXLENGTH  }}"
+									data-simple_email="{{ c.messages.ACCOUNT_EMAIL_INVALID  }}"/>
+					<div class="form-submit-wrap row collapse">
+						<input type="hidden" name="returnTo" value="{{ c.returnTo }}" />
+						<div class="text-center submit-btn-wrap">
+							<input type="submit" value="Sign up" id="signup_form_submit" class="signup-submit disabled button dusty-grey" >
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="signup-terms-content student-signup-terms row collapse text-center">
+			<span>By signing up, I confirm that I have read and agree to the</span>
+			<a href="https://www.ck12info.org/about/terms-of-use/" target="_blank">Terms of use</a> and
+	        <a href="https://www.ck12info.org/about/technology-2/privacy-policy/" target="_blank">Privacy Policy</a>.
+		 </div>
+	</div>
+</form>
+<div id="underageThanksModal" data-options="closeOnBackgroundClick: false;" class="reveal-modal app-reveal-modal underageThanks">
+	<div class=" right-container text-center row collapse">
+		<h2 class="thanks-heading hide-small">Thanks for being patient</h2>
+		<div class="row collapse teacher-student-image"><img src="{{ config.url_media }}/auth/images/underage-thanks.png"/></div>
+		<div class="row collapse thanks-text"><span class="signup-thanks-text">Thanks for signing up!</span><span> We've sent instructions to your teacher, parent or guardian to activate your account.</span></div>
+		<div class="row collapse">We can't wait for you to join us!</div>
+		<div class="row back-homepage collapse"><a class="button tangerine standard " href="{{ config.webroot_url}}">Back to Homepage</a></div>
+	</div>
+</div>
+<div id ="underageThanks-mob">
+	<div class="row collapse teacher-student-image"><img src="{{ config.url_media }}/auth/images/underage-thanks.png"/></div>
+	<div class="row collapse thanks-text"><span class="signup-thanks-text">Thanks for signing up!</span><span class="instructions-thanks"> We've sent instructions to your teacher, parent or guardian to activate your account.</span></div>
+	<div class="row collapse">We can't wait for you to join us!</div>
+	<div class="row back-homepage collapse"><a class="button tangerine standard " href="{{ config.webroot_url}}">Back to Homepage</a></div>
+</div>
+{% endblock %}

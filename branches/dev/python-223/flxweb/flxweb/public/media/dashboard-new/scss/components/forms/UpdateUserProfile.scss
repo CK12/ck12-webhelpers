@@ -1,0 +1,120 @@
+@import '../../main';
+$BG-selected:  lighten($IVORY, 1%);
+
+
+:local {
+
+    .form {
+        padding-top: $user-photo-size / 2 - $global-padding;
+    }
+
+    .userPhoto {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        & > label {
+            position: relative;
+            transform: translateY(0%);
+        }
+    }
+
+    @media screen and (max-height: 50em) {
+        .userPhoto {
+            transform: translate(-50%, -15%);
+
+            & > label {
+                width: rem-calc(150);
+                height: rem-calc(150);
+            }
+        }
+    }
+
+
+    .userTypeRow {
+        position: relative;
+
+        label {
+            min-height: rem-calc(56);
+        }
+
+        &.student {
+            .userTypeRowSelector {
+                transform: translateY(-#{$global-padding})translateX(100%);
+            }
+        }
+
+        &.teacher {
+
+        }
+
+        .userTypeRowSelector {
+            background-color: $BG-selected;
+            width: 100%;
+            position: absolute;
+            height: rem-calc(150);
+            transform: translateY(-#{$global-padding});
+
+        }
+    }
+
+    .gradeSubjectRow {
+        background-color: $BG-selected;
+        position: relative;
+        z-index: 2;
+
+        .buttonContainer {
+            margin: $global-padding 0;
+            position: relative;
+
+            button + div { // For subject and grades picker
+                position: absolute;
+                margin: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 100%; // For IE11
+            }
+        }
+    }
+
+    .userLocationRow {
+        margin-bottom: $global-padding * 2;
+    }
+
+    .gradeSubjectRow, .userTypeRow {
+        margin-bottom: $global-padding;
+    }
+
+    @include breakpoint(medium only){
+        .form {
+            padding-top: $user-photo-size-medium / 2 - $global-padding;
+        }
+    }
+
+    @include breakpoint(small only){
+        .form {
+            padding-top: $user-photo-size-small / 2 - $global-padding;
+        }
+
+        .userPhoto {
+            transform: translate(-50%, -25%)scale(0.5);
+        }
+
+        .gradeSubjectRow .buttonContainer button + div {
+            top: 0;
+            transform: translate(-50%, -100%);
+        }
+    }
+
+    @media screen and #{$small-height-breakpoint} and #{breakpoint(medium up)} {
+        // Prevents overflow from cutting off user image when not a lot of vertical real estate
+        .userPhoto { transform: translate(-50%, 0); }
+
+        .gradeSubjectRow .buttonContainer button + div {
+            top: 0;
+            transform: translate(-50%, -100%);
+        }
+    }
+
+}

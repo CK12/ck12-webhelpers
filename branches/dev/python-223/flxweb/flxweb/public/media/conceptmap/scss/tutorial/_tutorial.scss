@@ -1,0 +1,252 @@
+$module-ns: "tutorial__modal";
+$slide-class: "#{$module-ns}__slide";
+
+$background-color: white;
+
+$modal-width: 100vw;
+$modal-height: 100vh;
+
+$modal-max-width: rem-calc(700);
+$modal-max-height: rem-calc(500);
+
+$modal-max-width-medium: rem-calc(600);
+$modal-max-height-medium: rem-calc(428.571);
+
+$modal-max-width-small: rem-calc(452);
+$modal-max-height-small: rem-calc(322.857);
+
+$modal-max-width-small-portrait: rem-calc(452);
+$modal-max-height-small-portrait: rem-calc(440);
+
+$modal-border-radius: rem-calc(2);
+
+$slide-height: 80%;
+$slide-padding: rem-calc(25);
+$bottom-row-height: 20%;
+
+$dot-height: rem-calc(10);
+$dot-width: $dot-height;
+
+$tutorial-animation-duration: 0.5s;
+$slide-transition-z-index: 1;
+
+
+
+.slide-highlighted {
+    z-index: $overlay-z-index + 3;
+}
+
+.#{$module-ns} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: $overlay-z-index + 3;
+    transform: scale(0.01);
+    background-color: $background-color;
+    width: $modal-width;
+    max-width: $modal-max-width;
+    height: $modal-height;
+    max-height: $modal-max-height;
+    border-radius: $modal-border-radius;
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+    visibility: hidden;
+    transition: all $tutorial-animation-duration ease-in-out;
+
+
+    &__arrow {
+        @include topArrow();
+        left: 0;
+        top: -14px;
+        opacity: 0;
+        transition: all $tutorial-animation-duration ease-in-out;
+    }
+
+    &--active {
+        transform: translate(50vw, 50vh)translate(-50%, -50%)scale(1);
+        visibility: visible;
+
+        + .conceptmap__overlay {
+            @include visible();
+            z-index: $overlay-z-index + 2;
+        }
+    }
+
+    &__exit {
+        position: absolute;
+        z-index: 1;
+        top: 15px;
+        right: 15px;
+        color: $medium-gray;
+        cursor: pointer;
+    }
+
+    &__slide {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding-bottom: $bottom-row-height;
+
+        &-1, &-2, &-3, &-4 {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            overflow: hidden;
+            @include hidden();
+            transition: all ($tutorial-animation-duration / 2);
+            padding-top: $slide-padding;
+            padding-bottom: $slide-padding;
+
+            h3 {
+                padding-left: $slide-padding;
+                padding-right: $slide-padding;
+                font-size: rem-calc(20);
+                margin: 0 0 rem-calc(12.5);
+            }
+
+            p {
+                padding-left: $slide-padding;
+                padding-right: $slide-padding;
+                font-size: rem-calc(14);
+            }
+
+        }
+
+        &--active {
+            @include visible();
+            transition-delay: $tutorial-animation-duration / 2;
+        }
+    }
+
+    &__bottom-row {
+        position: absolute;
+        z-index: $slide-transition-z-index + 1;
+        bottom: 0;
+        height: $bottom-row-height;
+        width: 100%;
+        padding: 0 rem-calc(45);
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        align-content: center;
+        border-radius: 0 0 $modal-border-radius $modal-border-radius;
+
+        &__dots {
+            width: 25%;
+            margin: 0 12.5%;
+            display: flex;
+            align-items: center;
+            align-content: center;
+        }
+
+        &__dot {
+            width: 25%;
+            height: 100%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            align-content: center;
+
+            &:before {
+                color: $medium-gray;
+                font-size: 250%;
+                position: relative;
+                content: '\2022';
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            &--active:before {
+                color: $dark-gray;
+            }
+        }
+
+        &__next {
+            text-align: right;
+
+            button {
+                font-weight: bold;
+            }
+        }
+
+        &__next__button, &__end__button {
+            margin: 0;
+            transform: translateY(-50%);
+        }
+
+        &__before, &__next {
+            width: 25%;
+        }
+
+    }
+}
+
+@import 'slide-1',
+        'slide-2',
+        'slide-3',
+        'slide-4';
+
+@media screen and #{breakpoint(medium down)} {
+    .#{$module-ns} {
+        max-height: $modal-max-height-medium;
+        max-width: $modal-max-width-medium;
+
+
+        &__slide {
+            &-1 {
+                font-size: 1.25rem;
+            }
+
+            &-2, &-3, &-4 {
+                h3 {
+                    font-size: rem-calc(16);
+                }
+
+                p {
+                    font-size: rem-calc(12);
+                }
+            }
+        }
+
+    }
+}
+
+
+@media screen and #{breakpoint(small only)} {
+    .#{$module-ns} {
+        max-height: $modal-max-height-small;
+        max-width: $modal-max-width-small;
+
+        &__slide {
+            &-1, &-2, &-3, &-4 {
+                h3 {
+                    font-size: rem-calc(16);
+                }
+
+                p {
+                    font-size: rem-calc(12);
+                }
+            }
+        }
+    }
+}
+
+@media #{$medium-landscape} {
+    .#{$module-ns}__slide {
+        &-1, &-2, &-3, &-4 {
+            h3 {
+                font-size: rem-calc(16);
+            }
+
+            p {
+                font-size: rem-calc(12);
+            }
+        }
+    }
+}
+
+@media #{$small-portrait} {
+    .#{$module-ns} {
+        max-height: $modal-max-height-small-portrait;
+        max-width: $modal-max-width-small-portrait;
+    }
+}

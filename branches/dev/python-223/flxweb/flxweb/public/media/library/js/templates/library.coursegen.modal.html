@@ -1,0 +1,71 @@
+<div id="coursegenModal" class="reveal-modal modal-uikit app-reveal-modal tiny coursegen-modal">
+	<a class="close-reveal-modal close">+</a>
+	<div class="row collapse coursegen-modal-header modal text-center bold">
+		Create standards aligned FlexBook® Textbook
+	</div>
+	<div class="row collapse coursegen-modal-container">
+		<div class="column large-12 small-12">
+			<div class="row collapse coursegen-row">
+				Please select the subject, state and grade for auto generating a standards aligned FlexBook&#174; textbook
+			</div>
+			<form id="cg_form" class="row collapse">
+				<div class="row collapse coursegen-row">
+					<div class="coursegen-select left">
+						Subject
+					</div>
+					<div>
+						<div class="dropdown-wrapper" id="select_subject_container">
+							<a data-dropdown="cg_subject" class="small button dropdown library-dropdown-secondary subjects-dropdown js-dropdown-subjects" id="dropdown-subjects">Select subject</a>
+							<ul id="cg_subject" class="f-dropdown">
+								
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="row collapse coursegen-row">
+					<div class="coursegen-select left">
+						State or Standard Set
+					</div>
+					<div>
+						<div class="dropdown-wrapper" id="select_state_container">
+							<a data-dropdown="cg_state" class="small button dropdown library-dropdown-secondary state-dropdown js-dropdown-state" id="dropdown-state">Select state or standard set</a>
+							<ul id="cg_state" class="f-dropdown">
+								
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div id="js_old_fb_notification" name="help_message" class="row collapse"><br></div>
+				<div class="row collapse coursegen-row">
+					<div class="coursegen-select left">
+						Grade
+					</div>
+					<div>
+						<div class="dropdown-wrapper" id="select_grade_container">
+							<a data-dropdown="cg_grade" class="small button dropdown library-dropdown-secondary grade-dropdown js-dropdown-grade" id="dropdown-grade">Select grade</a>
+							<ul id="cg_grade" class="f-dropdown">
+								
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div id="cg_title_div" class="hide" class="row collapse">
+					<div class="columns large-4">
+						<span>FlexBook&#174; textbook Title</span>
+						<br>
+						<span id="cg_title_counter"></span>
+					</div>
+					<div class="columns large-8">
+						<textarea maxlength="100" maxlength="100" data-counter-id="cg_title_counter" id="cg_title" class="cg-title" rows="3" placeholder="Enter your new FlexBook&#174; textbook title here" />
+					</div>
+				</div>
+			</form>
+			<div class="row collapse text-center js-buttons-wrapper hide">
+				<div id="save-book" class="button turquoise">OK</div>
+				<div id="cancel-save" class="button dusty-grey">Cancel</div>
+			</div>
+			<input type="hidden" id="cg_fname" value=""/>
+			<input type="hidden" id="cg_lname" value=""/>
+		</div>
+	</div>
+</div>

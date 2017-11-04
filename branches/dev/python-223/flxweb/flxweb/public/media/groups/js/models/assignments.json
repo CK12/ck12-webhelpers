@@ -1,0 +1,94 @@
+{
+    "response": {
+        "assignments": [
+            {
+                "assignmentID": 25850,
+                "assignmentType": "assignment",
+                "completedCount": 2,
+                "description": "My Assignments",
+                "due": "2013-08-10 02:27:14",
+                "groupID": 6,
+                "incompleteCount": 3,
+                "isPastDue": 1,
+                "isLate": 0,
+                "name": "Fourth Assignment",
+                "totalCount": 5,
+                "status": "assigned"
+            },
+            {
+                "assignmentID": 25850,
+                "assignmentType": "assignment",
+                "completedCount": 5,
+                "description": "My Assignments",
+                "due": "2013-08-10 02:27:14",
+                "groupID": 6,
+                "incompleteCount": 0,
+                "isPastDue": 1,
+                "isLate": 1,
+                "name": "Fifth Assignment",
+                "totalCount": 5,
+                "status": "assigned"
+            },
+            {
+                "assignmentID": 25850,
+                "assignmentType": "assignment",
+                "completedCount": 7,
+                "description": "My Assignments",
+                "due": "2013-08-10 02:27:14",
+                "groupID": 6,
+                "incompleteCount": 0,
+                "isPastDue": 1,
+                "name": "Sixth Assignment",
+                "totalCount": 7,
+                "status": "assigned"
+            },
+            {
+                "assignmentID": 25854,
+                "assignmentType": "assignment",
+                "completedCount": 0,
+                "description": "First Study Track",
+                "due": "2013-08-14 02:27:14",
+                "groupID": 6,
+                "incompleteCount": 5,
+                "isPastDue": 1,
+                "name": "First Study Track",
+                "totalCount": 5,
+                "status": "assigned"
+            },
+            {
+                "assignmentID": 25855,
+                "assignmentType": "assignment",
+                "completedCount": 0,
+                "description": "Second Study Track",
+                "due": "2013-10-20 02:27:14",
+                "groupID": 6,
+                "incompleteCount": 5,
+                "isPastDue": 0,
+                "name": "Second Study Track",
+                "totalCount": 5,
+                "status": "assign"
+            },
+            {
+                "assignmentID": 25855,
+                "assignmentType": "assignment",
+                "completedCount": 4,
+                "description": "Third Study Track",
+                "due": "None",
+                "groupID": 6,
+                "incompleteCount": 5,
+                "isPastDue": 0,
+                "name": "Third Study Track",
+                "totalCount": 5,
+                "status": "assign"
+            }
+        ],
+        "limit": 3,
+        "offset": 0,
+        "total": 0
+    },
+    "responseHeader": {
+        "QTime": "0:00:00.144100",
+        "source": "wnggne",
+        "status": 0
+    }
+}

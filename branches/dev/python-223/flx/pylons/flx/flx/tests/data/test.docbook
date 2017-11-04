@@ -1,0 +1,46 @@
+<chapter>
+    <title>Basic Physics-Light Nature</title>
+    <sect1>
+        <title>The Big Idea</title>
+    </sect1>
+    <para>&#160;</para>
+    <para>
+        <equation>
+            <graphic fileref="http://localhost/some/math" />
+            <alt>\sqrt {{a^2} + {b^2}} *3</alt>
+        </equation>
+    </para>
+    <para>
+        Consider Einstein's famous equation: <inlineequation><graphic fileref="http://localhost/some/math" /><alt>E = m * {c^2}</alt></inlineequation>. Here E is the amount of energy, m is mass and c is the constant speed of light.
+    </para>
+    <para>
+        <equation>
+            <graphic fileref="http://localhost/some/math" />
+            <alt>x + x &amp;= 2\\
+                2x &amp;= 2\\
+                  x &amp;= 1</alt>
+        </equation>
+    </para>
+            <table id="table1">
+              <title>Short caption</title>
+              <thead>
+                <row>
+                  <entry>header <superscript>1</superscript></entry>
+                  <entry><ulink url="http://www.google.com">header 2</ulink></entry>
+                </row>
+              </thead>
+              <tbody>
+                <row>
+                  <entry><inlineequation><graphic fileref="http://localhost/math" /><alt>E = m * {c^2}</alt></inlineequation></entry>
+                  <entry>
+                    <equation>
+                        <graphic fileref="http://localhost/some/math" />
+                        <alt>E = m * {c^2} \\
+                            \sqrt {a^2}</alt>
+                    </equation>
+                  </entry>
+                </row>
+              </tbody>
+              <caption>Long caption</caption>
+            </table>
+</chapter>

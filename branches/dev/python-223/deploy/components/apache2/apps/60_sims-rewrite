@@ -1,0 +1,2 @@
+RewriteRule ^/sims$  http://interactives.ck12.org/simulations/ [R=301,L]
+RewriteRule ^/plix$  http://interactives.ck12.org/plix/ [R=301,L]

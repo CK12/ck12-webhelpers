@@ -1,0 +1,69 @@
+html { height: 100% }
+#contentwrap {width:100%;}
+#holder {
+    position: relative;
+    margin-top:10px;
+    padding-bottom:10px;
+    width:100%;
+    height: 600px;
+    background: #fff;
+    color: #fff;
+    overflow: hidden;
+    cursor: move;
+    
+}
+#navholder {
+    position: absolute;
+    top: -20px;
+    right: 10px;
+    z-index: 1000;
+}
+
+#conceptmap_nav_head {
+	padding:2px;
+	border-bottom:1px solid #999;
+}
+.mapslist {
+    position:absolute; 
+    top:5px; 
+    left:10px; 
+    background:#fff; 
+    border:1px solid #999; 
+    border-bottom: none;
+    z-index:999; 
+}
+
+.mapslist ul {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+.mapslist ul li { 
+    margin: 0px;
+	
+}
+
+.mapslist ul li a {
+    display: block;
+    padding: 5px; 
+    border-bottom: 1px solid #999;
+    color:#333;
+    text-decoration:none;
+    font-weight:bold;
+    cursor:default;
+}
+
+.mapslist ul li ul li a {
+	text-decoration:none;
+	color:#d25827;
+	padding-left: 10px;
+	padding-right:10px;
+	font-weight:normal;
+	cursor:pointer;
+}
+
+.mapslist ul li ul li a:hover {
+	text-decoration:underline;
+	background:#eee;
+}

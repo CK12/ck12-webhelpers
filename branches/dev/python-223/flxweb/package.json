@@ -1,0 +1,21 @@
+{
+  "name": "flxweb",
+  "version": "2.2.9",
+  "description": "flxweb front-end",
+  "main": " ",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "CK-12 Foundation",
+  "license": "Copyright CK-12 Foundation 2007-2013",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.7.2",
+    "grunt-docco": "~0.3.0",
+    "grunt-eslint": "^17.1.0"
+  }
+}

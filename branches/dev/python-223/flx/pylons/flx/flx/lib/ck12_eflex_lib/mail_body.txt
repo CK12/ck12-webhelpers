@@ -1,0 +1,18 @@
+Dear %name,
+
+
+Thank you for using our FlexBook system via email.
+
+%title_change_info
+
+Your custom FlexBook with the following outline:
+%order_parameters
+
+has been fulfilled with the following concept(s):
+%concepts
+
+The book is now available for download at the following link(s):
+%renderer_url
+
+Or you can also view it online at:
+%viewer_url

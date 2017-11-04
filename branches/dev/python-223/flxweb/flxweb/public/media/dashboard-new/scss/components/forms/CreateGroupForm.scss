@@ -1,0 +1,101 @@
+@import '../../main';
+
+$label-size: rem-calc(12);
+
+:local {
+
+    .headerRow {
+        margin-bottom: $global-padding;
+    }
+
+    .createGroupForm {
+
+        .groupName {
+            textarea {
+                resize: none;
+            }
+        }
+
+        .groupDescription {
+            height: 9em;
+        }
+
+        .groupSubjectsRow {
+            margin-top: $global-padding;
+            margin-bottom: $global-padding;
+        }
+
+        .groupThemeRow {
+            margin-bottom: $global-padding * 2;
+        }
+
+        .groupType {
+            position: relative;
+
+            > :global(.row) {
+                height: calc(100% - #{$global-padding * 2});
+            }
+
+            i { font-size: rem-calc(20); }
+        }
+    }
+
+    .themeImageRadio {
+        &:checked + label.themeImageLabel {
+            i {
+                opacity: 1;
+            }
+        }
+    }
+
+    .themeImageLabel {
+        margin: 0 !important;
+        line-height: 1;
+        position: relative;
+
+        i {
+            position: absolute;
+            opacity: 0;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            color: $white;
+        }
+
+        img {
+            width: rem-calc(40);
+            height: rem-calc(40);
+        }
+    }
+
+    .buttonContainer {
+        margin: $global-padding 0;
+        position: relative;
+
+        button + div {
+            position: absolute;
+            margin: 0;
+            width: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    @include breakpoint(small only){
+        .headerRow p {
+            font-size: rem-calc(14);
+        }
+
+        .themeImageLabel img {
+            width: rem-calc(32);
+            height: rem-calc(32);
+        }
+
+        .createGroupForm {
+            .groupDescription {
+                height: 5em;
+            }
+
+        }
+    }
+}

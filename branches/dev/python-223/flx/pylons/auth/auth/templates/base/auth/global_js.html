@@ -1,0 +1,89 @@
+<script type="text/javascript">
+    var flxweb_role,userId,ads_userid;
+    var webroot_url = '{{ h.url('/', qualified=True) }}';
+    var adsEnabled = true;
+    var cookieEnabled = (navigator.cookieEnabled) ? true : false;
+    var editprofile_url = '{{ h.url("profile",returnTo=h.url("flxweb-settings",qualified=True), appHome=h.url("flxweb-home",qualified=True)) }}';
+
+    {% if c.user %}
+        window.ck12_signed_in = true;
+        ads_userid = '{{ c.user.id }}';
+        window.onload = createCookieActiveUser;
+        {% if c.user.role %}
+        	flxweb_role = '{{ c.user.role.name }}';
+        {% else %}
+        	flxweb_role = getCookie('flxweb_role');
+        {% endif %}
+    {% else %}
+        window.ck12_signed_in = false; 
+        flxweb_role = getCookie('flxweb_role');
+        ads_userid = '2';
+    {% endif %}
+
+    dexterjs.set("config", {
+        memberID: ads_userid,
+        clientID: {{config.fbs_client_id}},
+        trackPageTime: false
+    });
+    _ck12 = dexterjs;
+
+    function cookieBar(displayValue){
+        var cookies_msg_container = document.getElementById("nocookies");
+        if (cookies_msg_container != null){
+            cookies_msg_container.style.display = displayValue;
+        }
+    }
+
+    function getCookie(c_name){
+        var i,x,y,ARRcookies=document.cookie.split(";");
+        for (i=0;i<ARRcookies.length;i++){
+          x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+          y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
+          x=x.replace(/^\s+|\s+$/g,"");
+          if (x==c_name) {
+            return unescape(y);
+          }
+        }
+    }
+
+    function createCookieActiveUser(){
+        var value;
+        var now = new Date();
+        var time = now.getTime();
+        var expireTime = time + 1000*3600;
+        now.setTime(expireTime);
+        if(getCookie('flxweb_user_active')){
+            value = getCookie('flxweb_user_active');
+        }else{
+             var chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ',cookieLength = 25, value = '';
+             for (var i = cookieLength; i > 0; --i) {
+                value += chars[Math.round(Math.random() * (chars.length - 1))];
+             }
+             payload = {
+                'sessionID': value
+             };
+             if (window._ck12){
+              _ck12.logEvent('FBS_ACTIVE_USER', payload);
+            }
+        }
+        document.cookie = 
+        'flxweb_user_active=' + value + 
+        '; expires=' + now.toUTCString() + 
+        '; path=/';
+    }
+
+
+//Browser Cookie detection start 
+if (typeof navigator.cookieEnabled == "undefined" && !cookieEnabled) { 
+	var cookieName = "CK12-Cookie-Test";
+	document.cookie= cookieName;
+	cookieEnabled = (document.cookie.indexOf(cookieName) != -1) ? true : false;
+	if (cookieEnabled){
+		document.cookie = cookieName + "=; expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+	}
+}
+
+if (!cookieEnabled){
+	cookieBar('block');
+}
+</script>

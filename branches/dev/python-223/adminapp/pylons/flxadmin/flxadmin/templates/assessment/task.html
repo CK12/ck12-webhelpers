@@ -1,0 +1,82 @@
+{% extends "details.html" %}  
+
+{% block admincontent %} 
+<div class="sectionhead sectiontitle">{{ c.pagetitle }}</div>
+<div class="section">
+  <div class="leftaligned">
+  {% for field in c.form.ordered_fields %}
+    {{ field }}
+  {% endfor %}
+    {{ h.htmllabel('Started')}}<div id='_started' class='info long'>{{c.task.started|parseISODate}}</div>
+    {{ h.htmllabel('Updated')}}<div id='_updated' class='info long'>{{c.task.updated|parseISODate}}</div>
+    {% if c.task.ownerID %}
+    {{ h.htmllabel('Owner')}}<div>{{c.task.ownerID}}</div>
+    {% endif %}
+    {{ h.htmllabel('Status')}}<div id='_status' class='td nowrap'>{{c.task.status}}</div>
+    {{ h.htmllabel('Hostname')}}<div id='_status' class='td nowrap'>{{c.task.hostname}}</div>
+    {{ h.htmllabel('Result')}}<div id='_result' class='td'>{{c.task.message}}</div>
+    {{ h.htmllabel('User Data')}}<div id='_userdata' class='td'>{{c.task.userdata|e}}</div>
+  </div>
+</div>
+
+<div class="detailed thead sectionhead hide">
+  <div class="tr">
+    <div class="td">Type</div>
+    <div class="td">Message</div>
+  </div>
+</div>
+<div class="detailed tbody hide"></div>
+{% endblock admincontent %}
+
+
+{% block js_scripts %}
+<script type="text/javascript" src="{{ h.url_js('ae_task_result_formatter.js') }}"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  var 
+  updateInterval = Defaults.interval.short, 
+  id = '{{c.taskID}}',
+  url = CK12.aeUrl('get/status/task/'+id),
+  $status = $('#_status'),
+  $result = $('#_result'),
+
+  showTaskResult = function(userdata){
+    $('.detailed.thead').removeClass('hide');
+    $('.detailed.tbody').html(TaskResultFormatter.formatTask(userdata)).removeClass('hide');
+    Fns.colorStatus();
+  };
+
+  if ('{{c.task.name}}'=='QuestionUploader'){
+    $.get(url, function(data){
+      showTaskResult(data.response.task);
+    });
+  }
+
+  Fns.pollStatus = function(){
+    var status = $status.text().trim();
+
+    if (id && Fns.inProgress(status)){
+      $.get(url, function(data){
+        var task = data.response.task;
+        $('#_updated').text(task.updated||'');
+        $status.text(task.status||'');
+        if (task.name=='QuestionUploader'){
+          showTaskResult(task);
+          $result.text(task.message||'');
+          $('#_userdata').text(TaskResultFormatter.safe_tags(task.userdata||''));
+        }
+      {% if c.is_pane %}
+        $('#panes').width($('#leftpane').width()+$('#rightpane').width());
+      {% endif %}
+      });
+      Fns.colorStatus($status);
+    }
+    else if (Poll2){
+      clearInterval(Poll2);
+    }
+  };
+  Fns.colorStatus($status);
+  Poll2 = setInterval("Fns.pollStatus()", updateInterval); 
+});
+</script>
+{% endblock %}

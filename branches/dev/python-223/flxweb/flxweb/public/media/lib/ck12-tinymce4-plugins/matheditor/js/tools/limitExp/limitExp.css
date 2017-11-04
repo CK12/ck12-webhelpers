@@ -1,0 +1,31 @@
+.lmtToolContainer.tool-bar-tools {
+	margin-top: 37px;
+}
+.lmtToolContainer .inner-lmt-cont {
+    display: inline-table;
+}
+.lmtToolContainer .lmt-cont {
+    font-size: 80%;
+}
+.lmtToolContainer .lmt-cont.lmt-simple {
+	display: table-row;
+	font-size: 80%;
+}
+.lmtToolContainer .limit{
+	 display: table-row;
+    text-align: center;
+}
+.lmtToolContainer .tooltip-tools-inner .lmt-cont{
+	float: left;
+}
+.lmtToolContainer .tooltip-tools-inner .lmt-cont.lmt-simple{
+	display: table-row;
+	line-height: 7px;
+	float: none;
+}
+.lmtToolContainer .tooltip-tools-inner{
+	 line-height: 14px;
+}
+.lmtToolContainer .close-cont{
+    height:96%\9;
+}

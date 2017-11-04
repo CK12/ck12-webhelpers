@@ -1,0 +1,580 @@
+
+/************************************************************************************
+ MACROS
+ *************************************************************************************/
+/**** pagination ****/
+.paginationbottom {
+	line-height: 25px;
+	margin-top: 30px;
+	text-align: center;
+}
+/**** /pagination ****/
+
+
+
+/************************************************************************************
+ PAGE INFORMATION (the space between header-content or content-footer)
+ *************************************************************************************/
+#pageinfotop, #pageinfobottom {
+	width: 100%;
+}
+.keyword {
+	float: left;
+	line-height: 25px;
+}
+.resultkey {
+	color: #666;
+	padding-bottom: 5px;
+	margin-bottom: 5px;
+	border-bottom: 1px solid #eee;
+}
+.js_resulttotal {
+	display: none;
+	float: left;
+	padding-bottom: 20px;
+}
+.result_pagination {
+	margin-bottom: 0.3em;
+}
+.result_pagination .number {
+	padding: 3px 6px;
+}
+.result_pagination .number:hover {
+	background: #e6e6e6;
+}
+.result_pagination .number a:hover {
+	text-decoration: none;
+}
+.result_pagination .dots {
+	color: #00aba4;
+}
+.result_pagination .arrow-wrap {
+	display: inline-block;
+	background: #00aba4;
+	color: #fff;
+	border-radius: 15px;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	-webkit-transition: background-color 300ms ease-out;
+	-moz-transition: background-color 300ms ease-out;
+	transition: background-color 300ms ease-out;
+}
+.result_pagination .arrow-wrap:hover {
+	background: #4dccc4;
+}
+.result_pagination .arrow-wrap.unavailable,
+.result_pagination .arrow-wrap.unavailable:hover {
+	background: #ccc;
+}
+.result_pagination .arrow-wrap span {
+	line-height: inherit;
+}
+/**** /PAGE INFORMATION (the space between header and content or content and footer) ****/
+
+
+/**** artifact - list view ****/
+.listitem {
+	position: relative;
+	padding-bottom: 3px;
+	margin-bottom: 10px;
+}
+
+.listitemimg {
+	float: left;
+	margin-right: 20px;
+	margin-left: 10px;
+	overflow:hidden;
+	z-index: 10;
+	position: relative;
+	/* width:120px;
+	height:95px; */
+}
+.listitemimg a{
+	display:inline-block;
+}
+.listitemimg.book img {
+	border:1px solid #ccc;
+}
+.listitemimg .listitemimglink{
+	display:inline-block;
+	width:100%;
+}
+.listitemimg img {
+	max-width:118px;
+	max-height:92px;
+}
+#view_search_result .listiteminfo {
+	text-align: left;
+	position:static;
+	margin-left: 10px;
+}
+.listiteminfo.book {
+	margin-left: 93px;
+}
+.modality_icon {
+	margin-right:12px;
+}
+.listiteminfo .summary{
+	margin-right:50px;
+}
+
+.listiteminfo .creator,
+.listiteminfo .difficulty {
+	float:left;
+	font-size:12px;
+	color:#5C5C5C;
+	margin:4px 14px 0 0;
+}
+
+.listiteminfo .difficulty .level {
+	background:#999;
+	color:#fff;
+	font-size:10px;
+	padding:2px 5px;
+	text-shadow:none;
+}
+.listiteminfo .relatedartifacts {
+	font-size: 12px;
+	line-height: 12px;
+	padding-bottom:4px;
+}
+
+.listiteminfo .relatedartifacts a {
+	margin-right: 7px;
+}
+
+.listiteminfo .group_artifact.imgwrap{
+	position:absolute;
+	width:26px;
+	height:34px;
+	background-position:-343px -352px;
+}
+
+.listiteminfo .imgwrap{
+	position:absolute;
+	top:15px;
+	right:0;
+}
+.listiteminfo .icon-book{
+	position:absolute;
+	top:15px;
+	right:0;
+	font-size: 1.6em;
+}
+.listiteminfo .group_node.imgwrap{
+	width:27px;
+	height:36px;
+	background-position:-312px -351px;
+}
+
+.listiteminfo .group_text.imgwrap,
+.listiteminfo .group_read.imgwrap{
+	width:33px;
+	height:36px;
+	background-position:0 -307px;
+}
+.listiteminfo .group_multimedia.imgwrap{
+	width:27px;	
+	height:36px;
+	background-position:-32px -307px;
+}
+.listiteminfo .group_activities.imgwrap{
+	width:21px;
+	height:36px;
+	background-position:-58px -307px;
+}
+.listiteminfo .group_study_resource.imgwrap{
+	width:22px;
+	height:36px;
+	background-position:-77px -307px;
+}
+.listiteminfo .group_teaching_resource.imgwrap{
+	width:30px;
+	height:36px;
+	background-position:-99px -307px;
+}
+.listiteminfo .group_reference.imgwrap{
+	width:27px;
+	height:36px;
+	background-position:-131px -307px;
+}
+.listiteminfo .group_assessment.imgwrap{
+	width:31px;
+	height:36px;
+	background-position:-156px -306px;
+}
+.listiteminfo .group_simulations.imgwrap{
+	width:27px;
+	height:36px;
+	background-position:-187px -307px;
+}
+.listiteminfo .group_web_links.imgwrap{
+	width:24px;
+	height:36px;
+	background-position:-217px -307px;
+}
+.listiteminfo .group_real_world.imgwrap{
+	width:24px;
+	height:36px;
+	background-position:-258px -307px;
+}
+
+.listiteminfo .voting{
+	padding:0;
+	position:absolute;
+	top:70px;
+	left:140px;
+}
+/**** /artifact - list view ****/
+
+/************************************************************************************
+CSS search modality
+*************************************************************************************/
+.listitemtitle {
+	margin: 0 50px 3px 0;
+	color: #999;
+	font-weight: bold;
+}
+.listitemtitle a.group_all,
+.listitemtitle a.group_artifact{
+	color: #666;
+}
+
+ul#modality_group_list{
+	font-size:0.7em;
+	margin-left:0;
+}
+ul#modality_group_list li{
+	position:relative;
+	line-height:9px;
+	height:39px;
+	display:inline-block;
+	list-style-type:none;
+	width:12.8%;
+	text-align:center;
+	border-top:4px solid transparent;
+	vertical-align:top;
+}
+ul#modality_group_list li{
+	border-right:1px dotted #999;
+}
+
+ul#modality_group_list li:first-child{
+	border-left:1px dotted #999;
+}
+ul#modality_group_list li .imgwrap {
+	position:static;
+	display:inline-block;
+	text-align:center;
+}
+ul#modality_group_list li .text {
+	display:block;
+	margin-top:7px;
+}
+ul#modality_group_list li a{
+	color:#5c5c5c;
+	text-decoration:none;
+	display:inline-block;
+	height:100%;
+}
+ul#modality_group_list li.group_all:hover a{
+	color:#000;
+}
+ul#modality_group_list li.group_read:hover a,
+ul#modality_group_list li.group_text:hover a,
+.listitemtitle a.group_read ,
+.listitemtitle a.group_text {
+	color:#4f9799;
+}
+ul#modality_group_list li.group_activities:hover a,
+.listitemtitle a.group_activities {
+	color:#f79779;
+}
+ul#modality_group_list li.group_study_resource:hover a,
+.listitemtitle a.group_study_resource {
+	color:#6280c1;
+}
+ul#modality_group_list li.group_assessment:hover a,
+ul#modality_group_list li.group_assesment:hover a,
+.listitemtitle a.group_assessment {
+	color:#67b1ff;
+}
+ul#modality_group_list li.group_teaching_resource:hover a,
+.listitemtitle a.group_teaching_resource {
+	color:#c6b502;
+}
+ul#modality_group_list li.group_multimedia:hover a,
+.listitemtitle a.group_multimedia {
+	color:#b84e46;
+}
+ul#modality_group_list li.group_reference:hover a,
+.listitemtitle a.group_reference {
+	color:#e36816;
+}
+ul#modality_group_list li.group_web_links:hover a,
+.listitemtitle a.group_web_links{
+	color:#917CB6;
+}
+ul#modality_group_list li.group_real_world:hover a,
+.listitemtitle a.group_real_world{
+	color:#5B8258;
+}
+ul#modality_group_list li.group_mind_map:hover a{
+	color:#51C0B6;
+}
+ul#modality_group_list li.group_simulations:hover a{
+	color:#92682A;
+}
+
+.modality_groups .imgwrap{
+	display:inline-block;
+}
+.modality_groups.group_all .imgwrap{
+	width:20px;
+	height:23px;
+	background-position:-263px -487px;
+}
+.modality_groups.group_all:hover .imgwrap{
+	background-position:-263px -514px;
+}
+.modality_groups.group_text .imgwrap,
+.modality_groups.group_read .imgwrap{
+	width:20px;
+	height:23px;
+	background-position:-2px -490px;
+}
+.modality_groups.group_text:hover .imgwrap,
+.modality_groups.group_read:hover .imgwrap{
+	background-position:-2px -515px;
+}
+.modality_groups.group_activities .imgwrap{
+	width:12px;
+	height:23px;
+	background-position:-48px -490px;
+}
+.modality_groups.group_activities:hover .imgwrap{
+	background-position:-48px -515px;
+}
+.modality_groups.group_study_resource .imgwrap{
+	width:18px;
+	height:23px;
+	background-position:-60px -490px;
+}
+.modality_groups.group_study_resource:hover .imgwrap{
+	background-position:-60px -514px;
+}
+.modality_groups.group_teaching_resource .imgwrap{
+	width:20px;
+	height:23px;
+	background-position:-83px -490px;
+}
+.modality_groups.group_teaching_resource:hover .imgwrap{
+	background-position:-83px -514px;
+}
+.modality_groups.group_multimedia .imgwrap,
+.modality_groups.group_reference .imgwrap{
+	width:16px;
+	height:23px;
+	background-position:-27px -490px;
+}
+.modality_groups.group_multimedia:hover .imgwrap,
+.modality_groups.group_reference:hover .imgwrap{
+	background-position:-27px -514px;
+}
+.modality_groups.group_assessment .imgwrap,
+.modality_groups.group_assesment .imgwrap{
+	width:18px;
+	height:23px;
+	background-position:-133px -490px;
+}
+.modality_groups.group_assessment:hover .imgwrap,
+.modality_groups.group_assesment:hover .imgwrap{
+	background-position:-133px -515px;
+}
+.modality_groups.group_web_links .imgwrap{
+	width:20px;
+	height:23px;
+	background-position:-179px -488px;
+}
+.modality_groups.group_web_links:hover .imgwrap{
+	background-position:-179px -515px;
+}
+.modality_groups.group_real_world .imgwrap{
+	width:20px;
+	height:23px;
+	background-position:-214px -488px;
+}
+.modality_groups.group_real_world:hover .imgwrap{
+	background-position:-214px -515px;
+}
+.modality_groups.group_simulations .imgwrap{
+	width:18px;
+	height:23px;
+	background-position:-158px -488px;
+}
+.modality_groups.group_simulations:hover .imgwrap{
+	background-position:-158px -514px;
+}
+.modality_groups.group_mind_map .imgwrap{
+	width:20px;
+	height:23px;
+	background-position:-239px -488px;
+}
+.modality_groups.group_mind_map:hover .imgwrap{
+	background-position:-239px -515px;
+}
+.modality_groups.group_other .imgwrap{
+	width:20px;
+	height:23px;
+	background-position:200px 200px;
+}
+.modality_groups.group_other:hover .imgwrap{
+}
+.noratings{
+    background-position:-175px -439px;
+    display:inline-block;
+    width:20px;
+    height:20px;
+}
+.ratings{
+    background-position:-175px -455px;
+    display:inline-block;
+    width:20px;
+    height:20px;
+}
+.rating_count {
+    display: inline;
+    font-size: 0.8em;
+    vertical-align:top;
+    width: 10px;
+}
+
+/************************************************************************************
+ CSS FOR MOBILE SUPPORT
+ *************************************************************************************/
+
+#view_search_result ul {
+	margin: 1em 0 1.4em 22px;
+    padding: 0;
+}
+
+#leftsecondary .filters-parent-container {
+	padding-right: 10px;
+}
+
+.listitemimg {
+	margin-right: 0;
+}
+
+.listiteminfo.book {
+    margin: 0px;
+}
+
+.search-result-content {
+	padding: 0em 1.2em;
+}
+
+.toptitle {
+	margin: 0;
+	font-weight:bold;
+	color:#56544d;
+}
+
+#view_search_result h2 {
+	font-size: 18px;
+}
+
+.toptitle {
+	font-size: 1.5em;
+}
+
+#leftsecondary h2 {
+	font-size: 18px;
+	font-weight: 100;
+}
+
+.sidebarfilters {
+	margin: 0;
+    padding: 0;
+    background-color: #F9F9F5;
+    border: 0 none;
+}
+
+.sidebarfilters input {
+	margin: 0;
+}
+
+.sidebarfilters td {
+    vertical-align: top;
+}
+
+.sidebarfilters label {
+	font-size : 16px;
+}
+
+table.sidebarfilters tr td {
+	padding: 0px;
+	line-height: 22px;
+}
+
+.spacetop {
+    margin-top: 10px;
+}
+
+#applyFilters {
+	margin-bottom: 0;
+    margin-top: 6px;
+}
+
+.content-wrap {
+	padding-top: 1em;
+}
+
+#content .spacetoplarge {
+    margin-top: 11px;
+}
+
+@media all and (max-width: 1024px){
+	ul#modality_group_list li {
+		width: 19%;
+	}
+	
+	#leftsecondary h2 {
+	    font-size: 16px;
+	}
+}
+
+@media all and (max-width: 767px){
+	
+	#leftsecondary h2 {
+	    font-size: 18px;
+	}
+	
+	.toptitle {
+		font-size: 1.2em;
+	}
+	
+	.toptitle span {
+		display: block;
+	}
+	
+	#toptitle_no_result, .toptitleresulthint {
+		font-size: 16px;
+	}
+	
+	#leftsecondary {
+	    min-height: 0px;
+	}
+	
+	.resultfiltercontainer {
+		display: none;
+	}
+	
+	.listitemimg img {
+		width: 100%;
+		max-width:100%;
+		max-height:none;
+	}
+}

@@ -1,0 +1,21 @@
+<div id="asmt_<%= data.assignmentID %>" class="row collapse member-assignment-list-container" 
+    data-groupid="<%= data.groupID %>" data-eid="<%= data.encodedID || data.assignmentID %>" data-collection-handle="<%= data.collectionHandle %>" data-concept-collection-handle="<%= data.conceptCollectionHandle %>" data-collection-creator-ID="<%= data.collectionCreatorID %>">
+	<div class="pointer member-assignment-list-wrapper js-member-assignment">
+    	<div class="left text-center member-assignment-due">
+    		<span class=""><%= data.dueDate %></span>
+    	</div>
+    	<div class="member-assignment-past-due hide">
+    		<i class="icon-bell left"></i>
+    		<span class="right">This assignment was due on <%= data.dueDate %>.</span>
+    		<span class="member-assignment-past-due-time">You completed it <%= data.daysLate %> days late.</span>
+    	</div>
+    	<div class="member-assignment-name">
+    		<a class="" title="<%= data.assignmentName %>">
+    			<span class="js-assignment-name"></span>
+    		</a>
+		</div>
+		<div class="right text-center member-assignment-turned-in">
+    		<span class=""><%= data.turnedInDate %></span>
+    	</div>
+	</div>
+</div>

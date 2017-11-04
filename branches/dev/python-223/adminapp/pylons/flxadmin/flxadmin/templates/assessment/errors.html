@@ -1,0 +1,40 @@
+{% extends "listings.html" %}  
+
+{% block filters %} 
+  <div class="col topalign" style="margin:20px;">Filter by:</div>
+  <div class="col topalign">
+    {{ h.labelselect('Error Type', 'type_filter', c.form.type_sel, 'filter')}}
+  </div>
+  <div class="col topalign">
+    {{ h.labelselect('Report Status', 'status_filter', c.form.status_sel, 'filter')}}
+  </div>
+  <div class="col topalign">
+    {{ h.labelselect('Branch Name', 'branch_filter', c.form.branch_sel, 'filter')}}
+  </div>
+  <div class="col topalign">
+    {{h.labelselect('Reporter Role', 'role_filter', c.form.role_sel, 'filter')}}
+  </div>
+{% endblock %}
+ 
+{% block searches %}
+    <div class="col wide">
+        {{ h.labelinput('Reporter ID', 'ownerID', 'med searchby')}}
+        <img id="admin_search_icon" src="{{h.url_images('icon_magnifier2.png')}}"/>
+    </div>
+{% endblock %}
+
+{% block js_scripts %}
+{{ super() }}
+<script type='text/javascript'>
+  Listings({
+    sort: 'updated,desc',
+    postLoad: function(){
+        $('.tiptrigger').tooltip({
+            bodyHandler: function(){ return $(this).next('.tipdiv').html(); }
+        });
+    }, 
+    ajaxRoot: CK12.admUrl('/assessment/errors_list'),
+    formAjax: CK12.admUrl('/assessment/error/'),
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,101 @@
+{% extends "common/master.html" %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_css('common/css/master.css') }}" />
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_css('css/modalities.css') }}" />
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_css('embed/css/embed.css') }}" />
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_css('css/rosetta.css') }}" />
+{% endblock %}
+
+{% block overlay %}{% endblock %}
+{% block additional_body_classes %}
+{{ super() }}
+{{ _('nochrome') }}
+{% endblock %}
+
+{% block js %}
+<script src="{{ h.asset_lib('common/js/utils/globals.js') }}"></script>
+<script language="JavaScript" type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+		tex2jax: {
+			inlineMath: [['@$','@$']],
+			displayMath: [['@$$','@$$']],
+			skipTags: ["script","noscript","style","textarea","code"]
+		},
+		showMathMenu : false,
+		jax: ["input/TeX","output/HTML-CSS"],
+		messageStyle: "none",
+		TeX: {
+			extensions: ["cancel.js", "color.js", "autoload-all.js"]
+		}
+	});
+</script>
+<script language="JavaScript" type="text/javascript" src="//d3lkjnwva6z405.cloudfront.net/mathjax-min-2.6-20160201/MathJax.js"></script>
+<script src="{{ h.asset_js('dexterjs/dexterjs.min.js') }}"></script>
+<script data-main="{{ h.asset_js('main') }}" src="{{ h.asset_lib('common/vendor/requirejs/require.js') }}"></script>
+{% include 'common/global_js.html' %}
+<script>
+    var embedder = null;
+	require(['main'], function(){
+		require(['embed/embed'], function (Embedder){
+			embedder = new Embedder();
+            embedder.init();
+            if (!window.location.origin) {
+                window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port: '');
+            }
+            if (window.parent !== window && typeof window.parent.postMessage === "function") {
+                try{
+                    window.parent.postMessage("{\"message\":\"embedderReady\"}", window.parent.location.origin);
+                } catch (e){
+                }
+            }
+		});
+	});
+</script>
+{% endblock %}
+
+{% block header %}
+<header class="header embedded" data-user="{{c.user.id}}">
+	<a id="skip-navigation" href="#anchor-content"><img src="{{ h.asset_image('common/images/1x1.gif' )}}" width="1" height="1" alt="Skip Navigation" /></a>
+	<nav class="top-bar row top-nav">
+		<a id="embed_nav_logo" href="/" title="CK-12 Foundation Home">
+			<img class="logo-img" src="{{ h.asset_image('common/images/logo_ck12_medium.png') }}" width="60" height="22" alt="{{ _('CK-12') }}" />
+		</a>
+		<div class="right"><a title="View on www.ck12.org" target="_blank" id="lnk_ext" href="">View this on CK12.org<i class="icon-open_new_window"></i></a></div>
+	</nav>
+</header>
+{% endblock %}
+
+{% block content %}
+<div class="desktop_view">
+	<div class="quick-assignment-notification"></div>
+</div>
+
+<div id="embed_container">
+    <div class="new-spinner">
+        <div class="dot1"></div>
+        <div class="dot2"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+<footer class="footer embedded">
+	<div class="row">
+		<div class="columns large-6 small-12">
+			<ul class="row">
+				<li class="columns large-12 small-6"><a href="//creativecommons.org/licenses/by-nc/3.0/" title="{{ _('CK-12 Foundation is licensed under Creative Commons Attribution-NonCommercial 3.0 Unported (CC BY-NC 3.0).') }}" target="new"><img class="footer_image" src="{{ h.asset_image('images/icon_licence.png' )}}" alt="{{ _('Attribution-NonCommercial 3.0 Unported') }}"/></a></li>
+				<li class="columns large-12 small-3"><a href="{{ config.about_url }}/terms-of-use/" title="{{ _('Terms of Use') }}">{{ _('Terms <span class="hide-for-small">of Use</span>') }}</a></li>
+				<li class="columns large-12 small-3"><a href="{{ config.about_url }}/attribution-guidelines/" title="{{ _('Attribution Guide') }}">{{ _('Attribution Guide') }}</a></li>
+			</ul>
+		</div>
+		<div class="columns footer-right large-6 small-12">
+			<ul>
+				<li>{{ _("Powered by FlexBook&#174; textbook Platform &reg;") }}</li>
+				<li><span>{{ _("&copy; CK-12 Foundation %(current_year)s" % {'current_year':c.now.year }) }}</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+{% endblock %}

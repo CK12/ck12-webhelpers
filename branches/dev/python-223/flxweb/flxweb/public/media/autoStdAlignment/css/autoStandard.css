@@ -1,0 +1,177 @@
+/* Source of parts of Styles : https://github.com/chenglou/react-treeview*/
+/* the tree node's style */
+.tree-view {
+  overflow-y: hidden;
+  margin-bottom: 15px;
+}
+
+.tree-view_item {
+  /* immediate child of .tree-view, for styling convenience */
+  background-color: #C5F1F7;
+  padding: 5px 0px 0px 5px;
+  border-radius: 5px;
+  min-height: 50px;
+}
+
+/* style for the children nodes container */
+.tree-view_children {
+  margin-left: 16px;
+}
+
+.tree-view_children-collapsed {
+  height: 0px;
+  display: none;
+}
+
+.tree-view_arrow {
+  cursor: pointer;
+  margin-right: 6px;
+  display: inline-block;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.tree-view_arrow:after {
+  content: '▾';
+}
+
+/* rotate the triangle to close it */
+.tree-view_arrow-collapsed {
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+
+
+
+.node {
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  border-radius: 3px;
+}
+
+.node:hover {
+  /*background-color: rgb(220, 245, 243);*/
+  cursor: pointer;
+}
+
+.info, .node {
+  padding: 2px 10px 2px 5px;
+  font-family: proxynova;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+}
+.node{
+  padding : 2px 30px 2px 5px;
+  position: relative;
+  width: 100%;
+  display: inline-block;
+}
+.info{
+  height: 60px;
+  cursor: pointer;
+  font-size: 36px
+}
+.info:hover{
+  background-color: lightgrey
+}
+
+.info.highlighted{
+    background-color: lightgrey
+}
+.tree-view_arrow {
+  -moz-transition: all 0.1s;
+  -o-transition: all 0.1s;
+  -ms-transition: all 0.1s;
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
+  right: 10px;
+  position: absolute;
+  display: inline-block;
+  /*vertical-align: middle;*/
+  font-size: 24px;
+}
+
+.tree-view_arrow-empty {
+  color: yellow;
+}
+.tree-view-children {
+  padding-left: 30px
+}
+.auto-aligned-selector{
+  background-color: transparent;
+}
+.auto-aligned-selector:disabled{
+  background-color: lightgrey;
+}
+.option-list{
+
+}
+.auto-aligned-options{
+   height: 40px;
+   background-color : #0086C3;
+   font-weight: 600;
+   font-size : 16px;
+   color: white;
+   font-size: 20px;
+   text-align: left;
+   padding-left: 25px;
+   cursor: default;
+}
+.auto-aligned-options:hover{
+  /*opacity: 0.6;*/
+  background-color : #005177;
+}
+.aligned-selected-options{
+  height: 50px;
+  /*background-color: #0086C3;*/
+  margin-bottom: 10px;
+  border-radius: 5px;
+  color: white;
+  font-size: 20px;
+  line-height: 50px;
+  cursor: pointer;
+  user-select : none;
+}
+
+.aligned-options-list{
+  position: absolute;
+  width : 250px;
+  /*height: 200px;*/
+  overflow-y: scroll;
+  border-radius : 4px;
+  background-color: #0086C3;
+}
+.auto-aligned-options.option-list{
+  padding-left: 50px;
+}
+.aligned-drop-down-icon{
+  width: 25px;
+  height : 40px
+}
+.aligned-drop-down-icon:after{
+  content : &#x25bc;
+}
+.aligned-standard-text{
+  color : #0086C3;
+}
+.search-bar-row{
+  background-color: transparent;
+}
+.search-bar-row:hover{
+  color : white;
+  background-color: #0086C3;
+}
+.aligned-concept-carousel{
+  /*padding-left: 15px;*/
+  width: 98%;
+}

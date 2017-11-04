@@ -1,0 +1,11 @@
+## Add more pylons nodes here
+pylons="dos"
+
+## Only one of pylonsbzr
+pylonsbzr="dos1"
+
+search="coresr1"
+print="corernd1"
+image="coreim1"
+web="plus plus1"
+cache="cache"

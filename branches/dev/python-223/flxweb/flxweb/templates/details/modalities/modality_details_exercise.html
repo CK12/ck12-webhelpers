@@ -1,0 +1,37 @@
+{% extends "details/modalities/modality_details_generic.html" %}
+
+{% block meta_extra %}
+{{ super() }}
+<meta property="og:title" content="{{ c.domain.name|escape }}" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="{{ c.modality_data.artifact.get('coverImageThumbLarge') }}" />
+<meta property="og:url" content="{{ h.url(c.page_url, qualified=True) }}" />
+<meta property="og:description" content="{{ c.modality_data.artifact.summary }}" />
+{% endblock %}
+
+{% block modality_js %}
+<script language="JavaScript" type="text/javascript">
+	require(['main'],function(){
+		require(['flxweb.details.modality.exercise']);
+	})
+</script>
+{% endblock %}
+
+{% block modality_content_main %}
+<!-- BEGIN EXERCISE VIEW -->
+	<div id="view_exercises" class="exerciseview smallpadding js_viewtab" itemscope itemtype="http://schema.org/WebPageElement">
+   	<meta itemprop="url" content="{{ request.host_url }}{{ h.url(controller='exercise', action='exercise_perma', exercise_title=c.modality_data.artifact.handle, realm=None, ext=None, render_context="embed" ) }}">
+	<meta itemprop="educationalUse" content="self learning" />
+	<meta itemprop="interactivityType" content="active" />
+	<meta itemprop="learningResourceType" content="exercise" />
+	<div class="hide" id="concept_encoding">{{ c.modality_data.artifact.encodedID }}</div>
+	<section id="exercise">
+		<div id="interactive_practice_block">
+			<input id='artifact_domain_handle' type='hidden' value='{{ c.modality_data.artifact.domain.handle }}' />
+			<div id="exercisewidget">
+			 	<img title="{{ _('Loading Interactive Practice..') }}" class="js_loadingplaceholder exerciseloader" src="{{ h.url_images('icon_loading.gif') }}" width="43" height="11" />
+			</div>{% if c.next_artifact and c.url_next_artifact %} <!-- c.next_artifact is not available --> {% endif %}</div>
+	</section>
+	</div>
+<!-- END EXERCISE VIEW -->
+{% endblock %}

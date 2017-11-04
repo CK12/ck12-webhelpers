@@ -1,0 +1,7 @@
+    Alias /assessment/tools/geometry-tool/build-000 /opt/2.0/assessment/tools/geometry-tool/build-000
+    Alias /assessment/tools/geometry-tool /opt/2.0/assessment/tools/geometry-tool/build-000
+    <Directory /opt/2.0/assessment/tools/geometry-tool/build-000/>
+        Order allow,deny
+        Allow from all
+    </Directory>
+

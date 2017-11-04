@@ -1,0 +1,78 @@
+<div>
+	<div class="js_dialog_loading gdoc_dialog_loading">
+		<img src="{{ h.url_images('icon_loading.gif') }}" width="43" height="11" title="loading" />
+		<div class="msg">
+        </div>
+	</div>
+	<div style="display:none">
+		<div class="buttonwrap" id="js_doc_ok_btn">
+				<span class='btn' id="js_addfromgdocs_ok">
+					{{ _("Ok") }}
+				</span>
+		</div>	
+	</div>
+	<div class="js_dialog_content gdoc_dialog_content hide">
+		<div class="js_gdoc_login_container gdoc_container hide">
+			<!--a class="js_gdoc_auth_link" target="new"
+			href="https://www.google.com/accounts/AuthSubRequest?scope=https://docs.google.com/feeds/&session=1&secure=0&next={{ config.flx_core_api_server }}/import/google/auth?redirectUrl={{ h.url('/gdt/auth/confirm/', qualified=True) }}">Login to Google</a-->
+
+			<a class="js_gdoc_auth_link" target="new"
+			href="{{ h.getGoogleAuthURL() }}">Login to Google</a>
+
+		</div>
+		<div class="js_gdoc_list_container gdoc_list_container hide">
+			<div>
+				{% if c.show_collections %}
+				<div class="gdoc_list_type_container">
+					Show:
+					<a class="gdoc_list_type_select js_list_type js_list_type_docs selected" href="javascript:void(0);" data-page_url="{{ h.url('/gdt/get/doclist', qualified=True) }}">{{ _("Documents") }}</a> | 
+					<a class="gdoc_list_type_select js_list_type js_list_type_cols" href="javascript:void(0);" data-page_url="{{ h.url('/gdt/get/collist', qualified=True) }}">{{ _("Collections") }}</a>
+				</div>
+				{% endif %}
+				<div>
+					<div class="spacetop">
+						<strong>
+							<span class="js_help_text js_help_text_docs">{{ _("Select a document to import.") }}</span>
+							<span class="js_help_text js_help_text_cols hide">{{ _("Select a collection to import.") }}</span>
+						</strong>
+					</div>
+					<div class="js_gdoc_list gdoc_list spacetop">
+<img src="{{h.url_images('loader.gif')}}" width="24" height="24" alt="Loading your Documents" style="position:relative;left:250px;top:100px">
+</div>
+				</div>
+				<div class='spacetop'>
+					<div>
+						<strong>
+							<span class='' >{{ _("Provide a title for import.") }}</span>
+						</strong>
+					</div>
+					<input type="text" class="txt_title forminput" id="txt_gdoc_title" name="txt_gdoc_title" maxlength="100" />
+				{% if c.enable_modalities %}
+					<span id="modality_type_select">
+					<div>
+                        <strong>
+                            <span class='' >{{ _("Select a Modality Type.") }}</span>
+                        </strong>
+                    </div>
+					<select class="forminput" id="import_modality_select" >
+                       {% for modality in c.modality_artifact_types %}
+                          {% if modality.type == 'lesson'  %}
+                           <option selected="selected" value="{{modality.type}}">{{modality.display_label|title}}</option>
+                          {% else %}
+                           <option value="{{modality.type}}">{{modality.display_label|title}}</option>
+                          {% endif %}
+                       {% endfor %}
+                     </select>
+					<span>
+				{% endif %}
+				</div>
+			</div>
+			<div class="buttonwrap">
+				<span class='btn' id="js_addfromgdocs_confirm">
+					{{ _("Import") }}
+				</span>
+			</div>
+
+		</div>
+	</div>
+</div>

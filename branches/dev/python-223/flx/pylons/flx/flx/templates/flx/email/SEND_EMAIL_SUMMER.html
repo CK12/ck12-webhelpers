@@ -1,0 +1,38 @@
+{% extends "MASTER_EMAIL_TEMPLATE.html" %}
+{% block email_body %}
+    <tr>
+        <td valign="top" style="padding-top:20px;">
+            <img alt="cloud" src="{{ site }}/assessment/ui/public/lib/summer/invite-email.png">
+        </td>
+    </tr>
+    <tr>
+        <td valign="top" style="padding-top:35px;line-height:24px;width:600px;">
+            Number of minutes in a day: 1440<br/>
+            Number of minutes you need to practice: about 20<br/><br/>
+            That's right &ndash; there's time for sleeping in, time for hanging out with friends,
+            and time for keeping your brain in shape. My challenge for you this summer is pretty
+            easy &ndash; keep your brain in the game and practice about 20 minutes every day
+            with CK-12 BrainFlex.<br/>&nbsp;
+        </td>
+    </tr>
+    <tr>
+        <td valign="top" style="line-height:24px;width:600px;padding-bottom:20px;">That's it. Here are the details:</td>
+    </tr>
+    <tr>
+        <td valign="top" style="line-height:24px;width:600px;">1. Sign up with CK-12's BrainFlex</td>
+    </tr>
+    <tr>
+        <td valign="top" style="line-height:24px;width:600px;">2. Pick what you want to practice (or ask me for suggestions)</td>
+    </tr>
+    <tr>
+        <td valign="top" style="line-height:24px;width:600px;">3. Practice once a day</td>
+    </tr>
+    <tr>
+        <td valign="top" style="line-height:24px;width:600px;">4. That's it!</td>
+    </tr>
+    <tr>
+        <td valign="top" style="text-align:center;line-height:50px;width:600px;">
+            <a style="text-align:center;line-height:1;cursor:pointer;color:#ffffff;box-shadow:none;border-radius:3px;padding:11px 23px 12px;font-size:18px;background:none repeat scroll 0 0 #ff6633;border-bottom:3px solid #d9491a;border-top:3px solid #ff6633;text-decoration:none;" href="{{ site }}/summer?utm_source=email&utm_medium=invite&utm_content=signup-1&utm_campaign=summer-2017">Sign me up!</a>
+        </td>
+    </tr>
+{% endblock %}

@@ -1,0 +1,27 @@
+ {
+	"sumTripple" : 		   {
+							"data" : "\\sum_{}^{}{}",
+							"pos" : [0,6,9,11,12],
+							"length" : 12
+						   },
+	"union":			   {
+							"data" : "\\bigcup{}",
+							"pos" : [0,8,9],
+							"length" : 9
+						   },
+	"unionTripple" : 	   {
+							"data" : "\\bigcup_{}^{}{}",
+							"pos" : [0,9,12,14,15],
+							"length" : 15
+					       },
+	"intersectionSingle":  {
+							"data" : "\\bigcap{}",
+							"pos" : [0,8,9],
+							"length" : 9
+						   },
+	"intersectionTripple" :{
+							"data" : "\\bigcap_{}^{}{}",
+							"pos" : [0,9,12,14,15],
+							"length" : 15
+						   }
+}

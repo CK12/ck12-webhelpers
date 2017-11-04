@@ -1,0 +1,12 @@
+
+Next steps for Webstich and Rss Stich ePub driver. Currently unscheduled.
+
+1. Rss Feeds + offset support (80% done, need to test with different kinds
+of feeds).
+2. Rss Feeds + offset -> scrape the original article referred in the feed as
+chapter.
+3. Clean up the formating and layout in html
+4. Consider to use FB2N for rosetta cleanup of feral HTML
+5. Lean best practices from Pulse & Flipboard and the like
+6. Add Eflex interface
+7. Automatic Delivery to the device (iPad)

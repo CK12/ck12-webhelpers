@@ -1,0 +1,116 @@
+<div class="edmodo-logo-header assign-modal-background">
+	<span class="edmodo-logo">
+	<img src="/lmspractice/media/practiceapp/images/edmodo_logo.png"/>
+	</span>
+	<span class="assign-groups-header">Assign to <span class="group-context">Edmodo Groups</span></span>
+</div>
+<div id="assignTabContainer" class="assign-modal-background">
+	<span class="assign-modal-tab active" data-target="adaptivePracticeContainer" title="CK-12 practice">CK-12 PRACTICE</span>
+	<span class="assign-modal-tab right" data-target="myQuizContainer" title="My Quizzes">MY QUIZZES</span>
+</div>
+<div class="adaptive-practice-tab adaptive-tab" id="adaptivePracticeContainer">
+	<div class="lms-assignment-name-wrapper">
+		<span class="left assignment-info-label">Title:</span>
+		<div id="assignment-name" class="concept-header-text"></div>
+		<a class="icon-edit js-edit-assignment-name assignment-name-edit"></a>
+	</div>
+	<div class="assignment-edit-name-wrapper row collapse hide">
+		<div class="columns large-7">
+			<input id="assignment-name-input" type="text" class="assignment-text-field">
+		</div>
+		<div class="assignment-edit-buttons columns large-5">
+			<a id="save-assignment-name" class="button small tangerine margin-bottom-zero assignment-name-save-button">Save</a>
+			<a class="link-green js-assignment-edit-cancel assignment-edit-cancel">Cancel</a>
+		</div>
+	</div>
+	<div class="lms-assignment-info-wrapper" id="assignmentInfo">
+		<div class="assignment-info-row">
+			<i class="icon-flag"></i>
+			<span class="assignment-info-label">GOAL:</span>
+			<span class="assignment-goal"></span>
+		</div>
+		<div class="assignment-info-row">
+			<i class="icon-infinity"></i>
+			<span class="assignment-info-label">TIME:</span>
+			<span class="assignment-time-limit"></span>
+		</div>
+	</div>
+	<div class="hide single-group-assigned">The assignment is due on <span class="single-group-due"></span>.</div>
+</div>
+<div class="my-quizzes-tab hide adaptive-tab" id="myQuizContainer">
+	<div class="quiz-list">
+		<div id="quizContainer">It looks like you don't have any quizzes yet for this concept.</div>
+		<div id="createNewQuiz" class="link-green"><i class="icon-plus"></i> Create a new quiz for <span><%= data.title %></span></div>
+		<div id="createQuizModal" class="hide" data-eid="<%= data.concept_eid %>">
+			<div class="quiz-redirection-wrapper">
+				<a class="link-green right" href="/create/exercise/test/?referrer=edmodo&mtype=quiz&encoded_id=<%= data.concept_eid %>&mhandle=<%= data.handle %>" target="_blank">Advanced options for quiz customization on ck12.org <i class="icon-open_new_window"></i></a>
+			</div>
+			<div class="create-quiz-content">
+				<div>New quiz for <%= data.title %></div>
+				<div class="create-quiz-row">
+					<span class="assignment-info-label left"># QUESTIONS:</span>
+					<input type="text" id="editQuestionCount" class="left"/>
+					<span id="quizQuestionCount" class="hide"></span>
+					<span>/</span>
+					<span id="quizTotalQuestionCount"></span>
+				</div>
+				<form class="custom create-quiz-row">
+					<span class="assignment-info-label left">TIME LIMIT:</span>
+					<input type="text" class="left time-limit-input" id="timeLimit" value="unlimited" disabled="disabled"/> 
+					<div class="left">
+			          <select class="time-limit-unit hide" id="timeLimitUnit">
+	           				<option title="minute" value="minute">min</option>
+	           				<option selected="selected" title="unlimited" value="unlimited">unlimited</option>
+	           		  </select>
+	           		  <div class="custom dropdown time-limit-unit">
+		           		  	<a class="current" href="#" title="unlimited">unlimited</a>
+		           		  	<a class="selector" href="#"></a>
+		           		  	<ul>
+		           		  		<li>min</li>
+		           		  		<li class="selected">unlimited</li>
+		           		  	</ul>
+	           		  </div>
+			        </div>
+				</form>
+				<div class="error-message text-right hide" id="quizError"></div>
+				<div class="create-quiz-row">
+					<span class="assignment-info-label left quiz-title-label">TITLE:</span>
+					<div class="left quiz-title-wrapper input">
+						<input type="text" id="quizTitle" placeholder="Untitled Quiz"/>
+						<i class="icon-notification"></i>
+					</div>
+					
+				</div>
+				<div class="text-center">
+					<a id="createQuiz" class="button small turquoise">Create Quiz</a>
+					<a id="closeQuizModal" class="button small dusty-grey">Cancel</a>
+				</div>
+			</div>
+			</div>
+	</div>
+	<div id="assignQuiz" class="quiz-assign" data-artifact-id="">
+		<div class="lms-quiz-name-wrapper">
+			<span class="left assignment-info-label">Title:</span>
+			<div id="quizName" class="concept-header-text"></div>
+		</div>
+		<div class="assignment-edit-name-wrapper row collapse hide">
+		    <div class="columns large-7">
+		        <input id="quiz-assignment-name-input" type="text" class="assignment-text-field">
+		    </div>
+		    <div class="assignment-edit-buttons columns large-5">
+		        <a id="save-assignment-name" class="button small tangerine margin-bottom-zero assignment-name-save-button">Save</a>
+		        <a class="link-green js-assignment-edit-cancel assignment-edit-cancel">Cancel</a>
+		    </div>
+		</div>
+		<div class="lms-assignment-info-wrapper" id="quizInfo">
+			<div class="assignment-info-row">
+				<span class="assignment-info-label"># OF QUESTIONS: </span>
+				<span class="quiz-question-count"></span>
+			</div>
+			<div class="assignment-info-row">
+				<span class="assignment-info-label">TIME:</span>
+				<span class="quiz-time-limit"></span>
+			</div>
+		</div>
+	</div>
+</div>

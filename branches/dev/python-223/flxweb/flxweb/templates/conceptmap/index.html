@@ -1,0 +1,40 @@
+{% extends "common/master.html" %}
+
+{% block title %}Concept Map{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+    {% block canonical %}
+        {% if request.GET.eid %}
+            <link rel="canonical" href="http://www.ck12.org/conceptmap/?eid={{ request.GET.eid }}">
+            <meta name="description" content="Explore Connections in Math and Science">
+        {% else %}
+            <link rel="canonical" href="http://www.ck12.org/conceptmap/">
+            <meta name="description" content="Explore Connections in Math and Science">
+        {% endif %}
+    {% endblock %}
+
+{% endblock %}
+
+
+{% block stylesheets %}
+    {{ super() }}
+    <link rel="stylesheet" type="text/css" href="{{ h.asset_css('conceptmap/css/main.css')}}">
+{% endblock %}
+
+{% block js %}
+    {{ super() }}
+    <script type="text/javascript">
+        require(['main'], function(){
+            require(['conceptmap/conceptmap'], function(){
+
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block contentwrap  %}
+    {% include "conceptmap/conceptmap.html" %}
+{% endblock %}

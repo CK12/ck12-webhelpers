@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Concept Map View</title>
+
+    <!--[if IE]><script language="javascript" type="text/javascript" src="/taxonomy/media/js/jit-excanvas.js"></script><![endif]-->
+
+    <!-- JIT Library File -->
+    <script language="javascript" type="text/javascript" src="/taxonomy/media/js/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="/taxonomy/media/js/jit.js"></script>
+    <script language="javascript" type="text/javascript" src="/taxonomy/media/js/hash.js"></script>
+    <script language="javascript" type="text/javascript" src="/taxonomy/media/js/map.js"></script>
+
+    <link type="text/css" href="/taxonomy/media/css/tree.css" rel="stylesheet" />
+</head>
+
+<body>
+    <h2>Concept Node Map for {{ c.subject.name }} {{ c.branch.name }}</h2>
+    <input type="hidden" id="subjectID" value="{{ c.subject.shortname }}" />
+    <input type="hidden" id="branchID" value="{{ c.branch.shortname }}" />
+    {% if c.startNode %}
+        <input type="hidden" id="startID" value="{{ c.startNode.encodedID }}" />
+        <input type="hidden" id="startName" value="{{ c.startNode.name }}" />
+    {% else %}
+        <input type="hidden" id="startID" value="" />
+        <input type="hidden" id="startName" value="" />
+    {% endif %}
+
+    {% if c.endNode %}
+        <input type="hidden" id="endID" value="{{ c.endNode.encodedID }}" />
+        <input type="hidden" id="endName" value="{{ c.endNode.name }}" />
+    {% else %}
+        <input type="hidden" id="endID" value="" />
+        <input type="hidden" id="endName" value="" />
+    {% endif %}
+    <div id="container">
+        <div id="infovis"></div>    
+    </div>
+    <br/><br/>
+    <div id="log" style="border: 1px solid red;"></div>
+    <br/><br/>
+    <div id="debug" style="height:200px; overflow:auto;"></div>
+
+</body>
+</html>
+

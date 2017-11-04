@@ -1,0 +1,6 @@
+from celeryconfig_queues import *
+
+CELERYD_CONCURRENCY = 1
+CELERY_IMPORTS = ( "flx.controllers.celerytasks.vcs", )
+
+CELERY_DEFAULT_QUEUE = "vcs"

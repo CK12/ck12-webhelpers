@@ -1,0 +1,847 @@
+{% extends "listings.html" %}  
+
+{% block header %}{{super()}}{% endblock %}
+{% block crumbs %}{{super()}}{% endblock %}
+
+{% block footer %}
+	{{super()}}
+{% endblock %}
+
+{% block admintop %}
+    {% block filters %} 
+        <div class="col topalign" style="margin:20px;">Filter by:</div>
+
+        <div class="col topalign">
+            {{ h.labelselect('Type', 'type_filter', c.form.type_sel, 'filter multisel', multiple=true)}}
+        </div>
+
+        <div class="col topalign">
+            {{ h.labelselect('Level', 'level_filter', c.form.level_sel, 'filter')}}
+        </div>
+
+        <div class="col topalign">
+            {{ h.labelselect('Grade', 'grade_filter', c.form.grade_sel, 'filter')}}
+        </div>
+        
+        <div class="col topalign">
+            {{ h.labelselect('Published', 'public_filter', c.form.public_sel, 'filter')}}
+        </div>
+
+        <div class="col topalign">
+            {{ h.labelselect('Contributed', 'contributed_filter', c.form.contributed_sel, 'filter')}}
+        </div>
+
+        <div class="col topalign">
+            {{ h.labelselect('Algorithmic', 'generative_filter', c.form.generative_sel, 'filter')}}
+        </div>
+
+        <div class="col topalign">
+            {{ h.labelselect('Draft', 'draft_filter', c.form.draft_sel, 'filter')}}
+        </div>
+
+        <div class="col topalign">
+            {{ h.labelselect('Rejected?', 'rejected_filter', c.form.rejected_sel, 'filter')}}
+        </div>
+        
+        <div class="col topalign">
+            {{ h.labelselect('With ILOs?', 'ilo_filter', c.form.ilo_sel, 'filter')}}
+        </div>
+        
+        <div class="col topalign">
+            {{ h.labelselect('With Hints?', 'hint_filter', c.form.hint_sel, 'filter')}}
+        </div>
+        
+        <div class="col topalign">
+            {{ h.labelselect('With Modality?', 'modality_filter', c.form.modality_sel, 'filter')}}
+        </div>
+
+    {% endblock %}
+    <br/>
+
+    {% block searches %}
+        <div class="col wide padleft">
+            {{ h.labelinput('Question Stem', 'title', 'med searchby')}}
+            <img id="admin_search_icon" src="{{h.url_images('icon_magnifier2.png')}}"/>
+        </div>
+        <div class="col wide">
+            {{ h.labelinput('Encoded IDs', 'encodedIDs', 'med searchby')}}
+            <img id="admin_search_icon" src="{{h.url_images('icon_magnifier2.png')}}"/>
+        </div>
+        <div class="col wide">
+            {{ h.labelinput('Owner IDs', 'ownerID', 'med searchby')}}
+            <img id="admin_search_icon" src="{{h.url_images('icon_magnifier2.png')}}"/>
+        </div>
+        <div class="col wide">
+            {{ h.labelinput('Advanced (field,term)', 'special', 'med searchby')}}
+            <img id="admin_search_icon" src="{{h.url_images('icon_magnifier2.png')}}"/>
+        </div>
+    {% endblock %}
+
+    {% block aftersearches %}
+        {{ super() }}
+        <div style="display:block">
+    		<input id='disableListOnEmptySearch' type='checkbox' checked='true'>
+    	<label>Disable Listing on Empty Searches</label>
+  </div>
+    {% endblock %} 
+
+  <div id='resultmsgs'>
+    <p> <strong>Supported Advanced Fields</strong>: questionData.stem.displayText, questionData.responseObjects.displayText, questionData.solution, 
+            docSerialNumber, hints, tags.source, tags.license, tags.qgrp, tags.credits.name, tags.credits.role, tags.searchTerms, tags.standards
+    </p>  
+    <p class='ajaxError'></p>
+    <p id='resultmsg'></p>
+    <p id='clearactions'></p>
+  </div>    
+{% endblock %}
+
+{% block admincontent %}
+    <div class="clear">{{ h.htmla('/assessment/ui/?question/create', 'New Question', 'newQuestion', target='_blank')}}</div>
+    <div class="update-all-controls" style="display:block;">
+      <input type="button" class="btn primaryaction floatright updateEidLevel hide" style="width:70px;" value="Update">
+      <div id="selectAll"> <input type="checkbox" id="selectAllQuestions" /><label for="selectAllQuestions">Select All</label> </div>
+      <input type="hidden" id="updatedQuestions" value="0" />
+    </div>
+    {{ super() }}
+    <div class="update-all-controls" style="display:block;">
+	    <input type="button" class="btn primaryaction floatright updateEidLevel hide" style="width:70px;" value="Update">
+	    <div id='boxes'>
+		<div id='dialog' class='overlay_form' style="height:270px;">
+          <table style="width:100%" border="0" cellspacing="5" cellpadding="5">
+            <tr>
+              <td>
+                <label>New EncodedID: </label>
+              </td>
+              <td><input type="text" id="new_eid"/></td>
+            </tr>
+            <tr>
+              <td> <label>New Difficulty Level: </label></td>
+              <td>
+				<select id="new_level">
+					<option value="">Select Level</option>
+					<option value="easy">Easy</option>
+					<option value="medium">Medium</option>
+					<option value="hard">Hard</option>
+				</select>
+              </td>
+              </tr>
+              <tr>
+              <td> <label>New Publish: </label></td>
+              <td>
+				<select id="new_publish">
+					<option value="">Select</option>
+					<option value="True">True</option>
+					<option value="False">False</option>
+				</select>
+              </td>
+              </tr>
+              <tr>
+              <td> <label>Publish comment: </label></td>
+              <td><textarea id="publish_comment" rows="4" cols="30"> </textarea></td>
+            </tr>
+          </table>
+          <br/>
+          <span id="totalQuestions"></span>
+          <p>
+            <input type="button" class="short btn primaryaction floatright" id="update_all_questions" value="Update All" />
+            <input type="button" class="short btn primaryaction floatright hide" id="closeUpdateDialog" value="Close" />
+            <input type="button" class="btn cancelbtn primaryaction close floatright" id="cancelUpdateDialog" value="Cancel" />
+          </p>
+		</div>
+	  	<div id="mask"></div>
+      </div>
+</div>
+    
+{% endblock %}
+
+
+{% block js_scripts %}
+{{ super() }}
+<script type="text/javascript" src="{{ h.url_js('colorbox_popup_resize.js') }}"></script>
+<script type='text/javascript'>
+    var idsStrSep = ',';
+    //Bug 29742
+    $('#level_filter option:nth-child(3)').text('Medium');
+
+{% if c.forTest %}
+    Defaults.blockOverlay = false;
+    var 
+        ADD = '[Add]',
+        DEL = '[Remove]',
+        inputname = 'edit box',
+        idsStrSepPP = ', ';
+{% endif %}
+  /*
+  	 Multi select drop-down(question types) events
+  */
+  // Select 'All' option in the question types drop-down on page load
+  /* Story 151261482 :Below lines are commented to support filters which would be passed from url for the multi-select options */ 
+  //$("#type_filter option[value='questionTypeID,']").attr('selected', 'selected');
+  //$("#type_filter optgroup option:not([value*='selSiblings'])").attr('selected','selected');
+  
+  $('#leftpane .table').css('margin-top','10px');
+  var show_empty_validation_message = false;
+  $('#newQuestion').click(function(event, eIDs){
+     if (!eIDs){
+         if (! show_empty_validation_message){
+             eIDs = prompt("Encoded IDs(Separated by comma)", '');
+         }else{
+             eIDs = prompt("At least one encoded ID must be specified,\n(Multiple encoded IDs separated by comma)", '');
+         }
+         if (!eIDs){
+             if (eIDs === null){
+                 show_empty_validation_message = false;
+                 return false;
+             }
+             show_empty_validation_message = true;
+             $(this).trigger('click');
+             return false
+         }
+         if (!admin.utils.validateEids(eIDs)) {
+            return false;
+         }
+     }
+     params='';
+     if (eIDs){
+        var href = $('#newQuestion').attr('href');
+        href = href.substring(0,href.indexOf('/create')+'/create'.length);
+        if (eIDs){
+            href += '/' + eIDs 
+        }
+        if ('{{c.loggedInUserID}}'){
+            if (href.indexOf('?impersonateMemberID') == -1 ){
+                href +=  escape('?impersonateMemberID=') + '{{c.loggedInUserID}}'
+            }
+        }
+     	// Back button reference 
+        href += escape('&ep=/flxadmin/assessment/questions');
+        $('#newQuestion').attr("href", href);
+     }else{
+        event.stopPropagation();
+        event.preventDefault();
+    }
+  });
+
+  var routeView = location.hash;
+  if (routeView && routeView.indexOf('#contributeQuestion') !== -1){
+      routeView = routeView.split('/');
+      show_empty_validation_message = false;
+      $('#newQuestion').trigger('click', routeView[1]);
+  }
+
+function  reloadCurrentPage(options){
+    window.location.href = CK12.admUrl('assessment/questions');
+}
+
+function createAssessmentListener(){
+    window.assessmentFrameListener = {
+        "resize": resize,
+        "loadTestDetailsPage": reloadCurrentPage
+    };
+}
+
+createAssessmentListener();
+
+    Listings({
+    sort: 'updated,desc',
+    enableMultipleIdsFilter: true,
+    idsStrSep: idsStrSep,
+    params: '{{c.query}}',
+    updateFilterParamsFromUrl: true,
+    updateSearchParamsFromUrl: true,
+    postLoad: function(){
+      $('.tiptrigger').tooltip({
+        bodyHandler: function(){ return $(this).siblings('.tipdiv').html(); }
+      });
+      if (! ($('#leftpane .table .tbody .tr').length)){
+      	$('.updateEidLevel').addClass('hide');
+      	$("#selectAll").hide();
+      }else{
+		$("#selectAll").show();
+      	$('.updateEidLevel').removeClass('hide');
+      }
+  {% if c.forTest %}
+   
+
+    function addNewQuestions(eid){
+        var existingEids = testQuestions.slice(0), //questions already present in test 
+            eidLength = existingEids.length, //existing question count 
+            arrayIndex = 0, //iterator 
+            questionsModified = 0;
+        for(var arrayIndex = 0; arrayIndex < eid.length; arrayIndex++){
+            if(eid[arrayIndex] instanceof Array){
+                existingEids.push(eid[arrayIndex]);
+            }else if($.inArray(eid[arrayIndex], existingEids) === -1){
+                existingEids.push(eid[arrayIndex]);
+            }
+        }
+        
+        questionsModified = (existingEids.length - eidLength);
+        questionAllreadyExistInTest = (eid.length - questionsModified)
+        if(questionsModified === 0){  // if existing questions count is same as previous means questions to add are already present in the test
+            alert("No question(s) added to test. Question(s) already exist");
+            $("#addQuestion").removeAttr("data-status");
+            return false;
+        }
+        
+        addQuestions({
+            "testId" : testID,
+            "eid" : existingEids,
+            "success" : function(response){
+                    if(questionsModified > 0 && questionAllreadyExistInTest > 0){
+                        alert("Total "+questionsModified + " question(s) are added to the test and "+questionAllreadyExistInTest+" question(s) already in test");
+                    }
+                    else{
+                    	alert("Total "+questionsModified + " question(s) are added to the test")	
+                    }
+                    $(".test_questions_pane").html(response);
+                    $("#leftpane .table .tbody").find("input[type=checkbox]").prop("checked", false);
+            },
+            "error" : function(response){
+                showMessage($("#message"), response, "error");
+            }
+        });
+    }
+
+
+    
+    $("#addQuestion").click(function(event){
+        event.stopPropagation(); 
+        var id = "",
+        checkedInput = $("#leftpane .table .tbody").find("input:checkbox:checked"),
+        eid = [];
+        questionEid = []   
+        if(checkedInput.length === 0){
+            showMessage($("#message"),"no question selected","error");
+            return false;
+        }
+		
+     	// Add an attribute on click of 'Add questions as individual' link, it will deactivate the link once AJAX request is processed 
+        if($(this).attr("data-status") === "activated"){
+        	return false;
+        }else{
+        	$(this).attr("data-status", "activated");
+        }
+     
+        checkedInput.each(function(){
+        		questionEid.push($(this).attr("eid"));
+                eid.push(this.id);
+        });
+        
+        // New test 
+        if (typeof isNewTest != 'undefined' && isNewTest){
+            testTitle = $("#testTitle").val();
+            testEIDs = $("#testEncodedIDs").val();
+            testType = $("#testTypeID").val();
+            
+            addNewTest({
+            	'questionEid':questionEid,
+            	'title' : testTitle,
+            	'eids' : testEIDs,
+            	'testType' : testType,
+            	'items' : eid,
+            	'success' : 'Test created successfully',
+            	'error' : 'There is some problem while creating the test'
+            });
+            return false;
+    	}
+        addNewQuestions(eid);
+    });
+    
+    $("#addPool").click(function(event){
+        event.stopPropagation();
+        
+        var eid = [],
+            poolArray = [],
+            checkedInput = $("#leftpane .table .tbody").find("input:checkbox:checked");
+            
+        if(checkedInput.length === 0){
+            showMessage($("#message"),"no question selected","error");
+            return false;
+        }
+        
+     	// Add an attribute on click of 'Add questions as pool' link, it will deactivate the link once AJAX request is processed 
+        if($(this).attr("data-status") === "activated"){
+        	return false;
+        }else{
+        	$(this).attr("data-status", "activated");
+        }
+            
+        checkedInput.each(function(){
+            poolArray.push(this.id);
+        });
+        eid.push(poolArray);
+
+        // New test 
+        if (typeof isNewTest != 'undefined' && isNewTest){
+            testTitle = $("#testTitle").val();
+            testEIDs = $("#testEncodedIDs").val();
+            testType = $("#testTypeID").val();
+            
+            addNewTest({
+            	'title' : testTitle,
+            	'eids' : testEIDs,
+            	'testType' : testType,
+            	'items' : eid,
+            	'success' : 'Test created successfully',
+            	'error' : 'There is some problem while creating the test'
+            });
+            return false;
+    	}
+        addNewQuestions(eid);
+    });
+    
+    $('#cboxContent .tbody .tr').each(function(){
+        var 
+          $this = $(this),
+          id = Number($this.children('.id').text());
+          //actiontext = ids.indexOf(id) == -1? ADD : DEL;
+        //$this.find('.actionitem').text(actiontext);
+      });
+      $('#cboxContent .actionitem').click(function(){
+        var 
+          $this = $(this),
+          actiontxt = $this.text(),
+          actionmsg = actiontxt==ADD? 'Added to '+inputname : 'Removed from '+inputname,
+          id = Number($this.parent().siblings('.id').text()),
+          idx = _.sortedIndex(ids, id);
+
+        if (actiontxt==ADD){
+          ids.splice(idx, 0, id);
+        }else{
+          ids.splice(idx, 1);
+        }
+        $input.val(_.map(ids, String).join(idsStrSepPP));
+        $this.text(actiontxt==ADD? DEL : ADD);
+        Fns.setActionMsg($this.siblings('.actionmsg'), 'success', actionmsg);
+      });
+    },
+    isOverlay: false,
+    ajaxRoot: CK12.admUrl('assessment/questions_list/True')
+  {% else %}
+    },
+    viewmode: '{{c.viewmode}}',
+    formAjax: CK12.admUrl('assessment/question/'),
+    ajaxRoot: CK12.admUrl('assessment/questions_list')
+    //updateUrlOnAjax: true
+  {% endif %}
+});
+    
+    /* Open modal pop-up and Update 'Difficulty level' and 'EncodedId' of multiple questions */
+    // Show dialog(open popup) 
+    showDialog = function(){
+    	var maskHeight = $(document).height();
+		var maskWidth = $(window).width();
+	
+		//Set heigth and width to mask to fill up the whole screen
+		$('#mask').css({'width':maskWidth,'height':maskHeight});
+		
+		//transition effect		
+		$('#mask').fadeIn(1000);	
+		$('#mask').fadeTo("slow",0.8);	
+	
+		//Get the window height and width
+		var winH = $(window).height();
+		var winW = $(window).width();
+              
+		//Set the popup window to center
+		$('#dialog').css('top',  winH/2-$('#dialog').height()/2);
+		$('#dialog').css('left', winW/2-$('#dialog').width()/2);
+	
+		//transition effect
+		$('#dialog').fadeIn(2000); 
+    }
+    
+    // Update question 
+    function updateQuestion(questionId, qCount, data){
+    	// Ajax call to update question, return 1 in case of success and 0 in case of failure 
+    	$.ajax({
+            "url" : "/assessment/api/update/question/" + questionId,
+            "type" : "POST",
+            "dataType" : "json",
+            "data" : data,
+            "success" : function(response){
+            	if(response.responseHeader.status === 0){
+                    var cnt = parseInt($('#updatedQuestions').val(), 10);
+                    $('#updatedQuestions').val(cnt+1);
+		    		$("#totalQuestions").html($('#updatedQuestions').val() + ' out of ' + qCount + ' questions updated.')
+           			return true;
+                }else{
+                    return false;
+                }
+            },
+            "error" : function(){
+                return false;
+            }
+        });
+    }
+
+    // Publish or unpublish question
+    function publishUnpublishQuestion(questionId,data){
+    	var url = ''
+    	if(data['isPublic']=='True'){
+    		url = "/assessment/api/publish/question/" + questionId
+    	}
+    	else if(data['isPublic']=='False'){
+    		url = "/assessment/api/unpublish/question/" + questionId
+    	}
+    	$.ajax({
+    		"url" : url,
+    		"type" : "POST",
+    		"dataType" : "json",
+    		"data" : data,
+    		"success" : function(response){
+    			if(response.responseHeader.status === 0){
+    				return true;
+    			}else{
+    				return false;
+    			}
+    		},
+    	 "error" : function(){
+             return false;
+         }
+    	});
+    }
+    
+    $('#closeUpdateDialog').click(function (e) {
+        e.stopPropagation();
+        hideOverlayPopup();
+        window.location.href = window.location.href;
+    });
+    
+ 	// Update All questions 
+    function updateAll(questionIds){
+    	$('#update_all_questions').off("click").on("click",function(e){
+    		e.stopPropagation();
+	    	var newEid = $('#new_eid').val(),
+	    	newLevel = $('#new_level').val(),
+	    	new_publish = $('#new_publish').val(),
+	    	publish_comment = ($('#publish_comment').val()).trim(),
+	    	data = {},
+	    	publishUnpublishData = {},
+	    	qCount = questionIds.length,
+	    	successCount = 0;
+	        // Get new EncodedId 
+	    	if(newEid){
+	    		if (!admin.utils.validateEids(newEid)) {
+		            return false;
+		        }
+	    		data['encodedIDs'] = newEid;
+	    	}
+	    	// Get new difficulty level 
+	    	if(newLevel){
+	    		data['level'] = newLevel;
+	    	}
+	    	if(new_publish){
+	    		if(new_publish=='True' && publish_comment){
+	    			publishUnpublishData['publishComment'] = publish_comment;
+	    			publishUnpublishData['isPublic'] = new_publish;
+	    		}
+	    		else if(new_publish=='True' && !publish_comment){
+	    			alert("you must provide a message before publishing questions");
+	    			return false;
+	    		}
+	    		else{
+	    			publishUnpublishData['isPublic'] = new_publish;
+	    		}
+	    	}
+	    		
+	    	// Update questions one by one 
+	    	if(newEid || newLevel || new_publish){
+                $('#update_all_questions').addClass('hide');
+                $('#closeUpdateDialog').removeClass('hide');
+                $('#cancelUpdateDialog').addClass('hide');		// Hide 'Cancel' button, when updating questions 
+		    	for(var i=0; i<qCount; i++){
+		    		updateQuestion(questionIds[i], qCount, data);
+		    		publishUnpublishQuestion(questionIds[i],publishUnpublishData);
+		        }
+	    	}else{
+	    		$("#totalQuestions").html('Update atleast one of above fields to get questions updated with new data.');
+	    	}
+    	});
+    }
+    
+    var maxNumQuestionsUpdate = 25;
+    // Open modal popup 
+    $(".updateEidLevel").click(function(event){
+        event.stopPropagation();
+        var id = "",
+            checkedInput = $("#leftpane .table .tbody").find("input:checkbox:checked"),
+            qid = [];
+        // Show error if no question selected 
+        if(checkedInput.length === 0){
+            alert("Please select at least one question.");
+            return false;
+        } else if (checkedInput.length > maxNumQuestionsUpdate) {
+            alert("You cannot select more than 25 questions at a time.");
+            return false;
+        }
+        // Open modal 
+        showDialog();
+            
+        checkedInput.each(function(){
+                qid.push(this.id);
+        });
+		updateAll(qid);
+    });
+    
+    // Hide popup 
+    hideOverlayPopup = function(){
+		$('#mask').hide();
+		$('.overlay_form').hide();
+	}
+    
+    // If close button is clicked 
+	$('.overlay_form .close').click(function (e) {
+		// Cancel the link behavior 
+		e.stopPropagation();
+		hideOverlayPopup();
+	});
+    
+	// Select or deselect all questions 
+	$("#selectAllQuestions").off("change").on("change", function(){
+		$("#leftpane .table .tbody .tr .td input").prop("checked", $(this).prop("checked"));
+	});
+	
+
+	   $('#disableListOnEmptySearch').click(function() {
+		   var url = window.location.href,
+		   locationhref = '',
+		   isDisableList = false;
+		   if(url.indexOf('disableList') > -1){
+			   isDisableList = true;
+		   }
+		   if($(this).is(":checked")) {
+	           $("#selectAll").hide();
+	           $("#panes").hide();
+	           $("#pagination").hide();
+	           //change queryString "disableList=checked" when checbox is checked
+        	   if(isDisableList){
+        	       locationhref = location.href.replace("disableList=unchecked","disableList=checked");
+        	   }else{
+        	 	   var splitedUrl = url.split('assessment/')[1];
+    	           window.history.pushState(null,null, splitedUrl+"&disableList=checked");	
+        	 	}
+	        	$('.updateEidLevel').addClass('hide');
+	        }else{
+	        	//change queryString "disableList=unchecked" when checbox is unchecked
+	            if(isDisableList){
+	        	    locationhref = location.href.replace("disableList=checked","disableList=unchecked");
+	        	 }
+	        	$("#selectAll").show();
+	        	$("#panes").show();
+	        	$("#pagination").show();
+	        }
+		   if(isDisableList){
+			   var url = window.location.href;
+			   var splitedUrl = url.split("/"); 
+			   var len = (splitedUrl.length)-2
+			   var secondLastArgOfUlr = splitedUrl[len]
+			   locationhref = locationhref.split(secondLastArgOfUlr+'/')[1];
+	   		   window.history.pushState(null,null, locationhref);
+		   }
+	        
+	    });
+	if($('#disableListOnEmptySearch').is(':checked')){
+		var url = window.location.href;
+		var splitedUrl = url.split("/"); 
+		var len = (splitedUrl.length)-2
+		var secondLastArgOfUlr = splitedUrl[len]
+    	splitedUrl = url.split(secondLastArgOfUlr+"/")[1]
+		if ( (splitedUrl.indexOf("disableList=checked")< 0) && (splitedUrl.indexOf("disableList=unchecked") < 0) ){
+    	    window.history.pushState(null,null, splitedUrl+"?disableList=checked");
+		}
+		$("#selectAll").hide();
+	};
+	
+	//show all question after relaoding page
+	if ((window.location.href).indexOf("disableList=unchecked") > -1){
+		$('#disableListOnEmptySearch').prop('checked', false);
+	}
+	
+    function showHideUpdateAllControls() {
+        if ($(".question-row").length > 0) {
+            $("#closeUpdateDialog").addClass("hide");
+            $("#update_all_questions").removeClass("hide");
+            $(".update-all-controls").css("display", "block");
+        } else {
+            $(".update-all-controls").css("display", "none");
+        }
+    }
+    
+    /**
+     * Delete question from a test
+     * */
+    function deleteQuestion(questionId, seqNo){
+        var questions = testQuestions.slice(0),  //making clone of existing questions array
+            index,
+            poolArray;
+        if(questions[seqNo] instanceof Array){  //if given question[seqNo] is an array i.e. pool
+            if(questionId === "pool"){
+                questions.splice(seqNo, 1);
+            }else{
+                poolArray = questions[seqNo].slice(0);
+                index = $.inArray(questionId, poolArray);
+                if(index !== -1){
+                    poolArray.splice(index, 1);
+                }
+                questions[seqNo] = poolArray;
+            }
+        }else{
+            if(questions[seqNo] == questionId){
+                questions.splice(seqNo, 1);
+            }else{
+                index = -1;
+            }
+        }
+        
+        if(index === -1){
+            showMessage($("#message"),"There is some problem in deleting the question. Please try again later","error");
+        }else{
+            addQuestions({
+                "testId" : testID,
+                "eid" : questions,
+                "success" : function(response){
+                    showMessage($("#message"), "question deleted successfully","success");
+                    $(".test_questions_pane").html(response);
+                },
+                "error" : function(response){
+                    showMessage($("#message"),response, "error");
+                }
+            });
+        }
+    }
+    
+    function addQuestions(settings){
+        var eid = settings.eid,
+        testId = settings.testId;
+        updateTest(testId,{
+                "items" : createObjectIDsString(eid,questionEid=null),
+                "success" : function (response){
+                    settings.success && settings.success(response);
+                },
+                "error" : function (response){
+                    settings.error && settings.error(response);
+                }
+        });
+    }
+    // Create a new test 
+    function addNewTest(settings){
+        data = {}
+        data['title'] = settings.title;
+        data['encodedIDs'] = settings.eids;
+        data['testTypeID'] = settings.testType;
+        data['items'] = createObjectIDsString(settings.items,settings.questionEid);
+    	
+        $.ajax({
+            "url" : "/assessment/api/create/test",
+            "type" : "POST",
+            "dataType" : "json",
+            "data" : data,
+            "success" : function(response){
+                if(response.responseHeader.status === 0){
+                    alert(settings.success);
+                    window.location.href = CK12.admUrl('assessment/test/' + response.response.test._id);
+                }else{
+                	// Remove the attribute in case of error 
+                	$("#addQuestion").removeAttr("data-status");
+                	$("#addPool").removeAttr("data-status");
+                    alert(response.response.message);
+                }
+            },
+            "error" : function(){
+                alert(settings.error);
+            }
+        });
+    	
+    }
+    updateTest = function(testId,settings){
+        var data = {};
+        for(var i in settings){
+            if(typeof settings[i] !== "function" && settings[i] !== null && settings[i] !== undefined){
+                if(i === "policies"){
+                    data[i] =  JSON.stringify(settings[i]);
+                }else{
+                data[i] = settings[i];
+                }
+            }
+        }
+        
+        $.ajax({
+            "url" : CK12.admUrl("/assessment/update/test/" + testId),
+            "type" : "POST",
+            "dataType" : "json",
+            "data" : data,
+            "success" : function(response){
+                if(response && response.status && response.status == 'error'){
+                    settings.error && settings.error(response.response);
+                }else{
+                      settings.success && settings.success(response.response);
+                }
+            }
+        });
+    }
+    createObjectIDsString = function(eid,questionEid){
+        var eidLength = eid.length,
+            items = [],
+            questionLength = null,
+            tempArray = null,
+            tempItem = null,
+        	encodedIdObj = {};
+        for(var i = 0; i < eidLength ; i++){
+            if(eid[i] instanceof Array){ //if array then it will be a question pool otherwise a question 
+	            questionLength = eid[i].length;
+	            tempArray = [];
+	            for(var j = 0; j < questionLength; j++){
+	                tempArray.push(eid[i][j]);
+	            }
+	            tempItem = {};
+	            tempItem['items'] = tempArray;
+	            tempItem['type'] = 'questionpool';
+	            items.push(tempItem);
+            }else if($.inArray(eid[i], items) === -1 && questionEid!=null){
+            	key = questionEid[i];
+            	if(key in encodedIdObj == false) {
+            		encodedIdObj[key]=[eid[i]];
+            	}
+            	else {
+	           		encodedIdObj[key].push(eid[i]);
+            	} }
+            	
+            else{
+            	tempItem = {};
+	            tempItem['id'] = eid[i];
+	            tempItem['type'] = 'question';
+                items.push(tempItem);   
+                
+            }
+        }
+        if(encodedIdObj){
+        	$.each(encodedIdObj, function (questionEid, eid) {
+        		tempItem = {};
+               	tempItem['items']=eid;
+               	tempItem['encodedID']=questionEid;
+               	tempItem['type'] = 'questionset';
+               	items.push(tempItem);
+            });
+        }
+        
+        return JSON.stringify(items);
+    }
+    function showMessage(element, message, classToAdd){
+        element.removeClass().addClass(classToAdd).find("span").html(message);
+        element.fadeIn("slow", function(){
+            window.setTimeout(function(){
+                clearMessage(element);
+            },2000);
+        });
+        
+    }
+    function clearMessage(element){
+        element.fadeOut("slow",function(){
+            element.removeClass();
+        });
+    }
+</script>
+{% endblock %}
+

@@ -1,0 +1,59 @@
+<div class="small-12 large-9 columns concept-filters">
+	<div class="row collapse filter_links_wrapper">
+		<% if (data.ck12ContentCurrentLevel) { %>
+			<a class="small-4 large-4 columns text-center js_filter_by <%if (data.by == 'ck12' || !data.communityContentCurrentLevel){%>active<%}%>" data-by="ck12">CK-12 Content</a>
+		<% } %>
+		<% if (data.communityContentCurrentLevel) { %>
+        	<a class="small-4 large-4 columns text-center js_filter_by <%if (data.by == 'community' || !data.ck12ContentCurrentLevel){%>active<%}%>" data-by="community"><span>Community</span><span class="hide-small"> Contributed</span></a>
+        <% } %>
+        <% if (data.ck12ContentCurrentLevel && data.communityContentCurrentLevel) { %>
+			<a class="small-4 large-4 columns text-center js_filter_by <%if (data.by == 'all'){%>active<%}%>" data-by="all">All Content</a>
+		<% } %>
+	</div>
+</div>
+
+<% if (data.count_by_level['basic'] || data.count_by_level['at grade'] || data.count_by_level['advanced']) { %>
+	<div class="small-12 large-3 columns concept-dropdown">
+		<div class="dropdowncontainer">
+			<div class="dropdownwrap gradedropdown moreitems relative">
+				<div id="level-help" class="right text-center pointer level-help">
+					<i class="icon-help2"></i>
+				</div>
+				<div data-dropdown="level-dropdown" class="button small split simple left level-dropdown<%if (data.onlyAllLevel){%> disabled<%}%>">
+					<a class="dropdown-label js-close-drop-down">
+						<% if ( data.level == 'at+grade' ){ %>
+							At Grade <% var level = 'at+grade' %>
+						<% } else if ( data.level =='basic' ) { %>
+							Basic <% var level = 'basic' %>
+						<% } else if ( data.level == 'advanced' ) { %>
+							Advanced <% var level = 'advanced' %>
+						<% } else { %>
+							All Levels <% var level = 'all' %>
+						<% } %>
+					</a>
+					<span class="js-close-drop-down"></span>
+				</div>
+				<ul id="level-dropdown" data-difficulty-level='<%=level%>' class="f-dropdown tangerine-list simple level-dropdown-list<%if (data.onlyAllLevel){%> disabled<%}%>" data-dropdown-content="">
+					<li class="js_filter_level<%if (!data.level){%> hide<%}%>" data-difficulty="all">
+						<a class="difficulty_filter" title=" <%= data.domain.name %> - All Levels">All Levels</a>
+					</li>
+					<% if (data.count_by_level['basic']) { %>
+					<li class="js_filter_level<%if (data.level == 'basic'){%> hide<%}%>" data-difficulty="basic">
+						<a class="difficulty_filter" title=" <%= data.domain.name %> - Basic">Basic</a>
+					</li>
+					<% } %>
+					<% if (data.count_by_level['at grade']) { %>
+					<li class="js_filter_level<%if (data.level == 'at+grade'){%> hide<%}%>" data-difficulty="at+grade">
+						<a class="difficulty_filter" title="<%= data.domain.name %> - At Grade">At Grade</a>
+					</li>
+					<% } %>
+					<% if (data.count_by_level['advanced']) { %>
+					<li class="js_filter_level<%if (data.level == 'advanced'){%> hide<%}%>" data-difficulty="advanced">
+						<a class="difficulty_filter" title="<%= data.domain.name %> - Advanced">Advanced</a>
+					</li>
+					<% } %>
+				</ul>
+			</div>
+		</div>
+	</div>
+<% } %>

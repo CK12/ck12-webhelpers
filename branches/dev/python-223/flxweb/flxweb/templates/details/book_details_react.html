@@ -1,0 +1,48 @@
+{% extends "common/master.html" %}
+{% block title %}{% endblock %}
+
+{% block stylesheets %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('flexbook/css/flexbooks.css') }}" />
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('common/css/3d-book.css') }}" />
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('annotatorjs/css/annotator.css') }}" />
+
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+<script src="{{ h.asset_lib('flexbook/js/dist/flexbook.js') }}"></script>
+<script>
+  FlexBook.init(window.location.pathname, document.getElementById('flexBookDetailsMain'));
+</script>
+<script language="JavaScript" type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+		tex2jax: {
+			inlineMath: [['@$','@$']],
+			displayMath: [['@$$','@$$']],
+			skipTags: ["script","noscript","style","textarea","code"]
+		},
+		showMathMenu : false,
+		jax: ["input/TeX","output/HTML-CSS"],
+		messageStyle: "none",
+		TeX: {
+			extensions: ["cancel.js", "color.js", "autoload-all.js"]
+		}
+	});
+</script>
+<script language="JavaScript" type="text/javascript" src="//d3lkjnwva6z405.cloudfront.net/mathjax-min-2.6-20160201/MathJax.js"></script>
+{% endblock %}
+
+{% block practice_widget %}
+<script src="{{ h.asset_lib('practice-widget/dist/ck12-practice-widget-withdeps.js') }}"></script>
+{% endblock %}
+
+{% block header %}
+{{ super() }}
+
+{% endblock %}
+{% block contentwrap %}
+<div id="flexBookDetailsMain" style="min-height:580px" class="container collapse smooth-text"></div>
+<div id="sharePlaneWrapper" class="row relative share-plane-container hide"></div>
+{% endblock %}

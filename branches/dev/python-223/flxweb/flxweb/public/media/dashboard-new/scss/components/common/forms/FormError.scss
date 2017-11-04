@@ -1,0 +1,26 @@
+@import '../../../main';
+
+$label-font-size: rem-calc(12);
+$label-line-height: 1.8;
+
+:local {
+    .error {
+        max-width: 100%;
+        color: $white;
+        background-color: $error-color;
+        padding: $global-padding / 2;
+        position: absolute;
+        border-radius: $global-radius $global-radius 0 0;
+        top: ($label-font-size * $label-line-height);
+        left: 0;
+        transform: translateY(-100%);
+        z-index: 1;
+        font-size: rem-calc(14);
+        line-height: 1.25;
+        text-transform: none;
+    }
+
+    .error + label  > input {
+        border: 1px solid $error-color !important;
+    }
+}

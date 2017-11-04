@@ -1,0 +1,14 @@
+<a href="<%= data.href + (data.current - 1) %>" alt="Previous page" title="Previous page" class="search_pagination_arrow<% if (data.isBeginning) { %> disabled<% } %>">
+	<i class="icon-arrow3_left"></i>
+</a>
+<% var index; %>
+<% for (index = 0; index < data.pages_to_show.label.length; index++) { %>
+	<% if ('number' === data.pages_to_show.label[index]) { %>
+		<a class="<%= data.pages_to_show.label[index] %><% if (data.current === data.pages_to_show.value[index]) { %> selected<% } %>" href="<%= data.href + data.pages_to_show.value[index] %>" data-value="<%= data.pages_to_show.value[index] %>"><%= data.pages_to_show.value[index] %></a>
+	<% } else { %>
+		<a class="<%= data.pages_to_show.label[index] %>"><%= data.pages_to_show.value[index] %></a>
+	<% } %>
+<% } %>
+<a href="<%= data.href + (data.current + 1) %>" alt="Next page" title="Next page" class="search_pagination_arrow<% if (data.isEnd) { %> disabled<% } %>">
+	<i class="icon-arrow3_right"></i>
+</a>

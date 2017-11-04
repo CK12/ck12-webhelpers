@@ -1,0 +1,177 @@
+{% extends "master.html" %}  
+
+{% block admintop %} 
+    <div class="errorline"></div>
+
+  {% if c.hasGAuth %}    
+
+    {% if c.doctype.startswith('doc') %}
+      <b>Listing Documents</b> &nbsp;|&nbsp;
+      <a href="{{h.url_('/gdocimport/folders')}}">List Folders</a>
+    {% elif c.doctype.startswith('folder') %}
+      <b>Listing Folders</b> &nbsp;|&nbsp;
+      <a href="{{h.url_('/gdocimport/documents')}}">List Documents</a>
+    {% endif %}
+    <div>
+      <form method="post" class="margintop">
+        <input type="submit" name="Glogout" value="Logout from Google"/>
+      </form>
+    </div>
+
+    <div id='resultmsgs'>
+      <p class='ajaxError'></p>
+      <p id='resultmsg'></p>
+      <p id='clearactions'></p>
+    </div>
+
+  {% else %}
+    <a href="{{h.getGoogleAuthURL()}}">Login to Google to View Docs to Import</a>
+  {% endif %}
+
+{% endblock %}
+
+
+{% block admincontent %} 
+<div id='leftpane'>
+<div class="table clear hide">
+  <div class="thead sectionhead">
+    <div class="tr">
+    {% for head in c.form.listhead %}
+      <div class="td">
+        {{head}}<div class='sort-indicator hide'></div>
+      </div>
+    {% endfor %}
+    </div>
+  </div>
+  <div class="tbody"></div>
+</div>
+<div id="pagination"></div>
+</div>
+{% endblock admincontent %}
+
+
+{% block js_scripts %}
+<script type="text/javascript" src="{{ h.url_js('listings.js') }}"></script>
+<script type='text/javascript'>
+{% if c.hasGAuth %}
+  var
+    updateInterval = Defaults.interval.short, 
+    cacheUrl = CK12.admUrl('gdoc_imports'),
+    taskUrlRoot = CK12.flxUrl('get/status/task/'),
+    cached_imports = {},
+    tasks = [],
+
+    updateCache = function(data, docID, stat){
+      var 
+        taskID = data.response.taskID,
+        status = stat||data.response.status,
+        to_cache = {taskID: taskID, docID: docID, status: status};
+      if (!taskID){
+        console.error('updateCache(): No taskID in response data')
+        return;
+      }
+      $.post(cacheUrl, to_cache);
+      cached_imports[taskID] = {docID: docID, status: status};
+    },
+    updateStatsFor = function($actionWrap, data, taskID){
+    // update status for a row, 
+    // data is either: data from import gdoc API, import task API, or status string,
+      var 
+        stat = '', 
+        errMsg='',
+        resp = data && data.response,
+        isResponse = !taskID,
+        responseMsg = resp && resp.message,
+        taskID = taskID || (resp && resp.taskID),
+        $actionStat = $actionWrap.find('.actionstat'),
+        $actionMsg  = $actionWrap.find('.actionmsg'),
+        $actionLink = $actionWrap.find('.actionlink');
+
+      if (isResponse && !data.responseHeader)
+        errMsg = 'No responseHeader in response from import API';
+      else if (isResponse && data.responseHeader.status != 0)
+        errMsg = 'Import error: ' + responseMsg;
+      else if (!taskID)
+        errMsg = 'No task ID in response from API';
+      else{
+        stat = isResponse? resp.status||'PENDING' : data; //assumes data is string if not isResponse
+        Fns.setActionStat($actionStat, stat);
+        Fns.colorStatus($actionStat);
+        Fns.setActionLink($actionLink, CK12.admUrl('task/'+taskID), 'Import Status:');
+      }
+      if (errMsg){
+        Fns.setActionMsg($actionMsg, 'error', errMsg);
+        Fns.setActionStat($actionStat, 'hide');
+        Fns.setActionLink($actionLink, 'hide');
+      }
+      return stat;
+    },
+    taskIdOf = function(docID){
+      var taskID;
+      $.each(cached_imports, function(_taskID, cache){
+        if (cache.docID==docID){
+          taskID = _taskID;
+          return false;
+        }
+      });
+      return taskID;
+    };
+
+  // get cached gdoc imports
+  $.get(cacheUrl, function(data){
+    cached_imports = data.response || {};
+  });
+
+  Listings({
+    ajaxRoot: CK12.admUrl('gdocs_list/{{c.doctype}}'),
+    postLoad: function(){
+      // Artifact Import Handler
+      $('.actionitem').click(function(){
+        var $this = $(this);
+        $this.parent().siblings('.artifactType').val($this.attr('id'));
+        $.ajax({
+          url: CK12.flxUrl('import/gdt/artifact'),
+          type: 'POST',
+          data: $this.parentsUntil('form').parent().serialize(),
+          success: function(data){
+            var stat = updateStatsFor($this.parent(), data);
+            updateCache(data, $this.parent().siblings('.id').val(), stat);
+          }
+        });
+      });
+
+      // Update stats after listing changes
+      $.each(cached_imports, function(taskID, cache){
+        $('input.id').each(function(i, elm){
+          if ($(elm).val() == cache.docID)
+            updateStatsFor($(elm).siblings('.actionitemwrap'), cache.status, taskID);
+        });
+      });
+    }
+  });
+
+  // Poll to update stats if pending or in progress
+  Fns.pollStatus = function(){
+    $('.actionstat').each(function (i, elm){
+      var 
+        $elm = $(elm),
+        stat = $elm.text().trim();
+      if (Fns.inProgress(stat)){
+        var 
+          docID = $elm.parent().siblings('.id').val(),
+          taskID = taskIdOf(docID);
+        if (taskID){
+          $.get(taskUrlRoot+taskID, function(data){
+            if ($.trim(data.response && data.response.status) != stat){
+              updateStatsFor($elm.parent(), data);
+              updateCache(data, docID);
+            }
+          });
+        }
+      }
+    });
+  };
+  Poll = setInterval("Fns.pollStatus()", updateInterval); 
+{% endif %}
+</script>
+{% endblock %}

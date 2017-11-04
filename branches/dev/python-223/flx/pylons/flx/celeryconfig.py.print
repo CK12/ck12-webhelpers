@@ -1,0 +1,54 @@
+from celeryconfig_queues import *
+
+CELERYD_CONCURRENCY = 3
+CELERY_IMPORTS = ( "flx.controllers.celerytasks.importer",
+                  "flx.controllers.celerytasks.pdf",
+                  "flx.controllers.celerytasks.epub",
+                  "flx.controllers.celerytasks.mobi",
+                  "flx.controllers.celerytasks.artifact",
+                  "flx.controllers.celerytasks.browseTerm",
+                  "flx.controllers.celerytasks.mathcache",
+                  "flx.controllers.celerytasks.gdt",
+                  "flx.controllers.celerytasks.gdt2epub",
+                  "flx.controllers.celerytasks.phonehome",
+                  "flx.controllers.celerytasks.notifier",
+                  "flx.controllers.celerytasks.eflex",
+                  "flx.controllers.celerytasks.worksheet",
+                  "flx.controllers.celerytasks.taskmaintainer",
+                  "flx.controllers.celerytasks.webthumbnail",
+                  #"flx.controllers.celerytasks.data.updatemembergroups",
+                  #"flx.controllers.celerytasks.data.updatememberlocations",
+                  #"flx.controllers.celerytasks.data.updatememberschoollocations",
+                  #"flx.controllers.celerytasks.data.recordmemberlocationsfromgroup",
+                  #"flx.controllers.celerytasks.data.recordmemberlocationsfromip",
+                  #"flx.controllers.celerytasks.data.recordmemberschoollocationsfromgroup",
+                  #"flx.controllers.celerytasks.data.generatememberlocations",
+                 )
+
+CELERY_DEFAULT_QUEUE = "print"
+
+from datetime import timedelta
+
+CELERYBEAT_SCHEDULE = {
+    "run-every-4-hours": {
+        "task": "flx.controllers.celerytasks.phonehome.PhoneHomeTask",
+        "schedule": timedelta(seconds=4*60*60),
+    },
+    "run-every-2-hours": {
+        "task": "flx.controllers.celerytasks.taskmaintainer.TasksMaintainerTask",
+        "schedule": timedelta(seconds=2*60*60),
+    },
+    "run-every-119-min": {
+        "task": "flx.controllers.celerytasks.notifier.EmailNotifierTask",
+        "schedule": timedelta(seconds=119*60),
+    },
+    "run-every-2-hrs-assignment-push-msg": {
+        "task": "flx.controllers.celerytasks.notifier.AssignmentPushNotifierTask",
+        "schedule": timedelta(seconds=60*60*2),
+    },
+#    "run-every-24-hours": {
+#        "task": "flx.controllers.celerytasks.webthumbnail.ThumbnailGenerationTask",
+#        "schedule": timedelta(seconds=24*60*60),
+#    },
+}
+

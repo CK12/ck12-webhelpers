@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>Request to Publish</title>
+    </head>
+    <body>
+        <h2>Request to Publish:</h2>
+        <table>
+            <tr>
+                <td>Full Name:</td>
+                <td>{{ member.name }}</td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td>{{ member.email }}</td>
+            </tr>
+            <tr>
+                <td>Host URL:</td>
+                <td>{{ events.0.eventData['website'] }}</td>
+            </tr>
+            <tr>
+                <td>Feedback Type:</td>
+                <td>Publish Flexbook Request</td>
+            </tr>
+            <tr>
+            </tr>
+            <tr>
+                <td>Username:</td>
+                <td>{{ member.login }}</td>
+            </tr>
+            <tr>
+                <td>Title:</td>
+                <td>{{ events.0.eventData['artifactRevision']['title'] }}</td>
+            </tr>
+            <tr>
+                <td>Artifact Revision ID:</td>
+                <td>{{ events.0.eventData['artifactRevision']['id'] }}</td>
+            </tr>
+            <tr>
+                <td>Comments:</td>
+                <td>{{ events.0.eventData['comments'] }}</td>
+            </tr>
+        </table>
+    </body>
+</html>

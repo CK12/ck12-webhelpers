@@ -1,0 +1,1 @@
+ALTER TABLE MemberExtData ADD verified BOOL NOT NULL DEFAULT 1;

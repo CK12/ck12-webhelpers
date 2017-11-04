@@ -1,0 +1,143 @@
+
+    <head>
+        <title>Import from Wiki</title>
+        <script src="{{ c.prefix }}/media/js/jquery-1.5.min.js"></script>
+        <script type="text/javascript">
+            var taskID;
+            function startImport() {
+                $('#result').html('<p><img src="{{ c.prefix }}/media/images/ajax-loader.gif" /></p>');
+                $('#btnImport').hide();
+                $.ajax({
+                    url: '{{ c.prefix }}/import/wiki',
+                    type: 'POST',
+                    data: $('#wikiimport').serialize(),
+                    dataType: 'json',
+                    success: function(data) {
+                        if (data.responseHeader.status != 0) {
+                            alert("Error scheduling wiki import: " + data.response.message);
+                            return;
+                        }
+                        taskID = data.response.task_id;
+                        if (taskID) {
+                            setTimeout("checkStatus()", 2000);
+                        } else {
+                            alert("Could not get the task ID in response");
+                        }
+                    }
+                });
+            }
+
+            function checkStatus() {
+                $.ajax({
+                    url: '{{ c.prefix }}/get/status/task/' + taskID,
+                    type: 'GET',
+                    dataType: 'json',
+                    statusCode: {
+                        404: function() {
+                            setTimeout("checkStatus()", 20000);
+                        }
+                    },
+                    success: function(data) {
+                        if (data.responseHeader.status == 2016) {
+                            setTimeout("checkStatus()", 20000);
+                            return;
+                        }
+                        if (data.responseHeader.status != 0) {
+                            alert("Error getting import task status: " + data.response.message);
+                            return;
+                        }
+
+                        var taskStatus  = data.response.status;
+                        if (taskStatus == 'PENDING' || taskStatus == 'IN PROGRESS') {
+                            setTimeout("checkStatus()", 20000);
+                        } else if (taskStatus == 'SUCCESS') {
+                            var book_id = jQuery.parseJSON(data.response.userdata).artifactID;
+                            $.ajax({
+                                url: "{{ c.prefix }}/get/info/"+book_id,
+                                type: 'GET',
+                                dataType: 'json',
+                                success: function(data) {
+                                    var userdata = data.response.artifact;
+                                    var perma = '';
+                                    if (userdata.realm) {
+                                        perma += '/' + userdata.realm;
+                                    }
+                                    perma += '/' + userdata.artifactType + '/' + userdata.handle;
+                                    $('#result').html('<p>The book has been imported. <a href="' + perma + '" target="_blank">View</a></p>');
+                                    $('#btnImport').show();
+
+                                }
+                            });
+                        } else {
+                            $('#result').html('<p style="color:red;">Failed to import Book. <br/>' + data.response.result + '</p>');
+                            alert("Task did not end successfully: " + JSON.stringify(data.response));
+                            $('#btnImport').show();
+                        }
+                    }
+                });
+
+
+            }
+
+        </script>
+    </head>
+<body>
+    <h2>Import a book from wiki</h2>
+    <form id="wikiimport" name="wikiimport" method="POST" action="{{ c.prefix }}/import/wiki">
+    <table width="50%">
+        <tr>
+            <td>
+                Wiki URL:
+            </td>
+            <td>
+                <input type="text" name="wiki_url" value="" size=100/>
+            </td>
+        </tr>
+         <tr>
+            <td>
+                Content Format:
+            </td>
+            <td>
+                <select name="contentVersion">
+                    <option value="2" selected="selected">Content Version 2.0</option>
+                    <option value="1">Content Version 1.x</option>
+                </select>
+            </td>
+        </tr>
+         <tr>
+            <td>
+                Metadata Format:
+            </td>
+            <td>
+                <select name="is_new_metadata_format">
+                    <option value="False">Old</option>
+                    <option value="True" selected="selected">New</option>
+                </select>
+            </td>
+        </tr>
+         <tr>
+            <td>
+                Import as:
+            </td>
+            <td>
+                <select name="import_drill_mode">
+                    <option value="section" selected="selected">Sections</option>
+                    <option value="concept">Concepts</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>User: </td>
+            <td>{{ c.member.login }} <input type="hidden" name="import_user_id" value="{{ c.member.id }}" /></td>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" name="submit" id="btnImport" value="Import" onclick="startImport();" />
+            </td>
+        </tr>
+    </table>
+    </form>
+    <div id="result"></div>
+</body>

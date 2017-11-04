@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<title>Biscuit : Unit tests for CK-12 Foundation</title>
+		<link rel="stylesheet" type="text/css" href="../../../common/vendor/mocha/mocha.css" />
+		<script src="../../../common/vendor/chai/chai.js"></script>
+		<script src="../../../common/vendor/mocha/mocha.js"></script>
+		<script src="../../../biscuit/js/biscuitLoader.js"></script>
+		<script>
+			var testModules = [window.location.href.split('/').splice(-4,1).concat('tests','tests').join('/')];
+		</script>
+	</head>
+	<body>
+		<div id="mocha"></div>
+
+		<script src="../../../common/vendor/requirejs/require.js"></script>
+		<script>
+			window.loadBiscuit(function(requirejs, mocha){
+				require(['biscuit/utils/testloader'], function(TestLoader){
+					testLoader = new TestLoader(testModules, function(){
+			            mocha.run();
+			        });
+			        testLoader.load();
+				})
+			}, {
+				baseUrl: '../../..'
+			});
+		</script>
+	</body>
+</html>

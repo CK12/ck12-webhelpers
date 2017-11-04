@@ -1,0 +1,72 @@
+{% extends "listings.html" %}  
+
+{% block header %}{% if not c.asOverlay %} {{super()}} {% endif %}{% endblock %}
+{% block crumbs %}{% if not c.asOverlay %} {{super()}} {% else %}
+  <span id="pagetitle">{{_(c.pagetitle)}}</span> {% endif %}
+{% endblock %}
+{% block footer %}{% if not c.asOverlay %} {{super()}} {% endif %}{% endblock %}
+
+{% block filters %}{% endblock %}
+
+{% block js_scripts %}
+{{ super() }}
+<script type='text/javascript'>
+  var idsStrSep = ',';
+
+{% if c.asOverlay %}
+  Defaults.blockOverlay = true;
+  var 
+    ADD = '[Add]',
+    DEL = '[Remove]',
+    input = $('#exercise_ids').text().trim(),
+    ids = input? input.split(/,\s*/) : [],
+    Qclass_id = '{{c.Qclass}}/{{c.Qid}}',
+    isOverlayFromPaneview = '{{c.from_view}}'=='pane';
+{% endif %}
+
+  Listings({
+    sort: 'updateTime,desc',
+    enableMultipleIdsFilter: true,
+    idsStrSep: idsStrSep,
+    params: '{{c.query}}',
+
+  {% if c.asOverlay %}
+    updateHeaders: function(){
+      $('#cboxContent .thead .tr.fullview').append('<div class="td">Association</div>');
+    },
+    postLoad: function(){
+      $('#cboxContent .tbody .tr').each(function(){
+        var 
+          $this = $(this),
+          id = $this.children('.id').text(),
+          actiontext = ids.indexOf(id) == -1? ADD : DEL,
+          $actionitem = $this.find('.actionitem');
+        $actionitem.text(actiontext);
+
+        if (actiontext.match(/Add/)){
+          Fns.ajaxfor($actionitem, {
+            url: CK12.admUrl('associate/'+Qclass_id+'/'+id),
+            redirect: CK12.admUrl('question/'+Qclass_id),
+            isOverlayFromPaneview: isOverlayFromPaneview
+          });
+        }
+        else if (actiontext.match(/Remove/)){
+          Fns.ajaxfor($actionitem, {
+            confirmMsg: "Are you sure you want to remove the question from this exercise?",
+            url: CK12.admUrl('deassociate/'+Qclass_id+'/'+id),
+            redirect: CK12.admUrl('question/'+Qclass_id),
+            isOverlayFromPaneview: isOverlayFromPaneview
+          });
+        }
+      });
+    },
+    isOverlay: true,
+    ajaxRoot: CK12.admUrl('exercises_list/{{c.Qclass}}/{{c.Qid}}')
+  {% else %}
+    viewmode: '{{c.viewmode}}',
+    formAjax: CK12.admUrl('exercise/'),
+    ajaxRoot: CK12.admUrl('exercises_list')
+  {% endif %}
+  });
+</script>
+{% endblock %}

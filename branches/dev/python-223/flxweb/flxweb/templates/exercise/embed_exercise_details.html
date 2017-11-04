@@ -1,0 +1,76 @@
+{% set artifact = c.artifact %}
+{% set exercise = c.exercise %}
+{% set exercise_mode = c.exercise_mode %}
+{% from "exercise/exercise_macros.html" import ck12_display_exercise with context %}
+{% from "exercise/exercise_macros.html" import ck12_display_add_exercise with context %}
+{% from "exercise/exercise_macros.html" import ck12_display_error_exercise with context %}
+{% extends "base/plain.html" %}
+
+{% block title %} 
+	{% if artifact and c.exercise_exist %}
+		{{ _("Exercise On") }} {{ artifact.title }} 
+	{% else %} 
+		{{ _("Exercise not Found") }}
+	{% endif %} 
+{% endblock %}
+
+{% block stylesheets %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.url_css('details.css') }}" />
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+<script language="JavaScript" type="text/javascript">
+	require(['main'],function(){
+		require(['flxweb.exercise.quiz']);
+	});
+</script>
+{#<script language="javascript" type="text/javascript" src="{{ h.url_js('flxweb.exercise.quiz.js') }}"></script>#}
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block pagewrap %}
+<div class="container_12 embeddedexercise clearfix" {% block schema_itemscope %} {% endblock%}>
+	<div id="endpracticewrapper" class="hide">
+	{% if artifact.encodedID and c.exercise_exist %}
+		{% include 'exercise/embed_exercise_end_form.html' %}
+	{% endif %} 
+	</div>
+	<div id="content" class="exercisewrap clearfix" >
+	<div class="poweredby">
+		<span>{{ _('powered by') }}</span>
+		<a title="CK-12 Foundation Home" href="/" target="_blank">
+			<img alt="CK-12 Logo" src="{{ h.asset_image('images/logo_ck12.png') }}" width="60" height="22">
+		</a>
+	</div>
+	{% if artifact.title %}
+	<a href="{{ config.webroot_url }}{{ artifact.getPermaHandle() }}" target="_blank" ><h2>{{ _("Exercise on") }} {{ artifact.title }}</h2></a>
+	{% else %}
+	<h2>{{ _("Exercise not Found") }}</h2>
+	{% endif %}
+	<div class="divider"></div>
+	<div class="spacetop"></div>
+	<div class="questionpanel leftalign active"> 
+	{% if artifact.encodedID %}
+		{% if c.exercise_exist %}
+			<div class="displayexercise">
+				{{ ck12_display_exercise(c, render_context="embed") }}
+			</div>
+			<div class="clear"></div>
+			<div class="hide" id="concept_encoding">{% if artifact.encodedID %}{{ artifact.encodedID }}{% endif %}</div>
+			<div class="hide" id="concept_id">{% if artifact.id %}{{ artifact.id }}{% endif %}</div>
+		{% else %}
+			{{ ck12_display_error_exercise(c.artifact.title) }}
+		{% endif %}
+	{% else %}
+		{{ ck12_display_error_exercise(c.artifact.title) }}
+	{% endif %}
+	</div>
+	</div>
+	<div id="exercise_mode" data-mode={{ exercise_mode }}></div>
+</div>
+
+{% endblock %}

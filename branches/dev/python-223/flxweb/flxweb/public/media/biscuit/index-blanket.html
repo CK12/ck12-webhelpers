@@ -1,0 +1,16 @@
+<html>
+	<head>
+		<title>Biscuit : Unit tests for CK-12 Foundation</title>
+		<link rel="stylesheet" type="text/css" href="../common/vendor/mocha/mocha.css" />
+		<script src="../common/vendor/chai/chai.js"></script>
+		<script src="../common/vendor/mocha/mocha.js"></script>
+		<script src="js/biscuitLoader.js"></script>
+	</head>
+	<body>
+		<div id="mocha"></div>
+
+		<script src="../common/vendor/requirejs/require.js" data-main="js/biscuit-main.js"></script>
+		<script src="../common/vendor/blanket/blanket.js" data-cover-adapter="../common/vendor/blanket/mocha-blanket.js" data-cover-never="[vendor/,lib/]"></script>
+
+	</body>
+</html>

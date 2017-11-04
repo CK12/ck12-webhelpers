@@ -1,0 +1,15 @@
+<div class="browsebuttonswrap browse-buttons">
+    {% macro browse_button(id, title) -%}
+    <div class="button-wrap">
+    <button class="{{ id }}{% if c.browse_view == id %} active pressed-state{% endif %} button small {% if id == 'map' and  c.branch.hasConceptMap()  or id=='list'%}turquoise{% endif %}{% if id == 'map' and not c.branch.hasConceptMap() %}grey disabled{% endif %}"
+        {% if c.browse_view != id %}
+            data-view="{{ h.url('browse',subject=c.branch.slug()) }}?view={{ id }}view"
+        {% endif %}
+        {% if id == 'map' and not c.branch.hasConceptMap() %}
+            disabled="disabled" class="disabled grey button small"
+        {% endif %}><span class="icon-{{id}}"></span>{{ title }}</button>
+    </div>
+    {%- endmacro %}
+    {{ browse_button('list', _('List')) }}
+    {{ browse_button('map', _('<span class="hide-for-medium-down" style="margin-right: 5px;">Concept </span>Map')) }}
+</div>

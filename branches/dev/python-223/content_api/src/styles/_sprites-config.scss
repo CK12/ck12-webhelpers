@@ -1,0 +1,42 @@
+$ck12-logo: -0px -0px 62px 22px;
+$plix: -0px -22px 209px 106px;
+$attachment: -0px -128px 209px 106px;
+$activity: -0px -234px 209px 106px;
+$image: -0px -340px 209px 106px;
+$lesson-plan: -0px -446px 209px 106px;
+$mind-map: -0px -552px 209px 106px;
+$assessment: -0px -658px 209px 106px;
+$read: -0px -764px 209px 106px;
+$real-world-application: -0px -870px 209px 106px;
+$simulation: -0px -976px 209px 106px;
+$study-aid: -0px -1082px 209px 106px;
+$video: -0px -1188px 209px 106px;
+$web-link: -0px -1294px 209px 106px;
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 3);
+}
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 4);
+}
+@function sprite-width($sprite) {
+  @return nth($sprite, 3);
+}
+@function sprite-height($sprite) {
+  @return nth($sprite, 4);
+}
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 1);
+  $sprite-offset-y: nth($sprite, 2);
+  background-position: $sprite-offset-x $sprite-offset-y;
+}
+@mixin sprite($sprite, $display: block) {
+  @include sprite-position($sprite);
+  background-repeat: no-repeat;
+  overflow: hidden;
+  display: $display;
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+.icon {
+  background-image: url("../images/sprites.png");
+}

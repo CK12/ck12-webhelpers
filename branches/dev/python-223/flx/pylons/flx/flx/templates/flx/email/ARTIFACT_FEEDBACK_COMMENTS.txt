@@ -1,0 +1,18 @@
+Hi {{ events[0]['eventData']['memberName'] }},
+
+<p>Greetings from CK-12 Foundation!
+
+{% for event in events %}
+{% if ['eventData']['feedback_type'] == 'comments' %}
+A CK-12 user, "{{ event['eventData']['commentsBy'] }}" has commented on content(s) {{ event['eventData']['title'] | escape}}you own.
+{% else %}
+A CK-12 user, "{{ event['eventData']['commentsBy'] }}" has replied on content(s) {{ event['eventData']['title'] | escape}} you have commented on.
+{% endif %}
+
+User Comments:</b> {{ event['eventData']['comments'] | escape }}
+
+{% endfor %}
+
+The CK-12 Team
+
+CK-12 Foundation | 3430 West Bayshore Road, Palo Alto, CA 94303

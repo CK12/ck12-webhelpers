@@ -1,0 +1,56 @@
+{% extends "MASTER_CK12_LOGO.html" %}
+{% block email_body %}
+<html>
+    <body>
+    <p>Dear {{ events[0].eventData['reportedUser'] }},</p>
+
+    {% if events[0].eventData['status'] == 'NEW' %}
+
+    <p>Thank you for your feedback!</p>
+
+    <p>We will review your report and make any necessary updates.</p>
+
+    <p>Here are the details of your error report:</p>
+
+    {% else %}
+
+        <p>Your error report has been processed and here are the details:</p>
+
+    {% endif %}
+    
+    <table cellpadding="10" border="1">
+    <tr align="center">
+        <th>Question Snippet</th>
+        <th>Exercise</th>
+        <th>Error Type</th>
+        <th>Error Status</th>
+        <th>Error Reason</th>
+        {% if events[0].eventData['status'] != 'NEW' %}
+           <th>Response Message</th>
+        {% endif %}
+    </tr>
+    <tr align="center">
+        <td>{{events[0].eventData['question']['displayText']|replace("/flx/math/", flxhost+"/flx/math/") }}</td>
+        <td><a href="{{ site }}{{ events[0].eventData['artifactPerma'] }}#view_exercises" target=_blank">{{ events[0].eventData['artifactTitle'] }}</a></td>
+        <td>{{ events[0].eventData['errorType'] }}</td>
+        <td>{{ events[0].eventData['status'] }}</td>
+        <td>{{ events[0].eventData['reason'] }}</td>
+        {% if events[0].eventData['status'] != 'NEW' %}
+           {% if events[0].eventData['response'] %} 
+               <td>{{ events[0].eventData['response'] }}</td>
+           {% else %}
+               <td><p>&nbsp;</p></td>
+           {% endif %}
+        {% endif %}
+    </tr>
+    </table>
+ 
+    <p></p> 
+
+    <p>Do you have questions or feedback? Do not hesitate to email <a href="mailto:support@ck12.org">support@ck12.org</a>.</p>
+
+    <p>Sincerely,</p>
+    <p>The CK-12 Team</p>
+    </body>
+</html>
+{% endblock %}

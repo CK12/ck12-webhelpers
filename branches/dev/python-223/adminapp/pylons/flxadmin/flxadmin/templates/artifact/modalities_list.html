@@ -1,0 +1,75 @@
+{% from "macros/pagination.html" import paginate with context %}  
+
+{% if c.paginator.item_count > 0 %}
+  {% for i in c.paginator.items %}
+    <div class="tr paneview {{ h.hide_if_full(c.viewmode)}}">
+      <div class="td id">{{i.id}}</div>
+      <div class="td viewtrigger breakword" data-id="{{i.id}}">
+        {{h.idlink2('/artifact/', i, 'title')}}<br/>
+        ({{i.artifactType}})
+      </div>
+      <div class="td">{{h.userlink(i, 'creator', 'creatorID', truncate=15)}}</div>
+      <!--<div class="td">{% if i.courses %} {% set moreElments = False %}
+        {% for course in i.courses %} 
+            {% if moreElements %} {{', '}} {% endif %}
+            {{course.shortName}}
+            {% set moreElments = False %}
+        {% endfor %}
+        {% else %} {{"-"}} {% endif %}
+      </div>-->
+      <!-- US 148539925 : Show collections data if present -->
+      <!--<div class="td">{% if i.collections %}
+        {% for collection in i.collections %} 
+            {% if loop.index != 1 %} {{', '}} {% endif %}
+            {{collection.collectionHandle}}
+        {% endfor %}
+        {% else %} {{"-"}} {% endif %}
+      </div>-->
+      <div class="td">
+        {% for collectionCounts in i.collectionWithCounts %}
+          {% if loop.index != 1 %} {{', '}} {% endif %}
+          {{collectionCounts[0]}}({{collectionCounts[1]}})
+        {% endfor %}
+      </div>            
+      <div class="td">{{i.level | capitalize}}</div>
+    </div>
+    
+    <div class="tr fullview {{ h.hide_if_pane(c.viewmode)}}">
+      <div class='td' style="width:10px;">
+        <input type="checkbox" value="false" name="{{i.id}}" id="{{i.id}}" data-handle="{{i.handle}}" data-member-id="{{i.creatorID}}" data-level="{{i.level}}">
+      </div>
+      <div class="td id">{{i.id}}</div>
+      <div class="td">{{i.artifactType}}</div>
+      <div class="td viewtrigger" data-id="{{i.id}}">{{h.idlink2('/artifact/', i, 'title')}}</div>
+      <div class="td">{{h.userlink(i, 'creator', 'creatorID', truncate=15)}}</div>
+      <!--<div class="td">{% if i.courses %} {% set moreElments = False %}
+        {% for course in i.courses %} 
+            {% if moreElements %} {{', '}} {% endif %}
+            {{course.shortName}}
+            {% set moreElments = False %}
+        {% endfor %}
+        {% else %} {{"-"}} {% endif %}
+      </div>-->
+      <!-- US 148539925 : Show collections data if present -->
+      <!-- <div class="td">{{ c.collectionWithCounts }}</div> -->
+      <div class="td">
+        {% for collectionCounts in i.collectionWithCounts %}
+          {% if loop.index != 1 %} {{', '}} {% endif %}
+          {{collectionCounts[0]}}({{collectionCounts[1]}})
+        {% endfor %}
+      </div>
+      <!--
+      <div class="td">{% if i.collections %}
+        {% for collection in i.collections %} 
+            {% if loop.index != 1 %} {{', '}} {% endif %}
+            {{collection.collectionHandle}}
+        {% endfor %}
+        {% else %} {{"-"}} {% endif %}
+      </div>
+      -->       
+      <div class="td">{{i.level | capitalize}}</div>
+      <div class="td nowrap">{{i.created|compact}}</div>
+    </div>
+  {% endfor %}
+  {{ paginate(c.paginator) }}
+{% endif %}

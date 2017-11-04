@@ -1,0 +1,178 @@
+<html>
+    <head>
+        <title>Import from Google Docs</title>
+        <script src="{{ c.prefix }}/media/js/jquery-1.5.min.js"></script>
+        <script type="text/javascript">
+            var taskID;
+            function onSelectDocument() {
+                if ($('#selDocuments')) {
+                    $('#docID').val($('#selDocuments').val());
+                    $('#idTitle').val($('#selDocuments option:selected').text());
+                }
+            }
+
+            function startImport() {
+                $('#result').html('<p><img src="{{ c.prefix }}/media/images/ajax-loader.gif" /></p>');
+                $.ajax({
+                    url: '{{ c.prefix }}/import/gdt/artifact',
+                    type: 'POST',
+                    data: $('#gdt').serialize(),
+                    dataType: 'json',
+                    success: function(data) {
+                        if (data.responseHeader.status != 0) {
+                            alert("Error scheduling GDT import: " + data.response.message);
+                            return;
+                        }
+                        taskID = data.response.taskID;
+                        if (taskID) {
+                            setTimeout("checkStatus()", 2000);
+                        } else {
+                            alert("Could not get the task ID in response");
+                        }
+                    }
+                });
+            }
+
+            function checkStatus() {
+                $.ajax({
+                    url: '{{ c.prefix }}/get/status/task/' + taskID,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        if (data.responseHeader.status != 0) {
+                            alert("Error getting GDT import task status: " + data.response.message);
+                            return;
+                        }
+
+                        var taskStatus  = data.response.status;
+                        if (taskStatus == 'PENDING' | taskStatus == 'IN PROGRESS') {
+                            setTimeout("checkStatus()", 2000);
+                        } else if (taskStatus == 'SUCCESS') {
+                            var userdata = jQuery.parseJSON(data.response.userdata);
+                            var perma = '';
+                            if (userdata.realm) {
+                                perma += '/' + userdata.realm;
+                            }
+                            perma += '/' + userdata.artifactType + '/' + userdata.handle;
+                            $('#result').html('<p>The document has been imported. <a href="' + perma + '" target="_blank">View</a></p>');
+                        } else {
+                            $('#result').html('<p style="color:red;">Failed to import Google Document. <br/>' + data.response.result + '</p>');
+                            alert("Task did not end successfully: " + JSON.stringify(data.response));
+                        }
+                    }
+                });
+            }
+
+            function loadDocs(api_url,type) {
+                $.ajax({
+                    url: api_url,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        if (data.responseHeader.status != 0) {
+                            alert("Error getting Google Documents: " + data.response.message);
+                            return;
+                        }
+                        var html = 'No documents found.';
+                        if (data.response.limit > 0) {
+                            html = '<select id="selDocuments" onChange="onSelectDocument()">';
+                            html += '<option value="">-- Choose One --</option>';
+                            for (var i = 0; i < data.response.limit; i++) {
+                                var doc = data.response[type][i];
+                                html += '<option value="' + doc['id'] + '">' + doc['title'] + '</option>';
+                            }
+                            html += '</select>';
+                        }
+                        $('#selDocID').html(html);
+                    }
+                });
+
+            }
+
+            function onSelectArtifactType() {
+                {% if c.googleAuthToken %}
+                    if($('#artifact_type').val() == "book")
+                        loadDocs('{{ c.prefix }}/get/folders/google?pageSize=25','folders')
+                    else
+                        loadDocs('{{ c.prefix }}/get/documents/google?pageSize=25','documents')
+                {% endif %}
+            }
+
+            $(document).ready(function() {
+                {% if c.googleAuthToken %}
+                    onSelectArtifactType();
+
+                {% endif %}
+            });
+        </script>
+    </head>
+    <body>
+        <h2>Import from Google Docs</h2>
+        <div id="result"></div>
+        <form name="gdt" id="gdt" method="POST" 
+            enctype="multipart/form-data"
+            action="{{ c.prefix }}/import/gdt/artifact">
+        <table>
+            <tr>
+                <td>Google Login</td>
+                {% if not c.googleAuthToken %}
+                    <td><a href="{{ c.googleAuth }}">Login to Google</a><br/><span style="font-size:9pt;">(if the document is not readable by everyone)</span></td>
+                {% else %}
+                    <td style="font-size:9pt;">User has logged in to Google. <a href="{{ c.googleAuthLogout }}">Logout</a></td>
+                {% endif %}
+            </tr>
+            <tr>
+                <td>
+                    Artifact title:
+                </td>
+                <td>
+                    <input type="text" name="title" id="idTitle" />
+                </td>
+            </tr>
+            <tr>
+                <td>Artifact Type:</td>
+                <td><select id="artifact_type" name="artifactType" onChange="onSelectArtifactType()">
+                        <option selected="selected" value="lesson">lesson</option>
+                        <option value="concept">concept</option>
+                        <option value="book">book</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td style="vertical-align:middle;">
+                    Google Doc ID:
+                </td>
+                <td>
+                    {% if c.googleAuthToken %}
+                    <br/>
+                    <div id="selDocID">
+                        Getting documents from Google ...
+                    </div>
+                    OR Enter it below: <br/>
+                    {% endif %}
+                    <input type="text" name="docID" id="docID" size="50" /> <br/><br/>
+                </td>
+            </tr>
+            <tr>
+                <td>Choose conversion type:
+                </td>
+                <td>
+                    <select name="command">
+                        <option selected="selected" value="gdocImport">Google Doc to XHTML</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>User: </td>
+                <td>{{ c.member.login }}</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:right;">
+                    <input type="button" name="submit" value="Import" onclick="startImport();" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
+

@@ -1,0 +1,92 @@
+{
+	"plus" : {
+		"data" : "+",
+		"pos" : [0,1],
+		"length" : 1
+	},
+	"minus" : {
+		"data" : "-",
+		"pos" : [0,1],
+		"length" : 1
+	},
+	"multiply" : {
+		"data" : "\\times ",
+		"pos" : [0,7],
+		"length" : 7
+	},
+	"divide" : {
+		"data" : "\\div ",
+		"pos" : [0,5],
+		"length" : 5
+	},
+	"plusMinus" : {
+		"data" : "\\pm ",
+		"pos" : [0,4],
+		"length" : 4
+	},
+	"forwardSlash" : {
+		"data" : "/",
+		"pos" : [0,1],
+		"length" : 1
+	},
+	"asterik" : {
+		"data" : "\\ast ",
+		"pos" : [0,5],
+		"length" : 5
+	},
+	"equal" : {
+		"data" : "=",
+		"pos" : [0,1],
+		"length" : 1
+	},
+	"notEqual" : {
+		"data" : "\\neq ",
+		"pos" : [0,5],
+		"length" : 5
+	},
+	"dotOperator" : {
+		"data" : "\\cdot ",
+		"pos" : [0,6],
+		"length" : 6
+	},
+	"lessThan" : {
+		"data" : "<",
+		"pos" : [0,1],
+		"length" : 1
+	},
+	"greaterThan" : {
+		"data" : ">",
+		"pos" : [0,1],
+		"length" : 1
+	},
+	"lessThanOrEqual" : {
+		"data" : "\\le ",
+		"pos" : [0,4],
+		"length" : 4
+	},
+	"greaterThanOrEqual" : {
+		"data" : "\\ge ",
+		"pos" : [0,4],
+		"length" : 4
+	},
+	"almostEqual" : {
+		"data" : "\\approx ",
+		"pos" : [0,8],
+		"length" : 8
+	},
+	"congruence" : {
+		"data" : "\\cong ",
+		"pos" : [0,6],
+		"length" : 6
+	},
+	"similar" : {
+		"data" : "\\sim ",
+		"pos" : [0,5],
+		"length" : 5
+	},
+	"percent" : {
+		"data" : "\\% ",
+		"pos" : [0,3],
+		"length" : 3
+	}
+}

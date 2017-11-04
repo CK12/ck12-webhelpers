@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>Unregister Parameter</title>
+    </head>
+    <body>
+        <form name="Parameter Data" method="POST" action="/dexter/unregister/parameter">
+            <h4>&nbsp;Select a Parameter to un-register</h4>
+            <table>
+                 <tr>
+                    <td> 
+                      <select name="parameter_id">
+                        {% for eachParameter in parameters %}
+                        <option value="{{ eachParameter._id }}">{{ eachParameter.name }}</option>
+                        {% endfor %}
+                      </select>
+                    </td>
+                    <td>
+                        <input type="submit" name="submit" value="Unregister" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
+

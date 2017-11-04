@@ -1,0 +1,1 @@
+ALTER TABLE Events ADD COLUMN subObjectID VARCHAR(52) AFTER objectType;

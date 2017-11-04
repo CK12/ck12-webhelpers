@@ -1,0 +1,1063 @@
+* TODO Log key and header info.
+* TODO Change the environment variables in [[file:api.py]].
+  =API_USER= \to =CK12_USER=, &c.
+* TODO API should have the github key.
+* TODO Periodically refetch credentials
+* TODO Environment variable to log or deny on mismatch
+* TODO We should also match method.
+* TODO Random hashes
+  Using e.g. [[https://dev.mysql.com/doc/refman/5.5/en/encryption-functions.html#function_sha1][sha]] and [[http://dev.mysql.com/doc/refman/5.0/en/mathematical-functions.html#function_rand][rand]], we should be able to conditionally set a
+  hash if none has been given.
+
+  [[http://www.tek-tips.com/viewthread.cfm?qid%3D620433][Or not;]] [[http://www.php.de/datenbanken/42636-mysql-befehl-als-default.html][triggers]]?
+* DONE Configuration
+  CLOSED: [2013-01-10 Thu 17:08]
+  [[file:/etc/apache2/envvars]]:
+
+  #+BEGIN_EXAMPLE
+    export HOME=/home/www-data
+    export CK12_HOST=qadb1
+    export CK12_USER=dbadmin
+    export CK12_PASSWORD=D-coD#43
+    export CK12_DB=api
+  #+END_EXAMPLE
+
+  [[file:/etc/apache2/apache2.conf]]:
+
+  #+BEGIN_EXAMPLE
+    LoadModule wsgi_module modules/mod_wsgi.so
+    WSGIScriptAlias /api-manager /opt/2.0/api/api.wsgi
+    
+    LoadModule fastcgi_module modules/mod_fastcgi.so
+    FastCgiConfig -autoUpdate \
+      -initial-env HOME \
+      -initial-env PATH \
+      -initial-env CK12_HOST \
+      -initial-env CK12_USER \
+      -initial-env CK12_PASSWORD \
+      -initial-env CK12_DB \
+      -pass-header x-ck12-meta-appid
+    AddHandler fastcgi-script .scm
+    
+    <Location ~ "/2.0/.*">
+       FastCgiAccessChecker /opt/2.0/api/api.scm
+    </Location>
+  #+END_EXAMPLE
+* DONE Configure via environment.
+  CLOSED: [2013-01-10 Thu 17:08]
+  See [[http://drumcoder.co.uk/blog/2010/nov/12/apache-environment-variables-and-mod_wsgi/][WSGI and environment variables]].
+* DONE Deploying flask
+  CLOSED: [2012-12-21 Fri 12:38]
+  Check [[http://flask.pocoo.org/docs/deploying/][this]] out: mod_wsgi, fastcgi, &c.
+* DONE Where to go now with our POC?
+  CLOSED: [2012-12-05 Wed 17:58]
+  Would be nice to go =mod_fcgid= going; Redis; admin API for CRUD
+  operations on keys; real subset of information: developer,
+  application, key, &c. Look at some examples.
+* DONE Flask-restless
+  CLOSED: [2012-12-05 Wed 17:57]
+  #+BEGIN_SRC python :comments link :tangle apps.py :shebang #!/usr/bin/env python
+    import flask
+    import flask.ext.sqlalchemy
+    import flask.ext.restless
+    
+    app = flask.Flask(__name__)
+    app.config['DEBUG'] = True
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://localhost/api'
+    db = flask.ext.sqlalchemy.SQLAlchemy(app)
+    
+    class Path(db.Model):
+        id = db.Column(db.Integer, primary_key=True)
+        mask = db.Column(db.String(1023))
+    
+    class Application(db.Model):
+        id = db.Column(db.Integer, primary_key=True)
+        name = db.Column(db.String(255))
+        email = db.Column(db.String(320))
+        hash = db.Column(db.String(40))
+        path_id = db.Column(db.Integer, db.ForeignKey('path.id'))
+    
+    db.create_all()
+    
+    manager = flask.ext.restless.APIManager(app, flask_sqlalchemy_db=db)
+    manager.create_api(Application, methods=['GET', 'POST', 'PUT', 'DELETE'])
+    manager.create_api(Path, methods=['GET', 'POST', 'PUT', 'DELETE'])
+    
+    if __name__ == '__main__':
+        app.run()
+  #+END_SRC
+
+  Creating a couple paths and applications:
+
+  #+BEGIN_SRC sh :comments link :tangle apps.sh :shebang #!/usr/bin/env bash
+    curl -v \
+        -H "Content-Type: application/json" \
+        -X POST \
+        -d '{"mask": "/scm/api/public/.*"}' \
+        localhost/api-manager/api/path
+    
+    curl -v \
+        -H "Content-Type: application/json" \
+        -X POST \
+        -d '{"mask": "/scm/api/(public|private)/.*"}' \
+        localhost/api-manager/api/path
+    
+    curl -v \
+        -X POST \
+        -H "Content-Type: application/json" \
+        -d '{"name": "Public app", "email": "public@example.com", "hash": "public", "path_id": 1}' \
+        localhost/api-manager/api/application
+    
+    curl -v \
+        -X POST \
+        -H "Content-Type: application/json" \
+        -d '{"name": "Private app", "email": "private@example.com", "hash": "private", "path_id": 2}' \
+        localhost/api-manager/api/application
+  #+END_SRC
+
+  #+BEGIN_SRC scheme :comments link :tangle apps.scm :shebang #!/usr/bin/env chicken-scheme
+    (use call-with-query
+         debug
+         define-record-and-printer
+         matchable
+         mysql-client)
+    
+    (define (fetch-all fetch)
+      (do ((results (list (fetch)) (cons (fetch) results)))
+          ((not (car results)) (cdr results))))
+    
+    (define-record-and-printer application
+      name
+      email
+      paths)
+    
+    (let ((applications (make-hash-table)))
+      (((make-mysql-connection "localhost" "peter" #f "api")
+        "select hash, mask from application inner join path on path.id = path_id;")
+       (match-lambda
+           ((hash mask)
+            (hash-table-set! applications hash mask))))
+      (call-with-dynamic-fastcgi-query
+       (lambda (query)
+         (let ((key (query-any query 'key)))
+           (if key
+               (let ((make (hash-table-ref/default ))))
+               (display-status-&c. status-forbidden))))))
+    
+  #+END_SRC
+
+  Don't forget about matching against methods, too.
+* DONE Resurrect =call-with-query=.
+  CLOSED: [2012-12-05 Wed 17:57]
+  #+BEGIN_SRC scheme :tangle harro.scm :shebang #!/usr/bin/env chicken-scheme
+    (use call-with-query
+         debug
+         define-record-and-printer
+         irregex
+         matchable
+         mysql-client)
+    
+    (define (fetch-all fetch)
+      (do ((results (list (fetch)) (cons (fetch) results)))
+          ((not (car results)) (cdr results))))
+    
+    (define-record-and-printer application
+      name
+      email
+      paths)
+    
+    (let ((key->mask (make-hash-table)))
+      (((make-mysql-connection "localhost" "peter" #f "api")
+        "select hash, mask from application inner join path on path.id = path_id;")
+       (match-lambda
+           ((key mask)
+            (hash-table-set! key->mask key mask))))
+      (call-with-dynamic-fastcgi-query
+       (lambda (query)
+         (let ((key (query-client-any query 'key))
+               (uri (query-server-any query 'request-uri)))
+           (if key
+               (let ((mask (hash-table-ref/default key->mask key #f)))
+                 (if mask
+                     (if (irregex-match mask uri)
+                         (display-status-&c. status-ok)
+                         (display-status-&c. status-forbidden))
+                     (display-status-&c. status-forbidden)))
+               (display-status-&c. status-forbidden))))))
+  #+END_SRC
+
+  #+BEGIN_SRC scheme :tangle authenticate.scm :shebang #!/usr/bin/env chicken-scheme
+    (use call-with-query debug)
+    
+    (call-with-dynamic-fastcgi-query
+     (lambda (query)
+       (display-status-&c.)
+       (debug 'authenticate)))
+  #+END_SRC
+
+  #+BEGIN_SRC scheme :tangle authorize.scm :shebang #!/usr/bin/env chicken-scheme
+    (use call-with-query debug)
+    
+    (call-with-dynamic-fastcgi-query
+     (lambda (query)
+       (display-status-&c.)
+       (debug 'authorize)))
+  #+END_SRC
+
+  #+BEGIN_SRC scheme :tangle check-access.scm :shebang #!/usr/bin/env chicken-scheme
+    (use call-with-query debug)
+    
+    (call-with-dynamic-fastcgi-query
+     (lambda (query)
+       (debug 'check-access)
+       (display-content-type 'text)
+       (display-status status-ok)
+       (display-header "goaway" "true")
+       (display-eol)))
+    
+  #+END_SRC
+
+  Let's do everything in the access-checker; thank Olympioi! We can
+  log, check group-patterns against URL; hell, if you want to do
+  something more sophisticated: we can store group-lambdas, can't we?
+  Manager to create groups, &c. Form-building is such a pain in the
+  ass; CRUD is a pain in the ass.
+
+  #+BEGIN_SRC scheme :tangle api.scm :shebang #!/usr/bin/env chicken-scheme
+    (use call-with-query
+         call-with-sqlite3-connection
+         debug
+         irregex
+         matchable
+         posix
+         sql-null
+         sqlite3)
+    
+    (call-with-sqlite3-connection "api.db"
+      (lambda (connection)
+        (execute connection "PRAGMA synchronous = off")
+        (execute connection "PRAGMA journal_mode = memory")
+        (execute connection "PRAGMA temp_store = 2")
+        (execute connection "PRAGMA count_changes = off")
+        (debug "Harro, freunds.")
+        (call-with-dynamic-fastcgi-query
+         (lambda (query)
+           (debug (query-server query) (query-client query))
+           (let ((key (query-any query 'key)))
+             (if key
+                 (handle-exceptions exn
+                   (if ((condition-predicate 'sqlite3) exn)
+                       (begin
+                         (debug (condition->list exn))
+                         (display-status-&c. status-forbidden))
+                       (abort exn))
+                   (match-let* (((user-id caste-id)
+                                 (first-row connection "SELECT id, caste_id FROM user WHERE key = ?" key))
+                                ((uri method)
+                                 (first-row connection "SELECT uri, method FROM caste WHERE id = ?" caste-id)))
+                     (let ((request-uri (query-server-any query 'request-uri))
+                           (request-method (query-server-any query 'request-method)))
+                       (debug request-uri request-method uri method)
+                       (if (and (or (sql-null? uri) (irregex-search uri request-uri))
+                                (or (sql-null? method) (irregex-search method request-method)))
+                           (begin
+                             (execute connection "INSERT INTO access (user_id) VALUES(?)" user-id)
+                             (display-status-&c.))
+                           (display-status-&c. status-forbidden)))))
+                 (display-status-&c. status-forbidden)))))))
+    
+  #+END_SRC
+
+  #+BEGIN_SRC sql :tangle api.sql
+    DROP TABLE IF EXISTS user;
+    CREATE TABLE user (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      caste_id INTEGER,
+      email TEXT,
+      key TEXT
+    );
+    
+    -- Damn, we could think of a number of things to do here with
+    -- request-uri, request-method; is this where we set the group for
+    -- throttling? It would be nice to have a proof-of-concept where we're
+    -- communicating with the server vis-à-vis QOS.
+    
+    -- The alternative is that we do QOS in the app; which might be more
+    -- reliable than mod_qos, anyway? mod_qos behaves bizarrely.
+    DROP TABLE IF EXISTS caste;
+    CREATE TABLE caste (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      name TEXT,
+      uri TEXT,
+      method TEXT
+    );
+    
+    DROP TABLE IF EXISTS access;
+    CREATE TABLE access (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+      user_id INTEGER
+    );
+    
+    INSERT INTO caste (name, uri, method) VALUES('public', '/scm/api/public/.*', 'GET');
+    INSERT INTO caste (name, uri, method) VALUES('private', NULL, NULL);
+    
+    INSERT INTO user (caste_id, email, key) VALUES(1, 'peter@example.com', 'peter');
+    INSERT INTO user (caste_id, email, key) VALUES(2, 'maurice@example.com', 'maurice');
+    
+  #+END_SRC
+
+  #+BEGIN_SRC scheme :tangle access.scm :shebang #!/usr/bin/env chicken-scheme
+    (use call-with-query)
+    
+    (call-with-dynamic-fastcgi-query
+     (lambda (query)
+       (display-status-&c.)))
+  #+END_SRC
+
+  #+BEGIN_SRC scheme :tangle public/test.scm :shebang #!/usr/bin/env chicken-scheme
+    (use call-with-query debug)
+    
+    (call-with-dynamic-fastcgi-query
+     (lambda (query)
+       (display-status-&c.)
+       (display "Public")))    
+  #+END_SRC
+
+  #+BEGIN_SRC scheme :tangle private/test.scm :shebang #!/usr/bin/env chicken-scheme
+    (use call-with-query debug)
+    
+    (call-with-dynamic-fastcgi-query
+     (lambda (query)
+       (display-status-&c.)
+       (display "Private")))
+  #+END_SRC
+
+  See [[http://cran.r-project.org/web/packages/RSQLite/index.html][RSQLite]], incidentally.
+
+  #+BEGIN_SRC R :tangle graph.R :shebang #!/usr/bin/env Rscript
+    library(RSQLite)
+    library(ggplot2)
+    
+    args <- commandArgs(TRUE)
+    user.id <- args[1]
+    granularity <- args[2]
+    
+    time.formats <- list(seconds='%Y-%m-%d %H:%M:%S',
+                         minutes='%Y-%m-%d %H:%M',
+                         hours='%Y-%m-%d %H',
+                         days='%Y-%m-%d')
+    time.units <- list(seconds='s',
+                       minutes='m',
+                       hours='h',
+                       days='d')
+    
+    time.format <- time.formats[[granularity]]
+    time.unit <- time.units[[granularity]]
+    
+    conn <- dbConnect('SQLite', dbname='api.db')
+    ## dbClearResult(dbSendQuery(conn, "PRAGMA synchronous = off"))
+    ## dbClearResult(dbSendQuery(conn, "PRAGMA journal_mode = memory"))
+    ## dbClearResult(dbSendQuery(conn, "PRAGMA temp_store = 2"))
+    ## dbClearResult(dbSendQuery(conn, "PRAGMA count_changes = off"))
+    
+    results <- dbSendQuery(conn, sprintf(paste("select strftime('%s', timestamp) as timestamp,",
+                                               "count(*) as count from access where user_id = %s",
+                                               "group by timestamp"),
+                                         time.format,
+                                         user.id))
+    data <- fetch(results, -1)
+    
+    png("/dev/stdout", width=1024, height=768)
+    ggplot(data=data, aes(x=as.POSIXct(timestamp, format=time.format), y=count)) +
+      geom_point() +
+      geom_smooth(aes(color='Local'), se=FALSE) +
+      geom_smooth(method=lm, aes(color='Linear'), se=FALSE) +
+      xlab(sprintf("Time (%s)", time.unit)) +
+      ylab("Hits") +
+      labs(color="Regression") +
+      theme_gray(base_size=18)
+    dev.off()
+    
+    dbClearResult(results)
+    dbDisconnect(conn)
+    
+  #+END_SRC
+
+  [[http://stackoverflow.com/questions/3480388/how-to-fit-a-smooth-curve-to-my-data-in-r][On curves]]; [[http://docs.ggplot2.org/0.9.2.1/stat_smooth.html][stat_smooth]]
+
+  #+BEGIN_SRC scheme :tangle table.scm :shebang #!/usr/bin/env chicken-scheme
+    (use call-with-query
+         call-with-sqlite3-connection
+         debug
+         htmlprag
+         sqlite3
+         token-substitution)
+    
+    (call-with-sqlite3-connection "api.db"
+      (lambda (connection)
+        (execute connection "PRAGMA synchronous = off")
+        (execute connection "PRAGMA journal_mode = memory")
+        (execute connection "PRAGMA temp_store = 2")
+        (execute connection "PRAGMA count_changes = off")
+        (call-with-dynamic-fastcgi-query
+         (lambda (query)
+           (display-status-&c. status-ok 'xhtml)
+           (write-shtml-as-html
+            `(html
+              (head (title "Access and analytics"))
+              (body
+               (h1 "Access and analytics")
+               (table
+                (@ ;; (align "center")
+                   (width "61%"))
+                (thead (tr (th "Key") (th "Graphs") (th "Endpoints") (th "Email") (th "Hits")))
+                (tbody ,(map-row
+                         (lambda (user-id key email hits)
+                           `(tr (td ,key)
+                                (td (a (@ (href ,(format "graph.scm?user-id=~a&granularity=seconds" user-id))) "secondly")
+                                    ", "
+                                    (a (@ (href ,(format "graph.scm?user-id=~a&granularity=minutes" user-id))) "minutely")
+                                    ", "
+                                    (a (@ (href ,(format "graph.scm?user-id=~a&granularity=hours" user-id))) "hourly")
+                                    ", "
+                                    (a (@ (href ,(format "graph.scm?user-id=~a&granularity=days" user-id))) "daily")
+                                    )
+                                (td (a (@ (href ,(format "public/test.scm?key=~a" key))) "public") ", "
+                                    (a (@ (href ,(format "private/test.scm?key=~a" key))) "private"))
+                                (td ,email)                                                      
+                                (td ,(->string hits))))
+                         connection
+                         "select user.id, key, email, count(*) from user left outer join access on user_id = user.id group by user_id;"))))))))))
+    
+  #+END_SRC
+
+  #+BEGIN_SRC scheme :tangle graph.scm :shebang #!/usr/bin/env chicken-scheme
+    (use call-with-query
+         debug
+         shell)
+    
+    (call-with-dynamic-fastcgi-query
+     (lambda (query)
+       (display-status-&c. status-ok 'png)
+       (let ((user-id (query-client-any query 'user-id))
+             (granularity (query-client-any query 'granularity)))
+         (display (capture (./graph.R ,user-id ,granularity))))))
+    
+  #+END_SRC
+
+  Put this under load (siege); number of dummy requests. Redis is good
+  for the statistical data. Intermediate piece to graphing; Redis is
+  the datastore, collects in the simplest fashion.
+
+  Redis: aggregate statistics; Apache: events in the log. Different
+  buckets: minutes, hours, days; user-id.
+
+  Long-term event-storage in another database (SQL?).
+
+  Cluster of reads, cluster of writes; [[https://www.google.com/searchclient%3Dopera&rls%3Den&q%3Dsiege%2Bvs.%2Bab&sourceid%3Dopera&ie%3Dutf-8&oe%3Dutf-8&channel%3Dsuggest][siege vs. AB]].
+
+  Proof of concept with OAuth.
+
+  Build the managament API; analytics API. Pubsub
+
+  [[http://www.sqlite.org/asyncvfs.html][Asynchronous sqlite3]]
+
+  Make a change in front-end dashboard, clear that part of the Redis
+  cache. Developer profile under SQL, have it refreshed in Redis on
+  start. Still get into SQL and get a temporary ban.
+
+  128 bit encryption; visual; mschap-v2
+
+  #+BEGIN_SRC apache
+    <Directory "/home/peter/doc/html/scm/api/public">
+        FastCgiAccessChecker /home/peter/var/prg/scm/api/api.scm
+    </Directory>
+    
+    <Directory "/home/peter/doc/html/scm/api/private">
+        FastCgiAccessChecker /home/peter/var/prg/scm/api/api.scm
+    </Directory>
+  #+END_SRC
+* DONE REST
+  CLOSED: [2012-12-05 Wed 17:58]
+  [[http://stackoverflow.com/questions/630453/put-vs-post-in-rest][PUT vs. POST]] w.r.t. creating:
+
+  #+BEGIN_QUOTE
+  =POST= is not idempotent, in the way that =x++= is not idempotent.
+  #+END_QUOTE
+
+  [[http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html][Method Definitions]] is good; check this:
+
+  #+BEGIN_QUOTE
+  If a resource has been created on the origin server, the response
+  SHOULD be 201 (Created) and contain an entity which describes the
+  status of the request and refers to the new resource, and a Location
+  header (see section [[http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.30][14.30]]).
+  #+END_QUOTE
+
+  POST vs. PUT:
+
+  #+BEGIN_QUOTE
+  The fundamental difference between the POST and PUT requests is
+  reflected in the different meaning of the Request-URI. The URI in a
+  POST request identifies the resource that will handle the enclosed
+  entity. That resource might be a data-accepting process, a gateway
+  to some other protocol, or a separate entity that accepts
+  annotations.
+  #+END_QUOTE
+
+  DELETE:
+
+  #+BEGIN_QUOTE
+  A successful response SHOULD be 200 (OK) if the response includes an
+  entity describing the status, 202 (Accepted) if the action has not
+  yet been enacted, or 204 (No Content) if the action has been enacted
+  but the response does not include an entity.
+  #+END_QUOTE
+
+  [[http://atomenabled.org/developers/protocol/atom-protocol-spec.php][AtomPub]] covers REST; check it, though: [[http://stackoverflow.com/a/4573426][/cars/id/{id}]],
+  =/cars/oldest=, &c. Let's KISS first, though: =/apps/<id>=. [[http://rest.elkstein.org/2008/02/rest-design-guidelines.html][This]] is
+  interesting:
+
+  #+BEGIN_QUOTE
+  Rather than letting clients construct URLs for additional actions,
+  include the actual URLs with REST responses. For example, a "product
+  list" request could return an ID per product, and the specification
+  says that you should use http://www.acme.com/product/PRODUCT_ID to
+  get additional details. That's bad design. Rather, the response
+  should include the actual URL with each item:
+  http://www.acme.com/product/001263, etc.
+  #+END_QUOTE
+
+  [[http://tools.ietf.org/html/rfc5023][Atom]] in ASCII; good survey of [[http://www.xml.com/pub/a/2004/12/01/restful-web.html][status codes]], &c.:
+
+  #+BEGIN_QUOTE
+  | Resource      | Method | Representation       | Status codes       |
+  |---------------+--------+----------------------+--------------------|
+  | Employee      | GET    | Employee format      | 200, 301, 410      |
+  | Employee      | PUT    | Employee format      | 200, 301, 400, 410 |
+  | Employee      | DELETE | N/A                  | 200, 204           |
+  | All employees | GET    | Employee list format | 200, 301           |
+  | All employees | POST   | Employee format      | 201, 400           |
+  #+END_QUOTE
+
+  [[http://news.ycombinator.com/item?id%3D1122085][HN]] on common REST mistakes:
+
+  #+BEGIN_QUOTE
+  By "sessions are irrelevant", he basically means "don't recreate
+  circuit switching on top of your packet-switched TCP/IP connection."
+  Each HTTP request should carry with it all the state required to do
+  what it needs to do (including state stored in cookies et all); it
+  shouldn't be dependant on what has come before or what will come
+  after it.
+  #+END_QUOTE
+
+  [[http://www.prescod.net/rest/mistakes/][Paul's site is down]]; [[http://javadialog.blogspot.com/2009/06/common-rest-mistakes.html][copy]]? Not that great. More from HN (single
+  entry point):
+
+  #+BEGIN_QUOTE
+  the idea is that instead of documenting your project list to be at
+  /projects/ and individual projects to be at /projects/PROJECT_ID you
+  should have a SINGLE entry point into your API which should have
+  LINKS to your various services.
+  
+  so you will have something like
+
+  #+BEGIN_EXAMPLE
+  <api>
+      <projects>http://../projects/</projects>
+      </users>http://../users</users>
+    </api>
+  #+END_EXAMPLE
+  
+  or even this:
+  
+  #+BEGIN_EXAMPLE
+  <service>
+      <name>projects</name>
+      <href>http://.../projects/</href>
+    </service>
+    ...
+  #+END_EXAMPLE
+
+  and then your project list should not just return you projects ids to
+  construct a url with, instead it should provide you full urls to
+  access the relevant resources.
+  
+  The rule of thumb is: with a PROPER REST API you should never do any
+  "url generation", you should get ALL your urls (except for the
+  SINGLE entry one) form the API.
+
+  check out this link for some more info:
+  http://www.theamazingrando.com/blog/?p=107 [also down]
+  #+END_QUOTE
+
+  What the fuck?
+
+  #+BEGIN_QUOTE
+  The contents of URL strings are not supposed to represent resources
+  -- If a client of your "REST API" needs to concatenate strings
+  together to form new URLs based on an out-of-band 'specification',
+  YOU'RE DOING IT WRONG
+  
+  Repeat after me: Hypertext. Is. The. Engine. Of. Application. State.
+
+  URL strings should be completely opaque -- you should be finding
+  link to new resources in other resources, not constructing them
+  yourself (query strings added to found resources are permitted).
+
+  The whole "meaningful URL" thing is a strong signal of False REST,
+  and it infects the Rails ecosystem pervasively. REST has nothing to
+  do with your oh-so-clever request routing rules.
+  #+END_QUOTE
+* DONE Key-model
+  CLOSED: [2012-12-05 Wed 17:58]
+  #+BEGIN_SRC sql :tangle management.sql
+    drop table if exists application;
+    create table application (
+           id int auto_increment primary key,
+           name varchar(255),
+           -- According to
+           -- <http://stackoverflow.com/questions/1297272/how-long-should-sql-email-fields-be>,
+           -- the maximum length for an email is 320 characters (65 + 255
+           -- + 1).
+           email varchar(320),
+           -- SHA-1 is 40 characters long
+           -- (<http://en.wikipedia.org/wiki/SHA-1>); would have called it
+           -- `key', but `key' is verboten.
+           hash varchar(40)
+    );
+    
+    -- Would have called it `group', but `group' is verboten.
+    drop table if exists clique;
+    create table clique (
+           id int auto_increment primary key,
+           -- Is this a reasonable maximum size for a path; or e.g. 1023?
+           path varchar(255)
+    );
+    
+    -- Let's go ahead and do some foreign-key constraints, too.
+    drop table if exists application_clique;
+    create table application_clique (
+         application_id int,
+         clique_id int,
+         primary key (application_id, clique_id)
+    );
+    
+    insert into application (name, email, hash) values('test', 'test@example.com', 'fbdb1d1b18aa6c08324b7d64b71fb76370690e1d');
+    insert into clique (path) values('/public');
+    insert into application_clique values(1, 1);
+    
+  #+END_SRC
+
+  [[http://www.sqlite.org/cvstrac/wikip%3DInMemoryDatabase][A note on shared memory in sqlite3]], incidentally, using =tmpfs=. [[https://dev.mysql.com/doc/refman/5.5/en/reserved-words.html][A
+  lot of good, verboten words in SQL]].
+
+* DONE Key-management
+  CLOSED: [2012-12-05 Wed 17:58]
+  #+BEGIN_SRC python :tangle harro.py
+    from json import dump, dumps
+    from StringIO import StringIO
+    from urlparse import parse_qs
+    from MySQLdb import connect
+    
+    def application(environ, start_response):
+        write = start_response('200 OK', [('Content-type', 'application/json')])
+        write(dumps(['oh', 'mein', 'goot']))
+        io = StringIO()
+        dump(['oh', 'mein', 'goot'], io)
+        write(str(environ))
+        {'GET': lambda: write(str(parse_qs(environ['QUERY_STRING']))),
+         'POST': lambda: write(str(parse_qs(environ['wsgi.input'].read())))}\
+            .get(environ['REQUEST_METHOD'], lambda: None)()
+        db = connect(db='api')
+        cursor = db.cursor()
+        cursor.execute('insert into clique (path) values(%s)', ('/harro/thar',))
+        cursor.execute('select * from clique')
+        io.write(str(cursor.fetchall()))
+        cursor.close()
+        db.commit()
+        db.close()
+        return io.getvalue()
+  #+END_SRC
+
+  =mod_wsgi='s convention-shit; also does [[http://code.google.com/p/modwsgi/wiki/AccessControlMechanisms][access-checker-like-stuff]]
+  (see Host Access Controls). [[http://stackoverflow.com/questions/394465/python-post-data-using-mod-wsgi][POST data from mod_wsgi]]. [[http://mysql-python.sourceforge.net/MySQLdb.html#mysqldb][MySQLdb]]; the [[http://www.python.org/dev/peps/pep-0249/][DB
+  API]].
+
+  #+BEGIN_SRC apache :tangle .htaccess
+    RewriteEngine on
+    RewriteRule apps$ apps.py
+    # Malformed IDs will get a 404, which is a little weird; should
+    # probably be 400. Now we're doing validation here? Ouch.
+    RewriteRule apps/([0-9]+) apps.py?id=$1
+  #+END_SRC
+
+  Don't forget that we have to handle groups, somehow.
+
+  #+BEGIN_SRC python :tangle apps-wsgi.py
+    from functools import partial
+    from urlparse import parse_qs
+    from MySQLdb import connect
+    from json import dumps
+    from syslog import syslog
+    
+    responses = {200: '200 OK',
+                 201: '201 Created',
+                 204: '204 No Content',
+                 301: '301 Moved Permanently',
+                 400: '400 Bad Request',
+                 404: '404 Not Found',
+                 410: '410 Gone'}
+    
+    def make_header(header, value):
+        return (header, value)
+    
+    text = 'text/plain'
+    json = 'application/json'
+    
+    content_type = partial(make_header, 'Content-type')
+    
+    db = connect(db='api')
+    
+    def url(environ):
+        return '%s://%s%s' % (environ['REQUEST_SCHEME'],
+                              environ['SERVER_NAME'],
+                              environ['REQUEST_URI'])
+                                 
+    
+    def make_application(id, name, email, hash):
+        return dict(id=id,
+                    name=name,
+                    email=email,
+                    hash=hash)
+    
+    def get(environ, id=False):
+        if id:
+            id = id[0]
+            cursor = db.cursor()
+            cursor.execute('select name, email, hash from application where id = %s',
+                           (id, ))
+            result  = cursor.fetchone()
+            cursor.close()
+            if result:
+                name, email, hash = result
+                return (200, {'application':
+                              make_application(id, name, email, hash)})
+            else:
+                return(404, None)
+        else:
+            cursor = db.cursor()
+            cursor.execute('select id from application')
+            ids = cursor.fetchall()
+            cursor.close()
+            if ids:
+                return (200, {'applications':
+                              '%s/%s' % (url(environ), int(id[0])) for id in ids})
+            else:
+                return (404, None)
+    
+    def post(environ, name=False, email=False, hash=False):
+        if name is not None and email is not None and hash is not None:
+            name = name[0]
+            email = email[0]
+            hash = hash[0]
+            cursor = db.cursor()
+            cursor.execute('insert into application (name, email, hash) values(%s, %s, %s)',
+                           (name, email, hash))
+            id = cursor.lastrowid
+            cursor.close()
+            db.commit()
+            return (200, {'application':
+                          make_application(id, name, email, hash)})
+        else:
+            return (400, None)
+    
+    def put(environ, id=False, name=False, email=False, hash=False):
+        if id is not None and name is not None and email is not None and hash is not None:
+            id = int(id[0])
+            name = name[0]
+            email = email[0]
+            hash = hash[0]
+            cursor = db.cursor()
+            cursor.execute('update application set name=%s, email=%s, hash=%s where id=%s',
+                           (name, email, hash, id))
+            cursor.close()
+            db.commit()
+            return (200, {'application':
+                          make_application(id, name, email, hash)})
+        else:
+            return (400, None)
+    
+    def delete(environ, id=False):
+        pass
+    
+    def application(environ, start_response):
+        # parameters = {'POST': lambda: parse_qs(environ['wsgi.input'].read())}\
+        #     .get(environ['REQUEST_METHOD'], lambda: parse_qs(environ['QUERY_STRING']))()
+        parameters = parse_qs(environ['QUERY_STRING'])
+        parameters.update(parse_qs(environ['wsgi.input'].read()))
+        response, result \
+            = {'GET': get,
+               'POST': post,
+               'DELETE': delete,
+               'PUT': put}.get(environ['REQUEST_METHOD'], get)(environ, **parameters)
+        write = start_response(responses[response], [content_type(json)])
+        # write(str(parameters))
+        # write(str(environ))
+        if result is not None:
+            return [dumps(result)]
+        else:
+            return []
+    
+  #+END_SRC
+
+  [[http://httpd.apache.org/docs/current/mod/mod_rewrite.html#rewritemap][RewriteMaps]] are pretty cool.
+
+* CANCELED Respect range in the plots
+  CLOSED: [2013-01-10 Thu 17:08]
+* CANCELED Reprise with flask
+  CLOSED: [2012-12-05 Wed 17:57]
+  #+BEGIN_SRC python :tangle management.py :shebang #!/usr/bin/env python
+    from flask import Flask, jsonify, request, abort
+    from flask.ext.sqlalchemy import SQLAlchemy
+    from syslog import syslog
+    from MySQLdb import connect
+    
+    app = Flask(__name__)
+    db = connect(db='api')
+    
+    def execute_with_cursor(db, f, query, parameters):
+        cursor = db.cursor()
+        cursor.execute(query, parameters)
+        result = f(cursor)
+        cursor.close()
+        return result
+    
+    def fetchone(db, query, parameters=None):
+        return execute_with_cursor(db,
+                                   lambda cursor: cursor.fetchone(),
+                                   query,
+                                   parameters)
+    
+    def fetchall(db, query, parameters=None):
+        return execute_with_cursor(db,
+                                   lambda cursor: cursor.fetchall(),
+                                   query,
+                                   parameters)
+    
+    def lastrowid(db, query, parameters=None):
+        return execute_with_cursor(db,
+                                   lambda cursor: cursor.lastrowid,
+                                   query,
+                                   parameters)
+    
+    def execute(db, query, parameters=None):
+        execute_with_cursor(db,
+                            lambda cursor: None,
+                            query,
+                            parameters)
+    
+    @app.route('/id/<int:id>', methods=['GET'])
+    def get_id(id):
+        return jsonify(a='b')
+    
+    @app.route('/id/<int:id>', methods=['PUT'])
+    def put_id(id):
+        name, email, hash = request.values.get('name'), \
+            request.values.get('email'), \
+            request.values.get('hash')
+        if name and email and hash:
+            execute(db,
+                    'update application set name=%s, email=%s, hash=%s where id=%s',
+                    (name, email, hash, id))
+            return "", 204
+        else:
+            abort(400)
+    
+    if __name__ == '__main__':
+        app.run(debug=True)
+    
+  #+END_SRC
+
+  Take a look at [[http://packages.python.org/Flask-SQLAlchemy/][Flask-SQLAlchemy]]; also [[http://flask.pocoo.org/docs/patterns/sqlalchemy/][this]]; [[http://docs.sqlalchemy.org/en/rel_0_8/orm/extensions/declarative.html][declarative]]. About the
+  [[http://stackoverflow.com/questions/8735603/url-structure-and-form-posts-with-flask][request]].
+
+  [[https://flask-restless.readthedocs.org/en/latest/][Flask-restless]] does all the work, incidentally; if you have
+  sqlalchemy models set up.
+* CANCELED =mod_fcgid=
+  CLOSED: [2012-12-05 Wed 17:57]
+  [[http://sosiouxme.wordpress.com/2010/09/07/trying-out-mod_fcgid/][Is this getting close]]? Maybe =mod_fcgid= isn't doing dynamic.
+
+  Process manager under =mod_fastcgi=:
+
+  #+BEGIN_EXAMPLE
+        1   817   817   817 ?           -1 Ss       0   0:00 /usr/local/apache2/bin/httpd -k start
+      817  5209   817   817 ?           -1 S     1000   0:00  \_ /usr/local/apache2/bin/fcgi- -k start
+     5209  5310   817   817 ?           -1 S     1000   0:00  |   \_ 872695a60a6d82aa9fc041bae44803af
+      817  5210   817   817 ?           -1 Sl    1000   0:00  \_ /usr/local/apache2/bin/httpd -k start
+      817  5211   817   817 ?           -1 Sl    1000   0:00  \_ /usr/local/apache2/bin/httpd -k start
+      817  5212   817   817 ?           -1 Sl    1000   0:00  \_ /usr/local/apache2/bin/httpd -k start
+      817  5317   817   817 ?           -1 Sl    1000   0:00  \_ /usr/local/apache2/bin/httpd -k start
+  #+END_EXAMPLE
+
+  #+BEGIN_EXAMPLE
+      817  5718   817   817 ?           -1 S     1000   0:00  \_ /usr/local/apache2/bin/httpd -k start
+     5718  5867   817   817 ?           -1 S     1000   0:00  |   \_ 872695a60a6d82aa9fc041bae44803af
+      817  5719   817   817 ?           -1 Sl    1000   0:00  \_ /usr/local/apache2/bin/httpd -k start
+      817  5720   817   817 ?           -1 Sl    1000   0:00  \_ /usr/local/apache2/bin/httpd -k start
+      817  5721   817   817 ?           -1 Sl    1000   0:00  \_ /usr/local/apache2/bin/httpd -k start
+      817  5874   817   817 ?           -1 Sl    1000   0:00  \_ /usr/local/apache2/bin/httpd -k start
+  #+END_EXAMPLE
+* CANCELED Flask, &c.
+  CLOSED: [2012-12-05 Wed 17:57]
+  We can do routes with mod-rewrite, can't we? Verily. Models?
+  [[http://youtu.be/HrfCixsd2N8][Sheeeeeeit]].
+
+  [[http://fcgi-python.sourceforge.net/][FastCGI wrapper in Python]]; [[http://pypi.python.org/pypi/python-fastcgi/1.1][from 2005]]; [[http://jonpy.sourceforge.net/][Jon's]], including [[http://jonpy.sourceforge.net/fcgi.html][fcgi]];
+  [[http://www.modpython.org/][mod_python]]?
+
+  [[https://github.com/hyperic/mod_bmx/commit/72372d2886e9e709d3a555f11a3a4eaa4f928ebb][Resolve ap_my_generation]]; [[http://code.google.com/p/modwsgi/issues/detailid%3D165][more]]; [[http://httpd.apache.org/docs/trunk/developer/new_api_2_4.html][the Apache upgrading document]]:
+
+  #+BEGIN_QUOTE
+  - =ap_max_daemons_limit=, =ap_my_generation=, and
+    =ap_threads_per_child=: Use =ap_mpm_query()= query codes
+    =AP_MPMQ_MAX_DAEMON_USED=, =AP_MPMQ_GENERATION=, and
+    =AP_MPMQ_MAX_THREADS=, respectively.
+  - =ap_requires()=: The core server now provides better
+    infrastructure for handling Require configuration. Register an
+    auth provider function for each supported entity using
+    =ap_register_auth_provider()=. The function will be called as
+    necessary during Require processing. (Consult bundled modules for
+    detailed examples.)
+  #+END_QUOTE
+
+  [[http://www.gossamer-threads.com/lists/apache/dev/345175][How to get info that ap_requires used to return]]; [[http://mail-archives.apache.org/mod_mbox/httpd-dev/200801.mbox/%253C477E3022.6720.00AC.0@novell.com%253E][better link]]:
+
+  #+BEGIN_QUOTE
+  Well, I'm not sure you are going to like the answer. The authz
+  functionality has been completely rearchitected in httpd trunk.
+  Rather than being hooked based which required every authz module in
+  the chain to evaluate all of the require statements, it is now
+  provider based. Basically what this means is that an authz module
+  simply registers the authz types that it supports and then the
+  provider for that authz type is only called when needed. In addition
+  to being provider based, a new logic concept has been added to allow
+  the user to combine different authz types using simple logic
+  groupings. In this architecture, the functionality that
+  ap_requires() performed, no longer makes. The 'Require' statement(s)
+  within a <Directory> block is no longer just a single authz type or
+  list of types, the authz result must be evaluated within the logical
+  context in which it exists. Under the old architecture,
+  ap_requires() returned a simply list of authz types. In the new
+  architecture, the authz types that are included in a <Directory>
+  block are no longer a list, but rather a logic tree.
+  #+END_QUOTE
+
+  [[http://httpd.apache.org/modules/][Check it]]:
+
+  #+BEGIN_QUOTE
+  mod_python (retired to the attic)
+
+  The Quetzalcoatl mod_python project has been retired to the attic.
+  Note there is NO further support or effort on this module from the
+  httpd project, see the attic information page below for further
+  information. You may also wish to research mod_wsgi , another effort
+  outside of the ASF.
+
+  Website: [[http://attic.apache.org/projects/quetzalcoatl.html][Attic Placeholder]]
+  #+END_QUOTE
+
+  [[http://code.google.com/p/modwsgi/][mod_wsgi]] it is, then; look at this, though:
+
+  #+BEGIN_QUOTE
+  Modes Of Operation¶
+
+  When hosting WSGI applications using mod_wsgi, one of two primary
+  modes of operation can be used. In 'embedded' mode, mod_wsgi works
+  in a similar way to mod_python in that the Python application code
+  will be executed within the context of the normal Apache child
+  processes. WSGI applications when run in this mode will therefore
+  share the same processes as other Apache hosted applications using
+  Apache modules for PHP and Perl.
+
+  An alternate mode of operation available with Apache 2.X on UNIX is
+  'daemon' mode. This mode operates in similar ways to FASTCGI/SCGI
+  solutions, whereby distinct processes can be dedicated to run a WSGI
+  application. Unlike FASTCGI/SCGI solutions however, neither a
+  separate process supervisor or WSGI adapter is needed when
+  implementing the WSGI application and everything is handled
+  automatically by mod_wsgi.
+
+  Because the WSGI applications in daemon mode are being run in their
+  own processes, the impact on the normal Apache child processes used
+  to serve up static files and host applications using Apache modules
+  for PHP, Perl or some other language is much reduced. Daemon
+  processes may if required also be run as a distinct user ensuring
+  that WSGI applications cannot interfere with each other or access
+  information they shouldn't be able to. 
+
+  Note that although mod_wsgi has features similar to FASTCGI/SCGI
+  solutions, it isn't intended to be a replacement for those hosting
+  mechanisms in all situations for Python web hosting. Specifically,
+  mod_wsgi is not designed for nor intended for use in over allocated
+  shared mass virtual hosting setups for different users on a single
+  Apache instance. For such mass virtual hosting arrangements, FASTCGI
+  in particular would still be the preferred choice in most situations.
+  #+END_QUOTE
+
+  And this:
+
+  #+BEGIN_QUOTE
+  Server Performance¶
+
+  The mod_wsgi module is written in C code directly against the
+  internal Apache and Python application programming interfaces. As
+  such, for hosting WSGI applications in conjunction with Apache it
+  has a lower memory overhead and performs better than existing WSGI
+  adapters for mod_python or alternative FASTCGI/SCGI/CGI or proxy
+  based solutions.
+
+  Although embedded mode can technically perform better, daemon mode
+  would generally be the safest choice to use. This is because to get
+  the best performance out of embedded mode you must tune the Apache
+  MPM settings, which in their default settings are biased towards
+  serving of static media and hosting of PHP applications. If the
+  Apache MPM settings are not set appropriately for the type of
+  application being hosted, then worse performance can be seen rather
+  than better performance.
+
+  Thus, unless you are adept at configuring Apache, always use daemon
+  mode when available. Overall, for large Python web applications you
+  wouldn't normally expect to see any significant difference between
+  daemon mode and embedded mode, as the bottlenecks are going to be in
+  the Python web application or any database access.
+  #+END_QUOTE
+
+  Oh, Jesus; under-specified, though:
+
+  #+BEGIN_QUOTE
+  Supported Applications
+
+  As mod_wsgi supports the WSGI interface specification, any Python
+  web framework or application which is compatible with the WSGI
+  interface specification should be able to be hosted on top of
+  mod_wsgi.
+
+  Major Python web frameworks and toolkits which are known to work
+  include CherryPy, Django, Pylons, TurboGears, Pyramid, web.py,
+  Werkzeug, Web2Py and Zope. Major Python web applications which are
+  known to work include MoinMoin, PyBlosxom and Trac.
+  #+END_QUOTE
+
+  [[http://docs.python.org/2/library/wsgiref.html][wsgiref]]? Heh. [[http://wsgi.readthedocs.org/en/latest/frameworks.html][This shit]]; [[http://webpy.org/][web.py]]? They mention [[http://flask.pocoo.org/][Flask]]. [[http://bottlepy.org/docs/dev/][Bottle]]? [[https://groups.google.com/forum/fromgroups%3D#!topic/modwsgi/l1YS749BydE][wsgiref
+  and mod_wsgi]] are alternatives‽ Oh, cool: [[http://www.python.org/dev/peps/pep-0333/#the-application-framework-side][example applications]].
+  [[http://code.google.com/p/modwsgi/wiki/DeveloperGuidelines][mod_wsgi guidelines]]: seems sufficiently low-level. [[http://code.google.com/p/modwsgi/wiki/WhereToGetHelp?tm%3D6][Hello, world]]; no,
+  sorry: [[http://code.google.com/p/modwsgi/wiki/QuickConfigurationGuide][hello, world]].
+
+  There's a [[http://code.google.com/p/modwsgi/wiki/ConfigurationGuidelines][SetHandler wsgi-script]]: say no more; also,
+  [[http://code.google.com/p/modwsgi/wiki/QuickConfigurationGuide][WSGIScriptAlias]].
+
+  [[http://code.google.com/p/modwsgi/issues/detail?id%3D165][mod_wsgi had a similar transition]], but managed it somehow; apply it
+  to mod_python? Losing battle: we become the forker. Is that so bad?
+  PEP 333 is against us.

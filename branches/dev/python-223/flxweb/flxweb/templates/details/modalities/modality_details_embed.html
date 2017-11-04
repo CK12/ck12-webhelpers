@@ -1,0 +1,54 @@
+{% extends "details/modalities/modality_details_with_answerkey.html" %}
+
+{% set resource = c.modality_data.artifact.get_modality_resource() %}
+
+{% block before_metadata %}
+	<!-- Artifact Summary -->
+	{% if resource.description %}
+	<section>
+		<h2 class="toptitle spacetopmedium">{{ _("Description") }}</h2>
+		<div class="articleinfowrap js_moreinfo">
+			<div itemprop="description" id="artifact_summary">
+				{{ resource.description|escape|replace("None", "") }}
+			</div>
+		</div>
+	</section>
+	{% endif %}
+{% endblock %}
+
+{% block modality_content_main %}
+		{% if c.modality_data.artifact.get('artifactType') == 'simulationint' or c.modality_data.artifact.get('artifactType') == 'simulation' %}
+		<div class="row interactive-sim-container">
+			<div class="interactive-sim-wrapper">
+				<div class="close-fullscreen">
+					<a href="javascript:;" class="right expand-view-button active js-close-fullscreen">
+						<span class="expand-close"></span>
+					</a>
+				</div>
+				<div class="header-sim-wrapper">
+					<div class="header-sim">{{ c.modality_data.artifact.get('title')|escape }}</div>
+					<div class="modality_resource_desc">
+						{{ resource.description|escape|replace("None", "") }}
+					</div>
+				</div>
+				<div class="right view-fullscreen-button">
+					<a target="_blank" class="button tangerine standard js-view-fullscreen" ><i class="icon-expand-2"></i>Full Screen</a>
+				</div>
+				<div class="interactive-sim">
+				{{ resource.embeddedObject.iframe }}
+				</div>
+			</div>
+		</div>
+		{% else %}
+		
+		<div class="modality_resource_desc">
+			{{ resource.description|escape|replace("None", "") }}
+		</div>
+		<div class="spacetoplarge">
+			
+		</div> 
+		<div class="flex-video">
+			{{ resource.embeddedObject.iframe }}
+		</div>
+		{% endif %}
+{% endblock %}

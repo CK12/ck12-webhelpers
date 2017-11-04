@@ -1,0 +1,21 @@
+{% extends "details/modalities/modality_details_generic.html" %}
+
+{% block mathjax %}{% endblock %}
+
+{% block modality_js %}
+<script language="JavaScript" type="text/javascript">
+	require(['main'],function(){
+		require(['flxweb.details.modality.ilo']);
+	})
+</script>
+{% endblock %}
+
+
+{% block modality_content_main %}
+		{{ c.ilo_embed }}
+{% endblock %}
+{% block modality_data %}
+<script type="text/javascript">
+	window.js_modality_data = {{ (c.modality_data_json|ck12_json) }};
+</script>
+{% endblock %}

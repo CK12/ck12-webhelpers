@@ -1,0 +1,28 @@
+{% from "macros/pagination.html" import paginate with context %}  
+
+{% if c.paginator.item_count > 0 %}
+  {% for i in c.paginator.items %}
+    <div class="tr paneview {{ h.hide_if_full(c.viewmode)}}">
+      <div class="td id">{{i.id}}</div>
+      <div class="td viewtrigger breakword" data-id="{{i.id}}">
+        {{h.idlink2('/assignment/', i, 'name')}}<br/>
+        ({{i.assignmentType}})
+      </div>
+      <div class="td">{{h.userlink(i.artifact, 'creator', 'creatorID', truncate=15)}}</div>
+      <div class="td nowrap">{{i.artifact.modified|parseISODate|compact}}</div>
+    </div>
+    
+    <div class="tr fullview {{ h.hide_if_pane(c.viewmode)}}">
+      <div class="td id">{{i.id}}</div>
+      <div class="td">{{i.assignmentType}}</div>
+      <div class="td viewtrigger" data-id="{{i.id}}">{{h.idlink2('/assignment/', i, 'name')}}</div>
+      <div class="td">{{h.userlink(i.artifact, 'creator', 'creatorID', truncate=15)}}</div>
+      <div class="td">{{ i.origin }}</div>
+      <div class="td">{{ i.groupID }}</div>
+      <div class="td">{% if i.due %} {{i.due | parseISODate|compact}} {% endif %} </div>
+      <div class="td nowrap">{{i.artifact.created|parseISODate|compact}}</div>
+      <div class="td nowrap">{{i.artifact.modified|parseISODate|compact}}</div>
+    </div>
+  {% endfor %}
+  {{ paginate(c.paginator) }}
+{% endif %}

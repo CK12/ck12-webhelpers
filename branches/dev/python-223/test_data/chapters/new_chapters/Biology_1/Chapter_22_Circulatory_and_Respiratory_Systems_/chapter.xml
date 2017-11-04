@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns:dc="http://www.ck12.org/dc/will_create_ns"
+unique-identifier="chapterid" version="2.0">
+
+  <chapter>
+    <metadata>
+<chapterSeq>22</chapterSeq>
+
+<book>Biology I</book>
+
+      <chapterid></chapterid>
+      <title>Circulatory and Respiratory Systems</title>
+      <description>Topics in this chapter include:Blood,Circulatory_System,Respiratory_System.
+     </description>
+    </metadata>
+    
+    <lessons>
+      <item id="Circulatory_System" href="Circulatory_System.html" sequence="1" />
+      <item id="Blood" href ="Blood.html" sequence="2" />
+      <item id="Respiratory_System" href ="Respiratory_System.html" sequence="3" />
+   </lessons>
+  </chapter>
+
+</package>

@@ -1,0 +1,58 @@
+    <div id="profileBuilderModal" data-options="closeOnBackgroundClick: false;" class="reveal-modal app-reveal-modal medium">
+        <div class="large-12 columns profile-builder-header">
+            To continue, please update your profile:
+        </div>
+        <div class="large-4 small-12 columns right-container text-center">
+            <div class="image_upload_holder">
+                <div class="profile-img-wrap">
+                    <!--<img id="profileImage" src="http://placekitten.com/110/100" width="145" height="135"/>-->
+                    <img id="profileImage" data-default-image="true" data-image-url="" src="/media/profilebuilder/assets/images/profile_photo_default.png"/>
+                    <img id="ajaxLoadingWait" class="hide_within_PB" style="margin:70px" src="/media/images/loader.gif"/>
+                </div>
+                <div id="image_form_container" class="">
+                    <div class="text-center">
+                        <a><span class="uploadimage_btn_display js_upload_image_btn">Upload a photo</span></a>
+                    </div>
+                </div>
+                <div id="uploadimage_form_container">
+                    <form id="frm_imageupload" name="frm_imageupload" action="/save/profile/image">
+                        <input id="resourcePath" type="file" class="uploadimage_input" name="resourcePath" />
+                        <input type = "text" id = "resourceType" class="hide_within_PB" name = "resourceType" value="image"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="large-8 columns right-container small-12">
+            <div class="spacetoplarge"></div>
+            <div id = 'userInformationContainer'></div>
+            <div class="right-btn-wrap">
+                <input class="button turquoise grey disabled" disabled="disabled" type="button" id="next_btn" value="Done"></input>
+            </div>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+    <div id="shareNotificationModal" data-options="closeOnBackgroundClick: false;" class="reveal-modal app-reveal-modal small">
+        <a class="close-reveal-modal"></a>
+
+        <div class="large-12 small-12 columns">
+            <div class="text-center message">Tell your friends that you joined CK-12!</div>
+            <div class="text-center social">
+                <a id="shareOnEmail" title="Share On Email">
+                    <span class="email-icon share-icon email"></span>
+                </a>
+
+                <a id="facebookShare" target="_blank" href = "https://www.facebook.com/sharer.php?u=http://www.ck12.org&t=I just joined CK-12. Check out their out their educational readings, quizzes, and flashcards: http://www.ck12.org"  id="shareOnFacebook" title="Share On FaceBook">
+                    <span class="facebook-icon share-icon facebook"></span>
+                </a>
+
+                <a id="twitterSahre" target="_blank" id="shareOnTwitter" href="http://twitter.com?status=I just joined CK-12. Check out their educational videos, readings, quizzes, and study guides:http://www.ck12.org" title="Share On Twitter">
+                    <span class="twitter-icon share-icon twitter"></span>
+                </a>
+            </div>
+            <div class="text-right">
+                <input class="button turquoise" type="button" id="done_btn" value="Done"/>
+            </div>
+        </div>
+    </div>

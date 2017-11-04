@@ -1,0 +1,64 @@
+<div style="text-align:left">
+	<div>
+		{{ _('Please select the subject, state and grade for auto generating a standards aligned FlexBook&#174; textbook') }}
+	</div>
+	<br>
+	<form id="cg_form">
+		<div>
+			<div style="width:160px;float:left;">
+				{{ _('Subject') }}
+			</div>
+			<div>
+				<select id="cg_subject" name="subject" style="width:250px;">
+					<option value="-">{{_('Select subject') }}</option>
+				{% for subject in c.subjects %}
+					<option value="{{ subject.name }}">{{ subject.name|title }}</option>
+				{% endfor %}
+				</select>
+			</div>
+		</div>
+		<br>
+		<div>
+			<div style="width:160px;float:left;">
+				{{ _('State or Standard Set') }}
+			</div>
+			<div>
+				<select id="cg_state" name="state" style="width:250px;">
+					<option value="-">{{_('Select state or standard set') }}</option>
+				{% for value,label in c.states|dictsort %}
+					<option value="{{value}}">{{label}}</option>
+				{% endfor %}
+				</select>
+			</div>
+		</div>
+		<br>
+		<div id="js_old_fb_notification" name="help_message"><br></div>
+		<div>
+			<div style="width:160px;float:left;">
+				{{ _('Grade') }}
+			</div>
+			<div>
+				<select id="cg_grade" name="grade" style="width:250px;">
+					<option value="-">{{_('Select grade') }}</option>
+				{% for value,label in c.grades|dictsort %}
+					<option value="{{value}}">{{label}}</option>
+				{% endfor %}
+				</select>
+			</div>
+		</div>
+		<br>
+		<div id="cg_title_div" class="hide">
+			<div style="width:160px;float:left;">
+				{{ _('FlexBook&#174; textbook Title') }}
+				<br>
+				(<span id="cg_title_counter"></span>)
+			</div>
+			<div>
+				<textarea maxlength="100" data-counter-id="cg_title_counter" id="cg_title" rows="3" style="width:240px;font-size:14px;" placeholder="{{ _('Enter your new FlexBook&#174; textbook title here') }}" />
+			</div>
+		</div>
+	</form>
+	<input type="hidden" id="cg_fname" value="{{c.user.firstName}}"/>
+	<input type="hidden" id="cg_lname" value="{{c.user.lastName}}"/>
+</div>
+

@@ -1,0 +1,106 @@
+{% extends "common/master.html" %}
+
+{% block title %}{{ _("Features") }}{% endblock %}
+
+{% block stylesheets %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.url_css('benefits.css') }}" />
+{% endblock %}
+
+{% block content %}
+   	<div class="benefit-container relative benefit-dashboard">
+   		<a id="dashboard" class="hash-link"></a>
+   		<a data-magellan-destination="header_dashboard" class="magellan-target"></a>
+   		<div class="row collapse relative">
+   			<div class="small-9 large-5 medium-7 columns small-centered benefit-text js-teacher hide">
+   				<div>
+   					<h2 class="show-small benefits-heading"><i class="icon-dashboard2"></i><span>DASHBOARD</span></h2>
+   					<h2>See the latest activity in your classes and groups.</h2>
+   				</div>
+   				<div class="button-container"><a id="features_dashboard_teacher" class="tangerine large button" href="{{ h.url('auth-signup') }}/teacher?returnTo={{ h.url('dashboard') }}&referrer=features_dashboard" rel="nofollow">Sign up</a></div>
+   			</div>
+   			<div class="small-9 large-5 medium-7 columns small-centered benefit-text js-student hide">
+   				<div>
+   					<h2 class="show-small benefits-heading"><i class="icon-dashboard2"></i><span>DASHBOARD</span></h2>
+   					<h2>Master concepts and prepare for your tests.</h2>
+   				</div>
+   				<div class="button-container"><a id="features_dashboard_student" class="tangerine large button" href="{{ h.url('auth-signup') }}/student?returnTo={{ h.url('dashboard') }}&referrer=features_dashboard" rel="nofollow">Start learning</a></div>
+   			</div>
+   			<div class="small-12 large-4 columns benefit-image js-common hide">
+   				<img data-src="{{ h.asset_image('common/images/benefits-dashboard-teacher.png') }}" alt="Sample Dashboard" title="Sample Dashboard" class="hide-small js-teacher hide">
+   				<img data-src="{{ h.asset_image('common/images/benefits-dashboard-teacher-mobile.png') }}" alt="Sample Dashboard" title="Sample Dashboard" class="show-small js-teacher hide">
+   				<img data-src="{{ h.asset_image('common/images/benefits-dashboard-student.gif') }}" alt="Sample Dashboard" title="Sample Dashboard" class="hide-small js-student hide">
+   				<img data-src="{{ h.asset_image('common/images/benefits-dashboard-student.png') }}" alt="Sample Dashboard" title="Sample Dashboard" class="show-small js-student hide">
+   			</div>
+   		</div>
+   	</div>
+   	<div class="benefit-container relative benefit-groups">
+   		<a id="group" class="hash-link"></a>
+   		<a data-magellan-destination="header_groups" class="magellan-target"></a>
+		<div class="row collapse relative">
+			<div class="small-12 large-5 columns push-7 benefit-text js-teacher hide">
+   				<div>
+   					<h2 class="show-small benefits-heading"><i class="icon-groups"></i><span>GROUPS</span></h2>
+   					<h2>Assign homework, track student progress, and have class discussions.</h2>
+   				</div>
+   				<div class="button-container"><a id="features_groups_teacher" class="tangerine large button right" href="{{ h.url('auth-signup') }}/teacher?returnTo={{ h.url('groups') }}&referrer=features_groups" rel="nofollow">Set up your first class</a></div>
+   			</div>
+   			<div class="small-12 large-5 columns push-7 benefit-text js-student hide">
+   				<div>
+   					<h2 class="show-small benefits-heading"><i class="icon-groups"></i><span>GROUPS</span></h2>
+   					<h2>Chat about group projects and study with friends.</h2>
+   				</div>
+   				<div class="button-container"><a id="features_groups_student" class="tangerine large button right" href="{{ h.url('auth-signup') }}/student?returnTo={{ h.url('groups') }}&referrer=features_groups" rel="nofollow">Set up your first study group</a></div>
+   			</div>
+   			<div class="small-12 large-7 columns pull-5 benefit-image">
+   				<img data-src="{{ h.asset_image('common/images/benefits-groups-teacher.gif') }}" alt="Sample Groups" title="Sample Groups" class="hide-small js-teacher hide">
+   				<img data-src="{{ h.asset_image('common/images/benefits-groups-teacher.png') }}" alt="Sample Groups" title="Sample Groups" class="show-small js-teacher hide">
+   				<img data-src="{{ h.asset_image('common/images/benefits-groups-student.gif') }}" alt="Sample Groups" title="Sample Groups" class="hide-small js-student hide">
+   				<img data-src="{{ h.asset_image('common/images/benefits-groups-student.png') }}" alt="Sample Groups" title="Sample Groups" class="show-small js-student hide">
+   			</div>
+		</div>
+	</div>
+   	<div class="benefit-container relative benefit-library">
+   		<a id="library" class="hash-link"></a>
+   		<a data-magellan-destination="header_library" class="magellan-target"></a>
+   		<div class="row collapse relative">
+   			<div class="small-12 large-5 medium-6 columns library-text js-teacher hide">
+   				<div>
+   					<h2 class="show-small benefits-heading"><i class="icon-backpack"></i><span>LIBRARY</span></h2>
+   					<h2>Build your own digital library.</h2>
+   				</div>
+   				<div class="button-container">
+   					<a id="features_library_teacher" class="tangerine large button" href="{{ h.url('auth-signup') }}/teacher?returnTo={{ h.url('library') }}&referrer=features_library" rel="nofollow">Get started</a>
+   				</div>
+   			</div>
+   			<div class="small-12 large-4 medium-6 columns left library-text js-student hide">
+   				<div>
+   					<h2 class="show-small benefits-heading"><i class="icon-backpack"></i><span>LIBRARY</span></h2>
+   					<h2>Save all your study material in one place.</h2>
+   				</div>
+   				<div class="button-container">
+   					<a id="features_library_student" class="tangerine large button" href="{{ h.url('auth-signup') }}/student?returnTo={{ h.url('library') }}&referrer=features_library" rel="nofollow">Join CK-12</a>
+   				</div>
+   			</div>
+   		</div>
+   		<div>
+   			<div class="small-12 large-7 medium-6 columns right benefit-image js-common hide">
+				<img src="{{ h.asset_image('common/images/benefits-library.gif') }}" alt="Sample Library" title="Sample Library" class="right hide-small">
+				<img src="{{ h.asset_image('common/images/benefits-library.png') }}" alt="Sample Library" title="Sample Library" class="show-small">
+   			</div>
+   		</div>
+   	</div>
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+<script>
+	var classList = document.getElementsByClassName('content-wrap')[0].classList;
+	classList.remove('row');classList.add('relative');classList.add('no-padding');
+	require(['main'], function () {
+		require(['js/flxweb.benefits'], function (Benefits) {
+			Benefits.init();
+		});
+	});
+</script>
+{% endblock %}

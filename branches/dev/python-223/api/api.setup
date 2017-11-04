@@ -1,0 +1,7 @@
+;; (include "setup-helper")
+
+;; (verify-extension-name "unicode-greek")
+
+;; (setup-shared-extension-module
+;;  'unicode-greek
+;;  (extension-version 0.1))

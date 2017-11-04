@@ -1,0 +1,18 @@
+    AliasMatch /lmspractice/media(-?\d*)/(.*)    /opt/2.0/lmspractice/ui/media$1/$2
+    <DirectoryMatch /opt/2.0/lmspractice/ui/media(-?\d*)/>
+        #SetEnvIf Origin "^http(s)?://(.+\.)?(ck12\.org)$" origin_is=$0
+        #Header set Access-Control-Allow-Origin %{origin_is}e env=origin_is
+        #Header set Access-Control-Allow-Headers "Content-Type"
+        #Header set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+        #Header set Access-Control-Allow-Credentials "true"
+        Require all granted
+    </DirectoryMatch>
+    
+    AliasMatch /lmspractice/(.*?)/(.*)    /opt/2.0/lmspractice/ui/$2
+    <Directory /opt/2.0/lmspractice/ui/>
+        Require all granted
+        RewriteEngine on
+        RewriteCond %{REQUEST_URI} ^.*index\.html.*$ [NC]
+        RewriteCond %{HTTP_COOKIE} !^.*edmodoapp=1.*$ [NC]
+        RewriteRule .* - [co=edmodoapp:1:.ck12.org:525600:/]
+    </Directory>

@@ -1,0 +1,102 @@
+<div class="large-12 column signin-form-area">
+	<div class="signin-form-container">
+			<div class="reg-ext-header-area <% if(showMore){ %> soft-reg-truncated-area <% }else { %> soft-login-extended-area <%} %> ">
+				<% if(serverError){ %>
+					<div class="alert_big error popup-notification">
+					    <i class="icon-notification"></i>
+					    <span>
+					            <%- getTextByKey(serverError)  %>
+					    </span>
+					</div>
+				<% }else{ %>
+					<div class="reg-ext-container">
+						<a class="button dark-tangerine soft-reg-signin-button sign-in soft-reg-signin-ext text-center google-button" data='google'alt="Sign in with Google" title="Sign in with Google">
+							<i class="icon-google"></i>
+							<span>Sign in with Google</span>
+						</a>
+					</div>
+
+				<%  } %>
+				
+
+			<%  if(showMore) {%>
+					<div id="show-more-buttons" class="dxtrack-user-action row collapse text-center pointer show-more-buttons" data-dx-desc='soft_reg_showmore'  data-dx-popup='signin'>Show More</div>
+			 <% }else{ %> 
+					<div class="dxtrack-user-action row collapse text-center pointer show-less-buttons" data-dx-desc='soft_reg_showless' data-dx-popup='signin'>Show Less</div>
+			<% } %>
+		</div>
+		<%  if(showMore) {%>
+					<div class="soft-signin-header-or-txt text-center">or</div>
+	    <% } %> 
+		 <div class="soft-reg-internal-form <% if(!$pristine) { if(showMore){%> soft-form-fadeIn <% }else{ %> soft-form-fadeOut <%} } %>">
+			<div class="softReg-form-container row collapse ">
+					<div id='soft-reg-email-error' class="<%if( loginCredentialsError ){ %>error<% }else{ %>hide<% } %>" data-for="email"><span class="imgwrap"></span>
+						<label for="email" generated="true" class="invalid">
+						<%= (function(){
+							switch(loginCredentialsError){ 
+							    case "REQUIRED":
+							     return 'Enter valid email address/ user name';
+							    case "MAX_LENGTH" :
+							     return 'Must be less than 128 characters.';
+							    default : 
+							     return '';  
+							}
+							})()   
+						%>		
+						</label>
+					</div>
+				<input type="text"  maxlength="128" placeholder="Username or Email" name="email" class="forminput email soft-reg-input-email <% if(loginCredentialsError){ %> error <%} %>"  value="<%=loginCredentials%>" />
+					<div id='soft-reg-password-error' class="<%if( passwordError ){ %>error<% }else{ %>hide<% } %>" data-for="password"><span class="imgwrap"></span>
+						<label for="password" generated="true" class="invalid">
+						<%= (function(){
+							switch(passwordError){ 
+							    case "REQUIRED":
+							     return 'Password is required';
+							    default : 
+							     return '';  
+							}
+							})()   
+						%>		
+						</label>
+					</div>
+				<input type="password" placeholder="Password" name="password" class="forminput password soft-reg-input-password <% if(passwordError){ %> error <%} %>" value="<%=password%>"/>
+			</div>
+			<div class="soft-reg-forgot-password-container">
+				<a class="soft-reg-forgot-password">Forgot Your Password</a>
+			</div>
+			<div class="signin-btn-container">
+				<button id='signin_form_submit' class="soft-reg-sign-up-btn center button turquoise <% if( formError) { %> disabled grey <% } %>">Sign in</button>
+			</div>
+		</div>
+		<div class="soft-signin-ext-form-container <% if(!$pristine) { if(showMore){%> doHide <% }else{ %> doShow <%} }%>">	
+			<div class="ext-sign-up-container <% if(!$pristine) { if(showMore){%> up <% }else{ %> down <%} }%>">
+					<a class="button turquoise soft-reg-signin-button signup-email-button js-signup-email-button"
+					title="Sign in using email">
+						<span class="icon-email"></span>
+						<span>Sign in using email</span>
+					</a>
+					<a class="button midnight-blue soft-reg-signin-button soft-reg-signin-ext  text-center facebook-button" data='facebook' alt="Sign in with Facebook" title="Sign in with Facebook">
+						<i class="icon-facebook"></i>
+						<span>Sign in with Facebook</span>
+					</a>
+					<a class="button sky-blue soft-reg-signin-button  soft-reg-signin-ext btn-half twitter-button" data='twitter' alt="Sign in with Twitter" title="Sign in with Twitter">
+						<i class="icon-twitter"></i>
+						<span>Twitter</span>
+					</a>
+					<a class="button royal-blue soft-reg-signin-button  soft-reg-signin-ext btn-half microsoft-button" data='azure' alt="Sign in with Microsoft" title="Sign in with Microsoft">
+						<i class="icon-microsoftlive"></i>
+						<span>Microsoft</span>
+					</a>
+			</div>
+		</div>
+		<div class="signup-terms-content student-signup-terms row collapse text-center">
+		        <span>By signing up, I confirm that I have read and agree to the</span>
+		        <a class='terms-link' href="https://www.ck12info.org/about/terms-of-use/" target="_blank">Terms of use</a> and
+		        <a class='terms-link' href="https://www.ck12info.org/about/technology-2/privacy-policy/" target="_blank">Privacy Policy</a>.
+		</div>	
+		<div class="row collapse text-center account-exist">
+			<span>Don't have an account? <a class="dxtrack-user-action js-sign-up soft-reg-sign-up-open"
+			data-dx-desc='soft_reg_signup'  data-dx-style='popup' >Sign up</a></span>
+		</div>
+	</div>
+	</div>

@@ -1,0 +1,19 @@
+{% from "macros/pagination.html" import paginate with context %}
+
+{% if c.paginator.item_count > 0 %}
+  {% for i in c.paginator.items %}
+    <div class="tr paneview {{ h.hide_if_full(c.viewmode)}}">
+    </div>    
+    <div class="tr fullview {{ h.hide_if_pane(c.viewmode)}}">
+      <div class="td id">{{h.idlink2(('/lti_app/%s/') % i.provider.name, i, alttext=i.site|truncate(70), idkey='site', addslash=False)}}</div>
+      <div class="td">
+        {{i.description|escape}}
+      </div>
+      <div class="td">{{i.key|escape}}</div>
+      <div class="td">{{i.provider.name|escape}}</div>
+      <div class="td">{{i.secret}}</div>
+      <div class="td">{{i.site}}</div>
+    </div>    
+  {% endfor %}
+  {{ paginate(c.paginator) }}
+{% endif %}

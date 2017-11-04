@@ -1,0 +1,166 @@
+{% extends "details.html" %}  
+
+{% block admincontent %} 
+{% if c.assignment %}
+<div class="sectionhead sectiontitle">{{c.assignment.artifact.title}}</div>
+<div class="section withfloatedsubmit">
+  <form id="mainform" method="post">
+    <div class="leftaligned">
+
+    {% for field in c.form.ordered_fields %}
+      {{ field }}
+    {% endfor %}
+    
+    {{ h.htmllabel('Actions')}}
+        {% if c.assignment.origin == 'lms' and c.assignment.providerAssignmentID %}
+            <div>
+                <span id='remove_lms_association' class='linklike'>[Remove LMS Association]</span>
+            </div>
+        {% endif %}
+    {{ h.deletebutton('Delete')}}
+    {{ h.submitbutton('Update', 'short')}}
+    {{ h.cancelbutton(c.cancel)}}
+  </form>
+</div>
+
+<span class='ajaxError'></span>
+{% endif %}
+
+{% if c.assignmentReport %}
+   <br/><br/><div class="prethead title">Assignment Members Report
+   </div>
+  <div class="table actionstat">
+    <div class="thead sectionhead">
+      <div class="tr">
+        <div class="td"></div>
+        {% for member in c.assignmentReport.groupMembers %}
+            <div class="td" title="Member Id: {{member.id}}"><a style="color:#fff" href="{{h.url_('/user/profile/%s') %(member.id) }}">{{ member.name.split(' ')[0] }} {% if member.name.split(' ') | length > 1%} {{ member.name.split(' ')[1][0] }}{% endif %}</a></div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="tbody">
+        {% for concept in c.assignmentReport.assignments.concepts %}
+        <div class="tr">
+            <div class="td">{{ concept.name }} <br/> ({{ concept.encodedID or concept.id }})</div>
+            {% for member in c.assignmentReport.groupMembers %}
+                {% set assignmentScore = c.assignmentReport.member_assignment[0]["%s-%s"%(member.id, c.assignmentID)] %}
+                    {% set conceptScore = assignmentScore.get("%s" %(concept.id))%}
+                    {% if conceptScore %}
+                        <div class="td" title="Access Time: {{conceptScore.lastAccess}}">
+                        {% if conceptScore and ((conceptScore.get('recordedScore', -1) or (-1 if conceptScore.get('recordedScore', -1) != 0 else 0)) >= 0) %} 
+                            <a target="_blank" href="/assessment/ui/views/test.detail.new.html?studentID={{member.id}}&eids={{conceptScore.eids}}&groupID={{conceptScore.groupID}}&testOwnerID={{conceptScore.ownerID}}&assignmentId={{c.assignmentID}}&isGroupOwner=true">{{_("Recorded Score: ")}}{{ conceptScore.recordedScore }}% 
+                            </a>{% endif %}
+                        <br/>
+                        {% if conceptScore and conceptScore.status == 'incomplete' %}{{ "-" }} {% elif conceptScore and ((conceptScore.get('score', -1) or (-1 if conceptScore.get('score', -1) != 0 else 0)) >= 0) %} {{_("Reported Score: ")}}{{ conceptScore.score }}% {% else %} {{"Done"}} {% endif %}
+                        </div>
+                    {% else %}
+                        <div class="td" title="Not Available">-</div>
+                    {% endif %}
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+{% endblock admincontent %}
+
+
+{% block js_scripts %}
+{% if c.assignment %}
+<script type='text/javascript'>
+$(document).ready(function(){
+    var assignmentActions = {
+      deleteConfirmMsg : 'Are you sure to delete the LMS provider association?',
+      deleteSuccessMsg : 'LMS Provider Assignment Association Deleted Successfully',
+      this : null,
+      
+      initDeleteAction : function(confirmAction){
+        {% if c.assignment.origin == 'ck-12' or not c.assignment.providerAssignmentID %}
+            return false;
+        {% endif %}
+        assignmentActions.this = $(this)
+        $(this).hide();
+        $.ajax({url: CK12.flxUrl('/delete/lmsprovider/assignment/{{c.assignmentID}}'), 
+          type: 'POST', 
+          data: {'providerAssignmentID':'{{c.assignment.providerAssignmentID}}'},
+          success: function(data, status, xhr){ //data is just {} for groups
+              $(assignmentActions.this).show();
+              if (confirmAction == true){
+                alert(assignmentActions.deleteSuccessMsg);
+                window.location.reload();
+              }
+          },
+          error: function(xhr, textStatus, errorThrown){
+            if (confirmAction){
+              alert('API Error: '+ Fns.formatResponseError(
+              xhr, textStatus, errorThrown));
+            }
+          }
+       });
+      },
+
+      removeLMSAssociation : function(confirmAction){
+          if (confirmAction==true){
+            if (confirm(assignmentActions.deleteConfirmMsg)){
+                assignmentActions.initDeleteAction();
+            }
+          }else{
+            assignmentActions.initDeleteAction();
+          }
+      }
+    };
+    $("#remove_lms_association").off("click").on("click", function(){
+        assignmentActions.removeLMSAssociation(true)
+    });
+
+    $( "#due" ).datepicker({ dateFormat: 'yy-mm-dd' });
+    
+    var deleteAssignment = {
+      confirmMsg : 'Are you sure to delete the Assignment?',
+      successMsg : 'Assignment deleted successfully',
+      this : null,
+              
+      deleteAssignmentTask : function(){
+          if (confirm(deleteAssignment.confirmMsg)){
+            assignmentActions.removeLMSAssociation(false)
+            deleteAssignment.this = $(this)
+            $(this).hide();
+            $.ajax({url: CK12.flxUrl('/delete/assignment/{{ c.assignment.artifact.id }}'), 
+              type: 'POST', 
+              data:{'impersonateMemberID' : {{ c.assignment.artifact.creatorID }},
+                    'deleteStudyTrack' : true},
+              success: function(data, status, xhr){
+                  $(deleteAssignment.this).show();
+                  try{
+                      data = $.parseJSON(data);
+                  }catch (e){
+                  }
+                  if (data && data.status == 'error'){
+                      var message = '';
+                      if(data.api_status_code){
+                          message += data.api_status_code;
+                      }
+                      if (data.response){
+                          message += ' - ' + data.response;
+                      }else{
+                          message += 'Unknow Reason'
+                      }
+                      alert('API Error: ' + message);
+                  }else{
+                      alert(deleteAssignment.successMsg);
+                      window.location.href = CK12.admUrl('assignments');
+                  }
+              },
+              error: function(xhr, textStatus, errorThrown){
+                  alert('API Error: '+ Fns.formatResponseError(
+                  xhr, textStatus, errorThrown));
+              }
+           });
+         }
+      }
+    };
+    $("#delete").click(deleteAssignment.deleteAssignmentTask);
+});
+</script>
+{% endif %}
+{% endblock %}

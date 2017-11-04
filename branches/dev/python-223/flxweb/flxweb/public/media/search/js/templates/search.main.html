@@ -1,0 +1,133 @@
+<div class="row collapse search-container js-search-container">
+	<div class="small-12 large-2 columns hide-small">
+		<div class="row collapse filter-text-container">
+			<span class="bold filter-text">Filters</span>
+			<a class="right clear-all js-clear-all">clear all</a>
+		</div>
+		<div class="row collapse filter-container">
+<!-- 			<div class="row collapse country-filter-container hide">
+				<div class="pointer bold filter-heading country-filter-heading expandable-filter expanded js-expandable-filter">
+					<span>COUNTRY</span>
+					<span class="filter-clear-wrap hide">
+						<span class="separator">|</span>
+						<a class="js-clear-individual-filters">Clear</a>
+					</span>
+					<i class="icon-arrow3_right right"></i>
+				</div>
+				<div id="country-filter" class="inidividual-filters-wrapper js-country-filter"></div>
+				<div id="cbse-intro-container"></div>
+			</div>
+			<div class="border hide"></div> -->
+			<div class="row collapse grade-filter-container each-filter-container" data-filter="GRADES">
+				<div class="pointer bold filter-heading grade-filter-heading expandable-filter expanded js-expandable-filter">
+					<span>GRADES</span>
+					<span class="filter-clear-wrap hide">
+						<span class="separator">|</span>
+						<a class="js-clear-individual-filters">Clear</a>
+					</span>
+					<i class="icon-arrow3_right right"></i>
+				</div>
+				<div id="grade-filter" class="inidividual-filters-wrapper js-grade-filter"></div>
+			</div>
+			<div class="border"></div>
+			<div class="row collapse subjects-filter-container each-filter-container" data-filter="SUBJECTS">
+				<div class="bold filter-heading">SUBJECTS</div>
+				<div id="subject-filter" class="inidividual-filters-wrapper js-subject-filter"></div>
+			</div>
+			<div class="border"></div>
+			<div class="row collapse categories-filter-container each-filter-container" data-filter="CATEGORIES">
+				<div class="pointer bold filter-heading expandable-filter expanded js-expandable-filter">
+					<span>CATEGORIES</span>
+					<span class="filter-clear-wrap hide">
+		                <span class="separator">|</span>
+		                <a class="js-clear-individual-filters">Clear</a>
+	            	</span>
+					<i class="icon-arrow3_right right"></i>
+				</div>
+				<div id="category-filter" class="inidividual-filters-wrapper js-category-filter"></div>
+			</div>
+		</div>
+	</div>
+	<div class="small-12 large-10 columns search-results-main-wrapper js-search-results-main-wrapper">
+		<div class="row collapse">
+			<div id="search-result-header" class="row collapse search-result-header"></div>
+			<div id="content-filter" class="row collapse content-filter-container js-content-filter"></div>
+			<div id="suggestion-container" class="row collapse<% if (!data.suggestedTerm) { %> hide<% } %>">
+				<div class="suggestion-container">
+					<p>We couldn't find what you are looking for.</p>
+					<div>
+						<div>Some suggestions:</div>
+						<div class="suggestion-text-wrapper">
+							<span>
+								<span>Try searching for <%= (data.originalTerm || '') %> in </span>
+								<a class="searchOriginal" data-source="community">Community Content</a>
+								<% if (window.ck12_signed_in) { %>
+									<span> or </span> 
+									<a class="searchOriginal" data-source="my">Your Library</a>
+								<% } %>
+							</span><br>
+							<span>Make sure all words are spelled correctly.</span><br>
+							<span>Try different keywords.</span><br>
+							<span>Try more general keywords.</span>
+						</div>
+					</div>
+				</div>
+				<div class="suggestion-wrapper">
+					<b>Showing results for: </b>
+					<a class="js_suggested_link"><%= (data.suggestedTerm || '') %></a>
+				</div>
+			</div>
+			<div id="search-list" class="row collapse search-list"></div>
+			<div id="search-pagination-container" class="row collapse text-center search-pagination-container"></div>
+		</div>
+	</div>
+</div>
+<div class="row collapse mobile-filters-wrapper js-mobile-filters-wrapper">
+	<div class="row collapse mobile-filters-header js-mobile-filters-header">
+		<i class="icon-arrow pointer js-back-icon"></i>
+		<a id="apply-filters" class="button small tangerine bold right apply-filters">Apply</a>
+	</div>
+	<div class="row collapse filter-container mobile-filter-container js-mobile-filter-container">
+<!-- 		<div class="row collapse country-filter-container hide">
+			<div class="pointer bold filter-heading country-filter-heading expandable-filter expanded js-expandable-filter">
+				<span>COUNTRY</span>
+				<span class="filter-clear-wrap-small hide">
+					<span class="separator">|</span>
+					<a class="js-clear-individual-filters-small">Clear</a>
+				</span>
+				<i class="icon-arrow3-down right"></i>
+			</div>
+			<div id="country-filter_small" class="inidividual-filters-wrapper country-filter js-country-filter"></div>
+		</div>
+		<div class="border hide"></div> -->
+		<div class="row collapse grade-filter-container">
+			<div class="pointer bold filter-heading grade-filter-heading expandable-filter expanded js-expandable-filter">
+				<span>GRADES</span>
+				<span class="filter-clear-wrap-small hide">
+					<span class="separator">|</span>
+					<a class="js-clear-individual-filters-small">Clear</a>
+				</span>
+				<i class="icon-arrow3-down right"></i>
+			</div>
+			<div id="grade-filter_small" class="inidividual-filters-wrapper grade-filter js-grade-filter"></div>
+		</div>
+		<div class="border"></div>
+		<div class="row collapse subjects-filter-container">
+			<div class="bold filter-heading">SUBJECTS</div>
+			<div id="subject-filter_small" class="inidividual-filters-wrapper subject-filter js-subject-filter"></div>
+		</div>
+		<div class="border"></div>
+		<div class="row collapse categories-filter-container">
+			<div class="pointer bold filter-heading expandable-filter expanded js-expandable-filter">
+				<span>CATEGORIES</span>
+				<span class="filter-clear-wrap-small hide">
+		                <span class="separator">|</span>
+		                <a class="js-clear-individual-filters-small">Clear</a>
+	            </span>
+				<i class="icon-arrow3-down right"></i>
+			</div>
+			<div id="category-filter_small" class="inidividual-filters-wrapper category-filter js-category-filter"></div>
+		</div>
+	</div>
+	<div class="row collapse pointer clear-all text-center js-mobile-clear-all">clear all</div>
+</div>

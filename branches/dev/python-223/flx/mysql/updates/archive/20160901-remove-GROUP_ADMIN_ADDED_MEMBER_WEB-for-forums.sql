@@ -1,0 +1,1 @@
+delete from Events where eventTypeID = (select id from EventTypes where name = 'GROUP_ADMIN_ADDED_MEMBER_WEB') and objectType = 'group' and objectID in (select id from Groups where groupType = 'public-forum');

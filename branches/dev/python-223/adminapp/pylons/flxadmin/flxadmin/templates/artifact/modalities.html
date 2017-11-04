@@ -1,0 +1,616 @@
+{% extends "listings.html" %}  
+
+{% block filters %} 
+  <div class="col tiny">Filter by:</div>
+  <div class="col wide">
+    {{ h.labelselect('Type', 'type_filter', c.form.type_sel, 'filter')}}
+  </div>
+  <div class="col">
+    {{ h.labelselect('Origin', 'origin', c.form.origin_sel, 'filter')}}
+  </div>
+  <div class="col sml">
+    {{ h.labelselect('Level', 'level', c.form.level_sel, 'filter')}}
+  </div>
+  <!--
+  <div class="col wider">
+    {{ h.labelselect('Course', 'course', c.form.course_filter_sel, 'filter')}}
+  </div>
+  -->
+  <div class="col wider">
+    {{ h.labelselect('Collection', 'collections', c.form.collection_filter_sel, 'filter')}}
+  </div>  
+  <div class="col wide">
+    {{ h.labelselect('Page Size', 'type_filter', c.form.pagesize_sel, 'filter')}}
+  </div> 
+  <div class="col wide">
+    {{ h.labelcheckbox('Return all (if results < 50)', 'returnAll', '', c.form.returnAll_sel)}}
+  </div>
+ 
+  <div class="col wider">
+    {{ h.labelinput('encodedID', 'encodedID', 'med searchby')}}
+    <img id="admin_search_icon" src="{{h.url_images('icon_magnifier2.png')}}"/>
+  </div>
+{% endblock %}
+
+{% block searches %} 
+{% endblock %} 
+{% block aftersearches %} 
+  {{ super() }}
+  <div style="display:block">
+    <input id='disableListOnEmptySearch' type='checkbox' checked='true'>
+    <label>Disable Listing on Empty Searches</label>
+  </div>
+{% endblock %}
+
+{% block admincontent %}
+    {{ h.submitbutton('Update', 'short hide', '_update_modalities')}}
+    {{  super() }}
+    
+    <div id='boxes'>
+        <div id='dialog' class='overlay_form' style="/*height:150px;width:350px;*/height: auto;width: 70%;font-size: 15px !important;top: -10px;">
+            <table cellspacing="10" width="100%">
+                <tr>
+                    <td>
+                        <label>
+                            Search Term (EID / name)
+                        </label>
+                    </td>
+                    <td>
+                        <div>
+                          <input type="text" id="new_eid" class="floatleft" style="font-size: 15px;" value="" placeholder="EncodedID / Name"/>
+                          <input type="button" class="btn floatleft" style="margin:0px;margin-top:-8px;margin-left:15px" id="search_collections" value="Search">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>
+                            Level
+                        </label>
+                    </td>
+                    <td>
+                        <select name="difficulty_level" id="difficulty_level" />
+                            <option value = "basic" >Basic</option>
+                            <option value = "at grade" selected="selected">At Grade</option> <!-- Default Value-->
+                            <option value = "advanced">Advanced</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="collection_label" style="display:none;">
+                            Collections
+                        </label>
+                    </td>
+                    <td>
+                      <table class="collections_table" style="border: 1px solid #ccc;display:none;max-height: 200px;overflow-y: scroll;max-width: auto;">
+                        <thead>
+                          <tr class="sectionhead" style="white-space: nowrap;">
+                              <th style="padding:6px 5px;"><input type="checkbox" id="check_all_collections"></th>
+                              <th style="padding:6px 5px;">EncodedID</th>
+                              <th style="padding:6px 5px;">Concept Collection Title</th>
+                              <th style="padding:6px 5px;">Collection Title</th>
+                              <th style="padding:6px 5px;">Creator ID</th>
+                          </tr>
+                        </thead>
+                        <tbody class="collections_table_body">
+                          <tr class="default_collection_row" style="display:none;">
+                            <td style="border: 1px solid #ccc;text-align: center;">
+                              <input type="checkbox" class="collection_checkbox" data-conceptcollectionhandle="" data-collectioncreatorid="" data-encodedid="" >
+                            </td>
+                            <td style="border: 1px solid #ccc;text-align: center;"></td>
+                            <td style="border: 1px solid #ccc;text-align: center;"></td>
+                            <td style="border: 1px solid #ccc;text-align: center;"></td>
+                            <td style="border: 1px solid #ccc;text-align: center;"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>                    
+                </tr>
+
+                <tr id="add_btn_row" style="display: none;">
+                  <td>
+                  </td>
+                  <td>
+                    <input type="button" id="addCollectionToMultiSelectBox" class="btn floatright" value="Add" style="margin-top: 0%;margin-bottom: 0%;" />
+                  </td>
+                </tr>
+
+                <tr style="display: none;" id="collection_associations_table_row">
+                  <td>
+                    <label class="collection_associations_table_label">
+                        Selected Concepts
+                    </label>                     
+                  </td>
+                  <td>
+                    <select multiple="multiple" id="collection_associations_row">
+                    </select>
+                    <br>
+                    <a href="#" id="select_all_rows">Select All </a>
+                    <span> | </span>
+                    <a href="#" id="remove_selected_rows">Remove selected </a>
+                    <span> | </span>
+                    <a href="#" id="remove_all_rows">Remove all </a>                    
+                  </td>
+                </tr>                
+
+                <tr id="remove_existing_collection_associations_row" style="display: none;">
+                  <td>
+                    <p style="margin: 0px;">Removing existing collection associations?</p>
+                  </td>
+                  <td>
+                    <input type="checkbox" id="remove_existing_collection_associations">
+                  </td>
+                </tr>
+
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        <label id = "status_message"></label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        <input type="button" class = "btn primaryaction floatright" style = "margin-top:0px;margin-bottom: 0px;" id = "update_modalities" value="Update" />
+                        <!--
+                        <input type="button" class = "btn floatright" style = "margin-top:0px;" id = "search_collections" value="Search" />
+                        -->
+                        <input type="button" class="btn cancelbtn close floatright" style = "margin-top:0px;margin-bottom: 0px;" value="Close" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="mask"></div>
+    </div>
+{% endblock %}
+
+{% block js_scripts %}
+{{ super() }}
+<script type='text/javascript'>
+  Listings({
+    sort: '',
+    ajaxRoot: CK12.admUrl('modalities_list'),
+    formAjax: CK12.admUrl('artifact/'),
+    viewmode: '{{c.viewmode}}',
+    searchFilters: ['encodedID'],
+    postLoad: function(){
+        if($("#leftpane .table .tbody .tr").length === 0){
+            $("#_update_modalities").addClass('hide');
+        }else{
+            $("#_update_modalities").removeClass('hide');
+        }
+    }
+  });
+  
+  selectedConceptCollectionHandles = new Array();
+
+    hideOverlayPopup = function(){
+        $('#mask').hide();
+        $('.overlay_form').hide();
+    }
+
+    var validatateConcpetEID = function(event){
+        if(!$('#encodedID').val()){
+            alert('Please enter concept encodedID to search');
+            return false;
+        }
+    }
+    
+    var validateConceptEIDOnKeyUP = function(event){
+        if (Fns.isEnterKey(event)){
+            validatateConcpetEID(event);
+        }
+    }
+
+    $('.filter').off('change').on('change', validatateConcpetEID);
+    $('#encodedID').off('keyup').on('keyup', validateConceptEIDOnKeyUP);
+
+    $('#select_all').attr('title', 'Select All');
+    $('#select_all').off('click.selectall').on('click.selectall', function(){
+      if($(this).is( ':checked' )){
+          $('#leftpane .table .tbody input:checkbox').attr('checked', 'checked');
+          $(this).attr('title', 'Unselect All');
+      }else{
+          $('#leftpane .table .tbody input:checkbox').removeAttr('checked');
+          $(this).attr('title', 'Select All');
+      }
+    })
+  
+    //if close button is clicked
+    $('.overlay_form .close').click(function (e) {
+        //Cancel the link behavior
+        removeCollectionTableRows();
+        $(".collections_table").hide();
+        $(".collection_label").hide();
+        $("#remove_existing_collection_associations").attr("checked", false);        
+        e.preventDefault();
+        e.stopPropagation();
+        hideOverlayPopup();
+        $("#add_btn_row").hide();
+        $("#remove_existing_collection_associations_row").hide();
+        $("#remove_all_rows").click();
+        $("#collection_associations_table_row").hide();
+    });        
+    
+    //if mask is clicked
+    $('#mask').click(function () {
+        $(this).hide();
+        $('.overlay_form').hide();
+    });            
+
+    $(window).resize(function () {
+     
+         var box = $('#boxes .overlay_form');
+ 
+        //Get the screen height and width
+        var maskHeight = $(document).height();
+        var maskWidth = $(window).width();
+      
+        //Set height and width to mask to fill up the whole screen
+        $('#mask').css({'width':maskWidth,'height':maskHeight});
+               
+        //Get the window height and width
+        var winH = $(window).height();
+        var winW = $(window).width();
+
+        //Set the popup window to center
+        //box.css('top',  winH/2 - box.height()/2);
+        box.css('top',  '50px');
+        box.css('left', winW/2 - box.width()/2);
+     
+    });
+    var updateModalitiesDialog = function(event){
+        event.preventDefault();
+        event.stopPropagation();
+        checkedInput = $("#leftpane .table .tbody").find("input:checkbox:checked");
+
+        if(checkedInput.length === 0){
+            alert("Select at-least one modality");
+            return false;
+        }      
+        var maskHeight = $(document).height();
+        var maskWidth = $(window).width();
+        
+        //Set heigth and width to mask to fill up the whole screen
+        $('#mask').css({'width':maskWidth,'height':maskHeight});
+        
+        //transition effect        
+        $('#mask').fadeIn(1000);    
+        $('#mask').fadeTo("slow",0.8);    
+        
+        //Get the window height and width
+        var winH = $(window).height();
+        var winW = $(window).width();
+              
+        //Set the popup window to center
+        //$('#dialog').css('top',  winH/2-$('#dialog').height()/2);
+        $('#dialog').css('top',  "50px");
+        $('#dialog').css('left', winW/2-$('#dialog').width()/2);
+        
+        //transition effect
+        $('#dialog').fadeIn(2000);
+        $('#new_eid').val('');
+        $('#difficulty_level option:eq(1)').prop('selected', true)
+        $('#status_message').text('');
+    };
+    
+    var updateModalities = function(event){
+        event.preventDefault();
+        event.stopPropagation();
+        checkedInput = $("#leftpane .table .tbody").find("input:checkbox:checked");
+        var level = $('#difficulty_level').find("option:selected").val();
+        var eid = $.trim($('#new_eid').val());
+        if (!level && !($.trim($('#new_eid').val()))){
+            alert("Either select level or specify encodedID to update");
+        }
+
+        var conceptCollectionHandles = new Array();
+        var collectionCreatorIDs = new Array();
+        var domainEIDs = new Array();
+
+        if(document.getElementById("collection_associations_row").options.length > 0)
+        {
+          $($("#collection_associations_row").find("option")).each(function(){
+            conceptCollectionHandles.push($(this).data('conceptcollectionhandle'));
+            collectionCreatorIDs.push($(this).data('collectioncreatorid'));
+            domainEIDs.push($(this).data('domaineid'));
+          });
+        }
+        else
+        {
+          $(".collection_checkbox").each(function(){
+            if($(this).closest("tr").hasClass("default_collection_row"))
+            {
+              return;
+            }
+            else
+            {
+              if($(this).is(":checked"))
+              {
+                conceptCollectionHandles.push($(this).data('conceptcollectionhandle'));
+                collectionCreatorIDs.push($(this).data('collectioncreatorid'));
+                domainEIDs.push($(this).data('domaineid'));
+              }
+            }
+          });
+        }
+
+        if(conceptCollectionHandles.length == 0 || collectionCreatorIDs.length == 0)
+        {
+          alert("Please select at least one collection to associate the modalities with");
+          return false;
+        }
+
+        var reloadResults = false;
+        var totalCount = checkedInput.length,
+            success = 0, error = 0;
+        $.each(checkedInput, function(){
+            var api = '/update/' + $(this).attr('id');
+            var memberID = $(this).data('member-id');
+            var handle = $(this).data('handle');
+            var previousLevel = $(this).data('level');
+            var data = {};
+            if (eid){
+                     data['domainEIDs'] = eid;
+            }
+            //data['handle'] = handle;
+            data['impersonateMemberID'] = memberID;
+            data['conceptCollectionHandles'] = conceptCollectionHandles.join();
+            data['collectionCreatorIDs'] = collectionCreatorIDs.join();
+            data['domainEIDs'] = _.uniq(domainEIDs).join();
+            if(document.getElementById("collection_associations_row").options.length > 0)
+            {
+              //Force the remove existing collection association check regardless of user selection.
+              data['removeExistingConceptCollectionAssociations'] = true;
+            }
+            else
+            {
+              if($("#remove_existing_collection_associations").is(":checked")){
+                data['removeExistingConceptCollectionAssociations'] = true;  
+              }              
+            }
+
+            if (previousLevel != level){
+                var level_dict = {}
+                level_dict['add'] = {};
+                level_dict['remove'] = {};
+                level_dict['add']['level'] = new Array(level);
+                level_dict['remove']['level'] = new Array(previousLevel);
+                data['changed_metadata'] = JSON.stringify(level_dict);
+            }
+            $('#status_message').text('Updating ' + totalCount + ' modalities.')
+            $.ajax({url: CK12.flxUrl(api),
+              type: 'POST', 
+              data: data,
+              timeout: 600000, //10 mins per Ezra request
+              success: function(data, status, xhr){ //data is just {} for artifacts
+                    reloadResults = true;
+                    success += 1;
+                    $('#status_message').text('Updated ' + (success + error) + ' of ' + totalCount + '. Success: ' + success + '   Error: ' + error);
+                    if ((success + error) == totalCount){
+                        window.updateListingsResult();
+                    }
+              },
+              error: function(xhr, textStatus, errorThrown){
+                  //alert('API Error: '+ Fns.formatResponseError(
+                  //xhr, textStatus, errorThrown));
+                  error += 1;
+                  $('#status_message').text('Updated ' + (success + error) + ' of ' + totalCount + '. Success: ' + success + '   Error: ' + error);
+                  if ((success + error) == totalCount){
+                        window.updateListingsResult();
+                  }
+              }
+           });
+        });
+    };
+    $('#_update_modalities').off('click').on('click', updateModalitiesDialog);
+    $('#update_modalities').off('click').on('click', updateModalities);
+    $('#returnAll').addClass("filter");
+
+    $('#content').on('click', '.primaryaction', function(e){ 
+      var elm = $("form#mainform"); 
+      Defaults.UIAlreadyBlocked = false;
+      var summary_val = $(elm).find("textarea#summary");
+      if (typeof summary_val != "undefined") 
+      {
+        if (typeof summary_val.val() != "undefined")
+        {
+          var summary_val = summary_val.val().trim();
+          if (summary_val.length > 0)
+          {
+            var doc = new DOMParser().parseFromString(summary_val, "text/html");
+            isHTML = false;
+            isHTML = [].slice.call(doc.body.childNodes).some(node => node.nodeType === 1);
+            if (isHTML)
+            {
+              alert("Please don't use HTML Tags in the Summary field");
+              Defaults.UIAlreadyBlocked = true;
+              // Will stop other event handlers attached to this element 
+              // from executing and will also implicitly call stopPropogation()
+              e.stopImmediatePropagation();
+              return false;
+            }
+            else
+            {
+              if(doc.body.childNodes[0].textContent != summary_val)
+              {
+                alert("Please don't use HTML Tags in the Summary field");
+                Defaults.UIAlreadyBlocked = true;
+                e.stopImmediatePropagation();
+                return false;
+              }
+            }
+          }
+        }
+      }      
+    });
+
+    var removeCollectionTableRows = function(){
+      $(".collections_table_body").find("tr").each(function(){
+         if($(this).hasClass("default_collection_row"))
+         {
+          return;
+         }
+         else
+         {
+          $(this).remove();
+         }
+      });      
+    }
+
+    $("#search_collections").click(function(){
+      var newEIDs = $("#new_eid").val();
+      if (newEIDs.length == 0)
+      {
+        alert("Please enter an EID / name to search collections");
+        return false;
+      }
+      $.ajax({
+        url:CK12.taxonomyUrl('collections/search'),
+        type:'GET',
+        data:{"query":newEIDs,"withEncodedIDOnly":true,"ancestorPublishedOnly":true},
+        success:function(data, status, xhr){
+          if(data.responseHeader.status == 0)
+          {
+            var collections = data.response.collections;
+            if(collections.length > 0)
+            {
+              $(".collections_table").show();
+              $(".collections_table").css("display","block");
+              $(".collection_label").show();
+              removeCollectionTableRows();
+            }
+            else
+            {
+              alert("No collections were found for the EncodedID / Name that you have entered.");
+              return false;
+            }
+            $('#status_message').text('');
+            for(var i=0;i<collections.length;i++)
+            {
+              var clonedCollectionRow = $(".default_collection_row").clone();
+              var row_items = clonedCollectionRow.find("td");
+              collection_checkbox = $(row_items[0]).find(".collection_checkbox");
+              collection_checkbox.prop("checked",false);
+              collection_checkbox.attr("data-collectioncreatorid",collections[i].creatorID);
+              collection_checkbox.attr("data-conceptcollectionhandle",collections[i].handle);
+              collection_checkbox.attr("data-domaineid",collections[i].encodedID);
+              collection_checkbox.attr("data-conceptcollectiontitle",collections[i].title);
+              collection_checkbox.attr("data-collectiontitle",collections[i].collectionTitle);
+
+              row_items[1].textContent = collections[i].encodedID;
+              row_items[2].textContent = collections[i].title;
+              row_items[3].textContent = collections[i].collectionTitle;
+              row_items[4].textContent = collections[i].creatorID;
+              $(clonedCollectionRow).removeClass("default_collection_row")
+              $(clonedCollectionRow).show();
+              $(clonedCollectionRow).appendTo(".collections_table_body");
+            }
+            $("#check_all_collections").prop("checked",false);  
+            $("#remove_existing_collection_associations").prop("checked",false);
+            $("#remove_existing_collection_associations_row").show();
+            $("#add_btn_row").show();
+            $(".overlay_form").resize();
+          }
+          else
+          {
+            alert("Server sent invalid response status code.");
+            console.log(data);
+            console.log(status);
+            console.log(xhr);
+          }
+        },
+        error: function(xhr, textStatus, errorThrown){
+            alert('API Error: '+ Fns.formatResponseError(
+            xhr, textStatus, errorThrown));
+        }
+      });
+    });
+
+    $("#check_all_collections").click(function(){
+      var checkAll = $(this).is(":checked");
+      $(".collection_checkbox").each(function(){
+        if($(this).parent("tr").hasClass("default_collection_row"))
+        {
+          return;
+        }
+        else
+        {
+          if((!$(this).is(":checked") && checkAll))
+          {
+            $(this).click();
+          }
+          
+          if($(this).is(":checked") && !checkAll)
+          {
+            $(this).click();
+          }
+        }
+      });
+    });
+
+    $("#addCollectionToMultiSelectBox").click(function(){
+      var atLeastOneCollectionChecked = false;
+      $(".collection_checkbox").each(function(){
+        if($(this).is(":checked"))
+        {
+          if(selectedConceptCollectionHandles.indexOf($(this).attr("data-conceptcollectionhandle")) == -1 && !$(this).closest("tr").hasClass("default_collection_row"))
+          {
+            selectedConceptCollectionHandles.push($(this).attr("data-conceptcollectionhandle"));
+          }
+          else
+          {
+            atLeastOneCollectionChecked = true;
+            return;
+          }
+
+          if($(this).closest("tr").hasClass("default_collection_row"))
+          {
+            return;
+          }
+
+          atLeastOneCollectionChecked = true;
+          var option = new Option("text","value");
+          $(option).html($(this).attr("data-domaineid")+" "+$(this).attr("data-conceptcollectiontitle")+" ("+$(this).attr("data-collectiontitle")+")");
+          $(option).attr("data-conceptcollectionhandle",$(this).attr("data-conceptcollectionhandle"));
+          $(option).attr("data-collectioncreatorid",$(this).attr("data-collectioncreatorid"));
+          $(option).attr("data-domaineid",$(this).attr("data-domaineid"));
+          $(option).attr("data-conceptcollectiontitle",$(this).attr("data-conceptcollectiontitle"));
+          $(option).attr("data-collectiontitle",$(this).attr("data-collectiontitle"));
+
+          $("#collection_associations_row").append(option);
+        }
+        $(".overlay_form").resize();
+      });
+      $(".overlay_form").resize();
+
+      if(atLeastOneCollectionChecked){$("#collection_associations_table_row").show();}else{alert("Select at least one collection row to associate the modality with")};
+
+    });
+
+    $("#select_all_rows").click(function(){
+      $($("#collection_associations_row").find("option")).each(function(){$(this).prop("selected",true)});
+    });
+
+    $("#remove_selected_rows").click(function(){
+      $($("#collection_associations_row").find("option")).each(function(){
+        if($(this).is(":selected"))
+        {
+          var index = selectedConceptCollectionHandles.indexOf($(this).attr("data-conceptcollectionhandle"));
+          if(index!==-1){selectedConceptCollectionHandles.splice(index, 1)}
+          $(this).remove();
+        }
+      });
+    });
+
+    $("#remove_all_rows").click(function(){
+      document.getElementById("collection_associations_row").options.length = 0
+      selectedConceptCollectionHandles = new Array();
+    });
+
+</script>
+{% endblock %}

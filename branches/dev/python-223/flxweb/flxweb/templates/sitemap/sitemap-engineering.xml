@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<!-- Branch URL starts  --> 
+
+<url>
+    <loc>http://www.ck12.org/engineering/</loc>
+    <lastmod>2014-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+</url>
+<!-- Book URL starts  --> 
+
+<url>
+    <loc>http://www.ck12.org/book/Engineering:-An-Introduction-for-High-School/</loc>
+    <lastmod>2013-12-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+</url>
+
+<url>
+    <loc>http://www.ck12.org/book/Engineering:-An-Introduction-to-Solving-Engineering-Problems-with-Matlab/</loc>
+    <lastmod>2013-12-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+</url>
+
+<url>
+    <loc>http://www.ck12.org/book/What-is-Testing/</loc>
+    <lastmod>2013-12-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+</url>
+</urlset>

@@ -1,0 +1,1 @@
+ALTER TABLE Assignments CHANGE COLUMN due due DATETIME;

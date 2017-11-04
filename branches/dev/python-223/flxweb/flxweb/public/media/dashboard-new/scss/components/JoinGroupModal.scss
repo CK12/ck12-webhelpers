@@ -1,0 +1,97 @@
+@import "../main";
+:local{
+	.header{
+	    font-weight: bold;
+	    font-size:rem-calc(20);
+	}
+	.buttonsContainer{
+		text-align: center;
+	    bottom: 0;
+	    width: 100%;
+	    left: 0;
+	    padding:$global-padding 0;
+	}
+	.standardButton{
+		display:inline-block;
+	    width: 100%;
+	    max-width: 250px;
+	    background: #f7fafc;
+	    box-shadow: 1px 1px 2px #c1c1c1;
+	    border-radius: 4px;
+	    margin: auto;
+	    text-align: center;
+	    padding: 6px;
+	    border: 1px solid #eae3e3;
+	    cursor: pointer;
+	    font-size: rem-calc(16);
+	    transition:all .2s ease;
+	}
+	.normalButton{
+		display:inline-block;
+		width: auto;
+		background: none;
+		box-shadow: none;
+		border: none;
+		border-radius: 4px;
+		font-weight:bold;
+		color:#00aba4;
+	    max-width: 250px;
+	    margin: auto;
+	    text-align: center;
+	    padding: 6px;
+	    cursor: pointer;
+	    font-size: rem-calc(16);
+	    transition:all .2s ease;
+	    		
+	    		&:hover{
+					background: #f0f5f5;
+				}
+	}
+	.joinGroupContent{
+		color:$EARTH;
+		padding:0 ($global-padding /2 );
+	}
+	.joinGroupButton{
+		width: 30%;
+		background: #019690;
+		box-shadow: 1px 1px 2px #019690;
+		border: none;
+		color:#fff;
+		font-weight:bold;
+		&:hover{
+			background: #33CCCC;
+		}
+	}
+	.groupCodeWrapper{
+		margin-top:rem-calc(13);
+	}
+	.groupCodeText{
+		font-weight: bold;
+	}
+	.groupCodeInput{
+	    display: inline-block;
+    	width: 100px;
+    	border: 2px solid #cec9be;
+    	margin-bottom: 0;
+	    height: 39px;
+	    border-radius: 5px;
+	    padding: 7px 15px;
+	    
+	    &.inputError{
+	    	border: 1px solid $error-color;
+	    }
+	}
+	.textInBtw{
+		margin:0 5px;
+		font-weight: bold;
+	}
+	.joinGroupbuttonsContainer{
+		text-align:left;
+	
+	}
+	.errorContainer{
+		color:$error-color;
+		font-size:rem-calc(13);
+		margin-top:rem-calc(13);
+	}
+}

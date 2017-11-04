@@ -1,0 +1,14 @@
+{% extends "master.html" %}  
+
+{% block admincontent %} 
+<div class="sectionhead sectiontitle">{{c.pagetitle}}</div>
+<div class="section withfloatedsubmit">
+  <form name="exerciseForm" method="post" enctype="multipart/form-data" action="/flxadmin/upload/docs/exercises">
+    <span>Select a csv file to upload exercises</span><br /><br />
+    <div class="leftaligned">
+      <input type="file" name="file" />
+    </div>
+    {{ h.submitbutton('Upload', 'short')}}
+  </form>
+</div>
+{% endblock admincontent %}

@@ -1,0 +1,150 @@
+<html>
+	<head>
+		<title>Event Type Form</title>
+		<!--link rel="stylesheet" type="text/css" href="../../static/sample.css" /-->
+        <style type="text/css">
+            .eventForm-wrapper {
+                display: table;
+                margin:auto;
+                width: 90%;
+                max-width: 1024px;
+                font-family: ProximaNova;
+            }
+            .table {
+                display: table;
+            }
+			.row {
+			    display: table-row;
+			}
+			.cell {
+			    display: table-cell;
+			    vertical-align: middle;
+			    border-right: 1px solid #000000;
+			    border-bottom: 1px solid #000;
+			    /* text-align: center; */
+			}
+			.parameters-wrapper {
+			    width: 100%;
+			    text-align: center;
+			}
+			.param-val div {
+			    float: left;
+			    width: 40%;
+			    padding:3%;
+			    overflow: hidden;
+			    white-space: nowrap;
+			    text-overflow: ellipsis;
+			}
+			.param-val div:first-child {
+			    border-right: 1px solid #000;
+			}
+			.eventForm-header div {
+			    text-align: center;
+			    color: #fff;
+			    font-weight: bold;
+			    font-size: 18px;
+			}
+			.clientid, .event-type {
+			    padding-left: 10px;
+			}
+			.param-cell {
+			    padding: 10px;
+			    border-bottom: 1px soild #000;
+			}
+			.param-table {
+			    width: 100%;
+			}
+			.eventForm-header {
+			    background: rgb(206,219,233); /* Old browsers */
+			    background: -moz-linear-gradient(top,  rgba(206,219,233,1) 0%, rgba(170,197,222,1) 0%, rgba(58,132,195,1) 0%, rgba(58,132,195,1) 0%, rgba(75,184,240,1) 0%, rgba(75,184,240,1) 0%, rgba(97,153,199,1) 0%, rgba(65,154,214,1) 24%, rgba(58,139,194,1) 54%, rgba(38,85,139,1) 100%); /* FF3.6+ */
+			    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(206,219,233,1)), color-stop(0%,rgba(170,197,222,1)), color-stop(0%,rgba(58,132,195,1)), color-stop(0%,rgba(58,132,195,1)), color-stop(0%,rgba(75,184,240,1)), color-stop(0%,rgba(75,184,240,1)), color-stop(0%,rgba(97,153,199,1)), color-stop(24%,rgba(65,154,214,1)), color-stop(54%,rgba(58,139,194,1)), color-stop(100%,rgba(38,85,139,1))); /* Chrome,Safari4+ */
+			    background: -webkit-linear-gradient(top,  rgba(206,219,233,1) 0%,rgba(170,197,222,1) 0%,rgba(58,132,195,1) 0%,rgba(58,132,195,1) 0%,rgba(75,184,240,1) 0%,rgba(75,184,240,1) 0%,rgba(97,153,199,1) 0%,rgba(65,154,214,1) 24%,rgba(58,139,194,1) 54%,rgba(38,85,139,1) 100%); /* Chrome10+,Safari5.1+ */
+			    background: -o-linear-gradient(top,  rgba(206,219,233,1) 0%,rgba(170,197,222,1) 0%,rgba(58,132,195,1) 0%,rgba(58,132,195,1) 0%,rgba(75,184,240,1) 0%,rgba(75,184,240,1) 0%,rgba(97,153,199,1) 0%,rgba(65,154,214,1) 24%,rgba(58,139,194,1) 54%,rgba(38,85,139,1) 100%); /* Opera 11.10+ */
+			    background: -ms-linear-gradient(top,  rgba(206,219,233,1) 0%,rgba(170,197,222,1) 0%,rgba(58,132,195,1) 0%,rgba(58,132,195,1) 0%,rgba(75,184,240,1) 0%,rgba(75,184,240,1) 0%,rgba(97,153,199,1) 0%,rgba(65,154,214,1) 24%,rgba(58,139,194,1) 54%,rgba(38,85,139,1) 100%); /* IE10+ */
+			    background: linear-gradient(to bottom,  rgba(206,219,233,1) 0%,rgba(170,197,222,1) 0%,rgba(58,132,195,1) 0%,rgba(58,132,195,1) 0%,rgba(75,184,240,1) 0%,rgba(75,184,240,1) 0%,rgba(97,153,199,1) 0%,rgba(65,154,214,1) 24%,rgba(58,139,194,1) 54%,rgba(38,85,139,1) 100%); /* W3C */
+			    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cedbe9', endColorstr='#26558b',GradientType=0 ); /* IE6-9 */
+			}
+			.eventForm-body .cell:first-child, .eventForm-header > .cell:first-child {
+			    border-left: 3px ridge #055177;
+			}
+			.param-container {
+			    border-right: 0;
+			    border-bottom: 0;
+			}
+			.eventForm-body .param-val.cell {
+			    border-left: 0;
+			}
+			.eventForm-body {
+			    color:#011603;
+			    background: -moz-linear-gradient(top,  rgba(109,172,206,1) 0%, rgba(125,185,232,0) 100%); /* FF3.6+ */
+			    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(109,172,206,1)), color-stop(100%,rgba(125,185,232,0))); /* Chrome,Safari4+ */
+			    background: -webkit-linear-gradient(top,  rgba(109,172,206,1) 0%,rgba(125,185,232,0) 100%); /* Chrome10+,Safari5.1+ */
+			    background: -o-linear-gradient(top,  rgba(109,172,206,1) 0%,rgba(125,185,232,0) 100%); /* Opera 11.10+ */
+			    background: -ms-linear-gradient(top,  rgba(109,172,206,1) 0%,rgba(125,185,232,0) 100%); /* IE10+ */
+			    background: linear-gradient(to bottom,  rgba(109,172,206,1) 0%,rgba(125,185,232,0) 100%); /* W3C */
+			    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6dacce', endColorstr='#007db9e8',GradientType=0 ); /* IE6-9 */
+			
+			}
+			.eventForm-header > .cell {
+			    border-top: 3px ridge #055177;
+			}
+			.param-container .param-val, .param-container .param-cell {
+			    border-right: 3px ridge #055177;
+			}
+			.eventForm-body:last-child > .cell {
+			    border-bottom: 3px ridge #055177;
+			}
+			.header-event-type {
+			    width:40%;
+			}
+			.event-type {
+			    overflow: hidden;
+			    white-space: nowrap;
+			    text-overflow: ellipsis;
+			}
+     
+        </style>
+	</head>
+	<body>
+		<div class="eventForm-container">
+			<div class="eventForm-wrapper table">
+				<div class="eventForm-header row">
+					<div class="cell">ClientID</div>
+					<div class="header-event-type cell">Event Type</div>
+					<div class="param-container cell">
+						<div class="table parameters-wrapper">
+							<div class="row">
+								<div class="cell param-cell">Parameters</div>
+							</div>
+							<div class="row">
+								<div class="param-val cell">
+									<div>Name</div><div>Mandatory</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				{% for eventType in eventTypes %}
+				
+				<div class="row eventForm-body">
+					<div class="clientid cell">{{ eventType.clientID }}</div>
+					<div class="event-type cell">{{ eventType.eventType }}</div>
+					<div class="param-container cell">
+						<div class="table param-table">
+							{% for eachParam in eventType.parameters %}
+							<div class="row">
+								<div class="cell param-val">
+									<div class="">{{ eachParam.name }}</div>
+									<div class="">{{ eachParam.mandatory }}</div>
+								</div>
+							</div>
+							{% endfor%}
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</body>
+
+</html>

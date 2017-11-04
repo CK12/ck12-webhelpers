@@ -1,0 +1,19 @@
+/**
+ * Import all the common css files that are needed on all the pages
+ * These imports will be converted to a single css file at deploy time
+ **/
+@import url('../vendor/foundation/css/foundation.min.css');
+@import url('../vendor/foundation/css/normalize.css');
+@import url('fontck12.css');
+@import url('webfont.css');
+@import url('../themes/uikit/css/ui-kit.css');
+@import url('main.css');
+@import url('lms.integrations.css');
+@import url('tangerine-ui.css');
+@import url('header.css');
+@import url('tangerine.search.css');
+@import url('../../notification/css/notification.css');
+@import url('tangerine.pagination.css');
+@import url('../../css/animate.css');
+@import url('3d-book.css');
+@import url('../../softRegistration/css/SoftReg.css');

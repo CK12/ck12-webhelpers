@@ -1,0 +1,66 @@
+{% extends "base/plain.html" %}
+{% set question = c.question %}
+{% set result = c.result %}
+
+{% block js %}
+{% endblock %}
+{% block pagewrap %}
+{% block contentwrap %}
+<div class="extestresultbox">
+        <div class="test_result_wrapper">
+        
+                <div id="headermessage">
+                    <span id="firstmsg"> {{ _('Good job') }} </span> 
+                    <span id="secondmsg">{{result.firstName }}!</span> 
+                    <span id="thirdmsg"> {{ _('you successfully ended your test') }}</span>
+                </div>
+                <div class="clear"></div>
+                <div id="testreportheader">
+                	<span>{{ _('Here is your test report') }}</span>
+                </div>
+                <div id="totalattemptbanner">
+                        <span>{{ _('Total questions you have attempted : ') }} {{ result.totalAttempt }}</span>
+                </div>
+                <div id="consolidatedresultbanner">
+                        <div class="left-resultbox">
+                                <div class="result-row">
+                                        <div class="result-col-1">{{ _('Test Duration') }}</div>
+                                        <div class="result-col-2">
+						{% if result.duration.hours != 0 %}
+							: {{ result.duration.hours }} {{ _('Hr') }}
+						{% endif %}
+						{% if result.duration.minutes != 0 %}
+							: {{ result.duration.minutes }} {{ _('Mins') }}
+						{% endif %}
+							: {{ result.duration.seconds }} {{ _('Secs') }}
+					</div>
+                                </div>
+                                <div class="clear"></div>
+                                <div class="result-row">
+                                        <div class="result-col-1">{{ _('Correct Answers') }}</div>
+                                        <div class="result-col-2">: {{ result.correctCount }} </div>
+                                </div>
+                                <div class="clear"></div>
+                                <div class="result-row">
+                                        <div class="result-col-1">{{ _('Wrong Answers') }}</div>
+                                        <div class="result-col-2">: {{ result.wrongCount }} </div>
+                                </div>
+                                <div class="clear"></div>
+                                <div class="result-row">
+                                        <div class="result-col-1">{{ _('Skipped') }}</div>
+                                        <div class="result-col-2">: {{ result.skippedCount }} </div>
+                                </div>
+
+                        </div>
+
+			<div class="right-resultbox">
+                                <span id="testpercentage"> {{ result.testPercentage }}%</span>
+                        </div> 
+                        <div class="clear"></div>
+                        <span id="testpercentagemsg">{{ _('Test Percentage') }}</span>
+                        <div class="clear"></div>
+                </div>
+        </div>
+</div>
+{% endblock %}
+{% endblock %}

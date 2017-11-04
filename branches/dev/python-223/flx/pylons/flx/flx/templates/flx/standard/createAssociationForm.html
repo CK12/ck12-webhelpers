@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Create Standard Association</title>
+    </head>
+    <body>
+        <form name="metadata" method="POST" action="{{ c.prefix }}/create/standard/association">
+            <table>
+                <tr>
+                    <td>
+                        Domain ID:
+                    </td>
+                    <td>
+                      <input type="text" name="domainID" value="" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2"><strong>OR</strong></td>
+                  </tr>
+                <tr>
+                    <td>
+                        Artifact Revision ID:
+                    </td>
+                    <td><input type="text" name="artifactRevision" value="" /></td>
+                </tr>
+                <tr>
+                    <td>
+                        Standard ID:
+                    </td>
+                    <td><input type="text" name="standard" value="" /></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" name="submit" value="OK" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

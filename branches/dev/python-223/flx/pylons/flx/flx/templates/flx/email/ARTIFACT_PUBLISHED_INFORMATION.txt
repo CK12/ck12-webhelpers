@@ -1,0 +1,17 @@
+Dear {{ member.name }},</p>
+
+Greetings from CK-12 Foundation!</p>
+
+Requested artifact has been published successfully</p>
+
+{% for event in events %}
+ * Published {{ event['objectDict']['title'] }} FlexBook in your library is now available. 
+      Summary: {{ event['objectDict']['summary'] }}
+ * Authorized By: {{ event['eventData']['authorizedBy'] }}
+ * Reason: {{ event['eventData']['reason'] }}
+{% endfor %}
+
+
+Sincerely,
+The CK-12 Team
+

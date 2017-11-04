@@ -1,0 +1,76 @@
+{% if c.standardBoardsList %}
+	{% block std_drop_down_container %}
+    
+	{% endblock %}
+{% endif %}
+
+<div class="dialog_standards">
+{% if c.artifacts_standards %}
+	<div class="hide js_std_select_container">
+        {% block std_drop_down_containerDummy %}
+		<div class="std_drop_down_wrapper_dummy">
+			<div>{{_("Standards:") }}&nbsp;</div>
+		</div>
+        {% endblock %}
+	</div>
+	{% set artifacts=c.artifacts_standards['artifacts'] %}
+	{% set standards=c.artifacts_standards['standards'] %}
+	<div class="column_titlewrapper clearfix">
+		<div class="column title">{{artifacts['title']}}</div>
+		<div class="column title" id="std_board_name"></div>
+	</div>
+	{% if 'standards' in artifacts %}
+	<div class="nochildren clearfix">
+		<div class="column">{{artifacts['title']}}</div>
+		<div class="column">
+			{% for standard in artifacts['standards']%}
+				{% set str_std = '%s' % standard%}
+				<strong>{{standards[str_std]['subject'].title()}}&nbsp;{{standards[str_std]['section']}}</strong>
+				{% if standards[str_std]['grades'] %}&nbsp;(Grades {{standards[str_std]['grades'] }}){% endif %}<br/>
+				{% if standards[str_std]['description'] %}{{standards[str_std]['description']}}<br/>{% endif %}	
+				<p></p>			
+			{% endfor %}
+		</div>
+	</div>
+	{% elif 'children' in artifacts%}
+		{% for chapter in artifacts['children']%}
+		{% set art_seq_num = chapter['sequence'] %}
+		<div class="chaptertitle">
+			<span class="chaptersequence">{{chapter['typeName'].title()}}&nbsp;{{art_seq_num[:art_seq_num.index('.')]}}</span>{{chapter['title']}}
+		</div>
+		<div class="clearfix">
+			<div class="column">
+            {% if chapter['typeName'] != 'lesson' %}
+              {% for section in chapter['children']%}
+                  {% set sec_seq_num = section['sequence'] %}
+                  <div class="sectionsequence">{{ sec_seq_num.replace('.0','')}}</div>
+                  <div class="sectionname">{{section['title']}}</div>
+                  <div class="clear"></div>
+              {% endfor %}
+            {% else %}
+              {{ chapter['title'] }}
+            {% endif %}
+			</div>
+			<div class="column correlations">
+			{% for standard in chapter['standards']%}
+				{% if standards[standard]['section'] %}
+					<strong>{{standards[standard]['subject'].title()}}&nbsp;{{standards[standard]['section']}}</strong>
+					{% if standards[standard]['grades'] %}
+						&nbsp;(Grades {{standards[standard]['grades']}})
+					{% endif %}<br/>
+					{% if standards[standard]['description'] %}
+						{{standards[standard]['description']}}<br/>
+					{% endif %}
+					<p></p>
+				{% endif %}
+			{% endfor %}
+			</div>
+		</div>
+		{% endfor %}
+	{% endif %}
+{% else %}
+	<div class="clearfix">
+	{{ _("There are no standard correlations aligned for ") }}<span id="std_board_name"></span>
+	</div>
+{% endif%}
+</div>

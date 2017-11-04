@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns:dc="http://www.ck12.org/dc/will_create_ns"
+unique-identifier="chapterid" version="2.0">
+
+  <chapter>
+    <metadata>
+<chapterSeq>2</chapterSeq>
+
+<book>Biology I</book>
+
+      <chapterid></chapterid>
+      <title>Chemical Basis of Life</title>
+      <description>Topics in this chapter include:Chemical_Reactions,Water,Matter,Organic_Compounds. 
+     </description>
+    </metadata>
+    
+    <lessons>
+      <item id="Matter" href="Matter.html" sequence="1" />
+      <item id="Organic_Compounds" href ="Organic_Compounds.html" sequence="2" />
+      <item id="Chemical_Reactions" href ="Chemical_Reactions.html" sequence="3" />
+      <item id="Water" href ="Water.html" sequence="4" />
+   </lessons>
+  </chapter>
+
+</package>

@@ -1,0 +1,21 @@
+#! /bin/bash
+# -----------------------------------------------------------------------------------
+# CHANGE SET [17157]
+#   1. Log external request events
+# -----------------------------------------------------------------------------------
+
+source funcs.sh
+
+echo 'Apply change set 17157 (FlexBook-specific changes)'
+
+echo '... Register external request event '
+
+mysql -h ${db_host} -u ${db_user} -p${db_password} ${db} <<EOF
+delete from Measures where name='flx_external_request';
+EOF
+
+http 'meta/register/eventgroup' 'name=flx_external_request&dimensions=users&attributes=action,referrer,ip&latency=1'
+http 'meta/register/event' 'name=dummy&event_group=flx_external_request'
+
+echo 'Done'
+

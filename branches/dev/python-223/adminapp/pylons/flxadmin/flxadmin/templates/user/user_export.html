@@ -1,0 +1,146 @@
+{% extends "master.html" %}  
+{% from "macros/form_errors.html" import form_errors with context %}  
+
+{% block admincontent %}
+
+<div class="sectionhead sectiontitle">Users Export to CSV</div>
+<div class="section withfloatedsubmit">
+  <form method="post"> 
+    <div class="leftaligned">
+      {{ h.labelinput('Start Date', 'startDate', 'searchby short', c.startDate) }}
+      {{ h.labelinput('End Date', 'endDate', 'searchby short', c.endDate) }}
+    </div>
+      {{ h.submitbutton('Export to CSV','','export')}}
+  </form>
+</div>
+
+<span id="result_download">
+    <div class="thead sectionhead">
+      <div class="tr">
+        <div class="td">Result</div>
+         <div class="td">Progress</div>
+      </div>
+    </div>
+    <div class="tbody">
+      <div class="tr">
+        <div class="td">  
+        Download Exported Members (csv file): <a class="js_download_link" href=""></a>
+        </div>
+           <div class="td">  
+	        <div class='complete_outer' id="complete">
+				<div class='complete_inner'> </div>
+			</div>
+         </div>
+        
+      </div>  
+    </div>
+
+
+
+</span>
+{% endblock %}
+
+
+{% block js_scripts %}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#result_download').hide();
+        $("#startDate").datepicker({
+            dateFormat: 'yy-mm-dd',
+            maxDate: '+0d'
+        });
+        $("#endDate").datepicker({
+            dateFormat: 'yy-mm-dd',
+            maxDate: '+0d',
+            beforeShow: function () {
+                $(this).datepicker('option', 'minDate', $('#startDate').val());
+            }
+        });
+
+        $('.js_download_link').click(function () {
+            $('#result_download').hide();
+            $('.complete_outer').hide();
+             $("#startDate").val('');
+             $("#endDate").val('');
+        });
+
+
+        $('#export').click(fetchcsv1);
+
+        function fetchcsv1(e) {
+            
+            $('#result_download').show();
+         	$('.complete_outer').show();
+         	$('.complete_inner').css('width', 0 +  '%');
+         	
+            e.preventDefault();
+            resource_obj = {
+                'startDate': $("#startDate").val(),
+                'endDate': $("#endDate").val(),
+                'pageNum': 1,
+                'pageSize': 1000
+            };
+
+            fetchcsv()
+        }
+
+        function fetchcsv() {
+            $.ajax({
+                'url': '/flxadmin/users/ajax_users_export',
+                'type': 'GET',
+                'data': resource_obj,
+                'success': exportCsvSuccess,
+                'error': exportCsvError,
+                'dataType': 'json'
+            });
+
+            function exportCsvSuccess(data) {
+                if (data) {
+                    $('#error_messaging').remove();
+                    if ($.trim(data['message'])!=="") {
+                        $('#result_download').hide();
+                        $('#admintop').after('<div id="error_messaging" class="error messaging">'+ data['message'] + '</div>');
+                        return false;
+                    }
+
+                    resource_obj['pageNum'] = parseInt(data['pageNum']) + 1;
+                    resource_obj['file_name'] = data['file_name'];
+                    
+                    done = parseInt(data['pageSize']) * parseInt(data['pageNum']);
+                    total = parseInt(data['total']);
+                    $('.complete_outer').show();
+                    
+                    percomplete = Math.round( done * 100 / total );
+                    percomplete = percomplete > 100 ? 100 : percomplete;
+                    
+                   // $('.complete_outer').html( percomplete + '% complete.');
+                    $('.complete_inner').css('width', percomplete +  '%');
+                    
+                    if (total > done) {
+                        fetchcsv();
+                    }
+                 
+                 $('#result_download').show();
+                 $('.js_download_link').attr('href' ,  '/flxadmin/remove/download/'+ data['file_name']);
+                 $('.js_download_link').text( data['startDate'] + ' to ' + data['endDate'] );
+                
+                }
+            }
+
+            function exportCsvError(data) {
+                if (data['message']) {
+                    $('#error_messaging').remove();
+                    if ($.trim(data['message'])!=="") {
+                        $('#admintop').after('<div id="error_messaging" class="error messaging">'+ data['message'] + '</div>');
+                        return false;
+                    }
+
+                }
+            }
+
+        }
+    });
+</script>
+{% endblock %}
+
+

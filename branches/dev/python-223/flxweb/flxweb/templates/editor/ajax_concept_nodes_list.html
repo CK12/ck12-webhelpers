@@ -1,0 +1,41 @@
+{% from "macros/pagination.html" import ck12_ajax_pagination with context%}
+{% if c.search_paginator.current_page.items() %}
+<div class="gdoc_listinfo">
+	<div class="js_gdoc_paginator gdoc_paginator term_paginator">
+		{{ ck12_ajax_pagination(paginator=c.search_paginator,url_path= h.url('/ajax/search/conceptnode', qualified=True) ) }}
+	</div>
+	{% if c.search_paginator.get_total_count() > 0 %} 
+		<div class="gdoc_listcount"> 
+		{{ _("%(from)s to %(to)s of %(total)s") % {
+			'from': c.search_paginator.first_itemnumber(),
+			'to':c.search_paginator.last_itemnumber(),
+			'total': c.search_paginator.get_total_count() } }} 
+		</div>
+	{% endif %}
+<div class="clear"></div>
+</div>
+<div class="spacetop">
+	<table cellpadding="2" cellspacing="2" border="0">
+		<thead>
+		<tr>
+			<th>{{ _("Name")}}</th>
+			<th>{{ _("Encoded ID")}}</th>
+			<th>{{ _("Subject")}}</th>
+			<th>{{ _("Branch")}}</th>
+		</tr>
+		</thead>
+		<tbody>
+		{% for conceptNode in c.search_paginator.current_page.items() %}
+		<tr data-encodedid="{{ conceptNode.encodedID }}" data-domainterm="{{ conceptNode.name }}">
+			<td>{{ conceptNode.name }}</td>
+			<td>{{ conceptNode.encodedID }}</td>
+			<td>{{ conceptNode.subject.name }}</td>
+			<td>{{ conceptNode.branch.name }}</td>
+		</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+</div>
+{% else %}
+    <div>{{ _("No Concept nodes are found for entered search term. <br/> Please enter valid search term.")}}</div>
+{% endif %}

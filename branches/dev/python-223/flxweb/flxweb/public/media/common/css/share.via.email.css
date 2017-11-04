@@ -1,0 +1,620 @@
+/* css for font-icons starts*/
+/* .share-via-email-modal .icon-notification:before {
+    content: "\e66f";
+}
+.share-via-email-modal .icon-email:before {
+    content: "\e638";
+}
+.share-via-email-modal .icon-checkmark:before {
+    content: "\e620";
+} */
+/* css for font-icons ends*/
+
+.share-via-email-modal .hide {
+    display: none;
+}
+.share-via-email-modal div {
+    font-family: "ProximaNova", "Helvetica Neue", Arial, Helvetica, sans-serif;
+    color: #56544D;
+}
+.share-via-email-modal a {
+    text-decoration: none;
+    color: #00aba4;
+}
+.share-via-email-modal .pointer {
+    cursor: pointer;
+}
+.share-via-email-modal .left {
+    float: left !important;
+}
+.share-via-email-modal .right {
+    float: right !important;
+}
+.share-via-email-modal .relative {
+    position: relative;
+}
+.share-via-email-modal .row.sh-collapse .column, .share-via-email-modal .row.sh-collapse .columns {
+    position: relative;
+    padding-left: 0;
+    padding-right: 0;
+    float: left;
+}
+.share-via-email-modal *, .share-via-email-modal *:before, .share-via-email-modal *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.share-via-email-modal .row {
+    max-width: 63.75em;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.share-via-email-modal .row:before, .share-via-email-modal .row:after{
+    content: " ";
+    display: table;
+}
+.share-via-email-modal .text-center {
+    text-align: center !important;
+}
+.share-via-email-modal .row .row.sh-collapse {
+    width: auto;
+    margin: 0;
+    max-width: none;
+}
+.share-via-email-modal [class^="icon-"], .share-via-email-modal [class*=" icon-"] {
+    font-family: 'ck12';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.share-via-email-modal input[type='text'], .share-via-email-modal input[type='password'], .share-via-email-modal textarea.tangerine-textarea {
+    border: 2px solid #CDCCCA;
+    border-radius: 5px;
+}
+.share-via-email-modal input[type="text"] {
+    background-color: #fff;
+    font-family: inherit;
+    border: 1px solid #B5B1A8;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+    color: rgba(0,0,0,0.75);
+    display: block;
+    font-size: 0.875em;
+    margin: 0 0 1em 0;
+    padding: 0.5em;
+    height: 2.3125em;
+    width: 100%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: box-shadow,0.45s,-moz-box-shadow,0.45s,-webkit-box-shadow,0.45s,border-color,0.45s,ease-in-out;
+    -moz-transition: box-shadow,0.45s,-moz-box-shadow,0.45s,-webkit-box-shadow,0.45s,border-color,0.45s,ease-in-out;
+    transition: box-shadow,0.45s,-moz-box-shadow,0.45s,-webkit-box-shadow,0.45s,border-color,0.45s,ease-in-out;
+}
+.share-via-email-modal button, .share-via-email-modal .button {
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: bold;
+    line-height: 1;
+    margin: 0 0 1.25em;
+    position: relative;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    padding-top: 0.75em;
+    padding-right: 1.5em;
+    padding-bottom: 0.8125em;
+    padding-left: 1.5em;
+    font-size: 1em;
+    background-color: #2ba6cb;
+    border-color: #2284a1;
+    color: #fff;
+}
+.share-via-email-modal .button, .share-via-email-modal .button.standard {
+    border: medium none;
+    border-radius: 3px 3px 3px 3px;
+    font-size: 1em;
+    padding: 7px 16px 9px;
+    text-shadow: none;
+    box-shadow: none;
+    transition: background-color 100ms ease-out 0s;
+}
+.share-via-email-modal .button.primary.tangerine, .share-via-email-modal .button.tangerine {
+    background: #FF6633;
+    border-bottom: 3px solid #D9491A;
+    border-top: 3px solid #FF6633;
+}
+.share-via-email-modal .button {
+    font-weight: normal;
+}
+.share-via-email-modal .button.primary.dusty-grey, .share-via-email-modal .button.dusty-grey {
+    background: #B5B1A8;
+    border-bottom: 3px solid #9C9992;
+    border-top: 3px solid #B5B1A8;
+}
+.share-overlay {
+    position: fixed;
+    z-index: 9998;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: opacity 1000ms ease;
+    -moz-transition: opacity 1000ms ease;
+    -ms-transition: opacity 1000ms ease;
+    -o-transition: opacity 1000ms ease;
+    transition: opacity 1000ms ease;
+    background: rgba(0,0,0,.6);
+}
+
+.share-via-email-modal {
+    position: absolute;
+    z-index: 9999;
+    left: 50%;
+    padding: 0;
+    border-radius: 2px;
+    background: #fff;
+    top: -1000px;
+    opacity: 1;
+    top: 50%;
+    margin-left: -300px;
+    width: 620px;
+}
+
+.share-overlay.share-open {
+    top: 0;
+    opacity: 0.99;
+}
+.share-via-email-modal.share-open {
+    display: block;
+}
+/* css-for-labels-starts*/
+.user-label{
+	font-size: 15px;
+    font-weight: 600;
+    color: #56544D;
+    position: relative;
+    top: 28px;
+    padding-left: 4px;
+
+}
+.from-label{
+	font-size: 14px;
+    font-weight: 600;
+    color: #56544D;
+    position: relative;
+    top: 27px;
+    padding-left: 4px;
+
+}
+.to-label{
+	font-size: 14px;
+    font-weight: 600;
+    color: #56544D;
+    position: relative;
+    top: 27px;
+    padding-left: 4px;
+
+}
+/* css-for-labels-ends*/
+div.share-via-email-modal * {
+    box-sizing: border-box;
+}
+.share-via-email-modal .share-email-header {
+    padding: 21px 18px 0px 30px;
+    font-weight: bold;
+    font-size: 21px;
+}
+.share-via-email-modal .mail-header-row .input-header {
+    width: 88%;
+    padding: 6px 15px;
+    color: #56544D;
+    height: 30px;
+    font-size: 13px !important;
+    position: relative;
+    left: 50px;
+    margin-bottom: 0px;
+}
+#share-email-content{
+	margin-top:16px;
+}
+.share-via-email-modal .share-email-body {
+    color: #56544d;
+    font-size: 14px;
+    padding-bottom: 30px;
+}
+.share-via-email-modal .send-email-footer {
+    padding-top: 22px;
+}
+.share-via-email-modal .input-header:focus, .share-via-email-modal .share-email-body:focus {
+    outline: none;
+}
+.share-via-email-modal input.input-required {
+    border:#D9491A solid 1px !important;
+}
+.share-via-email-modal .error-icon {
+    position: absolute;
+    top: 23px;
+    background: url("../images/notification.svg") no-repeat center / 16px;
+    width: 30px;
+    height: 30px;
+    z-index: 2;
+    right: calc(19% - 79px);
+}
+.share-via-email-modal .recipient-error-msg {
+    position: relative;
+    font-size: 14px;
+    right: 0px;
+    color: #D9491A;
+    top: 4px;
+    float: right;
+}
+.share-via-email-modal .share-email-artifact-container {
+    width:90%;
+    display: inline-block;
+    margin-bottom: 6px;
+}
+.share-via-email-modal .artifact-email-image {
+    width: 90px;
+    height: auto;
+}
+.share-via-email-modal .share-email-artifat-desc {
+    padding-left: 10px;
+    word-break: break-word;
+    width: 100%;
+}
+.share-via-email-modal .share-eamil-artifact-title {
+    font-weight: bold;
+    font-size: 14px;
+}
+.share-via-email-modal .share-email-body-container {
+    border: 2px solid #EFECE6;
+    border-radius: 5px;
+    color: #56544D;
+    padding: 10px 0px 3px 10px;
+    font-size: 14px;
+}
+.share-via-email-modal .send-email-footer div {
+    width: 125px;
+    margin-bottom: 0;
+}
+.share-via-email-modal .email-sent-container {
+    background-color: #D7F1E9;
+    padding: 71px 0 30px;
+    z-index: -1;
+    width: 100%;
+    border-radius: 3px;
+    position:absolute;
+}
+.share-via-email-modal .thanks-text {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.share-via-email-modal .email-sent-icon {
+    position: relative;
+    background: url("../images/email.svg") no-repeat  center  / 70px;
+    width: 100px;
+    height: 69px;
+    display: inline-block;
+}
+.share-via-email-modal .tick-mark-icon {
+    background: url("../../auth/images/check.png") no-repeat center;
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    margin-left: -12px;
+}
+.share-via-email-modal .mail-sent-message {
+    font-size: 16px;
+    margin: 16px 0 29px;
+}
+.share-via-email-modal .share-email-artifat-desc a {
+    word-wrap: break-word;
+    display: inline-block;
+    font-size: 11px;
+    line-height: 16px;
+    font-weight: bold;
+    width: 100%;
+}
+.share-via-email-modal .sending-icon {
+    left: 50%;
+    margin-left: -22px;
+    position: absolute;
+    top: 10px;
+}
+.share-via-email-modal .send-email-button {
+    margin-right: 10px;
+}
+.share-via-email-modal .share-email-artifat-title {
+    color: #4b5165;
+    font-size: 14px;
+}
+.share-via-email-modal .share-email-page-disable {
+    opacity: 0.85;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    z-index: 100;
+    left: 0;
+    top: 0;
+}
+.share-via-email-modal .close-reveal-modal {
+    z-index: 9999;
+}
+.share-via-email-modal .loading-icon {
+    position: absolute;
+    left: 45%;
+    top: 45%;
+    z-index: 101;
+}
+.share-via-email-modal .thanks-done {
+    width: 125px;
+}
+.share-via-email-modal .close-share-mail-modal {
+    z-index: 1;
+    background: #56544D;
+    border-radius: 30px;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: times new roman;
+    font-size: 30px;
+    line-height: 30px;
+    font-weight: normal;
+    padding: 0;
+    position: absolute;
+    right: -14px;
+    top: -14px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.share-via-email-modal .close-share-mail-modal:hover {
+    color: #FFFFFF !important;
+}
+.share-via-email-modal .share-image {
+    width: auto;
+}
+.share-via-email-modal .share-details {
+    width: 75%;
+}
+.share-via-email-modal .share-via-social-links a {
+    margin: 13px auto 0 auto;
+    height: 30px;
+    width: 30px;
+    background-size: 28px;
+    display: block;
+}
+.share-via-social-links .share-twitter-link {
+    background: url("../images/twitter_icon.png") no-repeat center;
+}
+.share-via-social-links .share-facebook-link {
+    background: url("../images/fb_icon.png") no-repeat center;
+}
+.share-via-social-links .share-pinterest-link {
+    background: url("../../images/pinterest_icon.png") no-repeat center;
+}
+.share-via-email-google-classroom {
+    height: 32px;
+    margin-top: 15px;
+}
+.share-via-email-modal .paperplane-send {
+    vertical-align: -4px;
+    background: url("../images/paperplane.svg") no-repeat center / 20px;
+    width: 19px;
+    height: 19px;
+    display: inline-block;
+}
+
+.share-via-email-google-classroom {
+  margin-top:15px;
+}
+.disable-social-share .share-via-icons-wrapper {
+    display: none;
+}
+.disable-share-link {
+    pointer-events: none;
+    cursor: default;
+}
+.share-via-email-google-classroom iframe{
+    width: 32px !important;
+}
+
+@media all and (min-width: 768px) {
+    /* .share-via-email-modal.share-open {
+        top: 100px !important;
+    } */
+    .share-via-email-modal .show-for-small {
+        display: none !important;
+    }
+    .share-via-email-modal .large-12 {
+        position: relative;
+        width: 100%;
+    }
+}
+@media all and (max-width: 767px) {
+    .share-via-email-modal {
+        display:none;
+    }
+    .share-via-email-modal .hide-small {
+        display: none;
+    }
+    .share-via-email-modal.share-open {
+        left: 0;
+        top: 0 !important;
+        margin-left: 0;
+        width: 100%;
+        box-sizing: border-box;
+        height: 100%;
+        background-color: #f9f9f6;
+        position: fixed;
+        overflow: auto;
+            background-color: #f9f9f6;
+    }
+    .share-via-email-modal .close-modal-icon {
+        background-color: #FF6633;
+        height: 40px;
+        width: 40px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 999;
+    }
+    .share-via-email-modal .close-modal-icon i:after, .share-via-email-modal .close-modal-icon i:before {
+        background-color: #FFFFFF;
+        right: 19px;
+        top: 2px;
+        height: 36px;
+        width: 2px;
+        position: absolute;
+        content: "";
+    }
+    .share-via-email-modal .close-icon:before {
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+    }
+    .share-via-email-modal .close-icon:after{
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+    }
+    .share-via-email-modal .artifact-email-image {
+        width: 70px;
+        height: auto;
+    }
+    .share-via-email-modal .mail-header-row .input-header {
+        margin-left: 5px;
+    	width: 81%;
+    }
+    .share-via-email-modal .share-email-header {
+        padding: 10px 25px 1px 0px;
+    }
+    .share-via-email-modal .thanks-text {
+        font-size: 36px;
+    }
+    .share-via-email-modal .mail-sent-message {
+        font-size: 12px;
+    }
+    .share-via-email-modal .email-sent-container {
+        padding-top: 99px;
+        height: 100%;
+        display: inline-flex;
+    }
+    .share-via-email-modal .email-sent-container.hide {
+        display: none;
+    }
+    .share-via-email-modal .send-email-footer {
+        padding-top: 22px;
+    }
+    .share-via-email-modal .share-details {
+        width: 70%;
+    }
+    .share-via-email-modal .share-email-container {
+        padding: 0 18px;
+    }
+    .share-via-email-modal .share-via-social-links a {
+        margin: 15px 0px 0px 15px;
+		display:inline-block;
+    }
+    .share-via-email-modal .share-via-social-links {
+        margin: 0 auto !important;
+        display: inline-block!important;
+    	margin-left: 4px!important;
+    }
+    .share-via-email-modal .row.sh-collapse .share-content-wrapper {
+        border-bottom: 1px dashed #ccc;
+        padding-bottom: 30px;
+        margin-bottom: 15px;
+    }
+    .disable-social-share.share-via-email-modal .row.sh-collapse .share-content-wrapper {
+        border-bottom: 0;
+    }
+    /*css for share plane labels */
+    .to-label {
+    	font-size:16px;
+    	position: relative;
+    	top: 30px;
+    }
+
+    .user-label {
+    	font-size:16px;
+    	position: relative;
+    	top: 31px;
+    }
+
+    .from-label{
+    	font-size:16px;
+    	position: relative;
+    	top: 31px;
+    }
+    .share-on-text{
+	    display: inline-block;
+	    padding-right: 27px;
+	    position: relative;
+	    top: -12px;
+	    font-weight: 600;
+    }
+    .share-via-email-google-classroom {
+        display: inline-block;
+    }
+    .share-via-email-modal .recipient-error-msg {
+    	right: calc(19% - 50px);
+    	top: 4px;
+    }
+    .share-via-email-modal .error-icon {
+    	right: calc(19% - 56px);
+    }
+}
+@media all and (min-width: 768px) {
+    .share-via-email-modal .row.sh-collapse .share-content-wrapper {
+        border-right: 1px dashed #ccc;
+        padding: 0px 40px 0px 40px;
+        margin-bottom: 22px;
+    }
+    .disable-social-share.share-via-email-modal .row.sh-collapse .share-content-wrapper {
+        border-right: 0;
+    }
+    .share-via-email-modal .share-via-icons-wrapper {
+        width: 110px;
+    }
+    .share-via-email-modal .share-via-social-links {
+        padding: 65% 0;
+    }
+    .share-via-email-modal .share-email-wrapper {
+        width: 510px;
+    }
+    .disable-social-share.share-via-email-modal .share-email-wrapper {
+        width: 100%;
+    }
+    .share-via-email-modal {
+        -webkit-transition: top 1000ms ease;
+        -moz-transition: top 1000ms ease;
+        -ms-transition: top 1000ms ease;
+        -o-transition: top 1000ms ease;
+        transition: top 1000ms ease;
+    }
+}

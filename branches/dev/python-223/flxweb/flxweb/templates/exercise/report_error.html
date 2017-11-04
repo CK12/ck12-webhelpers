@@ -1,0 +1,128 @@
+{% extends "base/plain.html" %}
+{% set question = c.question %} 
+{% block title %}{{ _('Report Error') }}{% endblock %}
+
+{% block js %}
+{{ super() }}
+<script language="JavaScript" type="text/javascript">
+	require(['main'],function(){
+		require(['jquery.validate','flxweb.exercise.quiz'])
+	})
+</script>
+{% endblock %}
+
+{% block stylesheets %}
+{{ super() }}
+<style type="text/css">body.plain{height: auto;}</style>
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.url_css('details.css') }}" />
+{% endblock %}
+
+{% block contentwrap %}
+<div class="exercise_report_error">
+       
+        {% if c.form_display_error %}
+        <h4> {{ c.form_display_error }} </h4>       
+        {% else %}
+
+        <!-- Form error Message -->
+        {% if c.form_error %}
+        <ul class="messaging error">
+				<span class="icon-close"></span>
+                <li>{{ c.form_error }}</li>
+        </ul>
+        {% endif %}
+	
+        <!-- Error messages -->
+        {% if c.form_errors %}
+        <ul class="messaging error">
+                {% for error in c.form_errors %}
+						<span class="icon-close"></span>
+                        <li>{{error|capitalize}} - {{ c.form_errors[error] }}</li>
+                {% endfor %}
+        </ul>
+        {% endif %}
+
+        <!-- Success Messages -->
+        {% if c.form_success %}
+        <ul class="success">
+                <li>{{ c.form_success }}</li>
+        </ul>
+        {% endif %}
+
+ 
+        <div class="errorwrap">
+            <div class="errorcontent">
+                <form name="Error Report Form" method="POST" action="{{ h.url(controller='exercise',action='reportErrorQuestion') }}">
+
+                    <div id="questionwrapper">
+                    <h4> {{ _('Reporting Question') }} </h4>       
+ 
+                        {% include 'exercise/question_form.html' %}
+                        <input type="hidden"  name="question_id" value="{{ question.questionID }}" />
+                        <input type="hidden"  name="question_class" value="{{ question.questionClass }}" />
+                        <input type="hidden"  name="variable_value_map" value="{{ question.variableValueMap }}" />
+                    </div> 
+
+                    <h4> {{ _('Give us more details') }} </h4>       
+                    <table>
+                         <tr>
+                             <td>
+                                 <label class="formlabel" >{{ _('Status') }}</label>
+                             </td>
+                             <td>
+                                 <select name="error_type_id" class="forminput" >
+                                     <option value="1">{{ _('Erroneous question') }}</option>
+                                     <option value="2">{{ _('Question does not match concept/topic') }}</option>
+                                     <option value="4">{{ _('Copyright issue') }}</option>
+                                     <option value="3">{{ _('Others') }}</option>
+                                 </select>
+                             </td>
+                         </tr>
+                       
+                         {% if c.user_has_signedin %} 
+                             <input type="hidden"  class="forminput" value="{{ c.form.email }}" name="email"/>
+                         {% else  %}     
+                             <tr>
+                                 <td>   
+                                     <label class="formlabel" >{{ _('Your email id') }}</label>
+                                 </td>
+                                 <td>
+                                     <input type="text"  class="forminput" value="{{ c.form.email }}" name="email"/>
+                                 </td>
+                             </tr>
+                         {% endif %}
+                         <tr>
+                             <td>  
+                                 <label class="formlabel" >{{ _('Reason') }}</label>
+                             </td>
+                             <td>
+                                 <textarea  name="reason" class="forminput" rows="5" >{{ c.form.reason }}</textarea>
+                             </td>
+                         </tr>
+                    </table>
+					<div class="divider spacetopxlarge"></div>
+					<div class="spacetop"></div>
+					{% if c.form_isFormSubmitted %}
+						<div id="errorReportContinueDiv">
+							<h3>{{ _("You have reported a similar issue in the past. Would you like to:") }}</h3>
+							<input type="submit" class="btn formrightcolumn" name="submit" value="{{ _('Submit Anyway') }}" />
+							<input type="button" class="btn formrightcolumn reportcancel" name="cancel" value="{{ _('Discard This Report') }}" />
+							<input type="hidden"  class="forminput" value="True" name="submitAnyways" id="submitAnyways"/>
+						</div>
+						<div id="errorReportSubmitDiv">
+							<input type="submit" class="btn formrightcolumn reportsubmit" name="submit" value="{{ _('Report Error') }}" />
+						</div>
+					{% else %}
+							<input type="submit" class="btn formrightcolumn reportsubmit" name="submit" value="{{ _('Report Error') }}" />
+					{% endif %}
+					<div class="clear"></div>
+					<div class="divider spacetop"></div>
+                </form>
+        </div>
+    
+    </div>
+
+        {% endif %}
+
+</div>
+{% endblock %}

@@ -1,0 +1,98 @@
+<html>
+    <head>
+        <title>Update Resource</title>
+    </head>
+    <body>
+        <form name="resourceForm" method="POST" 
+            action="{{ c.prefix }}/update/resource" 
+            enctype="multipart/form-data">
+            <input type="hidden" name="id" value="{{ c.resourceID }}" />
+            <table>
+                <tr>
+                    <td>
+                        Resource Type:
+                    </td>
+                    <td>
+                        <select name="resourceType">
+                            {% for item in c.resourceTypes %}
+                                {% if item == c.resourceType %}
+                                <option value="{{ item }}" selected="selected">{{ item }}</option>
+                                {% else %}
+                                <option value="{{ item }}">{{ item }}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Resource Name:
+                    </td>
+                    <td>
+                        <input type="text" name="resourceName" value="{{ c.resourceName }}" />
+                    </td>
+                </tr>                <tr>
+                    <td>
+                        Resource Handle:
+                    </td>
+                    <td>
+                        <input type="text" name="resourceHandle" value="{{ c.resourceHandle }}" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Resource Description:</td>
+                    <td><textarea name="resourceDesc">{{ c.resourceDesc }}</textarea></td>
+                </tr>
+                <tr>
+                    <td>Resource URI:</td>
+                    <td><input type="text" name="resourceUri" value="{{ c.resourceUri }}" /> OR </td>
+                </tr>
+                <tr>
+                    <td>Resource File:</td>
+                    <td><input type="file" name="resourcePath" /><br/>
+                        Existing path: {{ c.resourcePath }}</td>
+                </tr>
+                <tr>
+                  <td>Is attachment?</td>
+                  <td>
+                    <select name="isAttachment">
+                      <option {% if c.resourceAttachment %} selected="selected" {% endif %} value="true">Yes</option>
+                      <option {% if not c.resourceAttachment %} selected="selected" {% endif %} value="false">No</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                    <td>Authors:</td>
+                    <td><input type="text" name="resourceAuthors" value="{{ c.resourceAuthors }}" /></td>
+                </tr>
+                <tr>
+                    <td>License:</td>
+                    <td><input type="text" name="resourceLicense" value="{{ c.resourceLicense }}" /></td>
+                </tr>
+                <tr>
+                  <td>Is public?</td>
+                  <td>
+                    <select name="isPublic">
+                      <option {% if c.resourcePublic %} selected="selected" {% endif %} value="true">Yes</option>
+                      <option {% if not c.resourcePublic %} selected="selected" {% endif %} value="false">No</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Current Owner</td>
+                  <td>{{ c.resourceOwner }}</td>
+                </tr>
+                <tr>
+                  <td>I am: </td>
+                  <td>{{ c.member.email }}</td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align:right;">
+                        <input type="submit" name="submit" value="Save" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
+

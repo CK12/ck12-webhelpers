@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <title>Push Notification</title>
+    </head>
+    <body>
+        <form name="Test Data" method="POST" action="/flx/pushNotification">
+            <table>
+                 <tr>
+                    <td>
+                       <label>App Code</label>
+                    </td>
+                    <td>
+                       <select name="appCode">
+                            <option value="ck12app">PracticeApp(ck12app)</option>
+                       </select>
+                    </td>
+                 </tr>
+                 <tr>
+                    <td>   
+                       <label>To(email or login)</label>
+                    </td>
+                    <td>
+                        <textarea  name="to" cols="100"> </textarea>  
+                    </td>
+                 </tr>
+                 <tr>
+                    <td>   
+                       <label>Payload</label>
+                    </td>
+                    <td>
+                        <textarea  name="payload" cols="100">{{ c.payload }} </textarea> 
+                        <div style="font-size:8pt;width:700px;">eg:  {{ c.payload }}</div><br/> 
+                    </td>
+                 </tr>
+                <tr>
+                    <td>
+                        <label>TimeToLive(In Seconds)</label>
+                    </td>
+                    <td>
+                        <input type='text' name="ttl" placeholder="Seconds" ></input>
+                    </td>
+                 </tr>
+                <tr>
+                    <td>
+                        <label>Minimum App Version(optional)</label>
+                    </td>
+                    <td>
+                        <input type='text' name="minAppVersion" placeholder="Enter only the svn number in the app version." ></input>
+                    </td>
+                 </tr>
+                <tr>
+                    <td>
+                        <label>Collapse Key(Optional)</label>
+                    </td>
+                    <td>
+                        <input type='text' name="collapse_key" placeholder="An Unique identifier for a group of message" ></input>
+                    </td>
+                 </tr>
+                 <tr>
+                    <td>
+                       <label>Use Sandbox for APN</label>
+                    </td>
+                    <td>
+                       <select name="useApnSandbox">
+                            <option value="true">True</option>
+                            <option value="false">False</option>
+                       </select>
+                       <div style="font-size:8pt;width:700px;">Set false for production. But be careful!. It may send to real users</div><br/> 
+                    </td>
+                 </tr>
+                 <tr>
+                    <td>
+                        <input type="submit" name="submit" value="OK" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

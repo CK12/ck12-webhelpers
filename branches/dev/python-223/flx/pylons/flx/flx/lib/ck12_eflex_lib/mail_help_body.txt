@@ -1,0 +1,34 @@
+Dear %name,
+
+
+Thank you for using our FlexBook system via email.
+
+Unfortunately, I do not understand the email that you just sent.
+
+You can use this service to:
+1. Create a new FlexBook
+2. Contribute a Concept
+
+1. To create a new FlexBook, please send an email to eflex@ck12.org, with:
+* A subject line in the format of "Create: Book Title"
+* And mail body containing one or more lines in the format of 
+  "Subject: topic keywords", for the book content.
+
+Example:
+
+The following is an email for requesting a book titled "My Small Physics Book"
+containing 2 concepts; the first covering gravity, and the second covering
+optics. 
+
+Subject line: "Create: My Small Physics Book"
+Mail body:
+Physics: gravity
+Physics: optics
+
+2. To contribute a Concept, please send an email to eflex@ck12.org, with:
+* A subject line in the format of "Contribute: concept title"
+* Mail body containing a line in the format of
+  "@Googledoc: <Google doc ID>"
+
+Regards,
+CK12 eFlex

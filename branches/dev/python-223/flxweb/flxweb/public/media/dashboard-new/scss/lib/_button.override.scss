@@ -1,0 +1,23 @@
+@import '../main';
+
+button.button, a.button {
+    border-radius: $global-radius;
+    text-transform: uppercase;
+}
+
+a.button {
+    color: $white;
+}
+
+.button.disabled, button[disabled] {
+    color: #B5B1A8;
+}
+
+.button.disabled:hover, .button.disabled:focus, .button[disabled]:hover, .button[disabled]:focus {
+    background-color: #DDDDDD;
+    color: #B5B1A8;
+}
+
+.button.chunky, button.chunky {
+    padding: rem-calc(23);
+}

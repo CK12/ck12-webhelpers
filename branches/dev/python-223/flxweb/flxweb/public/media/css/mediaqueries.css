@@ -1,0 +1,207 @@
+/************************************************************************************
+smaller than 960
+*************************************************************************************/
+@media screen and (max-width: 960px) {
+	
+	/* Signup */
+	#signup .facebook .loginbtn{
+		padding-left:35px;
+	}
+	/* /Singup */
+		
+	/* My library list */
+	.rowlist li.libraryartifacttitle{
+		max-width:70%;
+	}
+	/* /My library list */
+}
+
+
+/************************************************************************************
+smaller than 880
+*************************************************************************************/
+@media screen and (max-width: 880px) {
+	
+	/* Header */	
+	.sharefacebook, .shareemail {
+		margin-left:3px;
+	}
+	/* /Header */
+	
+	/* Signin in */
+	#content .logincontentleft{
+		padding:0 5% 0 0;
+	}
+	#content .logincontentright{
+		padding:0 1% 0 5%;
+	}
+	/* /Sign in */
+
+	/* Signup */
+	#signup .loginbtn{
+		line-height:18px;
+	}
+	#signup .google .loginbtn{
+		padding-left:35%;
+	}
+	#signup .facebook .loginbtn{
+		padding-left:30%;
+	}
+	#signup .twitter .loginbtn{
+		padding-left:35%;
+	}
+	#signup .loginbtn br{
+		display:inline;
+	}
+	/* /Singup */
+	
+	/* Details */
+	#details_tabs .ui-widget-header .ui-state-default a,
+	#editor_tabs .ui-widget-header .ui-state-default a{
+		width:120px;
+	}
+	/* /Details */
+}
+
+
+/************************************************************************************
+smaller than 800
+*************************************************************************************/
+@media screen and (max-width: 800px) {
+	
+	.contenttop{
+		width:auto;
+	}
+
+	/* Signin in */
+	#content .logincontentright{
+		width:45%;
+	}
+	/* /Sign in */
+
+	/* My library list */
+	.rowlist li.libraryartifacttitle{
+		max-width:65%;
+	}
+	/* /My library list */
+	
+	/* Details */
+	#details_tabs .ui-widget-header .ui-state-default a,
+	#editor_tabs .ui-widget-header .ui-state-default a{
+		width:110px;
+	}
+	/* /Details */
+}
+
+/************************************************************************************
+smaller than 768 - iPad 1 vertical
+*************************************************************************************/
+@media screen and (max-width: 768px) {
+	/* General */
+	.desktop{
+		display:none;
+	}
+	.ipad{
+		display:block;
+	}
+	span.ipad, a.ipad{
+		display:inline;
+	}
+	/* /General */
+	
+	/* iPad grid */
+	.container_12 .ipad_grid_1 {
+		width:6.333%;
+	}
+
+	.container_12 .ipad_grid_2 {
+		width:14.667%;
+	}
+
+	.container_12 .ipad_grid_3 {
+		width:23.0%;
+	}
+
+	.container_12 .ipad_grid_4 {
+		width:31.333%;
+	}
+
+	.container_12 .ipad_grid_5 {
+		width:39.667%;
+	}
+
+	.container_12 .ipad_grid_6 {
+		width:48.0%;
+	}
+
+	.container_12 .ipad_grid_7 {
+		width:56.333%;
+	}
+
+	.container_12 .ipad_grid_8 {
+		width:64.667%;
+	}
+
+	.container_12 .ipad_grid_9 {
+		width:73.0%;
+	}
+
+	.container_12 .ipad_grid_10 {
+		width:81.333%;
+	}
+
+	.container_12 .ipad_grid_11 {
+		width:89.667%;
+	}
+
+	.container_12 .ipad_grid_12 {
+		width:98.0%;
+	}
+	/* /iPad grid */
+	
+	/* Landing */
+	#benefits h1{
+		margin-left:80px;
+	}
+	/* /Landing */
+
+	/* Details */
+	#details_tabs .ui-widget-header .ui-state-default a,
+	#editor_tabs .ui-widget-header .ui-state-default a{
+		width:100px;
+	}
+	.metadata_level, .metadata_grade{
+		padding-left:2px;
+		padding-right:2px;
+	}
+	/* /Details */
+}
+
+/************************************************************************************
+smaller than 640px
+*************************************************************************************/
+@media screen and (max-width: 640px) {
+}
+
+/******** For Testing Only ********/
+
+/*
+@media screen and (max-width: 960px) {
+	body{background:yellow;}
+}
+@media screen and (max-width: 880px) {
+	body{background:orange;}
+}
+@media screen and (max-width: 800px) {
+	body{background:pink;}
+}
+@media screen and (max-width: 768px) {
+	body{background:lightblue;}
+}
+@media screen and (max-width: 640px) {
+	body{background:red;}
+}	
+@media screen and (max-width: 320px) {
+	body{background:violet;}
+}	
+*/

@@ -1,0 +1,45 @@
+{% from "macros/pagination.html" import paginate with context %}  
+
+<div id="panes">
+  <div id='leftpane'>
+    <div class="table">
+      <div class="thead sectionhead">
+        <div class="tr fullview">
+        {% for head in c.form.headers %}
+          <div class="td">
+            {{head}}<span class='sort-indicator'></span>
+          </div>
+        {% endfor %}        
+        </div>
+      </div>
+      <div class="tbody">
+      {% if c.paginator.item_count > 0 %}
+        {% for i in c.paginator.items %}
+          <div class="tr fullview {{ h.hide_if_pane(c.viewmode)}}">
+            <div class='td' style="width:10px;">
+              <input type="checkbox" value="false" name="{{i._id}}" id="{{i._id}}" data-id="{{i._id}}" class="error_report_checkbox">
+            </div>
+            <div class="td id">{{i._id}}</div>
+            <div class="td">{{i.errorType.name}}</div>
+            <div class="td viewtrigger tiptrigger" data-id="{{i._id}}">{{h.idlink('/assessment/error', i, alttext=i.reason|truncate(36)|escape, idkey='_id')}}</div>
+            <div class='hide tipdiv'>{{i.reason|escape}}</div>
+            <div class="td">{{i.status}}</div>
+            <div class="td" style="width: 100px;word-break: break-all;white-space: normal;">{{h.userlink(i.user, 'email', idkey='uID')}}</div>
+            <div class="td">{{i.reporterRole}}</div>
+            <div class="td" style="width: 100px;word-break: break-all;white-space: normal;">{{h.userlink(i.reviewedBy, 'email', idkey='uID')}}</div>
+            <div class="td nowrap viewtrigger tiptrigger">{{i.updated|parseISODate|compact}}</div>
+            <div class='hide tipdiv'>{{i.updated|parseISODate}}</div>
+            <div class="td nowrap viewtrigger tiptrigger">{{i.created|parseISODate|compact}}</div>
+            <div class='hide tipdiv'>{{i.created|parseISODate}}</div>
+            <div class="td nowrap viewtrigger tiptrigger">{{i.unresolvedReportCount}}</div>
+            <div class='hide tipdiv'>{{i.unresolvedReportCount|parseISODate}}</div>       
+          </div>
+        {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+    {{ paginate(c.paginator) }}
+  </div>
+      
+</div>
+<div id="pagination"></div>

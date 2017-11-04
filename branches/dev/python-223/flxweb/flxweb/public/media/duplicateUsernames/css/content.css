@@ -1,0 +1,198 @@
+#duplicate-username{
+    max-width: 800px;
+    margin: 0;
+    transform: translateX(-50%);
+    border-radius: 5px;
+    border: 2px solid #cccccc;
+    width: 60%;
+}
+#duplicate-username.yellow{
+    background: #FFFAD3;
+}
+#duplicateUsernameContainer label{
+    text-align: right;
+}
+#duplicateUsernameContainer .reason{
+    margin-top: 5px;
+}
+#duplicateUsernameContainer .username-input-row{
+    padding-top: 15px;
+}
+#duplicateUsernameContainer i.icon-notice{
+    color: #FFCF2A;
+    font-size: 44px;
+}
+#duplicateUsernameContainer p{
+    color: #56544D;
+    font-size: 18px;
+}
+#duplicateUsernameContainer .account-username{
+    width: 100%;
+}
+#duplicateUsernameContainer .username-label{
+    padding-top: 10px;
+    font-size: 16px;
+    font-family: "ProximaNova";
+    font-weight: bold;
+}
+#duplicateUsernameContainer .button.disabled {
+    background: none repeat scroll 0 0 #DDDDDD;
+    border-bottom: 3px solid #CCCCCC;
+    border-top: 3px solid #DDDDDD;
+    box-shadow: none;
+    color: #999999;
+    opacity: 1;
+    box-shadow: 0 0;
+}
+#duplicateUsernameContainer i.icon-validated{
+    color: #B0D552;
+    font-size: 18px;
+    margin-top: 4px;
+}
+#duplicateUsernameContainer .username-change{
+    background-color: #FFFAD3;
+    margin-top: 1px;
+    position: absolute;
+    left: 15px;
+    top: -25px;
+    padding: 0 3px 0 4px;
+    height: 22px;
+}
+#duplicateUsernameContainer .username-change i{
+    color: #FFCC40;
+    vertical-align: middle;
+}
+#duplicateUsernameContainer .username-exist{
+    color: #FB6C33;
+    font-size: 11px;
+    position: absolute;
+    top: -15px;
+    right: 16px;
+}
+#duplicateUsernameContainer .button-row{
+    margin-top: 10px;
+}
+
+#duplicateUsernameContainer input.error{
+    border-color: #FF6633;
+}
+#duplicateUsernameContainer .result{
+    text-align: center;
+}
+#duplicateUsernameContainer .stage-2 .icon-validated{
+    font-size: 55px;
+}
+#duplicateUsernameContainer .stage-2 .context{
+    color: #56544D;
+    font-size: 18px;
+    font-family: 'ProximaNova';
+}
+#duplicateUsernameContainer .stage-2 div{
+    width: 100%;
+}
+#duplicateUsernameContainer .stage-2 .context.second{
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+#duplicateUsernameContainer .reveal-modal-bg{
+    z-index: 10050;
+}
+#duplicateUsernameContainer #duplicate-username{
+    z-index: 10049;
+}
+.reveal-modal-bg.active-duplicate-username{
+    z-index: 10048;
+}
+#duplicateUsernameContainer .row .columns{
+    position: relative;
+}
+#duplicateUsernameContainer input{
+    border: 2px solid #CDCCCA;
+    border-radius: 5px;
+    color: #56544D;
+    padding: 10px 17px;
+    height: 44px;
+}
+#duplicateUsernameContainer .input{
+    position: relative;
+}
+#duplicateUsernameContainer .input i{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+#duplicateUsernameContainer a.button{
+    text-transform: none;
+}
+@media all and (min-width: 768px) and (max-width: 1024px){
+    #duplicate-username{
+        width: 80%;
+    }
+    #duplicate-username .hide-small{
+        display: none;
+    }
+    #duplicate-username .show-small{
+        display: initial;
+    }
+    #duplicate-username .username-change{
+        right: 15px;
+        left: inherit;
+    }
+    #duplicate-username .large-2{
+        position: relative;
+        width: 16.66667%;
+        flex: initial;
+    }
+    #duplicate-username .large-10{
+        position: relative;
+        width: 83.33333%;
+        flex: initial;
+    }
+    #duplicate-username .row .large-offset-2{
+        position: relative;
+        margin-left: 16.666667%;
+    }
+}
+@media all and (max-width: 767px) {
+    #duplicate-username{
+        width: 100%;
+    }
+    #duplicateUsernameContainer label {
+        text-align: center;
+    }
+    #duplicateUsernameContainer p {
+        text-align: center;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #cccccc;
+    }
+    #duplicateUsernameContainer .username-label, #duplicateUsernameContainer .username-input-row {
+        padding-top: 0;
+    }
+    #duplicateUsernameContainer .button-row {
+        margin-top: 0;
+        text-align: center;
+    }
+    #duplicateUsernameContainer .username-change{
+        font-size: 12px;
+        left: inherit;
+        right: 15px;
+    }
+    #duplicateUsernameContainer .username-exist{
+        left: 15px;
+        right: inherit;
+        top: -20px;
+    }
+    #duplicateUsernameContainer .username-label.label-small{
+        padding-bottom: 2px;
+    }
+    #duplicateUsernameContainer .username-label.label-small.error-username{
+        float:left;
+        margin-bottom: 20px;
+    }
+    #duplicate-username .columns{
+        width: 100%;
+        flex: initial;
+        padding-left: 0.9375em;
+        padding-right: 0.9375em;
+    }
+}

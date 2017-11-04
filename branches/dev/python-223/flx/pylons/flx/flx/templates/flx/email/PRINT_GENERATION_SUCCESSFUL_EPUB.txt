@@ -1,0 +1,21 @@
+Dear {{ member.name }},
+
+Greetings from CK-12 Foundation!
+
+{% if events[0].eventData['printType'] == 'Worksheet' %}
+    We're happy to inform you that the {{ events[0].eventData['printType'] }} you requested for "{{ events[0].eventData['title'] }}" is available for download. Please click the following {% if events[0].eventData['resultData']['renderCount'] == 1 %} link {% else %} links {% endif %} to download the {{ events[0].eventData['printType'] }}. 
+
+  {% for book in events[0].eventData['resultData']['downloadUri'] %}
+      {% if book['uri'] %}
+Download {{ events[0].eventData['printType'] }} in {{ book['worksheetType'] }}: {{ book['uri'] }}
+      {% else %}
+Sorry, There was an error creating the worksheet in {{ book['worksheetType'] }} format. Please try again or try later.
+      {% endif %}  
+  {% endfor %}  
+{% else %}
+We're happy to inform you that the {{ events[0].eventData['printType'] }} you requested for "{{ events[0].eventData['title'] }}" is available for download. Please go to this url to download the {{ events[0].eventData['printType'] }}: {{ events[0].eventData['downloadUri'] }}
+{% endif %}
+    
+Sincerely,
+The CK-12 Team
+

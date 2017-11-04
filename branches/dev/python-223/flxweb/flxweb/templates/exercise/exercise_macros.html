@@ -1,0 +1,77 @@
+{% macro ck12_display_exercise(handle, render_context="ajax" ) %}
+{% if handle.exercise %}
+        <div class="hide" id="exerciseEncodedID">{{ handle.exercise.encodedID }}</div>
+{% endif %}
+{% if render_context == "preview"%}
+{% block stylesheets %}
+<style type="text/css">body {background-image: none;}</style>
+{% endblock %}
+<div id="questionwrapper">
+	<h3 id="previewtopbanner"> Preview </h3>
+	{% include 'exercise/question_form.html' %}
+</div>
+{% else %}
+<div id="loading_div">
+	<img class="x-ck12-img-nopopup" src="{{ h.asset_image('images/icon_loading.gif') }}" width="43" height="11" />
+	{{ _('Fetching question...') }}
+</div>
+<div id="questionwrapper">
+</div>
+{% endif %}
+<div class="exercisebtnwrap">
+	<a class="btn secondary go_btn ui-corner-all" title="Submit my answer">{{ _("Submit Answer") }}</a>
+	{% if render_context == "ajax" %}
+		&nbsp; <a class="skip_btn ui-corner-all" title="{{ _('Skip this question') }}">{{ _("Skip This") }}</a>
+		<a class="btn next_btn ui-corner-all" title="{{ _('Go to the next question') }}">{{_("Next") }} &rarr;</a>
+	{% elif render_context == "quiz" %}
+		&nbsp; <a class="skip_btn ui-corner-all" title="{{ _('Skip this question') }}">{{ _("Skip This") }}</a>
+		<a class="btn next_btn ui-corner-all" title="{{ _('Go to the next question') }}">{{_("Next") }} &rarr;</a>
+	{% elif render_context == "embed" %}
+		&nbsp; <a class="skip_btn ui-corner-all" title="{{ _('Skip this question') }}">{{ _("Skip This") }}</a>
+		<a class="btn next_btn ui-corner-all" title="{{ _('Go to the next question') }}">{{_("Next") }} &rarr;</a>
+		&nbsp; <a target="_blank" title="{{ _('Go to Exercise Page') }}" href="{{ config.webroot_url }}{{ handle.artifact.get_exercise_perma() }}#view_exercises">Exercise Page</a>
+	{% elif render_context == "preview" %}
+		<a class="btn previewquestion ui-corner-all" title="{{ _('Try Again') }}">{{ _("Try Again") }}</a>
+	{% endif %}
+</div>
+<div id="assessor_wrapper">
+	<div id="assessor_area"><span class="imgwrap"></span></div>
+</div>
+{% if render_context == "ajax" or render_context == "quiz" %}
+<div id="js_testresultdialog" url='{{config.webroot_url}}stop/test/' >
+</div>
+{% endif %}
+{% endmacro %}
+
+
+{% macro ck12_display_add_exercise(title) %}
+<div class="error_content">
+	<h1>{{ _("We need you!") }}</h1>
+	<p>{{ _("At the moment, we do not have exercises for <b>%(title)s</b>." % {'title':title}) }}</p>
+	<div class="divider spacetop"></div>
+	<div>
+		{% if c.user %}
+			<a class="btn exercise exercise_tools_link" href="{{ h.url(controller='exercise_generator',action='addQuestionForExercise',exercise_title=c.title, artifact_type=c.artifactType)}}">Contribute</a>
+		{% else %}
+			<a class="btn exercise" onClick="javascript:$.flxweb.alertToSignin();return false;" href="#">Contribute</a>
+		{% endif %}
+	</div>
+	<div class="divider"></div>
+</div>
+
+{% endmacro %}
+
+{% macro ck12_display_error_exercise(title) %}
+<div class="error_content">
+	<h4>{{ _("We're sorry...") }}</h4>
+        {% if title %}  
+		<p>{{ _("At the moment, we could not provide exercise for <b>%(title)s</b>. We request you to please visit our <a target=\"_blank\" href=\"%(webroot_url)s\">website</a> for any updates on this exercise" % {'title':title, 'webroot_url': config.webroot_url }) }}
+		</p>
+	{% else %}
+		<p>{{ _("At the moment, we could not provide exercise for you. Please try again later") }}
+		</p>
+	{% endif %}
+</div>
+
+{% endmacro %}
+

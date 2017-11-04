@@ -1,0 +1,17 @@
+{% extends "MASTER_CK12_LOGO.html" %}
+{% block email_body %}
+<html>
+    <body>
+    <p>Dear {{ events[0].eventData['reportedUser'] }},</p>
+
+    <p>We have received your request to delete a question.</p>
+
+    <p>We will evaluate the request and take the necessary steps.</p>
+
+	<p>Please do not hesitate to contact us at <a href="mailto:support@ck12.org">support@ck12.org</a>, if you have any questions.</p>
+
+    <p>Sincerely,</p>
+    <p>The CK-12 Team</p>
+    </body>
+</html>
+{% endblock %}

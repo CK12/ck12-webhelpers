@@ -1,0 +1,238 @@
+{% extends "details/artifact_details_common.html" %}
+{% from "macros/artifact.html" import ck12_metadata_list_for_standards with context %}
+
+{% block hidden_divs %}
+{{ super() }}
+{% include "jstemplates/share_groups.html" %}
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+<script language="javascript" type="text/javascript">
+	page_type = 'section details';
+	require(['main'], function(){
+		require(['flxweb.assessmentFrameListener','main-details', 'common/utils/practice_badge'], function(frameListener, mainDetails, badge){
+			var conceptEid = $("#conceptEncodedId").val(),
+				conceptHandle = $("#conceptHandle").val();
+
+			frameListener.init({"apis": ["resize", "showSigninDialog", "loadQuiz", "getParentURL", "setParentURL"]});
+
+			//handler for loading assessment frame after practice tab selection
+			$("a[data-ga-tab-name='exercises']").off("click.loadExercise").on("click.loadExercise", function(){
+				var $frame = $("#assessmentArtifactFrame");
+
+				if($frame.length !== 0 && $frame.attr("src") === ""){
+					$frame.attr("src", $frame.attr("data-src"));
+				}
+			});
+
+			if(badge && conceptEid && conceptHandle){
+				if(window.artifact_json_encoded && window.artifact_json_encoded.collections){
+					badge.init({
+						"encodedId": conceptEid,
+						"handle": conceptHandle,
+						"collection": window.artifact_json_encoded.collections[0]
+					});
+				} else
+				badge.init({
+					"encodedId": conceptEid,
+					"handle": conceptHandle
+				});
+			}
+
+			require(['flxweb.details.concept','flxweb.vocabulary']);
+
+		});
+	})
+</script>
+ 
+{% endblock %}
+
+{% block practice_widget %}
+<script src="{{ h.asset_lib('practice-widget/dist/ck12-practice-widget-withdeps.js') }}"></script>
+ <script>
+  var isPracticeWidgetView = true;
+	 /* window.practiceWidgetRenderer && window.practiceWidgetRenderer.render('practiceWidget', 'http://nitesh.ck12.org/assessment/ui/?test/view/practice/algebra/number-lines-practice&branch=algebra&fromPracticeWidget=true', function(){
+         console.log('Practice widget loading...');
+     }); */
+ </script>
+{% endblock %}
+{% block related_concepts %}
+<script src="{{ h.asset_lib('related-concepts/dist/ck12-related-concept-widget-withdeps.js') }}"></script>
+{% endblock %}
+
+{% block artifact_navigation %}
+	{{ super() }}
+{% endblock %}
+
+{% block artifact_coverimageimage %}
+	<div>
+		{% if c.previewdraft != True %}
+			<img itemprop="image" src="{{ artifact|ck12_artifact_cover_thumbnail_large }}" alt="{{ artifact.title|escape }}" title="{{ artifact.title|escape }}"/>
+		{% else %}
+			<img itemprop="image" src="{{ artifact|ck12_artifact_cover_image }}" alt="{{ artifact.title|escape }}" title="{{ artifact.title|escape }}"/>
+		{% endif %}
+	</div>
+{% endblock %}
+
+{% block before_content %}
+{% endblock %}
+
+{% block standard_correlations %}
+	<div class="columnwrap spacetopmedium js_standardboards_container"
+		data-loadurl="{{ h.url( controller='standards', action='ajaxStandardBoardsByArtifactID', artifact_id=c.artifact.get_artifact_id() ) }}">
+	</div>
+	<div class="clear"></div>
+	<div class="divider spacetop"></div>
+{% endblock %}
+
+{% block after_content %}
+	<div data-magellan-destination="unselect-quicktips" class="hide"></div>
+	<div class="clearfix">
+		<section data-magellan-destination="myAnnotations" class="myAnnotations-container">
+			<h3 class="myAnnotations">Notes/Highlights
+			  <span class="report-link hide">
+				Having trouble? <a href="#" target="_blank">Report an issue.</a>
+			  </span>
+			</h3>
+			<table>
+			  <thead>
+				<tr>
+				  <th>Color</th>
+				  <th>Highlighted Text</th>
+				  <th>Notes</th>
+								<th></th>
+				</tr>
+			  </thead>
+			  <tbody>
+				<tr class='hide'>
+				  <td colspan="4" id="notes-pagination">Show More <i class="icon-arrow3-down"></i></td>
+				</tr>
+			  </tbody>
+			</table>
+		</section>
+		<h3 class="vocab-pos" data-magellan-destination="vocabulary"></h3>
+	</div>
+
+	<section class="vocabulary_content" data-loadurl="{{ h.url( controller='details', action='ajax_get_vocabulary_list', perma_handle=artifact.getPermaHandle(True).rstrip('/')) }}">
+	</section>
+	<div class="clearfix">
+		<section id="img_attributions_wrapper" class="img_attribution">
+			<h3>Image Attributions</h3>
+			<ol id="img_attributions">
+			</ol>
+		</section>
+	</div>
+{% endblock %}
+
+{% block metadata_objectives %}
+
+{% if c.artifact.artifactType != "section" %}
+<!--START Concept Metadata view-->
+<div class="objectives_container js_metadata_objectives_container hide">
+	<div class="alternate-h2 objectives-heading">{{ _("Learning Objectives") }}</div>
+	<div class="objectives_content">
+		{{ c.artifact.objectives }}
+	</div>
+</div>
+<!--/END Concept Metadata view-->
+{% endif %}
+
+{% endblock %}
+{% block metadata_concept_node %}
+	{% if c.previewdraft == True %}
+		<div class="columnwrap spacetopmedium">
+			<section>
+				<h2 class="toptitle"> {{_("Concept Nodes:")}} </h2>
+					{% if c.artifact.get('collections') %}
+					<div class="">
+						{% for collection in c.artifact.get('collections') %}
+							<a title="{{ collection.encodedID }} ({{ collection.conceptCollectionTitle }}) " href="/search/?q={{ collection.conceptCollectionTitle }}&type=concept" itemprop="keywords">{{ collection.encodedID }} ({{ collection.conceptCollectionTitle }})</a>
+						{% endfor %}
+					</div>
+					{% endif %}
+			</section>
+		</div>
+		<div class="clear"></div>
+		<div class="divider spacetop"></div>
+	{% else %}
+		{% if c.artifact.get_domains() %}
+			<div class="columnwrap spacetopmedium">
+				<section>
+					<h2 class="toptitle"> {{_("Concept Nodes:")}} </h2>
+						<div class="">
+							{% for domain in c.artifact.get_domains() %}
+							<a title="{{ domain.title }} " href="/search/?q={{ domain.name }}&type=concept" itemprop="keywords">{{ domain.title|e }}</a>
+							{% endfor %}
+						</div>
+				</section>
+			</div>
+			<div class="clear"></div>
+			<div class="divider spacetop"></div>
+		{% endif %}
+	{% endif %}
+{% endblock %}
+{% block after_metadata %}
+
+{% if c.artifact.artifactType != "section" %}
+<!--START Concept Metadata view-->
+<div class="objectives_container js_metadata_vocabulary_container hide">
+	<div class="alternate-h2 objectives-heading">{{ _("Vocabulary") }}</div>
+	<div class="vocabulary_content">
+		{{ c.artifact.vocabulary }}
+	</div>
+</div>
+<!--/END Concept Metadata view-->
+{% endif %}
+
+{% endblock %}
+
+{% block related_modalities %}
+<!-- disable the read more and modality blocks implementation using optimizely by just adding "hide-modalities" class to the following div -->
+<!-- disable the read more block implementation using optimizely by just adding "hide-read-more" class to the following div -->
+<div class="related-modalities-container js-related-modalities-container hide initial-position" data-scroll-check="2">
+	<div class="related-modalities-content">
+		<div class="related-text-header row collapse">
+			<div class="related-text">
+								<span class="default"> You may also like</span>
+				<span class="related-text-movable-mod left hide">
+					{% if request.cookies.get('flxweb_role') == "student" %}
+						MORE WAYS TO LEARN
+					{% else %}
+						MORE WAYS TO TEACH
+					{% endif %}
+				</span>
+				<span class="related-help-wrapper js-related-help-wrapper hide">
+					<a id="relatedHelp" class="icon-help2 related-help"></a>
+					<span class="tooltip-bottom modality-tooltip js-modality-tooltip">Our editor's top picks for you</span>
+				</span>
+								<div class="related-icons-wrapper js-related-icons-wrapper">
+									<span>
+										<i class="related-header-icons icon-read"></i>
+										<i class="related-header-icons icon-video"></i>
+										<i class="related-header-icons icon-exercise"></i>
+										<i class="related-header-icons icon-simulations"></i>
+										<i class="related-header-icons icon-interactive_practice"></i>
+									</span>
+								</div>
+			</div>
+		</div>
+		<div class="related-modalities-parent js-related-modalities-parent">
+			<div id="related-mod" class="related-modalities-wrapper js-related-modalities-wrapper related-modalities-full">
+			</div>
+		</div>
+		<nav class="navigate-related-modalities js-navigate-related-modalities hide">
+			<div class="nextPrevArrow">
+				<a class="left prev-next-link prev-link disabled js-navigate-modality js-navigate-left">
+					<i class="icon-arrow3_left"></i>
+				</a>
+			</div>
+			<div class="nextPrevArrow">
+				<a class="left prev-next-link js-navigate-modality js-navigate-right">
+					<i class="icon-arrow3_right"></i>
+				</a>
+			</div>
+		</nav>
+	</div>
+</div>
+{% endblock %}

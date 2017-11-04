@@ -1,0 +1,92 @@
+{% from "macros/lti_help_banner.html" import lti_help_banner_macro %}
+{% extends "common/master.html" %}
+{% block title %}{{ _("") }}{% endblock %}
+
+{% block schema_itemscope %} itemscope itemtype="http://schema.org/CollectionPage" {% endblock %}
+
+{% block stylesheets %}
+{{ super() }}
+	<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('common/vendor/jquery-ui/css/ui-lightness/jquery-ui-1.10.2.custom.min.css') }}" />
+	<link rel="stylesheet" type="text/css" media="all" href="{{ h.url_css('modalities.css') }}" />
+	<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('modality/css/concept.css') }}" />
+	<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('common/css/concept_coversheet.css') }}" />
+	<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('common/vendor/jquery-plugins/appdownload/css/jquery.appdownload.css') }}" />
+{% endblock %}
+
+{% block meta_extra %}
+	{{ super() }}
+	{% if c.page_url %}
+	  {% for term in ['user:','user%3a','user-generated-content']%}
+	      {% if (c.page_url.lower().find(term) !=-1) %}
+		  <meta name="robots" content="noindex" />
+	      {% endif %}
+	  {% endfor %}
+	{% endif %}
+    <meta name="google-play-app" content="app-id=org.ck12.app.practice">
+    <meta name="apple-itunes-app-internal" content="app-id=909343639">
+    <meta name="description" content="">
+{% endblock %}
+
+{% block canonical %}
+	{% set canonical_url = h.canonical_url() %}
+	{% if canonical_url %}
+		<link rel="canonical" href="{{ canonical_url }}"/>
+	{% endif %}
+{% endblock %}
+
+{% block extra_head  %}
+{{ super() }}
+<script type="text/javascript">
+var pageType = "Concept";
+var pageSubType = "{{ request.path }}";
+</script>
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+<script type="text/javascript">
+	if (location.href.split("&").indexOf('noback=true') === -1) {
+		if ('classList' in document.createElement('a')) {
+			document.getElementsByClassName('back-icon')[0].classList.remove('hide-one', 'hidden');
+			document.getElementsByClassName('name')[0].classList.add('hide-small');
+		} else { // IE-9 :(
+			var temp = document.getElementsByClassName('back-icon')[0]; 
+			temp.className = temp.className.replace(/\bhide-one\b/, '');
+			temp.className = temp.className.replace(/\bhidden\b/, '');
+			document.getElementsByClassName('name')[0].className += 'hide-small'; 
+		}
+	}
+    require(['main'], function () {
+       require(['modality/modality','js/flxweb.lms.banner'], function (Modalities, lmsBanner) {
+           new Modalities().init();
+	   lmsBanner('concept');
+       });
+    });
+</script>
+{% endblock %}
+
+{% block ltiHelpBanner %}
+    {{ lti_help_banner_macro('concept') }}
+{% endblock %}
+
+{% block content %}
+<div id="concept_meta_container">
+    <!-- Schema.org properties -->
+    <meta itemprop="interactivityType" content="mixed">
+    <meta itemprop="provider" content="CK-12 Foundation"/>
+    <meta itemprop="url" content="{{ h.url(c.page_url, qualified=True) }}"/>
+</div>
+{{ super() }}
+	<!-- <div id="page-disable" class="page-disable js-page-disable hide"></div> -->
+ 	<!-- <div id="loading-icon" class="loading-icon js-loading-icon">
+        <img alt="loading" src="{{ h.asset_image('common/images/icon_loading.gif') }}">
+	</div> -->
+    <a href="#" class="conceptmap-button-left-side grey button hide">
+        <i class="icon-arrow2_left"></i>
+        <span>Concept Map</span>
+    </a>
+	<div id="modality_contentwrap" class="row collapse relative">
+		<div id="modality_main" class="row collapse">
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,1 @@
+DELETE FROM `ArtifactFeedbackReviews` WHERE `reviewComment` = "" and `type` = 'vote';

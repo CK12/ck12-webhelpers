@@ -1,0 +1,37 @@
+{% extends "listings.html" %}  
+
+{% block header %}{{super()}}{% endblock %}
+{% block crumbs %}{{super()}}{% endblock %}
+
+{% block footer %}
+	{{super()}}
+{% endblock %}
+
+{% block admintop %}
+	{% block filters %} 
+        <div class="col topalign" style="margin:20px;">Filter by:</div>
+
+        <div class="col topalign">
+            {{ h.labelselect('Entity Type', 'entity_filter', c.form.entity_sel, 'filter')}}
+        </div>
+    {% endblock %}
+    
+    {% block aftersearches %} 
+	    {{ super() }}
+	    
+	{% endblock %}
+
+{% endblock %}
+
+{% block js_scripts %}
+{{ super() }}
+
+<script type='text/javascript'>
+
+Listings({
+	sort: 'actionTime,desc',
+    ajaxRoot: CK12.admUrl('/assessment/actions_list'),
+});
+
+</script>
+{% endblock %}

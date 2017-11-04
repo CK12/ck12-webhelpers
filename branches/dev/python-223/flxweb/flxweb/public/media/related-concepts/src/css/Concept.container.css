@@ -1,0 +1,156 @@
+#ab_concept_container {
+  padding-left: 5px;
+  padding-right: 0px;
+  width: 350px;
+}
+
+.ab_concept_content {
+  height: auto;
+  background-color: white;
+  border: 2px solid;
+  border-color: #ccc;
+  padding: 10px;
+}
+
+.ab_widget_title {
+  font-weight: bold;
+  font-family: "ProximaNova-Bold";
+  font-size: 18px;
+  color: #56544D;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+.ab_related_content .ab_widget_title {
+  text-align: center;
+}
+.ab_concept_list {
+   margin-bottom: 0px;
+   margin-top: 0px;
+}
+.ab_concept_title {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.ab_concept_title_icon {
+  font-size: 25px;
+  margin-top: 4px;
+  padding-left: 10px;
+  padding-right: 25px;
+}
+.ab_concept_title_text {
+  padding-left: 0px;
+}
+.ab_modality_list {
+  padding-top: 0px;
+  margin-top: 0px;
+}
+.ab_modality_list li {
+  padding-bottom: 0px;
+}
+.ab_modality_item {
+  padding: 7px;
+}
+.ab_modality_thumbnail {
+  padding: 5px;
+}
+.ab_modality_thumbnail img {
+  width: 75px;
+}
+.ab_modality_type {
+  font-size: 14px;
+  color: #56544D;
+}
+.ck_teal {
+  color: #00aba5;
+}
+
+.ab_concept_list ul {
+  list-style: none;
+}
+
+.ab_concept_list {
+  margin-left: 0px;
+  list-style: none;
+}
+
+.ab_modality_list {
+  margin-left: 20px;
+}
+
+.ab_modality_item li {
+  padding: 20px;
+}
+.ab_modality_list2 {
+  height: auto;
+  overflow: hidden;
+  margin-left: 8px;
+}
+.ab_modality_list2 li {
+  float: left;
+}
+.ab_modality_list2 li:nth-child(2n+1){
+  clear: both;
+}
+.ab_modality_item2 {
+  width: 140px;
+  padding: 0px;
+  margin: 8px;
+}
+.ab_modality_thumbnail_container2 {
+  padding: 0px;
+  width: 130px;
+  height: 81px;
+}
+.ab_modality_thumbnail_container2 .ab_modality_thumbnail2 {
+  vertical-align:middle;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
+.ab_modality_title2 {
+  font-size: 14px;
+  font-weight: bold;
+}
+.divider{
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 2px solid #fff;
+}
+.ab_modality_list3 {
+  height: auto;
+  overflow: hidden;
+  margin-left: 0px;
+  margin-top: 5px;
+  text-align: center;
+}
+.ab_modality_item3 {
+  width: 297px;
+  padding: 0px;
+  margin: 8px;
+}
+.ab_modality_thumbnail_container3 {
+  padding: 0px;
+  width: 295px;
+  height: 120px;
+  border: 2px solid;
+  border-color: #ccc;
+  background-color: #F6F3E3;
+  overflow:hidden;
+  margin: auto;
+  vertical-align: middle
+}
+.ab_modality_thumbnail_container3 .ab_modality_thumbnail3 {
+  position: relative;
+  vertical-align:middle;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 2px solid #F2F2F2;
+  background-color: #F6F3E3;
+  /*
+  height: 100%;
+  width: 100%;
+  */
+}

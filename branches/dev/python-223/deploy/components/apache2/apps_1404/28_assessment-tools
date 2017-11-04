@@ -1,0 +1,6 @@
+    Alias /assessment/tools/geometry-tool/build-20150908114042 /opt/2.0/assessment/tools/geometry-tool/build-20150908114042
+    Alias /assessment/tools/geometry-tool /opt/2.0/assessment/tools/geometry-tool/build-20150908114042
+    <Directory /opt/2.0/assessment/tools/geometry-tool/build-20150908114042/>
+        Require all granted
+    </Directory>
+

@@ -1,0 +1,5 @@
+    ProxyPass /2.0/ http://api.ck12.org/
+    ProxyPassReverse /2.0/ http://api.ck12.org/
+    <Location /2.0>
+      Require all granted
+    </Location>

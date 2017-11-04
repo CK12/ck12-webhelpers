@@ -1,0 +1,71 @@
+   <!--Dashboard-widget(1) code:Starts--->
+   <div class="left dashboard-widget" id="@@id@@" data-group-id="@@groupID@@">
+       <a class="right expand-view-button"><span class="expand-open">...</span><span class="expand-close hide"></span></a>
+       <div class="widget-heading-container">
+         <span class="js-group-link"><img class="group-image" alt="Group Image" src="@@imageSrc@@"/></span>
+         <span class="small-font widget-title js-group-link" title="@@groupName@@">@@groupName@@</span>
+         <div class="header4 widget-main-title" title="@@assignmentName@@">@@assignmentName@@</div>
+     </div>
+     <div class="left widget-body-container">
+         <div class="bar-graph-container @@graphClass@@">
+             <div class="bar-graph-header">
+                 <span class="bar-graph-header-complete">@@completed@@</span>
+                 <span class="sub-header2">/@@total@@</span>
+                 <span class="bar-graph-header-text sub-header2">CONCEPTS COMPLETED</span>
+             </div>
+             <div class="barGraphs">
+             </div>
+        </div>
+         <div class="row collapse">
+            <span class="start-block concept @@hideStart@@ sub-header3" data-contextUrl="@@data-contextUrl@@" data-encodedid="@@recentEncodedID@@" data-login="@@recentLogin@@" data-assignmentid="@@assignmentid@@" data-handle="@@recentHandle@@" data-mtype="@@mtype@@" data-collection-handle="@@recentCollectionHandle@@" data-concept-collection-absolute-handle="@@recentConceptCollectionAbsoluteHandle@@" data-concept-collection-handle="@@recentConceptCollectionHandle@@" data-collection-creator-ID="@@recentCollectionCreatorID@@">start</span>
+             <div class="left body-left-side">
+                <div class="widget-naivation-container @@hidden@@"><span class="recent-block concept sub-header3"  data-mtype="@@mtype@@" data-contextUrl="@@data-contextUrl@@"  data-encodedid="@@recentEncodedID@@" data-login="@@recentLogin@@" data-assignmentid="@@assignmentid@@" data-handle="@@recentHandle@@" data-collection-handle="@@recentCollectionHandle@@" data-concept-collection-absolute-handle="@@recentConceptCollectionAbsoluteHandle@@" data-collection-creator-ID="@@recentCollectionCreatorID@@" data-concept-collection-handle="@@recentConceptCollectionHandle@@">recent</span></div>
+                 <div class="widget-instructions concept @@hidePrevConcept@@" title="@@recentConceptName@@" data-contextUrl="@@data-contextUrl@@"  data-mtype="@@mtype@@"  data-encodedid="@@recentEncodedID@@" data-login="@@recentLogin@@" data-assignmentid="@@assignmentid@@" data-handle="@@recentHandle@@" data-collection-handle="@@recentCollectionHandle@@" data-concept-collection-absolute-handle="@@recentConceptCollectionAbsoluteHandle@@" data-concept-collection-handle="@@recentConceptCollectionHandle@@" data-collection-creator-ID="@@recentCollectionCreatorID@@">
+                     <i class="icon-quiz@@recentquiz@@"></i>
+                     <span>@@recentConceptName@@</span>
+                 </div>
+                 <div class="score-container @@hidden@@ @@hideLastScore@@">
+                     <span class="score-label sub-header3">LAST SCORE </span>
+                     <span class="score-count">@@lastScore@@</span>
+                 </div>
+                 <div class="score-container @@hideDone@@">
+                     <span class="icon-checkmark done-checkmark"></span>
+                     <span class="last-score-done">DONE</span>
+                 </div>
+             </div>
+             <div class="left body-right-side @@hideNext@@">
+                <div class="widget-naivation-container @@hidden@@"><span class="next-block concept sub-header3" data-encodedid="@@nextEncodedID@@" data-login="@@nextLogin@@" data-assignmentid="@@assignmentid@@" data-handle="@@nextHandle@@" data-collection-handle="@@nextCollectionHandle@@" data-concept-collection-absolute-handle="@@nextConceptCollectionAbsoluteHandle@@" data-concept-collection-handle="@@nextConceptCollectionHandle@@" data-collection-creator-ID="@@nextCollectionCreatorID@@">next</span></div>
+                 <div class="widget-instructions concept @@hideNextConcept@@" title="@@nextConceptName@@" data-encodedid="@@nextEncodedID@@" data-login="@@nextLogin@@" data-assignmentid="@@assignmentid@@" data-handle="@@nextHandle@@" data-collection-handle="@@nextCollectionHandle@@" data-concept-collection-absolute-handle="@@nextConceptCollectionAbsoluteHandle@@" data-concept-collection-handle="@@nextConceptCollectionHandle@@" data-collection-creator-ID="@@nextCollectionCreatorID@@">
+                     <i class="icon-quiz@@nextquiz@@"></i>
+                     <span>@@nextConceptName@@</span>
+                 </div>
+             </div>
+             <div class="left body-right-side completed-concepts @@hideComplete@@">
+                   <div class="completed-message-container">
+                       <span class="success-ribbon"></span>
+                       <span class="paragraph completion-content">done</span>
+                       <div class="small-font concepts-completion-message">
+                           You have completed all the concepts
+                       </div>
+                   </div>
+               </div>
+         </div>
+         <div class="widget-assignment-footer @@hiddenDate@@">
+             <div class="date-container">
+                 <span class="calendar-icon sub-header2">DUE:</span>
+                 <span class="date-text">@@dueDate@@</span>
+             </div>
+         </div>
+     </div>
+     <!--widget-body-expand code:Starts-->
+     <div class="left widget-body-expands hide">
+         <span class="spindle-expand">
+             
+         </span>
+         <span class="swiped-top-button">...</span>
+         <div class="row collapse concepts-wrapper">
+             <ul class="assignment-concept-list small-font">@@conceptList@@</ul>
+         </div>
+         <span class="swiped-bottom-button">...</span>  
+     </div><!--widget-body-expand code:Ends-->
+   </div><!--Dashboard-widget(1) code:Ends--->

@@ -1,0 +1,27 @@
+{% extends "dashboard/common.html" %}
+
+{% block title %}{{ _("My Quizzes") }}{% endblock %}
+
+{% block dashboard_titles %}{{ _("My Quizzes") }}{% endblock %}
+
+{% block dashboardcontent %}
+<div id="myTests" class="contentarea clearfix">
+ 	<img title="{{ _('Loading...') }}" class="js_loadingplaceholder exerciseloader hide" src="{{ h.url_images('icon_loading.gif') }}" width="43" height="11" />
+	 <!-- <iframe id="assessmentFrame" src="{{ _("/assessment-ui/#tests/home") }}" style="height:675px;width:100%;border:0px;height: 700px;"></iframe> --> 
+	  <iframe id="assessmentFrame" src="{{ h.url_assessment("?tests/home") }}" style="height:675px;width:100%;border:0px;height: 700px;" scrolling="no"></iframe> 	 					
+</div>
+{% endblock dashboardcontent %}
+
+{% block js %}
+{{ super() }}
+<script type="text/javascript">
+require(['require','main'], function(require){
+    require(['jquery','flxweb.assessmentFrameListener'],function($, frameListener){
+        frameListener.init({"apis": ["resize", "loadTestDetails", "shareTest"]});
+        var payload = {};
+        payload['page'] = 'my_tests';
+        _ck12.logEvent('fbs_view', payload);
+    });
+});
+</script>
+{% endblock js %}

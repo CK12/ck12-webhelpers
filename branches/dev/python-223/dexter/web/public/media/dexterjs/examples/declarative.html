@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<meta charset="UTF-8">
+
+<head>
+    <title>Declarative DexterJS Examples</title>
+    <style>
+        table.examples {
+            width: 100%;
+            border: 1px solid black;
+        }
+
+        table.examples td,
+        table.examples th {
+            border: 1px solid black;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .htmlcode {
+            border: 0px;
+            width: 40%;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js"></script>
+    <script>
+        require.config({
+            baseUrl: '.'
+        });
+
+        require(["../dist/dexterjs"], function(dexterjs) {
+            // append version to span
+            var versionSpan = document.getElementById("version");
+            versionSpan.appendChild(document.createTextNode(" v" + dexterjs.version));
+            window.dexterjs = dexterjs;
+            dexterjs.set('config',{
+                memberID:100,
+                clientID: 1234,
+                declarativePlugin: {
+                    enabled: true,
+                    defaultDomEvent: 'click',
+                    selector: '.dxtrack,.dxtrack-user-action',
+                    dataPrefix: 'data-dx-'
+                }
+            });
+            initializeExamples();
+        });
+
+        function escapeHtml(str) {
+            var div = document.createElement('div');
+            div.appendChild(document.createTextNode(str));
+            return div.innerHTML;
+        }
+
+        function addExample(htmlcode, notes) {
+            var examplesTR = document.querySelector('#examples');
+            var row = document.createElement('tr');
+            var htmlString = escapeHtml(htmlcode).replace(/dxtrack([^\"\s]*)\"/, '<b>dxtrack$1"</b>');
+            htmlString = htmlString.replace(/data-dx-([^\"\s]+)\"/g, '<b>data-dx-$1"</b>');
+            //htmlString = htmlString.replace(/&gt;/,'&gt;<br>');
+            //htmlString = htmlString.replace(/&lt;\/(.*)&gt;/,'&lt;\/$1&gt;<br>');
+            if (!notes) {
+                notes = '';
+            }
+            row.innerHTML = '<td class="htmlcode">' + htmlString + '</td><td>' + htmlcode + '</td><td>'+notes+"</td>";
+            examplesTR.appendChild(row);
+        }
+
+        function initializeExamples() {
+
+            addExample('<a href="#" class="dxtrack" data-dx-eventname="eventname" data-dx-key1="value1" data-dx-key2="value2">Link</a>','Passing individual key:value pairs for payload');
+
+            addExample('<a href="#" class="dxtrack" data-dx-eventname="eventname" data-dx-payload=\'{"key1":"value1", "key2":"value2"}\'>Link</a>','Passing payload as a single attribute');
+
+            addExample('<a href="#" class="dxtrack" data-dx-eventname="eventname" data-dx-key1="value1" data-dx-payload=\'{"key2":"value2"}\'>Some link</a>','Combining individual key:value with payload. In this case the payload will be {"key1":"value1","key2":"value2"}');
+
+            addExample('<a href="#" class="dxtrack" data-dx-domEvent="touchstart" data-dx-eventname="eventname" data-dx-key1="value1" data-dx-key2="value2">Link</a>','Specifing domEvent. This event will only fire when touchstart is either the defaultDomEvent OR is specified in the "additionalDomEvents"');
+
+            addExample('<a id="someID" href="#" class="dxtrack-user-action" data-dx-desc="A Simple anchor">Simple with ID</a>',"Simple use of dxtrack-user-action with description and a id attribute");
+
+            addExample('<a href="#" class="dxtrack-user-action" data-dx-eventname="FBS_DUMMY" data-dx-key1="value1">Click me</a>', 'Note that the data-dx-eventname overides dxtrack-user-action');
+
+            addExample('<a href="#" class="dxtrack-user-action" data-dx-desc="FBS_DUMMY" data-dx-key1="value1">Click me</a>','Using dxtrack-user-action with description and a data attribute');
+
+            addExample('<a href="#" title="anchor title" name="anchor name" class="dxtrack-user-action notification-nav-icon" data-dx-desc="Top Notifications count" data-dropdown="notification_container">' +
+                '<i class="icon-bell"></i><span class="drop-arrow hide-small"></span><span class="notification-count">16</span>' +
+                '</a>','Using dxtrack-user-action on a element with attributes. All the element attributes are sent in payload');
+
+            addExample('<a href="#" class="dxtrack-user-action">Click me</a>', "This event fails i.e is not sent since it is missing the required data-dx-desc attribute. Check out the warning in the developer console.");
+
+        }
+    </script>
+</head>
+
+<body>
+    <h1 class="title">dexterjs<span id="version"></span></h1>
+    <h2>Declarative Plugin examples</h2>
+    <h3 style="color:red;">Note: Please click the links and look at your network tab for payload sent to Dexter</h3>
+    <table class="examples" cellspacing="0">
+        <thead>
+            <tr>
+                <th>HTML</th>
+                <th>Rendered</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody id="examples">
+        </tbody>
+    </table>
+</body>
+
+</html>

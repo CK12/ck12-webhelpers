@@ -1,0 +1,15 @@
+{
+  "name": "launcher",
+  "version": "1.0.0",
+  "description": "Study Guides browse page",
+  "repository": {
+    "type": "svn",
+    "url": "svn://dev.ck12.org/ck12/trunk/2.0/flxweb/flxweb/public/media/study-guides"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-cssmin": "^1.0.1",
+    "grunt-contrib-uglify": "^2.0.0"
+  }
+}

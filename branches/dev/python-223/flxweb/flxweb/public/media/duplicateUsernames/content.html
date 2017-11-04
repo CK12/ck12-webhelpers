@@ -1,0 +1,63 @@
+<div id="duplicate-username" class="reveal-modal medium yellow" data-options="closeOnBackgroundClick:false">
+    <div class= 'stage-1'>
+        <div class="row reason">
+            <div class="large-2 small-12 columns">
+                <label>
+                    <i class="icon-notice"></i>
+                </label>
+            </div>
+            <div class="large-10 small-12 columns">
+                <p>
+                    We've detected a conflict with your username and request that you change it before proceeding.
+                </p>
+            </div>
+        </div>
+        <div class="row username-input-row">
+            <div class="large-2 columns hide-small">
+                <label class="username-label">
+                    <span class="user-text">Username</span>
+                </label>
+            </div>
+            <div class="large-2 columns show-small">
+                <label class="username-label label-small">
+                    <span class="user-text">Username</span>
+                </label>
+            </div>
+            <div class="large-10 columns">
+                <div class="left input large account-username">
+        			<input type="text" class="new-username" placeholder="ex: starfish">
+                    <i class="icon-validated hide"></i>
+        		</div>
+                <div class="username-change hide">
+    				<i class="icon-notification"></i>
+    				<span class="hide-small">Note: Username once updated cannot be changed later.</span>
+    				<span class="show-small">Username can't be changed later.</span>
+    			</div>
+                <div class="username-exist hide">
+                    <span>This username has already been taken.</span>
+                </div>
+            </div>
+        </div>
+        <div class="row button-row">
+            <div class="large-10 columns large-offset-2">
+                <a class="button standard tangerine disabled new-username-submit">Save Changes</a>
+            </div>
+        </div>
+    </div>
+    <div class="stage-2 hide">
+        <div class="row result">
+            <div class="context">
+                <span> Success!</span>
+            </div>
+            <div>
+                <i class="icon-validated"></i>
+            </div>
+            <div class="context second">
+                <span>You have successfully changed your username.</span>
+            </div>
+            <div>
+                <a class="button large turquoise proceed">Proceed</a>
+            </div>
+        </div>
+    </div>
+</div>

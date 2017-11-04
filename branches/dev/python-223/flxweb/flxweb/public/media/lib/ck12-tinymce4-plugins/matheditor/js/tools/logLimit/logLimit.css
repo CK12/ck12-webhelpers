@@ -1,0 +1,13 @@
+.logToolContainer.tool-bar-tools {
+	margin-top: 37px;
+}
+.logToolContainer .log-subscript{
+	 vertical-align: sub;
+	 font-size:80%;
+}
+.logToolContainer .tooltip-tools-inner{
+	 line-height: 14px;
+}
+.logToolContainer .close-cont{
+    height:96%\9;
+}

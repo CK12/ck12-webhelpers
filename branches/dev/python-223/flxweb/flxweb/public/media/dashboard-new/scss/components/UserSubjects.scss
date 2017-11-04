@@ -1,0 +1,117 @@
+@import '../main';
+
+:local {
+    .userSubject {
+        border-left: 1px solid $IVORY;
+        height: 100%;
+        position: relative;
+    }
+
+    .subjectsTitle {
+        position: relative;
+        // padding-right: rem-calc(25) !important;
+
+        span {
+            cursor: pointer;
+            font-weight: normal;
+            color: $link-color;
+            text-transform: capitalize;
+            display: inline-block;
+           // opacity: 0;
+           	opacity: 1;
+            transition: all 0.25s;
+           // transform: translateX(-100%);
+            transform: translateX(50%);
+        }
+
+       /** &:hover {
+            span {
+                opacity: 1;
+                transform: translateX(50%);
+            }
+        }**/
+    }
+
+    .title {
+        text-transform: uppercase;
+        color: $GREY_BROWN;
+        font-weight: bold;
+        font-size: rem-calc(12);
+        margin-bottom: rem-calc(5);
+        margin-left: rem-calc(5);
+
+        i {
+            margin-right: rem-calc(5);
+        }
+    }
+
+    .subjects {
+        margin-bottom: 0;
+        margin-left: 0;
+        list-style-type: none;
+        height: rem-calc(76);
+
+        li {
+            color: $EARTH;
+            font-size: rem-calc(12);
+            position: relative;
+            padding-left: rem-calc(16);
+            max-width: 100%;
+            position: relative;
+            z-index: 1;
+            @include truncateText();
+
+
+            &.viewAllSubjects {
+                text-transform: lowercase;
+                text-align: left;
+
+                a { color: $link-color; }
+
+                &:before {
+                    content: ''
+                }
+            }
+
+            a { color: $EARTH; }
+
+            &:before {
+                content: '\2022';
+                position: absolute;
+                left: 0;
+                font-size: rem-calc(24);
+                line-height: rem-calc(16);
+                color: $GREY_BROWN;
+            }
+
+            &:hover {
+                overflow: visible;
+                a {
+                    color: $link-color;
+                }
+            }
+        }
+    }
+
+    .noSubjects {
+        font-size: rem-calc(12);
+        cursor: pointer;
+        color: $link-color;
+    }
+
+    .subjectsPickerContainer{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        > div {
+            min-width: rem-calc(200);
+        }
+    }
+
+    :global(#{$ie11}) {
+        .subjects li:before {
+            line-height: 0.5;
+        }
+    }
+}

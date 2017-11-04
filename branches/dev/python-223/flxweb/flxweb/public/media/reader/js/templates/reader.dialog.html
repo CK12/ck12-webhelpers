@@ -1,0 +1,67 @@
+<div class="reader-dialog reveal-modal" data-reveal id="readerDialogModal">
+	<div class="row">
+		<div class="small-8 columns reader-dialog-leftpanel">
+			<div class="reader-dialog-leftpanel-title">
+				Open immediately in the FlexBook&reg Reader
+			</div>
+			<div class="reader-dialog-leftpanel-logo">
+				<img src="/media/reader/images/flexbook_logo_white.png" />
+			</div>
+			<ul>
+				<li> - Read FlexBooks&reg Offline</li>
+				<li> - Manage Books In One Place</li>
+				<li> - Distraction-Free Interface</li>
+			</ul>
+			<a title="Open in Reader"  href="/reader/reader-index.html#book/<%= data.artifactRevisionID %>" target="readerWindow"
+				class="button standard tangerine reader-dialog-leftpanel-button dxtrack-user-action"
+				data-dx-desc="reader_web_dialog_open_link" data-dx-artifactRevisionID="<%= data.artifactRevisionID %>">Open in Reader</a>
+		</div>
+		<div class="small-4 columns reader-dialog-rightpanel">
+			<div class="reader-dialog-rightpanel-title">
+				<div>Download</div>
+                <div>CK-12 FlexBook&reg App</div>
+			</div>
+			<div class="reader-dialog-rightpanel-storepanel">
+				<div class="small-7 columns reader-dialog-rightpanel-storelinks">
+					<div class="reader-dialog-rightpanel-apple-store">
+						<a title="Download on the app store"  href="https://itunes.apple.com/us/app/flexbook/id1011793723?mt=8" target="_blank"
+						class="dxtrack-user-action" data-dx-desc="reader_web_ios_link" data-dx-referrer="reader_dialog" data-dx-artifactRevisionID="<%= data.artifactRevisionID %>">
+						<img src="/media/reader/images/apple_store.png" /></a>
+					</div>
+					<div class="reader-dialog-rightpanel-google-play">
+						<a title="Get it on Google play" href="https://play.google.com/store/apps/details?id=org.ck12.reader"  target="_blank"
+						class="dxtrack-user-action" data-dx-desc="reader_web_android_link" data-dx-referrer="reader_dialog" data-dx-artifactRevisionID="<%= data.artifactRevisionID %>">
+						<img src="/media/reader/images/google_play.png"/></a>
+					</div>
+				</div>
+				<div class="small-5 columns reader-dialog-rightpanel-flexbook-app-logo">
+					<img src="/media/reader/images/flexbook_app_logo.png"/>
+				</div>
+			</div>
+			<div class="reader-dialog-rightpanel-emailpanel">
+				<div class="reader-dialog-rightpanel-emailpanel-instructions">
+					Enter your email address below to be sent a download link:
+				</div>
+				<div class="reader-dialog-rightpanel-emailpanel-email">
+					<div class="tooltip-left hide">Invalid Email Address</div>
+					<div class="input">
+						<input type="text" class="emailpanel-email-input" placeholder="Email Address" />
+						<i class="icon-notification hide"></i>
+					</div>
+				</div>
+				<button class="emailpanel-sendlink dxtrack-user-action"
+					data-dx-desc="reader_web_email_sendlink" data-dx-referrer="reader_dialog" data-dx-artifactRevisionID="<%= data.artifactRevisionID %>">
+					Send Link
+				</button>
+			</div>
+			<div class="reader-dialog-rightpanel-successpanel hide">
+				<div class="successpanel-message">Success!</div>
+				<i class="successpanel-tickmark icon-checkmark"></i>
+				<div class="successpanel-email-msg">Check your email for the download link.</div>
+			</div>
+		</div>
+	</div>
+	<span class="reader-dialog-close dxtrack-user-action" data-dx-desc="reader_web_dialog_close" data-dx-artifactRevisionID="<%= data.artifactRevisionID %>">
+		<img src="/media/reader/images/close_x.png"/>
+	</span>
+</div>

@@ -1,0 +1,38 @@
+{% extends "details/modalities/modality_details_with_answerkey.html" %}
+
+{% set resource = c.modality_data.artifact.get_modality_resource() %}
+
+{% block before_metadata %}
+    <!-- Artifact Summary -->
+    {% if resource.description %}
+    <section>
+        <h2 class="toptitle spacetopmedium">{{ _("Description") }}</h2>
+        <div class="articleinfowrap js_moreinfo">
+            <div itemprop="description" id="artifact_summary">
+                {{ resource.description|escape|replace("None", "") }}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+{% endblock %}
+
+{% block modality_content_main %}
+        {% if resource.thumbnail %}
+        <div class="thumb_imgwrap">
+        <a href="/flx/show{{ resource.permaUri }}"><img class="modality_resource_thumb" src="{{ resource.thumbnail }}" title="{{ resource.name }}" alt="{{ resource.name }}" /></a> 
+        </div>
+        {% endif %}
+        <div class="modality_resource_desc break-word">
+            {{ resource.description|escape|replace("None", "") }}
+        </div>
+        <div class="spacetoplarge">
+        {{ 'Open the resource in a new window.' }}
+        </div> 
+        <div>
+            {% if c.modality_data.artifact.get('artifactType') == 'simulation' or c.modality_data.artifact.get('artifactType') == 'simulationint' %}
+                <a class="break-all" target="_blank" href="{{ resource.uri }}">{{ resource.uri }}</a>
+            {% else %}
+                <a class="break-all" target="_blank" href="/flx/show{{ resource.permaUri }}">{{ resource.uri }}</a>
+            {% endif %}
+        </div>
+{% endblock %}

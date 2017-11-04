@@ -1,0 +1,8 @@
+    ProxyRequests Off
+
+    <Proxy *>
+       Order deny,allow
+       allow from all
+    </Proxy>
+    #ProxyPass /peerhelp/api/  http://hera.ck12.org/peerhelp/api/
+    #ProxyPassReverse /peerhelp/api/ http://hera.ck12.org/peerhelp/api/

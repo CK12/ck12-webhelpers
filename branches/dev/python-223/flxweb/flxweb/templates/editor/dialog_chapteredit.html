@@ -1,0 +1,127 @@
+<div class="chapteredit_content tk-katarine-web">
+    <div class="chapter_editor_dialog">
+        <ul>
+            <li>
+                <a href="#chapteredit_tab_basic">{{ _("Basic Information") }}</a>
+            </li>
+            <li>
+                <a href="#chapteredit_tab_intro">{{ _("Introduction") }}</a>
+            </li>
+            <li>
+                <a href="#chapteredit_tab_summary">{{ _("Summary") }}</a>
+            </li>
+            <li>
+                <a href="#chapteredit_attachments">{{ _("Resources") }}</a>
+            </li>
+            <li>
+                <a href="#chapteredit_tab_details">{{ _("Details") }}</a>
+            </li>
+        </ul>
+        <div id="chapteredit_tab_basic">
+            <div class="chapteredit_section">
+                <div class="formlabelwrap txt_chapter_title_wrapper">
+                    <label class="formlabel" for="txt_chapter_title">{{ _("Chapter Title:") }}</label>
+                </div>
+                <div class="inputwrap">
+                    <input type="text" class="textbox" name="txt_chapter_title" id="txt_chapter_title" maxlength="100" />
+                </div>
+                <div class="formlabelwrap">
+                    <label class="formlabel" for="txt_chapter_desc">{{ _("Chapter Description:") }}</label>
+                </div>
+                <div class="inputwrap">
+                    <textarea name="txt_chapter_desc" id="txt_chapter_desc" ></textarea>
+                </div>
+            </div>
+        </div>
+        <div id="chapteredit_tab_intro">
+            <div class="inputwrap">
+                <textarea name="txt_chapter_intro" id="txt_chapter_intro" style="width:100%;"></textarea>
+            </div>
+        </div>
+        <div id="chapteredit_tab_summary">
+            <div class="inputwrap">
+                <textarea name="txt_chapter_summary" id="txt_chapter_summary"  style="width:100%;"></textarea>
+            </div>
+        </div>
+        <div id="chapteredit_attachments" class="resourceview">
+            <section class="resource_actions resource_wrapper">
+                <div class = "resource_action_holder">
+                    <div class="button turquoise uploadbtn_container js_uploadbtn_container resource_upload">
+                        <form 
+                            action="{{ config.webroot_url }}ajax/resource/upload/"
+                            method="POST"
+                            enctype="multipart/form-data">
+                            <input type="hidden" name="type" value="attachment" />
+                            <input type="hidden" name="isAttachment" value="true" />
+                            <input type="file" name="uploadfile" class="uploadfile_input" />
+                            <div class="uploadbtn_display js_uploadbtn_btn">{{ _("Upload Files") }}</div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            <section class="chapter_resources_container">
+                <div class="artifact_attachment_container js_resource_container"></div>
+            </section>
+        </div>
+        <div id="chapteredit_tab_details" class="chapteredit-tab-details">
+            <section id="chapterattributionscontainer">
+                <h2>{{ _("Attributions") }}</h2>
+                <div>
+                    <a id="chapter_btn_addattributions" href="#">Add Attributions</a>
+                </div>
+                <div class="spacetop">
+                    <div id="chapter_attribution_author" class="hide">
+                        <span class="attribution_title">Authors:</span>
+                        <span data-attribrole="author" class="js_chapter_attributionlist_container">
+                            
+                        </span>
+                    </div>
+                    <div id="chapter_attribution_contributor" class="hide">
+                        <span class="attribution_title">Contributors:</span>
+                        <span data-attribrole="contributor" class="js_chapter_attributionlist_container">
+                            
+                        </span>
+                    </div>
+                    <div id="chapter_attribution_editor" class="hide">
+                        <span class="attribution_title">Editors:</span>
+                        <span data-attribrole="editor" class="js_chapter_attributionlist_container">
+                            
+                        </span>
+                    </div>
+                    <div id="chapter_attribution_translator" class="hide">
+                        <span class="attribution_title">Translators:</span>
+                        <span data-attribrole="translator" class="js_chapter_attributionlist_container">
+                            
+                        </span>
+                    </div>
+                    <div id="chapter_attribution_source" class="hide">
+                        <span class="attribution_title">Sources:</span>
+                        <span data-attribrole="source" class="js_chapter_attributionlist_container">
+                            
+                        </span>
+                    </div>
+                    <div id="chapter_attribution_reviewer" class="hide">
+                        <span class="attribution_title">Reviewer:</span>
+                        <span data-attribrole="reviewer" class="js_chapter_attributionlist_container">
+                            
+                        </span>
+                    </div>
+                    <div id="chapter_attribution_technicalreviewer" class="hide">
+                        <span class="attribution_title">Technical Reviewer:</span>
+                        <span data-attribrole="technicalreviewer" class="js_chapter_attributionlist_container">
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </section>
+        </div>
+    </div>
+    <div class="dialogbuttons">
+        <input type="button" class='button tangerine standard' id="js_savechapter" value="{{ _('Save Chapter') }}" />
+    </div>
+</div>
+<div class="chapteredit_saving hide">
+    <img src="{{ h.url_images('icon_loading.gif') }}" width="43" height="11" /> {{ _("Saving Chapter...") }}
+    <div class="chapteredit_error"></div>
+</div>

@@ -1,0 +1,17 @@
+{% extends "base/auth/1column.html" %}
+{% block title %} Unauthorized{% endblock %}
+
+{% block pageinfotop %}
+<div class="contenttop"></div>
+{% endblock %}
+
+{% block content %}
+<div class="prefix_3 grid_6 suffix_3">
+    <h1 class="sectiontitle toptitle">{{ _("The request requires user authentication.") }}</h1>
+    <div class="sectiondivider"></div>
+    {% if c.reason %}
+    <p>{{ c.reason }}</p>
+    {% endif %}
+    <p>{{ _("Error ID: ") }}{{ c.now }}</p>
+</div>
+{% endblock %}

@@ -1,0 +1,171 @@
+{% extends "details/modalities/modality_common.html" %}
+{% from "macros/artifact.html" import ck12_artifact_navigation_top_small with context %}
+
+{% if c.modality_data and c.modality_data.keywords %}
+{% set page_description = "Study %s covering %s with help of videos, practices,study guides and flashcards and real world applications for K-12 education" % (c.domain.name|escape, c.modality_data.keywords|join(', ') ) %}
+{% else %}
+{% set page_description = "Study %s with help of videos, practices,study guides and flashcards and real world applications for K-12 education" % (c.domain.name|escape) %}
+{% endif %}
+
+{% block schema_itemscope %} itemscope itemtype="http://schema.org/CollectionPage" {% endblock %}
+
+{% block meta_extra %}
+	{{ super() }}
+	<meta name="description" content="{{ page_description }}">
+{% endblock %}
+
+{% block extra_head  %}
+{{ super() }}
+<script type="text/javascript">
+var pageType = "Concept";
+var pageSubType = "{{c.domain.name}}";
+</script>
+{% endblock %}
+
+{% block js  %}
+{{ super() }}
+<script type="text/javascript">
+	require(['main'], function(){
+		require(['flxweb.modalities']);
+	});
+</script>
+{% endblock %}
+
+{% block additional_body_classes %}content-reorg{% endblock %}
+
+{% block modalities_navbar %}
+<div class="small-8 columns filter_links">
+	<a class="{% if c.modality_data.by == '' %}active{% endif %}" href="{{ c.page_url }}{{ request.url|ck12_query_parameters({'by':none}) }}">{{ _("All") }}</a>
+	<a class="{% if c.modality_data.by == 'ck12' %}active{% endif %}" href="{{ c.page_url }}{{ request.url|ck12_query_parameters({'by':'ck12'}) }}">{{ _("CK-12 Content") }}</a>
+	<!-- <a href="{{ c.page_url }}{{ request.url|ck12_query_parameters({'by':None}) }}">{{ _("Trending") }}</a> -->
+	<a class="{% if c.modality_data.by == 'community' %}active{% endif %}" href="{{ c.page_url }}{{ request.url|ck12_query_parameters({'by':'community'}) }}">{{ _("Community Contributed") }}</a>
+</div>
+
+<div class="small-4 columns">
+	<div class="dropdowncontainer">
+		<div class="dropdownwrap gradedropdown relative 
+		{% if c.difficulty_level %}moreitems{% endif %}
+		{% if 'levelCount' in c.domain and c.domain.get('levelCount') != 0 %}
+			{% for level in [ 'basic', 'at grade', 'advanced' ] %}
+				{% if level in c.domain.get('levelCount') %}
+					{% if level != c.difficulty_level %}moreitems{% endif %}
+				{% endif %}
+			{% endfor %}
+		{% endif %}
+		">
+			<div class="itemwrap main">
+			{% set _lvl = None %}
+			{% if not c.difficulty_level %}
+				<span class="item" title="{{ _("Difficulty") }}">{{ _('All Levels') }}</span><span class="tip"></span>
+			{% else %}
+			{% set _lvl = c.difficulty_level %}
+			{% endif %}
+			{% if 'levelCount' in c.domain and c.domain.get('levelCount') != 0 %}
+				{% for level in [ 'basic', 'at grade', 'advanced' ] %}
+					{% if level in c.domain.get('levelCount') %}
+						{% if level == c.difficulty_level %} 
+							{% set _lvl = level %}
+						{% endif %}
+					{% endif %}
+				{% endfor %}
+				{% if _lvl %}
+				<span class="item" title="{{ _("Difficulty") }}">{{ _lvl|title }}</span><span class="tip"></span>
+				{% endif %}
+			{% endif %}
+			</div>
+		
+			<ul class="dropdown difficultydropdown">
+			{% if c.difficulty_level %}
+				<li class="itemwrap"><a class="item" href="{{ c.page_url }}{{ request.url|ck12_query_parameters({'difficulty':none}) }}">{{ _('All Levels') }}</a></li>
+			{% endif %}
+			{% if 'levelCount' in c.domain and c.domain.get('levelCount') != 0 %}
+				{% for level in [ 'basic', 'at grade', 'advanced' ] %}
+					{% if level in c.domain.get('levelCount') %}
+						{% if level != c.difficulty_level %} 
+							<li class="itemwrap"><a class="item" href="{{ c.page_url }}{{ request.url|ck12_query_parameters({'difficulty':level}) }}" title="{{ c.domain.name|escape }} - {{ level|title }}">{{ level|title }}</a></li>
+						{% endif %}
+					{% endif %}
+				{% endfor %}
+			{% endif %}
+			</ul>
+		</div>
+		
+		<div class="dropdownwrap typesdropdown moreitems relative">
+			<div class="itemwrap main">
+			<span class="item selected_modality_type">{{ _("All") }}</span> <span class="tip"></span>
+			</div>
+		
+			<ul class="dropdown modality_types_list">
+				{% for group in c.modality_data.modality_groups %}
+				<li class="itemwrap {{ group.group_classname }}" data-groupname="{{ group.group_classname }}"><a class="item" href="#{{ group.group_classname }}"> {{ group.group_name }} ({{ group.count }}) </a></li>
+				{% endfor %}
+			</ul>
+		</div>
+		
+	</div>
+</div>
+<div class="small-12 columns" class="modality-filters-tuna">
+{{ super() }}
+</div>
+{% endblock %}
+
+{% block modality_content %}
+<!-- Schema.org properties -->
+<meta itemprop="description" content="{{ page_description }}">
+<meta itemprop="interactivityType" content="mixed">
+<meta itemprop="provider" content="CK-12 Foundation"/>
+<meta itemprop="url" content="{{ h.url(c.page_url, qualified=True) }}"/>
+
+
+<div class="modalitiestopbar">
+	<div id="modality_breadcrumbs" class="small-12 columns">&nbsp;</div>
+	<div class="gclear"></div>
+</div>
+
+<div class="modalitieslistwrap">
+	<ul id="modalities_list"></ul>
+	<div class='js_loading'> <img class="loading" src="{{ h.url_images('icon_loading.gif') }}" width="43" height="11" />
+</div>
+{% endblock %}
+
+{% block artifact_review_feedback %}
+{% endblock %}
+
+{% block hidden_divs %}
+{{ super() }}
+{% block modality_extra_filter_hidden %}
+<ul>
+	<li class="mdoalityfilterdropmenuwrap hide"><span class="lnk_modality_filter">More</span>
+		<ul id="modality_extra_filter_list" class="drop-menu hide">
+		</ul>
+	</li>
+</ul>
+{% endblock modality_extra_filter_hidden %}
+<script id="tmpl_modality_filter_selection" type="text/template">
+	<div class="selected_level_text">
+		<span><%= data.selected_level %></span> 
+		<div class="level_tooltip"> 
+			<span class="icon-help2"></span>
+			<div class="tooltip-top_header hide">
+				<div class="header"> {{_("Learning Level Definition")}} <div class="btn_close">X</div></div>
+				<div class="content">
+					<div><strong> {{ _("Basic:") }}</strong> <span>{{ _("Students have partial mastery.") }}</span></div>
+					<div><strong> {{ _("At Grade (Proficient):") }}</strong> <span>{{ _("Students have demonstrated competency over challenging subject matter.") }}</span></div>
+					<div><strong> {{ _("Advance:") }}</strong> <span>{{ _("Students are ready for material that requires superior performance and mastery.") }}</span></div>
+				</div>
+			</div>
+		</div> 
+		/ 
+		<span class="selected_type_text"><%= data.selected_type %></span>
+</script>
+
+{% endblock %}
+
+{% block modality_data %}
+<script type="text/javascript">
+    window.js_modality_data = {{ c.modality_data|ck12_json }};
+    var jsCollectionData = [{{ c.collection_data_json|ck12_json }}]
+    if (jsCollectionData.length > 0) 
+    	window.js_collection_data = jsCollectionData[0];
+</script>
+{% endblock %}

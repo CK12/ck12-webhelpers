@@ -1,0 +1,30 @@
+{% extends "base/auth/1column.html" %}
+{% block title %}File Not Found Error{% endblock %}
+
+{% block pageinfotop %}
+<div class="contenttop"></div>
+{% endblock %}
+
+{% block content %}
+<div class="prefix_3 grid_6 suffix_3">
+    <h1 class="sectiontitle toptitle">{{ _("Oops, The request timed out.") }}</h1>
+    <div class="sectiondivider"></div>
+    {% if c.reason %}
+    <p>{{ c.reason }}</p>
+    <div class="sectiondivider"></div>
+    {% endif %}
+    <p>{{ _("It took longer than expected to process that last request.") }}</p>
+    <div class="sectiondivider"></div>
+    <p class="sectiontop">{{ _("Here are some possible reasons why:") }}</p>
+    <ol>
+            <li>{{ _("Our servers are extremely busy.") }}</li>
+            <li>{{ _("Some technical issues prevented the servers to process the request in time.") }}</li>
+            <li>{{ _("This web server is going nutty.") }}</li>
+    </ol>
+    <div class="sectiondivider"></div>
+    <p>
+        <p>{{ _("Try visiting the page after some time.") }}</p>
+    </p>
+    <p>{{ _("Error ID: ") }}{{ c.now }}</p>
+</div>
+{% endblock %}

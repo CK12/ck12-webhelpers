@@ -1,0 +1,118 @@
+<div class="row">
+	<div class="columns large-12 student-home-container">
+		<div id="loading-icon" class="loading-icon js-loading-icon hide">
+			<img alt="loading" src="/lmspractice/media/common/images/icon_loading.gif">
+		</div>
+		<div class="row student-home-header <% if (data.groups.length == 0){ %> hide <% } %>">
+			<div class="columns large-5 student-group-name">
+				<div>
+					<div data-dropdown="group-dropdown" class="simple left group-dropdown js-group-dropdown">
+						<a class="dropdown-label js-close-drop-down"><span class="js-selected-group-title selected-group-title"><%= data.firstGroupTitle %></span>
+							<% if (data.groups.length > 1) { %>
+								<i class="icon-arrow3-down link-green"></i>
+							<% } %> 
+						</a>
+					</div>
+					<ul id="group-dropdown" class="f-dropdown tangerine-list simple level-dropdown-list group-dropdown-list" data-dropdown-content="">
+						<% for (var i = 0; i< data.groups.length; i++){
+							var group = data.groups[i]; 
+						%>
+						<li class="" data-groupid="<%= group.id %>">
+							<%= group.lmsGroups[0].title %>
+						</li>
+						<% } %>
+					</ul>
+				</div>
+			</div>
+			<div class="columns large-5 link-green pointer completed-assignment-link hide">
+			    <div class="msg_show_completed">
+	    			<span>See completed assignments</span>
+	    			<i class="icon-arrow2_right completed-assignment-arrow"></i>
+			    </div>
+			    <div class="msg_hide_completed hide">
+	    			<i class="icon-arrow2_left completed-assignment-arrow"></i>
+	    			<span>See incomplete assignments</span>
+			    </div>
+			</div>
+		</div>
+		<div class=" row student-home-body">
+			<div id = "member-assignment" class="hide">
+				<div class="column large-12 student-assignment-wrapper">
+					<div class="row collapse js-incomplete member-assignments-container">
+						<div id="past-due" class="small-12 large-12 columns">
+							<div class="row collapse member-assignment-list-header">
+								<div class="left text-center member-assignment-due">
+									<i class="icon-calendar"></i>
+								</div>
+								<div class="member-assignment-name">
+									<span>PAST DUE</span>
+									<i class="icon-bell"></i>
+								</div>
+							</div>
+							<div id="past-due-items"></div>
+						</div>
+					</div>
+					<div class="row collapse js-incomplete member-assignments-container">
+						<div id="upcoming" class="small-12 large-12 columns">
+							<div class="row collapse member-assignment-list-header">
+								<div class="left member-assignment-due">
+									<i class="icon-calendar js-only-upcoming"></i>
+								</div>
+								<div class="member-assignment-name">
+									<span>COMING UP</span>
+								</div>
+							</div>
+							<div id="upcoming-items"></div>
+						</div>
+					</div>
+					<div class="row collapse js-incomplete member-assignments-container">
+						<div id="complete" class="small-12 large-12 columns hide">
+							<div class="row collapse member-assignment-list-header">
+								<div class="left text-center turned-in-date right">
+									<span>DATE TURNED IN</span>
+								</div>
+							</div>
+							<div id="complete-items"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="member-no-assignment" class="hide">
+				<div class="row collapse start-practice-wrapper">
+					<div class="small-12 large-12 columns">
+						<span class="fantastic-icon"></span>
+						<p class="fantastic">
+							Fantastic.
+						</p>
+						<p class="fantastic-complete">
+							You turned in all your assignments for <span class="group-name"></span>
+						</p>
+						<div class="fantastic-complete">
+							<div class="button turquoise medium js-completed-assignment">
+								See your assignments</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="empty-assignment" class="hide">
+				<div class="row empty-assignment-content text-center">
+					<div class="small-12 large-12 columns empty-assignment-text">
+						<div>
+							Your teacher hasn't assigned any practice to you yet.
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="no-groups" class="<% if (data.groups.length !== 0){ %> hide <% } %>">
+				<div class="row empty-assignment-content text-center">
+					<div class="small-12 large-12 columns empty-assignment-text">
+						<div>
+							Your teacher hasn't assigned any practice to you yet.
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,51 @@
+{% extends "MASTER_CK12_LOGO.html" %}
+{% block email_body %}
+<html>
+    <body>
+    	<p>Dear {{ member.name }},</p>
+    <br>
+    
+    <p>Greetings from CK-12 Foundation!</p>
+    <br>
+    <ul>
+    {% for event in events %}
+    
+    <p>Requested {{ event['objectDict']['artifactType'] }} has been published successfully</p>
+    <br>
+    <li>Title: <a href="{{ site }}{{ event['objectDict']['perma'] }}/r{{ event['objectDict']['revisions'][0]['revision'] }}" target="_blank">{{ event['objectDict']['title']|e }}</a>
+    <li>
+    Published On: {{ event['created'] }}
+    </li>
+    {% if event['objectDict']['summary'] %}
+    <li>
+      Summary: {{ event['objectDict']['summary'] }}
+     </li>
+    {% endif %}
+    </li>
+     <li>
+        Last Modified On: {{ event['objectDict']['modified'] }} {{ event['created'].split(' ')[-1] }}
+     </li>
+     {% if event['eventData']['authorizedBy'] %}
+    <li>
+      Authorized By: {{ event['eventData']['authorizedBy'] }}
+     </li>
+    {% endif %}
+    {% if event['eventData']['reason'] %}
+    <li>
+      Reason: {{ event['eventData']['reason'] }}
+     </li>
+    {% endif %}
+     {% if event['objectDict']['license'] %}
+     <li>
+        License: {{ event['objectDict']['license'] }}
+     </li>
+     {% endif %}
+     <br>
+     {% endfor %}
+    </ul>
+    <p>Sincerely,</p>
+    <br>
+    <p>The CK-12 Team</p>
+    </body>
+</html>
+{% endblock %}

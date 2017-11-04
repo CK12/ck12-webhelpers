@@ -1,0 +1,36 @@
+.suffixContainer .sup .sub-denom {
+    font-size: 90%;
+}
+.suffixContainer .sup {
+    font-size: 70%;
+    line-height: inherit;
+    position: relative;
+    vertical-align: super;
+}
+.suffixContainer .sup.sub {
+    vertical-align: sub !important;
+}
+.suffixContainer .suffixText.subText{
+	left: -3px;
+	top: 0px;
+	vertical-align : sub;
+}
+.suffixContainer .superscript{
+    border-left: 1px solid #FAF5F7;
+    border-right: 1px solid #FAF5F7;
+    color: #FFFFFF;
+    cursor: pointer;
+    float: left;
+    height: 100%;
+    width: 50px;
+  	font-size : 25px;	
+}
+.suffixContainer .tooltip-tools-inner {
+	width: 30px;
+}
+.tooltip-tools-inner.subscript {
+	top: 3px;
+}
+.suffixContainer .close-cont{
+	height:96%;
+}

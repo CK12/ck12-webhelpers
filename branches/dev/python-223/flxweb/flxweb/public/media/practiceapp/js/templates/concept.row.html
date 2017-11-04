@@ -1,0 +1,6 @@
+<div class="row collapse select-concept-wrapper <%= data.conceptLevel > 1? "level-" + data.conceptLevel + "-concept" :"" %> <%= data.encodedID?"pointer my-class js-select-concept-wrapper js-concept-select concept":"concept-parent" %>" style="<%= data.conceptLevel > 1? "padding-left:" + (data.conceptLevel * 20 - 5) + "px": "" %>" data-encodedID="<%= data.encodedID %>" data-handle="<%= data.handle %>" data-parent-handle="<%= data.parentHandle %>" data-collection-handle="<%= data.collectionHandle %>" data-concept-collection-handle="<%= data.conceptCollectionHandle %>" data-concept-collection-absolute-handle="<%= data.conceptCollectionAbsoluteHandle %>" data-collection-creator-ID="<%= data.collectionCreatorID %>">
+	<span class="concept-name">
+		<span class="js-concept-name"><%= data.conceptName %></span>
+	</span>
+	<div class="button tangerine small right margin-bottom-zero js-assign-concept button-custom <% if ( !data.buttonText){ %> hide <%}  %>" data-reveal-id="assign-groups-modal"><%= data.buttonText %></div>
+</div>

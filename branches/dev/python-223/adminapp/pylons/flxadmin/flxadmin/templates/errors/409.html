@@ -1,0 +1,19 @@
+{% extends "master.html" %}
+{% block title %}Permission Denied.{% endblock %}
+
+{% block pageinfotop %}
+<div class="contenttop"></div>
+{% endblock %}
+
+{% block content %}
+<div class="prefix_3 grid_6 suffix_3">
+    <h1 class="toptitle">{{ _("Oops, permission denied.") }}</h1>
+    <div class="sectiondivider divider spacetoplarge"></div>
+    <p>{{ _("You don't have permission to the requested page. Please contact admin(super-admin) user to get access to the page.") }}</p>
+    <div class="sectiondivider divider spacetop"></div>
+    <div class="sectiondivider divider"></div>
+    <p>
+        <p>{{ _("Try to <a href='#' onclick='window.location.reload()''>reload</a> the page once you get the access.") }}</p>
+    </p>
+</div>
+{% endblock %}

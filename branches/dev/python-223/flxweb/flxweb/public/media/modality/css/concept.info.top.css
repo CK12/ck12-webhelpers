@@ -1,0 +1,42 @@
+@-webkit-keyframes slidin { 
+    from { transform: translate3d(0, -145px, 0); }
+    to { transform: translate3d(0, 0, 0); }
+}
+@keyframes slidin {
+    from { transform: translate3d(0, -145px, 0); }
+    to { transform: translate3d(0, 0, 0); }
+}
+
+.concept_info_top {
+    padding: 1.375em 0.9375em 1.25em;
+    overflow: hidden;
+    height: 145px;
+    -webkit-animation: slidin 0.618s ease-out;
+    animation: slidin 0.618s ease-out;
+}
+
+.concept-info-banner.row {
+    max-width: 1020px; /* !important for desktop_view */
+    margin: 25px auto;
+}
+
+.concept-info-wrapper .concept_top_icon {
+    position: relative;
+    left: 110px;
+    transform: scale(3);
+    opacity: 0.618;
+}
+
+.concept-info-wrapper span[class^="icon-"] {
+    transform: rotate(-16.2deg);
+}
+
+.concept-info-banner .practice-badge-wrapper {
+    display: inline-block;
+    position: relative;
+    float: none;
+}
+
+#practice-badge {
+    position: relative;
+}

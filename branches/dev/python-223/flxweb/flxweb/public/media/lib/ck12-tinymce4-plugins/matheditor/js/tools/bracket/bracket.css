@@ -1,0 +1,57 @@
+.bracketContainer.tool-bar-tools {
+	font-size: .9em;
+	margin-top: 34px;
+}
+.bracketContainer .bracketTrans{
+	-ms-transform-origin-x :center;
+	-ms-transform-origin-y :bottom;
+	 transform-origin: center bottom 0;
+	 -webkit-transform-origin: center bottom 0;
+	 -moz-transform-origin: center bottom 0;
+    vertical-align: bottom;
+    font-size:18px !important;
+}
+.bracketContainer .bracket-sperator {
+    /*font-size: 1.5em;*/
+}
+.tooltip-tools-inner .bracket-sperator {
+    font-size: 1em;
+}
+.bracketContainer .bracketStyling{
+	position: relative;
+    top: 3px;
+    font-style:normal;
+}
+.bracketContainer .left-brac {
+    display: inline-block;
+    transform: scale(1, 1.4);
+	-ms-transform:scale(1, 1.4); /* IE 9 */
+	-webkit-transform:scale(1, 1.4);/* Safari and Chrome */
+	font-weight:bold;
+	 margin-right: 10px;
+	font-style:normal;
+}
+.bracketContainer .right-brac {
+    display: inline-block;
+    position: relative;
+	 transform: scale(1, 1.4);
+	-ms-transform:scale(1, 1.4); /* IE 9 */
+	-webkit-transform:scale(1, 1.4);/* Safari and Chrome */
+	font-weight:bold;
+	font-style:normal;
+}
+.bracketTrans {
+    font-style: normal;
+}
+.bracketContainer .emptyBoxSmall {
+    background-color: #F5F5F5;
+    border: 1px dotted black;
+    display: inline-block;
+    height: 9px;
+    position: relative;
+    top: 1px;
+    width: 9px;
+}
+.bracketContainer .tooltip-tools-inner{
+	/*padding:9px 5px 19px;*/
+}

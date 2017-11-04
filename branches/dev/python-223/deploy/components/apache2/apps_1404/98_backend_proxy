@@ -1,0 +1,24 @@
+    ProxyRequests Off
+    SSLProxyEngine On
+
+    <Proxy *>
+       Require all granted
+    </Proxy>
+
+    ProxyPass /my/auth/ https://qa-thor.ck12.org/auth/
+    ProxyPassReverse /my/auth/ https://qa-thor.ck12.org/auth/
+
+    ProxyPass /my/flx/ https://qa-thor.ck12.org/flx/
+    ProxyPassReverse /my/flx/ https://qa-thor.ck12.org/flx/
+
+    ProxyPass /wr/flx/ https://qa-thor.ck12.org/flx/
+    ProxyPassReverse /wr/flx/ https://qa-thor.ck12.org/flx/
+
+    ProxyPass /flx/analytics/ https://gamma.ck12.org/flx/analytics/
+    ProxyPassReverse /flx/analytics/ https://gamma.ck12.org/flx/analytics/
+
+    ProxyPass /my/assessment/api/ https://qa-thor.ck12.org/assessment/api/
+    ProxyPassReverse /my/assessment/api/ https://qa-thor.ck12.org/assessment/api/
+
+    ProxyPass /my/peerhelp/api/ https://qa-thor.ck12.org/peerhelp/api/
+    ProxyPassReverse /my/peerhelp/api/ https://qa-thor.ck12.org/peerhelp/api/

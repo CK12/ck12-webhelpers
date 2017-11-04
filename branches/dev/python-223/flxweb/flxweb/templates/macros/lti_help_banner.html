@@ -1,0 +1,18 @@
+{% macro lti_help_banner_macro (msg) %}
+{% if msg %}
+<div id="lti_help_banner" class="row hide {{msg}}">
+    <div id="lti_banner_msg_container" class="small-12 columns alert_big notice">
+            <i class="icon-notice"></i>
+            {% if msg == 'browse' %}
+	    <span id="lti_banner_message">If you would like to use the older version <a href='/lmspractice/ltiApp/index.html?appReturn' onclick="backToPreviousLTI(event);">Click here.</a></span>
+            {% endif %}
+            {% if msg == 'concept' %}
+	    <span id="lti_banner_message">Select a modality below, then click on the link that says <span class='lti_assign_message'>Create Assignment</span></span>
+            {% endif %}
+    </div>
+    <a class="close-lti-help-banner js-close-lti-help-banner right" onClick="closeLTIHelpBanner()">
+        <i class="close-icon"></i>
+    </a>
+</div>
+{% endif %}
+{% endmacro %}

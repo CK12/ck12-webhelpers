@@ -1,0 +1,36 @@
+{% from "macros/pagination.html" import paginate with context %}  
+
+{% if c.paginator.item_count > 0 %}
+	{% for feedback in c.paginator.items %}
+		<div class='tr'>
+			<div class='td med'>
+				{{ feedback['memberName'] }}
+			</div>
+			<div class='td long'>
+				{{ feedback['comments'] }}
+			</div>
+			<div class="td short">
+				{{ feedback['type'] }}
+			</div>
+			<div class="td short status">
+				{{ feedback['creationTime'] }}
+			</div>
+			<div class="td short">
+				{{ feedback['isHelpful'] }}
+			</div>
+			<div class="td short">
+				{{ feedback['isNotHelpful'] }}
+			</div>
+			<div class='td short' style="text-align:center;">
+				<span class="imgwrap  {% if feedback['score'] == 1 %}like{% else %}dislike{% endif %}"></span>
+			</div>
+			<div class="td med status">
+				<span class='linklike feedback_delete' data-member-id="{{ feedback['memberID'] }}" data-artifact-id="{{ feedback['artifactID'] }}">[Delete]</span>
+        		{% if feedback['totalReviews'] > 0 %}
+        			<span class='linklike reply' data-member-id="{{ feedback['memberID'] }}" data-member-name="{{feedback['memberName']}}" data-artifact-id="{{ feedback['artifactID'] }}"title="{{ _('Review') }}">[Review]</span>
+        		{% endif %}
+			</div>
+		</div>
+	{% endfor %}
+  	{{ paginate(c.paginator) }}
+{% endif %}

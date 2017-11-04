@@ -1,0 +1,327 @@
+@import 'responsive.css';
+@import 'reader.css';
+@import 'feedback.css';
+
+.tab-link.tab-link-active {
+    background: white;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    top: 1px;
+    padding : 5px 10px;
+    position: relative;
+    cursor: default;
+}
+.tab-link {
+    display: inline-block;
+    padding: 5px 11px;
+    cursor: pointer;
+}
+.tab-content {
+    background: white;
+    padding: 20px;
+}
+
+.ck12-content-container ul li, .ck12-content-container ol li{
+    list-style-position: outside;
+}
+
+.groups_share_dialog {
+    background-color: #ffffff;
+    border: 1px solid #b5b1a8;
+    position: relative;
+    width: 336px;
+    padding: 23px 15px 25px;
+    z-index: 3;
+    box-sizing: border-box;
+}
+
+.groups_share_dialog:before {
+    border: 11px solid transparent;
+    content: " ";
+    height: 0;
+    position: absolute;
+    width: 0;
+    bottom: 45px;
+    border-right-color: #b5b1a8;
+    left: -21px;
+}
+.groups_share_dialog:after {
+    content: " ";
+    height: 0;
+    position: absolute;
+    width: 0;
+    bottom: 45px;
+    border: 11px solid transparent;
+    box-sizing: border-box;
+    border-right-color: white;
+    left: -20px;
+}
+
+
+.divider{
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #fff;
+}
+
+.spacetop {
+    margin-top: 10px;
+}
+
+
+.clearfix {
+    display: block;
+    zoom: 1;
+}
+.spacetoplarge {
+    margin-top: 20px;
+}
+.rightinsidewidth {
+    width: 100%;
+    padding: 10px 0;
+    line-height: 1.2;
+    margin: 20px 0 15px;
+}
+.practice-button {
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+h1, h2, h3, h4, h5, h6, div, ul, ol, dt {
+    font-family: "ProximaNova","Helvetica Neue",Arial,Helvetica,sans-serif;
+    color: #56544D;
+}
+.modality-type-wrapper {
+    margin-top: 12px;
+    padding-left: 23px
+}
+.individual-modality{
+    background-color: #fff;
+    border: 1px solid #efede7;
+    border-radius: 15px;
+    display: block;
+    overflow: hidden;
+    padding-bottom: 12px;
+    height: 255px;
+  }
+.individual-modality:hover {
+    box-shadow: 0 0 6px rgba(142,135,115,0.6);
+    border: none;
+}
+.icon-video {
+    content: "\e9c8";
+}
+.icon-interactive_practice {
+    content: "\e968";
+}
+.imagewrap{
+    background: url(../images/sprite_icons.png) no-repeat;
+}
+.nolink{
+    color: #707070;
+}
+.block{
+    display: block;
+}
+.icon-questionMark{
+    color: #ffffff;
+    display: table;
+    font-size: 8px;
+    text-shadow: none;
+}
+.icon-questionMark:before{
+    content: "\e961";
+}
+
+.loadingIndicator {
+    z-index: 99999;
+    margin: 20px auto;
+    width: 40px;
+    height: 40px;
+    animation: loading-rotate 2.0s infinite linear;
+}
+.loadingIndicator:after {
+    bottom: 0;
+    background-color: #ff5b3f;
+}
+
+.loadingIndicator:before, .loadingIndicator:after {
+    content: '';
+    width: 60%;
+    height: 60%;
+    position: absolute;
+    border-radius: 100%;
+    animation: loading-bounce  2s infinite ease-in-out;
+}
+.loadingIndicator:before {
+    top: 0;
+    animation-delay: -1s;
+    background-color: #b8d543;
+}
+
+@keyframes loading-rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes loading-bounce {
+  0%, 100% {
+    transform: scale(0.0);
+  } 50% {
+    transform: scale(1.0);
+  }
+}
+
+.share-plane-div{
+    right: 58px;
+}
+
+ /*@media only screen and (max-width:1280px){
+    .share-plane-div{
+         right: 10px !important;
+         position: absolute !important;
+    }
+}*/
+
+
+.std_links .imgwrap {
+    background: url(../images/sprite_icons.png) no-repeat;
+    display: inline-block;
+    background-position: -259px -1px;
+    width: 21px;
+    height: 14px;
+    vertical-align: -2px;
+}
+
+
+.standards-html{
+  visibility: hidden;
+  height: 0;
+}
+
+.dialog_standards {
+    font-size: 14px;
+    text-shadow: none;
+    padding: 10px 15px;
+}
+
+.dialog_standards .chaptertitle {
+    border-top: 1px solid #999;
+    border-bottom: 1px solid #999;
+    margin: 5px 0;
+    padding: 5px;
+    color: #666;
+    text-align: left;
+    font-weight: bold;
+}
+
+.dialog_standards .column_titlewrapper {
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+    background: #00aba4;
+}
+
+.dialog_standards .column.title {
+    font-weight: bold;
+    color: #eee;
+}
+
+.dialog_standards .chaptersequence {
+    padding-right: 20px;
+}
+
+.dialog_standards .column .sectionsequence {
+    float: left;
+    width: 20%;
+    text-align: center;
+}
+
+.dialog_standards .column {
+    float: left;
+    width: 45%;
+    text-align: left;
+    padding: 5px;
+}
+
+#artifact_content table{
+  width: 100%;
+}
+
+#artifact_content ul, ol {
+    margin: 1em 0 1.4em 20px;
+    padding: 0;
+    line-height: 140%;
+}
+
+#artifact_content dl > dd > dl > dd > dl > dd {
+    margin-left: 170px;
+    display: block;
+}
+
+#artifact_content li{
+  list-style-position: initial;
+  margin-bottom: 10px;
+}
+
+#artifact_content iframe{
+  display: block;
+  margin: 0 auto;
+}
+
+figure.book{
+  -webkit-transform-style: flat;
+  transform-style: flat;
+}
+
+.x-ck12-lower-alpha{
+  list-style-type: lower-alpha;
+}
+
+
+.x-ck12-block-math, p > img.x-ck12-math {
+    display: block;
+    margin: 0 auto;
+}
+
+.x-ck12-mathEditor[mathmethod="block"], .x-ck12-mathEditor[data-mathmethod="block"] {
+    text-align: center;
+    width: 100% !important;
+    overflow-x: auto;
+    overflow-y: hidden;
+    display: inline-block;
+    padding-bottom: 4px;
+}
+
+#artifact_content h2, #chapter_intro h2, #chapter_summary h2{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#artifact_content h3 {
+    border-top: 1px solid #e6e6e6;
+    padding-top: 15px;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 2em 0 .4em;
+}
+
+#artifact_content h4 {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.green-checkmark{
+    width: 50px;
+    height: 50px;
+    margin: auto;
+    border-radius: 50%;
+    background: #B8D34F;
+    color: #fff !important;
+    vertical-align: middle;
+    margin-bottom: 15px;
+}
+
+.animate-maximize{
+    -webkit-transform: translateY(90px) !important;
+}

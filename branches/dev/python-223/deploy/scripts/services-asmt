@@ -1,0 +1,49 @@
+#!/bin/bash
+
+initScripts="apache2 celeryd-asmt redis-server mongodb"
+
+case "$1" in
+start|starttest)
+echo "*** Starting Services ***"
+for script in ${initScripts}; do
+    if [ -x "/etc/init.d/${script}" ]; then
+        echo "*** Starting ${script} ***"
+        sudo /etc/init.d/${script} start
+    else
+        service ${script} status
+        [ $? -eq 0 ] && service ${script} start
+    fi
+done
+;;
+
+stop)
+echo "*** Stop Services ***"
+for script in ${initScripts}; do
+    if [ -x "/etc/init.d/${script}" ]; then
+        echo "*** Stopping ${script} ***"
+        sudo /etc/init.d/${script} stop
+    else
+        service ${script} status
+        [ $? -eq 0 ] && service ${script} stop
+    fi
+done
+;;
+
+restart)
+echo "*** Restart Services ***"
+for script in ${initScripts}; do
+    if [ -x "/etc/init.d/${script}" ]; then
+        echo "*** Restarting ${script} ***"
+        sudo /etc/init.d/${script} restart
+    else
+        service ${script} status
+        [ $? -eq 0 ] && service ${script} restart
+    fi
+done
+;;
+
+*)
+echo $"Usage: $0 {start|starttest|stop|restart}"
+exit 1
+esac
+

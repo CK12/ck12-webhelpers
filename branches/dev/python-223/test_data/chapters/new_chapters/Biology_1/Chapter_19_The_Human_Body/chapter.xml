@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns:dc="http://www.ck12.org/dc/will_create_ns"
+unique-identifier="chapterid" version="2.0">
+
+  <chapter>
+    <metadata>
+<chapterSeq>19</chapterSeq>
+
+<book>Biology I</book>
+
+      <chapterid></chapterid>
+      <title>The Human Body </title>
+      <description>Topics in this chapter include:Organization_of_the_Human_Body,Homeostasis_and_Regulation.
+     </description>
+    </metadata>
+    
+    <lessons>
+      <item id="Organization_of_the_Human_Body" href="Organization_of_the_Human_Body.html" sequence="1" />
+      <item id="Homeostasis_and_Regulation" href ="Homeostasis_and_Regulation.html" sequence="2" />
+   </lessons>
+  </chapter>
+
+</package>

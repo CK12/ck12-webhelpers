@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns:dc="http://www.ck12.org/dc/will_create_ns"
+unique-identifier="chapterid" version="2.0">
+
+  <chapter>
+    <metadata>
+<chapterSeq>8</chapterSeq>
+
+<book>Algebra I</book>
+
+      <chapterid></chapterid>
+      <title>Exponential Functions</title>
+      <description>Topics in this chapter:Exponent_Properties_Involving_Products,Scientific_Notation,Geometric_Sequences_and_Exponential_Functions,Geometric_Sequences_and_Exponential_Functions.
+     </description>
+    </metadata>
+    
+    <lessons>
+      <item id="Exponent_Properties_Involving_Products" href="Exponent_Properties_Involving_Products.html" sequence="1" />
+      <item id="Exponent_Properties_Involving_Quotients" href ="Exponent_Properties_Involving_Quotients.html" sequence="2" />
+      <item id="Zero_Negative_and_Fractional_Exponents" href ="Zero_Negative_and_Fractional_Exponents.html" sequence="3" />      
+      <item id="Scientific_Notation" href ="Scientific_Notation.html" sequence="4" />
+      <item id="Exponential_Growth_Functions" href ="Exponential_Growth_Functions.html" sequence="5" />
+      <item id="Exponential_Decay_Functions" href ="Exponential_Decay_Functions.html" sequence="6" />
+      <item id="Geometric_Sequences_and_Exponential_Functions" href ="Geometric_Sequences_and_Exponential_Functions.html" sequence="7" />
+      <item id="Problem-Solving_Strategies" href ="Problem-Solving_Strategies.html" sequence="8" />
+     </lessons>
+  </chapter>
+
+</package>

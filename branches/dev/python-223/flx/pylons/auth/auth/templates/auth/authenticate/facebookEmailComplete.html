@@ -1,0 +1,43 @@
+{% extends "base/auth/1column.html" %}
+{% block title %}{{ _("Sign Up Complete") }}{% endblock %}
+
+{% block stylesheets %}
+{{ super() }}
+<script language="JavaScript1.2">
+
+function closeWindow() { 
+    console.log("in");
+    //for non auth pages,sent postMessage
+    if (window.opener && window.opener.postMessage) { 
+        window.opener.postMessage("auth:{{ c.status }}","*");
+    }
+    console.log("closing window");
+    //for windows apps, use notify to close window
+    try{
+        window.external.notify("WINDOWCLOSE~~"+ window.location.href); 
+        console.log("sent");  
+    }catch(e) {
+        //ignore
+    }
+    window.close(); 
+    if (window.opener && !window.opener.closed) { 
+        window.opener.location.reload(); 
+    }
+} 
+setTimeout(closeWindow,3000);
+</script>
+{% endblock %}
+
+{% block content %}
+<div id="content" class="prefix_3 grid_6 suffix_3">
+	<h1>{{ _("Email Sent") }}</h1>
+	<div class="divider"></div>
+	<p>{{ _("We've emailed you instructions for signing in again via Facebook.<p>This email will come from '@ck12.org'. If you use an anti-spam filter, please make sure to add this domain to your 'white', 'friend' or 'safe sender' list.<p>If you have not yet done so and have not received the email from us, please check your spam folder.") }}</p>
+	<div class="divider spacetop"></div>
+	<center>
+		Redirecting you back to the application. This may take a few moments.
+		If your browser doesn't redirect you please <a href="#" onclick="closeWindow();">click here</a> to continue
+    </center>
+	<div class="divider spacetop"></div>
+</div>
+{% endblock %}

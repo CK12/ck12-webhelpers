@@ -1,0 +1,114 @@
+@import "../main";
+
+$z-index: 52;
+
+:local {
+    .container {
+        position: relative;
+    }
+
+    .modalContainer {
+        z-index: $z-index + 1;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        min-height: rem-calc(200);
+        max-height: 100vh;
+        transform: translate(-49.9%,-49.9%);
+        -webkit-filter: blur(.001px);
+
+        @media screen and #{$small-height-breakpoint} {
+            overflow: auto;
+        }
+
+        @media #{$small-only-landscape} {
+            height: 75vh;
+        }
+    }
+
+    .modal {
+        background-color: $white;
+        border-radius: $global-radius;
+        box-shadow: $global-shadow-deep;
+        padding: ($global-padding * 2) $global-padding $global-padding;
+        position: relative;
+
+        &.large, &.medium, &.small { margin: 0 auto; }
+        &.large { max-width: map-get($breakpoints, large); }
+        &.medium { max-width: map-get($breakpoints, medium); }
+        &.small { max-width: map-get($breakpoints, small); }
+
+        @include breakpoint(small only) {
+            max-height: 90vh;
+            overflow: auto;
+            -webkit-overflow-scrolling: auto;
+        }
+
+        @media #{$small-only-landscape} {
+            overflow: auto;
+            -webkit-overflow-scrolling: auto;
+            height: 100%;
+        }
+
+        .closeButton {
+            cursor: pointer;
+            color: $black;
+            position: absolute;
+            top: $global-padding;
+            right: $global-padding;
+            font-size: 0.9em;
+        }
+    }
+
+    @include breakpoint(small only) {
+        .modal, .modalContainer {
+            width: 100%;
+        }
+    }
+
+    @include breakpoint(medium) {
+        .modal, .modalContainer {
+            width: map-get($breakpoints, medium);
+        }
+    }
+
+    @include breakpoint(large) {
+        .modal, .modalContainer {
+            width: map-get($breakpoints, large);
+        }
+    }
+
+    .overlay {
+        z-index: $z-index;
+        width: 100vw;
+        height: 100vh;
+        min-height: 100%;
+        min-width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .ignoreClick {
+        pointer-events: none !important;
+    }
+
+    .blueGradient {
+        background: linear-gradient(to bottom, #76BEE4 0%, #4983A3 100%);
+
+        .closeButton {
+            color: $white;
+        }
+    }
+
+    .reset {
+        padding: 0;
+        box-shadow: none;
+        background-color: transparent;
+
+        .closeButton {
+            display: none;
+        }
+    }
+}

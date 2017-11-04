@@ -1,0 +1,23 @@
+from celeryconfig_queues import *
+
+CELERYD_CONCURRENCY = 9
+CELERY_IMPORTS = (
+          "flx.controllers.celerytasks.search", 
+          "flx.controllers.celerytasks.reindexfeedbackartifacts",
+          )
+       
+CELERY_DEFAULT_QUEUE = "search"
+
+from datetime import timedelta
+from celery.schedules import crontab
+
+CELERYBEAT_SCHEDULE = {
+    #"run-every-1-hours": {
+    #    "task": "flx.controllers.celerytasks.search.SyncIndex",
+    #    "schedule": timedelta(seconds=1*60*60),
+    #},
+    #"run-every-midnight": {
+    #    "task": "flx.controllers.celerytasks.reindexfeedbackartifacts.reindexFeedbackArtifactTask",
+    #    "schedule": crontab(minute=5, hour=0),
+    #},
+}

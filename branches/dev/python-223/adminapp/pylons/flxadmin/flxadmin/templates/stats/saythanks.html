@@ -1,0 +1,53 @@
+{% extends "master.html" %}  
+{% from "macros/form_errors.html" import form_errors with context %}  
+
+{% block admincontent %} 
+<div class="sectionhead sectiontitle">{{c.pagetitle}}</div>
+<div class="section withfloatedsubmit">
+
+  <form  method="post" action="/flxadmin/stats/saythanks" >
+    <div class="leftaligned">
+    {% for key,value in c.stats_dict.items() %}
+        {% if key == 'GA Total Stats'%}
+            {{ h.labelreadonly(key, key, 'info med')}}
+        {% elif key == 'GA INAP Total Stats'%}
+            {{ h.labelreadonly(key, key, 'info med')}}   
+        {% else %}
+            {{ h.labelinput(key, key, 'med')}}
+            &nbsp;{{h.htmla_('/stats/saythanks?del='+key, '[x]', 'delete_stat','del')}}
+        {% endif %}
+          {{ c.date_updated_dict[key]|escape|replace("None", "") or '' }}
+    {% endfor %}
+    </div>
+    {{ h.submitbutton('Update', 'short')}}
+    {{ h.cancelbutton(c.cancel)}}
+  </form>
+</div>  
+<div class="sectionhead sectiontitle">Create New Source Type</div>
+<div class="section withfloatedsubmit">
+  <form method="post" action="/flxadmin/add/downloadstatstypes" >
+        <div class="leftaligned">
+            {{ h.labelinput('Source Type Name', 'downloadStatType', 'med')}}
+        </div>
+        {{ h.submitbutton('Create New', 'short')}}
+  </form>
+</div>
+{% endblock %}
+
+{% block js_scripts %}
+<script type='text/javascript'>
+    $(document).ready(function(){
+        $('.del').click(function(){
+            var confirmed = confirm("Are you sure,you want to delete this source type?");
+            if( confirmed ){
+               return true;
+            }else{
+               return false;
+            }
+        });
+    });
+  {{ form_errors('after') }}
+</script>
+{% endblock %}
+
+

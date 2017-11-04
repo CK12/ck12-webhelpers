@@ -1,0 +1,23 @@
+<% var index, subject; %>
+<% for (subject in data.filters) { %>
+	<% if (data.filters.hasOwnProperty(subject)) { %>
+		<div class="subject-header-title">
+			<div class="bold pointer subject-heading js-subject-heading">
+				<span><%= subject %></span>
+				<span class="filter-clear-wrap-small hide">
+		                <span class="separator">|</span>
+		                <a class="js-clear-individual-filters-small">Clear</a>
+	            </span>
+				<i class="icon-arrow3-down right show-small"></i>
+			</div>
+			<div class="<%= subject %>_branches branches-container hide">
+				<% for (index = 0; index < data.filters[subject].label.length; index++) { %>
+					<div class="custom-box show-small">
+						<input type="checkbox" id="<%= data.filters[subject].value[index] %>_small" name="subject-filter" <% if (data.selected && -1 !== data.selected.indexOf(data.filters[subject].value[index])) { %> checked <% } if (!data.filters[subject].count || !data.filters[subject].count[index]) { %> disabled <% } %> >
+						<label for="<%= data.filters[subject].value[index] %>_small" class="checkbox"><%= data.filters[subject].label[index] %><span class="right"><i class="icon-validated"></i></span><% if (data.filters[subject].count && data.filters[subject].count[index]) {%> (<%= data.filters[subject].count[index] %>)<%} %></label>
+					</div>
+				<% } %>
+			</div>
+		</div>
+	<% } %>
+<% } %>

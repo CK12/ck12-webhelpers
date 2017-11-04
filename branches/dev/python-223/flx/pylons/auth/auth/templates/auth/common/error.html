@@ -1,0 +1,33 @@
+{% extends "base/auth/plain.html" %}
+
+{% block title %}
+{% if not c.excludeheader %}
+ {{ _('Error') }}
+{% else %}
+{{ _('Message') }} 
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<script language="JavaScript1.2">
+function cw()
+{
+    window.close(); if (window.opener && !window.opener.closed) { window.opener.location.reload(); }
+}
+</script>
+
+<div class="middlewidth">
+	{% if not c.excludeheader %}
+    <h2 class="sectiontitle">{{ _("Error:") }} {{ c.status }}</h2> 
+    {% endif %}
+    <p>{{ c.message }}</p>
+    <p></p>
+    <div id="continue_close_button">
+    {% if c.returnTo %}
+    <a href="{{ c.returnTo }}" class="btn button notice turquoise standard">{{ _('Continue') }}</a>
+    {% else %}
+    <a href="javascript:cw()">Close Window</a>
+    {% endif %}
+    </div>
+</div>
+{% endblock %}

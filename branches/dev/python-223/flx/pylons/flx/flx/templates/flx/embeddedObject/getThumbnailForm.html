@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>Create Embedded Object</title>
+        <script src="{{ c.prefix }}/media/js/jquery-1.5.min.js"></script>
+        <script type="text/javascript">
+            function getInfo() {
+                $('#output').html('<p><img src="{{ c.prefix }}/media/images/ajax-loader.gif" /></p>');
+
+                $.ajax({
+                    url: '{{ c.prefix }}/get/embeddedobject/thumbnail',
+                    type: 'POST',
+                    data: $('#eoForm').serialize(),
+                    dataType: 'json',
+                    success: function(data) {
+                        if (data.responseHeader.status != 0) {
+                            alert("Error getting thumbnail: " + data.response.message);
+                            return;
+                        }
+                        resp = data.response;
+                        var str = '';
+                        str += '<table cellpadding="5" width="70%" border="1"><tr><th>Author</th><td>' + resp.author_name + '</td></tr>';
+                        str += '<tr><th>Title</th><td>' + resp.title + '</td></tr>';
+                        str += '<tr><th>Width</th><td>' + resp.width + '</td></tr>';
+                        str += '<tr><th>Height</th><td>' + resp.height + '</td></tr>';
+                        str += '<tr><th>Description</th><td>' + resp.description + '</td></tr>';
+                        str += '<tr><th>Thumbnail</th><td><a href="' + resp.thumbnail_url + '">' + resp.thumbnail_url + '</a></td></tr>';
+                        str += '</table>';
+                        $('#output').html(str);
+                    }
+                });
+            }
+
+        </script>
+    </head>
+    <body>
+        <form name="eoForm" id="eoForm" method="POST" action="{{ c.prefix }}/get/embeddedobject/thumbnail">
+            <table>
+                <tbody border="1">
+                <tr>
+                    <td>Code:</td>
+                    <td><textarea name="code" style="width:600px;height:150px;"></textarea></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align:right;">
+                        <input type="button" id="btnGetInfo" name="btnGetInfo" onclick="getInfo()" value="Get Info" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <br/>
+        <b>Result</b>:
+        <div id="output" style="width:800px;min-height:200px;"></div>
+    </body>
+</html>
+

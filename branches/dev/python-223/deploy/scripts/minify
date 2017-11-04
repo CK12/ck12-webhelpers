@@ -1,0 +1,100 @@
+#!/bin/bash
+
+TIMESTAMP=`date "+%Y%m%d%H%M%S"`
+GRUNT="grunt"
+YARN="yarn"
+NPM="npm"
+MY_PATH="`dirname \"$0\"`"
+WEBROOT="$MY_PATH/../../"
+
+if [ -n "${1}" ]; then
+    WEBROOT="${1}"
+fi
+if [ -n "${2}" ]; then
+    TIMESTAMP="${2}"
+fi
+
+cd $WEBROOT
+ROOT_DIR="`pwd`"
+TINYMCE4_DIR="$ROOT_DIR/flxweb/flxweb/public/media/lib/tinymce4/"
+ANNOTATIONS="$ROOT_DIR/flxweb/flxweb/public/media/annotatorjs/"
+DASHBOARD_NEW="$ROOT_DIR/flxweb/flxweb/public/media/dashboard-new/"
+AUTO_ALIGNED_STD="$ROOT_DIR/flxweb/flxweb/public/media/autoStdAlignment/"
+ALIGNED_SEARCH="$ROOT_DIR/flxweb/flxweb/public/media/alignedSearch/"
+PRACTCE_WIDGET="$ROOT_DIR/flxweb/flxweb/public/media/practice-widget/"
+RELATED_CONCEPTS="$ROOT_DIR/flxweb/flxweb/public/media/related-concepts/"
+MEDIA_ROOT="$ROOT_DIR/flxweb/flxweb/public/media"
+rm -rf "$ROOT_DIR/flxweb/flxweb/public/media/ignore_js_folder"
+
+DEFUSER=www-data
+DEFGRP=www-data
+DEFPERM=755
+
+cd $ROOT_DIR
+$YARN || exit 1
+
+cd $TINYMCE4_DIR
+echo "Building TinyMCE"
+$YARN link phantomjs || true
+#$YARN || exit 1
+$NPM i || exit 1
+$GRUNT ck12-minify || exit 1
+
+cd $ANNOTATIONS
+echo "Building Annotations"
+# $YARN --ignore-engines || exit 1
+$NPM i || exit 1
+$GRUNT build || exit 1
+
+cd $DASHBOARD_NEW
+echo "Building Dashboard"
+# $YARN
+$NPM i
+$YARN build || exit 1
+
+cd $AUTO_ALIGNED_STD
+echo "Building Auto Aligned Standards"
+$NPM install || exit 1
+$NPM run build || exit 1
+
+cd $ALIGNED_SEARCH
+echo "Building Aligned Search Module"
+$NPM install || exit 1
+$NPM run build || exit 1
+
+cd $PRACTCE_WIDGET
+echo "Building Practice Widget Module"
+$NPM install || exit 1
+$NPM run build || exit 1
+
+cd $RELATED_CONCEPTS
+echo "Building Related Concept Module"
+$NPM install || exit 1
+$NPM run build || exit 1
+
+cd $ROOT_DIR
+$GRUNT --timestamp=$TIMESTAMP || exit 1
+
+echo "Changing the owner and permission on media directory"
+chown ${DEFUSER}:${DEFGRP} "$MEDIA_ROOT/build-${TIMESTAMP}"
+chmod ${DEFPERM} "$MEDIA_ROOT/build-${TIMESTAMP}"
+
+APACHE_FILE="99_flxweb"
+APACHE_CONFIG_PATHS=""
+if [ -f "/etc/apache2/apps/${APACHE_FILE}" ]; then
+    APACHE_CONFIG_PATHS="/etc/apache2/apps/${APACHE_FILE}"
+fi
+if [ -f "$ROOT_DIR/deploy/components/apache2/apps/${APACHE_FILE}" ]; then
+    APACHE_CONFIG_PATHS="${APACHE_CONFIG_PATHS} $ROOT_DIR/deploy/components/apache2/apps/${APACHE_FILE}"
+fi
+if [ -f "$ROOT_DIR/deploy/components/apache2/apps_1404/${APACHE_FILE}" ]; then
+    APACHE_CONFIG_PATHS="${APACHE_CONFIG_PATHS} $ROOT_DIR/deploy/components/apache2/apps_1404/${APACHE_FILE}"
+fi
+for APACHE_CONFIG_PATH in ${APACHE_CONFIG_PATHS}; do
+    if [ -f "${APACHE_CONFIG_PATH}" ]; then
+        sed "s|\([ ]*/media/\)build-[^/ ]*|\1build-$TIMESTAMP|g" --follow-symlinks -i $APACHE_CONFIG_PATH
+        sed "s|^\([ ]*\)\(\#[\# ]*\)\(RewriteRule.*\)$|\1\3|g" --follow-symlinks -i $APACHE_CONFIG_PATH
+    fi
+done
+
+cd $MY_PATH

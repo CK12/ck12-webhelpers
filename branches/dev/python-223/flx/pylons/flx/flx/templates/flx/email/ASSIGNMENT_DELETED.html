@@ -1,0 +1,52 @@
+{% extends "MASTER_CK12_LOGO.html" %}
+
+{% block ck12_logo %}
+    <p style="background: none repeat scroll 0 0 #56544D;vertical-align: middle; color:#B5B1A8; text-align:center;font-family: 'ProximaNova','Helvetica Neue',Arial,Helvetica,sans-serif;font-size:14px;padding:8px 0 8px 0">Assignment Update from CK-12</p>
+    {{ super() }}
+{% endblock %}
+{% block email_body %}
+    <body style="font-family: 'ProximaNova','Helvetica Neue',Arial,Helvetica,sans-serif; width:75%;font-size:16px;color: #6F6F6F;">
+        <p style="width:70%; margin-left:100px">Hi {{ events[0]['eventData']['memberName'] }},</p>
+
+        {% for event in events %}
+        <p style="width:90%; margin-left:100px">Just want to let you know that {{ event['eventData']['creator'] }} from your <a href="{{ site }}{{ event['eventData']['groupURL'] }}" style="color: #00ABA4;text-decoration: none;">{{ event['eventData']['group'] }}</a> has deleted this assignment:</p>
+
+        <p style="width:70%; margin-left:100px;"><a href="{{ site }}{{ event['eventData']['assignmentURL'] }}" style='color: #00ABA4;text-decoration: none;'>{{ event['eventData']['assignment'] }}</a></p>
+        <p><hr></p>
+        {% endfor %}
+
+        <p style="width:66%; margin-left:100px">
+        <b>What does this mean?</b>
+        <br/>
+        You will no longer receive updates from this assignment. Let your class leader know if you have any questions.
+        </p>
+        <p style="width:70%; margin-left:100px">
+        Thanks,
+        <br/>
+        The CK-12 Team
+        </p>
+        <table style="width:100%">
+            <tr>
+                <td align="center" style="background-color:#56544d; color:#BBBBBB; padding:10px; height:100px; font-family:Arial, Helvetica, sans-serif; font-size:12px;">
+                    <table style="width:600px; padding:0px 30px; text-align:left;font-family:Arial, Helvetica, sans-serif;font-size:12px;" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td style="padding: 10px;">
+                                <span>Please do not reply to this email.</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px;">
+                                <span>Prefer not to receive these emails? <a href="{{ site }}/group-settings/{{ events[0]['objectID']}}" style="color:#FFFFFF;text-decoration:none;">Change your email settings for this group</a></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px;">
+                                © CK-12 Foundation | 3430 West Bayshore Road, Palo Alto, CA 94303
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </body>
+{% endblock %}

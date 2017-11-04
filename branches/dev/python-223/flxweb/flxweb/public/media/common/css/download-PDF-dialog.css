@@ -1,0 +1,85 @@
+#downloadPDFModal{
+    text-align: center;
+    top: -100px;
+    left: 50%;
+    margin: 0;
+    transform: translateX(-50%);
+}
+#downloadPDFModal .row-label{
+    text-align: right;
+    color: #56544D;
+    font-family: "ProximaNova";
+    font-size: 16px;
+    font-weight: bold;
+    padding-right: 10px;
+    padding-top: 10px;
+}
+#downloadPDFModal .row-content{
+    text-align: left;
+    padding-bottom: 10px;
+}
+#downloadPDFModal .row-content .input.standard{
+    max-width: 420px;
+}
+#downloadPDFModal .row-content .custom-box span{
+    margin-right: 5px;
+    vertical-align: text-bottom;
+}
+#downloadPDFModal .row-content .college-option{
+    margin-top: 20px;
+}
+#downloadPDFModal .row-content .custom-box.school-option span{
+    width: 17px !important;
+    height: 17px !important;
+    vertical-align: inherit;
+}
+#downloadPDFModal h2{
+    color: #56544D;
+    font-family: "ProximaNova";
+    font-weight: bold;
+    font-size: 28px;
+}
+#downloadPDFModal h5{
+    color: #56544D;
+    font-family: "ProximaNova";
+    font-weight: normal;
+    font-size: 16px;
+    padding-bottom: 20px;
+}
+#downloadPDFModal .download-btn.button.large{
+    padding:11px 43px 12px !important;
+}
+#downloadPDFModal #school-container{
+    padding: 8px 0 20px 0;
+}
+#downloadPDFModal #schoolAutosuggest {
+    background-color: #FFFFFF;
+    border: 2px solid #CACACA;
+    font-size: 18px;
+    list-style: none outside none;
+    margin-left: 0;
+    padding: 0;
+    position: absolute;
+    top: 53px;
+    width: 420px;
+    height: 220px;
+    overflow: scroll;
+    z-index: 2;
+}
+#downloadPDFModal #schoolAutosuggest li .school-state {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #8E8773;
+}
+#downloadPDFModal #schoolAutosuggest li {
+    cursor: pointer;
+    font-size: 16px;
+    padding: 2px 15px;
+    font-family: "ProximaNova";
+}
+#downloadPDFModal .subject-container{
+    margin-top: 20px;
+}
+#downloadPDFModal .number-of-students{
+    margin-top: 12px;
+}

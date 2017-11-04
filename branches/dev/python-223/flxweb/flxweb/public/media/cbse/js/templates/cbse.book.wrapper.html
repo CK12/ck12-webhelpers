@@ -1,0 +1,42 @@
+<% for (book in data.model) { %>
+	<div class="column large-12 small-12 <%=book%>-container subject-container">
+		<div class="cbse-subject-title row collapse">
+			<%= book %>
+		</div>
+		<div class="row collapse bookListMain bookList">
+			<div>
+				<% for (index = 0; index < data.model[book].length; index++) { %>
+					<div class="<%=data.model[book][index].title.match(/\d+$/)[0]%>-grade-container grade-container">
+						<div class="book-container columns large-3 medium-4 small-12 ">
+							<div class="books">
+								<figure class="book">
+									<a href="/book/<%= data.model[book][index].handle %>/" class="listitemimglink">
+										<ul>
+											<li class="front">
+											<div class="cover">
+											<img src="<%= data.model[book][index].coverImage %>" title="<%= data.model[book][index].title %>" alt="<%= data.model[book][index].title %>">
+											</div>
+											<span class="shadow"></span>
+											</li>
+											<li class="pages">
+												<div class="thin page1"></div>
+												<div class="thin page2"></div>
+												<div class="thin page3"></div>
+											</li>
+											<li class="back"></li>
+											<span class="shadow"></span>
+										</ul>
+									</a>
+								</figure>
+							</div>
+							<div class="bookTitle text-center">
+								<a id="" class="bookLink" href="<%= data.model[book][index].perma %>"><%= data.model[book][index].title %></a>
+							</div>
+					
+						</div>
+					</div>
+				<% } %>
+			</div>
+		</div>
+	</div>
+<% } %>

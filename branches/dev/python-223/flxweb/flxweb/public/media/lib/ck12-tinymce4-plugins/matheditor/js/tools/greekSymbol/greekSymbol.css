@@ -1,0 +1,9 @@
+.greekSymbol.tool-bar-tools {
+	margin-top: 30px;
+}
+.greekSymbol.tool-bar-tools > span {
+    font-size: 1.3em;
+}
+.greekSymbolToolContainer .tooltip-tools-inner{
+	/*padding:9px 5px 19px;*/
+}

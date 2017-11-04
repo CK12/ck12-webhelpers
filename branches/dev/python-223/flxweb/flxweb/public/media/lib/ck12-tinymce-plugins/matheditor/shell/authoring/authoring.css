@@ -1,0 +1,42 @@
+html{
+	height : 99%;
+	width : 100%;
+}
+
+body{
+	height : 100%;
+	width : 99%;
+	margin : 0px;
+}
+
+#symboleditor{
+	height:93%;
+	width:100%;
+}
+
+.button_container{
+	height : 6%;
+	float : right;
+}
+.addMath{
+	cursor : pointer;
+}
+#loader{
+	text-align : center;
+    z-index : 5000;
+    left:0;
+    top:0;
+    position : absolute;
+    width: 100%;
+    height:100%;
+    background: #000;
+    opacity:0.5;
+}
+.img-cont {
+    left: 45%;
+    position: absolute;
+    top: 36%;
+}
+.no-display{
+	display: none;
+}

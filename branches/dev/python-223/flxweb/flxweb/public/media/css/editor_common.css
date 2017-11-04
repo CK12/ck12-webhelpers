@@ -1,0 +1,915 @@
+/****
+#
+# Copyright 2007-2013 CK-12 Foundation
+#
+# All rights reserved
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under this License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+# implied.  See the License for the specific language governing
+# permissions and limitations.
+#
+# This file originally written by Hana Zavadska
+#
+# $Id$
+****/
+
+/************************************************************************************
+ SAVE DIALOG
+ *************************************************************************************/
+
+#save_dialog .button {
+	margin: 0 10px;
+}
+
+#save_dialog .header div.header-text {
+	max-width:350px;
+}
+
+#save_dialog .header img.modal-loading {
+	display: block;
+	margin: 0px auto 25px;
+}
+#save_dialog .modal-uikit-view {
+	min-height: initial;
+	box-sizing: border-box;
+}
+
+#save_dialog #hide {
+	display: none;
+}
+
+.modal-uikit-view > div {
+	text-align: center;
+}
+
+.data-images img.modal-loading {
+	margin: 0 5px;
+}
+
+.data-images-modal {
+    padding: 7px 50px 40px 78px;
+}
+
+.data-images-modal div.header, .data-images-modal div.content {
+    text-align: left;
+}
+
+
+.data-images-modal .header span {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.encoded-image-error-image {
+    width: 120px;
+}
+
+.encoded-image-error-image img {
+    margin-bottom: 23px;
+}
+
+.encoded-image-error-header {
+    font-size: 24px;
+    line-height: 26px;
+    width: calc(100% - 145px);
+    width: -webkit-calc(100% - 145px);
+    padding-left: 16px;
+    position: relative;
+    top: -9px;
+}
+
+.data-images-modal div.content {
+    padding: 15px 0 28px 3px;
+}
+
+.encoded-image-text {
+    font-weight: bold;
+}
+
+.encoded-image-suggestions ul {
+    margin: 4px 0 0 18px;
+}
+
+.encoded-image-suggestions ul li {
+    color: #ff6633;
+    font-size: 21px;
+    line-height: 35px;
+    margin: 0;
+}
+
+.save-error-modal {
+    padding: 37px 30px 40px;
+}
+
+.save-error-modal .content {
+    color: #56544d;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px 0 14px;
+}
+
+.save-error-modal .header {
+    padding: 0;
+}
+
+.save-error-modal .header img {
+    width: 120px;
+}
+
+.save-error-modal .modal-actions {
+    margin-bottom: 10px 0;
+}
+
+.sent-email-modal .content {
+    color: #56544d;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px 0 14px;
+}
+
+.sent-email-modal .header {
+    padding: 0;
+}
+
+
+.save-confirm-modal {
+    padding: 20px 30px 45px;
+}
+
+.save-confirm-modal .content {
+	line-height: 28px;
+    padding: 25px 0 47px;
+}
+
+#save_dialog .save-confirm-modal .button:first-child {
+	margin: 0 5px;
+}
+.discard-confirm-modal {
+    padding: 40px;
+}
+/************************************************************************************
+ NEW MODALITY UI
+ *************************************************************************************/
+
+ .new-modality-title-label {
+	font-weight: bold;
+	font-size: 20px;
+	padding-bottom: 10px;
+}
+.artifactabout input.error {
+	background: #ffffff;
+	border-color: #FF6633;
+}
+.artifact-title-error {
+	color: #FB6C33;
+	font-size: 18px;
+	padding: 5px 0 0;
+}
+
+.txt_artifact_title + span {
+  top: 5px;
+  right: 10px;
+}
+.hint_edittitle input + span {
+	top: 27px;
+	right: 8px;
+}
+.save-new-modality {
+	z-index: 52;
+	background: #ffffff;
+	padding: 10px;
+}
+.new-modality-save-container {
+	margin: 20px 0 0 0;
+}
+
+.new-modality-save-container a {
+	width: 100px;
+}
+
+/************************************************************************************
+ ADD ATTRIBUTIONS DIALOG
+ *************************************************************************************/
+#js_attributions_dialog, #js_chapter_attributions_dialog {
+	padding-bottom: 20px;
+}
+#js_attributions_dialog .left, #js_chapter_attributions_dialog .left {
+	float: left;
+	width: 20%;
+}
+#js_attributions_dialog .right, #js_chapter_attributions_dialog .right {
+	float: left;
+	width: 70%;
+}
+#js_attributions_dialog .buttonwrap, #js_chapter_attributions_dialog .buttonwrap {
+	text-align: center;
+	margin-top: 20px;
+}
+#js_attributions_dialog .js_add_attributions, #js_chapter_attributions_dialog .js_add_attributions {
+	display: inline-block;
+	padding: 10px 16px 9px;
+	cursor: pointer;
+}
+/************************************************************************************
+ ADD SUBJECT DIALOG
+ *************************************************************************************/
+#js_subjects_dialog {
+	padding-bottom: 20px;
+}
+#js_subjects_dialog .buttonwrap {
+	text-align: center;
+	margin-top: 20px;
+}
+#js_subjects_dialog .js_add_subjects {
+	display: inline-block;
+	padding: 10px 16px 9px;
+	cursor: pointer;
+}
+/************************************************************************************
+ ADD STATE DIALOG
+ *************************************************************************************/
+#js_states_dialog {
+	padding-bottom: 20px;
+}
+#js_states_dialog .left {
+	float: left;
+	width: 30%;
+	text-align: left;
+}
+#js_states_dialog .js_stateselect {
+	width: 100%;
+}
+#js_states_dialog .right {
+	float: left;
+	width: 65%;
+	text-align: left;
+}
+#js_states_dialog .buttonwrap {
+	text-align: center;
+	margin-top: 20px;
+}
+#js_states_dialog .js_add_states.btn {
+	display: inline-block;
+	padding: 4px 20px;
+	cursor: pointer;
+}
+/************************************************************************************
+ ADD TAGS DIALOG
+ ADD SEARCH KEYWORDS DIALOG
+ *************************************************************************************/
+#js_tags_dialog,
+#js_search_keywords_dialog {
+	padding-bottom: 20px;
+}
+#js_tags_dialog #txt_tags,
+#js_search_keywords_dialog #txt_search_keywords {
+	display: inline-block;
+	width: 85%;
+}
+#js_tags_dialog .buttonwrap,
+#js_search_keywords_dialog .buttonwrap {
+	text-align: center;
+	margin-top: 20px;
+}
+#js_tags_dialog .js_add_tags,
+#js_search_keywords_dialog .js_add_search_keywords {
+	display: inline-block;
+	padding: 10px 16px 9px;
+	cursor: pointer;
+}
+/************************************************************************************
+ ADD FROM LIBRARY DIALOG
+ *************************************************************************************/
+#js_dialog_addcontent {
+	padding-bottom: 20px;
+}
+#js_dialog_addcontent .dialogbuttons {
+	text-align: center;
+	padding-top: 20px;
+	border-top: #eee 1px solid;
+}
+#js_dialog_addcontent #js_addartifact {
+	display: inline-block;
+	padding: 10px 16px 9px;
+	cursor: pointer;
+}
+
+/* Attachments dialog */
+.attachments_dialog .fileupload-buttonbar {
+	text-align: left;
+}
+.attachments_dialog .fileinput-button input {
+	width: 100%;
+}
+
+
+/************************************************************************************
+ Editors
+ *************************************************************************************/
+.editor-top-container {
+    text-align: right;
+    position: relative;
+}
+
+.editor-switch, .editor-items-divider, .editor-tips {
+    padding-bottom: 0.5em;
+}
+
+.editor-switch {
+    display: inline-block;
+}
+.editor-items-divider {
+    margin: 0 0.75em;
+}
+.editor-tips {
+	position: relative;
+	display: inline-block;
+}
+
+.editor-tips .edit-text {
+    font-weight: bold;
+}
+.edit-icon {
+	background-color: #00aba4;
+	border-radius: 9px;
+	height: 18px;
+	width: 18px;
+	display: inline-block;
+	position: relative;
+    top: 1px;
+    text-align: initial;
+}
+.edit-icon span {
+    color: #ffffff;
+    font-size: 14px;
+    left: 6px;
+    position: relative;
+    top: -2px;
+}
+
+.ie .edit-icon span {
+    left: -6px;
+    top: -3px;
+}
+
+.editor-tips-expand a {
+	color: #8e8774;
+}
+.editor-tips-expand .edit-icon {
+	background-color: #56544d;
+}
+.editor-tips-container {
+	border: 3px solid #a7e5d8;
+    margin: -4px 0 12px;
+    padding: 10px 15px;
+    text-align: left;
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    /* IE does not support initial text align */
+   .editor-tips-container {
+        text-align: left;
+   }
+}
+
+.editor-tips-text span {
+	font-size: 14px;
+}
+.editor-tips-title {
+    margin-bottom: 6px;
+}
+.editor-tips-title span {
+	font-weight: bold;
+	font-size: 18px;
+}
+.editor-tips-faq {
+    margin: 15px 0 4px;
+}
+.editor-tips-link {
+	margin-bottom: 3px;
+	width: 270px;
+}
+.editor-tips-link i {
+    float: right;
+    font-size: 12px;
+    position: relative;
+    right: 5px;
+    top: 5px;
+}
+.editor-tips-close {
+    background-color: #ff6633;
+    border-radius: 10px;
+    color: #ffffff;
+    height: 20px;
+    position: absolute;
+    right: 10px;
+    width: 20px;
+}
+.editor-tips-close i {
+    font-size: 10px;
+    left: 5px;
+    position: relative;
+    top: -2px;
+}
+.editoractionbar {
+	line-height: 38px;
+}
+.editoractionbar .btn {
+	display: inline-block;
+	height: 26px;
+	line-height: 26px;
+	padding: 0 30px;
+	margin-left: 6px;
+}
+.editoractionbar .returnlink {
+	vertical-align: -4px;
+}
+.artifacteditorsubmitwrap {
+	margin-bottom: 20px;
+}
+.artifacteditorsubmitwrap .editoractionbar {
+	margin-left: 0;
+	border-top: 1px solid #eee;
+	border-bottom: 1px solid #eee;
+}
+.ck12_tinymce_container {
+	padding: 0 5px;
+	clear: both;
+}
+.ck12_tinymce_container .sectioneditbuttonwrap {
+	text-align: right;
+}
+.ck12_tinymce_container .btn_apply {
+	display: inline-block;
+	height: 26px;
+	line-height: 26px;
+	padding: 0 30px;
+}
+.ck12_tinymce_container .btn_cancel {
+	margin-left: 4px;
+}
+.ck12-editor-editlink {
+	font-size: 0.8em;
+}
+.attribution_title {
+	color: #000;
+}
+.js_attribution .js_removeattribution,.js_metadata_remove, .js_domain_remove, .js_collection_remove{
+	display:inline-block;
+	color:#b5b1a8;
+	font-size: 12px;
+}
+.js_attribution .js_removeattribution:hover,.js_metadata_remove:hover, .js_domain_remove:hover, .js_collection_remove:hover{
+	text-decoration: none;
+	color:#00aba4;
+}
+#btn_save_artifact, #btn_discard_artifact {
+	margin: 0 0 20px;
+  	width: 100%;
+	box-sizing: border-box;
+}
+
+#btn_save_artifact.disabled {
+    opacity: 0.5;
+}
+
+#btn_cancel_artifact {
+	margin: 0 0 20px;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.removeimg {
+	vertical-align: 0;
+	margin-right: 15px;
+	cursor: pointer;
+}
+.txt_description {
+	width: 98%;
+	padding: 5px;
+	font-size: 16px;
+	line-height: 1.375;
+	font-family: inherit;
+}
+.changeimagewrap {
+	position: absolute;
+	bottom: 0;
+	background: #000;
+	padding: 5px 0;
+	text-align: center;
+	width: 100%;
+	opacity: 0.86;
+	filter: alpha(opacity=86);
+	text-shadow: none;
+	line-height: 1.375;
+}
+.txt_artifact_title.with_context {
+	float: left;
+	width: 100%;
+}
+.ui-tabs .ui-tabs-nav li.new-modification-text {
+	color: #8e8774;
+	float: right;
+	font-size: 14px;
+	font-weight: normal;
+	margin-top: 12px;
+	text-shadow: none;
+}
+
+.mce-stack-layout-item.new-visitor-toolbar-outline {
+    box-shadow: 0px 0px 10px 5px #D1F0E8;
+    position: relative;
+    z-index: 1;
+    transition: all 0.5s;
+}
+
+.editor-new-visitor-prompt {
+    background: #d1f1e8;
+    width: 38%;
+    position: absolute;
+    text-align: left;
+    z-index: 2;
+    box-shadow: 0 3px 19px -3px rgba(0,0,0,0.3);
+    padding: 2%;
+}
+
+.editor-new-visitor-prompt:after {
+    bottom: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(209, 241, 232, 0);
+    border-bottom-color: #d1f1e8;
+    border-width: 10px;
+    margin-left: -10px;
+}
+
+.editor-new-visitor-prompt .js-editor-new-visitor-prompt-close {
+    background: none;
+    border: 0;
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    color: #58544d;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+/*****************************************************************************************
+ * Chapter Editor dialog
+ ****************************************************************************************/
+.chapter_editor_dialog .inputwrap textarea {
+	width: 100%;
+	border: 1px solid #666;
+}
+.chapter_editor_dialog .inputwrap .textbox {
+	width: 100%;
+	border: 1px solid #666;
+}
+
+.chapte_editor_block {
+	float: left;
+	width: 300px;
+}
+
+/*****************************************************************************************
+ * VALIDATING ALERT
+ ****************************************************************************************/
+
+.validation-container {
+	width: 100%;
+	top: 0;
+	margin-top: 45px;
+}
+
+.validating-check-container {
+    background-color: #fff9d5;
+    box-sizing: border-box;
+    color: #8e8774;
+    font-size: 12px;
+    font-weight: normal;
+    padding: 5px;
+    text-align: center;
+    text-shadow: none;
+    margin-bottom: 5px;
+}
+
+.validating-check-container span {
+    vertical-align: middle;
+}
+
+/*****************************************************************************************
+ * DATA IMAGE ALERT
+ ****************************************************************************************/
+
+.data-image-alert-container {
+    margin: 0 0 0 -16%;
+    position: relative;
+    top: 39px;
+    width: 116%;
+    z-index: 1;
+}
+.data-image-alert-wrapper {
+	background-color: #56544d;
+	text-shadow: none;
+	padding: 9px 10px 10px;
+}
+
+.data-image-alert-wrapper div {
+	color: #ffffff;
+}
+
+.contact-support {
+    margin: 18px 0 -1px 19px;
+}
+
+.contact-support i {
+	color: #54ccc3;
+    font-size: 25px;
+    position: relative;
+    top: 1px;
+}
+
+.contact-support span {
+	color: #54ccc3;
+    display: inline-block;
+    font-size: 12px;
+    line-height: 11px;
+    margin-left: 5px;
+    width: 70%;
+}
+
+.alert-header {
+	font-weight: bold;
+	padding: 0 3px;
+	margin-top: 1px;
+	line-height: 16px;
+}
+
+.alert-close {
+	position: relative;
+	left: calc(100% - 19px);
+	left: -webkit-calc(100% - 19px);
+	color: #ff6633;
+	font-size: 19px;
+}
+
+.alert-message {
+	padding: 10px 3px 0;
+	line-height: 15px;
+	word-wrap: break-word;
+	font-size: 14px;
+}
+
+.alert-message span {
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
+.alert-buttons {
+	text-align: center;
+	padding: 2px 3px;
+}
+
+.alert-buttons a {
+	font-size: 12px;
+	padding: 7px 4px 9px;
+	margin: 0;
+}
+
+.alert-buttons .button i {
+	color: #ffffff;
+}
+/*****************************************************************************************
+ * Add Content Dialog
+ ****************************************************************************************/
+.addcontent_results .listitem {
+	cursor: pointer;
+	padding: 2px 0;
+}
+
+.addcontent_results .listitem:hover {
+	background-color: #e7f4f7;
+}
+
+.addcontent_results .listitem.selected {
+	background-color: #beebff;
+}
+.addcontent_results .listitem.selected .listitemtitle {
+	color: #000;
+}
+/*****************************************************************************************
+ * Metadata dialogs
+ ****************************************************************************************/
+.subjects_dialog {
+	text-align: left;
+}
+
+.metadata_level, .metadata_grade {
+	cursor: pointer;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.metadata_level.selected, .metadata_grade.selected {
+	color: #000;
+	font-weight: bold;
+}
+.metadata_level:hover, .metadata_grade:hover {
+	color: #000;
+}
+
+.attributions_dialog {
+	text-align: left;
+}
+
+/***********/
+
+.concept_editor {
+    margin-top: 36px;
+}
+
+.concept_editor #edit_content,
+.concept_editor #edit_metadata {
+	padding: 28px 5% 60px;
+}
+
+.nocoverimageeditor {
+	min-height: 110px;
+}
+
+/******/
+#sideNav {
+	border-radius: 3px;
+	border: 1px solid #b3b3b3;
+	box-shadow: 0 2px 2px -1px #b3b3b3;
+}
+
+#sideNav h2 {
+	clear: both;
+	font-size: 16px;
+	margin: 0;
+	padding: 3px 10px 3px 10px;
+	background: #d9d9d9;
+	background: -moz-linear-gradient(top,#c6c6c6 0%, #e3e3e3 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e3e3e3), color-stop(100%,#e3e3e3));
+	background: -webkit-linear-gradient(top,  #c6c6c6 0%,#e3e3e3 100%);
+	background: -o-linear-gradient(top,  #c6c6c6 0%,#e3e3e3 100%);
+	background: -ms-linear-gradient(top,  #c6c6c6 0%,#e3e3e3 100%);
+	background: linear-gradient(to bottom,  #c6c6c6 0%,#e3e3e3 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c6c6c6', endColorstr='#e3e3e3',GradientType=0 );
+	box-shadow: inset 0 1px 0 #dedede;
+	border-top: solid 1px #c6c6c6;
+	border-bottom: solid 1px #c6c6c6;
+}
+
+#sideNav a {
+	padding: 5px 10px 5px 10px;
+	color: #707070;
+	display: none;
+	border-top: 1px solid #e4e4e4;
+}
+
+#sideNav div,
+#sideNav h2 {
+	display: none;
+}
+
+#sideNav div a {
+	text-align: center;
+	float: left;
+	padding: 5px 0;
+	width: 33.333333333333%;
+	border-bottom: none;
+}
+
+#sideNav a.actionLink {
+	display: block;
+	position: relative;
+	margin: 0;
+	padding: 10px 10px 9px;
+	border-radius: 3px;
+	border-top: none;
+	color: #fff;
+}
+
+#sideNav a.actionLink:hover {
+	text-decoration: none;
+}
+#sideNav.dropMenuOpen a, #sideNav.dropMenuOpen div, #sideNav.dropMenuOpen h2 {
+	display: block;
+}
+
+#sideNav.dropMenuOpen div a {
+	border-bottom: none;
+	vertical-align: bottom;
+}
+
+#sideNav.dropMenuOpen div a img {
+	padding-top: 3px;
+}
+
+#sideNav.dropMenuOpen a.actionLink {
+	border-radius: 2px 2px 0 0;
+}
+
+#sideNav.dropMenuOpen a:hover {
+	background: #ddd;
+	text-decoration: none;
+}
+
+#sideNav.dropMenuOpen a.actionLink:hover {
+	text-decoration: none;
+	background: #4dccc4;
+}
+
+#sideNav.dropMenuOpen a:active {
+	background: #fff;
+	background: -moz-linear-gradient(top,  #e6e6e6 0%, #F2F2F2 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#F2F2F2));
+	background: -webkit-linear-gradient(top,  #e6e6e6 0%,#F2F2F2 100%);
+	background: -o-linear-gradient(top,  #e6e6e6 0%,#F2F2F2 100%);
+	background: -ms-linear-gradient(top,  #e6e6e6 0%,#F2F2F2 100%);
+	background: linear-gradient(top bottom,  #e6e6e6 0%,#F2F2F2 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6e6e6', endColorstr='#F2F2F2',GradientType=0 );
+}
+#sideNav.dropMenuOpen a.actionLink .imgwrap {
+	background-position: -115px -51px;
+}
+#sideNav.dropMenuOpen a.actionLink:hover .imgwrap {
+	background-position: -130px -51px;
+}
+
+/*****************************************************************************************
+ * Change Cover Dialog
+ ****************************************************************************************/
+#js_dialog_customcover {
+    padding-bottom: 20px;
+}
+#js_dialog_customcover #file_coverimage {
+    margin-top: 10px;
+}
+#js_dialog_customcover .dialogbuttons {
+    text-align: center;
+    margin-top: 20px;
+}
+.cover_image_upload_holder {
+    margin: 5px 0 15px;
+    padding: 10px 5px 10px 10px;
+}
+.cover_image_upload_holder .covereditapplywrap {
+    display: inline-block;
+}
+.cover_image_upload_holder .covereditapplywrap #btn_coveredit_apply {
+    padding: 5px 16px 6px;
+}
+#customcover_form_container {
+    display: inline-block;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+#customcover_form_container .coverimage_input {
+    opacity: 0;
+    -moz-opacity: 0;
+    filter: alpha(opacity=0);
+    position: absolute;
+    right: 0px;
+    top: -10px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+#customcover_form_container .coverimage_btn_display {
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+    color: #fff;
+}
+#frm_customcover{
+    margin: 0;
+}
+
+@media all and (min-width: 768px) and (max-width: 1023px) {
+    #sideNav a.actionLink {
+        padding: 10px 0px 9px;
+    }
+    #sideNav a.actionLink span {
+        margin-right: 0px;
+    }
+	.data-image-alert-container {
+    	margin: 0 0 0 -7%;
+    	width: 114%;
+	}
+    .data-image-alert-wrapper {
+    	padding: 9px 5px 10px;}
+    .alert-buttons {
+    	padding: 2px 0;}
+    .alert-buttons span, .alert-buttons i {
+    	margin-right: 5px;}
+}

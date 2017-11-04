@@ -1,0 +1,36 @@
+{% extends "details.html" %}  
+{% from "macros/form_errors.html" import form_errors with context %}  
+
+{% block admincontent %} 
+<div class="sectionhead sectiontitle">{{c.pagetitle}}</div>
+<div class="section withfloatedsubmit">
+  <form id="mainform" method="post">
+    <div class="leftaligned">
+
+    {% if c.create %}
+      {{ h.labelinput('Name', 'name', 'long')}}
+      {{ h.labelinput('Domain', 'domain', 'long')}}
+    {% else %}
+      {% for field in c.form.ordered_fields %}
+        {{ field }}
+      {% endfor %}
+    {% endif %}
+      {{ h.labelradio('Needs API', 'needsApi', c.form.yesno_choices)}}
+      {{ h.labelradio('Blacklisted', 'blacklisted', c.form.yesno_choices)}}
+
+    {% if c.create %}
+      {{ h.submitbutton('Create', 'short')}}
+    {% else %}
+      {{ h.submitbutton('Update', 'short')}}
+    {% endif %}
+      {{ h.cancelbutton(c.cancel)}}
+    </div>
+  </form>
+</div>
+{% endblock %}
+
+{% block js_scripts %}
+<script type='text/javascript'>
+{{ form_errors('after') }}
+</script>
+{% endblock %}

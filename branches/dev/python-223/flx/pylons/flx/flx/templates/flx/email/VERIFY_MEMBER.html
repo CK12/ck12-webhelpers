@@ -1,0 +1,38 @@
+{% extends "MASTER_EMAIL_TEMPLATE.html" %}
+{% block email_heading %}
+Verify your email address
+{% endblock %}
+{% block email_body %}
+    <tr>
+        <td valign="top" style="font-size:18px;padding:31px 0 0;"><b>Hi {% if member.name %}{{ member.name }}{% else %}{{ events[0]['eventData']['firstName'] }} {{events[0]['eventData']['lastName']}}{% endif %},</b></td>
+    </tr>
+    <tr>
+        <td valign="top" style="padding:20px 0 0;line-height:18px;font-size:14px;color:#56544d;">
+            Thank you for joining CK-12! We're glad to have you with us.
+        </td>
+    </tr>
+    <tr>
+    {% if events[0]['eventData']['roleName'] != 'student' %}
+        <td valign="top" style="padding:20px 0 0;line-height:18px;font-size:14px;color:#56544d;">
+            Verify your email address so you can create a class and assign practice.
+        </td>
+    {% else %}
+        <td valign="top" style="padding:20px 0 0;line-height:18px;font-size:14px;color:#56544d;">
+            Verify your email address so you can create a study group with your friends.
+        </td>
+    {% endif %}
+    </tr>
+    <tr>
+        <td valign="top" style="padding:20px 0 0;line-height:18px;font-size:14px;color:#56544d;">
+            <a href="{{ events[0]['eventData']['rurl'] }}" target="_blank">Verify my email address</a>.
+        </td>
+    </tr>
+{% endblock %}
+{% block email_footer_1 %}
+You received this email because you still need to verify your email address.
+{% endblock %}
+{% block email_footer_2 %}
+You don't need to unsubscribe. Your account hasn't been subscribed to receive email from CK-12.
+{% endblock %}
+{% block email_footer_3 %}
+{% endblock %}

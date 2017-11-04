@@ -1,0 +1,71 @@
+.svg-container {
+    padding-top: 100%;
+    width: 100%;
+    height: 0;
+    position: relative;
+
+    svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        text-rendering: geometricPrecision;
+    }
+}
+
+g.node {
+	cursor: pointer;
+    fill: none;
+    stroke: none;
+    user-select: none;
+
+    rect.backplate {
+        pointer-events: inherit;
+    }
+
+    line.link {
+        fill: none;
+    }
+
+    circle {
+        pointer-events: inherit;
+    }
+
+    text {
+        text-anchor: middle;
+        cursor: pointer;
+    }
+
+
+    g.textGroup {
+        text.addLabel {
+            fill: white;
+            text-anchor: start;
+        }
+
+        rect.addLabel {
+            fill: #b5b1a8;
+            text-anchor: start;
+        }
+
+        text.main {
+            pointer-events: inherit;
+        }
+
+        tspan {
+            &.conceptText {
+                fill: $ui-dark;
+            }
+            &.subjectText {
+                fill: #BDBDBD;
+                font-weight: normal;
+            }
+        }
+
+        polygon {
+            &.popup {
+                pointer-events: inherit;
+            }
+        }
+    }
+}

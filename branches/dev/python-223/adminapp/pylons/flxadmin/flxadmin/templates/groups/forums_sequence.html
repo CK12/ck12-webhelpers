@@ -1,0 +1,132 @@
+{% extends "listings.html" %}  
+
+{% block admintop %}
+{% block filters %} 
+<style>
+.tr.selected .td:last-child {
+    display: block !important;
+    visibility: visible;
+}
+</style>
+ <div class="col hide">
+    {{ h.labelselect('Filter', '', c.form.group_type_filter_sel, 'filter', selected="groupType,public-forum") }}
+  </div>
+{% endblock %} 
+{% endblock %} 
+
+{% block searches %}
+{% endblock %}
+{% block aftersearches %}
+{% endblock %}
+
+{% block admincontent %}
+    {{ h.submitbutton('Update Forums Sequence', '', 'update_forums_sequence')}}
+    {{ h.submitbutton('Invalidate Cache', 'hide', 'invalidate_cache') }}
+    {{ super() }}
+{% endblock %}
+
+{% block js_scripts %}
+{{ super() }}
+<script type='text/javascript'>
+$(document).ready(function(){
+    Listings({
+        sort: 'd_created',
+        ajaxRoot: CK12.admUrl('forums_list'),
+        postLoad: function(){
+            $('.tiptrigger').tooltip({
+                bodyHandler: function(){ return $(this).siblings('.tipdiv').html(); }
+            });
+        }
+    });
+
+    $('#content').on('click', '.table .tbody .tr', function(){
+    	$(".table .tbody .tr").removeClass("selected");
+    	$(this).addClass("selected");
+    	if ($(this).prev().length == 0){
+    		$(this).find(".td .moveUp").addClass("hide"); 
+    	}
+    	if ($(this).next().length == 0){
+    		$(this).find(".td .moveDown").addClass("hide"); 
+    	}
+    });
+    
+    $('#content').on('click', '.table .tbody .tr .td .moveUp', function(event){
+    	event.stopPropagation();
+    	event.preventDefault();
+		var $parentRowID = $(this).data("parent-id"),
+    		$parentRow =  $("#" + $parentRowID);
+    	$($parentRow).insertBefore($($parentRow).prev());
+    	if ($($parentRow).prev().length == 0){
+    		$(this).addClass("hide");
+    	}else{
+    		$(this).siblings(".moveDown").removeClass("hide");
+    	}
+    });
+    
+    $('#content').on('click', '.table .tbody .tr .td .moveDown', function(event){
+    	event.stopPropagation();
+    	event.preventDefault();
+		var $parentRowID = $(this).data("parent-id"),
+    		$parentRow =  $("#" + $parentRowID);
+    	$($parentRow).insertAfter($($parentRow).next());
+    	if ($($parentRow).next().length == 0){
+    		$(this).addClass("hide");
+    	}else{
+    		$(this).siblings(".moveUp").removeClass("hide");
+    	}
+    });
+    
+	updateForumSequence = function(event){
+		event.preventDefault();
+		event.stopPropagation();
+		var sequence = [];
+		$.each($("#leftpane .table .tbody .tr"), function(index){
+		    var forumObj = new Object();
+            forumObj.forum_id = parseInt($(this).attr("id"));
+            forumObj.sequence = index + 1;
+            sequence.push(forumObj);
+		});
+
+        url = "/flx/update/forumssequence";
+        $.ajax({url: url, 
+            type: 'POST',
+            data : JSON.stringify({'forums_sequence': sequence}),
+            contentType: "application/json",
+            dataType: "text",
+            success: function(response, status, xhr){
+                if (response){
+                    if(typeof(response)=="string"){
+                        response = $.parseJSON(response);    
+                    }
+                    if (response.responseHeader.status == 0 && response.response){
+                        alert('Changes Saved.');
+                        $('#invalidate_cache').click();
+                    }
+                }
+            },
+            error: function(xhr, textStatus, errorThrown){
+                alert('API Error: '+ Fns.formatResponseError(
+                    xhr, textStatus, errorThrown));
+            }
+        });
+	}
+	$("#update_forums_sequence").off('click').on('click', updateForumSequence);
+	$('#invalidate_cache').css({'margin':'0px 10px'}).off('click.invalidatecache').on('click.invalidatecache', function(){
+		var url = '/forums/all?nocache=true&key=ck12-forums-sequence-cache';
+		$.ajax({url: CK12.flxUrl(url), 
+			type: 'GET',
+			success: function(response, status, xhr){
+				if (response){
+					//nothing
+				}
+			},
+			error: function(xhr, textStatus, errorThrown){
+				alert('API Error: '+ Fns.formatResponseError(
+					xhr, textStatus, errorThrown));
+			}
+		});
+	});
+	
+});
+</script>
+{% endblock %}

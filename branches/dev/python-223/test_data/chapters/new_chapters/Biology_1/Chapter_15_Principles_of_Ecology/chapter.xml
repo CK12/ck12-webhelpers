@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns:dc="http://www.ck12.org/dc/will_create_ns"
+unique-identifier="chapterid" version="2.0">
+
+  <chapter>
+    <metadata>
+<chapterSeq>15</chapterSeq>
+
+<book>Biology I</book>
+
+      <chapterid></chapterid>
+      <title>Principles of Ecology</title>
+      <description>Topics in this chapter include:The_Science_of_Ecology,Flow_of_Energy,Recycling_Matter.
+     </description>
+    </metadata>
+    
+    <lessons>
+      <item id="The_Science_of_Ecology" href="The_Science_of_Ecology.html" sequence="1" />
+      <item id="Flow_of_Energy" href ="Flow_of_Energy.html" sequence="2" />
+      <item id="Recycling_Matter" href ="Recycling_Matter.html" sequence="3" />
+    </lessons>
+  </chapter>
+
+</package>

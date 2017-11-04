@@ -1,0 +1,68 @@
+{% extends "base/1column.html" %}
+{% set artifact = c.artifact %}
+{% set exercise = c.exercise %}
+
+{% if artifact.get('exercise_page_url') %}
+	{% 	set assessmentFrameURL = h.url_assessment("?question/create/") + c.conceptid + "?ep=" + artifact.get('exercise_page_url')	%}
+{% else %}
+    {%	set assessmentFrameURL = h.url_assessment("?question/create/") + c.conceptid  + "?ep=" + h.url('modality_branch',branch=artifact.get_branch_handle(),handle=artifact.get('domain').get('handle'),mtype='exercise',mhandle=artifact.get('handle'),qualified=True)	%}
+{% endif %}
+
+{% block title %} {{ _("Contribute exericse for") }} {{ artifact.title }} {% endblock %}
+{% block stylesheets %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.url_css('details.css') }}" />
+{% endblock %}
+{% block js %}
+{{ super() }}
+<script language="JavaScript" type="text/javascript">
+	require(['main'], function(){
+		require(['jquery','flxweb.assessmentFrameListener', 'flxweb.global'],function($, frameListener){
+			frameListener.init({"apis": ["resize", "loadTestDetailsPage", "setParentURL"]});
+		});
+	});
+</script>
+{% endblock %}
+
+{% block extra_head %}
+{{ super() }}
+<script type="text/javascript">
+var pageType = "Create Test";
+</script>
+{% endblock %}
+
+
+{% block pageinfotop %}
+<div class="contenttop"></div>
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="grid_12">
+        {% if artifact.get('exercise_page_url') %}
+            <h1><a id="testDetailsUrl" href="{{ artifact.get('exercise_page_url') }}">{{ artifact.title }}</a> / {{ _("Contribute Question") }}</h1>
+        {% else %}
+            <h1><a id="testDetailsUrl" href="{{ h.url('modality_branch',branch=artifact.get_branch_handle(),handle=artifact.get('domain').get('handle'),mtype='exercise',mhandle=artifact.get('handle'),qualified=True) }}">{{ artifact.title }}</a> / {{ _("Contribute Question") }}</h1>
+        {% endif %}
+</div>
+<div class="gclear"></div>
+<div class="grid_12">
+<div class="spacetoplarge"></div>
+<div class="contentarea">
+	<div id="view_browse" class="contentview" style="padding: 0px;">
+		 <!-- TODO: URL needs to be updated  -->
+		   <iframe id="assessmentFrame" src="{{ assessmentFrameURL }}" style="height:675px;width:100%;border:0px;height: 350px;" scrolling="no"></iframe> 
+		
+		<!-- Create Questions body -->
+		<div class="clear"></div>
+	</div>
+</div>
+</div>
+<div class="gclear"></div>
+{% endblock %}
+{% block pageinfobottom %}
+<div class="backtotop">{{ _('Back to the <a href="#" title="Back to top of the page">top of the page &#8593;') }}</a></div>
+{% endblock %}
+

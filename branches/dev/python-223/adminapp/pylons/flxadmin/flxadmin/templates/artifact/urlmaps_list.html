@@ -1,0 +1,21 @@
+{% from "macros/pagination.html" import paginate with context %}  
+{% if c.paginator.item_count > 0 %}
+  {% for i in c.paginator.items %}
+      
+    <div class="tr paneview {{ h.hide_if_full(c.viewmode)}}">
+      
+      <div class="td viewtrigger" data-id="{{i._id}}"><span class="tiptrigger">{{h.idlink2('/urlmap/', i, alttext=i._id |truncate(40), idkey='_id')}}</span></div>
+      <div class='td'>{{i.oldUrl}}</div>
+      <div class='td'>{{i.newUrl}}</div>
+      </div>
+    <div class="tr fullview {{ h.hide_if_pane(c.viewmode)}}">
+      <div class="td viewtrigger" data-id="{{i._id}}"><span class="tiptrigger">{{h.idlink2('/urlmap/', i, alttext=i._id |truncate(40), idkey='_id')}}</span></div>
+      <div class='td'>{{i.oldUrl}}</div>
+      <div class='td'>{{i.newUrl}}</div>
+      <div class='td'>{{i.created|parseISODate}}</div>
+      <div class='td'>{{i.updated|parseISODate}}</div>
+      </div>
+    </div>
+  {% endfor %}
+  {{ paginate(c.paginator) }}
+{% endif %}

@@ -1,0 +1,128 @@
+upstream paster_flx {
+        server 127.0.0.1:5000 fail_timeout=0;
+}
+
+upstream paster_flxweb {
+        server 127.0.0.1:9000 fail_timeout=0;
+}
+
+upstream paster_sts {
+        server 127.0.0.1:7000 fail_timeout=0;
+}
+
+upstream paster_hwp {
+        server 127.0.0.1:5001 fail_timeout=0;
+}
+                                                                                
+upstream paster_inap {
+        server 127.0.0.1:4000 fail_timeout=0;
+}
+
+upstream paster_inap_admin {
+        server 127.0.0.1:4001 fail_timeout=0;
+}
+
+server {
+        listen 80 default;
+        client_max_body_size 4G;
+        server_name _;
+
+        keepalive_timeout 5;
+        expires  modified +24h;
+        #expires  off;
+        add_header  Cache-Control  private;
+
+        location / {
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header Host $http_host;
+            proxy_redirect off;
+
+            if (!-f $request_filename) {
+                proxy_pass http://paster_flxweb;
+                break;
+            }
+            if (-f $request_filename) {
+                root /opt/2.0/flxweb/flxweb/public;
+                break;
+            }
+
+            proxy_cache   CACHE;
+            proxy_cache_valid  200 302  60m;
+            proxy_cache_valid  404      1m;
+        }
+
+        location /flx {
+            rewrite /flx/(media/.*)$ /$1 break;
+
+            proxy_pass http://paster_flx;
+            proxy_cache   CACHE;
+            proxy_cache_valid  200 302 60m;
+            proxy_cache_valid  404      1m;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header Host $http_host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_redirect default;
+        }
+
+        location /taxonomy {
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header Host $http_host;
+            proxy_redirect off;
+
+            rewrite /taxonomy/((media/|css/|js/|.*\.(html|js|png|jpg|jpeg|gif|ico|htm))(.*))$ /$1 break;
+            proxy_pass http://paster_sts;
+
+            proxy_cache   CACHE;
+            proxy_cache_valid  200 302  60m;
+            proxy_cache_valid  404      1m;
+        }
+
+
+        location /hwp {
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header Host $http_host;
+            proxy_redirect off;
+
+            rewrite /hwp/((media/|css/|js/|.*\.(html|js|png|jpg|jpeg|gif|ico|htm))(.*))$ /$1 break;
+            proxy_pass http://paster_hwp;
+
+            proxy_cache   CACHE;
+            proxy_cache_valid  200 302  60m;
+            proxy_cache_valid  404      1m;
+        }
+
+
+        location /media {
+            root /opt/2.0/flxweb/flxweb/public;
+            expires 31d;
+        }
+
+
+        location /inap {
+            proxy_pass http://paster_inap;
+            proxy_cache   CACHE;
+            proxy_cache_valid  200 302 60m;
+            proxy_cache_valid  404      1m;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header Host $http_host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_redirect default;
+        }
+
+        location /inap-admin {
+            proxy_pass http://paster_inap_admin;
+            proxy_cache   CACHE;
+            proxy_cache_valid  200 302 60m;
+            proxy_cache_valid  404      1m;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header Host $http_host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_redirect default;
+        }
+
+        error_page 500 502 503 504 /500.html;
+
+        location = /500.html {
+            root /opt/2.0/flx/pylons/flx/flx/public;
+        }
+}

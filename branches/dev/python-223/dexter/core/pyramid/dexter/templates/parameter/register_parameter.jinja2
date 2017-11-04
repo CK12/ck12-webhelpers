@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Register Parameter</title>
+    </head>
+    <body>
+        <form name="Parameter Data" method="POST" action="/dexter/register/parameter">
+            <h4>&nbsp;Select a Parameter to register</h4>
+            <table>
+                <tr>
+                    <td> <label>Parameter Name</label> </td>
+		    <td><input size=80 type='text' name="name" placeholder="artifactID" ></input></td>
+                 </tr>
+                <tr>
+                    <td> <label>Parameter type</label> </td>
+		    <td><input size=80 type='text' name="type" placeholder="str or unicode or NoneType" ></input></td>
+                 </tr>
+                <tr>
+                    <td> <label>API from which to resolve</label> </td>
+		    <td><input size=80 type='text' name="api" placeholder="http://gamma.ck12.org/flx/get/info/@param" ></input></td>
+                 </tr>
+                <tr>
+                    <td> <label>Attributes</label> </td>
+		    <td><input size=80 type='text' name="attributeField" placeholder='[ "response.artifact.artifactType", "response.artifact.creator", "registeresponse.artifact.level" ]'></input></td>
+                 </tr>
+                <tr>
+                    <td> <label>Status Field</label> </td>
+		    <td><input size=80 type='text' name="statusField" placeholder="responseHeader.status" ></input></td>
+                 </tr>
+                <tr>
+                    <td> <label>Table name</label> </td>
+		    <td><input size=80 type='text' name="tableName" placeholder="context_eid" ></input></td>
+                 </tr>
+                 <tr>
+                    <td>
+                        <input size=80 type="submit" name="submit" value="OK" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
+

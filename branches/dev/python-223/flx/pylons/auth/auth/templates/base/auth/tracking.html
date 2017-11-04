@@ -1,0 +1,38 @@
+<script type="text/javascript">
+<!-- global js variables to be used for Google Tag Manager -->
+var gtm_userType,
+	gtm_user_logged_in,
+	gtm_user_id,
+	gtm_user_firstname,
+	gtm_user_lastname,
+	gtm_user_email,
+	gtm_user_username;
+try {
+	{% if c.user %}
+	gtm_userType="Member";
+	gtm_user_logged_in = true;
+	gtm_user_id = '{{ c.user.id }}';
+	gtm_user_firstname = '{{ c.user.givenName|escape }}';
+	gtm_user_lastname = '{{c.user.surname|escape }}';
+	gtm_user_email =  '{{ c.user.email }}';
+	gtm_user_username =  '{{ c.user.login }}';
+	{% else %}
+	gtm_user_logged_in = false;
+	gtm_userType="Guest";
+	{% endif %}
+}catch(e) {
+	console.log(e);
+}
+</script>
+
+<!-- Google Tag Manager -->
+{% if config.gtm_enabled == "true" %}
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WVB47G"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','{{ config.gtm_container  }}');</script>
+<!-- End Google Tag Manager -->
+{% endif %}

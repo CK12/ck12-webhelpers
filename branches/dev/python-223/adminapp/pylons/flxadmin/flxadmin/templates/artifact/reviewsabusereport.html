@@ -1,0 +1,224 @@
+{% extends "listings.html" %}  
+
+{% block filters %} 
+    <div id="message" class="messaging hide">
+      <span></span>
+    </div>
+
+    <div class="col med">
+        {{ h.labelselect('Comment Type : ', 'comment_type', c.form.type_sel, 'filter')}}
+    </div>
+
+{% endblock %}
+
+{% block admincontent %}
+    {{ h.submitbutton('Update', 'short', 'update_feedbacks')}}
+    {{ super() }}
+{% endblock %}
+
+{% block searches %}  
+    <div class="col wider padleft">
+        {{ h.labelinput('Artifact ID', 'artifactID', 'med searchby')}}
+        <img id="admin_search_icon" src="{{h.url_images('icon_magnifier2.png')}}"/> 
+    </div>
+    <div class="col wider padleft">
+        {{ h.labelinput('Member ID', 'memberID', 'med searchby')}}
+        <img id="admin_search_icon" src="{{h.url_images('icon_magnifier2.png')}}"/> 
+    </div>
+{% endblock %}
+
+{% block aftersearches %} 
+{% endblock %} 
+
+{% block js_scripts %}
+{{ super() }}
+<script type='text/javascript'>
+
+  Listings({
+    sort: 'artifactID,desc',
+    sort: 'artifactID,desc',
+    ajaxRoot: CK12.admUrl('/feedback/abuse/report_list'),
+    formAjax: CK12.admUrl('/feedback/abuse/report'),
+    viewmode: '{{c.viewmode}}',
+    searchFilters: [''],
+    postLoad: function(){
+      $('.tiptrigger').tooltip({
+        bodyHandler: function(){ return $(this).siblings('.tipdiv').html();}
+        })
+     }
+  });
+
+    function showMessage(element, message, classToAdd, timeout){
+        element.removeClass("success error hide").addClass(classToAdd).find("span").html(message);
+        if (timeout){
+            element.fadeIn("slow", function(){
+                element.removeClass("success error hide").addClass(classToAdd).find("span").html(message);
+                window.setTimeout(function(){
+                    clearMessage(element);
+                },timeout);
+            });
+        }else{
+            element.fadeIn("slow", function(){
+                window.setTimeout(function(){
+                    clearMessage(element);
+                },3000);
+            });
+        }
+    }
+    function clearMessage(element){
+        element.fadeOut("slow",function(){
+            element.removeClass().addClass("messaging hide");
+        });
+    }
+
+  var upadateCount=0, deleteCount=0, updateSuccess=0, updateError=0, 
+        deleteSuccess=0, deleteError=0, updateErrorArtifactIDs= [], 
+        deleteErrorArtifactIDs = [], msg = '';
+
+  deleteFeedback = function(ele, index){
+      var artifactID = $(ele).data('artifactid-id'),
+          successMsg = 'Feedback deleted successfully',
+          data = {'artifactID' : artifactID,
+                  'memberID' : $(ele).data('member-id'),
+                  'type' : 'vote',
+                  'commentType' : $(ele).data('commentType'),
+                  'reviewID' : $(ele).data('reviewID')
+                 },
+          url = '/json/feedback/delete';
+      if ($(ele).data('commentType') == 'review' && $(ele).data('reviewID')){
+            url = '/json/review/delete'
+      }
+      $.ajax({url: CK12.admUrl(url), 
+            type: 'POST', 
+            data: data,
+            success: function(data, status, xhr){
+                var tmpMsg = ''
+                if (data.response[artifactID]['feedback_delete_status']){
+                    deleteSuccess = deleteSuccess + 1;
+                    tmpMsg = msg + '<br/>Deleted Feedback ' + index + ' of '+ deleteCount + '. Success: ' + deleteSuccess + ', Error: ' + deleteError + ', ArtifactID: ' + deleteErrorArtifactIDs;
+                    showMessage($("#message"), tmpMsg ,"success");
+                }else{
+                    deleteError = deleteError + 1;
+                    deleteErrorArtifactIDs.push(artifactID);
+                    tmpMsg = msg + '<br/>Deleted Feedback ' + index + ' of '+ deleteCount + '. Success: ' + deleteSuccess + ', Error: ' + deleteError + ', ArtifactID: ' + deleteErrorArtifactIDs;
+                    showMessage($("#message"), tmpMsg ,"success");
+                }
+                deletedCount = deletedCount + 1;
+                if (deletedCount == deleteCount){
+                     window.updateListingsResult();
+                     tmpMsg = msg + '<br/>Deleted ' + deleteCount + ' Feedback(s). Success: ' + deleteSuccess + ', Error: ' + deleteError + ', ArtifactID: ' + deleteErrorArtifactIDs
+                     showMessage($("#message"), tmpMsg, "success", 1000*30);
+                }
+
+            },
+            error: function(xhr, textStatus, errorThrown){
+                deleteError = deleteError + 1;
+                deleteErrorArtifactIDs.push(artifactID);
+                tmpMsg = msg + '<br/>Deleted Feedback ' + index + ' of '+ deleteCount + '. Success: ' + deleteSuccess + ', Error: ' + deleteError + ', ArtifactID: ' + deleteErrorArtifactIDs;
+                showMessage($("#message"), tmpMsg,"error");
+                deletedCount = deletedCount + 1;
+                if (deletedCount == deleteCount){
+                    window.updateListingsResult();
+                    tmpMsg = msg + '<br/>Deleted ' + deleteCount + ' Feedback(s). Success: ' + deleteSuccess + ', Error: ' + deleteError + ', ArtifactID: ' + deleteErrorArtifactIDs
+                    showMessage($("#message"), tmpMsg,"error", 1000*30);
+               }
+            }
+      });
+  }
+  
+  updateFeedback = function(ele, index){
+      var artifactID = $(ele).data('artifactid-id'),
+          data = {'artifactID' : artifactID,
+                  'impersonateMemberID' : $(ele).data('member-id'),
+                  'type' : 'vote',
+                  'notAbuse' : ($(ele).data('abused').toLowerCase() == 'false') ,
+                  'commentType' : $(ele).data('commentType'),
+                  'reviewID' : $(ele).data('reviewID')
+                 },
+          action = data.notAbuse ? 'marked abused': 'marked not abused'
+          successMsg = 'Comment ' + action + ' successfully',
+          url = '/json/feedback/update';
+      $.ajax({url: CK12.admUrl(url), 
+            type: 'POST', 
+            data: data,
+            success: function(data, status, xhr){
+                if (data.success){
+                    updateSuccess = updateSuccess + 1;
+                    msg = 'Updated Feedback ' + index + ' of '+ upadateCount + '. Success: ' + updateSuccess + ', Error: ' + updateError + ', ArtifactID: ' + updateErrorArtifactIDs;
+                    showMessage($("#message"), msg ,"success");
+                }else{
+                    updateError = updateError + 1;
+                    updateErrorArtifactIDs.push(artifactID);
+                    msg = 'Updated Feedback ' + index + ' of '+ upadateCount + '. Success: ' + updateSuccess + ', Error: ' + updateError + ', ArtifactID: ' + updateErrorArtifactIDs;
+                    showMessage($("#message"), msg, "error");
+                }
+                updatedCount = updatedCount  + 1;
+                if (updatedCount == upadateCount){
+                    window.updateListingsResult();
+                    msg = 'Updated ' + upadateCount + ' Feedback(s). Success: ' + updateSuccess + ', Error: ' + updateError + ', ArtifactID: ' + updateErrorArtifactIDs
+                    if (deleteCount >= 1){
+                        showMessage($("#message"), msg,"success")
+                    }else{
+                        showMessage($("#message"), msg, "success", 1000*30);
+                    }
+                    deleteFeedbacks();
+                }
+
+            },
+            error: function(xhr, textStatus, errorThrown){
+                updateError = updateError + 1;
+                updateErrorArtifactIDs.push(artifactID);
+                msg = 'Updated Feedback ' + index + ' of '+ upadateCount + '. Success: ' + updateSuccess + ', Error: ' + updateError + ', ArtifactID: ' + updateErrorArtifactIDs;
+                showMessage($("#message"), msg,"error");
+                updatedCount = updatedCount + 1;
+                if (updatedCount == upadateCount){
+                    msg = 'Updated ' + upadateCount + ' Feedback(s). Success: ' + updateSuccess + ', Error: ' + updateError + ', ArtifactID: ' + updateErrorArtifactIDs
+                    if (deleteCount >= 1){
+                        showMessage($("#message"), msg,"error")
+                    }else{
+                        showMessage($("#message"), msg,"error", 1000*30);
+                    }
+                    window.updateListingsResult();
+                    deleteFeedbacks();
+               }
+            }
+      });
+  }
+
+  deleteFeedbacks = function(){
+        feedbacksToDelete = $("#leftpane .table .tbody").find("input[name='delete']:checkbox:checked");
+        $.each(feedbacksToDelete, function(index){
+            deleteFeedback(this, index + 1);
+        });
+  }
+
+  updateFeedbacks = function(event){
+        event.preventDefault();
+        event.stopPropagation();
+        feedbacksToDelete = $("#leftpane .table .tbody").find("input[name='delete']:checkbox:checked");
+        feedbacksToUpdate = $("#leftpane .table .tbody").find("input[name='not_abused']:checkbox:checked");
+        deleteCount = feedbacksToDelete.length;
+        deletedCount = 0;
+        upadateCount = feedbacksToUpdate.length;
+        updatedCount = 0;
+        deletedCount = 0;
+        updateSuccess=0;
+        updateError=0;
+        deleteSuccess=0;
+        deleteError=0;
+        updateErrorArtifactIDs= [];
+        deleteErrorArtifactIDs = [];
+        msg = '';
+
+        $.each(feedbacksToUpdate, function(index){
+            updateFeedback(this, index + 1);
+        });
+        if (!upadateCount){
+            $.each(feedbacksToDelete, function(index){
+                deleteFeedback(this, index + 1);
+            });
+        }
+  }
+  $("#update_feedbacks").off('click').on('click', updateFeedbacks)
+</script>
+{% endblock %}

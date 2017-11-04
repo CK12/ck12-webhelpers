@@ -1,0 +1,133 @@
+{% extends "base/auth/2_column_right_detail.html" %}
+{% block title %} {{_('Sign In') }} {% endblock %}
+
+{% block js %}
+{{ super() }}
+<script src="{{ config.url_media }}/auth/js/flx.social.signin.js"></script>
+<script>
+    //TODO: temporary improvement. Should use a common code accross the site.
+    window.returnTo = "{{h.urlQuote(c.returnTo)}}";
+    window.requestor = "{{h.urlQuote(c.requestor)}}";
+    require(['main'], function(){
+       require(['auth/flx.member']); 
+    });
+</script>
+{% endblock %}
+
+{% block pageinfotop %}
+<div class="contenttop"></div>
+{% endblock %}
+
+{% block content_left_inner %}
+{% endblock %}
+
+{% block content_right_inner %}
+<div class="signin small-12 columns">
+	<div class="logincontentwrap row">
+		<div class="small-12 columns">
+			<h1 class="toptitle">{{ _("Sign In") }}</h1>
+		</div>
+		<div class="loginwrap">
+			<div class="logincontent" >
+				<div id="signin_errors" class="small-12 columns">
+				{% if c.form_errors %}
+					<ul class="messaging error">
+						{% for error in c.form_errors %}
+						<span class="icon-close"></span>
+						<li>
+							{% if c.form_errors[error] %}
+							{{ c.form_errors[error] }}
+							{% endif %}
+						</li>
+					{% endfor %}
+					</ul>
+				{% endif %}
+				</div>
+		
+				<div class="logincontentleft small-12 large-6 columns">
+					<h3>{{ _("Use one of the following:") }}</h3>
+					<div class="spacetopxlarge"></div>
+					<div class="formlabelwrap hide-for-small">
+						<label>&nbsp;</label>
+					</div>
+					<div class="loginbtnwrap google">
+						<a id="js_ck12googlesignin" class="loginbtn button dark-tangerine huge text-left" onclick="signin_click('google', '{{ h.url(controller='google', action='authenticated', qualified=True) }}');" href="javascript:;" alt="{{ _('Sign In with Google') }}" title="{{ _('Sign In with Google') }}">
+							<i class="icon icon-google"></i>
+							<span>{{ _("Sign In with Google") }}</span>
+						</a>
+					</div>
+					<div class="loginbtnwrap facebook">
+						<a id="js_ck12fbsignin" class="loginbtn button midnight-blue huge text-left" onclick="signin_click('facebook', '{{ h.url(controller='facebook', action='authenticated', qualified=True) }}');" href="javascript:;" alt="{{ _('Sign In with Facebook') }}" title="{{ _('Sign In with Facebook') }}">
+							<i class="icon icon-facebook"></i>
+							<span>{{ _("Sign In with Facebook") }}</span>
+						</a>
+					</div>
+					<div class="loginbtnwrap twitter">
+						<a id="js_ck12twittersignin" onclick="signin_click('twitter', '{{ h.url(controller='twitter', action='authenticated', qualified=True) }}');" class="loginbtn button sky-blue huge text-left" href="javascript:;" alt="{{ _('Sign In with Twitter') }}" title="{{ _('Sign In with Twitter') }}">
+							<i class="icon icon-twitter"></i>
+							<span>{{ _("Sign In with Twitter") }}</span>
+						</a>
+					</div>
+					<div class="loginbtnwrap microsoft">
+						<a id="js_ck12microsoftsignin" onclick="signin_click('azure', '{{ h.url(controller='azure', action='authenticated', qualified=True) }}');" class="loginbtn button royal-blue huge text-left" href="javascript:;" alt="{{ _('Sign In with Microsoft') }}" title="{{ _('Sign In with Microsoft') }}">
+							<i class="icon icon-microsoftlive"></i>
+							<span>{{ _("Sign In with Microsoft") }}</span>
+						</a>
+					</div>
+				</div>
+				
+				<div class="logincontentright small-12 large-6 columns">
+					<h3>{{ _("Or use CK-12 account:") }}</h3>
+					<div class="spacetopxlarge"></div>
+					<form id="signin_form" method="POST" action="{{ h.url('signin') }}?returnTo={{ h.urlQuote(c.returnTo) }}&requestor={{ h.urlQuote(c.requestor) }}">
+						<div>
+							<div class="formlabelwrap">
+								<label class="formlabel" for="username">{{ _("User Name or Email") }}:</label>
+							</div>
+							<div>
+								<input 	class="forminput" type="text" name="username" id="username"
+                                    autocapitalize="off" autocorrect="off" 
+									data-required="{{ c.messages.ACCOUNT_USERNAME_EMPTY }}"
+									value="{{c.form.username}}" tabindex="1" />
+							</div>
+							<div class="error hide" data-for="username">{{ _("Enter user name") }}</div>
+						</div>
+						<div>
+							<div class="formlabelwrap">
+								<label class="formlabel" for="password">{{ _("Password") }}:</label>
+							</div>
+							<div>
+								<input 	class="forminput" type="password" name="password" id="password" 
+									data-required="{{ c.messages.ACCOUNT_PASSWORD_EMPTY }}"
+									value="{{c.form.password}}" tabindex="2" />
+							</div>
+							<div class="error hide" data-for="password">{{ _("Enter password") }}</div>
+						</div>
+						<div class="forgotpasswordwrap spacetop">
+							<a href="{{ h.url('forgetPassword') }}?returnTo={{ h.urlQuote(c.returnTo) }}" title="{{ _('Forgot Password') }}">{{ _("Forgot Password?") }}</a>
+							<span>|</span>
+							<a href="{{ h.url('signup') }}?returnTo={{ h.urlQuote(c.returnTo) }}" title="{{ _('Create an Account') }}" rel="nofollow">{{ _("Create an Account") }}</a>
+						</div>
+						<div class="loginsubmitwrap">
+							<input type="hidden" name="next" value="{{ c.returnTo }}" />
+	                                        <input type="hidden" name="authType" value="{{ 'ck-12' }}" />
+	                                        <input type="hidden" name="returnTo" value="{{ c.returnTo }}" />
+	                                        <input type="hidden" id="requestor" name="requestor" value="{{ c.requestor }}" />
+							<input class="btn button" type="submit" name="submitbutton" value="{{ _('Sign In') }}"  tabindex="3" />
+							<!--<span class="keepsignedwrap hintcolor">
+								<input type="checkbox" name="remember" id="remember"></input> {{ _('Keep me signed in') }}
+							</span>-->
+							<div class="clear"></div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+				<div class="signup-terms-content student-signup-terms row collapse text-center">
+                                    <span>By signing up, I confirm that I have read and agree to the</span>
+                                    <a href="https://www.ck12info.org/about/terms-of-use/" target="_blank">Terms of use</a> and
+                                    <a href="https://www.ck12info.org/about/technology-2/privacy-policy/" target="_blank">Privacy Policy</a>.
+                                </div>
+</div>
+{% endblock %}

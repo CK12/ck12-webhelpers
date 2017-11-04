@@ -1,0 +1,27 @@
+Prerequisits:
+
+    * .NET Framework 4
+    * Python 2.7, celery and other module
+    * IronPython 2.7 beta
+
+    To build the celeryd service project:
+        * Visual Studio C# 2010 Express Edition
+
+To install the windows service run:
+
+    c:\Windows\Microsoft.NET\Framework\v4.0.30310\InstallUtil.exe celeryd\celeryd\bin\Release\celeryd.exe
+
+To start the installed service:
+    
+    net start celeryd
+
+To stop the installed service:
+
+    net stop celeryd
+
+To uninstall the service:
+
+    c:\Windows\Microsoft.NET\Framework\v4.0.30310\InstallUtil.exe /u celeryd\celeryd\bin\Release\celeryd.exe
+
+Log:
+    The log of the service is available under: c:/2.0/flx/pylons/flx/celeryd.log

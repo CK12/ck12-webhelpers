@@ -1,0 +1,67 @@
+from flx.tests import *
+from flx.model import meta
+from flx.model import api
+from flx.lib.ck12_epub_lib.ck12_epub import CK12EPub
+from flx.lib import helpers as h
+
+from pylons import config
+import logging
+import os.path
+
+log = logging.getLogger(__name__)
+
+class TestEpubController(TestController):
+ 
+      def test_ePubLib(self):
+            id = 1
+            defaultImageHost = config.get('default_image_host')
+            downloadPrefix = config.get('epub_download_prefix')
+            revision=None
+
+            if revision == None:
+                artifact = api.getArtifactByID(id=id)
+            else:
+                artifactRevision = api.getArtifactRevisionByID(id=id)
+                artifact = artifactRevision.artifact
+                revision = artifactRevision
+            myEpub = CK12EPub()
+            myEpub.book_title = artifact.getTitle()
+            chapters = artifact.getChildren(revision=revision)
+            for chapter in chapters:
+                revision = chapter.revisions[0]
+                lessons = revision.getChildren()
+                concept_titles = []
+                if len(lessons) != 0 :
+                    #start ---Adding lesson content -- 
+                    chapter_xhtml = ''
+                    for lesson in lessons:
+                        lesson_xhtml = lesson.getXhtml()
+                        concepts = lesson.getChildren()
+                        if concepts != None and len(concepts) != 0:
+                            concepts_xhtml = ''
+                            #start ---Adding concept content --
+                            concept_title = ''
+                            for concept in concepts:
+                                concept_xhtml = concept.getXhtml()
+                                concept_titles.append(concept.getTitle())
+                                concept_title = concept_title + concept.getTitle()
+                                if concept_xhtml != None and len(concept_xhtml) != 0:
+                                   concepts_xhtml = concepts_xhtml +'\r\n'+concept_xhtml
+                            if len(concepts_xhtml) !=0:
+                               lesson_xhtml = concepts_xhtml + lesson_xhtml
+                            #end --Adding concept content--  
+                        if lesson_xhtml != None:
+                             lesson_xhtml = lesson_xhtml + '\r\n'
+                             anchor_id = h.genURLSafeBase64Encode(concept_title)
+                             chapter_xhtml = chapter_xhtml + '<h2 id=\'%s\'> %s </h2>' %(anchor_id, concept_title) + '\r\n' + lesson_xhtml
+
+                    myEpub.add_new_chapter_with_concepts(chapter.getTitle(), concept_titles, chapter_xhtml, defaultImageHost)
+                    #end --Adding lesson content-- 
+                else:
+                    myEpub.add_new_chapter_with_concepts(chapter.getTitle(), concept_titles, chapter.getXhtml(), defaultImageHost)
+
+            myEpub.render()
+            path = downloadPrefix + myEpub.workdir
+            book_file_path = path.split('epub')[1]
+            book_file_path = book_file_path+'/book.epub'
+            assert os.path.isfile(book_file_path), "ePub Creation failed"

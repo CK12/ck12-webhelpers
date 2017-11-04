@@ -1,0 +1,30 @@
+<div id="@@userID@@" class="large-6 small-12 columns js-member-parent">
+    <div class="member-details">
+    	<span class="member-image">
+        	<img src="/auth/member/image/@@userAuthID@@" alt="@@username@@">
+        </span>
+ 		<span class="member-name" data-fname="@@firstName@@" data-lname="@@lastName@@" data-slogin="@@slogin@@"><i class="icon-you app-icons current-user @@current-user@@" title="You"></i><span class="ie8text"> @@username@@</span></span>
+        <span class="more-options icon-ellipsis @@showEllipsisIcon@@"></span>
+        <span class="icon-validated hide  member-update-successful-badge js-member-update-successful"> Updated</span>
+        <a data-reveal-id="removeMemberModal" class="close-group-member js-remove-member @@showDeleteIcon@@"></a>
+    </div>
+
+<div class="more-options-dropdown-wrapper hide js-for-class">
+                                <ul class="more-options-dropdown" data-dropdown-content="" id="">
+                                        <!--if (data.artifactType !== 'asmtpractice' && data.currentUser.id === data.creatorID) { %>-->
+                                        <li class="js-dropdown-element" data-item="reports"><a title="View reports" class="hide-for-small" href="@@member-report-link@@"><span class="menu-option">View reports</span></a></li>
+                                        <li class="js-dropdown-element @@hide@@" data-item="edit">
+                                            <a title="Edit" class="hide-for-small js-edit-student-member dxtrack-user-action" data-dx-desc="roster_members_edit_member_link">
+                                                <span class="menu-option">Edit account 
+                                                    <i class="icon-help_icon anonymous-info-icon @@hide-no-edit-icon@@ relative">
+                                                        <div class="tooltip-left anonymous-info edit-student-info">This action is only for the creator of this account.</div>
+                                                    </i>
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li class="js-dropdown-element" data-sort="remove">
+					  <a title="Remove member" data-reveal-id="removeMemberModal" class="js-remove-member js-menu-item"><span class="menu-option js-menu-item">Remove</span></a>
+                                        </li>
+                                </ul>
+                        </div>
+</div>

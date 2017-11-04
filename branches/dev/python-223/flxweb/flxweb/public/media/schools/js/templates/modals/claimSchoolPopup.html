@@ -1,0 +1,45 @@
+<div class="claim-school-body">
+     <p class="claim-school-steps-instructions"><b>Follow these simple steps to get verified:</b></p>
+     <ol class='claim-school-ordered-list'>
+         <li class="claim-school-popup-instructions">Sign in to your work email account. </li>
+         <li class="claim-school-popup-instructions">Copy the template into a new email and fill in your details.</li>
+         <li class="claim-school-popup-instructions">Send to <strong class="claim-school-email">support@ck12.org</strong>.</li>
+     </ol>
+     <!-- <p class="claim-school-popup-instructions"> 1. Sign in to your work email account. </p>
+     <p class="claim-school-popup-instructions"> 2. Copy the template into a new email and fill in your details.</p>
+     <p class="claim-school-popup-instructions"> 3. Send to <strong class="claim-school-email">support@ck12.org</strong>.</p> -->
+     <div class='claim-school-popup-border'></div>
+     <% if(isCopySupported){ %>
+         <div class='claim-school-template-header'>
+            <span class='claim-school-email-header'>Email Template</span>
+            <span class='right claim-school-copy-temp-container'>
+                <i class="icon-copy"></i>
+                <span class='claim-school-copy-temp-btn'>Copy Email Template</span>
+               
+            </span>
+        </div>
+     <% }else{ %>   
+        <div class='claim-school-template-header'>
+            <span class='claim-school-email-header-fallback'>Select & Copy the template below</span>
+        </div>
+     <% } %>   
+    <div class="claim-school-email-temp-body">
+        <p class="claim-school-email-temp-txt">Hi CK-12 Team,</p>
+        <p></p>
+        <p class="claim-school-email-temp-txt">I'd like to claim the school page for [school name].</p>
+        <p></p>
+        <p class="claim-school-email-temp-txt">Name :</p>
+        <p class="claim-school-email-temp-txt">Job Title :</p>
+        <p class="claim-school-email-temp-txt">School Phone :</p>
+        <p class="claim-school-email-temp-txt">School Website :</p>
+    </div>
+    <div class='claim-temp-copy-status'></div>
+    <div class='claim-school-btn-container'>
+        <div class="button tangerine modal-uikit-ok left claim-school-ok-btn">Ok, I've sent the email</div>
+        <div class="button turquoise  modal-uikit-ok right claim-school-cancel-btn">I will send it later</div>
+    </div>
+    <div class='claim-school-email-footer'>
+        <p class="claim-school-email-temp-txt">Upon receipt of this email,</p>
+        <p class="claim-school-email-temp-txt">CK-12 will contact your school to verify your information</p>
+    </div>
+</div>  

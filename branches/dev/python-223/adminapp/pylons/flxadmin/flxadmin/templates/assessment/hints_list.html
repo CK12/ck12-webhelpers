@@ -1,0 +1,7 @@
+{% for i in c.items %}
+    <div class="tr fullview {{ h.hide_if_pane(c.viewmode)}}">
+	    <div class="td id">{{i.subjectName}} </div>
+    	<div class="td id"><a href='{{ i.urlWithHints }}'>{{i.countWithHints}}</a></div>
+    	<div class="td id"><a href='{{ i.urlWithoutHints }}'>{{i.countWithoutHints}}</a></div>
+    </div>
+{% endfor %}

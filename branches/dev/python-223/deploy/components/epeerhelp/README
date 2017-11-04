@@ -1,0 +1,60 @@
+- Set the email id you will be using in flx/production.ini
+peerhelp.email_from = epeerhelp-dev@ck12.org
+
+- Instalh procmail 
+sudo apt-get install procmail mailutils
+
+- Install getmail
+-- Download getmail from http://pyropus.ca/software/getmail/#Download
+    (check for newer versions. At the time of writing 4.43.0 was latest)
+wget http://pyropus.ca/software/getmail/old-versions/getmail-4.43.0.tar.gz
+tar xzf getmail-4.43.0.tar.gz
+cd getmail-4.43.0
+sudo python setup.py Install
+
+- Create user epeerhelp with home directory
+sudo useradd -m -s /bin/bash epeerhelp
+-- In case you see an error "useradd: cannot create directory /home/epeerhelp",
+    your server might be using autofs for home dirs. Since ldap does not have
+    that user it wont work. You will have to modify "MAILDIR" in .procmailrc
+    file in later steps.
+mkdir -p /opt/home/epeerhelp
+sudo useradd -d /opt/home/epeerhelp -s /bin/bash epeerhelp
+sudo chown -R epeerhelp /opt/home/epeerhelp
+
+- Give NOPASSWD command access to the epeerhelp user.
+sudo visudo
+- Add/ update this line
+epeerhelp ALL=(ALL) NOPASSWD: ALL
+
+- Switch to epeerhelp user
+sudo su - epeerhelp
+
+- Create 'mailbox' dir inside epeerhelp user homedir.
+mkdir ~/mailbox
+
+- Setup getmail
+mkdir ~/.getmail
+cp /opt/2.0/deploy/components/epeerhelp/getmailrc ~/.getmail/getmailrc
+vim ~/.getmail/getmailrc
+- Set the username and password to the gmail account to monitor
+- If you used custom home dir, set the path to .procmailrc
+- Getmail logs can be seen in ~/mailbox/new/*_2* files.
+
+- Setup procmail
+cp /opt/2.0/deploy/components/epeerhelp/procmailrc ~/.procmailrc
+vim ~/.procmailrc
+- Set the hostname in the peerhelp api param on last line
+- In case you had to create a custom home dir, set the "MAILDIR" to /opt/home
+touch ~/procmailrc.log
+chmod 777 ~/procmailrc.log
+
+- Setup cron
+cp /opt/2.0/deploy/components/epeerhelp/getmail_cron ~/.
+- You might have to set the path to getmail executable in getmail_cron
+crontab < getmail_cron
+
+- Restart services
+sudo service apache2 restart
+sudo service celeryd restart
+sudo service celeryd-peerhelp restart

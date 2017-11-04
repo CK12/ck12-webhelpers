@@ -1,0 +1,9 @@
+_README
+Brocfile.js
+node_modules/*
+package.json
+s3exclude
+scripts/*
+.project
+.svn/*
+*/.svn/*

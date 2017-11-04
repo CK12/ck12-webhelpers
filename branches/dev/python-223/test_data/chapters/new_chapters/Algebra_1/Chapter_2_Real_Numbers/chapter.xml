@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns:dc="http://www.ck12.org/dc/will_create_ns"
+unique-identifier="chapterid" version="2.0">
+
+  <chapter>
+    <metadata>
+<chapterSeq>2</chapterSeq>
+
+<book>Algebra I</book>
+
+      <chapterid></chapterid>
+      <title>Real Numbers</title>
+      <description>Topics in this chapter include:Integers_and_Rational_Numbers,Addition_of_Rational_Numbers,Subtraction_of_Rational_Numbers,Multiplication_of_Rational_Numbers,The_Distributive_Property,Square_Roots_and_Real_Numbers,Problem-Solving_Strategies.
+     </description>
+    </metadata>
+    
+    <lessons>
+      <item id="Integers_and_Rational_Numbers" href="Integers_and_Rational_Numbers.html" sequence="1" />
+      <item id="Addition_of_Rational_Numbers" href ="Addition_of_Rational_Numbers.html" sequence="2" />
+      <item id="Subtraction_of_Rational_Numbers" href ="Subtraction_of_Rational_Numbers.html" sequence="3" />
+      <item id="Multiplication_of_Rational_Numbers" href ="Multiplication_of_Rational_Numbers.html" sequence="4" />
+      <item id="The_Distributive_Property" href ="The_Distributive_Property.html" sequence="5" />
+      <item id="Division_of_Rational_Numbers" href ="Division_of_Rational_Numbers.html" sequence="6" />
+      <item id="Square_Roots_and_Real_Numbers" href ="Square_Roots_and_Real_Numbers.html" sequence="7" />
+      <item id="Problem-Solving_Strategies" href ="Problem-Solving_Strategies.html" sequence="8" />
+     </lessons>
+  </chapter>
+
+</package>

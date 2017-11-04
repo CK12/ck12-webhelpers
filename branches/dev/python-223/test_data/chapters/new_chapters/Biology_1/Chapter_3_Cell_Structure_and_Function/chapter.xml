@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns:dc="http://www.ck12.org/dc/will_create_ns"
+unique-identifier="chapterid" version="2.0">
+
+  <chapter>
+    <metadata>
+<chapterSeq>3</chapterSeq>
+
+<book>Biology I</book>
+
+      <chapterid></chapterid>
+      <title>Cell Structure and Function</title>
+      <description>Topics in this chapter include:Introduction_to_Cells,Cell_Transport_and_Homeostasis.
+     </description>
+    </metadata>
+    
+    <lessons>
+      <item id="Introduction_to_Cells" href="Introduction_to_Cells.html" sequence="1" />
+      <item id="Cell_Structures" href ="Cell_Structures.html" sequence="2" />
+      <item id="Cell_Transport_and_Homeostasis" href ="Cell_Transport_and_Homeostasis.html" sequence="3" />
+    </lessons>
+  </chapter>
+
+</package>

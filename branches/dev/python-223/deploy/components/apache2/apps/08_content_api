@@ -1,0 +1,7 @@
+    Alias /content_api/builds /opt/2.0/content_api/builds
+    Alias /content_api /opt/2.0/content_api/builds/0.0.2
+
+    <Directory /opt/2.0/content_api/builds/>
+        Order allow,deny
+        Allow from all
+    </Directory>

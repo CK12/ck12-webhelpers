@@ -1,0 +1,103 @@
+%% Book Cover Page Here
+%% Title Page Here
+\begin{titlepage}
+\pagenumbering{roman}
+
+
+\begin{tikzpicture}[overlay]
+   \node [xshift=3.5in, yshift=-4.75in]
+%  \node [xshift=-.75in, yshift=-10.0in]
+  {\includegraphics[width=8.5in]{%###BOOKCOVER###}};
+\end{tikzpicture}
+
+ 
+\end{titlepage}
+
+
+%% Interior Title Page here
+\vspace{3in}
+\begin{center}
+
+  %{ \color{black}\titlerule[1pt]} 
+
+  \vspace{32pt}
+  { \fontsize{40}{48}\color{black}\selectfont 
+    %###BOOKTITLE### \\
+  }
+
+  \vspace{6pt}
+  %{\color{black}\titlerule[1pt]}
+  % titlerule is to be used in the options of teh titleformat macro
+  % use hrulefill instead
+  \hrulefill
+
+  \vspace{72pt}
+
+  % Put authors here
+  %###AUTHORS###
+
+  ~ \vfill
+
+
+  \vspace{48pt}
+
+  {\large
+  \textbf{ Say Thanks to the Authors} \\
+  \href{http://www.ck12.org/saythanks}{Click http://www.ck12.org/saythanks} \\
+  \emph{(No sign in required)}
+  }
+
+  % Some ck12 logos
+  \includegraphics[width=1.5in]{Ck12_logo_300dpi.png}
+  \includegraphics[width=1.5in]{flexbooks.jpg}
+  
+\end{center}
+
+
+%\clearpage
+
+
+% Include copyright material here
+\ckCopyPage{\input{ck12_copy}}{
+%###ATTRIBU###
+}
+\clearpage
+
+
+\pagestyle{plain}
+\setcounter{tocdepth}{1}  % Shows Chapters/Sections(concepts)
+\setcounter{minitocdepth}{1}
+
+% Chapter Level TOC Here
+
+% minitoc options: mtcsetfont is overwritten by cftsecfont 
+\mtcsetfont{minitoc}{section}
+{\fontsize{12}{16}\selectfont\sffamily\scshape\bfseries}
+
+\mtcsettitle{minitoc}{
+{\fontsize{16}{20}\selectfont\sffamily\bfseries\color{ckgreen}
+Chapter Outline
+}}
+
+% Frontmatter chapters
+\clearpage
+%###FRONTMATTER###
+\clearpage
+
+% This is also overwritten by cftpagenumbers[on/off]{sec}
+\mtcsetpagenumbers{minitoc}{off}
+
+
+% Table of Contents
+\dominitoc 
+
+\cftpagenumberson{sec}
+\tableofcontents
+\cftpagenumbersoff{sec}
+
+\renewcommand{\cftsecfont}
+{\fontsize{12}{16}\selectfont\sffamily\scshape\bfseries}
+
+
+
+

@@ -1,0 +1,24 @@
+<html>
+    <head></head>
+    <body>
+    <p>Greetings from CK-12 Foundation!</p>
+
+    <p>We're happy to inform you that your question has been added into the exercise <a href="{{ site }}{{ events[0].eventData['artifactPerma'] }}" target=_blank">{{ events[0].eventData['artifactTitle'] }}</a> after the review.</p>
+
+    <p>Here is the snippet of your question which was added in to the exercise.</p>
+
+    <p>{{ events[0].eventData['displayText']|replace("/flx/math/", flxhost+"/flx/math/") }}</p>
+
+    <p></p>
+
+    <p>Click here to open the exercise and try out your question</p>  
+    <a href="{{ site }}{{ events[0].eventData['artifactPerma'] }}#view_exercises" target=_blank">{{ events[0].eventData['artifactTitle'] }}</a> 
+
+    <p></p>
+
+    <p>Do you have questions or feedback? Do not hesitate to email <a href="mailto:support@ck12.org">support@ck12.org</a>.</p>
+
+    <p>Sincerely,</p>
+    <p>The CK-12 Team</p>
+    </body>
+</html>

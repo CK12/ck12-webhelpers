@@ -1,0 +1,576 @@
+{% extends "details.html" %}  
+
+{% block admincontent %} 
+{% if c.artifact %}
+<div class="sectionhead sectiontitle">{% if c.isRevision %}Revision{% else %}Artifact{% endif %}: {{c.artifact.title}}</div>
+  {% if not c.isRevision %}
+<div class="section withfloatedsubmit">
+  <form id="mainform" method="post">
+  {% else %}
+<div class="section">
+  {% endif %}
+    <div class="leftaligned">
+
+    {% for field in c.form.ordered_fields %}
+      {{ field }}
+    {% endfor %}
+
+    <input type="hidden" name="conceptNode" id="conceptNode" value="{{ c.artifact.get('conceptNode') }}">
+    <!-- #Bug 56074 - Adding Collection Association table for artifacts  -->
+    {% if c.artifact.collections %}
+
+      <div class="label">
+        <label class="label" for="artifact_collection_association">
+          Collections Association
+        </label>
+      </div>
+
+      <div class="table" style="margin-top: 0px;">
+        <div class="sectionhead thead" style="margin-top: 0px;">
+          <div class="tr">
+          {% for head in c.form.associationCollectionListHead %}
+            <div class="td" style="width: 0px; border-right: 1px solid white;">{{head}}</div>
+          {% endfor %}
+          </div>
+        </div>
+        <div class="tbody">
+          
+          {% for collection in c.artifact.collections %}
+          <div class="tr">
+            <div class="td" style="width: 0px; border: 1px solid #ccc">
+              {{ loop.index }}
+            </div>
+            <div class="td" style="width: 0px; border: 1px solid #ccc">
+              {{ collection['conceptCollectionTitle'] }}
+            </div>
+            <div class="td" style="width: 0px; border: 1px solid #ccc">
+              {{ collection['encodedID'] }}
+            </div>
+            <div class="td" style="width: 0px; border: 1px solid #ccc">
+              {{ collection['collectionTitle'] }}
+            </div>
+            <div class="td" style="width: 0px; border: 1px solid #ccc">
+              <a href="{{ collection['artifactCollectionURL'] }}">[Link]</a>
+            </div>
+          </div>
+          {% endfor %}
+          
+        </div>
+      </div>
+
+    {% endif %}
+
+    {% if c.artifact.artifactType not in ['assignment', 'study-track', 'asmtpracticeg', 'asmtpracticeint', 'asmttest'] %}
+        {{ h.labelreadonly('Perma', 'perma','info xlong') }} {% if c.newModalityURL %} {{ h.htmla(c.newModalityURL, '[Content Page]') }} {% endif %}
+    {% endif %}
+    {% if not c.isRevision %}
+      {{ h.labelselect('Level', 'level', c.form.level_sel, selected=c.artifact.level) }}
+    {% endif %}
+
+    {% for role, names in c.fmtd.authors %}
+      {{ h.labeldiv(role, names, 'td')}}
+    {% endfor %}
+      {{ h.htmllabel('Creator')}}<div>
+        {{h.userlink(c.artifact, 'creator', 'creatorID')}}
+        {{h.id_in_parens(c.artifact, 'creatorID')}}
+      </div>
+
+    {% if not c.isRevision %}
+      {{ h.labeldiv('Is Part of Artifacts', c.fmtd.parents, 'td')}}
+      {% for label, childs in c.fmtd.childs %}
+        {{ h.labeldiv(label, childs, 'td')}}
+      {% else %}
+        {{ h.labeldiv('Contains', 'None')}}
+      {% endfor %}
+    {% endif %}
+    
+     {% if c.artifact.artifactType not in ['assignment', 'study-track']%}
+      {{ h.htmllabel('Content')}}
+      <div>
+        {{c.fmtd.content}} &nbsp; 
+        <span id='showRaw' class='linklike'>[Show Raw]</span>
+      </div>
+      {{ h.readonlyarea('xhtml', 15, 100, 'hide')}}
+    {% if c.artifact.artifactType in ['book', 'chapter', 'lesson', 'section', 'concept', 'tebook', 'workbook', 'labkit', 'quizbook'] %}
+      {{ h.labeldiv('Print Formats', c.fmtd.formats, 'td')}}
+    {% endif %}
+      {{ h.labeldiv('Resources', c.fmtd.resources, 'td')}}
+      {{ h.labeldiv('Cover Image', c.fmtd.coverimg, 'td')}}
+
+    {% if c.isRevision %}
+      {{ h.labeldiv('Artifact', c.fmtd.artifact, 'td')}}
+    {% endif %}
+
+    {% if not c.isRevision %}
+      {{ h.labeltextarea('Summary', 'summary', 6, 82)}}
+      <div class="label"><label class="" for="">Featured</label></div>
+      <input type="checkbox" id="featured" name="featured" value="true">
+      {{ h.htmllabel('Actions')}}
+      <div>
+        {{h.htmla_('/reindex/%s'%c.artifact.id, '[Re-Index Artifact]')}}
+        <span id='invalidate_cache' class='linklike'>[Invalidate Artifact Cache]</span>
+        <span id='invalidate_content_cache' class='linklike'>[Invalidate Content Cache]</span>
+        <span id='invalidate_sbcache' class='linklike'>[Invalidate Standards Cache]</span>
+        {% if c.fmtd.noParents %}
+          &nbsp; <span id='delete' class='linklike red'>[Delete Artifact]</span>
+                 <div class='actionlink hide'></div>
+                 <div class='actionstat status hide'></div>
+                 <div class='actionmsg hide'></div>
+        {% endif %}
+        {{h.htmla_('/review/%s'%c.artifact.id, '[Review]')}}
+        {% if c.artifact.artifactType in ['book', 'tebook', 'workbook' ,'studyguide', 'labkit', 'lesson'] %}
+        {{h.htmla_('/artifact/notifyusers/%s/%s'%(c.artifact.revisions[0].id, c.artifact.id), '[Notify Users]')}}
+        	{% if c.artifact.artifactType in ['book', 'tebook', 'workbook', 'labkit', 'quizbook'] %}
+        		<span id='associate_with_school' class='linklike'>[Associate with School]</span>
+        	{% endif %}
+        {% endif %}
+        <div id="sboards" style="display:none;">Invalidated standards cache: <span id="sb_cnt">0</span> of <span id="sb_cnt_total"></span></div>
+      </div>
+    {% else %}
+      {{ h.htmllabel('Actions')}}
+      {% if c.artifact.artifactType in ['book', 'tebook', 'workbook' ,'studyguide', 'labkit', 'lesson'] %}
+      <div>
+        {{h.htmla_('/artifact/notifyusers/%s'%(c.artifact.revisions[0].id), '[Notify Users]')}}
+      </div>
+      {% endif %}
+    {% endif %}
+    {% endif %}
+    </div>
+  {% if not c.isRevision %}
+    {{ h.submitbutton('Update', 'short')}}
+    {{ h.cancelbutton(c.cancel)}}
+  </form>
+  {% endif %}
+</div>
+
+<span class='ajaxError'></span>
+{% if c.artifact.artifactType not in ['assignment', 'study-track']%}
+<div class="prethead title">Revisions</div>
+<div class="inline table">
+  <div class="thead sectionhead">
+    <div class="tr">
+    {% for head in c.form.listhead %}
+      <div class="td">{{head}}</div>
+    {% endfor %}
+    </div>
+  </div>
+  <div class="tbody">
+  </div>
+</div>
+{% endif %}
+{% endif %}
+
+<div id='boxes'>
+	<div id='dialog' class='overlay_form'>
+		<label>Autorized By: </label><input type="text" id="autorizedBy_txt" value="{{ c.loggedInUserID }}" /><br/>
+		<br/>
+		<label>Explanation for your request: </label><textarea name="comments" id="published_request_information" class="forminput"
+			rows="5" placeholder="{{ _('Please explain why you would like to make this content publicly available.') }}" ></textarea>
+		<br/>
+		<input type="button" class = "short btn primaryaction floatright" id = "publish_artifact" value="Publish" />
+		<input type="button" class="btn cancelbtn close floatright" value="Cancel" />
+	</div>
+  	<div id="mask"></div>
+</div>
+
+<div id='associate_boxes' style="display:none;">
+	<div id='associate_dialog' class='overlay_form leftaligned'>
+		<div>{{ h.labelselect('States', 'state_options', c.all_states) }}</div>
+		<div>{{ h.labelselect('Schools', 'school_options', c.schools_dropdown) }}</div>
+		<br/>
+		<span id="responseMsg"></span>
+		<input type="button" class = "short btn primaryaction floatright" id = "associate_btn" value="Associate" />
+		<input type="button" class="btn cancelbtn close floatright" value="Cancel" />
+	</div>
+</div>
+
+{% endblock admincontent %}
+
+
+{% block js_scripts %}
+<script type="text/javascript" src="{{ h.url_js('inlineList.js') }}"></script>
+<script type="text/javascript" src="{{ h.url_js('publish_action.js') }}"></script>
+<script type='text/javascript'>
+$(document).ready(function(){
+  var
+  taskUrlRoot = CK12.flxUrl('get/status/task/'),
+  invalidateContentCacheUrl = CK12.flxUrl('invalidate/cache/artifact/revision/{{c.artifactRevisionID}}?recursive=true'),
+  invalidateArtifactCacheUrl = CK12.flxUrl('invalidate/cache/artifact/{{c.artifactID}}?recursive=true');
+
+  InlineList({
+    ajaxRoot: CK12.admUrl('/revisions_list/'+'{{c.artifactID}}'),
+    actionFns: [function(){PublishAction();}],
+    postLoad: function(){
+      {% if c.isRevision %}
+        var $idRow = $('.td.id').filter(function(){
+          return $(this).text() == {{c.revisionID}};
+        });
+        if ($idRow.length > 0){
+          $idRow.siblings('.revisionid').html('<i>(this revision is currently displayed)</i>');
+        }
+      {% endif %}
+    }
+  });
+  $("#viewcover").colorbox(Defaults.overlay());
+  Fns.showHide('#xhtml', '#showRaw');
+  {% if c.hasFeaturedTag %}
+    $('#featured').attr({'checked':'checked'});
+  {% endif %}
+  
+  var deleteArtifactTask = {
+      taskID : null,
+      confirmMsg : 'Deleting the artifact can take a long time and can NOT be undone.  Are you sure?',
+      successMsg : 'Artifact deleted successfully',
+      
+      this : null,
+              
+      deleteTask : function(){
+          if (confirm(deleteArtifactTask.confirmMsg)){
+            deleteArtifactTask.this = $(this)
+          	$(this).hide();
+            $.ajax({url: CK12.flxUrl('delete/{{c.artifactID}}'), 
+              type: 'POST', 
+              data: {},
+              timeout: 600000, //10 mins per Ezra request
+              success: function(data, status, xhr){ //data is just {} for artifacts
+                  $($(deleteArtifactTask.this).siblings())[3]
+                  task_id = data.response.taskID;
+                  deleteArtifactTask.taskID = task_id;
+                  deleteArtifactTask.deletedTaskStatus();
+              },
+              error: function(xhr, textStatus, errorThrown){
+                  alert('API Error: '+ Fns.formatResponseError(
+                  xhr, textStatus, errorThrown));
+              }
+           });
+         }
+      },
+      
+      deletedTaskStatus : function(){
+      
+        var interval = 5000;
+        var _deferred = $.Deferred();
+        var _promise = _deferred.promise();
+
+        if (deleteArtifactTask.taskID == null){
+            return false;
+        }
+        var url = taskUrlRoot+deleteArtifactTask.taskID
+        function statusCheckSuccess(json_status) {
+            var resp = json_status && json_status.response,
+            isResponse = !resp.taskID,
+            responseMsg = resp && resp.message,
+            errMsg='',
+            actionLink = $($(deleteArtifactTask.this).siblings())[2],
+            actionStat = $($(deleteArtifactTask.this).siblings())[3],
+            actionMsg  = $($(deleteArtifactTask.this).siblings())[4];
+            if (isResponse && !data.responseHeader)
+               errMsg = 'No responseHeader in response from import API';
+            else if (isResponse && data.responseHeader.status != 0)
+               errMsg = 'Import error: ' + responseMsg;
+            else if (!deleteArtifactTask.taskID)
+               errMsg = 'No task ID in response from API';
+            else{
+                 stat = resp.status
+                 Fns.setActionStat($(actionStat), stat);
+                 Fns.colorStatus(actionStat);
+                 Fns.setActionLink($(actionLink), CK12.admUrl('task/'+deleteArtifactTask.taskID), 'Delete Status:');
+                 if (resp.result && resp.result != 'None'){
+                    errMsg = resp.result;
+                    Fns.setActionMsg($(actionMsg), 'error', errMsg);
+                 }else{
+                 	errMsg = ''
+                 	Fns.setActionStat($(actionMsg), 'hide');
+                 }
+                 if(resp.status == "SUCCESS") {
+                 	$(deleteArtifactTask.this).show();
+                 	if (!errMsg){
+                    	alert(deleteArtifactTask.successMsg);
+						_deferred.resolve(json_status);
+          				window.location.replace(CK12.admUrl('artifacts'));
+                    }
+                 } else if(resp.status == "FAILURE") {
+                 	$(deleteArtifactTask.this).show();
+                    _deferred.reject(json_status);
+                 } else if(resp.status == "PENDING" || resp.status == "IN PROGRESS") {
+                    window.setTimeout(checkStatus, interval);
+                 }
+             }
+        }
+        
+        function statusCheckError(xhr, text_status, errorThrown) {
+            var error_info = {
+                'status' : text_status,
+                'error' : errorThrown
+            };
+            _deferred.reject(error_info);
+        }
+        
+        function checkStatus() {
+            $.ajax({
+                'url': url,
+                'success': statusCheckSuccess,
+                'error' : statusCheckError
+            });
+        }
+
+        checkStatus();
+        return _promise;
+      }
+  };
+  $("#delete").click(deleteArtifactTask.deleteTask);
+  
+  // On page refresh get artifacts status if already scheduled for deletion
+  var cacheUrl = CK12.flxUrl('get/usertask/{{c.artifactID}}/deleteArtifactTask');
+  $.get(cacheUrl, function(data){
+    if (data.response != null){
+    	deleteArtifactTask.this = $('#delete');
+    	deleteArtifactTask.taskID = data.response.taskID;
+    	deleteArtifactTask.deletedTaskStatus();
+    }
+  });
+  
+  $("#invalidate_cache").click(function(){
+	  $.ajax({url: invalidateArtifactCacheUrl,
+          success: function(data) {
+      			if (data && data.responseHeader && data.responseHeader.status == '0'){
+      				alert("Invalidated {{c.artifact.artifactType}} cache successfully");
+      			}
+          }
+   	  });
+  });
+  $("#invalidate_content_cache").click(function(){
+	  $.ajax({url: invalidateContentCacheUrl,
+          success: function(data) {
+      			if (data && data.responseHeader && data.responseHeader.status == '0'){
+      				alert("Invalidated {{c.artifact.artifactType}} content cache successfully");
+      			}
+          }
+   	  });
+  });
+
+  $("#invalidate_sbcache").click(function() {
+    $("#sboards").hide();
+    $("#sb_cnt").html("0");
+    $("#sb_cnt_total").html("0");
+    $.ajax({
+        url: CK12.flxUrl('/get/info/standardboards/correlated/artifact/{{ c.artifactID }}?nocache=true'),
+        success: function(data) {
+          if (data && data.responseHeader && data.responseHeader.status == '0') {
+            if (data.response.standardBoards) {
+              $("#sb_cnt_total").html(data.response.standardBoards.length);
+              $("#sboards").show();
+              for (var i = 0; i < data.response.standardBoards.length; i++) {
+                var sbID = data.response.standardBoards[i].id;
+                var sbName = data.response.standardBoards[i].name;
+                $.ajaxQueue({
+                  url: CK12.flxUrl('/get/standard/correlations/' + sbID + '/{{c.artifactID}}?nocache=true'),
+                  success: function(cdata) {
+                    if (cdata && cdata.responseHeader && cdata.responseHeader.status == '0') {
+                      var cnt = parseInt($("#sb_cnt").html(), 10);
+                      cnt += 1;
+                      $('#sb_cnt').html(cnt);
+                    }
+                  }
+                });
+              }
+            } else {
+              alert("Error getting standard boards for the artifact.");
+            }
+          }
+        }
+      });
+  });
+
+  $('#autorizedBy_txt').val("{{c.loggedInUserID}}");
+  
+  
+  /* ASSOCIATE BOOK WITH SCHOOL FUNCTIONALITY */
+  
+  //Open modal popup 
+  $("#associate_with_school").click(function(event){
+      event.stopPropagation();
+      // Open modal 
+      showAssociateDialog();
+  });
+  
+  // Show popup to associate book with school 
+  showAssociateDialog = function(){
+	var maskHeight = $(document).height();
+	var maskWidth = $(window).width();
+	
+	//Set heigth and width to mask to fill up the whole screen
+	$('#mask').css({'width':maskWidth,'height':maskHeight});
+	
+	//transition effect		
+	$('#mask').fadeIn(1000);	
+	$('#mask').fadeTo("slow",0.8);	
+
+	//Get the window height and width 
+	var winH = $(window).height();
+	var winW = $(window).width();
+        // Set the CSS
+	$('#associate_boxes').css('display','block');
+	$('#associate_dialog').css({'width':'445px', 'height':'200px', 'padding':'20px', 'background-color':'#ffffff'});
+	$('#associate_boxes .overlay_form').css({'position':'fixed', 'z-index':'9999'});
+	
+	//Set the popup window to center 
+	$('#associate_dialog').css('top',  winH/2-$('#associate_dialog').height()/2);
+	$('#associate_dialog').css('left', winW/2-$('#associate_dialog').width()/2);
+
+	//transition effect 
+	$('#associate_dialog').fadeIn(2000); 
+  }
+
+  String.prototype.capitalize = function() {
+    return this.replace(/(?:^|\s)\S/g, function(str) { return str.toUpperCase(); });
+  };
+  defaultSchoolOption = $('#school_options').html();
+  $('#state_options').change(function(e){
+  	e.stopPropagation();
+  	state = $(this).val();
+  	if(state){
+  		data = {}
+  		data['state'] = state
+  		// AJAX call to get schools of selected state 
+  	    $.ajax({
+  	        "url" : "/flx/get/schools",
+  	        "type" : "GET",
+  	        "dataType" : "json",
+  	        "data": data,
+  	        "success" : function(response){
+  	        	// Template to get a drop-down list of schools 
+  	        	var template  = "<option value='@@value@@'>@@schoolName@@</option>",
+  	        		option = "",
+  	        		html = [];
+  	            
+  	        	if(response.responseHeader.status === 0){
+  	            	$('#school_options').find('option').remove();	// Remove options 
+  	            	// If no school is selected, then append all schools of selected state to get the result 
+  	            	var defaultOptions = [];
+  	            	var schools = response.response.schools;
+                    for(var i=0; i< schools.length; i++){
+                        schools[i].schoolName = schools[i].schoolName.capitalize();
+                    } 
+                    schools.sort(function (a, b) {
+                        return (a.schoolName.toLowerCase()).localeCompare((b.schoolName.toLowerCase()));
+                    });
+  	                for(var i=0; i< schools.length; i++){
+  	                	defaultOptions.push(response.response.schools[i].schoolName);
+  	                	option = template;
+  	                	option = option.replace(/@@value@@/g , response.response.schools[i].schoolID);
+  	                	option = option.replace(/@@schoolName@@/g , response.response.schools[i].schoolName);
+  	                	html.push(option);
+  	                }
+  	                // Create drop-down list of schools 
+  	                var defaultOptionHtml = template;
+  	                defaultOptionHtml = defaultOptionHtml.replace(/@@value@@/g, '');
+  	                defaultOptionHtml = defaultOptionHtml.replace(/@@schoolName@@/g, 'Select');
+  	                $("#school_options").append(defaultOptionHtml);
+  	                $("#school_options").append(html.join(""));
+  	            } else{
+  	                 alert(response.response.message);
+  	            }
+  	        },
+  	        "error" : function(){
+  	            alert("There is some problem while getting the schools");
+  	        }
+  	    });
+  	} else{
+  		$("#school_options").html(defaultSchoolOption);
+  	}
+  });
+  
+  // Click on 'Associate' button 
+  $("#associate_btn").click(function(event){
+      event.stopPropagation();
+      
+      var data ={},
+          schoolId = $("#school_options").val();
+      
+      if(schoolId=='' ) {
+    	  alert("please select a school");
+    	  return false;
+      }
+      else{
+    	  data['schoolID'] = schoolId;
+    	  data['artifactID'] = {{c.artifactID}};
+    	  data['artifactTitle'] = '{{c.artifact.title | escape}}';
+    	  data['artifactCreatorName'] = '{{c.artifact.creator  | escape}}';
+    	  data['artifactCreatorID'] = {{c.artifact.creatorID}};
+    	  // TODO: data['artifactDescription'] = '{{c.artifact.description}}';
+    	  data['artifactPerma'] = '{{c.artifact.perma}}';
+    	  data['reviewerID'] = {{c.loggedInMemberID}};
+    	  data['artifactCover'] = '{{c.artifact.coverImage}}';
+    	  // Call Associate API 
+    	  associateWithSchool(data);
+          $("#associate_btn").hide()    	  
+      }
+  });
+ 
+  // Associate book with school 
+  function associateWithSchool(data){
+  	// Ajax call 
+  	$.ajax({
+          "url" : "/flx/add/school/artifacts",
+          "type" : "POST",
+          "dataType" : "json",
+          "data" : data,
+          "success" : function(response){
+              if(response.responseHeader.status === 0){
+		          $("#responseMsg").html('The book[{{c.artifact.title | escape}}] has been successfully associated with selected school.');
+         		  return true;
+              }else{
+            	  $("#responseMsg").html(response.response.message);
+                  return false;
+              }
+          },
+          "error" : function(){
+              return false;
+          }
+      });
+  }
+  
+  //Bug #54713 base64 encode the xhtml before sending
+  
+  $('form').submit(function(e){
+      xhtml = $(this).find("textarea[id='xhtml']").val();
+      // base64 encode the xhtml before sending the form data.
+      if (xhtml) { 
+          safe_xhtml = admin.utils.b64EncodeUnicode(xhtml);
+          $(this).find("textarea[id='xhtml']").val(safe_xhtml);
+      }
+      return true;
+  });  
+});
+
+$('form').submit(function(e){
+  Defaults.UIAlreadyBlocked = false;
+  var summary_val = $(this).find("textarea#summary").val().trim();
+  if (typeof summary_val != "undefined") 
+  {
+    if (summary_val.length > 0)
+    {
+      var doc = new DOMParser().parseFromString(summary_val, "text/html");
+      isHTML = false;
+      isHTML = [].slice.call(doc.body.childNodes).some(node => node.nodeType === 1);
+      if (isHTML)
+      {
+        alert("Please don't use HTML Tags in the Summary field");
+        Defaults.UIAlreadyBlocked = true;
+        return false;
+      }
+      else
+      {
+        if(doc.body.childNodes[0].textContent != summary_val)
+        {
+          alert("Please don't use HTML Tags in the Summary field");
+          Defaults.UIAlreadyBlocked = true;
+          return false;
+        }
+      }
+    }
+  }
+});
+</script>
+{% endblock %}

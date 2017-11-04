@@ -1,0 +1,132 @@
+.settings-header{
+    padding: 25px 0;
+    font-size: 23px;
+}
+.hint{
+    font-size: 12px;
+    color: #8e8774;
+}
+.forum-notification-type-wrapper{
+    width: 100%;
+    margin-bottom: 35px;
+}
+.forums-notification-type-label{
+    padding: 5px 10px 0 0;
+}
+.forum-notification-type-all{
+    padding-right: 94px;
+}
+.forums-notification-expand-label{
+    padding: 5px 33px 0 0;
+}
+.forum-notification-expand-instant{
+    padding-right: 24px;
+}
+.forum-notification-expand-weekly{
+    padding-right: 30px;
+}
+.forum-notification-expand-dropdown{
+    .simple{
+        width: 130px !important;
+        left: 0;
+    }
+}
+.settings-wrapper{
+    position: relative;
+}
+.setting-button-wrapper{
+    padding-top: 15px;
+    a{
+        .icon-remove{
+            color: #ffffff;
+            margin-right: 0;
+        }
+        &.button{
+            &.delete{
+                width: inherit;
+                height: inherit;
+                // padding-left: 38px;
+                // position: relative;
+            }
+        }
+    }
+}
+.tooltip-left{
+    &:before{
+        border-top: 10px solid transparent;
+        border-right: 10px solid #CEC9BE;
+        border-bottom: 10px solid transparent;
+        left: -10px;
+        top: 18px;
+        border-left: none;
+        right: auto;
+    }
+}
+.anonymous-info-text {
+    padding-top: 6px;
+}
+.anonymous-info-icon {
+    margin-left: 5px;
+    margin-top: 7px;
+    color: #B5B1A8;
+    position: relative;
+}
+.anonymous-info {
+    position: absolute;
+    left: 30px;
+    width: 317px;
+    max-width: none;
+    text-align: left;
+    top: -20px;
+    display:none;
+}
+.delete-content{
+    font-size: 18px;
+    line-height: 21px;
+    margin-top: 30px;
+    margin-bottom: 45px;
+}
+.forums-select-wrapper{
+    padding-bottom: 150px;
+}
+.notification-options{
+    margin-top: 35px !important;
+}
+
+.notification-text{
+    font-weight: bold;
+    color: #54544D;
+}
+.settings-header{
+    font-size: 1.313em;
+    font-weight: normal;
+    color: #54544D;
+}
+.forum-title-save{
+    margin-left: 10px;
+}
+.update-error-message{
+    color: #FB6C33;
+    font-size: 14px;
+    font-weight: normal;
+}
+.setting-warning-container{
+    background-color: #ffffff;
+    margin-top: 35px;
+    padding: 30px 0;
+    text-align: center;
+    .title{
+        font-size: 28px;
+        color: #56544D;
+        margin-bottom: 35px;
+        line-height: 40px;
+    }
+    .img-container, .browse-link{
+        width: 100%;
+    }
+    .button-container{
+        margin: 35px 0 10px 0;
+        width: 100%;
+    }
+}
+

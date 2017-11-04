@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns:dc="http://www.ck12.org/dc/will_create_ns"
+unique-identifier="chapterid" version="2.0">
+
+  <chapter>
+    <metadata>
+      <chapterid>10</chapterid>
+      <title>Quadratic Equations and Quadratic Functions</title>
+      <description>Topics in this chapter include:graphs of quadratic functions,quadratic equations by graphing,quadratic equations by square roots,solving quadratic equations by completing the square,solving quadratic equations by the quadratic formula,the discriminant,linear-exponential and quadratic models,problem solving strategies:choose a function model.    
+     </description>
+    </metadata>
+    
+    <lessons>
+      <item id="graphs_of_quadratic_functions" href="graphs_of_quadratic_functions.html" sequence="1" />
+      <item id="quadratic_equations_by_graphing" href ="quadratic_equations_by_graphing.html" sequence="2" />
+      <item id="quadratic_equations_by_square_roots" href ="quadratic_equations_by_square_roots.html" sequence="3" />
+      <item id="solving_quadratic_equations_by_completing _the_square" href ="solving_quadratic_equations_by_completing _the_square.html" sequence ="4" />
+      <item id="solving_quadratic_equations_by_the_quadratic_formula" href ="solving_quadratic_equations_by_the_quadratic_formula.html" sequence ="5" />
+	 <item id="the_discriminant" href ="the_discriminant.html" sequence ="6" />
+ <item id="linear_exponential_and_quadratic_models" href ="linear_exponential_and_quadratic_models.html" sequence ="7" />
+ <item id="problem_solving_ strategies-choose_a function_model" href ="problem_solving_ strategies-choose_a function_model.html" sequence ="8" />
+    </lessons>
+  </chapter>
+
+</package>

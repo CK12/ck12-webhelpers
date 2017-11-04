@@ -1,0 +1,231 @@
+{% import 'base/auth/macros.html' as macros %}
+<!DOCTYPE HTML>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en" xmlns:ck12="http://www.ck12.org/ns" xmlns:fb="http://www.facebook.com/2008/fbml"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en" xmlns:ck12="http://www.ck12.org/ns" xmlns:fb="http://www.facebook.com/2008/fbml"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en" xmlns:ck12="http://www.ck12.org/ns" xmlns:fb="http://www.facebook.com/2008/fbml"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" xmlns:ck12="http://www.ck12.org/ns"> <!--<![endif]-->
+<head>
+	{% set webroot = "http://" + request.host %}
+	{% block head %}
+	{% block noscript %}
+		<noscript><meta http-equiv="refresh" content="1; url={{ webroot }}/nojavascript/"></noscript>
+	{% endblock %}
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	{# Additional meta tags can be defined by individual pages using the meta_extra block #}
+	{% block meta_extra %}
+	<meta name="author" content="CK-12 Foundation">
+	{% endblock %}
+	<link rel="shortcut icon" href="{{h.url_images('favicon.ico')}}" type="image/x-icon" />
+        <title>{% block title %}{{ _("Welcome to CK-12 Foundation") }}{% endblock %}{% block common_title %} | {{ _("CK-12 Foundation") }}{% endblock %} </title>
+ 	{% block stylesheets %}
+	<link rel="stylesheet" type="text/css" href="{{ h.url_lib('jquery-ui/css/smoothness/jquery-ui-1.8.17.custom.css') }}" />
+	<link rel="stylesheet" type="text/css" media="all" href="{{ h.url_css('master.css') }}" />
+	<link rel="stylesheet" type="text/css" media="all" href="{{ h.url_css('auth.css') }}" />
+	{% endblock %}
+
+	{% endblock %}
+	{% block no_cache %}
+	{% endblock %}
+
+	<!-- css3-mediaqueries.js for IE less than 9 --> 
+	<!--[if lt IE 9]>
+		<script src="https://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]--> 
+</head>
+<body class="{% block additional_body_classes %}{% endblock %}" style="padding-top: 0px">
+{% block tracking %}
+    {% include 'base/auth/tracking.html' %}
+{% endblock %}
+{% block header %}
+<header id="header">
+	<nav id="main-nav" class="container_12">
+		<div class="grid_1 ipad_grid_3">
+			<div class="logoheaderwrap">
+				{% if not c.member %}
+				<a href="{{ webroot }}" title="{{ _("CK-12 Foundation Home") }}">
+				{% else %}
+				<a href="{{ webroot }}/dashboard/" title="{{ _("My CK-12 Dashboard") }}">
+				{% endif %}
+					<img src="{{ h.url_images('logo_ck12.png' )}}" width="60" height="22" alt="{{ _('CK-12 Logo') }}" />
+				</a>
+			</div>
+		</div>
+
+		<div class="grid_2 ipad_grid_4">
+&nbsp;
+		</div>
+		
+		<div class="grid_6 ipad_grid_2">
+&nbsp;
+		</div>
+
+		<div class="grid_3 ipad_grid_3 usersettings">
+
+                                        {% if c.returnTo %}
+                                            {% set returnTo = c.returnTo %}
+                                        {% else %}
+                                            {% set returnTo = '/' %}
+					{% endif %}
+                                        {% if c.requestor %}
+                                            {% set requestor = c.requestor %}
+                                        {% else %}
+                                            {% set requestor = '/' %}
+                                        {% endif %}
+					{% if not c.member %}
+				<ul class="notuser">
+					<li id="createaccount" class="desktop"><a href="{{ h.url('signup') }}?returnTo={{ requestor }}" title="{{ _('Create an Account with CK-12') }}" >{{ _("Join CK-12") }}</a></li>
+					<li><a href="{{ h.url('signin') }}?returnTo={{ returnTo }}" title="{{ _('Sign in with your Email, Facebook, Google, or Twitter account') }}" ><span id="signintext">{{ _("Sign In") }}</span></a></li>
+				</ul>
+					{% else %}
+                                            {% set name = c.member.firstName|capitalize + " " + c.member.lastName|capitalize %}
+                                            {% if name == " " %}
+                                                {% set name = c.member.email %}
+                                            {% endif %}
+				<div class="dropmenuwrap">
+					<a class="fullname" href="#">{{ name|truncate(30,killwords=True) }}</a>
+					<ul class="drop-menu hide" data-menu-link='#user_name'>
+					<!--li><a href="{{ webroot }}/dashboard/" title="{{ _('Dashboard') }}" >{{ _('Dashboard') }}</a></li-->
+					<li><a href="{{ webroot }}/dashboard/myprogress/" title="{{ _('My Progress') }}">{{ _('My Progress') }}</a></li>
+					<li><a href="{{ webroot }}/dashboard/fav/" title="{{ _('Bookmarks') }}">{{ _('Bookmarks') }}</a></li>
+					<li><a href="{{ webroot }}/dashboard/my/" title="{{ _('My Content') }}">{{ _('My Content') }}</a></li>
+					<li><a href="/groups/my" title="{{ _('My Groups') }}">{{ _("My Groups") }}</a></li> 
+					<li><a href="{{ returnTo }}" title="Account Settings">{{ _('Account Settings') }}</a></li>
+					<li class="signout"><a href="{{ h.url('signout') }}?returnTo={{ requestor }}" title="{{ _('Sign out') }}" >{{ _("Sign Out") }}</a></li>
+					</ul>	
+					</div>
+					{% endif %}
+				
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div class="gclear"></div>
+	</nav>
+</header>
+{% endblock %}
+{% block crumbs %}{% endblock %}
+{% block pagewrap %}
+{% block pageinfotop %}{% endblock %}
+<div id="contentwrap" class="container_12" {% block schema_itemscope %} {% endblock%}>
+	{% block contentwrap %}
+		{% block content %}{% endblock %}
+		{% block pagination_bottom %}{% endblock %}
+	{% endblock %}
+{% block pageinfobottom %}{% endblock %}
+</div>
+{% endblock %}
+{% block footer %}
+<footer>
+	<nav class="container_12">
+	<div class="grid_12"></div>
+<div class="grid_4">
+		<ul>
+			<li><a href="{{ config.about_url }}/" title="{{ _('About CK-12 Foundation') }}">{{ _("About Us") }}</a></li>
+			<li><a href="{{ config.about_url }}/about-20/feedback" title="{{ _('Give Feedback') }}">{{ _("Give Feedback") }}</a></li>
+			<li><a href="{{ config.about_url }}/webinars" title="{{ _('Webinars') }}">{{ _("Webinars") }}</a></li>
+			<li><a href="{{ config.about_url }}/faq" title="{{ _('FAQ') }}">{{ _("FAQ") }}</a></li>
+			<li><a href="{{config.webroot_url}}eflex/about"  title="{{ _('About eFlex') }}">{{ _("eFlex") }}</a></li>
+			<li><a href="{{ config.about_url }}/ck12-intro-video" title="{{ _('How it Works') }}">{{ _("How it Works") }}</a></li>
+			<li><a href="http://api.ck12.org/docs"  title="{{ _('API Documentation') }}">{{ _("API Docs") }}</a></li>
+		</ul>
+	</div><!--/g4-->
+	<div class="grid_4">
+		<ul>
+		<li><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" title="{{ _('Creative Commons Licence') }}"><img src="{{ h.url_images('icon_licence.png') }}" width="80" height="15" /></a></li>
+		<li><a href="{{ config.about_url }}/terms-of-use" title="{{ _('Terms of Use') }}">{{ _("Terms of Use") }}</a></li>
+		<li><a href="{{ config.about_url }}/technology-2/privacy-policy" title="{{_('Privacy Policy') }}">{{ _("Privacy Policy") }}</a></li>
+		<li><a href="{{ config.about_url }}/technology-2/dmca-notice" title="{{_('DMCA Notice') }}">{{ _("DMCA Notice") }}</a></li>
+		</ul>
+	</div><!--/g4-->
+	<div class="grid_4">
+		{{ _("Version") }} {{ version_info() }}
+		<p>{{ _("Powered by the FlexBook Platform&#174;") }}</p>
+		<p><a href="{{ config.about_url }}/?page_id=414" title="{{ _('Some Rights Reserved') }}">{{ _("&copy; 2007-2012. Some Rights Reserved.") }}</a></p>
+	</div><!--/g4-->
+	<div class="clear gclear"></div>
+	</nav>
+
+</footer>
+<div class="gclear"></div>
+{% endblock %}
+
+{% block js %}
+
+<script language="javascript" type="text/javascript">
+	var webroot_url = '{{ h.url('/', qualified=True) }}';
+</script>
+
+<script data-main="{{ config.url_media }}/main" src="{{ config.url_media }}/common/vendor/requirejs/require.js"></script>
+<!-- RG: TODO: can we instead use a JS file for page level global JS? -->
+{% include 'base/auth/global_js.html' %}
+<script src="{{ config.url_media }}/common/vendor/foundation/js/vendor/custom.modernizr.js"></script>
+
+
+{% endblock %}
+
+<div class="hide">
+{% block hidden_divs %}
+<!-- All the divs inside this div will be hidden and are used for showing dialogs and messages -->
+<div id="loading_div">
+	{{_("Please wait...") }} <img src="{{ h.url_images('icon_loading.gif') }}" width="43" height="11" />
+</div>
+
+{# signin dialog snippet#}
+<div id="js_signindialog" data-url='{{ h.url('signin') }}?&popup=true&returnTo={{ h.url('authorized_popup',qualified=True) }}'>
+	<div class="action"><a id="signin_close" href="#" alt="{{ _('Close Sign In ') }}" title="{{ _('Close Sign In') }}"></a></div>
+</div>
+
+{# dialog that asks the user to signin #}
+<div id="js_signin_message">
+{{ _('You need to be signed in to perform this action. Please sign-in and try again.') }}
+</div>
+
+<div id="js_dialog_basic">
+<!-- used for simple OK/Cancel or Alert type dialogs. -->
+<div class="dialog_msg"></div>
+<div class="dialog_loading hide">{{ _('Please wait...') }}<img src="{{ h.url_images('icon_loading.gif') }}" width="43" height="11" /></div>
+</div>
+{% endblock %}
+</div>
+
+
+{% block cookies_message_bar %}
+<!-- START cookie disabled message -->
+<div id="nocookies">
+    <div id = "nocookies_inner">
+        <div class="cookiemsg" style="float:left;" >Oops, looks like cookies are disabled on your browser. Click <a href={{ webroot }}/nocookies/>here</a> to see how to enable them.</div>
+        <div class="cookies_close" style="float:right;"><a href="javascript:void(0);" onclick=cookieBar('none');>X</a></div>
+    </div>
+</div>
+<!-- END cookie disabled message -->
+{% endblock %}
+
+{% block cookies_detection %}
+   <!--Browser Cookie detection start -->
+   <script type="text/javascript">
+    var cookieEnabled = (navigator.cookieEnabled) ? true : false;
+    if (typeof navigator.cookieEnabled == "undefined" && !cookieEnabled)
+    { 
+        var cookieName = "CK12-Cookie-Test";
+        document.cookie= cookieName;
+        cookieEnabled = (document.cookie.indexOf(cookieName) != -1) ? true : false;
+        if (cookieEnabled){
+            document.cookie = cookieName + "=; expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+        }
+    }
+    if (!cookieEnabled){
+    	cookieBar('block');
+    }
+    
+    function cookieBar(displayValue){
+	    var cookies_msg_container = document.getElementById("nocookies");
+    	if (cookies_msg_container != null){
+        	cookies_msg_container.style.display = displayValue;
+        }
+    }
+    </script>
+    <!--Browser Cookie detection end -->
+{% endblock %}
+</body>
+</html>

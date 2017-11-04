@@ -1,0 +1,41 @@
+{% extends "MASTER_CK12_LOGO.html" %}
+{% block email_body %}
+<html>
+  <body>
+    <p>Dear {{ member.name }},</p>
+
+    <p>Greetings from CK-12 Foundation!</p>
+
+    <p></p>
+    {% if events[0].eventData['printType'] == 'Worksheet' %}
+           <p>We're happy to inform you that the {{ events[0].eventData['printType'] }} you requested for <a href="{{ events[0].eventData['modalityPageUrl'] }}" target="_blank">"{{ events[0].eventData['title']|escape }}"</a> is available for download. Please click the following 
+        {% if events[0].eventData['resultData']['renderCount'] == 1 %}
+           link
+        {% else %}
+           links 
+        {% endif %} to download the {{ events[0].eventData['printType'] }}. 
+           </p>
+        {% for book in events[0].eventData['resultData']['downloadUri'] %}
+            {% if book['uri'] %}
+               <p><a href="{{ book['uri'] }}" target="_blank">Download {{ events[0].eventData['printType'] }} in {{ book['worksheetType'] }}</a></p>
+            {% else %}
+               <p>Sorry, There was an error creating the worksheet in {{ book['worksheetType'] }} format. Please try again or try later.</p>
+               <!-- we are giving error message in success template itself As we are sending the worksheet link to the user even the one format of worksheet creation failed.-->        
+            {% endif %}  
+        {% endfor %}  
+    {% else %}
+        <p>We're happy to inform you that the {{ events[0].eventData['printType'] }} you requested for <a href="{{ events[0].eventData['modalityPageUrl'] }}" target="_blank">"{{ events[0].eventData['title'] }}"</a> is available for download. Please <a href="{{ events[0].eventData['downloadUri'] }}" target="_blank">click here</a>  to download the {{ events[0].eventData['printType'] }}. </p>
+    {% endif %}
+    {% if events[0].eventData['printType'] == 'ePub' %}
+	<p>Please <a href="http://www.ck12.org/about/wp_super_faq/how-do-i-add-an-epub-file-to-my-device/" target="_blank">click here</a> for instructions on how to download the ePub onto your device.</p>
+    {% endif %}
+    {% if events[0].eventData['printType'] == 'Kindle Book' %}
+    	<p>Please <a href="http://www.ck12.org/about/wp_super_faq/how-do-i-add-a-mobi-file-to-my-kindle/" target="_blank">click here</a> for instructions on how to download the Kindle Book onto your Kindle.</p>
+    {% endif %}
+    <p></p>
+    
+    <p> Sincerely,</p>
+    <p>The CK-12 Team </p>
+  </body>
+</html>
+{% endblock %}

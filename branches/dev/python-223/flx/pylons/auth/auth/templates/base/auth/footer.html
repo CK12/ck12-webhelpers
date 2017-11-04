@@ -1,0 +1,113 @@
+<div class="footer-space"></div>
+<footer class="ff4-compt" style="display:none;">
+	<div class="row collapse footer-wrapper">
+	 <div class="row collapse footer-links-row">
+		<div class="large-12 small-12 large-centered columns">
+			<div class="row collapse footer-links-container">
+				<div class="large-4 small-6 columns">
+				<div class="row collapse footer-titles">ABOUT</div>
+				<div class="row collapse footer-link-wrapper">
+					<div class="large-6 small-12 columns medium-12">
+						<ul>
+							<li><a href = "{{ config.about_url }}/mission/">Our Mission</a></li>
+							<li><a href = "{{ config.about_url }}/team/">Meet the Team</a></li>
+							<li><a href = "{{ config.about_url }}/partners/">Partners</a></li>
+							<li><a href = "{{ config.about_url }}/press/">Press</a></li>
+							<li><a href = "{{ config.about_url }}/careers/">Careers</a></li>
+						</ul>
+					</div>
+					<div class="large-6 small-12 columns medium-12">
+						<ul>
+							<li><a href = "{{ config.about_url }}/ck12-community/">Community</a></li>
+							<li><a href = "{{ config.about_url }}/success-stories/">Success Stories</a></li>
+							<li><a href = "http://www.ck12.org/blog/">Blog</a></li>
+							<li><a id="footer_overview" data-reveal-id="myModal">Overview</a></li>
+							<li><a id="footer_usage_map" href="http://www.ck12.org/map/">CK-12 Usage Map</a></li>
+							<li><a id="footer_testimonials" href="https://www.ck12.org/testimonials">Testimonials</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+				<div class="large-8 small-6 columns">
+				<div class="row collapse">
+					<div class="large-5 small-12 columns large-offset-1">
+						<div class="row collapse footer-titles">SUPPORT</div>
+						<div class="row collapse footer-link-wrapper">
+							<ul>
+								<li><a id="footer_jumpstart" href="{{ config.about_url }}/certified2017/">Certified Educator Program</a></li>
+								<li><a href = "{{ config.about_url }}/ck12-webinars/">Webinars</a></li>
+								<li><a href = "{{ config.about_url }}/overview/">CK-12 Resources</a></li>
+								<li><a href = "{{ config.about_url }}/pilot-program/">Pilot Program</a></li>
+								<li><a href = "https://ck12support.zendesk.com/hc/en-us">Help</a></li>
+								<li><a href ="{{ config.about_url }}/contact-us/">Contact Us</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="large-5 small-12 columns large-offset-1 by-ck12-wrapper">
+						<div class="row collapse footer-titles">By CK-12</div>
+						<div class="row collapse footer-link-wrapper">
+							<ul>
+								<li><a href = "{{ config.about_url }}/tools-and-apps/">Tools and Apps</a></li>
+									<li><a href = "http://braingenie.ck12.org/" class="notranslate">BRAINGENIE&trade;</a></li>
+								<li><a href = "http://flexmath.ck12.org/">FlexMath</a></li>
+								<li><a href = "http://stoodle.ck12.org/">Stoodle</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+			<div class="footer-social-links-wrapper">
+			<div class="large-4 small-12 columns small-centered translate-social-wrapper">
+				<div id="google_translate_element" title="{{ _('Select language') }}"></div>
+				<div class="right social_links">
+				  <span itemscope itemtype="http://schema.org/Organization"><a itemprop="sameAs" id="footer_googleplus" href="https://plus.google.com/+Ck12Org/" target="_blank" class="icon-googleplus"></a></span>
+				  <span itemscope itemtype="http://schema.org/Organization"><a itemprop="sameAs" id="footer_facebook" href="https://www.facebook.com/CK12Foundation" target="_blank" class="icon-facebook"></a></span>
+				  <span itemscope itemtype="http://schema.org/Organization"><a itemprop="sameAs" id="footer_twitter" href="https://twitter.com/CK12Foundation" target="_blank" class="icon-twitter"></a></span>
+				  <span itemscope itemtype="http://schema.org/Organization"><a itemprop="sameAs" id="footer_linkedin" href="https://www.linkedin.com/company/75810" target="_blank" class="icon-linkedin"></a></span>
+				  <span itemscope itemtype="http://schema.org/Organization"><a itemprop="sameAs" id="footer_pinterest" href="http://www.pinterest.com/ck12foundation/" target="_blank" class="icon-pinterest-3"></a></span>
+				  <span itemscope itemtype="http://schema.org/Organization"><a itemprop="sameAs" id="footer_email" class="footer-share-email-link icon-email"></a></span>
+				</div>
+				<div class="app-store-icons">
+					<a id="apple-store-link" target="_blank" href="https://itunes.apple.com/us/app/ck-12/id909343639?ls=1&mt=8">
+						<img class="apple-store-image" alt="Download on the app store" src="/media/common/images/apple-app-store.svg" />
+					</a>
+					<a id="google-store-link" target="_blank" href="https://play.google.com/store/apps/details?id=org.ck12.app.practice">
+						<img class="google-store-image" alt="Get it on Google Play" src="/media/common/images/google-play-badge.png" />
+					</a>
+				</div>
+			</div>
+		</div>
+	 </div>
+	 </div>
+	 <div class="row collapse footer-info-row">
+	 	<div class="large-5 columns footer-version-info hide-for-small">
+	 		<span>v{{ version_info() }}</span>
+	 		<span class="year_version_separator">|</span>
+	 		<span class="copy-right-year">&copy; CK-12 Foundation</span>
+			<div><span>FlexBook&reg; Platform</span></div>
+	 	</div>
+	 	<div class="large-7 small-12 columns footer-usage">
+	 		<span><a href="{{ config.about_url }}/terms-of-use/" title="{{ _('Terms of Use') }}">{{ _('Terms of Use') }}</a></span>
+	 		<span class="footer-separator">|</span>
+	 		<span><a href="{{ config.about_url }}/technology-2/privacy-policy/" title="{{ _('Privacy') }}">{{ _('Privacy') }}</a></span>
+	 		<span class="footer-separator">|</span>
+	 		<span><a href="{{ config.about_url }}/attribution-guidelines/" title="{{ _('CK-12 Attribution Requirements') }}">{{ _('Attribution Guide') }}</a></span>
+	 		<span class="footer-separator">|</span>
+	 		<span><a href="http://creativecommons.org/licenses/by-nc/3.0/" title="{{ _('CK-12 Foundation is licensed under Creative Commons Attribution-NonCommercial 3.0 Unported (CC BY-NC 3.0).') }}" target="new"><img class="footer_image" src="{{ config.url_media }}/images/icon_licence.png" alt="{{ _('Attribution-NonCommercial 3.0 Unported') }}"/></a></span>
+	 	</div>
+	 	<div class="large-5 small-12 columns footer-version-info-small show-for-small">
+	 		<span>v{{ version_info() }}</span>
+	 		<span class="year_version_separator">|</span>
+	 		<span class="copy-right-year">&copy; CK-12 Foundation</span>
+			<div><span>FlexBook&reg; Platform</span></div>
+	 	</div>
+	 </div>
+	</div>
+</footer>
+
+<div id="myModal" class="modal-uikit reveal-modal small">
+	<div class="close close-reveal-modal button-close">+</div>
+	<h4>CK-12 Overview</h4>
+	<div class="flex-video"></div>
+</div>

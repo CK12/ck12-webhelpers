@@ -1,0 +1,27 @@
+{% extends "listings.html" %}  
+
+{% block filters %} 
+  <div class="col tiny">Filter by:</div>
+  {# uncomment when API allows needsApi filtering:
+  <div class="col tiny">
+    {{ h.labelselect('Needs API', 'needsApi', c.form.needsApi, 'filter')}}
+  </div>
+  #}
+  <div class="col tiny">
+    {{ h.labelselect('Blacklist', 'blacklisted', c.form.blacklisted, 'filter')}}
+  </div>
+{% endblock %}
+
+{% block js_scripts %}
+{{ super() }}
+<script type="text/javascript" src="{{ h.url_js('blacklist_action.js') }}"></script>
+<script type='text/javascript'>
+  Listings({
+    sort: 'updated,desc',
+    ajaxRoot: CK12.admUrl('providers_list'),
+    formAjax: CK12.admUrl('provider/'),
+    viewmode: '{{c.viewmode}}',
+    actionFns: [function(){BlacklistAction('div');}]
+  });
+</script>
+{% endblock %}

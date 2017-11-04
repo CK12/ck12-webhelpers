@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <title>Unregister Event Type</title>
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('#clientID').change(populateEventTypes);
+            });
+            function populateEventTypes() {
+                selected_client_id = $('#clientID option:selected').attr('id');
+                if(selected_client_id == undefined)
+                    return;
+                event_types = $.getJSON('/dexter/get/eventTypes?clientID='+selected_client_id, function(data){
+                    var options = $("#eventType");
+                    options.html('');
+                    result = data['response']['event_types'];
+                    $.each(result, function() {
+                        options.append($("<option />").val(this.eventType).text(this.eventType));
+                    });
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <form name="Event Type Data" method="POST" action="/dexter/unregister/event">
+            <h4>&nbsp;Select Client and Event Type to un-register</h4>
+            <table>
+                 <tr>
+                    <td> <label>Client Name</label> </td>
+                    <td> 
+                      <select name="clientID" id="clientID">
+                        <option value=""></option>
+                        {% for eachClient in clients %}
+                        <option value="{{ eachClient.clientID }}" id="{{ eachClient.clientID }}">{{ eachClient.name }}</option>
+                        {% endfor %}
+                      </select>
+                    </td>
+                </tr>
+                 <tr>
+                    <td> <label>Event Type</label> </td>
+                    <td> 
+                      <select name="eventType" id="eventType">
+                      </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" name="submit" value="Unregister" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
+

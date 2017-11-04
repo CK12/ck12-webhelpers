@@ -1,0 +1,21 @@
+<% function convertToSlug(text) {
+    return text.toLowerCase().replace(/[^\w ]+/g, '').replace(/ +/g, '-');
+} %>
+<% for (index = 0; index < data.length; index++) { %>
+    <div class="small-12 large-4 columns left subject-wrapper">
+        <a href="/<%= convertToSlug(data[index].name) %>" class="link-green subject-link">
+            <span>
+                <span class="subject-icon">
+                    <span class="<%= convertToSlug(data[index].name) %>"></span>
+                </span>
+                <span class="browse-title">
+                    <% if(data[index].name.indexOf('Elementary') === -1){ %>
+                        <%= data[index].name %>
+                    <% } else { %>
+                        <%= data[index].name.split('Elementary Math')[1].trim() %>
+                    <% } %>
+                </span>
+            </span>
+        </a>
+    </div>
+<% } %>

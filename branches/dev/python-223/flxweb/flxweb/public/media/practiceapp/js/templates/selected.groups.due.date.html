@@ -1,0 +1,31 @@
+<div id="apply-due-date" class="row collapse apply-due-date-row group-list-wrapper js-group-row hide" >
+	<div class="columns small-6 large-8 pointer apply-due-date-text">
+		<div class="group-name left">
+			<span class="js-group-name">Apply a due date to selected groups</span>
+		</div>
+	</div>
+	<div class="columns small-6 large-4">
+		<div class="due-date-container">
+			<input data-apply-selected="true" type="text" class="due-date js-due" maxlength="10" value="" placeholder="mm/dd/yyyy">
+			<div class="assign-due-date hide-important"><%= data.dueDate %></div>
+		</div>
+		<div class="member-assignment-invalid-date hide js-invalid-date js-date-popup">
+			<i class="icon-close right pointer js-invalid-date-close js-date-close"></i>
+			<div>
+				<span>You did not enter a valid date.</span>
+			</div>
+		</div>
+		<div class="member-assignment-before-date hide js-before-date js-date-popup">
+			<i class="icon-close right pointer js-before-date-close js-date-close"></i>
+			<div>
+				<span>Please enter a Due Date that is on or after the current date.</span>
+			</div>
+		</div>
+		<div class="member-assignment-empty-date hide js-empty-date js-date-popup">
+			<i class="icon-close right pointer js-empty-date-close js-date-close"></i>
+			<div>
+				<span>Please select a Due Date for the assignment.</span>
+			</div>
+		</div>
+	</div>
+</div>

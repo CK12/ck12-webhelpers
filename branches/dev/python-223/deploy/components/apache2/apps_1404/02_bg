@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteCond  %{SERVER_PORT} ^443$
+RewriteCond  %{HTTP_HOST} ^braingtest\.ck12\.org$
+RewriteRule  ^(.*)$ http://braingtest.ck12.org$1 [NE,L,R=301]

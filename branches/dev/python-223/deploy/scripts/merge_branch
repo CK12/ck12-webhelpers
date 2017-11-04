@@ -1,0 +1,57 @@
+#!/bin/bash
+
+SVNROOT="svn://dev.ck12.org/ck12"
+[ -n "${SVN_USER}" ] && SVN_USER_PARAM="--username ${SVN_USER}"
+mergefrom=${1}
+while [ -z "${mergefrom}" ]; do
+    echo -n ">>> Enter the relative url of the branch to merge from (eg: 'trunk/2.0'): "
+    read mergefrom
+done
+
+echo ">>> Getting information on working copy ..."
+svn info || exit 1
+[ ! -d ./.svn ] && echo "!!! Must be at the root of the branch. Exiting ..." && exit 1
+echo ">>> Updating ..."
+svn update --ignore-externals || exit 1
+
+baserev=$(svn log --stop-on-copy | tail -n 5 | grep '^r[0-9]* ' | sed -e 's/^r\([0-9]*\).*$/\1/')
+if [ -z "${baserev}" ]; then
+    echo "!!! Cannot find base revision for branch."
+    exit 1
+fi
+echo ">>> Base revision for your branch: ${baserev}"
+
+headrev=$(svn info ${SVNROOT}/${mergefrom} | grep '^Revision:' | sed -e 's/^Revision: \([0-9]*\).*$/\1/')
+
+echo ">>> *DRY RUN*: Merging ${baserev}:${headrev} from ${SVNROOT}/${mergefrom} ..."
+svn --dry-run merge ${SVNROOT}/${mergefrom} -r${baserev}:${headrev} .
+
+ans=""
+while [ -z "${ans}" ]; do
+    echo -n ">>> Continue with real merge? (y/n) "
+    read ans
+    if [ "${ans}" = "y" ]; then
+        svn merge ${SVNROOT}/${mergefrom} -r${baserev}:${headrev} .
+    elif [ -n "${ans}" ]; then
+        exit 2
+    fi
+done
+
+svn stat | grep 'C '
+if [ $? -eq 0 ]; then
+    echo ">>> One or more conflicts detected during merge."
+    echo ">>> Please resolve them manually and then run: svn commit ${SVN_USER_PARAM} -m \"[MERGE] Merged from ${mergefrom} up to r${headrev}\""
+    exit 1
+fi
+
+ans=""
+while [ -z "${ans}" ]; do
+    echo ">>> Going to run: svn commit ${SVN_USER_PARAM} -m \"[MERGE] Merged from ${mergefrom} up to r${headrev}\""
+    echo -n ">>> Continue with commit? (y/n) "
+    read ans
+    if [ "${ans}" = "y" ]; then
+        svn commit ${SVN_USER_PARAM} -m "[MERGE] Merged from ${mergefrom} up to r${headrev}"
+    elif [ -n "${ans}" ]; then
+        break
+    fi
+done

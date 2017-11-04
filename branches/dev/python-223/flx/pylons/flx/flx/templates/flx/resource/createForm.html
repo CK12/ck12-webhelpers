@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <title>Create Resource</title>
+    </head>
+    <body>
+        <form name="resourceForm" method="POST" 
+            action="{{ c.prefix }}/create/resource" 
+            enctype="multipart/form-data">
+            <table>
+                <tr>
+                    <td>
+                        Resource Type:
+                    </td>
+                    <td>
+                        <select name="resourceType">
+                            {% for item in c.resourceTypes %}
+                            <option value="{{ item }}">{{ item }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Resource Name:
+                    </td>
+                    <td>
+                        <input type="text" name="resourceName" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Resource Handle:<br/>
+                        <span style="font-size:8pt;">(Leave blank to create one automatically)</span>
+                    </td>
+                    <td><input type="text" name="resourceHandle" />
+                <tr>
+                    <td>Resource Description:</td>
+                    <td><textarea name="resourceDesc"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Resource URI:</td>
+                    <td><input type="text" name="resourceUri" /> OR </td>
+                </tr>
+                <tr>
+                    <td>Resource File:</td>
+                    <td><input type="file" name="resourcePath" /></td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td><input type="checkbox" name="isAttachment" value="true" /> Is attachment?</td>
+                </tr>
+                <tr>
+                    <td>Authors:</td>
+                    <td><input type="text" name="resourceAuthors" /></td>
+                </tr>
+                <tr>
+                    <td>License:</td>
+                    <td><input type="text" name="resourceLicense" /></td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td><input type="checkbox" name="isPublic" value="true" /> Make public?</td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align:right;">
+                        <input type="submit" name="submit" value="Save" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE HTML>
+<!--[if lt IE 7]> <html id="ltIE9" itemscope itemtype="http://schema.org/Organization" class="no-js ie6 oldie lt-ie9" lang="en" xmlns:ck12="http://www.ck12.org/ns" xmlns:fb="http://www.facebook.com/2008/fbml"> <![endif]-->
+<!--[if IE 7]>    <html id="ltIE9" itemscope itemtype="http://schema.org/Organization" class="no-js ie7 oldie lt-ie9" lang="en" xmlns:ck12="http://www.ck12.org/ns" xmlns:fb="http://www.facebook.com/2008/fbml"> <![endif]-->
+<!--[if IE 8]>    <html id="ltIE9" itemscope itemtype="http://schema.org/Organization" class="no-js ie8 oldie lt-ie9" lang="en" xmlns:ck12="http://www.ck12.org/ns" xmlns:fb="http://www.facebook.com/2008/fbml"> <![endif]-->
+<!--[if IE 9]>    <html id="ltIE10" itemscope itemtype="http://schema.org/Organization" class="no-js ie9 lt-ie10" lang="en" xmlns:ck12="http://www.ck12.org/ns" xmlns:fb="http://www.facebook.com/2008/fbml"> <![endif]-->
+<!--[if gt IE 9]><!--> <html itemscope itemtype="http://schema.org/Organization" class="no-js" lang="en" xmlns:ck12="http://www.ck12.org/ns"> <!--<![endif]-->
+<head>
+	{% block head %}
+	<title>{% block title %}{{ _("Welcome to CK-12 Foundation") }}{% endblock %}{% block common_title %} | {{ _("CK-12 Foundation") }}{% endblock %}</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="wHx0f-Udlfd7ZNYNrIXpJVpjjO8nSH5RE0jIX8V-jIM" />
+    <meta name="google-translate-customization" content="{{ config.gt_meta}}"></meta>
+    <meta itemprop="name" content="CK-12 Foundation">
+	<meta itemprop="url" content="http://www.ck12.org">
+	<meta itemprop="telephone" content="(650) 494-1302">
+
+	<!-- DNS Prefetching for domains -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    {%  for static in h.external_domains() %}
+        <link rel="dns-prefetch" href="{{ static }}">
+    {% endfor %}
+
+    {% if request.path|ck12_optimizely_enabled() %}
+    <script src="{{config.optimizely_js}}"></script>
+    {% endif %}
+    {% block canonical %}
+        {% set canonical_url = h.canonical_url() %}
+        {% if canonical_url %}
+            <link rel="canonical" href="{{ canonical_url }}"/>
+        {% endif %}
+    {% endblock %}
+
+	{# Additional meta tags can be defined by individual pages using the meta_extra block #}
+	{% block meta_extra %}
+	<meta name="author" content="CK-12 Foundation">
+	{% endblock %}
+	<link rel="shortcut icon" href="{{h.url_images('favicon.ico')}}" type="image/x-icon" />
+	<link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="CK-12 Foundation" />
+
+	{% block stylesheets %}
+	<link rel="stylesheet" type="text/css" media="all" href="{{ h.url_css('foundation-compat.css') }}" />
+	<link rel="stylesheet" type="text/css" media="all" href="{{ h.url_css('master.css') }}" />
+	{% if c.user and c.user.isProfileUpdated == 0 and c.user.hasAnyRole(['teacher', 'student', 'member'])%}
+	<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('profilebuilder/assets/css/tangerine.profilebuilder.css') }}" />
+	{% endif %}
+	{% if c.user and c.user.licenseAcceptedTime == None %}
+	<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('ck12license/assets/css/tangerine.ck12license.css') }}" />
+	{% endif %}
+	<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_css('duplicateUsernames/css/content.css') }}" />
+	{% endblock %}
+
+	<meta name="application-name" content="CK-12 Foundation"/>
+	<meta name="msapplication-TileColor" content="#003300"/>
+	<meta name="msapplication-TileImage" content="{{ h.url_images('ck12-logo-livetile.png') }} "/>
+
+{% endblock %}
+
+{% block extra_head %}
+	<!-- All other pages can add any extra head tags here -->
+{% endblock %}
+
+  <!-- Start Alexa Certify Javascript -->
+  <script type="text/javascript">
+  _atrk_opts = { atrk_acct:"iA1Pi1a8Dy00ym", domain:"ck12.org",dynamic: true};
+  (function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as, s); })();
+  </script>
+  <noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=iA1Pi1a8Dy00ym" style="display:none" height="1" width="1" alt="" /></noscript>
+  <!-- End Alexa Certify Javascript -->
+</head>
+<body class = "{% block additional_body_classes %}{% endblock %}">
+{% block lms %}
+{% include 'common/lms.html' %}
+{% endblock %}
+{% block tracking %}
+{% include 'common/tracking.html' %}
+{% endblock %}
+{% block header %}
+    {% include 'common/header.html' %}
+{% endblock %}
+{% block overlay %}
+	{% include 'landing/overlay.html' %}
+{% endblock %}
+
+<div id='softRegWrapper' class='grey-back'></div>
+<div id='content-container'>
+	<a name="anchor-content"></a>
+	{% block ajaxwait %}{% endblock %}
+	{% block crumbs %}{% endblock %}
+	{% block breadcrumb_head %}
+		<div id="breadcrumbWrapper" class="row collapse breadcrumb-container"></div>
+	{% endblock %}
+	{% block pagewrap %}
+	{% block pageinfotop %}{% endblock %}
+	<div id="contentwrap" class="container_12 clearfix"  {% block schema_itemscope %} {% endblock%}>
+		{% block contentwrap %}
+			{% block content %}{% endblock %}
+			{% block pagination_bottom %}{% endblock %}
+		{% endblock %}
+	{% block pageinfobottom %}{% endblock %}
+</div>
+<div id="sharePlaneWrapper" class="row relative share-plane-container hide"></div>
+<div class="ff4-compt row" id="profilebuilder-content"></div>
+<div class="ff4-compt row" id="ck12-license-container"></div>
+<div class="ff4-compt row hide" id="notification_popup"></div>
+{% endblock %}
+</div>
+{% block footer %}
+	{% include 'common/footer.html' %}
+{% endblock %}
+
+<div class="hide">
+{% block hidden_divs %}
+<!-- All the divs inside this div will be hidden and are used for showing dialogs and messages -->
+<div id="loading_div">
+	{{_("Please wait...") }} <img src="{{ h.url_images('icon_loading.gif') }}" width="43" height="11" />
+</div>
+
+{# signin dialog snippet#}
+<div id="js_signindialog" data-url='{{ h.auth_signin_url(popup=True) }}' data-auth-no-popup-url='{{ h.auth_signin_url(popup=False) }}'>
+	<div class="action"><a id="signin_close" href="#" alt="{{ _('Close Sign In ') }}" title="{{ _('Close Sign In') }}"></a></div>
+</div>
+
+<div id="js_dialog_basic">
+<!-- used for simple OK/Cancel or Alert type dialogs. -->
+<div class="dialog_msg"></div>
+<div class="dialog_loading hide">{{ _('Please wait...') }}<img src="{{ h.url_images('icon_loading.gif') }}" width="43" height="11" /></div>
+</div>
+
+{# report exercise error dialog snippet#}
+<div id="js_reportExerciseErrorDialog" url="{{ h.url(controller='exercise',action='reportError') }}">
+</div>
+
+{# ### Templates for only logged in users #}
+{% if c.user %}
+<div id="js_add_to_library" data-dialogurl="{{ h.url('dialog/addtolibrary/',qualified=True) }}"
+	data-dialogtitle="{{ _("Add to library") }}">
+</div>
+
+<div id="js_switchuser_dialog" data-url="{{ h.url('dlg-switchuser',qualified=True) }}"
+	data-listurl="{{ h.url('switchuser-list-users') }}"
+	data-dialogtitle="{{ _("Switch User") }}">
+</div>
+
+<div id="js_publish_artifact_dialog" data-url="{{ h.url('dlg-publish-artifact',qualified=True) }}"
+	data-dialogtitle="{{ _("Submit a Publish Request") }}">
+</div>
+
+{% endif %}
+<div id="js_view_standards_dialog" data-dialogtitle="{{ _("Standards Correlations") }}" data-dialognocache="true">
+</div>
+
+{% endblock %}
+</div>
+
+{% block noscript %}
+ <noscript>
+   <div style="position:fixed; top:0;left:0;right:0;margin:auto; z-index:9999;">
+      <div class="row collapsed" style="text-align:center;background-color:#FFFF99;padding:5px 5px 5px 5px; border:2px solid #999;font-size:16px;text-shadow:none;color:#000000;">
+          <div>To use this website, please enable javascript in your browser. <a style="text-shadow: none;color:#0000FF;text-decoration:underline;" href="/nojavascript/">Learn more</a></div>
+      </div>
+  </div>
+</noscript>
+{% endblock %}
+
+{% block cookies_message_bar %}
+<!-- START cookie disabled message -->
+<div id="nocookies" style= "text-align:center; top: 0px; width:100%; position:absolute;	z-index:9999; display:none;">
+    <div id = "nocookies_inner" style= "margin:0 auto; height:16px;	width:800px; background-color: #FFFF99;	padding:4px 10px 10px 10px; border:3px solid #999; font-size: 16px; text-shadow: none; color: #000000;">
+        <div class="cookiemsg" style="float:left;" >Oops, looks like cookies are disabled on your browser. Click <a style=" text-shadow: none;color: #0000FF;" href="/nocookies/">here</a> to see how to enable them.</div>
+        <div class="cookies_close" style="float:right;"><a style="text-decoration:none;color: #000000;" href="javascript:void(0);" onclick=cookieBar('none');>X</a></div>
+    </div>
+</div>
+<!-- END cookie disabled message -->
+{% endblock %}
+
+{% block js %}
+<script src="{{ h.asset_lib('common/js/utils/globals.js') }}"></script>
+<script src="{{ h.asset_js('dexterjs/dexterjs.min.js') }}"></script>
+<script data-main="{{ h.url_js('main') }}" src="{{ h.url_lib('require.js') }}"></script>
+{% include 'common/global_js.html' %}
+<script type='text/javascript'>
+	function triggerProfileBuilder(){
+		require(['main'], function(){
+				require(['profilebuilder/controllers/profile.builder', 'profilebuilder/views/profile.builder.view', 'profilebuilder/services/ck12.locationService'],function(profileBuilder, profileBuilderView, locationService){
+					profileBuilder.load('profilebuilder-content', profileBuilderView, locationService);
+				});
+		});
+	}
+	var isProfileUpdated = true;
+	function resolveDuplicateUsername(){
+        require(['main'], function(){
+			require(['duplicateUsername/resolveDuplicateName'],function(resolveDuplicateUsername){
+				resolveDuplicateUsername.resolve();
+			});
+		});
+    }
+</script>
+
+{% if c.user and c.user.licenseAcceptedTime == None %}
+	{% if c.user.isProfileUpdated == 0 and c.user.hasAnyRole(['teacher', 'student', 'member']) %}
+		<script type="text/javascript"> isProfileUpdated = false; </script>
+		<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?libraries=places&key={{config.google_places_api_key}}"></script>
+	{% endif %}
+
+	<script type='text/javascript'>
+		require(['main'], function(){
+			require(['ck12license/controllers/ck12.license', 'ck12license/views/ck12.license.view'],function(license, licenseView){
+				license.load('ck12-license-container', licenseView);
+			});
+		});
+	</script>
+{% elif c.user and c.user.isProfileUpdated == 0 and c.user.hasAnyRole(['teacher', 'student', 'member'])%}
+{% block profileBuilderJS %}
+	<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?libraries=places&key={{config.google_places_api_key}}"></script>
+	<script type='text/javascript'>
+		triggerProfileBuilder();
+	</script>
+{% endblock %}
+{% endif %}
+<script type='text/javascript'>
+		require(['main'], function(){
+			require(['jquery'],function($){
+				$(document).ready(function() {
+					if (!window.navigator.cookieEnabled && window.location.pathname.indexOf('nocookies') === -1) {
+						window.location.href = '/nocookies';
+					}
+					setTimeout(function () {
+						$('footer').show();
+					}, 300);
+				});
+			});
+		});
+	</script>
+<script type="text/javascript">
+    resolveDuplicateUsername();
+</script>
+{% endblock %}
+
+<!--
+    ###############################
+    #  FLXWEB DEBUG INFORMATION
+    ###############################
+    flxweb_node_name = {{ config.flxweb_node_name }}
+    processing_time  = {{ h.calculate_processing_time(c.now) }}
+-->
+</body>
+</html>

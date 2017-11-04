@@ -1,0 +1,88 @@
+#!/usr/bin/python
+from export2xhtml.render import WikiRenderer
+from export2xhtml.xhtml import XHTML
+from optparse import OptionParser
+
+USAGE = "usage: %prog -u <username> -p <password> -a <userID> --concept --metadata-only --use-cache -w <wiki-location> TARGET_DIR"
+VERSION = "%prog 2.1.0.0\n"
+DESCRIPTION = "Parse the collection of chapters at URL and deposit the \
+               docbook composite at TARGET as a directory (-d)"
+
+parser = OptionParser(usage=USAGE,
+                          version=VERSION,
+                          description=DESCRIPTION)
+
+parser.add_option("-w",
+                      "--wiki-location",
+                      action="store",
+                      dest="wikiLocation",
+                      default=False,
+                      help="target is a directory")
+
+parser.add_option("-u",
+        "--username",
+        action="store",
+        dest="username",
+        default="",
+        help="Username used for authentication to access the wiki.")
+
+parser.add_option("-p",
+        "--password",
+        action="store",
+        dest="password",
+        default="",
+        help="Corresponding pasword used for authentication to access the wiki.")
+
+parser.add_option("-a",
+        "--authentication",
+        action="store",
+        dest="userID",
+        default="3",
+        help="UserID to be used for authentication while accessing the REST APIs")
+
+parser.add_option("--concept",
+        "--concept",
+        action="store_true",
+        dest="concept_based",
+        default="False",
+        help="Use --concept if the wiki-location points to a concept-based book")
+
+parser.add_option("--metadata-only",
+        "--metadata-only",
+        action="store_true",
+        dest="metadata_only",
+        default="False",
+        help="Use --metadata-only if you want to extract only the metadata of the book, it's chapter, and lessons")
+
+parser.add_option("--use-cache",
+        "--use-cache",
+        action="store_true",
+        dest="content_caching",
+        default="False",
+        help="Use --use-cache if the cached wiki content is to be used.")
+
+(options, args) = parser.parse_args()
+target = args[0]
+renderer = WikiRenderer()
+renderer.username = options.username
+renderer.password = options.password
+if options.concept_based == 'False':
+    renderer.concept_based = False
+else:
+    renderer.concept_based = True
+
+if options.content_caching == 'False':
+    renderer.content_caching = False
+else:
+    renderer.content_caching = True
+
+XHTML.xhtmlurl = options.wikiLocation
+XHTML.userID = options.userID
+
+if options.metadata_only != 'False':
+    print 'Running in metadata-only mode...'
+    renderer.metadata_only = True
+else:
+    renderer.metadata_only = False
+
+renderer.book_to_dir(options.wikiLocation, target, XHTML)

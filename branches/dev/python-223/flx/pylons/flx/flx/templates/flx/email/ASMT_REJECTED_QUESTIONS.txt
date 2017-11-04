@@ -1,0 +1,31 @@
+<html>
+    <head></head>
+    <body>
+		<p>Dear {{ events[0].eventData['contributedUser'] }},</p>
+
+		<p>We appreciate your contribution to CK-12!</p>
+
+		<p>We are not able to publish the question. Here are the details:</p>
+
+		<table cellpadding="10" border="1">
+		    <tr align="center">
+				<th>Question</th>
+				<th>Concept</th>
+				<th>CK-12&#39;s Response</th>
+		    </tr>
+		    <tr align="center">
+				<td> {{ events[0].eventData['questionTitle'] }} </td>
+				<td> {{ events[0].eventData['conceptName'] }} </td>
+				<td> {{ events[0].eventData['ck12Response']|e }} </td>
+			    </tr>
+		</table>
+
+		<p>Your work is helping to make CK-12 better for everyone, thank you for your continued support.</p>
+
+		<p>Please email us with questions or feedback at support@ck12.org.</p> 
+
+		<p>Sincerely,</p>
+		<p>The CK-12 Team</p>
+
+	</body>
+</html>

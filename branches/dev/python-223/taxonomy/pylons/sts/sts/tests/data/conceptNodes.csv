@@ -1,0 +1,4 @@
+foundation_code,name,description,parent_code,required_codes,keywords
+MAT.GEO.100.20,"Geometry Term 1","Geometry Term 1",,,"term1"
+MAT.GEO.100.20.1,"Geometry Term 1.1","Geometry Term 1.1",MAT.GEO.100.20,MAT.GEO.100.20,"term1.1,childterm"
+MAT.GEO.100.20.2,"Geometry Term Mendeleev’s Periodic Table 1.2","Geometry Term Mendeleev’s Periodic Table 1.2",MAT.GEO.100.20,MAT.GEO.100.20.1,"term1.1,childterm,Mendeleev’s"

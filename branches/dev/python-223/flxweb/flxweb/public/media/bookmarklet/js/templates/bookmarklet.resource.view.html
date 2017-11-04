@@ -1,0 +1,100 @@
+<div id="resource-view-content" class="row collapse resource-view-container">
+	<div class="column small-12">
+		<div class="row collapse resource-view-header">
+			<a class="left" href="/" target=_blank title="CK-12 Foundation Home">
+				<img class="logo-img" src="/media/common/images/logo_ck12_medium.png" width="60" height="22" alt="CK-12">
+			</a>
+			<a class="js-close-bookmarklet close-bookmarklet right">
+				<i class="close-icon"></i>
+			</a>
+		</div>
+		<div class="row collapse resource-view-profile-header">
+			<div class="columns small-3 user-profile-image">
+				<% if(data.userImage) { %>
+					<img src="<%= data.userImage %>">
+				<% }else {%>
+					<i class="icon-user"></i>
+				<% } %>
+			</div>
+			<div class="columns small-7 user-fullname">
+				<div><%= data.firstName%>&nbsp;<%= data.lastName %></div>
+			</div>
+			<div class="columns small-2 dropdown-icon">
+				<a class="down-arrow" data-dropdown="user-dropdown"></a>
+				<ul id="user-dropdown" data-dropdown-content="" class="f-dropdown tangerine-list simple user-dropdown-content">
+					<li class="dropdown-items">
+						<a href="/my/library/" target="_blank" title="Settings">
+							<span class="menu-item-img icon-backpack user-dropdown-icon"></span>
+							<span class="item-title">Library</span>
+						</a>
+					</li>
+					<li class="dropdown-items"> 
+						<a id="sign-out" href="/account/signout/" title="Sign out">
+							<span class="menu-item-img icon-signout user-dropdown-icon"></span>
+							<span class="item-title">Sign Out</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="row collapse resource-view-content">
+			<div class="column small-12">
+				<div class="row collapse text-center title-text">Add to CK-12</div>
+				<div id="resource-edit-box" class="row collapse">
+					<div class="row collapse">
+						<div class="input-header-text">TITLE</div>
+						<div>
+							<textarea id="resource-title" rows="" cols="" class="resource-title-input" maxlength="100"></textarea>
+						</div>
+					</div>
+					<div id="embed-code-container" class="row collapse embed-code-wrapper">
+						<div id="show-embed-code" class="input-header-text pointer left">
+							<span id="embed-show-hide" class="icon-arrow3_right expand-icon"></span>
+							<span>EMBED CODE</span>
+							<a id="embed-help-icon" class="embed-code-help">
+								<i class="icon-help2"></i>
+							</a>
+						</div>
+						<div class="tooltip-top hide embed-help-tooltip">Do you have an embed code for this content ? You can add or modify it here.</div>
+						<textarea id="embed-code" rows="" cols="" class="embed-code-input left"></textarea>
+					</div>
+					<div id="autocomplete-tag-container" class="row collapse content-wrapper">
+						<div class="input-header-text tag-header-text">FOLDERS</div>
+						<div id="tag-list-container" class="automplete-data-lists row collapse"></div>
+						<div class="search-input-container">
+							<input placeholder="Press enter to add new folder." id="search-tag-input" type="text"/>
+							<span id="tag-loading-search" class="custom-loading-search right js-loading-icon hide">
+								<img alt="loading" src="/media/common/images/loading.gif">
+							</span>
+						</div>
+					</div>
+					<div id="autocomplete-search-container" class="row collapse content-wrapper">
+						<div class="input-header-text">CK-12 CONCEPTS</div>
+						<div id="concept-list-container" class="automplete-data-lists row collapse"></div>
+						<div class="search-input-container">
+							<input id="search-concept-input" type="text" class="autocomplete-concept-search"/>
+							<span id="concept-loading-search" class="custom-loading-search right js-loading-icon hide">
+								<img alt="loading" src="/media/common/images/loading.gif">
+							</span>
+						</div>
+					</div>
+					<div class="row collapse save-resource-button text-center">
+						<div id="save-resource" class="button turquoise standard">Save</div>
+					</div>
+				</div>
+				<div id="resouce-saved-message" class="row collapse resouce-saved-content text-center hide">
+					<div class="column small-12">
+						<div class="resource-added-icon">
+							<i class="icon-checkmark"></i>
+						</div>
+						<div class="resource-save-text">This resource has<br/>been saved.</div>
+						<div class="view-on-ck12">
+							<a id="viewOnCk12" class="button standard turquoise" href="" target="_blank">View on CK-12</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="page-disable" class="page-disable js-page-disable hide"></div>

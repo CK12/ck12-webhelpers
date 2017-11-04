@@ -1,0 +1,65 @@
+<div class="atbwrap">
+	<!--<div class="atbsearchwrap">
+		<input id="atb_search_text" class="forminput" type="text" placeholder="Find a book in your library"/>
+		<a id="atb_search_btn" class="btn inlineblock" href="#">{{_('Search')}}</a>
+		<div class="clear"></div>
+	</div>-->
+	<div id="atb_books_wrapper" class="spacetop">
+		<div id="atb_books">
+		</div>
+		<div id="load_flexbook_progress" class="load-flexbook-progress hide">
+			<img src="{{ h.asset_image('common/images/icon_loading.gif') }}" alt="loading">
+		</div>
+		<!-- Bug 8911 - Removed 'Load More' button
+		<div class="atbloadmorewrap clear">
+			<a href"#" class="btn inlineblock" id="atb_loadmore">{{_('Load more') }}</a>
+		</div> -->
+	</div>
+</div>
+
+{# template for new JS objects. Uses underscore.js template syntax #} 
+<!-- book in the results template -->
+<script type="text/template" id="tmpl_atb_book">
+<div class="js_atb_book inlineblock">
+	<input class="radio spacetop" type="radio" name="atb_book"/>
+	<div class="imgborder thumbnailwrap">
+		<img src="<%=  thumbnail  %>"
+		alt="<%=  _.escape(title)  %>" 
+		title="<%=  _.escape(title)  %>"/>
+	</div>
+	<div class="titlewrap" title="<%= title %>">
+		<%=  _.escape(_(title).truncate(40))  %>
+	</div>
+</div>
+</script>
+
+
+<!--New book in the results template -->
+<script type="text/javascript">
+function showNewBook(){
+	$('#newBookBox').css('display', 'block');
+	$('#createbookButton').css('display', 'none');
+	$('#newBookTitle').focus();
+}
+</script>
+
+<script type="text/template" id="tmpl_atb_new_book">
+<div class="js_atb_book inlineblock newbook">
+	<a onclick = "showNewBook()" id = "createbookButton" class = "create-new-book-row" href = "#">
+		<span class="create-new-book-wrapper">
+			<i class="icon-plus icon-create-new-book"></i>
+		</span>
+		<span>{{ _("Create a New FlexBook&#174; Textbook") }}</span>
+	</a>
+	<div style = "display:none;" id = "newBookBox">
+		<input maxlength="100" class="radio" type="radio" name="atb_book"/>
+		<div class="imgborder thumbnailwrap">
+			<img src="<%=  thumbnail  %>"/>
+		</div>
+		<div class="titlewrap">
+			<input id="newBookTitle" class="forminput sdsa" maxlength="100" type="text" placeholder="{{ _('Untitled') }}"/>
+		</div>
+	</div>
+</div>
+</script>
+

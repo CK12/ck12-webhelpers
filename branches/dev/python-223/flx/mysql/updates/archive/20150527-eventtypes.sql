@@ -1,0 +1,1 @@
+INSERT INTO `EventTypes` (`name`, `description`) VALUES ('ASMT_WEEKLY_SUMMER_CHALLENGE_REPORT', 'Email to send weekly report to student and his coach during summer challenge');

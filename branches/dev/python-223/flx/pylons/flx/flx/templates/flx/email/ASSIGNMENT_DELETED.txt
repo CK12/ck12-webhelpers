@@ -1,0 +1,18 @@
+Hi {{ events[0]['eventData']['memberName'] }},
+
+{% for event in events %}
+Just want to let you know that {{ event['eventData']['creator'] }} from your {{ event['eventData']['group'] }} ({{ site }}{{ event['eventData']['groupURL'] }}) has deleted this assignment
+
+{{ event['eventData']['assignment'] }} ({{ site }}{{ event['eventData']['assignmentURL'] }})
+--------------------------------------------------------------------------------------------------------
+{% endfor %}
+
+What does this mean?
+
+You will no longer receive updates from this assignment. Let your class leader know if you have any questions.
+
+
+Thanks,
+The CK-12 Term
+
+CK-12 Foundation | 3430 West Bayshore Road, Palo Alto, CA 94303

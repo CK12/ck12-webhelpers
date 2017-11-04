@@ -1,0 +1,8 @@
+    WSGIScriptAlias /flx /opt/2.0/flx/pylons/flx/flx.wsgi
+    <Directory /opt/2.0/flx/pylons/flx/>
+        Require all granted
+    </Directory>
+    <Location /flx>
+        WSGIProcessGroup flx2_wsgi
+    </Location>
+

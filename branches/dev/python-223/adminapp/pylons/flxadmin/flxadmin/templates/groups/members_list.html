@@ -1,0 +1,33 @@
+{% from "macros/pagination.html" import paginate with context %}
+
+{% if c.paginator.item_count > 0 %}
+  {% for i in c.paginator.items %}
+    <div class="tr {{i.userRole}}">
+      <div class="td id">{{i.id}}</div>
+      <div class="td id">{{h.userlink(i, 'name')}}</div>
+      <div class="td">{{i.userRole}}</div>
+      <div class="td id">{{i.groupMemberRole}}</div>
+    {% if i.groupMemberRoleID != 15 %}
+      <div class='td'>
+       <span class="deleteMember linklike" data-name="{{i.name | escape}}" data-id="{{i.id}}">[Remove Member]</span>
+       <span class="blockMember linklike" data-name="{{i.name | escape}}" data-id="{{i.id}}">[Block Member]</span>
+       &nbsp;|&nbsp;<span class='updateScore linklike' data-member-id="{{i.id}}">[Update Score]</span>
+      </div>
+    {% else %}
+      <div class="td"><span>N/A</span>
+      &nbsp;|&nbsp;<span class='updateScore linklike' data-member-id="{{i.id}}">[Update Score]</span>
+      </div>
+    {% endif %}
+    </div>
+  {% endfor %}
+  {# Uncomment and add js to support this if API allows adding member by id/email 
+    <div class="tr">
+      <div class="td id"><input id="newMemberId" type="text" placeholder="Enter UserID"/></div>
+      <div class="td id"><input id="newMemberEmail" type="text" placeholder="or User e-mail"/></div>
+      <div class="td">
+       <span class="addMember linklike">[Add Member]</span>
+      </div>
+    </div>    
+  #}
+  {{ paginate(c.paginator) }}
+{% endif %}

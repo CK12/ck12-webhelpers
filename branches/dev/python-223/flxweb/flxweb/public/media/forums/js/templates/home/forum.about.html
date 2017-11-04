@@ -1,0 +1,16 @@
+<h1 class="about-title">About <%- group.name%></h1>
+<span class="about-description"><%- group.description%></span>
+<div class="row collapse forum-info-wrapper">
+    <%if(!isMember){%>
+    <div class="about-follow link-follow button btn-forum small left">
+        <i class="icon-plus"></i>Follow
+    </div>
+    <%}else{%>
+        <div class="link-unfollow btn-following button btn-forum small left">
+            <i class="icon-checkmark"></i>Following
+        </div>
+    <%}%>
+    <div class="about-share left link-share">
+        <a>Share</a>
+    </div>
+</div>

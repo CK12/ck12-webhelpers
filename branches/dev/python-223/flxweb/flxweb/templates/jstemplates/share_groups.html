@@ -1,0 +1,64 @@
+<!-- 
+	Template used for sharing via groups
+-->
+<script type="text/x-template" id="shareGroupsTemplate">
+<% if (data.onLoad) { %>
+	<div class="row collapse grp-heading">
+		<i class="icon-groups grp-assignment for-group-mobile"></i>
+		<strong>Share to Groups </strong>
+		<span class="close-modal for-group-mobile">✕</span>
+	</div>
+	<% if (!(data.groups instanceof Array) || data.groups.length == 0) { %>
+		<!-- No groups message -->
+		<div class="row collapse no_groups_container">
+			<div class="no_groups_text"> {{_('You don\'t own any group.  Please create a study group or class to share this.') }}</div>
+			<div class="text-center">
+				<a class="button tangerine standard" title="{{ _('Create a Group') }}" href="/my/groups#create">{{ _('Create a Group') }}</a>
+			</div>
+		</div>
+	<% } else { %>
+        <div id="shareGroupsContainer" class="relative shareGroupsContainer">
+            <div class="modality-title for-group-mobile"></div>
+            <div class="custom-box checkbox all-groups for-group-mobile">
+                <input type="checkbox" id="all-grps" name="all-grps">
+                <label id="all-checkbox" for="all-grps" class="checkbox grps-label">
+                    <span>
+                        <i class="icon-validated"></i>
+                    </span>
+                    <i class="all-lbl-txt">GROUPS</i>
+                </label>
+            </div>
+            <div id="none_selected_error" class="none_selected_error hide">Please select at least one group to share.</div>
+            <% _.each(data.groups,function(group) { %>
+            <div class="custom-box groups_checkbox">
+                <input type="checkbox" id="<%= group.id %>" name="group_checkbox" value="<%= group.id %>" class="js_groups_select">
+                <label class="checkbox" for="<%= group.id %>" title="<%= _.escape(group.name) %>"><span><i class="icon-validated"></i></span><i><%= _.escape(_.truncate(group.name, 35)) %></i></label>
+            </div>
+            <% }); %>
+        </div>
+        <span class="load-more-groups for-group-mobile" title="Load more groups">load more</span>
+        <div class="row collapse button_container">
+			<a id="shareGroupFormBtn" class="button tangerine small" title="{{ _('Share with the selected group(s)') }}">{{ _('Share') }}</a>
+			
+			<span class="">or</span>
+			<a class="createnew" title="{{ _('Create a New Group') }}" href="/my/groups#create">{{ _('Create a New Group') }}</a>
+		</div>
+	<% } %>
+<% } else { %>
+	<% _.each(data.groups,function(group) { %>
+		<div class="custom-box groups_checkbox">
+			<input type="checkbox" id="<%= group.id %>" name="group_checkbox" value="<%= group.id %>" class="js_groups_select">
+			<label class="checkbox" for="<%= group.id %>" title="<%= _.escape(group.name) %>"><span><i class="icon-validated"></i></span><i><%= _.escape(_.truncate(group.name, 35)) %></i></label>
+		</div>
+	<% }); %>
+<% } %>
+</script>
+
+<!-- 
+	Template used for loading groups.
+-->
+<script type="text/x-template" id="shareGroupsLoadingTemplate">
+	<div class="text-center">
+		<img src="{{ h.url_images('icon_loading.gif') }}" />
+	</div>
+</script>

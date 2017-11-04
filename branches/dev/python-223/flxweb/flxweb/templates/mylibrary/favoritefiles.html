@@ -1,0 +1,38 @@
+{% extends "mylibrary/fileslist.html" %}
+
+{% block title %}{{ _("Bookmarks") }}{% endblock %}
+
+{% block top_actions %}
+	<div class="prefix_2 grid_2">
+		<a class="button turquoise" id="changeLabels" href="#" title="{{ _('Change Labels') }}">{{ _('Change Labels') }}</a>
+	</div>
+{% endblock %}
+
+{% block results_area %}
+	{% for resource in resources %}
+	<ul id="item_{{resource.get('resourceRevisionID')}}" class="rowlist js_library_row clearfix">
+		<li><input class="js_row_check" type="checkbox"></li>
+		<li><div class="missingimage"></div></li>
+		<li class="libraryartifacttitle">
+			{% if resource.is_public() %}
+			<a href="{{ h.url(controller='resource', action='resource_details', resource_type=resource.type, resource_handle=resource.handle, realm=resource.realm, stream=None )  }}">{{ resource.name }}</a>
+			{% else %}
+			<span title="{{ _("This file is marked as 'Private' and is only available to the uploader.") }}">{{ resource.name }}</span>
+			{% endif %}
+			<div class="js_artifact_labels">
+				{% for label in resource.getLibraryLabels() %}
+				<span data-label="{{label}}" class="labels">
+					{{label}}
+				</span>
+				{% endfor %}
+			</div>
+		</li>
+		<li class="actions">
+			<a href="#" class="js_remove_starred" title="{{ _('Remove from your Bookmarks') }}">
+				<span class="icon-close"></span>
+			</a>
+		</li>
+		<div class="divider"></div>
+	</ul>
+	{% endfor %}
+{% endblock %}

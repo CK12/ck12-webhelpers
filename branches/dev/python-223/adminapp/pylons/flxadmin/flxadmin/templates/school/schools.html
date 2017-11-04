@@ -1,0 +1,85 @@
+{% extends "listings.html" %}  
+{% block admintop %} 
+    <div class="efull" style="margin-bottom:10px">
+        <span style="margin-right:15px"><a id='createSchool' href="/flxadmin/create/school" class='linklike'>[Create School]</a></span>
+        <!--a id='manageSchoolArtifacts' href="/flxadmin/manage/school/artifacts" class='linklike'>[Manage School Artifacts]</a-->
+    </div>
+  {% block filters %} 
+    <div class="col med">
+        {{ h.labelselect('State', 'state_filter', c.form.state_sel, 'filter')}}
+    </div>
+    <div class="col med">
+        {{ h.labelselect('Status', 'status_filter', c.form.status_sel, 'filter')}}
+    </div>
+  {% endblock %} 
+  {% block searches %}
+    {{ super() }}
+  {% endblock %}
+{% endblock %}
+{% block js_scripts %}
+{{ super() }}
+<script type='text/javascript'>
+  Listings({
+    sort: 'updateTime,desc',
+    ajaxRoot: CK12.admUrl('schools_list'),
+    formAjax: CK12.admUrl('school/'),
+    viewmode: '{{c.viewmode}}',
+  });
+
+  function deleteRestoreSchool(obj, action, schoolID, schoolName) {
+    console.log(obj);
+    var sel = confirm("Are you sure you want to "+ action+ " book :" + schoolName );
+    if (sel ==true) {
+            doAjax(obj, action, schoolID, schoolName);
+        }
+     };
+
+     function doAjax(obj, action, schoolID, schoolName) {
+        var url = '#';
+        if (action == "Delete") {
+            url = '/api/flx/delete/school'
+        }
+        if (action == "Restore") {
+            url = '/api/flx/restore/school'
+        }
+        
+        var data = {'schoolID': schoolID}
+        $.ajax({
+            "url" : url,
+            "type" : "POST",
+            "dataType" : "json",
+            "data" : data,
+            "success" : function(response){
+                if(response.responseHeader.status == 0){
+                        if (action == "Delete") {
+                            alert('School deleted Successfully!')  
+                            obj.innerHTML = '[Restore School]'; 
+                            obj.onclick = function() { deleteRestoreSchool(obj, 'Restore', schoolID, schoolName);};
+                        }
+                        if (action == "Restore") {
+                            alert('School restored Successfully!')  
+                            obj.innerHTML = '[Delete School]'; 
+                            obj.onclick = function() { deleteRestoreSchool(obj, 'Delete', schoolID, schoolName);};
+                        }
+                }else{
+                        if (action == "Delete") {
+                            alert('Unable to delete School, Please check logs for details.')  
+                            //$('#messages').html('<div class="success messaging" style="color:red">Unable to delete School.</div>')  
+                            obj.innerHTML = '[Delete School]'; 
+                            obj.onclick = function() { deleteRestoreSchool(obj, 'Delete', schoolID, schoolName);};
+                        }
+                        if (action == "Restore") {
+                            alert('Unable to restore School, Please check logs for details.')  
+                            //$('#messages').html('<div class="success messaging" style="color:red">Unable to restore School.</div>')  
+                            obj.innerHTML = '[Restore School]'; 
+                            obj.onclick = function() { deleteRestoreSchool(obj, 'Restore', schoolID, schoolName);};
+                        }
+                }
+            },
+            "error" : function(){
+                return false;
+          }
+      });     
+     }
+</script>
+{% endblock %}

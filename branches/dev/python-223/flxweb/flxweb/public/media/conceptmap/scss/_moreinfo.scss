@@ -1,0 +1,63 @@
+$container-padding: rem-calc(25);
+$container-width: rem-calc(450);
+$container-inner-width: $container-width - ($container-padding * 2);
+
+
+.more-info {
+    z-index: 100;
+    width: $container-width;
+    padding: ($container-padding / 2) $container-padding $container-padding;
+    display: block;
+    position: absolute;
+    background: white;
+    border: 2px solid $light-gray;
+    cursor: move;
+
+    &__arrow-button {
+        color: $navy;
+        font-size: $font-size-4;
+        float: right;
+        position: relative;
+
+        i {
+            top: rem-calc(2);
+            position: relative;
+        }
+    }
+
+    &__header {
+        // Reset heading tags
+        h1, h2, h3, h4, h5, h6 { margin: 0 !important; line-height: 1 !important; }
+
+        text-align: left;
+        display: block;
+
+        &__name {
+            color: $turquoise;
+            display: inline;
+            font-size: $font-size-1;
+            margin-bottom: rem-calc(8);
+        }
+
+        &__subject {
+            margin: 0;
+        }
+
+        &__category, &__subject, span {
+            font-size: $font-size-3;
+            color: $medium-gray;
+            margin-bottom: rem-calc(5);
+        }
+
+        &__summary {
+            font-size: $font-size-3;
+        }
+
+    }
+
+    &__inner {
+        cursor: default;
+    }
+
+    @import '_modality';
+}

@@ -1,0 +1,73 @@
+{
+    "modules" : [
+    {
+        "name" : "main",
+        "include" : [
+          "requireLib",
+          "require.config",
+          "common/utils/globals",
+          "main",
+          "__main",
+          "text"
+        ]
+    }, {
+        "name" : "auth/flx.global",
+        "exclude" : ["main"]
+    }, {
+        "name" : "embed/templates/embed.templates"
+    }, {
+        "name" : "modality/templates/modality.templates"
+    }, {
+        "name" : "modality/views/concept.renderer",
+        "exclude" : ["jquery"]
+    }, {
+        "name" : "embed/views/concept.renderer",
+        "exclude" : ["jquery"]
+    }, {
+        "name" : "dashboard/templates/dashboard.templates"
+    }, {
+        "name" : "groups/templates/groups.templates"
+    }, {
+        "name" : "account/templates/accounts.templates"
+    }, {
+        "name" : "standard/templates/standard.templates"
+    }, {
+        "name": "profilebuilder/templates/profile.builder.templates"
+    }, {
+        "name" : "library/controllers/library",
+        "exclude": [
+            "jquery",
+            "underscore",
+            "common/utils/utils",
+            "jquery-ui",
+            "text",
+            "backbone"]
+    }, {
+        "name" : "schools/schools",
+        "exclude" : [
+            "jquery",
+            "underscore",
+            "common/utils/utils",
+            "jquery-ui",
+            "text",
+            "backbone"]
+    }, {
+        "name" : "forums/forums",
+        "exclude" : [
+            "jquery",
+            "underscore",
+            "common/utils/utils",
+            "jquery-ui",
+            "text",
+            "backbone"]
+    }, {
+        "name" : "conceptmap/conceptmap",
+        "exclude" : [
+            "jquery",
+            "underscore",
+            "common/utils/utils",
+            "jquery-ui",
+            "text",
+            "backbone"]
+    }]
+}

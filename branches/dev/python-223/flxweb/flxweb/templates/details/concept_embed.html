@@ -1,0 +1,31 @@
+{% set artifact = c.artifact %}
+{% set page_url = h.url(artifact.perma, qualified=True) %}
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>{{ c.artifact.title }}</title>
+		<link rel="stylesheet" type="text/css" href="{{ h.url_css('embed.css') }}" />
+	</head>
+	<body>
+		<div id="header">
+			<div id="logo">
+				<a href="/" target="_new" title="{{ _("CK-12 FlexBook&#174; Textbooks") }}"><img src="{{ h.url_images('logo.png') }}" alt="{{ _("CK-12 Foundation") }}" title="{{ _("CK-12 Foundation") }}" border="0"/></a>
+			</div>
+			<div id="sharebar">
+				<a class="fbshare" href="http://www.facebook.com/sharer.php?u={{page_url}}" title="{{ _("Share this %(type)s on Facebook") %{'type': artifact.artifactType} }}" target="blank"><img src="{{ h.url_images('icon_facebook.png') }}" title="Share this {{ artifact.artifactType }} on Facebook" alt="{{ _("Share This on Facebook") }}"/></a></li>
+				<a href="http://twitter.com?status=Reading {{page_url}}" title="{{ _("Share this %(type)s on Twitter") %{'type': artifact.artifactType} }}" target="blank"><img src="{{ h.url_images('icon_twitter.png') }}" title="Share this {{ artifact.artifactType }} on Twitter" alt="{{ _("Share this on Twitter") }}"/></a></li>
+				<a href="mailto:?&subject={{artifact.title}}&body={{artifact.title}} : {{page_url}}" title="{{ _("Share this %(type)s via email") %{'type': artifact.artifactType} }}"><img src="{{ h.url_images('icon_email.png') }}" title="Share this {{ artifact.artifactType }} via email" alt="{{ _("Share this via Email") }}"/></a></li>
+			</div>
+		</div>
+		<div id="content">
+			<div id="info">
+				<h1>{{ c.artifact.title }}</h1>
+				<p>{{ c.artifact.summary }}</p>
+			</div>
+			<hr />
+			{{ c.artifact.getXHTML() }}
+		</div>
+	</body>
+</html>

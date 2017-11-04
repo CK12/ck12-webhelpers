@@ -1,0 +1,194 @@
+<!--
+***************************************************************************
+Macro: ck12_node_macro
+Recursive macro which renders the nodes of the tree. Note the nodes
+are rendered as <li> items
+
+Parameters:
+<node>
+The node to be rendered. Note it is a instance of BrowseTerm object
+
+<maxLevel>
+The maximum number of levels to which can be expanded.
+
+<nodeitem_leafnode_class>
+CSS class(es) to use on <li> element of a leaf node
+
+<nodeitem_class>
+CSS class(es) to use on <li> element of a node with children
+
+<nodelink_class>
+CSS class(es) to use on node links.
+***************************************************************************
+ -->
+{% macro ck12_node_macro (node,maxLevel,nodeitem_leafnode_class=None,nodeitem_class=None,nodelink_class=None) %}
+	{% if node.children %}
+	<ul>
+		{% for child in node.children %}
+			{% if child.canDrillDown(maxLevel) %}
+				<li id="node_{{child.id}}" {% if nodeitem_class %}class="{{ nodeitem_class }}"{% endif %}>
+					<a {% if nodelink_class %}class="{{ nodelink_class }}"{% endif %} data-encodeid="{{ child.encodedID }}" href="#{{child.slug}}">{{child.name}}</a>
+					<!--  now recursively get the children of this child -->
+					{{ ck12_node_macro(child,maxLevel,nodeitem_leafnode_class,nodeitem_leafnode_class,nodelink_class) }}
+				</li>
+			{% else %}
+				<li id="node_{{child.id}}" {% if nodeitem_leafnode_class %}class="{{ nodeitem_leafnode_class }}"{% endif %} >
+					<a {% if nodelink_class %}class="{{ nodelink_class }}"{% endif %} data-encodeid="{{ child.encodedID }}" href="#{{child.slug}}">{{child.name}}</a>
+				</li>
+			{% endif %}
+		{% endfor %}
+	</ul>
+	{% endif %}
+{% endmacro %}
+
+<!--
+***************************************************************************
+Macro: ck12_branch_browse_grid
+***************************************************************************
+-->
+{% macro ck12_branch_browse_grid ( subjects, show_standards=None ) %}
+	<section id="resources" class="clearfix row" name="resources">
+		<div class="row">
+			<div class="small-12 large-12 columns mySubject-title-container hide">
+				<h4 class="mySubject-title"></h4>
+				<div class="mySubject-click-link">
+					<a><span class="link-name dxtrack-user-action" data-dx-desc="show_all_subjects_link">Show All Subjects</span> (<span class="subjects-count"> 23 </span>)</a><i class="indicator"></i><i class="icon-arrow-up rotate-down arrow"></i>
+				</div>
+			</div>
+		</div>
+		<div class="row show-small" id='my-subjects-content'></div>
+		<div class="small-12 large-12 columns hide-for-small resources-container">
+			<div class="row collapse">
+				{% for subject in subjects %}
+				<div class="small-12 large-4 columns browse-subject-container">
+					<h3 id="{{ subject.name|replace(' ', '-')}}">{{ subject.name}}</h3>
+					{% if show_standards %}
+						<div class="browse_standards_container js-teacher hide">
+							{% if subject.name == "Math" %}
+							<a href="/ccss">
+								<img src="{{ h.asset_image('standard/images/math-icon.png') }}">
+								<span>Common Core State Standards</span>
+							</a>
+							{% elif subject.name == "Science" %}
+							<a href="/ngss">
+								<img src="{{ h.asset_image('standard/images/science-icon.png') }}">
+								<span>Next Generation Science Standards</span>
+							</a>
+							{% endif %}
+						</div>
+					{% endif %}
+					<ul class="row browse-content">
+						<!-- Elementary Math -->
+						{% if subject.name == "Math" %}
+						<li class="small-12 columns">
+							<a id="browse-elementary" class="subject-link" href="{{ h.url('browse',subject='elementary-math') }}" title="Grade 1&ndash;5">
+								<span>
+									<span class="subject-icon">
+										<span class="elementary-math"></span>
+									</span>
+									<span class="browse-title">Grade 1&ndash;5</span>
+								</span>
+							</a>
+						</li>
+						{% endif %}
+						{% if subject.name == "Science" %}
+						<!-- Elementary Science -->
+						<!-- [Story #142880675] add Elementary Science link in subjects list -->
+						<li class="small-12 columns">
+							<a id="browse-elementary-science" class="subject-link" href="/elementary-science/" title="Grade K&ndash;5">
+								<span>
+									<span class="subject-icon">
+										<img src="//static.ck12.org/images/elementary-science-image/elementary-science_1.svg" style="margin:4px 8px 4px 0px; width:40px; height:40px;" />
+									</span>
+									<span class="browse-title">Grade K&ndash;5</span>
+								</span>
+							</a>
+						</li>
+						{% endif %}
+
+						{% for branch in subject.children %}
+							{% if branch.show %}
+							<li class="small-12 columns">
+								<a id="browse-{{ branch.slug }}" class="subject-link" href="/c{{ h.url('browse',subject=branch.slug) }}" title="{{ branch.name }}">
+									<span>
+										<span class="subject-icon">
+											<span class="{{ branch.slug }}"></span>
+										</span>
+										<span class="browse-title">{{ branch.name }}</span>
+									</span>
+								</a>
+							</li>
+							{% endif %}
+						{% endfor %}
+					</ul>
+				</div>
+				{% endfor %}
+				<!-- <div class="large-12 columns subjects-sigin-container hide">
+					<a class="signin">Sign In</a> to Save Your Subjects
+				</div> -->
+			</div>
+		</div>
+		<div class="row all-subjects-container-small">
+			<div class="section-container tabs show-for-small" data-section="tabs" data-options="deep_linking: true; one_up: false">
+			{% for subject in subjects %}
+			<section>
+				<span class="title text-center subject-name-wrapper" data-section-title>
+					{% if "Mathematics" == subject.name %}
+						<a class="subject-name">Math</a>
+					{% else %}
+						<a class="subject-name">{{ subject.name}}</a>
+					{% endif %}
+				</span>
+				<div class="content browse-content" data-section-content>
+					{% if show_standards %}
+						{% if subject.name == "Math" %}
+						<a href="/ccss" class="browse_standards_link js-teacher hide">
+							<img src="{{ h.asset_image('standard/images/math-icon.png') }}">
+							<span>Common Core State Standards</span>
+						</a>
+						{% elif subject.name == "Science" %}
+						<a href="/ngss" class="browse_standards_link js-teacher hide">
+							<img src="{{ h.asset_image('standard/images/science-icon.png') }}">
+							<span>Next Generation Science Standards</span>
+						</a>
+						{% endif %}
+					{% endif %}
+					{% if subject.name == "Math" %}
+						<a id="browse-small-elementary" class="subject-link relative" href="{{ h.url('browse',subject='elementary-math') }}" title="Grade 1&ndash;5">
+							<span>
+								<span class="subject-icon">
+									<span class="elementary-math"></span>
+								</span>
+								<span class="browse-title">Grade 1&ndash;5</span>
+							</span>
+						</a>
+					{% endif %}
+					{% if subject.name == "Science" %}
+						<a id="browse-small-elementary-science" class="subject-link relative" href="/elementary-science/" title="Grade K&ndash;5">
+							<span>
+								<span class="subject-icon">
+									<img src="//static.ck12.org/images/elementary-science-image/elementary-science_1.svg" width="40" height="40" style="margin:4px 8px 4px 0px" />
+								</span>
+								<span class="browse-title">Grade K&ndash;5</span>
+							</span>
+						</a>
+					{% endif %}
+					{% for branch in subject.children %}
+						{% if branch.show %}
+							<a id="browse-small-{{ branch.slug }}" class="subject-link" href="/c{{ h.url('browse',subject=branch.slug) }}" title="{{ branch.name }}">
+								<span>
+									<span class="subject-icon">
+										<span class="{{ branch.slug }}"></span>
+									</span>
+									<span class="browse-title">{{ branch.name }}</span>
+								</span>
+							</a>
+						{% endif %}
+					{% endfor %}
+				</div>
+			</section>
+			{% endfor %}
+			</div>
+		</div>
+	</section>
+{% endmacro %}

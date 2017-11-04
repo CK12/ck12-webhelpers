@@ -1,0 +1,95 @@
+$module-ns-titles: "conceptmap-nav__middle";
+
+$title-font-size: rem-calc(38);
+$subtitle-font-size: rem-calc(21);
+
+.#{$module-ns-titles} {
+
+    &__title, &__subtitle {
+        @include hidden();
+        position: absolute;
+        text-align: center;
+        margin: 0;
+        transition: all $zero-state-duration-short;
+        transform: translateY(0%) translateX(50%);
+    }
+    &__title {
+        width: 200%;
+        left: -100%;
+        font-size: $title-font-size;
+        white-space: nowrap;
+    }
+    &__subtitle {
+        width: 100%;
+        left: -50%;
+        font-size:$subtitle-font-size;
+        font-weight: normal;
+        color: #8E8774;
+
+        &__arrow {
+            height: 65px;
+            width: 40px;
+            position: absolute;
+            top: 75%;
+        }
+    }
+}
+
+$zero-state-subtitle-margin-top: 6vh;
+
+#{$zero-state} {
+    .#{$module-ns-titles} {
+        &__title, &__subtitle {
+            // Top position set with JS
+            @include visible();
+
+        }
+        &__title {
+            transform:  translateX(25%) calc-translateY( #{$title-font-size}, #{$base-middle-nav-bar-pos} );
+        }
+
+        &__subtitle {
+            transform:  translateX(50%) calc-translateY( #{$title-font-size}, #{$search-box-height}, #{$subtitle-font-size}, #{$zero-state-subtitle-margin-top}, #{$base-middle-nav-bar-pos} );
+        }
+    }
+}
+
+
+
+@media screen and #{breakpoint(medium down)} {
+    .#{$module-ns-titles} {
+        &__subtitle__arrow {
+            top: 0%;
+            transform: scale(0.5)translateY(-25%)
+        }
+    }
+
+}
+
+@media screen and (max-height: #{rem-calc(800)}) {
+    .#{$module-ns-titles} {
+        &__subtitle__arrow {
+            top: 0%;
+            transform: scale(0.5)translateY(-25%)
+        }
+    }
+
+}
+
+@media screen and #{breakpoint(small only)} {
+    .#{$module-ns-titles} {
+        &__title {
+            font-size: rem-calc(24);
+        }
+        &__subtitle {
+            font-size: rem-calc(16);
+
+            &__arrow {
+                top: 0%;
+                right: 0;
+                transform: scale(0.5)translate(100%, -50%)
+            }
+        }
+    }
+
+}

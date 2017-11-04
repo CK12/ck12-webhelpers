@@ -1,0 +1,49 @@
+{% extends "details.html" %}  
+{% from "macros/form_errors.html" import form_errors with context %}  
+
+{% block admincontent %} 
+<div class="sectionhead sectiontitle">User Reported Issue and Feedback</div>
+<div class="section withfloatedsubmit">
+  <form id="mainform" method="post">
+    <div class="leftaligned">
+    {% for field in c.form.ordered_fields %}
+      {{ field }}
+    {% endfor %}
+    {% if c.report.artifactID %}
+      {{ h.labeldiv('Artifact', h.idlink('/artifact/', c.report, 'artifactID', 'artifactID')) }}
+    {% endif %}
+    {% if c.report.resource %}
+      {{ h.labeldiv('Resource', h.idlink('/resource/', c.report.resource, 'type')) }}
+    {% endif %}
+      {{ h.labeldiv('Reporter', h.userlink(c.report.reporter, namekey='name')) }}
+      {{ h.labelreadonlyarea('Reason', 'reason', 7, class_='greybkgnd')}}
+      {{ h.labelradio('Reason Type', 'reasonID', c.form.reasonIDs, wrapClass=None)}}
+      {{ h.labeldiv('Reviewer', h.userlink(c.report.reviewer, namekey='name')) }}
+      {{ h.labeltextarea('Remark', 'remark', 5)}}
+      <div>
+      Screenshot: 
+      {% if c.report.imageUrl %}<p><img src="{{ c.report.imageUrl }}" title="Screenshot" /></p>{% else %}N/A{% endif %}
+      </div>
+
+    </div>
+      {{ h.deletebutton('Delete')}}
+    {% if c.isClosed %}
+      {{ h.submitbutton('Re-Open', name='newstatus')}}
+    {% else %}
+      {{ h.submitbutton('Flag', name='newstatus')}}
+      {{ h.submitbutton('Ignore', name='newstatus')}}
+    {% endif %}
+      {{ h.cancelbutton(c.cancel)}}
+  </form>
+</div>
+{% endblock %}
+
+{% block js_scripts %}
+<script type="text/javascript">
+  {{ form_errors('after') }}
+  Fns.confirm('Abuse Report', 
+    CK12.flxUrl('delete/abusereportForm'), '{{c.cancel}}',
+    'POST', {id: {{c.id}}}
+  );
+</script>
+{% endblock %}

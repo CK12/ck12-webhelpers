@@ -1,0 +1,124 @@
+/****
+#
+# Copyright 2007-2013 CK-12 Foundation
+#
+# All rights reserved
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under this License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+# implied.  See the License for the specific language governing
+# permissions and limitations.
+#
+# This file originally written by Hana Zavadska
+#
+# $Id$
+****/
+/************************************************************************************
+ Filters
+ *************************************************************************************/
+.resultsfilterslistingwrap {
+	padding: 6px 0;
+}
+.resultsfilterslisting {
+	margin: 0;
+	padding: 0;
+}
+.resultsfilterslisting.type {
+	margin-top: 0;
+	border: 0;
+}
+.resultsfilterslisting li {
+	list-style: none;
+	float: left;
+	margin: 0 10px 0 0;
+	color: #333;
+}
+.resultsfilterslisting li.caption {
+	color: #999;
+}
+/************************************************************************************
+ Resource Details
+ *************************************************************************************/
+#leftsecondary .actions {
+	padding-top: 60px;
+}
+
+.sidebarfilters td{
+	vertical-align:top;
+}
+#leftsecondary h2.resultfiltertitle{
+	color:#00aba4;
+	cursor:pointer;
+}
+.resultfiltertitle .tip{
+	border-color: #00aba4 transparent transparent;
+	border-style: solid dashed dashed;
+	border-width:7px 4px 4px 4px;
+	margin-left:10px;
+	position: relative;
+	top: 3px;
+	display:inline-block;
+}
+.resultfiltertitle .tip.up{
+	border-color: transparent transparent #00aba4 transparent;
+	border-style: dashed dashed solid dashed;
+	border-width:4px 4px 7px 4px;
+	margin-left:10px;
+	position: relative;
+	top: -2px;
+	display:inline-block;
+}
+.resultfiltercontainer .sidebarfilters tr td:first-child{
+	padding-right: 0.3em;
+}
+.resultfiltercontainer label.checked{
+	color:#5c5c5c;
+	font-weight:normal;
+}
+/*****/
+#view_search_result{
+	min-height:250px;
+}
+#view_search_result .listitem{
+	position: relative;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #E0E0E0;
+	min-height: 90px;
+	overflow: hidden;
+	margin-bottom: 0;
+}
+
+#view_search_result .listitem:hover {
+	background: #f2fbf8;
+}
+#view_search_result ul#modality_group_list {
+	margin-top:23px;
+	margin-bottom:0;
+}
+
+.emptyresult {
+    min-height: 250px !important;
+	padding: 20px 10px 0 20px;
+	border: 1px solid #eee;
+}
+
+.emptyresult_spell_suggestion {
+    min-height: 150px !important;
+	padding: 20px 10px 0 20px;
+	border: 1px solid #eee;
+}
+.emptyresult_spell_suggestion ul
+.emptyresult ul {
+	margin-left: 16px;
+	margin-top: 4px;
+	line-height: 110%;
+}
+
+
+#toptitle_no_result, .toptitleresulthint {
+	font-size: 17px;
+	font-weight:normal;
+	color: #c2c2c2;
+}

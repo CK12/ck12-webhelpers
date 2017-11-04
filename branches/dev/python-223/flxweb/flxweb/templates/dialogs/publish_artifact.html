@@ -1,0 +1,33 @@
+<div style="text-align:left">
+    <div class="contribution-type">
+		<div>Select a contribution type :</div>
+
+		<div class="custom-box">
+        	<input name="contribution_type" type="radio" id="contribution_type2" value="derived">
+            <label for="contribution_type2" class="radio"><span></span> CK-12 Content derived <i class="icon-help2" title="This content being published is customized CK-12 content."></i></label>
+		</div>
+		<div class="custom-box">
+			<input name="contribution_type" type="radio" id="contribution_type3" value="modified">
+			<label for="contribution_type3" class="radio"><span></span> Customized from other content <i class="icon-help2" title="This content being published is customized from non-CK-12 content."></i></label>
+		</div>
+		<div class="custom-box">
+			<input name="contribution_type" type="radio" id="contribution_type1" value="original" >
+			<label for="contribution_type1" class="radio"><span></span> Original Content <i class="icon-help2" title="This content being published is original content that is not based on other content."></i></label>
+		</div>
+		<div class="contribution-type-error">Please select a contribution type </div>
+    </div>
+    
+    <div>
+        <span>{{ _("You're about to make") }}</span>
+        <span id="publish_artifact_name"></span>
+        <span>{{ _("available to the public.") }}</span>
+    </div>
+    <br>
+    <div>
+        {{_("Are you sure you'd like to do this?")}}
+    </div>
+    <br>
+    <input type="hidden" id="sw_selected_id"/>
+    <input type="hidden" id="sw_auth_url" value="{{ h.url('auth-switchuser') }}" />
+    <input type="hidden" id="sw_returnto" value="{{h.url('authorized_switch',qualified=true)}}" />
+</div>

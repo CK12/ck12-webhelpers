@@ -1,0 +1,59 @@
+{% extends "master.html" %}  
+
+{% block admintop %} 
+  <div class="errorline"></div>
+  <div class="col med">
+    {{ h.labelinput('Search by User ID', 'userid', 'short')}}
+  </div>
+{% endblock %} 
+
+{% block admincontent %} 
+  <div id="result"></div>
+{% endblock %}
+
+{% block js_scripts %}
+<script type='text/javascript'>
+$(document).ready(function(){
+  function updateResult(useInput){
+    var 
+      urlParam = $.deparam.querystring(),
+      inputParam = {userid: $('#userid').val()},
+      useUrlParam = !useInput && urlParam.userid,
+      param = useUrlParam? urlParam : inputParam;
+    if (useUrlParam) $('#userid').val(param.userid);
+    $.get(CK12.admUrl('/user/1xbooks_list'), param, function(data){
+      $('#result').html(data);
+    });
+  }
+  updateResult();
+
+  $('#userid').keyup(function(e){
+    if (Fns.isEnterKey(e)) updateResult(true);
+  }); 
+
+});
+</script>
+{% endblock %}
+
+
+
+
+
+{# Replace above with this if want to display in pagination listing style
+{% extends "listings.html" %}  
+
+{% block searches %} 
+  <div class="col">
+    {{ h.labelinput('User ID', 'userid', 'searchby short')}}
+  </div>
+{% endblock %} 
+
+{% block js_scripts %}
+{{ super() }}
+<script type='text/javascript'>
+  Listings({
+    ajaxRoot: CK12.admUrl('user/1xbooks_list')
+  });
+</script>
+{% endblock %}
+#}

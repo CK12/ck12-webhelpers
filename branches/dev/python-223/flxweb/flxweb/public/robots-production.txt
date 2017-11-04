@@ -1,0 +1,16 @@
+User-agent: *
+Sitemap: https://www.ck12.org/sitemapindex.xml
+Sitemap: https://www.ck12.org/sitemap_subjects_index.xml
+
+## Disallow following patterns
+Disallow: /2.0/
+Disallow: /ads/
+Disallow: /flx/show/web/
+Disallow: /flx/show/pdf/
+Disallow: /hwp/
+Disallow: /my/
+Disallow: /search
+Disallow: /editor/
+Disallow: *.../$
+Disallow: */user:*/
+Disallow: /user-generated-content/

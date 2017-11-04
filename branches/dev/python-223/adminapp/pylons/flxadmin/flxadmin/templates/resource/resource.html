@@ -1,0 +1,69 @@
+{% extends "details.html" %}  
+{% from "macros/form_errors.html" import form_errors with context %}  
+
+{% block admincontent %} 
+<div class="sectionhead sectiontitle">Resource Details</div>
+<div class="section withfloatedsubmit">
+  <form id="mainform" method="post" enctype="multipart/form-data">
+    <div class="leftaligned">
+
+    {% for field in c.form.ordered_fields %}
+      {{ field }}
+    {% endfor %}
+      {{ h.labeldiv('Revision Details', c.fmtd.revisions, 'td')}}
+      {{ h.labeldiv('Artifacts', c.fmtd.artifacts, 'td')}}
+      {{ h.labeldiv('Artifact Revisions', c.fmtd.artifactRevisions, 'td')}}
+      {{ h.labeldiv('Abuse Reports', '%s &nbsp; %s' % (c.fmtd.abusereports,
+         h.htmla_('/reportabuse/'+c.id, '[Report Abuse]')) )}}
+
+      {{ h.htmllabel('Resource')}}
+      <div>
+      {% if c.resource_is.downloadable %}
+        {{ c.rendered }}
+      {% else %}
+        <span id='showResource' class='linklike'>[Show]</span>
+      {% endif %}
+        &nbsp; <span id='delete' class='linklike red'>[Delete]</span>
+      </div>
+
+      {% if c.resource_is.updatable %}
+        {{ h.htmllabel('Replace:', '', 'bold i')}}
+        <div id='replace'>
+        {% if c.resource_is.update_via_upload_only %}
+          {{ h.labelfile('Upload New Resource', 'resourcePath', 'xmed')}}
+          <input class="hide" name="resourceUri"/>
+        {% else %}
+          {{ h.labelinput('from URL', 'resourceUri', 'elong')}}
+          {{ h.labelfile('OR via Upload', 'resourcePath', 'xmed')}}
+          <span>&nbsp;(Upload takes precedence over URL input)</span>
+        {% endif %}
+        </div>
+      {% else %}
+        <input class="hide" name="resourceUri"/>
+        <input class="hide" name="resourcePath"/>
+      {% endif %}
+      {{ h.submitbutton('Update', 'short')}}
+      {{ h.cancelbutton(c.cancel)}}
+
+      {% if not c.resource_is.downloadable %}
+        <div id='rendered' class='hide'>
+          {{ c.rendered }}
+          <p>(<span class="linklike" onclick="location.reload()">Reload page</span> if newly replaced resource is not showing)</p>
+        </div>
+      {% endif %}
+
+    </div>
+  </form>
+</div>
+{% endblock %}
+
+{% block js_scripts %}
+<script type='text/javascript'>
+  Fns.showHide('#rendered', '#showResource');
+  Fns.confirm('resource', 
+    CK12.flxUrl('delete/resource'), '{{c.prvlink}}',
+    'POST', {id: {{c.id}}, force: true}
+  );
+  {{ form_errors('after') }}
+</script>
+{% endblock %}

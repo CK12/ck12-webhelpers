@@ -1,0 +1,10 @@
+<% function replaceTags(str) {
+    return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+} %>
+
+<div data-label="<%= data.label %>" class="label-item <% if(data.selected){ %>selected<% } %>" data-cid="<%= data.cid %>">
+    <a title="<%= data.label %>"><%= replaceTags(data.label) %></a>
+    <% if (!data.systemLabel) { %>
+    	<i class="icon-close right pointer delete-label"></i>
+    <% } %>
+</div>

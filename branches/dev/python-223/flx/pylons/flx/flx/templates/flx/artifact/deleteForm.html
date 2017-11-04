@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>Delete Artifact</title>
+    </head>
+    <body>
+        <table>
+            {% for key in c.keys %}
+            <tr>
+                <td>
+                    {{ key }}:
+                </td>
+                <td>
+                    {{ c.metaDict[key] }}
+                </td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td>
+                    <form name="artifact" method="POST" action="{{ h.url(controller='artifact', action='deleteArtifact', id=c.id) }}">
+                        <input type="hidden" name="id" value="{{ c.id }}" />
+                        <input type="hidden" name="type" value="{{ c.type }}" />
+                        <input type="hidden" name="title" value="{{ c.title }}" />
+                        <input type="hidden" name="author" value="{{ c.author }}" />
+                        <input type="submit" name="submit" value="Confirm to delete" />
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

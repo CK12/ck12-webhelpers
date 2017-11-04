@@ -1,0 +1,1 @@
+INSERT INTO `EventTypes` (`name`, `description`) VALUES ('PREVIEW_EMAIL', 'Event to try out different email notifications for internal usage');

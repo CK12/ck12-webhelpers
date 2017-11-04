@@ -1,0 +1,1266 @@
+html {
+    height: 100%;
+}
+body {
+    background-color: #fff;
+}
+body > header {
+    box-shadow: none;
+    height: 57px;
+    display: none;
+    position: fixed;
+}
+
+body > header .app-title {
+    font-size: 26px;
+}
+body .header-space {
+    padding-top: 77px;
+    display:none;
+}
+body .error-page-padding {
+   padding-top: 30px;
+}
+body.app-view > header, body.app-view > .header-space {
+    display: block;
+}
+body.app-view {
+    background-color: #EEEDE9;
+}
+
+#practiceapp_container{
+    clear: left;
+}
+
+#ui-datepicker-div:empty{
+    border:none;
+}
+
+.new-spinner {
+    z-index: 999;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40px;
+    height: 40px;
+    animation: b 2s infinite linear;
+}
+
+.new-spinner:before {
+    top: 0;
+    background-color: #b8d543;
+}
+
+.new-spinner:after, .new-spinner:before {
+    content: '';
+    width: 60%;
+    height: 60%;
+    position: absolute;
+    border-radius: 100%;
+    animation: c 2s infinite ease-in-out;
+}
+
+.new-spinner:after {
+    bottom: 0;
+    animation-delay: -1s;
+    background-color: #ff5b3f;
+}
+
+@keyframes b {
+    to {
+        transform:rotate(1turn);
+    }
+}
+
+@keyframes c{
+    0%,to{
+        transform:scale(0);
+    }
+    50%{
+        transform:scale(1);
+    }
+}
+
+.spinner-container {
+    margin-bottom: 30px;
+}
+
+.splashscreen-container {
+    padding-top: 186px;
+    padding-bottom: 21px;
+}
+.splashscreen-container img {
+    width: 257px;
+    height: 135px;
+}
+.splashscreen-appname-container {
+    width: 348px;
+    border-top: 1px solid #e0dddc;
+    border-bottom: 1px solid #e0dddc;
+    margin: 0 auto 30px;
+}
+.splashscreen-appname {
+    font-size: 32px;
+    text-transform: uppercase;
+    padding: 14px;
+    color: #727272;
+}
+.splashscreen-footer img {
+    height: 55px;
+}
+.splashscreen-footer {
+    min-height: 200px;
+    background-color: #E0DDD5;
+    padding-top: 25px;
+}
+#practiceapp_container .splash-footer-text {
+    line-height: 23px;
+    font-size: 18px;
+    padding: 6px 151px 5px 55px;
+}
+.teacher-view-container {
+    position: relative;
+}
+
+.teacher-view-container .walktrough-link-cont {
+     padding-left : 32px;
+     display: block;
+}
+.edmodo-header-wrapper {
+    max-width: none;
+    margin: 0;
+    padding: 12px 18px;
+}
+.initial-sigin-container {
+    border: 2px solid #D3D3D3;
+    background-color: #fff;
+    font-size: 18px;
+}
+.initial-signin-header {
+    padding: 21px;
+    font-size: 30px;
+    height: 80px;
+}
+.initial-signin-body-wrapper{
+    background-color: #F8F8F5;
+}
+.initial-signin-body {
+    padding: 30px 40px 42px 40px;
+    font-size: 18px;
+}
+.user-tile {
+    font-size: 24px;
+    color: #FB6C33;
+    padding-bottom: 17px;
+}
+.label-email {
+	margin-bottom: 8px;
+}
+.welcome-text {
+    padding-bottom: 43px;
+}
+.welcome-text div:first-child{
+    padding-bottom: 10px;
+}
+.error-message {
+    color: #FF6633;
+    font-size: 14px;
+    position: relative;
+}
+.email-error-message {
+    padding-bottom:6px;
+    margin-top: -6px;
+}
+.signin-reveal-modal .error-message {
+    padding-bottom: 6px;
+    margin-top: -1px;
+}
+.initial-signin-footer {
+    padding: 24px;
+    height: 65px;
+}
+.signin-reveal-modal {
+    width: 50%;
+    left: 65%;
+    padding: 25px 40px 20px;
+    font-size: 18px;
+}
+.signin-reveal-modal .close {
+    top: -20px;
+    right: -16px;
+}
+.account-signin-header {
+    font-size: 30px;
+    padding-bottom: 25px;
+}
+.user-password-container {
+    padding-bottom: 24px;
+}
+.margin-bottom-zero {
+    margin-bottom: 0;
+}
+.loading-icon {
+    left: 48.7%;
+    position: fixed;
+    top: 44.5%;
+    z-index: 600;
+}
+.email-submit-button {
+    padding-top: 24px;
+}
+.email-submit-button a {
+    width: 150px;
+}
+.use-name-container {
+    padding-bottom: 38px;
+}
+.intial-signin-wrapper {
+    position: relative;
+}
+
+.assignment-search-close .close-icon {
+    margin-top: 12px;
+    margin-right: 5px;
+}
+
+.assignment-search-icon-active .icon-search {
+    margin-right: 12px;
+}
+
+
+
+/* TEACHER HOME VIEW CSS STARTS */
+.subjects-select-wrapper {
+    background-color: #FFFFFF;
+    min-height: 100%;
+    position: relative;
+    top: 0;
+    padding: 16px;
+    border: 1px solid #CACACA;
+    font-size: 18px;
+}
+#concepts-wrapper .select-concept-wrapper {
+    padding: 7px 16px 7px 15px;
+    margin: 23px 0 0;
+    box-shadow: 0 3px RGBA(0,0,0,.15);
+}
+.concept-name {
+    padding: 7px 0px 5px;
+    width: 80%;
+}
+.edmodo-logo img {
+    width:62px;
+}
+.assign-groups-header {
+    font-size: 21px;
+    color: #56544d;
+}
+.assign-group-modal {
+    padding: 0;
+    width: 60%;
+    margin-left: -30%;
+    z-index: 101;
+}
+.assign-group-modal.single-group-container {
+    width: 50%;
+    margin-left: -25%;
+}
+.assign-group-modal.single-group-container .group-list-wrapper {
+    border:none;
+}
+.library-contents-main-wrapper{
+	width:76%;
+}
+#library-filters-container{
+	width:22.66667%;
+}
+.concept-header-text {
+    font-size: 18px;
+    color: #ff6633;
+    padding-left: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 90%;
+    float: left;
+}
+.assign-header-wrapper {
+    padding: 0 30px;
+}
+.dashboard-modal-header .button {
+    margin-top: 10px;
+}
+.assignments-subjects-container .assignments-subjects-wrapper .all-subjects-wrapper {
+    margin: auto;
+    float: none;
+}
+.subject-title {
+    font-size: 18px;
+    margin-top: 10px;
+}
+.concept-count {
+    font-size: 16px;
+}
+#concepts-container .concept-track-heading .track-name {
+    font-size: 24px;
+    color: #ff6633;
+    font-weight: normal;
+}
+.concept-track-heading .concept-count {
+    font-size: 18px;
+    line-height: 12px;
+}
+.assignment-subject-list .selected span, .node-heading span {
+    font-weight: normal;
+}
+.edmodo-logo-header {
+    padding: 0 0 2px 0;
+}
+.branch-image-wrapper {
+    background-color: #57544E;
+    border-radius: 30px;
+    height: 55px;
+    text-align: center;
+    width: 55px;
+}
+.branch-image-wrapper span {
+    font-size: 30px;
+    padding: 2px;
+    color: #fff;
+}
+.concept-track-heading .branch-image-wrapper span {
+    margin-top: 10px;
+    display: inline-block;
+}
+.node-heading{
+    padding-bottom: 32px;
+}
+#branch-name {
+    color: #FF6633;
+    font-size: 24px;
+    margin-left: 12px;
+}
+.assignments-edit-wrapper .columns.assignments-tracks-wrapper, .assignments-concepts-wrapper .columns.assignment-concept-container {
+    padding: 0;
+}
+.assignments-edit-wrapper {
+    padding: 44px;
+    min-height: 500px;
+}
+.select-track-wrapper {
+    padding-bottom: 10px;
+}
+.track-name-wrapper .concept-count {
+    line-height: 14px;
+}
+.concept-track-heading {
+    padding-bottom: 27px;
+}
+.assignments-edit-wrapper .columns.assignments-subjects-container {
+    padding: 30px 0;
+}
+.assignments-subjects-wrapper .all-subjects-wrapper .subject-wrapper {
+    margin: 30px 0;
+    padding: 6px 20px 1px;
+}
+.subject-wrapper:hover {
+    background-color: #D0F1E8;
+}
+.group-list-header {
+    padding: 10px 40px 10px 40px;
+}
+.all-groups-list {
+    max-height: 350px;
+    overflow: auto;
+}
+.group-select-header span {
+    font-size: 12px;
+    color: #8e8773;
+}
+.group-select-header div {
+    margin-left: 0px;
+}
+.due-date-header {
+    font-size: 12px;
+    color: #8e8773;
+    margin-top: 9px;
+}
+.due-date-container input {
+    color: #959595;
+    height: 40px;
+    width: 123px;
+    margin: 0;
+}
+
+.apply-due-date-row {
+    background-color: #f9faf5;
+}
+#icon-for-toggle.icon-apply-some {
+    text-indent: 0px;
+}
+label#label-toggle-group-button {
+    font-size: 16px;
+    color: #8e8774;
+}
+.icon-apply-some:before{
+    background: #00ABA4;
+    display: block;
+    color: #fff;
+    content: "\e66f";
+}
+.apply-due-date-text {
+   padding-top: 10px;
+   font-size: 14px;
+    color: #8e8774;
+}
+
+.apply-due-date-text span{
+   color: #959595;
+}
+
+.group-list-wrapper {
+    border-top: 1px solid #efede7;
+    padding: 5px 40px;
+    font-size: 16px;
+    height: 50px;
+}
+.group-list-wrapper:last-child {
+    border-bottom: 1px solid #efede7;
+}
+.all-groups-list .group-list-wrapper .group-list-name {
+    padding-top: 8px;
+}
+.group-list-name .group-name {
+    margin-top: -3px;
+}
+.group-list-footer {
+    height: 100px;
+    padding: 30px;
+    font-size: 16px;
+}
+.send-assignment-wrapper span {
+    padding: 0 10px;
+}
+.groups-list-container {
+    background-color: #f9f9f5;
+}
+.unassigned-list-wrapper {
+    background-color: #fff;
+}
+.member-assignment-invalid-date {
+    top: 50px;
+    left: -35px;
+    width: 190px;
+}
+.member-assignment-before-date {
+    top: 50px;
+    left: -37px;
+    width: 190px;
+}
+.member-assignment-before-date:before {
+    left: 87px;
+}
+.groups-list-container.all-groups-assigned {
+    background-color: #fff;
+}
+.due-date-container .assign-due-date {
+    padding-top: 8px;
+}
+.dashboard-modal-wrapper.coversheet-open {
+    display: block !important;
+    visibility: visible !important;
+}
+.dashboard-modal-wrapper.coversheet-open ~ .reveal-modal-bg {
+    z-index: 100;
+}
+#newspaperModal {
+    z-index:101;
+}
+.assign-group-modal .no-groups-container .no-groups-wrapper {
+    padding: 30px;
+    font-size: 20px;
+    background-color: #f9f9f5;
+}
+.no-groups-container {
+    padding: 30px;
+}
+.ui-datepicker .ui-datepicker-title, .ui-datepicker .ui-datepicker-next, .ui-datepicker .ui-datepicker-prev {
+    color: #8E8774;
+}
+.ui-datepicker thead, .ui-datepicker-header {
+    background: none repeat scroll 0 0 #DDEBA7;
+}
+.ui-datepicker-header {
+    border:none;
+}
+.ui-datepicker thead {
+    border-bottom: 1px solid #CACACA;
+}
+.member-assignment-empty-date {
+    background: none repeat scroll 0 0 #56544D;
+    color: #FFFFFF;
+    font-size: 0.8em;
+    height: 70px;
+    left: -37px;
+    padding: 16px 19px;
+    position: absolute;
+    top: 50px;
+    width: 190px;
+    z-index: 2;
+}
+.member-assignment-empty-date:before {
+    background: none repeat scroll 0 0 transparent;
+    border-color: transparent transparent #56544D;
+    border-style: solid;
+    border-width: 10px;
+    content: "";
+    position: absolute;
+    left: 87px;
+    top: -20px;
+}
+.member-assignment-empty-date div {
+    color: #FFFFFF;
+    padding: 10px 0;
+}
+.button-custom.small {
+    width: 111px;
+    height: 36px;
+    font-size: 16px;
+}
+.track-name-wrapper {
+    padding-top: 2px;
+}
+.modal-uikit .content {
+    color: #000000;
+}
+.header2-regular {
+    font-family: ProximaNova;
+}
+.branch-image-wrapper .icon-trigonometry, .branch-image-wrapper .icon-geometry {
+    font-size: 36px;
+}
+.single-group-assigned {
+    font-size: 18px;
+    padding: 4px 0 0 10px;
+}
+.concept-header-text.single-group-concept-header {
+    color: #56544D;
+}
+.lms-assignment-name-wrapper, .lms-quiz-name-wrapper {
+    margin: 5px 0 17px 0;
+    padding-left: 8px;
+}
+#myQuizContainer .lms-quiz-name-wrapper{
+	padding-left:4px;
+}
+a.assignment-name-edit {
+    margin-left: 8px;
+    color: #00aba4;
+    font-size: 15px;
+}
+.assignment-edit-name-wrapper .assignment-text-field {
+    margin-bottom: 8px;
+    height:44px;
+}
+.assignment-edit-cancel {
+    font-size: 14px;
+}
+.assignment-edit-buttons .assignment-name-save-button {
+    margin: 5px 16px 0 13px;
+    width: 70px;
+}
+.assignment-name-error-wrapper {
+    line-height: 16px;
+    margin: -5px 0 6px 8px;
+}
+.assignment-edit-name-wrapper {
+    padding-left: 10px;
+}
+.forgot-password, .terms-of-use, .sign-up-account {
+    display: none;
+}
+.assignment-search-close i {
+    top: 5px;
+}
+@media all and (max-width: 767px){
+
+    .splashscreen-container {
+        padding-top: 108px;
+        padding-bottom: 11px;
+    }
+    .splashscreen-container img {
+        width: 132px;
+        height: 68px;
+    }
+    .splashscreen-appname-container {
+        width: 178px;
+        border-top: 1px solid #e0dddc;
+        border-bottom: 1px solid #e0dddc;
+        margin: 0 auto 118px;
+    }
+    .splashscreen-appname {
+        font-size: 16px;
+        text-transform: uppercase;
+        padding: 7px;
+        color: #727272;
+    }
+
+    body.app-view > header {
+        height: auto;
+    }
+    .edmodo-header-wrapper {
+        padding: 15px 10px;
+    }
+    .edmodo-header-wrapper img {
+        height: 25px;
+    }
+    body > header .app-title {
+        font-size: 18px;
+    }
+    .group-assignment-nav {
+        width: 80px;
+        font-size: 16px;
+    }
+    .assignment-search {
+        width: 40px;
+    }
+    .assignments-edit-wrapper {
+        padding: 40px 5px;
+    }
+    .assignments-subjects-wrapper .all-subjects-wrapper .subject-wrapper {
+        margin: 10px 0;
+    }
+    .track-name-wrapper {
+        width: 100%;
+    }
+    .assignments-tracks-wrapper .track-name-wrapper .track-name {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .assignment-concept-container .track-name-wrapper {
+        width: 200px;
+    }
+    #concepts-container .track-name-wrapper .track-name {
+        font-size: 20px;
+        line-height :24px;
+    }
+    .select-concept-wrapper .button-custom.small {
+        width: 65px;
+        padding: 6px;
+    }
+    #concepts-wrapper .select-concept-wrapper {
+        height: auto;
+    }
+    .select-concept-wrapper .concept-name {
+        width: 65%;
+    }
+    .dashboard-modal-wrapper .dashboard-container {
+        padding: 0px;
+        margin: 0px;
+    }
+    .dashboard-container .dashboard-modal-header {
+        padding-top: 0px;
+    }
+    .splashscreen-footer img {
+        height: 26px;
+    }
+    #practiceapp_container .splash-footer-text {
+        padding: 0 0 0 10px;
+    }
+    .group-list-wrapper {
+        padding: 5px 10px;
+    }
+    .all-groups-list .due-date-container {
+        float: right;
+    }
+    .group-list-header {
+        padding: 10px;
+    }
+    .assign-header-wrapper {
+        padding: 0 10px 0 0;
+    }
+    .assignment-edit-buttons .assignment-name-save-button {
+        margin-left: 0;
+    }
+    .group-name span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 100%;
+        display: inline-block;
+    }
+    .group-name {
+        width: 70%;
+    }
+    .assign-groups-header {
+        font-size: 18px;
+    }
+    .teacher-view-container .assign-group-modal {
+        width: 90%;
+        margin-left: -45%;
+    }
+
+}
+
+@media all and (min-width: 768px) and (max-width: 1023px){
+	#practiceapp_container .subject-wrapper a {
+		margin-left : 10px;
+	}	
+        #practiceapp_container .assignments-subjects-wrapper:first-child .subject-wrapper a{
+	      margin-left : 30px;
+              display: inline-block;
+              line-height: 19px;
+	}
+}
+#library-link-container {
+    background-color: #ffffff;
+    padding: 5px 20px;
+    cursor: pointer;
+}
+
+.library-link-icon {
+    font-size: 2.5em;
+    margin-right: 20px;
+}
+
+.library-link-title {
+    color: #00aba4;
+}
+
+.library-row {
+    background: #FFFFFF;
+    padding: 7px 16px 7px 15px;
+    margin: 0 0 18px !important;
+    box-shadow: 0 3px RGBA(0,0,0,.15);
+    height: 50px;
+}
+
+/* TEACHER HOME VIEW CSS ENDS */
+
+/* STUDENT HOME VIEW CSS STARTS */
+.student-home-container .student-home-header {
+    margin: auto;
+}
+.student-group-name {
+    font-size: 24px;
+    padding-left: 0;
+    
+}
+.completed-assignment-link {
+    font-size: 14px;
+    text-align: right;
+    font-weight: bold;
+    padding: 8px 0;
+}
+.completed-assignment-link div {
+    color: #00aba4;
+}
+.completed-assignment-arrow {
+    font-size: 10px;
+}
+.student-home-container .student-home-body {
+    border-radius: 3px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+    background-color: #fff;
+}
+.member-assignment-list-wrapper {
+    padding: 10px 15px 10px 15px;
+    background-color: #F9F9F5;
+    box-shadow: 0 2px 2px RGBA(0,0,0,.15);
+    margin-top: 10px;
+}
+.member-assignment-list-container {
+    padding: 0 20px 0 20px;
+}
+.member-assignment-name a {
+    font-weight: normal;
+    color: #56544D;
+}
+.member-assignment-list-header {
+    padding: 25px 15px 10px 35px;
+}
+.student-group-name i {
+    font-size: 18px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.start-practice-wrapper {
+    background-color: #56544D;
+    margin-top: 40px;
+    padding: 25px 52px 35px;
+    text-align: center;
+}
+.student-assignment-wrapper {
+    padding-bottom: 20px;
+    border: 2px solid #ccc;
+}
+.student-home-body .empty-assignment-content {
+    background-color: #F9F9F5;
+    height: 300px;
+    margin: 40px;
+}
+.empty-assignment-text {
+    font-size: 24px;
+    margin-top: 130px;
+    padding: 0 20px;
+    vertical-align: middle;
+}
+
+.student-home-header .group-dropdown {
+    padding: 0px;
+    margin: 0px;
+    background: transparent !important;
+    border: none !important;
+    width: auto;
+    text-align: left;
+}
+.student-home-header .group-dropdown .dropdown-label {
+    width: auto;
+}
+.group-dropdown-list.tangerine-list:before {
+    left: 73px;
+}
+.group-dropdown-list.tangerine-list:after {
+    left: 71px;
+}
+.group-dropdown-list {
+    margin-top: 10px;
+    padding: 5px;
+}
+.turned-in-date {
+    margin-right: 30px;
+    width: auto;
+}
+.selected-group-title {
+    display: inline-block;
+}
+.group-dropdown-list {
+    left: -99999px !important;
+}
+.group-dropdown-list.dropdown-open {
+    top: 33px;
+    left: 0px !important;
+}
+/* STUDENT HOME VIEW CSS ENDS */
+ .assignment-search-container{
+ 	 background: none repeat scroll 0 0 #f8f8f5;
+ }
+.assignment-search-container .assignment-search-input input {
+    border: 1px solid #dfdbd4;
+    box-shadow: none;
+    padding: 7px 7px 7px 41px;
+     -webkit-box-shadow: none;
+}
+.assignment-search-container .assignment-search-input input:focus{
+	 border: 1px solid #dfdbd4;
+	 box-shadow: none;
+	 -webkit-box-shadow: none;
+	 background:#fff;
+}
+.assignment-search-close {
+	padding-top: 12px;
+	position: relative;
+	text-align: right;
+	width: 53px;
+	padding-right: 5px;
+	color: #00ABA4;
+}
+.assignment-search-input{
+	 margin-left: -60px;
+    width: 100% !important;
+}
+.search-inner{
+	margin-left: 60px !important;
+	padding:10px;
+}
+.assignment-search-close div {
+      background-color: #f8f8f5;
+    color: #56544d;
+    font-size: 16px;
+}
+.assignment-search-icon-active {
+    color: #00bfb4;
+    left: 53px;
+    padding: 8px 10px 0;
+    top: 4px;
+    width: 24px;
+}
+.assignment-search-icon-active.edmodo-search{
+    left: 10px;
+}
+.assignment-search-container .icon-search {
+    color: #56544d;
+    font-size: 16px;
+}
+
+/* ADAPTIVE ASSIGN MODAL*/
+.assign-modal-background {
+	background : #dedcd3;
+	margin : 0 -30px;
+}
+
+.assign-modal-tab {
+    height: 50px; 
+    line-height: 50px; 
+    text-align: center; 
+    width: 49%; 
+    display: inline-block;
+    background: #eeece6;
+    color : #56544D;
+    cursor : pointer;
+    letter-spacing : 0.5px;
+}
+
+.adaptive-tab {
+	padding-top : 20px;
+}
+
+.assign-modal-tab.active {
+	background : #fff;
+	font-weight : bold;
+}
+
+.quiz-list .js-concept-name {
+	color : #56544d;
+}
+
+.quiz-list-view .groups-list-container,
+.quiz-list-view .no-groups-container,
+.quiz-list-view .quiz-assign{
+	display : none;
+}
+
+.quiz-assign {
+	padding : 0 10px 10px;
+}
+
+.quiz-assign-view .quiz-list {
+	display : none;
+}
+
+#assignmentInfo .icon-flag {
+	color : #FACF36;
+	font-size : 1.1em;
+	margin-right : 5px;
+}
+
+#assignmentInfo .icon-infinity {
+	color : #45B5AB;
+	font-size : 1.1em;
+	font-weight : bold;
+	margin-right : 5px;
+}
+
+.assignment-info-row {
+	margin-bottom : 5px;
+	padding-left : 30px;
+}
+
+.quiz-assign .assignment-info-row {
+	padding-left : 45px;
+}
+	
+
+.assignment-info-label {
+	color : #8e8773;
+	margin-right : 5px;
+	text-transform: uppercase;
+}
+
+.assignment-info-row span{
+	color : #8e8773;
+}
+
+.due-date-header span{
+	font-size:16px;
+}
+.js-assign-quiz-wrapper {
+	margin: 0 !important;
+	padding: 5px !important;	
+}
+
+.js-assign-quiz-wrapper .concept-name {
+	width : 60%;
+}
+
+#createNewQuiz {
+	padding : 10px;
+	margin : 20px 0;
+	border : 3px dashed #d3d3d3;
+	cursor : pointer;
+}
+
+#createNewQuiz i {
+	margin : 0 20px 0 10px;
+}
+
+.separator {
+	/* border : 1px solid #d3d3d3; */
+	position : relative;
+	margin : 20px 0;
+}
+
+.separator:after {
+	position: absolute;
+	top: -10px;
+	left: 50%;
+	width: 30px;
+	text-align: center;
+	margin-left: -15px;	
+}
+
+.lms-quiz-name-wrapper {
+	width: 100%;
+	height: 30px;
+}
+
+#editQuestionCount {
+	width: 40px;
+	padding: 0;
+	text-align: center;
+	vertical-align: middle;
+	margin: 0 10px 0 0;
+}
+
+#editQuestionCount.hide {
+	display : none;
+}
+
+.create-quiz-row {
+	width : 100%;
+	height : 40px;
+	line-height : 40px;
+	margin-bottom : 1em;
+}
+
+.create-quiz-row .assignment-info-label {
+	color : #56544d;
+	margin-right : 10px;
+}
+
+.quiz-list {
+	min-height : 200px;
+}
+
+.assign-group-modal.adaptive {
+	width : 60%;
+	margin-left : -30%;
+}
+
+.create-quiz-content {
+	border : 2px dashed #d3d3d3;
+	padding : 10px;
+	margin-bottom  : 20px;
+}
+
+.create-quiz-row .time-limit-input {
+	border-radius: 0;
+	height : 2.3125em;
+	padding : 0;
+	font-size: 0.875em;
+	text-align: center;
+	width : 100px;
+}
+
+#createQuizModal {
+	height : 0;
+	overflow : hidden;
+	-webkit-transition : height 600ms ease;
+		-ms-transition : height 600ms ease;
+			transition : height 600ms ease;
+}
+
+#createQuizModal.open {
+	height : 320px;
+}
+
+.time-limit-unit {
+	width : 100px;
+}
+
+.quiz-title-label {
+	width : 50px;
+}
+
+.quiz-title-wrapper {
+	width : -webkit-calc(100% - 60px);
+	width : -moz-calc(100% - 60px);
+	width : calc(100% - 60px);
+}
+
+.quiz-title-wrapper i {
+	display : none;
+}
+
+.quiz-title-wrapper.alert i {
+	display : inline-block;
+}
+
+.quiz-time-limit,
+.quiz-question-count {
+	color : #8e8773;
+}
+
+#quizError {
+	width : 100%;
+}
+
+.quiz-redirection-wrapper {
+	height : 30px;
+	line-height : 30px;
+}
+
+/** Library Styles start **/
+#myquiz-count-container span {
+    margin-right: auto;
+}
+#library-show {
+    background-color: #b5b1a8;
+    border-bottom: 3px solid #9c9992;
+    border-top: 3px solid #edede8;
+    box-shadow: 0 3px 0 #edede8;
+    font-weight: bold;
+    margin-right: 16px;
+    padding: 11px 23px 14px !important;
+}
+#library-show i {
+    color:#FECF3F;
+    font-size: 1.3em;
+}
+#library-back i:hover {
+    color: #fff !important;
+}
+.create-new-button.button.large{
+	 padding: 9px 23px !important;
+}
+#library_main {
+    background-color :#FFFFFF;
+    padding: 25px;
+    border: 1px solid #E0DDD5;
+}
+#library_main .library-main-wrapper{
+    background-color: #F9F9F5;
+    border: 1px solid #E0DDD5;
+}
+#library_main .create-new-button {
+    width : 142px;
+    font-size: 18px;
+} 
+#library_main .listitem {
+    border-bottom: 1px solid #E0DDD5;
+    line-height: 58px;
+    margin: 0px 30px;
+}
+
+#library_main .listitem .library-action {
+    display: inline-block !important;
+}
+
+#library_main .listitem .library-edit, #library_main .listitem .library-archive {
+    padding-left: 20px;
+}
+
+#library_main .library-header {
+    height: 30px;
+    line-height: 30px;
+}
+#library_main .library-header .header-text {
+    font-size: 24px;
+    font-weight: bold;
+}
+#library_main .library-header i {
+    font-size: 35px;
+    color: #FECF3F;
+    position: relative;
+    top: 5px;
+}
+.modal-uikit .header{
+	font-size:1.4em;
+	padding-top: 24px;
+}
+.modal-external-warn {
+    min-height: inherit;
+    padding: 0 30px;
+}
+.modal-external-warn .content {
+     padding: 15px 0 24px;
+}
+
+.modal-external-warn .js-external-accept {
+    margin-top: 18px;
+    margin-bottom:2px;
+}
+
+#library-back {
+	width: 45px;
+	height: 38px;
+	background: #F7613A;
+	display: inline-block;
+	font-size: 24px;
+	color: #fff;
+	line-height : 45px;
+	text-align: center;
+	margin-bottom: 20px;
+	border-radius: 3px;
+	cursor : pointer;
+}
+
+#library-back i {
+	color : #C54116;
+	font-size : 24px;
+}
+.edmodolibrary .my-library-items {
+	background-color: transparent !important;
+}
+.edmodolibrary .my-library-items .listitem {
+	padding-top: 0px;
+	padding-bottom: 0px;
+	min-height: initial;
+}
+
+.edmodolibrary .my-library-items .listitem .actions {
+	top: 0px;
+}
+
+/** Library styles end **/
+
+#library-paginator .paginator-wrapper > * {
+	padding : 0 5px;
+}
+
+#library-paginator .paginator-wrapper .paginator-edge {
+	margin : 0 5px;
+}
+.loading-icon {
+    left: 50%;
+    margin-left: -24px;
+}
+
+/* changes for autocomplete */
+.ui-front {
+	position : relative;
+}
+
+ul.ui-autocomplete {
+       position : absolute;
+}
+
+.ui-front .ui-autocomplete {
+	position : absolute !important;
+	width : 100% !important;
+	max-width : 100% !important;
+}
+
+.ui-front.ui-autocomplete.ui-menu .ui-menu-item a.autocomplete-link {
+	padding-left : 38px;
+	width : 90%;
+	text-align : left;
+}
+
+.ui-front .icon-search{
+	position: absolute;
+	line-height: 26px;
+	left: 10px;
+}

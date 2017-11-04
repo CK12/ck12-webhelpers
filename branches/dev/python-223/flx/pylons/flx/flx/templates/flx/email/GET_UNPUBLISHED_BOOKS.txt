@@ -1,0 +1,14 @@
+Hi,
+
+Unpublished Book details
+
+
+{% for book in books %}
+{{book['name']}} ({{book['id']}}) {{book['status']}}
+--------------------------------------------------- 
+    {% for chapter in book['chapters'] %}{{chapter['name']}} ({{chapter['id']}}) {{chapter['status']}}
+        {% for section in chapter['section'] %}
+        {{section['name']}} ({{section['id']}}) {{section['status']}}
+        {% endfor %}
+    {% endfor %}
+{% endfor %}

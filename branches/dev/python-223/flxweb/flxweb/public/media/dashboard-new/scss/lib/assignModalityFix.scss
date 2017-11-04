@@ -1,0 +1,110 @@
+.assign-class-modal.reveal-modal {
+    padding: 1.875em;
+}
+.assign-class-modal{
+	top : 10%;
+}
+.assign-class-modal .row {
+    max-width: 100%;
+}
+.assign-class-modal .row {
+    width: 100%;
+    margin: 0 !important;
+    max-width: 62.5em;
+}
+.instruction {
+    width: 100%;
+}
+.group-container {
+    width: 100%;
+}
+.groups-temp {
+    width: 100%;
+}
+.assign-class-modal .column, .assign-class-modal .columns {
+    position: relative;
+    padding-left: 0;
+    padding-right: 0;
+    float: left;
+}
+.assign-class-modal .small-5 {
+       position: relative;
+    width: 41.66667%;
+    max-width: inherit;
+}
+.assign-class-modal .small-3 {
+    position: relative;
+    width: 25%;
+}
+.assign-class-modal .reveal-modal .column, .assign-class-modal .reveal-modal .columns {
+    min-width: 0;
+}
+.assign-class-modal [class*="column"]+[class*="column"]:last-child {
+    float: right;
+}
+.reveal-modal-bg {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: #000;
+    background: rgba(0,0,0,0.45);
+    z-index: 98;
+    display: none;
+    top: 0;
+    left: 0;
+}
+.dashboard-new .assign-class-modal .button.assign-btn{
+	margin :auto;	
+}
+.group-title-head{
+	  width :100%;
+}
+.group-n {
+    margin-top: 10px;
+}
+div#assignClassModal .title{
+	width : 100%;
+}
+#successModal {
+    top: 100px !important;
+    width: 50%;
+}
+.reveal-modal {
+    visibility: hidden;
+    display: none;
+    position: absolute;
+    left: 50%;
+    z-index: 99;
+    height: auto;
+    background-color: #fff;
+    margin-left: -40%;
+    width: 80%;
+    background-color: #fff;
+    padding: 1.25em;
+    border: solid 1px #666;
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    top: 50px;
+}
+.dashboard-new .assign-class-modal .zero-state-container{
+	width:100%;
+}
+.group-info:last-child {
+    margin-bottom: 20px !important;
+}
+.group-due {
+    text-align: right;
+}
+@media only screen and (max-width: 767px){
+	.assign-class-modal .small-5 {
+		width :55%;
+	}
+	#assignClassModal{
+		position:fixed !important;
+		padding-bottom: 1em !important;
+	}
+	#successModal {
+	    width: 100% !important;
+	    position: fixed !important;
+	}
+}

@@ -1,0 +1,183 @@
+Collection Name,Collection Handle,Collection Description,Collection Canonical ID,Collection Parent Subject ID,Level 1,Level 2,Level 3,Level 4,EncodedID,Original EncodedIDs,ModalityIDs,Preview EID
+Elementary Math Grade 3,elementary-math-grade-3,Elementary Math for Grade 3,MAT.EM3,MAT,,,,,,,,
+,,,,,Addition and Subtraction,,,,,,,MAT.EM3.210
+,,,,,,"Addition and Subtraction to 1,000: Basics",,,,,,MAT.EM3.215
+,,,,,,,Sums of Whole Numbers to 1000,,MAT.ARI.103.0801,"MAT.EM3.215.01, MAT.EM3.215.02, MAT.EM3.215.03, MAT.EM3.215.04, MAT.EM3.215.05","1867433, 1880086, 1867434, 1879573, 1867435, 1879570, 1867436, 1880083, 1867437",
+,,,,,,,Differences of Whole Numbers to 1000,,MAT.ARI.103.0803,"MAT.EM3.215.06, MAT.EM3.215.07, MAT.EM3.215.08, MAT.EM3.215.09, MAT.EM3.215.1","1867438, 1880080, 1867439, 1880077, 1867440, 1879446, 1867442, 1879567, 1867443",
+,,,,,,,Subtraction: Complete the Subtraction Sentence,,MAT.ARI.103.0804,MAT.EM3.215.11,"1880074, 1867444",
+,,,,,,"Addition and Subtraction to 1,000: Enrichment",,,,,,MAT.EM3.218
+,,,,,,,Compare Sums and Differences of Numbers to 100,,MAT.ARI.103.0707,"MAT.EM3.218.01, MAT.EM3.218.16","1867211, 1880381",
+,,,,,,,Add and Subtract Numbers to 1000,,MAT.ARI.103.0805,"MAT.EM3.218.08, MAT.EM3.218.09, MAT.EM3.218.1, MAT.EM3.218.11","1867218, 1879473, 1867219, 1879471, 1867220, 1879866, 1867221",
+,,,,,,,"Fact Families for Numbers to 1,000",,MAT.ARI.103.0806,"MAT.EM3.218.12, MAT.EM3.218.14","1867222, 1880443, 1867224",
+,,,,,,,Filling in the Missing + or - Sign,,MAT.ARI.103.08095,MAT.EM3.218.15,"1880379, 1867225",
+,,,,,Multiplication,,,,,,,MAT.EM3.220
+,,,,,,Multiplication to 12: Basics,,,,,,MAT.EM3.221
+,,,,,,,"Multiplication Sentences from Illustrations (Numbers 2, 3, 4, 5, and 10)",,MAT.ARI.105.005,"MAT.EM3.221.01, MAT.EM2.221.02","1867226, 1879502",
+,,,,,,,"Multiplication Sentences from Illustrations (Numbers 6, 7, 8, 9, 11 and 12)",,MAT.ARI.105.005,"MAT.EM3.224.01, MAT.EM2.224.02","1867234, 1879501",
+,,,,,,,Multiplication Stories and Illustrations II - Word Problems,,MAT.ARI.105.0106,MAT.EM3.224.09,1867242,
+,,,,,,"Multiplication by 2, 3, 4, 5, 10: Enrichment",,,,,,MAT.EM3.225
+,,,,,,,Relating Addition and Multiplication,,MAT.ARI.105.0107,"MAT.EM3.225.02, MAT.EM3.225.01","1880441, 1867245, 1867244",
+,,,,,,,Identify Equivalent Products,,MAT.ARI.105.01075,"MAT.EM3.225.04, MAT.EM3.225.05","1879467, 1867247, 1879465, 1867248",
+,,,,,,,Inequalities,,MAT.ARI.105.0304,MAT.EM3.225.06,"1880439, 1867249",
+,,,,,,"Multiplication by 6, 7, 8, 9, 11, 12: Enrichment",,,,,,MAT.EM3.226
+,,,,,,,Recognizing Multiples of a Number,,MAT.ARI.105.0608,"MAT.EM3.226.02, MAT.EM3.226.01","1879838, 1867285, 1867284",
+,,,,,,,Filling in the Missing Number to Balance the Equation,,MAT.ARI.107.01,MAT.EM3.226.03,"1879837, 1867286",
+,,,,,,Multiplying Multi-digit Numbers by 1 Digit Numbers,,,,,,MAT.EM3.227
+,,,,,,,Multiply Three Digits by One Digit,,MAT.ARI.105.0202,"MAT.EM3.227.01, MAT.EM3.227.02, MAT.EM3.227.03, MAT.EM3.227.05, MAT.EM3.227.06, MAT.EM3.227.13","1880072, 1867294, 1880071, 1867295, 1880070, 1867296, 1879801, 1867298, 1880068, 1867299, 1880065, 1867306",
+,,,,,,,Multiply and Add or Subtract Word Problems,,MAT.ARI.107.02,"MAT.EM3.227.04, MAT.EM3.227.12, MAT.EM3.227.14, MAT.EM3.227.15","1880069, 1867297, 1880066, 1867305, 1880064, 1867307, 1880063, 1867308",
+,,,,,,,Choosing the Multiples of a Given Number up to 12,,MAT.ARI.105.0108,MAT.EM3.227.07,"1879565, 1867300",
+,,,,,,,Relate Two Digit Number Patterns to Multiplication,,MAT.ARI.105.0206,"MAT.EM3.227.08, MAT.EM3.227.09, MAT.EM3.227.1","1880524, 1867301, 1879800, 1867302, 1880067, 1867303",
+,,,,,,,Shortening Multiplication Expressions (Associative Property),,MAT.ARI.105.0208,MAT.EM3.227.11,"1879564, 1867304",
+,,,,,,,Finding the Amount of Change - Multiplication,,MAT.ARI.107.015,MAT.EM3.227.16,"1880523, 1867309",
+,,,,,Division,,,,,,,MAT.EM3.229
+,,,,,,"Dividing by 2, 3, 4, 5, 10: Basics",,,,,,MAT.EM3.230
+,,,,,,,Group and Share by 2 to 5 with Pictures,,MAT.ARI.105.0501,"MAT.EM3.230.02, MAT.EM3.230.04","1879812, 1867251, 1879963, 1867253",
+,,,,,,,Relating Multiplication and Division with Illustrations,,MAT.ARI.105.05055,MAT.EM3.230.05,"1880487, 1867254",
+,,,,,,,Dividing by 2,,MAT.ARI.105.05015,MAT.EM3.230.06,"1880486, 1867255",
+,,,,,,,Dividing by 3,,MAT.ARI.105.0502,MAT.EM3.230.07,"1880485, 1867256",
+,,,,,,,Dividing by 4,,MAT.ARI.105.05025,MAT.EM3.230.08,"1880484, 1867257",
+,,,,,,,Dividing by 5,,MAT.ARI.105.0503,MAT.EM3.230.09,"1880483, 1867258",
+,,,,,,,Dividing by 10,,MAT.ARI.105.05035,MAT.EM3.230.1,"1880482, 1867259",
+,,,,,,"Dividing by 2, 3, 4, 5, 10: Advanced",,,,,,MAT.EM3.233
+,,,,,,,Expressing the Sentence and Calculating - Word Problems,,MAT.ARI.105.05055,MAT.EM3.233.01,"1879863, 1867260",
+,,,,,,,Division Patterns Within the Multiplication Table,,MAT.ARI.105.05045,MAT.EM3.233.02,"1880437, 1867261",
+,,,,,,,Divide by 2 through 5 Word Problems,,MAT.ARI.105.0506,"MAT.EM3.233.03, MAT.EM3.233.04","1879862, 1867262, 1879861, 1867263",
+,,,,,,,Multiples - Word Problems,,MAT.ARI.105.0308,MAT.EM3.233.05,"1867264, 1879403",
+,,,,,,,Finding the Expression not Matching a Given Number,,MAT.ARI.105.06055,MAT.EM3.233.06,"1879463, 1867265",
+,,,,,,,Finding the Number from Figure Patterns,,MAT.ARI.105.0608,MAT.EM3.233.07,"1879810, 1867266",
+,,,,,,"Division by 6, 7, 8, 9, 11, 12: Basics",,,,,,MAT.EM3.236
+,,,,,,,Dividing by 6,,MAT.ARI.105.0601,MAT.EM3.236.01,"1880532, 1867267",
+,,,,,,,Dividing by 7,,MAT.ARI.105.06015,MAT.EM3.236.02,"1880531, 1867268",
+,,,,,,,Dividing by 8,,MAT.ARI.105.0602,MAT.EM3.236.03,"1880529, 1867269",
+,,,,,,,Dividing by 9,,MAT.ARI.105.06025,MAT.EM3.236.04,"1867270, 1880527",
+,,,,,,,Dividing by 11,,MAT.ARI.105.0603,MAT.EM3.236.05,"1880526, 1867271",
+,,,,,,,Dividing by 12,,MAT.ARI.105.06035,MAT.EM3.236.06,"1880525, 1867272",
+,,,,,,"Division by 6, 7, 8, 9, 11, 12: Enrichment",,,,,,MAT.EM3.245
+,,,,,,,"Patterns in Division by 6, 7, 8, 9, 11, 12",,MAT.ARI.105.05045,MAT.EM3.245.01,"1880424, 1867288",
+,,,,,,,Division Terms,,MAT.ARI.105.045,MAT.EM3.245.02,"1879834, 1867289",
+,,,,,,,Expressing the Sentence and Calculate - Division,,MAT.ARI.105.0608,MAT.EM3.245.03,"2161067, 1867290, 1879832",
+,,,,,,,Finding the Expression not Equal to a Given Solution,,MAT.ARI.105.06055,MAT.EM3.245.04,"1879455, 1867291",
+,,,,,,,Higher Order Division to 1000 by One Digit,,MAT.ARI.105.06065,"MAT.EM3.245.05, MAT.EM3.245.06","1879830, 1867292, 1879828, 1867293",
+,,,,,,Dividing Multi-digit Numbers by 1 Digit Numbers Without Remainders,,,,,,MAT.EM3.251
+,,,,,,,Divide Two Digits by One or Two Digits Without Remainders,,MAT.ARI.105.0606,"MAT.EM3.251.01, MAT.EM3.251.02","1880060, 1867311, 1880059, 1867312",
+,,,,,,,Higher Order Division and Subtraction Word Problems,,MAT.ARI.107.035,"MAT.EM3.251.03, MAT.EM3.251.04, MAT.EM3.251.05","1880058, 1867313, 1880053, 1880057, 1867314",
+,,,,,,,Division and Subtraction Word Problems,,MAT.ARI.107.03,"MAT.EM3.251.08, MAT.EM3.251.11","1880054, 1879757",
+,,,,,,,Multi-unit Calculations - Division,,MAT.ARI.105.06065,MAT.EM3.251.1,1880052,
+,,,,,,Dividing Multi-digit Numbers by 1 Digit Numbers with Remainders,,,,,,MAT.EM3.254
+,,,,,,,Use Pictures to Divide Two Digits by One Digit with Remainders,,MAT.ARI.105.0605,"MAT.EM3.254.01, MAT.EM3.254.02, MAT.EM3.254.03","1880476, 1880475, 1880474",
+,,,,,,,Dividing by 1 Digit Numbers with Remainders,,MAT.ARI.105.0607,MAT.EM3.254.04,1880473,
+,,,,,,,Divide and Subtract with Remainders in Word Problems,,MAT.ARI.107.025,"MAT.EM3.254.05, MAT.EM3.254.07","1879961, 1879960",
+,,,,,Place Value,,,,,,,MAT.EM3.338
+,,,,,,"Numbers to 1,000: Enrichment and Word Problems",,,,,,MAT.EM3.339
+,,,,,,,"Complete Sequences to 1,000",,MAT.ARI.101.0404,"MAT.EM3.339.01, MAT.EM3.339.03","1879881, 1867273, 1879879, 1867275",
+,,,,,,,"Convert Between Words and Numbers to 1,000",,MAT.ARI.101.0601,"MAT.EM3.339.02, MAT.EM3.339.06","1879475, 1867274, 1879804, 1867278",
+,,,,,,,Create Numbers with Given Digits,,MAT.ARI.103.0807,"MAT.EM3.339.04, MAT.EM3.339.05, MAT.EM3.339.07","1879808, 1867276, 1867277, 1880449, 1867279",
+,,,,,,,Place Value Problems Involving Money,,MAT.MEA.107.07,MAT.EM3.339.08,"1879802, 1867280",
+,,,,,,,Place Value Problems Involving Items,,MAT.ARI.107.015,MAT.EM3.339.09,"1879877, 1867281",
+,,,,,,,Place Value Problems Involving Grouping of Items,,MAT.ARI.105.0508,MAT.EM3.339.1,"1867282, 1880447",
+,,,,,,,Multiplication Problems Involving Grouping of Items,,MAT.ARI.105.0109,MAT.EM3.339.11,"1879875, 1867283",
+,,,,,,"Numbers up to 100,000",,,,,,MAT.EM3.360
+,,,,,,,One-step Conversions Involving Multiples of Ten,,MAT.ARI.105.01085,MAT.EM3.360.02,"1880210, 1867325",
+,,,,,,,"Recognize Place Values to 100,000",,MAT.ARI.101.0605,"MAT.EM3.360.03, MAT.EM3.360.04, MAT.EM3.360.05, MAT.EM3.360.06","1879626, 1867326, 1867327, 1879624, 1867328, 1879622, 1867329, 1880208",
+,,,,,,,"Calculating Quotients (Numbers up to 100,000)",,MAT.ARI.105.0508,MAT.EM3.360.07,"1867330, 1879620",
+,,,,,,,"Compare Words and Numbers to 100,000",,MAT.ARI.102.06,"MAT.EM3.360.08, MAT.EM3.360.13","1880206, 1867331, 1880200, 1867335",
+,,,,,,,"Mixed Review (Numbers up to 100,000)",,MAT.ARI.101.0606,MAT.EM3.360.09,1880565,
+,,,,,,,"Compare Numbers over 1,000",,MAT.ARI.102.04,"MAT.EM3.360.1, MAT.EM3.360.12","1867332, 1880394, 1880202, 1867334",
+,,,,,,,Compare Sums and Differences over 100,,MAT.ARI.103.0808,"MAT.EM3.360.11, MAT.EM3.360.14","1880204, 1867333, 1880198, 1867336",
+,,,,,,,Arranging Numbers in Specific Orders,,MAT.ARI.101.0402,MAT.EM3.360.15,1880563,
+,,,,,,,Before and After Problems,,MAT.ARI.101.06035,MAT.EM3.360.17,"1879618, 1867338",
+,,,,,,,"Greatest and Least Values of Given Digits to 100,000",,MAT.ARI.101.06055,"MAT.EM3.360.18, MAT.EM3.360.19","1880196, 1867339, 1880560, 1867340",
+,,,,,,,"Arbitrary Digits (Numbers up to 100,000)",,MAT.ARI.103.0807,MAT.EM3.360.2,"1880558, 1867341",
+,,,,,,,"Number Riddles (Numbers up to 100,000)",,MAT.ARI.101.0607,MAT.EM3.360.21,1880194,
+,,,,,,,Turning Words into Numbers Using Place Value Models,,MAT.ARI.101.06045,MAT.EM3.360.22,"1879616, 1867342",
+,,,,,,"Comparing Numbers to 1,000",,,,,,MAT.EM3.375
+,,,,,,,Comparing Values of Numbers in Written Form,,MAT.ARI.103.0808,MAT.EM3.375.03,"1879872, 1867468",
+,,,,,,,"Comparing the Values of Numbers to 1,000 - Word Problems",,MAT.ARI.102.02,MAT.EM3.375.06,"1879474, 1867471",
+,,,,,Factors and Multiples,,,,,,,MAT.EM3.425
+,,,,,,"Primes, Factors, and Multiples",,,,,,MAT.EM3.426
+,,,,,,,Listing All Factors,,MAT.ARI.204.02,"MAT.EM3.426.02, MAT.EM4.257.01","1880422, 1867317",
+,,,,,,,Prime Factorization,,MAT.ARI.202.06,MAT.EM3.426.06,"1879607, 1867319",
+,,,,,,,Finding Least Common Multiples (LCM),,MAT.ARI.206.06,MAT.EM3.426.1,"1880186, 1867323",
+,,,,,,,Identifying the Multiples of a Given Number,,MAT.ARI.206.03,MAT.EM3.426.11,1880410,
+,,,,,Decimals,,,,,,,MAT.EM3.429
+,,,,,,Introduction to Decimals,,,,,,MAT.EM3.430
+,,,,,,,Expressing Tenths as Decimals,,MAT.ARI.501.01,"MAT.EM3.430.04, MAT.EM3.430.01","1879728, 1867476, 1867473",
+,,,,,,,Expressing Hundredths as Decimals,,MAT.ARI.501.05,"MAT.EM3.430.1, MAT.EM3.430.07","1879725, 1867482, 1867479",
+,,,,,,,Equivalent Decimals Ending in Zero,,MAT.ARI.501.09,"MAT.EM3.430.16, MAT.EM3.430.19, MAT.EM3.430.13","1879723, 1867488, 1867491, 1867485",
+,,,,,Time,,,,,,,MAT.EM3.611
+,,,,,,Time to 1 minute,,,,,,MAT.EM3.612
+,,,,,,,Determine Elapsed Time,,MAT.MEA.206.0503,"MAT.EM3.612.05, MAT.EM3.612.06, MAT.EM3.612.07, MAT.EM3.612.01","1867674, 1880600, 1867675, 1880279, 1867676, 1867670",
+,,,,,,,Elapsed Time Applications,,MAT.MEA.206.0504,"MAT.EM3.612.08, MAT.EM3.612.09, MAT.EM3.612.15, MAT.EM3.612.22","1867677, 1879691, 1879688, 1867678, 1867684, 1867691",
+,,,,,,,Read a Schedule,,MAT.MEA.208.02,"MAT.EM3.612.1, MAT.EM3.612.12, MAT.EM3.612.13, MAT.EM3.612.14","1867679, 1879435, 1867681, 1879432, 1867682, 1867683",
+,,,,,,,Using Timelines to 1-minute Increments,,MAT.MEA.208.04,MAT.EM3.612.11,"1879438, 1867680",
+,,,,,,,Difference between Two Time Intervals to 1 minute,,MAT.MEA.206.0507,"MAT.EM3.612.21, MAT.EM3.612.24","1879685, 1867690, 1867693",
+,,,,,,,Solving for Elapsed Time in a Sequence of Events - Word Problems,,MAT.MEA.206.0505,MAT.EM3.612.23,"1880276, 1867692",
+,,,,,,,Solving for Elapsed Time Related to Rate,,MAT.ALG.207.0702,MAT.EM3.612.25,"1867694, 1880274",
+,,,,,,,Solving Multi-step Problems Involving Time,,MAT.MEA.206.07,MAT.EM3.612.26,1867695,
+,,,,,,Time Before and After,,,,,,MAT.EM3.616
+,,,,,,,Tell Times Before and After,,MAT.MEA.206.0501,"MAT.EM3.616.01, MAT.EM3.616.02","1867700, 1879430",
+,,,,,,,Difference between Two Time Intervals,,MAT.MEA.206.0507,"MAT.EM3.616.03, MAT.EM3.616.04, MAT.EM3.616.05","1879856, 1867701, 1880433, 1867703, 1879854, 1867704",
+,,,,,,Time patterns,,,,,,MAT.EM3.618
+,,,,,,,Time Patterns with Numbers and Clocks,,MAT.MEA.206.03,"MAT.EM3.618.01, MAT.EM3.618.02, MAT.EM3.618.03, MAT.EM3.618.04","1867705, 1879458, 1867706, 1879852, 1867707, 1867708",
+,,,,,Measurement,,,,,,,MAT.EM3.625
+,,,,,,Capacity (Metric): Enrichment and Word Problems,,,,,,MAT.EM3.630
+,,,,,,,Capacity Conversion of Liters,,MAT.MEA.605.06,"MAT.EM3.630.01, MAT.EM3.630.03","1867737, 1867739",
+,,,,,,,Calculating and Comparing Capacities with Illustrations (Metric Units),,MAT.MEA.600.5,MAT.EM3.630.02,"1880428, 1867738",
+,,,,,,,Addition and Subtraction of Liters Applications,,MAT.MEA.606.03,"MAT.EM3.630.04, MAT.EM3.630.05, MAT.EM3.630.06","1879849, 1867740, 1867741, 1879847, 1867742",
+,,,,,,,Multiplication and Division - Word Problems,,MAT.MEA.606.04,MAT.EM3.630.07,"1879845, 1867743",
+,,,,,,,Multi-step Metric Capacity Applications,,MAT.MEA.606.05,"MAT.EM3.630.08, MAT.EM3.630.09","1879843, 1867744, 1879840, 1867745",
+,,,,,,Area and Perimeter Basics,,,,,,MAT.EM3.632
+,,,,,,,Perimeter in Grid,,MAT.GEO.504.07,MAT.EM3.632.02,"1892829, 1867747",
+,,,,,,,Perimeter of Squares and Rectangles,,MAT.GEO.502.04,MAT.EM3.632.04,"1880365, 1867749",
+,,,,,,,Area in Grid,,MAT.GEO.506.01,MAT.EM3.632.07,"1879732, 1867752",
+,,,,,,Area and Perimeter of a Square and Rectangle,,,,,,MAT.EM3.634
+,,,,,,,Square and Rectangle Area and Perimeter,,MAT.GEO.502.02,"MAT.EM3.634.01, MAT.EM3.634.02, MAT.EM3.634.03","1867753, 1879791, 1867754, 1867755",
+,,,,,,,Unknown Dimensions of Squares and Rectangles,,MAT.GEO.502.08,"MAT.EM3.634.04, MAT.EM3.634.05, MAT.EM3.634.06, MAT.EM3.634.07, MAT.EM3.634.08","1867756, 1880362, 1867757, 1867758, 1867759, 1880360, 1867760",
+,,,,,,Capacity (English): Converting and Comparing,,,,,,MAT.EM3.636
+,,,,,,,Comparing Cups and Pints by Formula,,MAT.MEA.601.01,MAT.EM3.636.18,"1879601, 1867785",
+,,,,,,,Comparing Quarts and Pints by Formula,,MAT.MEA.601.02,MAT.EM3.636.2,"1879599, 1867787",
+,,,,,,,Comparing Cups and Quarts by Formula,,MAT.MEA.601.03,MAT.EM3.636.22,"1879428, 1867789",
+,,,,,,Capacity (English): Compound Units,,,,,,MAT.EM3.638
+,,,,,,,Comparing Compound Unit Capacities,,MAT.MEA.603.52,"MAT.EM3.638.09, MAT.EM3.638.08, MAT.EM3.638.01 ","1880110, 1867822, 1867821, 1867814",
+,,,,,,,Selecting Capacity by Comparison,,MAT.MEA.603.54,MAT.EM3.638.1,"1879586, 1867823",
+,,,,,,Capacity (English): Operations,,,,,,MAT.EM3.642
+,,,,,,,Customary Units of Capacity Applications,,MAT.MEA.604.09,"MAT.EM3.642.06, MAT.EM3.642.07, MAT.EM3.642.08, MAT.EM3.642.01","1867843, 1867844, 1867845, 1867838",
+,,,,,,,Addition of Sequential Capacities - Word Problems,,MAT.MEA.604.03,MAT.EM3.642.1,1867847,
+,,,,,Geometry,,,,,,,MAT.EM3.800
+,,,,,,2D Shapes I,,,,,,MAT.EM3.805
+,,,,,,,Identify Basic Shapes,,MAT.GEO.101.01,"MAT.EM3.805.01, MAT.EM3.805.02, MAT.EM3.805.03, MAT.EM3.805.04","1868090, 1868091, 1879395, 1879392, 1868092, 1868093, 1880245",
+,,,,,,,Counting the Number of Basic 2D Shapes in a Composite Figure,,MAT.GEO.101.05,MAT.EM3.805.05,"1868094, 1879385",
+,,,,,,2D Shapes II,,,,,,MAT.EM3.810
+,,,,,,,Identifying Semicircles and Quarter Circles,,MAT.GEO.600.5,"MAT.EM3.810.01, MAT.EM3.810.02, MAT.EM3.810.03","1868095, 1868096, 1879389, 1880416, 1868097",
+,,,,,,,Identify Less Common Basic Shapes,,MAT.GEO.101.03,"MAT.EM3.810.04, MAT.EM3.810.05, MAT.EM3.810.06","1868098, 1868099, 1879520, 1879517, 1868100",
+,,,,,,,Identify Shapes within Composite Shapes,,MAT.GEO.101.05,"MAT.EM3.810.07, MAT.EM3.810.08, MAT.EM3.810.09","1868101, 1879515, 1868102, 1868103",
+,,,,,,,Basic Visual Patterns,,MAT.GEO.201.01,"MAT.EM3.810.1, MAT.EM3.810.11, MAT.EM3.810.13, MAT.EM3.810.14","1868104, 1879512, 1868105, 1868107, 1868108, 1879509",
+,,,,,,,Describing Patterns Using Letters,,MAT.GEO.201.02,MAT.EM3.810.12,"1879378, 1868106",
+,,,,,,What is a Fraction?,,,,,,MAT.EM3.815
+,,,,,,,Parts of a Whole with Pictures,,MAT.ARI.401.02,"MAT.EM3.815.01, MAT.EM3.815.04","1868109, 1879611, 1879401, 1868111, 1868112",
+,,,,,,"Lines, Curves, Vertices, and Surfaces",,,,,,MAT.EM3.820
+,,,,,,,Basic Shapes,,MAT.GEO.101,"MAT.EM3.820.01, MAT.EM3.820.02, MAT.EM3.820.03","1868113, 1879684, 1868114, 1880588, 1868115",
+,,,,,,,Counting Vertices and Sides in Various Shapes,,MAT.GEO.107.03,MAT.EM3.820.04,1879682,
+,,,,,,,"Faces, Edges, and Vertices of Solids",,MAT.GEO.900.5,"MAT.EM3.820.05, MAT.EM3.820.06, MAT.EM3.820.07","1868116, 1879680, 1868117, 1868118",
+,,,,,,,Solid Figures,,MAT.GEO.900,"MAT.EM3.820.08, MAT.EM3.820.09","1868119, 1879677, 1880242, 1868120",
+,,,,,,Squares and Rectangles,,,,,,MAT.EM3.830
+,,,,,,,Rectangles,,MAT.EM4.945.11,"MAT.EM3.830.01, MAT.EM3.830.03","1868121, 1892826, 1868123",
+,,,,,,,Identifying the Properties of Squares,,MAT.GEO.502.01,MAT.EM3.830.02,"1892827, 1868122",
+,,,,,,,Determining Unknown Angles Within Rectangles and Squares,,MAT.GEO.508.02,MAT.EM3.830.05,"1868125, 1879492",
+,,,,,,Quadrilaterals,,,,,,MAT.EM3.832
+,,,,,,,Identify Quadrilaterals,,MAT.GEO.504,"MAT.EM3.832.01, MAT.EM3.832.02, MAT.EM3.832.03","1868126, 1868127, 1879665, 1868128, 1879662",
+,,,,,,,Determining Unknown Angles in Parallelograms,,MAT.GEO.504.01,MAT.EM3.832.04,"1880226, 1868129",
+,,,,,,,Determining Unknown Angles in Trapezoids,,MAT.GEO.504.04,MAT.EM3.832.05,"1880224, 1868130",
+,,,,,,Perpendicular and Parallel Lines,,,,,,MAT.EM3.835
+,,,,,,,Identify Line Types,,MAT.GEO.301,"MAT.EM3.835.02, MAT.EM3.835.04, MAT.EM3.835.06, MAT.EM3.835.07, MAT.EM3.835.05","1879737, 1868131, 1868132, 1868133, 1879735, 1880367, 1868135, 1879734, 1868136, 1868137, 1868134",
+,,,,,,Triangles,,,,,,MAT.EM3.840
+,,,,,,,Triangle Angle Sum Theorem,,MAT.GEO.407.01,"MAT.EM3.840.01, MAT.EM3.840.02, MAT.EM3.840.11, MAT.EM3.840.13","1868140, 1880239, 1868141, 1880235, 1868150, 1880231, 1868152",
+,,,,,,,Classify Triangles with Angle Measurement,,MAT.GEO.401.01,"MAT.EM3.840.03, MAT.EM3.840.04","1868142, 1879674, 1868143",
+,,,,,,,Classify Triangles with Side Measurement,,MAT.GEO.401.03,"MAT.EM3.840.05, MAT.EM3.840.06","1868144, 1868145, 1879672",
+,,,,,,,Classify Triangles,,MAT.GEO.401,"MAT.EM3.840.07, MAT.EM3.840.08, MAT.EM3.840.09, MAT.EM3.840.1","1879670, 1868146, 1879668, 1868147, 1880237, 1868148, 1868149",
+,,,,,,,Determining the Unknown Angle in an Isosceles Triangle,,MAT.GEO.401.05,MAT.EM3.840.12,"1880233, 1868151",
+,,,,,,,Third Angle Theorem,,MAT.GEO.405.015,"MAT.EM3.840.14, MAT.EM3.840.15","1880229, 1868155, 1880227, 1868157",
+,,,,,,Symmetry and Tessellations,,,,,,MAT.EM3.845
+,,,,,,,Identifying and Counting the Lines of Symmetry in Various Shapes,,MAT.GEO.801.02,"MAT.EM3.845.04, MAT.EM3.845.01","1879659, 1868161, 1868158",
+,,,,,,,Rotation Symmetry,,MAT.GEO.801.06,"MAT.EM3.845.07, MAT.EM3.845.08","1868164, 1868165, 1879655",
+,,,,,,,Tessellations,,MAT.GEO.809.5,"MAT.EM3.845.09, MAT.EM3.845.1, MAT.EM3.845.11","1868166, 1868167, 1879652, 1868168, 1879649",

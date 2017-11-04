@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ContentApp">
+  <Id>984A9AE2-F17B-4E72-965A-6E30D02D1709</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>Microsoft</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="True False Quiz (dev)">
+  </DisplayName>
+  <Description DefaultValue="A true false quiz (dev)">
+  </Description>
+  <IconUrl DefaultValue="https://www.msrathena.com/content/images/truefalse.png">
+  </IconUrl>
+  <HighResolutionIconUrl DefaultValue="https://www.msrathena.com/content/images/truefalse.png">
+  </HighResolutionIconUrl>
+  <Hosts>
+    <Host Name="Presentation"/>
+  </Hosts>  
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://athenadevapps.cloudapp.net/Quiz/TrueFalse"></SourceLocation>
+    <!--Only Incontent MOE can have both width and height-->
+    <RequestedWidth>960</RequestedWidth> 
+    <RequestedHeight>540</RequestedHeight>
+  </DefaultSettings>
+  <Permissions>ReadWriteDocument</Permissions>
+  <!--Allowed snapshot can be true or false for InContent Agaves only-->
+  <AllowSnapshot>true</AllowSnapshot>
+</OfficeApp>

@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+		<title>Insert/Edit Math Equation</title>
+		
+		<script type="text/javascript" src="../../jquery-1.7.min.js"></script>
+		<script type="text/javascript" src="../../jquery-ui/js/jquery-ui-1.8.17.custom.min.js"></script>
+		<script type="text/javascript" src="../../jquery.fieldselection.js"></script>
+		<link type="text/css" href="../../jquery-ui/css/smoothness/jquery-ui-1.8.17.custom.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../tinymce/jscripts/tiny_mce/themes/advanced/skins/default/dialog.css"/>
+		<link rel="stylesheet" type="text/css" href="css/symbol-editor.css"/>
+		<script type="text/javascript" src="../../../flxweb/flxweb.editor.symbol.js"></script>
+		<script type="text/javascript" src="js/jquery.editor.js"></script>
+	</head>
+	<body>
+		<center>
+		<div id="doc">	
+			<!-- header section -->
+			<div id="hd"></div>
+			<!-- header section -->
+			<!-- body section -->
+			<div id="bd">
+				<form method="post" name="editorform">
+					<!-- first half -->
+					<div id="first-half" align="center">
+						<div id="group-tabs"></div>
+						<div id="imageBlock"></div>
+					</div>
+					<!-- first half -->
+					<!-- second half -->
+					<div id="second-half" align="center">
+						<div class="SEContainer">
+							<div id="textBlock">
+								<div class="texEdit-caption" >
+									<div class="tex-fontselect">
+		                                <select name="fontstyle" id="fontstyle" onchange="javascript:fontStyleChanged();this.value='blank';">
+		                                    <option value="blank" selected>-Font Style-</option>
+		                                    <option value="mathbf">Bold</option>
+		                                    <option value="mathit">Italic</option>
+		                                    <option value="mathrm">Roman</option>
+		                                    <option value="mathfrak">Fraktur</option>
+		                                    <option value="mathbb">Blackboard</option>
+		                                    <option value="mathcal">Calligraphy</option>
+		                                </select>
+	                                </div>
+									Enter your LaTeX Math Equation here
+									<div class="clear"></div>
+	                            </div>
+								<textarea id="symbol_input_area" name="symbol_input_area" class="txtEdit" spellcheck=false></textarea>
+							</div>
+							<div class="button-panel">
+								<input type="button" id="preview" name="Preview" value="Preview" class="button" />
+								<input type="button" id="reset" name="reset" value="Reset" class="button" />
+								<!--In non-exercise mode alignat choice will be removed -->
+                                                                <span class="radiobox">
+									<input type="radio" name="mode" id="alignat"  value="alignat" checked><label for="alignat"><b>Alignat</b></label>
+									<input type="radio" name="mode" id="inline"   value="inline"> <label for="inline"><b>Inline</b></label>
+									<input type="radio" name="mode" id="blockmath" value="blockmath"><label for="blockmath"><b>Blockmath</b></label> 
+								</span> 
+							</div>
+							<div id="previewBlock">
+								<div id="preview-title">Preview</div>
+								<div id="preview-space"></div>
+							</div>
+							<div class="button-panel">
+								<input type="button" id="insert" name="insert" value="Submit" class="button"  />
+								<input type="button" id="cancel" name="cancel" value="Cancel"  />
+							</div>
+						</div>
+					</div>
+					<!-- second half -->
+				</form>
+			</div>
+			<!-- body section -->
+			<!-- footer section -->
+			<div id="ft"></div>
+			<!-- footer section -->
+		</div>
+		</center>
+	</body>
+</html>

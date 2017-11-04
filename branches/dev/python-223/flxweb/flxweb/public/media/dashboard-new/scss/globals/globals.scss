@@ -1,0 +1,141 @@
+@import '../main';
+
+:global{
+    .row.row--fullWidth{
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .row.row--fullWidth > .column > .row,
+    .row.row--fullWidth > .columns > .row {
+        max-width: $global-width;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .preload *{
+        transition: none !important;
+        animation-duration: 0s !important;
+    }
+
+    .noScroll{
+        overflow: hidden !important;
+    }
+
+    .footer-links-row .row.footer-links-container {
+        width: 100% !important;
+        float: none !important;
+    }
+
+    footer#footer ul {
+        margin-left: 0;
+    }
+
+    .share-via-email-modal .share-via-social-links a, #googleClassroomContainer {
+        margin: 0 auto 10px !important;
+
+        // Foundation 6 column
+        flex: 1 1 100%;
+        padding-left: .625rem;
+        padding-right: .625rem;
+        min-width: initial;
+    }
+
+    .share-via-icons-wrapper {
+        flex: 0 0 16.66667%;
+        max-width: 16.66667%;
+    }
+
+    .share-on-text {
+        width: 100%;
+    }
+
+    .share-via-email-modal .row .row.sh-collapse.send-email-footer {
+        width: 100%;
+        .button.tangerine {
+            margin: 0 auto;
+        }
+    }
+
+    .share-via-email-modal .row .row.sh-collapse.mail-header-row {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .share-via-email-modal .mail-header-row .input-header {
+        left: 10px;
+    }
+
+    .common-dropdown{
+        .single-select{
+            height: 35px !important;
+            padding-top: 6px !important;
+            .arrow-down{
+                top: 21px;
+                right: 8px;
+            }
+        }
+    }
+    @include breakpoint(small only){
+        .share-via-icons-wrapper {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+
+        .share-via-email-modal .share-via-social-links a, #googleClassroomContainer {
+            margin: 15px 0px 0px 15px !important;
+        }
+
+        .share-on-text {
+            width: auto;
+        }
+
+    }
+
+}
+
+/* prevent iphone from zooming in when filling out a form, like login or application */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    select,
+    textarea,
+    input,
+    input:focus,
+    input:hover {
+        font-size: 16px !important;
+    }
+}
+
+@include breakpoint(medium only){
+    html {
+        font-size: 92.5%;
+    }
+
+    :global(body.noScroll) {
+        position: fixed;
+    }
+    .common-dropdown{
+        padding: 0 10px;
+        margin-bottom: 10px;
+        max-width: 300px;
+    }
+}
+
+@include breakpoint(small only){
+    html {
+        font-size: 85%;
+    }
+
+    #dashboard {
+        overflow-x: hidden;
+    }
+
+    :global(body.noScroll) {
+        position: fixed;
+    }
+    .common-dropdown{
+        padding: 0 10px;
+        margin-bottom: 10px;
+        max-width: 300px;
+    }
+}

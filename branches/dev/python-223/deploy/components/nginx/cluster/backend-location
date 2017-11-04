@@ -1,0 +1,5 @@
+	location ~ ^/(flx|taxonomy|hwp|auth) {
+            proxy_pass http://backend;
+            break;
+	}
+

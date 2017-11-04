@@ -1,0 +1,21 @@
+Hi {{ events[0]['eventData']['memberName'] }},
+
+<p>Greetings from CK-12 Foundation!
+
+{% for event in events %}
+One of the {{events[0]['eventData']['feedback_type']}} comments has been flagged as inappropriate. Please verify and delete the comment if necessary.
+
+Artifact: {{ events[0]['eventData']['artifact_url'] | escape}}
+URL: {{events[0]['eventData']['title'] | escape}}.
+
+{{events[0]['eventData']['feedback_type']|title}} Comment: {{ events[0]['eventData']['comments'] | escape }}
+
+Reviewer: {{ events[0]['eventData']['reviewBy'] }}
+
+Abuse reported by: {{ events[0]['eventData']['reportedBy'] }}
+
+{% endfor %}
+
+The CK-12 Team
+
+CK-12 Foundation | 3430 West Bayshore Road, Palo Alto, CA 94303

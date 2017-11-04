@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <title>Update an Abuse Report</title>
+    </head>
+    <body>
+        <h1>Update Abuse Report</h1>
+        <p>Only administrators have access to this feature!</p>
+
+          <form name="metadata" method="POST" action="{{ c.prefix }}/update/abusereport">
+              <input type="hidden" name="id" value="{{ c.reportID }}" />
+            <table>
+                <tr>
+                    <td>Resource id: </td>
+                    <td>{{ c.resourceID }}</td>
+                </tr>
+                <tr>
+                    <td>Resource revision id: </td>
+                    <td>{{ c.resourceRevisionID }}</td>
+                </tr>
+                <tr>
+                    <td>Reason:</td>
+                    <td>{{ c.reason }}</td>
+                </tr>
+                <tr>
+                    <td>Reason Type:</td>
+                    <td>
+                        <select name="reasonID">
+                            <option value="">Choose a reason...</option>
+                            {% for key in c.reasonKeys %}
+                            <option value="{{ c.reasons[key] }}">{{ key }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Reporter:</td>
+                    <td>{{ c.reporterLogin }}</td>
+                </tr>
+                <tr>
+                    <td>Status:</td>
+                    <td>
+                        <select name="status">
+                        {% for status in c.allStatuses %}
+                            {% if status == c.status %}
+                                <option value="{{ status }}" selected="true">{{ status }}</option>
+                            {% else %}
+                                <option value="{{ status }}">{{ status }}</option>
+                            {% endif %}
+                        {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Remark:</td>
+                    <td><input type="text" name="remark" value="{{ c.remark }}" /></td>
+                </tr>
+                <tr>
+                    <td>Filed:</td>
+                    <td>{{ c.created }}</td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align:right;">
+                        <input type="submit" name="submit" value="Update" />
+                    </td>
+                </tr>
+                </table>
+            </form>
+    </body>
+</html>

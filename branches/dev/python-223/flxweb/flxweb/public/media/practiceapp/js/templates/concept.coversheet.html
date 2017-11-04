@@ -1,0 +1,105 @@
+<div class="dashboard-modal-wrapper concept-coversheet reveal-modal app-reveal-modal">
+	<!--Dashboard modal required HTML codes: Starts--->
+	<div class="loading-icon js-loading-icon">
+		<img alt="loading" src="/lmspractice/media/common/images/icon_loading.gif">
+	</div>
+	<div class="dashboard-container row collapse">
+		<a href="javascript:;" class="js-close-coversheet right expand-view-button active ">
+			<span class="expand-close"></span>
+		</a>
+		<div class="row collapse dashboard-modal-header js-select-concept-wrapper" data-encodedid="@@encodedID@@">
+			<div class="columns large-10 small-8">
+				<div class="header2-regular js-concept-name" id="conceptTitle">
+				</div>
+			</div>
+			<div class="columns large-2">
+				<div class="tangerine button small right margin-bottom-zero js-assign-concept coversheet-assign-button button-custom">Assign</div>
+			</div>
+		</div>
+		<div id="assessmentFrameContainer" class="practice-question-wrapper hide">
+		</div>
+		<div id="showAllModalities" class="see-all-link hide text-center"><span>see more modalities</span></div>
+		<span class="modal-subtitle">
+			<b>
+				Study
+			</b>
+			// Learn or refresh your memory.
+		</span>
+		<ul class="modality-types-wrapper hide">
+		</ul>
+		<div class="study-complete hide">
+			<i id="icon-validated" class="icon-validated">
+			</i>
+			<div class="study-complete-message1">
+				Done studying?
+			</div>
+			<div class="study-complete-message2">
+				Mark this concept as completed  
+			</div>
+		</div>
+		<div id="standards-container" class="large-12 column standards-wrapper hide">
+			<div class="standard-description hide">
+				<div class="learning-objective-header">LEARNING OBJECTIVES</div>
+				<div class="learning-objective-text">Here you'll learn how to decide which operations should be given precedence when evaluating an expression.</div>
+			</div>
+			<div class="row collapse standard-list">
+				<div class="large-12 column">
+					<div class="standard-header">STANDARD CORRELATIONS</div>
+					<div class="standard-list-container">
+						<a class="standard-title js-standard-title" data-reveal-id="standards-description-modal"></a>
+						<div id="standard-list" class="concept-standards"></div>
+					</div>
+				</div>
+			</div>
+			<div class="reveal-modal modal-uikit standard-description-modal" id="standards-description-modal">
+				<a class="close-reveal-modal close">+</a>
+				<div class="row collapse standards-details-container">
+					<div class="large-12 column">
+						<div class="standard-description-header text-center">Standards Correlations</div>
+						<!-- <div class="row collapse">
+							<div class="large-12 column">
+								<div>Standards:</div>
+								<a data-dropdown="standard-select" class="small button dropdown standard-dropdown" id="standardSel"></a>
+								<ul id="standard-select" data-dropdown-content="" class="f-dropdown standard-dropdown-content"></ul>
+								<div class="standard-set-name"></div>
+							</div>
+						</div> -->
+						<div class="row collapse standard-row-header">
+							<div class="large-6 columns standard-concept-name">
+							</div>
+							<div class="large-6 columns standard-set-name">
+							</div>
+						</div>
+						<div class="row collapse standard-details-text">
+							<div class="large-6 columns">
+								<div class="standard-concept-name"></div>
+							</div>
+							<div class="large-6 columns standard-description-list">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-logo">
+			<img alt="" src="/lmspractice/media/common/images/logo_ck12_medium.png">
+		</div>
+	</div>
+	<!--Dashboard modal required HTML codes: Ends--->
+	<div id="markupTemplates" class="hide">
+		<div id="modalityMarkup">
+			<a class="small-font modalityType" data-modalityClassName="@@modalityClassName@@">
+				<i class="@@icon@@ app-icons">
+				</i>
+				@@modalityType@@ (@@count@@)
+			</a>
+		</div>
+		<div id="seeAllMarkup">
+			<li>
+				<a class="paragraph modalityType" data-modalityClassName="@@modalityClassName@@">
+					See all (@@totalCount@@)
+				</a>
+			</li>
+		</div>
+	</div>
+</div>

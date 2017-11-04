@@ -1,0 +1,31 @@
+Installation of cmd plugin
+---------------------------------
+
+To install the plugin, you need to put this directory under your Bazaar
+plugins folder (usually ``~/.bazaar/plugins``).  An easy way to do that
+is to get the plugin, cmd.tgz, from CK-12 Foundation, and put it
+under /tmp:
+
+  $ cd ~/.bazaar/plugins
+  $ tar zxf /tmp/cmd.tgz
+
+The rest of the documentation is available by typing up bzr help cmd``
+once the plugin is installed.
+
+
+License
+-------
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA 

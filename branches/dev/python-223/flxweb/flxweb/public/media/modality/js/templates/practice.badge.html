@@ -1,0 +1,56 @@
+<!-- practice badge markup starts -->
+<div class="practice-badge-wrapper">
+    <% if (data.domain.encodedID && data.domain.handle){ %>
+        <input id="conceptEcodedId" type="hidden" value="<%= data.domain.encodedID %>" />
+        <input id="conceptHandle" type="hidden" value="<%= data.domain.handle %>" />
+    <% } %>
+    <div class="practice-badge hide" data-encodedid="" data-handle=""  id="practiceBadge">
+        <div class="practice-badge-container large hide-for-small">
+            <div class="row collapse">	
+                <div class="columns small-5 practice-badge-column">
+                	<div  class="img-bg">
+                		<img src="/media/images/modality_generic_icons/practice_image.png" alt="Atoms Practice" style="height: 91px;">
+                	</div>
+                    <div class="pie-container">
+                        <div class="inner-circle">
+                        </div>
+                        <div class="hold">
+                            <div class="pie"></div>
+                            <div class="pie"></div>
+                        </div>
+                        <div class="content">
+                            <span class="large-text">%</span>
+                        </div>
+                    </div>
+                    <div class="text-center capitalize bottom pie-container-label">Progress</div>
+                </div>
+                <div class="columns small-7 practice-badge-column">
+                    <div class="practice-badge-detail">
+                        <div class="icon-container hide"><i class=""></i></div>
+                        <div class="description"></div>
+                        <div class="bottom">
+                            <div class="button tangerine standard redirect-button"><span class="button-text">Practice</span><i class="icon-arrow_right"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="small practice-badge-container">
+            <div class="table text-center">
+                <div class="table-cell capitalize hide best-score-block pie-container-label text-right">Progress</div>
+                <div class="table-cell hide graph-block">
+                    <div class="pie-container">
+                        <div class="inner-circle">
+                        </div>
+                        <div class="hold">
+                            <div class="pie"></div>
+                            <div class="pie"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-cell small-score hide">%</div>
+                <div class="table-cell tangerine redirect-button"><i></i><span class="small-button-text">Practice Now</div>
+            </div>
+        </div>
+    </div>
+    <!-- practice badge markup ends -->

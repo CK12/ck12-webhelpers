@@ -1,0 +1,31 @@
+{% from "macros/pagination.html" import paginate with context %}  
+{% if c.paginator.item_count > 0 %}
+  {% for i in c.paginator.items %}
+    <div class="tr paneview {{ h.hide_if_full(c.viewmode)}}">
+      <div class="td id">{{h.htmla_('/artifact/%d'%i.ArtifacetId, i.ArtifacetId|string() )}}  </div>
+      <div class="td">{{h.htmla_('/user/profile/%d'%i.memberID, i.memberID|string() )}} </div>
+      <div class="td viewtrigger tiptrigger word-break">{{ i.comment|escape }}</div>
+      <div class='hide tipdiv'>{{i.comment|escape}}</div>
+      <div class="td">{{ i.count }}</div>
+      <div class="td nowrap">
+          <input type="checkbox" name = 'delete' value ="{{ i.memberID }}" class='linklike feedback_delete' data-member-id="{{ i.memberID }}" data-artifactID-id="{{ i.ArtifacetId }}" >[Delete] |
+          <input type="checkbox" name = 'approve' value= "{{ i.memberID }}" class='linklike feedback_approve' data-approved = "{{i.isApproved}}" data-member-id="{{ i.memberID }}" 
+          data-artifactID-id="{{ i.ArtifacetId }}" >{% if i.isApproved %} {{"[Un"}}{% else %} {{"["}}{% endif %}{{"Approve]"}}
+      </div>
+    </div>
+    
+    <div class="tr fullview {{ h.hide_if_pane(c.viewmode)}}">
+      <div class="td id">{{h.htmla_('/artifact/%d'%i.ArtifacetId, i.ArtifacetId|string() )}} </div>
+      <div class="td">{{h.htmla_('/user/profile/%d'%i.memberID, i.memberID|string() )}} </div>
+      <div class="td viewtrigger tiptrigger word-break">{{ i.comment|escape }}</div>
+      <div class='hide tipdiv'>{{i.comment|escape}}</div>
+      <div class="td">{{ i.count }}</div>
+      <div class="td nowrap">
+          <input type="checkbox" name = 'delete' value ="{{ i.memberID }}" class='linklike feedback_delete' data-member-id="{{ i.memberID }}" data-artifactID-id="{{ i.ArtifacetId }}" >[Delete] |
+          <input type="checkbox" name = 'approve' value= "{{ i.memberID }}" class='linklike feedback_approve' data-approved = "{{i.isApproved}}" data-member-id="{{ i.memberID }}" 
+          data-artifactID-id="{{ i.ArtifacetId }}" >{% if i.isApproved %} {{"[Un"}}{% else %} {{"["}}{% endif %}{{"Approve]"}}
+      </div>   
+    </div>
+  {% endfor %}
+  {{ paginate(c.paginator) }}
+{% endif %}

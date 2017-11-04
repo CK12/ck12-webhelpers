@@ -1,0 +1,441 @@
+@each $className, $color in $highlight-colors {
+    .#{$className} {
+        background: $color;
+    }
+    .#{$className}{
+        &.annotation-icon{
+            color: black;
+            opacity: 0.6;
+            background-color: white;
+        }
+    }
+
+    .circle[data-color="#{$className}"] {
+        box-shadow: 0 0px 1px black inset;
+    }
+
+    .circle[data-color="#{$className}"].selected-color {
+        @include selectedColorCircle($color);
+    }
+    .x-ck12-mathEditor{
+        &.#{$className}{
+            background: white;
+        }
+    }
+
+}
+
+// .circle-wrapper{
+//     float: left;
+//     height: 20px;
+//     margin: 9px 10px 7px 10px;
+// }
+.circle{
+    &.disable-circle{
+        background: gray;
+        margin: 2px 0 0 20px;
+    }
+    @include colorCircle();
+}
+
+.circle:hover{
+    cursor: pointer;
+}
+.square{
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    margin: 10px;
+    margin-right: 5px;
+    background-color: yellow;
+    border: 1px solid grey;
+}
+.note{
+    margin: 11px 0px 0px 5px;
+    display: inline-block;
+    font-size: 15px;
+    position: absolute;
+    color: black;
+}
+.annotator-controls{
+    display: block;
+}
+.annotator-controls.hide{
+    display: none;
+}
+.note-wrapper{
+    width: 100%;
+    height: 40px;
+}
+.note-wrapper:hover{
+    background: rgba(76,76,254,0.3);
+    cursor: pointer;
+}
+.annotation-icon{
+    position: absolute;
+    right: -30px;
+    z-index: 50;
+}
+.remove-wrapper{
+    padding: 10px;
+    font-size: 15px;
+    cursor: pointer;
+}
+.removeAnnotation{
+    margin-left: 10px;
+    color:black;
+}
+.annotator-resize{
+    display: none;
+}
+.annotator-hl{
+    text-shadow: 0px 0px;
+}
+.message-wrapper{
+    font-size: 19px;
+    padding: 5px 17px;
+}
+.annotation-content-container{
+    position: relative;
+}
+.annotator-hl {
+    @each $className, $color in $highlight-colors {
+
+        // Setup main background
+        &.#{$className} {
+            background: $color;
+            // Give white color on darker highlights
+            // color: if($color == $highlight-orange or $color == $highlight-purple, white, inherit);
+        }
+
+        &.#{$className}.selected-annotation{
+            //color: white;
+            //text-shadow: 1px 1px 2px black, 0 0 25px #FFFFFF, 0 0 5px darkblue;
+            border-bottom: 1px dashed;
+        }
+    }
+}
+.tool-container-wrapper{
+    position: absolute;
+    top:0;
+    bottom: 0;
+    right: 0;
+    width: 106px;
+    overflow: hidden;
+}
+.ck12-annotation-toolbar-container{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #06877d;
+    width: 106px;
+    height: 35px;
+    opacity: 0.15;
+    box-shadow: 0 3px 2px 0 #056b53;
+    border-radius: 2px;
+    &.fixed-position{
+        position: fixed;
+        top: 200px;
+    }
+    &.tool-enable{
+        opacity: 1;
+    }
+    .toolbar-btn-container{
+        width: 50%;
+        height: 100%;
+        display: inline-block;
+        padding: 7px 17px;
+        &:first-child{
+            border-right: 1px solid #00aba4;
+        }
+        img{
+            width: 18px;
+        }
+        &:hover{
+            cursor: pointer;
+            // background-color: #00aba4;
+        }
+        &.selected{
+            background-color: #00aba4;
+        }
+    }
+    &:hover{
+        opacity: 1;
+    }
+}
+.adder-container{
+    position: absolute;
+    background-color: #f2f2f2;
+    margin-top: 20px;
+    margin-left: -200px;
+    box-shadow: 0px 4px 1px -1px #9E9E9E;
+    &.exceedRight{
+        margin-left: 22px;
+        &::after{
+            left: auto;
+            right: 10px;
+        }
+    }
+    &.exceedLeft{
+        margin: 0;
+        margin-left: -22px;
+        margin-top: 20px;
+        &::after{
+            right: auto;
+            left: 10px;
+        }
+    }
+    &::after{
+        content: '';
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid #f2f2f2;
+        position: absolute;
+        top: -10px;
+        left: 180px;
+    }
+    .adder-item{
+        float: left;
+        &.colors-container{
+            border-right: none;
+        }
+    }
+    .add-note-btn, .edit-note-btn, .remove-note-btn{
+        padding: 9px 10px 5px 10px;
+        border-left: 1px solid #e6e6e6;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+    .add-note-btn{
+        padding: 10px 30px 5px 30px;
+        &:hover{
+            background-color: #cccccc;
+        }
+    }
+    .edit-note-btn{
+        &:hover{
+            background-color: #cccccc;
+        }
+    }
+    .signin-message{
+        clear: both;
+        font-size: 14px;
+        padding: 9px;
+        border-top: 1px solid #e6e6e6;
+    }
+    .disable-mask{
+        width: 100%;
+        height: 50%;
+        background: #f0f0f0;
+        opacity: .6;
+        z-index: 100;
+        position: absolute;
+    }
+}
+.annotator-viewer{
+    .annotator-listing{
+        padding: 0;
+        border: none;
+        box-shadow: none;
+        background: #f2f2f2;
+        border-radius: 0;
+        .annotator-item{
+            border-top:1px solid #dbdbdb;
+            padding-left: 5px;
+        }
+        &::after{
+            content:' ';
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid #f2f2f2;
+            background-image: none;
+        }
+    }
+    .annotator-controls{
+        opacity: 1;
+        transition: none;
+        // .annotator-edit{
+        //     background-image: none;
+        // }
+        // .annotator-delete{
+        //     background-image: none;
+        // }
+    }
+}
+.annotator-editor{
+    text-shadow: none;
+    &.annotator-invert-y{
+        .annotator-controls{
+            position: absolute;
+            width: 100%;
+            top: 100%;
+            border-radius: 0;
+            box-shadow: none;
+        }
+        .annotator-widget{
+            &::after{
+                content:' ';
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+                border-bottom: 10px solid #06877d;
+                border-top: none;
+                background-image: none;
+            }
+        }
+    }
+    .annotator-widget{
+        border: none;
+        min-width: 350px;
+        &::after{
+            content:' ';
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid #f2f2f2;
+            background-image: none;
+        }
+        .annotator-item{
+            &:first-child {
+                border-top: 0;
+                background: #06877d;
+            }
+            textarea{
+                background-color: #f2f2f2;
+                box-shadow: none;
+            }
+            .title{
+                padding: 5px;
+                color: #ffffff;
+            }
+        }
+        .annotator-controls{
+            background-image: none;
+            background-color: #f2f2f2;
+        }
+    }
+    a{
+        background-image: none;
+        background-color: #f2f2f2;
+        box-shadow: none;
+        border: none;
+        text-shadow: none;
+        padding-left: 0;
+        color: #06877d;
+        &:hover{
+            background-color: #f2f2f2;
+            background-image: none;
+            color: #06877d;
+            text-shadow: none;
+        }
+        &:focus{
+            border-color: #06877d;
+            // background-color: #06877d;
+            background-image: none;
+        }
+        &:active{
+            background-color:#f2f2f2;
+            background-image: none;
+        }
+        &.annotator-focus{
+            border-color: #06877d;
+            background-color: #f2f2f2;
+            color:#06877d;
+            background-image: none;
+            text-shadow: none;
+        }
+        &::after{
+            background-image: none;
+        }
+    }
+}
+
+
+.myAnnotations-container{
+    text-shadow: none;
+    table{
+        font-family: 'ProximaNova';
+        .delete-btn-container{
+          position: relative;
+          &::before{
+            content: '';
+            position: absolute;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid #56544d;
+            top: -8px;
+            left: 5px;
+            display: none;
+          }
+          &::after{
+            content: "Delete?";
+            position: absolute;
+            background: #56544d;
+            color: #ccc;
+            padding: 5px 14px;
+            top: -29px;
+            left: -26px;
+            width: 78px;
+            border-radius: 4px;
+            display: none;
+          }
+          &:hover{
+            &::after, &::before{
+              display: block;
+            }
+          }
+        }
+        .delete-annotation-btn{
+          padding: 5px;
+          &:hover{
+            cursor: pointer;
+          }
+        }
+        thead{
+            th{
+                background: #f9f9f9;
+                color: #56544D;
+                font-size: 14px;
+                padding: 10px;
+                &:nth-child(1){
+                    width: 10%;
+                }
+                &:nth-child(2){
+                    width: 45%;
+                }
+                &:nth-child(3){
+                    width: 45%;
+                }
+            }
+        }
+        td{
+            color: #56544D;
+            word-break: break-all;
+            word-break: break-word;
+        }
+        #notes-pagination{
+            background: #06877d;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 10px;
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+}
+.highlight-cursor{
+    cursor: url(/media/annotatorjs/img/highlight_cursor.cur), auto;
+    cursor: url(/media/annotatorjs/img/highlight_cursor.cur) 3 8, auto;
+}
+.note-cursor{
+    cursor:url(/media/annotatorjs/img/note_cursor.cur), auto;
+    cursor:url(/media/annotatorjs/img/note_cursor.cur) 3 8, auto;
+}
+@media only screen and (max-width: 767px) {
+    .ck12-annotation-toolbar-container{
+        right: 0;
+    }
+    .annotation-icon{
+        right: 0;
+    }
+}

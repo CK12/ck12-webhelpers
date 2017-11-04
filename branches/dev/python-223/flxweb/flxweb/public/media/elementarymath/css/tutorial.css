@@ -1,0 +1,70 @@
+@media all and (min-width: 768px) {
+
+	.content {
+	    left: calc(50% - 298px);
+	    left: -webkit-calc(50% - 298px);
+	    top: 234px;
+	    width: 595px;
+	    text-align: center;
+	}
+	.tutorial-container .content h1 {
+		border-bottom: 1px solid #ffffff;
+	    font-size: 36px;
+	    padding: 22px 0;
+	    margin: 0;
+	}
+	.tutorial-container .content .introduction {
+	    padding-top: 31px;
+	    line-height: 28px;
+	    font-size: 24px;
+	}
+	.tutorial-container .content .introduction span {
+	    display: inline-block;
+	    width: 450px;
+	}
+	.tutorial-1 .button {
+	    width: 125px;
+	    top: 449px;
+	}
+	.tutorial-1 .button.continue {
+	    left: calc(50% - 139px);
+	    left: -webkit-calc(50% - 139px);
+	}
+	.tutorial-1 .button.exit {
+	    left: calc(50% + 13px);
+	    left: -webkit-calc(50% + 13px);
+	}
+}
+
+@media all and (max-width: 767px) {
+	.content {
+		width: 100%;
+		padding: 0 15px;
+		text-align: center;
+		top: 42px;
+	}
+	.tutorial-container .content h1 {
+		border-bottom: 1px solid #ffffff;
+	    font-size: 27px;
+	    line-height: 32px;
+	    padding: 16px 0;
+	    margin: 0;
+	}
+	.tutorial-container .content .introduction {
+	    padding-top: 19px;
+	    line-height: 24px;
+	    font-size: 18px;
+	}
+	.tutorial-1 .button {
+	    width: 125px;
+	    top: 235px;
+	}
+	.tutorial-1 .button.continue {
+	    left: calc(50% - 137px);
+	    left: -webkit-calc(50% - 137px);
+	}
+	.tutorial-1 .button.exit {
+	    left: calc(50% + 13px);
+	    left: -webkit-calc(50% + 13px);
+	}
+}

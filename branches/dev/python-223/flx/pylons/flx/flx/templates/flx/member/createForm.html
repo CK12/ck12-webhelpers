@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>Create Member</title>
+    </head>
+    <body>
+        <form name="memberdata" method="POST" action="{{ h.url(controller='member', action='create') }}">
+            <table>
+                {% for item in c.memberList %}
+                <tr>
+                    <td>
+                        {{ item }}:
+                    </td>
+                    <td>
+                        <input name="{{ item }}"
+                            {% if item.lower() == 'token' %}
+                               type="password"
+                            {% else %}
+                                type="text"
+                            {% endif %}
+                               value=""
+                               size="64"/>
+                    </td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td>Member Role:</td>
+                    <td>
+                        <select name="roleName">
+                            {% for role in c.keys %}
+                                <option value="{{ c.memberRoleDict[role] }}">{{ c.memberRoleDict[role] }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Member State:</td>
+                    <td>
+                        <select name="stateID">
+                            {% for state in c.stateKeys %}
+                                <option value="{{ state }}">{{ c.memberStatesDict[state] }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="hidden" name="authType" value="ck-12" />
+                        <input type="submit" name="submit" value="OK" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

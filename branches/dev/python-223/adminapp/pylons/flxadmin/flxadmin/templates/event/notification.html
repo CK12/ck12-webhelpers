@@ -1,0 +1,62 @@
+{% extends "details.html" %}  
+{% from "macros/form_errors.html" import form_errors with context %}  
+
+{% block admincontent %} 
+<div class="sectionhead sectiontitle">{{c.pagetitle}}</div>
+<div class="section withfloatedsubmit">
+  <form id="mainform" method="post">
+    <div class="leftaligned">
+    {% if c.create %}
+      {{ h.labelselect('Event Type', 'eventType', c.form.events)}}
+    {% else %}
+      {{ h.labelreadonly('Id', 'id', 'info xmed')}}
+      {{ h.labelreadonly('Event Type', 'eventType', 'info xmed')}}
+    {% endif %}
+
+      {{ h.labelinput('Object Id', 'objectID', 'short')}}
+      {{ h.labelinput('Object Type', 'objectType', 'xmed')}}
+
+      {{ h.labelselect('Notification Type', 'notificationType', c.form.types)}}
+      {{ h.labelselect('Rule', 'rule', c.form.rules)}}
+      {{ h.labelradio('Frequency', 'frequency', c.form.freqs)}}
+    {% if not c.create %}
+      {{ h.labelreadonly('Subscriber', 'subscriber', 'info xmed')}}
+    {% endif %}
+    {% if c.create %}
+      {{ h.labelinput('Subscriber Id', 'impersonateMemberID', 'short')}}
+      <span>(If empty, you will be the subscriber)</span>
+    {% endif %}
+      {{ h.labelinput('Address', 'address', 'xmed')}}
+
+    {% if not c.create %}
+      {{ h.labelcheckboxes('Options', ['Reset Last Sent', 'resetLastSent'])}}
+      {{ h.labelreadonly('Last Sent', 'lastSent', 'info xmed')}}
+      {{ h.labelreadonly('Created', 'created', 'info xmed')}}
+      {{ h.labelreadonly('Updated', 'updated', 'info xmed')}}
+    {% endif %}
+    </div>
+
+    {% if c.create %}
+      {{ h.submitbutton('Create', 'short')}}
+    {% else %}
+      {{ h.deletebutton('Delete')}}
+      {{ h.submitbutton('Update', 'short')}}
+    {% endif %}
+      {{ h.cancelbutton(c.cancel)}}
+  </form>
+</div>
+{% endblock %}
+
+{% block js_scripts %}
+<script type="text/javascript">
+{% if c.create %}
+  {{ form_errors() }}
+{% else %}
+  {{ form_errors('after') }}
+  Fns.confirm('notification', 
+    CK12.flxUrl('delete/notification'), '{{c.cancel}}',
+    'POST', {id: {{c.id}}}
+  );
+{% endif %}
+</script>
+{% endblock %}

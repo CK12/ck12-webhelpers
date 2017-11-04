@@ -1,0 +1,112 @@
+<div id="group-main-info-container" class="large-3 small-12 columns group-container show-for-small hide-important">
+	<div class="activity-header-wrapper">	    
+    	<div class="activity-header">
+    		<h1 id="group-title"></h1>
+    		<a class="icon-edit pencil-size js-group-detail-edit"></a>
+        </div>        
+    </div>
+    <div class="group-placeholder">
+        <img src="#" id="group-image" alt="image for the group">
+    </div>
+    <div class="group-title-wrapper">
+        <div class="group-title" id="description-container">
+            <span id="group-detail-description"></span>
+        </div>
+    </div>
+    <div class="group-activity">
+    	<ul class="side-nav">
+    		<li>
+    			<i class="icon-groups_home app-icons"></i>
+    			<a id="group-home-link" class="ie8sidetext">Home</a>
+    		</li>
+    		<li class="only-for-class">
+                <i class="icon-grps_assgnmts app-icons"></i>
+                <a id="group-assignments-link" class="ie8sidetext">Assignments</a>
+                <span class="group-count" id="group-assignments-count"></span>
+            </li>
+            <li class="hide-for-small">
+                <i class="icon-grps_report app-icons"></i>
+                <a id="group-reports-link" class="ie8sidetext">Reports</a>
+            </li>
+            <li class="group-discussion-link"> 
+                <i class="icon-comments app-icons"></i>
+                <a id="group-discussions-link" class="ie8sidetext">Q&amp;A</a>
+                <span class="group-count" id="group-discussions-count">0</span>
+            </li>
+    		<li>
+    			<i class="icon-shared_res app-icons"></i>
+    			<a id="group-resources-link" class="ie8sidetext">Shared Resources</a>
+    			<span class="group-count" id="group-resources-count"></span>
+    		</li >
+    		<li>
+    			<i class="icon-members app-icons"></i>
+    			<a id="group-members-link" class="ie8sidetext">Members</a>
+    			<span class="group-count" id="group-members-count"></span>
+    		</li>
+    		<li>
+    			<i class="icon-settings_single app-icons"></i>
+    			<a id="group-settings-link" class="ie8sidetext">Settings</a>
+    		</li>
+    	</ul>
+        <div class="groups-bottom-brainflex-wrapper">
+            <div class="groups-bottom-brainflex row collapse">
+                <div class="groups-bottom-brainflex-msg groups-brainflex-maximize row collapse">Prevent the summer slide</div>
+                <div class="groups-bottom-brainflex-msg groups-brainflex-maximize row collapse">with CK-12 BrainFlex</div>
+                <!--
+                <div class="groups-bottom-brainflex-msg groups-brainflex-maximize row collapse">BrainFlex summer challenge complete! Stay ahead all year with CK-12 Adaptive Practice!</div>
+                -->
+                <!-- <div class="groups-bottom-brainflex-msg groups-brainflex-maximize row collapse">with CK-12 BrainFlex</div> -->
+                <div class="groups-bottom-brainflex-lower row collapse">
+                    <div class="groups-bottom-brainflex-brain">
+                        <a href="/summer?summerLearning=true">Learn More</a>
+                        <!-- <a href="/summer/2015">See my report</a> -->
+                        <!-- <a href="/summer/2016">See my report</a> -->
+                        <img title="BrainFlex" class="right" src="/media/groups/assets/images/brain-slideup.svg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>
+<div class="row collapse hide-important js-small-edit edit-info-container show-for-small">
+	<div class="small-12 columns">
+		<div class="row collapse edit-info-header-wrapper">
+			<a id="group-info-cancel-small" class="left">Cancel</a>
+			<span class="edit-info-text">Edit</span>
+			<a id="group-info-save-small" class="right">Save</a>
+		</div>
+		<div class="row collapse edit-info-content-wrapper">
+			<div class="small-12 columns">
+				<div class="row collapse">
+					<div class="small-12 columns edit-name-input-container">
+						<input id="group-name-edit-small" type="text" class="js-group-name-field" maxlength="60"/>
+					</div>
+				</div>
+				<div class="row collapse">
+					<div class="small-12 columns edit-description-input-container">
+						<textarea id="group-description-edit-small" class="js-group-description-field"></textarea>
+					</div>
+				</div>
+				<div class="row collapse group-info-image-small"> <!-- give height and width to this as well -->
+					<img alt="group image" id="group-image-edit-small" class="js-group-image-main">
+				</div>
+				<div id="group-edit-image-small" class="row collapse pointer">
+					<div class="small-12 columns text-center link-green">
+						<i class="icon-image2"></i>
+						<span>Change Image</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+</div>
+<div class="reveal-modal app-reveal-modal modal-uikit edit-image-modal"	id="editImageModal"	style="display: none; opacity: 1; visibility: hidden;">
+	<div class="row collapse edit-image-header-wrapper">
+		<div class="small-12 columns show-for-small edit-image-header-container">
+			<span class="show-for-small edit-image-header-text left">Group Image</span>
+			<span class="close-icon edit-image-close-icon close-reveal-modal show-for-small right"></span>
+		</div>
+	</div>
+	<div class="row collapse edit-image-wrapper js-group-image-edit">
+    </div>	
+</div>

@@ -1,0 +1,60 @@
+<html>
+    <head></head>
+    <body>
+    <p>Dear {{ events[0].eventData['reportedUser'] }},</p>
+
+    {% if events[0].eventData['status'] == 'PENDING' %}
+
+    <p>Thank you for your feedback!</p>
+
+    <p>We will review your report and update you on the report status soon.</p>
+
+    <p>Here are the details of your error report:</p>
+
+    {% elif events[0].eventData['status'] == 'ACCEPTED' %}
+    
+    	<p>Your error report has been accepted and being processed. Here are the details:</p>
+    	
+    {% elif events[0].eventData['status'] == 'RESOLVED' %}
+    
+    	<p>Your error report has been resolved and here are the details:</p>
+    
+    {% else %}
+
+        <p>Your error report has been rejected and here are the details:</p>
+
+    {% endif %}
+    
+    <table cellpadding="10" border="1">
+    <tr align="center">
+        <th>Question</th>
+        <th>Error Type</th>
+        <th>Error Status</th>
+        <th>Error Reason</th>
+        {% if events[0].eventData['status'] != 'PENDING' %}
+           <th>Response Message</th>
+        {% endif %}
+    </tr>
+    <tr align="center">
+        <td> {{ events[0].eventData['QuestionTitle'] }} </td>
+        <td>{{ events[0].eventData['errorType'] }}</td>
+        <td>{{ events[0].eventData['status'] }}</td>
+        <td>{{ events[0].eventData['reason']|e }}</td>
+        {% if events[0].eventData['status'] != 'PENDING' %}
+           {% if events[0].eventData['response'] %} 
+               <td>{{ events[0].eventData['response'] }}</td>
+           {% else %}
+               <td><p>&nbsp;</p></td>
+           {% endif %}
+        {% endif %}
+    </tr>
+    </table>
+ 
+    <p></p> 
+
+    <p>Do you have questions or feedback? Do not hesitate to email <a href="mailto:support@ck12.org">support@ck12.org</a>.</p>
+
+    <p>Sincerely,</p>
+    <p>The CK-12 Team</p>
+    </body>
+</html>

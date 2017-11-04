@@ -1,0 +1,326 @@
+<div class="large-12 columns">
+	<div class="row collapse">
+		<div class="large-12 small-12 columns small-centered groups-body-wrapper">
+			<div class="row collapse groups-header-wrapper-small show-for-small">
+				<div class="small-6 columns groups-header-filter-wrapper">
+					<div class="groups-header-filter">
+						<a class="resource-filter-header-small" data-dropdown="drop1">Show:</a>
+						<span class="round-arrow-container js-dropdown-icon icon-arrow_right drop-down-mobile" data-dropdown="drop1"></span>
+						<ul id="drop1" data-dropdown-content="" class="f-dropdown resource-type-dropdown-small groups-filter-dropdown-content custom-checkbox-dropdown">
+							<li class="js-role-filters"><span class="icon-checkmark select-filter-icon js-group-owner checked"></span><span class="filter-text">I lead</span></li>
+							<li class="js-role-filters"><span class="icon-checkmark select-filter-icon js-group-member checked"></span><span class="filter-text">I'm a member</span></li>
+							<li class="js-type-filters"><span class="icon-checkmark select-filter-icon js-class checked"></span><span class="filter-text">Classes</span></li>
+							<li class="js-type-filters"><span class="icon-checkmark select-filter-icon js-study-group checked"></span><span class="filter-text">Study Groups</span></li>
+						</ul>
+					</div>
+				</div>
+				<div class="small-3 columns groups-create-wrapper-small text-center groups-header-button">
+					<span><a class="js-create-group-button" id="create-group-button-small">+ Create</a></span>
+				</div>
+				<div class="small-3 columns groups-join-wrapper-small text-center groups-header-button">
+					<span><a class="js-join-group-button" id="join-group-button-small">+ Join</a></span>
+				</div>
+			</div>
+			<div class="row collapse groups-heading-wrapper hide-for-small">
+				<div class="large-12 small-12 columns">
+					<span class="groups-heading">Groups</span>
+					<div class="groups-button-wrapper text-center">
+						<a class="button standard tangerine js-create-group-button" id="create-group-button">Create a Group</a>
+						<a class="button standard turquoise js-join-group-button" data-reveal-id="joinGroupModal" id="join-group-button">Join a Group</a>
+					</div>
+				</div>
+			</div>
+			<div class="row collapse hide-for-small" id="group-filter-row">
+				<div class="large-12 small-12 columns">
+					<div class="groups-select-wrapper">
+						<span class="title">Show:</span>
+						<span class="pointer select-option js-role-filters">
+							<span class="custom-check-box js-group-owner checked" id="group-owner"></span><span>I lead</span>
+						</span>
+						<span class="pointer select-option js-role-filters">
+							<span class="custom-check-box js-group-member checked" id="group-member"></span><span>I'm a member</span>
+						</span>
+						<span class="pointer select-option js-type-filters">
+							<span class="custom-check-box js-class checked" id="class"></span><span>Classes</span>
+						</span>
+						<span class="pointer select-option js-type-filters">
+							<span class="custom-check-box js-study-group checked" id="study-group"></span><span>Study Groups</span>
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="row collapse hide" id="no-groups">
+				<div class="small-12 large-12 columns message-wrapper">No groups found for your selection.</div>
+			</div>
+			<div class="row collapse" id="groups-row"></div>
+			<!--groups-row code: End-->
+		</div>
+	</div>
+</div>
+
+<div id="createGroupModal" class="reveal-modal modal-uikit app-reveal-modal">
+	<a class="close-reveal-modal close">+</a>
+	<div class="row collapse create-group-modal-container ie8text">
+		<div class="left left-container">
+          	<div class="row collapse">
+                <div class="small-12 large-12 columns">
+					<h4 class="create-group-modal-border">Create a new group</h4>
+					<div class="modal-subtitle">Start a group to share resources, assign practice, and track progress.</div>
+				</div>
+			</div>
+			<div class="row collapse create-group-container">
+				<div class="large-12 small-12 columns">
+					<form class="custom ie8text" id="create-group">
+						<div class="row collapse">
+							<div class="small-12 large-12 columns">
+								<div class="row collapse">
+									<div class="create-error-msg-wrapper small-offset-4">
+										<span class="hide js-create-group-error js-group-create-empty-error" id="group-create-empty-error">Enter a name for your group. For example: Math Geeks Unite!</span>
+										<span class="hide js-create-group-error js-group-create-wrong-error" id="group-create-wrong-error">You already created a group with that name. Enter a unique name so you can tell them apart.</span>
+									</div>
+									<div class="small-12 large-4 columns">
+										<span class="left inline user-data">Group name:</span>
+									</div>
+									<div class="small-12 large-8 columns create-input">
+										<input type="text" id="group-name" placeholder="Enter your group name" class="username-textbox create-group-name js-group-title" maxlength="60">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row collapse">
+							<div class="small-12 columns">
+								<div class="row collapse">
+									<div class="small-12 large-4 columns">
+										<span class="left inline user-data"><span>Describe your group: </span><span class="sub-description">Optional</span></span>
+									</div>
+									<div class="small-12 large-8 columns create-input">
+										<textarea id="group-description" placeholder="Enter group description" class="tangerine-textarea js-group-description"></textarea>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row collapse">
+							<div class="small-12 large-12 columns create-group-type">
+								<div class="row collapse">
+									<div class="small-4 large-4 columns">
+										<span class="left user-data">Type:</span>
+									</div>
+									<div class="small-8 large-8 columns">
+										<div class="row collapse js-group-type-option" id="group-type-option">
+											<div class="small-12 large-12 column study-description">
+												<div class="row collapse">
+													<div class="small-1 large-1 columns">
+														<input type="radio" name="select-type" checked="checked" data-type="study" class="hide">
+														<span class="custom radio checked"></span>
+													</div>
+													<div class="small-11 large-11 columns">
+														<span class="pointer js-group-type-label">Study Group</span>
+														<span class="pointer grey js-group-type-label">(everyone shares resources)</span>
+													</div>
+												</div>
+											</div>
+											<div class="small-12 large-12 column">
+												<div class="row collapse">
+													<div class="small-1 large-1 columns">
+														<input type="radio" name="select-type" data-type="class" class="hide">
+														<span class="custom radio"></span>
+													</div>
+													<div class="small-11 large-11 columns">
+														<span class="pointer js-group-type-label">Class</span>
+														<span class="pointer grey js-group-type-label">(you share resources and assign practice)</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+                    	<div class="row collapse">
+                            <div class="small-12 large-12 columns create-group-subjects">
+                                <div class="row collapse">
+                                    <div class="small-4 large-4 columns">
+                                        <label for="group-subjects">
+                                            <span class="left user-data inline">
+                                                <span>Subjects:</span>
+                                                <span class="sub-description hide-for-touch">Hold CMD or CTRL</span>
+                                                <span class="sub-description hide-for-touch"> to select multiple</span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="small-8 large-8 columns group-subjects-select">
+                                        <select id="group-subjects" name="groupSubjects" multiple></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row collapse">
+							<div class="small-12 large-12 columns create-group-theme">
+								<div class="row collapse">
+									<div class="small-4 large-4 columns">
+										<span class="left user-data">Choose a theme:</span>
+									</div>
+									<div class="small-8 large-8 columns js-group-home-image-edit" id="image-select"></div>
+								</div>
+							</div>
+						</div>
+						<div class="row collapse">
+							<div class="small-12 large-12 columns create-group-button-container">
+								<div class="row collapse">
+									<div class="small-4 large-4 columns">
+										<span class="left inline">&nbsp;</span>
+									</div>
+									<div class="small-8 large-8 columns">
+										<a class="button standard tangerine js-create-group-final" id="create-group-final">Create Group</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="right right-container">
+			<!-- <div class="row collapse group-member-container"> -->
+			<div class="row">
+				<div class="left group-detail-container">
+					<span class="group-benefits">Share CK-12 readings, videos, flashcards, and more.</span>
+				</div>
+				<!-- </div> -->
+                <!-- <div class="row collapse group-member-container"> -->
+				<div class="left group-detail-container">
+					<span class="group-benefits">See a feed of what your group members have been sharing.</span>
+				</div>
+                <!-- </div> -->
+                <!-- <div class="row collapse group-member-container"> -->
+				<div class="left group-detail-container">
+					<span class="group-benefits">Members receive links to shared resources in their&nbsp;inbox.</span>
+				</div>
+				<div class="left group-detail-container">
+					<span class="group-benefits">Class members do assignments created by you.</span>
+				</div>
+			</div>
+		<!-- </div> -->
+		</div>
+	</div>
+</div>
+
+<div id="joinGroupModal" class="reveal-modal modal-uikit app-reveal-modal">
+	<a class="close-reveal-modal close">+</a>
+	<div class="row collapse ie8text">
+		<div class="large-12 columns">
+			<h4>Join a group</h4>
+			<div class="modal-description">Enter the code that was given to you by the group leader.</div>
+			<div class="group-code-wrapper">
+				<div class="join-error-msg-wrapper">
+					<span class="hide js-join-group-error js-group-join-empty-error" id="group-join-empty-error">You did not enter code.  Please enter the code of the group you want to join.</span>
+					<span class="hide js-join-group-error js-group-join-wrong-error" id="group-join-wrong-error">That code doesn’t belong to any group.  Are you sure it’s spelled correctly?</span>
+					<span class="hide js-join-group-error js-group-join-member-error" id="group-join-member-error">You are already a member of this group.</span>
+					<span class="hide js-join-group-error js-group-join-api-error" id="group-join-api-error">Sorry, we could not join you to the group at this time. Please try again later.</span>
+				</div>
+				<div class="group-code">
+					<span>Group Code: </span>
+					<input type="text" id="join-group-code" class="js-join-group-code" maxlength="5"/>
+				</div>
+			</div>
+			<div class="joingroup-button-wrapper">
+				<a class="button standard turquoise no-margin js-join-group" id="join-group">Join Group</a>
+				<span>or</span>
+				<a class="link-green js-close-modal">Cancel</a>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="create-join-group-container show-for-small hide-important">
+	<div class="groups-body">
+		<div class="row collapse">
+			<div class="large-12 small-12 columns body-content-wrapper">
+				<div class="row collapse">
+					<div class="large-6 small-6 columns groups-middle-wrapper">
+						<div class="row collapse user-data-main-container hide">
+				            <div class="large-12 small-12 columns small-centered user-data-wrapper large-centered">
+				                <form class="custom" id="create-group">
+				                    <div class="row collapse">
+				                        <div class="small-12 columns large-12">
+				                            <div class="row collapse">
+				                            	<div class="create-error-msg-wrapper small-offset-4">
+													<span class="hide js-create-group-error" id="group-create-empty-error-small">Enter a name for your group.</span>
+													<span class="hide js-create-group-error" id="group-create-wrong-error-small">You already created a group with that name.</span>
+												</div>
+				                                <div class="small-12 columns input large-8">
+				                                    <input type="text" id="group-name-small" placeholder="Enter your group name" class="username-textbox js-group-title" maxlength="60">
+				                                </div>
+				                            </div>
+				                        </div>
+				                    </div>
+				                    <div class="row collapse">
+				                        <div class="small-12 large-12 columns">
+				                            <div class="row collapse">
+				                                <div class="small-12 columns large-8">
+				                                    <textarea class="tangerine-textarea js-group-description" id="group-description-small" placeholder="Enter group description"></textarea>
+				                                </div>
+				                            </div>
+				                        </div>
+				                    </div>
+				                    <div class="row collapse">
+				                        <div class="small-12 large-12 columns user-data-container group-type-container">
+				                            <div class="row collapse">
+				                                <div class="small-12 columns large-8">
+				                                    <div class="row collapse group-type-wrapper js-group-type-option">
+				                                        <div class="small-12 large-12 column option-row">
+				                                            <input type="radio" name="select-type" checked="checked" class="hide" data-type="study">
+				                                            <span class="custom radio checked pointer"></span>
+															<span class="pointer js-group-type-label">Study Group</span><span class="option-sub-text"> Everyone can share</span>
+														</div>
+														<div class="small-12 large-12 column option-row">
+															<input type="radio" name="select-type" class="hide" data-type="class"> <span class="custom radio pointer"></span>
+															<span class="pointer js-group-type-label">Class</span><span class="option-sub-text"> Only you can share</span>
+														</div>
+				                                    </div>
+				                                </div>
+				                            </div>
+				                        </div>
+				                    </div>
+				                    <div class="row collapse">
+				                        <div class="small-12 large-12 user-data-container image-select-container">
+				                            <div class="row collapse">
+												<div class="small-4 columns large-8 image-edit-container js-group-home-image-edit" id="image-edit-select">
+													<span class="icon-image2 edit-image-icon pointer"></span>
+												</div>
+				                            </div>
+				                        </div>
+				                    </div>
+				                    <div class="row collapse">
+				                        <div class="small-6 large-12 columns button-container">
+				                            <div class="row collapse">
+				                                <div class="small-4 columns large-4"></div>
+				                                <div class="small-12 columns large-8">
+				                                    <a class="button large tangerine right js-create-group-final" id="create-final">Create</a>
+				                                </div>
+				                            </div>
+				                        </div>
+				                    </div>
+				                </form>
+				            </div>
+				        </div>
+				  	</div>
+        			<div class="small-12 columns join-group-small text-center hide">
+        				<div class="join-group-description">Enter the code that was given to you by the group leader.</div>
+						<div class="group-code-container">
+			    			<input placeholder="Enter group code" type="text" maxlength="5" class="js-join-group-code">
+			        		<div class="join-error-msg-wrapper">
+								<span class="hide js-join-group-error js-group-join-empty-error" id="group-join-empty-error-small">Please enter group code.</span>
+								<span class="hide js-join-group-error js-group-join-wrong-error" id="group-join-wrong-error-small">That code doesn’t belong to any group.</span>
+								<span class="hide js-join-group-error js-group-join-member-error" id="group-join-member-error-small">You are already a member of this group.</span>
+							</div>
+			   			</div>
+			  			<div class="join-button-wrapper-small">
+			     			<a class="button large turquoise js-join-group">Join Group</a><br/>
+			      			<a href="javascript:;" class="js-cancel-join">Cancel</a>
+			   			</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

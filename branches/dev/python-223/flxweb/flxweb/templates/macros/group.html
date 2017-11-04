@@ -1,0 +1,39 @@
+<!--
+*************************************************************************** 
+Macro: ck12_list_group
+Macro to display the groups in a list view. Note this macro only displays
+one item within the list view.
+***************************************************************************
+-->
+{% macro ck12_list_group (group, my_groups) %}
+{% set is_group_already_joined = []%}
+{% for my_group in my_groups %}
+    {% if my_group.id == group.id %}
+        {% if is_group_already_joined.append(1) %}{% endif %}
+    {% endif %}
+{% endfor %}
+<div class="listitem clearfix">
+	<div>
+		<div class="listiteminfo">
+			<h2 class="listitemtitle">{{ group.name|escape }}</a></h2>
+                        {% if is_group_already_joined %}
+                        <div id="search_group_after_join_holder_{{group.id}}" style="float:right; visibility:visible;width:10%;margin-right:7%; color:#777;">
+                            Joined <span id="search_group_result_join_btn"></span> 
+                        </div>
+                        {% else %}
+                        <div id="search_group_before_join_holder_{{group.id}}" style="visibility:visible;float:right; width:30%; text-align:right; margin-right:7%; maring-top:-3%">
+                            <a href="#" id="search_join_group_{{group.id}}" data-groupname="{{group.name}}" data-groupid="{{group.id}}" class="btn group_search_result_join" style="display:inline-block">Join Group</a>
+                        </div>
+                        {% endif %}
+                        {% if group.description %}
+			    <div style="width:80%;word-wrap:break-word;">{{ (group.description or '')|truncate(350)|escape }}</div>
+	                {% else %} 
+			    <div style="font-style:italic">No description</div>
+	                {% endif %} 
+        	</div>
+		<div class="clear"></div>
+	</div>
+	<div class="divider spacetop"></div>
+</div>
+{% endmacro %}
+

@@ -1,0 +1,16 @@
+.editor-modal {
+    .content {
+        font-weight: bold;
+        font-size: 20px;
+        color: $ui-dark;
+    }
+
+    .button.tangerine {
+        font-weight: bold;
+    }
+
+    .link-button {
+        @include linkButton();
+        padding: 0 25px;
+    }
+}

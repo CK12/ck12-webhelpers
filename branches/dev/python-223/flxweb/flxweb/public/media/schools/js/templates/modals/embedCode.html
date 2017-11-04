@@ -1,0 +1,24 @@
+<div class="school-embed-code-body">
+	<div class="school-embed-code-text">
+		Copy and paste the below embed code into your school’s learning management system (LMS) to give students and teachers quick access to this page.
+	</div>
+	<div class="school-embed-code-area">
+		<!-- &ltiframe src="<%-url%>" width='560' height='315'&gt&lt/iframe&gt -->
+		&ltdiv style="width: 250px; text-align: center; font-size: 14px;"&gt&lta href="<%-url%>" style="min-height: 35px;text-transform: capitalize; padding-left: 85px;display: inline-block;background: url(http://static.ck12.org/images/logo_ck12.svg) no-repeat;background-size:85px;background-position-y:45%;"><%-schoolName %> &ltnobr&gtFlexBooks®&lt/nobr&gt&lt/a&gt
+		&lt/div&gt
+	</div>
+	<% if(!isCopySupported){ %>
+		<div style="margin-top:5px; text-align:left; font-size: 12; font-weight:600">Please select and copy the text in the box</div>
+	<% } %>	
+
+	<div class='embed-code-school-btn-container'>
+	<% if(isCopySupported){ %>
+        <div class="button turquoise modal-uikit-alert modal-uikit-confirm right embed-copy-btn">COPY</div>
+    <% }else{ %>	    
+        <div class="button turquoise modal-uikit-alert modal-uikit-confirm right embed-copy-cancel-btn">CANCEL</div>
+    <% } %>	    
+    </div>  
+</div>
+
+
+

@@ -1,0 +1,160 @@
+#!/bin/bash
+echo "args: $@"
+while getopts ":u:p:h:d:a:b:" opt; do
+  case $opt in
+    u)
+      DBUSER=$OPTARG 
+      ;;
+    p)
+      PASSWORD=$OPTARG 
+      ;;
+    h)
+      HOST=$OPTARG 
+      ;;
+    d)
+      DB=$OPTARG 
+      ;;
+    a)
+      AUTH_DB=$OPTARG 
+      ;;
+    b)
+      LOAD=$OPTARG 
+      ;;
+    \?)
+      echo "Usage: r2core-db-init -u [username] -p [password] -h [mysql host] -d [database name] -a [auth database name] -b [yes|no|test]"
+      echo "Default Values: Username=dbadmin, Password=*****, Host=localhost, Database=flx2, Auth Database=auth, Load books=yes"	
+      exit 1
+      ;;
+  esac
+done
+
+if [ "$DBUSER" == "" ]; then
+    DBUSER=dbadmin
+fi
+
+if [ "$PASSWORD" == "" ]; then
+PASSWORD='D-coD#43'
+fi
+
+if [ "$DB" == "" ]; then
+DB=flx2
+fi
+
+if [ "$AUTH_DB" == "" ]; then
+AUTH_DB=auth
+fi
+
+if [ "$HOST" == "" ]; then
+HOST=localhost
+fi
+
+if [ "$LOAD" == "" ]; then
+LOAD="no"
+fi
+
+satellite=""
+
+echo "load=$LOAD"
+echo "Connecting to host=$HOST using username=$DBUSER and password=$PASSWORD to initialize database=$DB and $AUTH_DB"
+
+rm -f /tmp/eocache.sql
+mysqldump --user=$DBUSER --password=$PASSWORD --host=$HOST --default-character-set utf8 --complete-insert --no-create-info $DB EmbeddedObjectCache > /tmp/eocache.sql
+
+autoparsed=""
+echo "Initializing Database: $DB & $AUTH_DB" 
+tmpFile=/tmp/.cdb.sql
+rm -f ${tmpFile}
+cat > ${tmpFile} <<EOF
+DROP DATABASE IF EXISTS $DB;
+CREATE DATABASE $DB;
+DROP DATABASE IF EXISTS $AUTH_DB;
+CREATE DATABASE $AUTH_DB;
+EOF
+cat ${tmpFile}
+mysql --user=$DBUSER --password=$PASSWORD --host=$HOST mysql < ${tmpFile}
+rm -f ${tmpFile}
+echo "Loading schema - flx2"
+mysql --user=$DBUSER --password=$PASSWORD --host=$HOST --database=$DB --default-character-set utf8 < flx2-schema.sql
+echo "Loading schema - auth"
+mysql --user=$DBUSER --password=$PASSWORD --host=$HOST --database=$AUTH_DB --default-character-set utf8 < auth-schema.sql
+if [ -n "${satellite}" ]; then
+    echo "Loading satellite schema"
+    mysql --user=$DBUSER --password=$PASSWORD --host=$HOST --database=$DB --default-character-set utf8 < flx2-img-satellite-schema.sql
+fi
+if [ "${LOAD}" != "test" ]; then
+    echo "Loading data - flx2"
+    mysql --user=$DBUSER --password=$PASSWORD --host=$HOST --database=$DB --default-character-set utf8 < flx2-init.sql
+    echo "Loading data - auth"
+    mysql --user=$DBUSER --password=$PASSWORD --host=$HOST --database=$AUTH_DB --default-character-set utf8 < auth-init.sql
+
+    ## Restore embedded object cache
+    echo "Loading EO Cache ..."
+    mysql --user=$DBUSER --password=$PASSWORD --host=$HOST --database=$DB --default-character-set utf8 < /tmp/eocache.sql
+    rm -f /tmp/eocache.sql
+fi
+echo "Creating views"
+mysql --user=$DBUSER --password=$PASSWORD --host=$HOST --database=$DB --default-character-set utf8 < flx2-create-views.sql
+
+echo "Load test data: ${LOAD}"
+if [ "${LOAD}" = "yes" ]; then 
+    autoparsed="true"
+    echo 'Loading stub data...'
+    mysql --user=$DBUSER --password=$PASSWORD --host=$HOST --database=$DB --default-character-set utf8 < flx2-load-stub.sql
+    echo "Loading foundation grid data..."
+    for sql in fg/01_basic.sql fg/02_math.sql.m0; do
+        mysql --user=$DBUSER --password=$PASSWORD --host=$HOST --database=$DB --default-character-set utf8 < ${sql}
+    done
+    mysql --user=$DBUSER --password=$PASSWORD --host=$HOST --database=$DB --default-character-set utf8 < browsecategories.sql
+    mysql --user=$DBUSER --password=$PASSWORD --host=$HOST --database=$DB --default-character-set utf8 < domainurls.sql
+
+    echo 'Loading books'
+    echo '   ' foundationgrid.sql
+    mysql --user=$DBUSER --password=$PASSWORD --host=$HOST --database=$DB --default-character-set utf8 < foundationgrid.sql
+    echo '   ' biology.sql
+    mysql --user=$DBUSER --password=$PASSWORD --host=$HOST --database=$DB --default-character-set utf8 < biology.sql
+    echo '   ' life_science.sql
+    mysql --user=$DBUSER --password=$PASSWORD --host=$HOST --database=$DB --default-character-set utf8 < life_science.sql
+    echo '   ' calculus.sql
+    mysql --user=$DBUSER --password=$PASSWORD --host=$HOST --database=$DB --default-character-set utf8 < calculus.sql
+    echo '   ' probability.sql
+    mysql --user=$DBUSER --password=$PASSWORD --host=$HOST --database=$DB --default-character-set utf8 < probability.sql
+    echo '   ' trigonometry.sql
+    mysql --user=$DBUSER --password=$PASSWORD --host=$HOST --database=$DB --default-character-set utf8 < trigonometry.sql
+    echo '   ' geometry.sql
+    mysql --user=$DBUSER --password=$PASSWORD --host=$HOST --database=$DB --default-character-set utf8 < geometry.sql
+    echo '   ' earth_science.sql
+    mysql --user=$DBUSER --password=$PASSWORD --host=$HOST --database=$DB --default-character-set utf8 < earth_science.sql
+    echo '   ' ppb.sql
+    mysql --user=$DBUSER --password=$PASSWORD --host=$HOST --database=$DB --default-character-set utf8 < ppb.sql
+    echo '   ' 21st_physics.sql
+    mysql --user=$DBUSER --password=$PASSWORD --host=$HOST --database=$DB --default-character-set utf8 < 21st_physics.sql
+    echo '   ' chemistry.sql
+    mysql --user=$DBUSER --password=$PASSWORD --host=$HOST --database=$DB --default-character-set utf8 < chemistry.sql
+    echo '   ' algebra.sql
+    mysql --user=$DBUSER --password=$PASSWORD --host=$HOST --database=$DB --default-character-set utf8 < algebra.sql
+    echo '   ' contents.sql
+    mysql --user=$DBUSER --password=$PASSWORD --host=$HOST --database=$DB --default-character-set utf8 < contents.sql
+    echo '   ' placeholder-resources.sql
+    mysql --user=$DBUSER --password=$PASSWORD --host=$HOST --database=$DB --default-character-set utf8 < placeholder-resources.sql
+elif [ "${LOAD}" = "test" ]; then
+    echo "Loading testing data ... flx2"
+    mysql --user=$DBUSER --password=$PASSWORD --host=$HOST --database=$DB --default-character-set utf8 < flx2-test-data.sql
+    echo "Loading testing data ... auth"
+    mysql --user=$DBUSER --password=$PASSWORD --host=$HOST --database=$AUTH_DB --default-character-set utf8 < auth-test-data.sql
+else
+    echo 'Loading stub data...'
+    echo "Loading foundation grid data..."
+    
+    if [ -n "${autoparsed}" ]; then
+        #default foundation grid data
+        for sql in $(ls -1 fg/*.sql); do
+            mysql --user=$DBUSER --password=$PASSWORD --host=$HOST --database=$DB --default-character-set utf8 < ${sql}
+        done
+    else
+        #Run this block for fg.manual data
+        ./fg.manual/refresh.sh -u ${DBUSER} -p "${PASSWORD}" -h ${HOST} -d ${DB}
+    fi
+    
+    mysql --user=$DBUSER --password=$PASSWORD --host=$HOST --database=$DB --default-character-set utf8 < browsecategories.sql
+    mysql --user=$DBUSER --password=$PASSWORD --host=$HOST --database=$DB --default-character-set utf8 < domainurls.sql
+fi

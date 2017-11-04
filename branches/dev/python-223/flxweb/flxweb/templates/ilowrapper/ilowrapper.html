@@ -1,0 +1,14 @@
+{% extends "details/resource_details.html" %}
+{% block js %}
+{{ super() }}
+
+<script type="text/javascript" language="JavaScrip ">
+    require (['main',], function(){
+        require(['flxweb.ilowrapper']);
+    });
+</script>
+{% endblock %}
+
+{% block resource_content %}
+	{{ c.ilo_embed }}
+{% endblock %}

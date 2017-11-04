@@ -1,0 +1,398 @@
+{% extends "listings.html" %}
+{% from "macros/form_errors.html" import form_errors with context %}
+{% block admintop %} 
+{% endblock admintop %}
+
+{% block admincontent %}
+	<div style="clear:both;">
+		<span id="new_application_row" class="linklike">[New Application]</span>
+	</div>
+	{{ super() }}
+	<div style="clear:both;">
+		<span id="new_path_row" class="linklike">[New Path]</span>
+		<div> {{_("Select an application above to grant access to API paths") }} </div>
+	</div>
+
+	<div id = "path_list" class="hide">
+		<div class="inline table">
+			<div class="thead sectionhead">
+				<div class="tr">
+					<div class="td">
+						{{ h.labelcheckbox('', 'select_all', False)}}<span class='sort-indicator hide'></span>
+					</div>
+
+					<div class="td">
+						Path Name<span class='sort-indicator hide'></span>
+					</div>
+
+					<div class="td">
+						Action<span class='sort-indicator hide'></span>
+					</div>
+				</div>
+			</div>
+			
+			<div class="tbody">
+			</div>
+		</div>
+	</div>
+
+	<div id = "emptyApplicationRow" class = "hide" >
+		<div class='tr'>
+			<div class='td med'>
+				<input class='efull' type='text' name='title' value=''/>
+			</div>
+
+			<div class='td short'>
+				<input class='efull' type='text' name='title' value=''/>
+			</div>
+
+			<div class="td long">
+				<span class='efull'>Auto-Generated</span>
+			</div>
+			
+			<div class="td status">
+				<span class='linklike add_new_application'>[Add]</span>
+				<span class='linklike cancel_new_application' >[Cancel]</span>
+			</div>
+		</div>
+	</div>
+
+	<div id = "emptyPathRow" class = "hide" >
+		<div class='tr'>
+			<div class='td'>
+			</div>
+
+			<div class='td short'>
+				<input class='efull' type='text' name='title' value=''/>
+			</div>
+
+			<div class="td status">
+				<span class='linklike add_new_path'>[Add]</span>
+				<span class='linklike cancel_new_path' >[Cancel]</span>
+			</div>
+		</div>
+	</div>
+{% endblock admincontent %}
+
+{% block js_scripts %}
+{{ super() }}
+<script type="text/javascript" src="{{ h.url_js('inlineList.js') }}"></script>
+<script type='text/javascript'>
+$(document).ready(function(){
+	Listings({
+		sort: 'updateTime,desc',
+		ajaxRoot: CK12.admUrl('api_partner_applications_list'),
+		viewmode: '{{c.viewmode}}',
+		postLoad:function(){
+			postLoadAction(true);
+		},
+	});
+
+	postLoadAction = function(getAPIPath){
+		firstRow = null;
+		adjustTableTop();
+		$('#leftpane .table').removeClass('hide');
+		if ($($('.table')[0]).find('.tbody').children().length){
+			firstRow = $('#leftpane .table .tbody .tr')[0];
+			removeRowSelection(firstRow);
+			$(firstRow).addClass('selected');
+		}
+		if (getAPIPath){
+			$('.inline').find('.tbody').html('');
+			getallAPIPaths(firstRow);
+		}
+	}
+
+	adjustTableTop = function(){
+		$('.sectionhead, .table').css('margin-top','0px');
+	}
+
+	getallAPIPaths = function(firstRow){
+		InlineList({
+			ajaxRoot: CK12.admUrl('apipaths/'),
+			postLoad: function(){
+				$('#path_list').removeClass('hide');
+				$('.inline').removeClass('hide');
+				if (firstRow){
+					showAPIPaths($(firstRow).find('.status .api_path'));
+				}
+			}
+		});
+	}
+
+	showAPIPaths = function(context){
+		apiPathID = $(context).data('api-path-ids');
+		$('.inline .tbody .tr .td input:checked').each(function( index ) {
+			$(this).removeAttr('checked');
+		});
+
+		if (! apiPathID){
+			return false;
+		}
+    	    	
+		(apiPathID).forEach(function(path,index){
+			if ($('.inline .tbody .tr .td #' + path.id + '') != 0 ){
+				$('.inline .tbody .tr .td #' + path.id + '').attr("checked", "checked");
+			}
+		});
+		udpateSelectAllCheckBox();
+	}
+
+	removeRowSelection = function(row){
+		siblings = $(row).siblings();
+		for (i = 0 ; i < siblings.length; i++){
+			$(siblings[i]).removeClass('selected');
+		}
+	}
+
+	updateApplication = function(){
+		data_item = $('#leftpane .tbody .selected .status');
+		appID = $(data_item).find('.application_delete').data('item-id');
+		
+		if (appID){
+			var paths_array = new Array();
+			$('.inline .tbody .td :checked').each(function( index ) {
+				maskValue = $.trim($($(this).parent().siblings()[0]).html());
+				paths_array[paths_array.length] = {mask: maskValue}; 
+			});
+			app_paths = {"data" : JSON.stringify({"paths":paths_array})}
+			url = "/json/update/application/" + appID;
+			$.ajax({url: CK12.admUrl(url), 
+				type: 'PUT',
+				data : app_paths,
+				success: function(response, status, xhr){
+					if (response){
+						response = $.parseJSON(response);
+						if (! response.message){
+							$(data_item).find('.api_path').data('api-path-ids', response.paths);
+						}else{
+							alert("Unable to update application. " + response.message)
+						}
+					}
+				},
+				error: function(xhr, textStatus, errorThrown){
+					alert('API Error: '+ Fns.formatResponseError(
+								xhr, textStatus, errorThrown));
+				}
+			});
+		}
+	}
+
+	getValidatedApplicationData = function(row){
+		var name = $.trim($($(row).find('.td')[0]).find('input').val()),
+			email = $.trim($($(row).find('.td')[1]).find('input').val());
+
+		if (! (name && email)){
+			alert("All fields are required.");
+			return false;
+		}else if (/(^[-!#$%&'*+\/=?^_`{}|~0-9A-Z]+(\.[-!#$%&'*+\/=?^_`{}|~0-9A-Z]+)*|^"([\001-\010\013\014\016-\037!#-\[\]-\177]|\\[\001-011\013\014\016-\177])*")@(?:[A-Z0-9]+(?:-*[A-Z0-9]+)*\.)+[A-Z]{2,6}$/i.test(email) == false){
+			alert("Invalid email address format.");
+			return false;
+		}
+
+		var paths_array = new Array();
+		$('.inline .tbody .td :checked').each(function( index ) {
+			maskValue = $.trim($($(this).parent().siblings()[0]).html());
+			paths_array[paths_array.length] = {mask: maskValue};
+		});
+
+		var data={
+			'name':name,
+			'email':email,
+			'paths' : paths_array          
+		};
+		return data;
+	}
+
+	addApplication = function(newRow){
+		if (!(data = getValidatedApplicationData(newRow))){
+			return false;
+		}else{
+			data = {"data" : JSON.stringify(data)};
+			url = "/json/new/application/";
+			$.ajax({url: CK12.admUrl(url), 
+				type: 'POST',
+				data : data,
+				success: function(response, status, xhr){
+					if (response){
+						var hasErrorMessage = false;
+						try{
+							response = $.parseJSON(response);
+							hasErrorMessage = true;
+						}catch(e){
+							hasErrorMessage = false;
+						}
+						if (! hasErrorMessage){
+							endIndex = response.indexOf('<div class="pagination">');
+							resp = response.substring(0,endIndex);
+							new_row = $(resp).insertAfter($(newRow));
+							new_row.addClass('selected');
+							removeRowSelection(new_row);
+							$(newRow).remove();
+							if ($('#leftpane .table .tbody .tr').length == 1){
+								pagination = response.substring(endIndex);
+								$('#pagination').html(pagination);
+							}
+							udpateSelectAllCheckBox
+						}else{
+							alert("Unable to add new application, " + response.message)
+						}	
+					}
+				},
+				error: function(xhr, textStatus, errorThrown){
+					alert('API Error: '+ Fns.formatResponseError(
+							xhr, textStatus, errorThrown));
+				}
+			});
+		}
+	}
+
+	getValidatedPathData = function(row){
+		var mask = $.trim($($(row).find('.td')[1]).find('input').val());
+		if (! (mask)){
+			alert("Mask value is required.");
+			return false;
+		}
+
+		var data={
+			'mask':mask          
+		};
+		return data;
+	}
+
+	addPath = function(newRow){
+		if (!(data = getValidatedPathData(newRow))){
+			return false;
+		}else{
+			data = {"data" : JSON.stringify(data)};
+			url = "/json/new/path/";
+			$.ajax({url: CK12.admUrl(url), 
+				type: 'POST',
+				data : data,
+				success: function(response, status, xhr){
+					if (response){
+						var hasErrorMessage = false;
+						try{
+							response = $.parseJSON(response);
+							hasErrorMessage = true;
+						}catch(e){
+							hasErrorMessage = false;
+						}
+						if (! hasErrorMessage){
+							new_row = $(response).insertAfter($(newRow));
+							removeRowSelection(new_row);
+							$(newRow).remove();
+							udpateSelectAllCheckBox();
+						}else{
+							alert("Unable to add new path. " + response.message)
+						}
+					}
+				},
+				error: function(xhr, textStatus, errorThrown){
+					alert('API Error: '+ Fns.formatResponseError(
+							xhr, textStatus, errorThrown));
+				}
+			});
+		}
+	}
+
+	deleteAction = function(row,path){
+		var ID = $(row).data('item-id');
+		var url = '/json/'+path+'/delete/' + ID
+		$.ajax({url: CK12.admUrl(url), 
+			type: 'DELETE', 
+			success: function(data, status, xhr){
+				if (!data){
+					window.updateListingsResult();
+				}else{
+					response = $.parseJSON(data);
+					alert(response.message);
+				}
+			},
+			error: function(xhr, textStatus, errorThrown){
+				alert('API Error: '+ Fns.formatResponseError(
+						xhr, textStatus, errorThrown));
+			}
+		});
+	}
+
+	udpateSelectAllCheckBox = function(){
+		if ($('.tbody .td :checkbox').length == $('.tbody .td :checked').length){
+			$('#select_all').attr("checked", "checked");
+		}else{
+			$('#select_all').removeAttr('checked');
+		}
+	}
+
+	$("#leftpane .table .tbody").on("click", ".api_path" ,function(event){
+		showAPIPaths(this);
+	});
+
+	$("#leftpane .table .tbody").on("click", ".tr" ,function(event){
+		removeRowSelection(this);
+		$(this).addClass('selected');
+		showAPIPaths($(this).find('.status .api_path'));
+		udpateSelectAllCheckBox();
+	});
+
+	$("#leftpane .table .tbody").on("click", ".add_new_application", function(event){
+		addApplication($(this).parent().parent());
+		event.stopPropagation();
+	});
+
+	$(".inline .tbody").on("click", ".add_new_path", function(event){
+		addPath($(this).parent().parent());
+		event.stopPropagation();
+	});
+
+	$("#leftpane .table .tbody").on("click", ".cancel_new_application", function(event){
+		isSelected = $(this).parent().parent().hasClass('selected');
+		$(this).parent().parent().remove();
+		if (isSelected){
+			postLoadAction(false);
+		}
+		event.stopPropagation();
+	});
+
+	$(".inline .tbody").on("click", ".cancel_new_path", function(event){
+		$(this).parent().parent().remove();
+		event.stopPropagation();
+	});
+
+	$('#new_application_row').click(function(){
+		$("#leftpane .table .tbody").append($('#emptyApplicationRow').html());	
+	});
+
+	$('#new_path_row').click(function(){
+		$(".inline .tbody").append($('#emptyPathRow').html());	
+	});
+
+	$('#select_all').click(function(){
+		if ($(this).is(':checked')){
+			$('.td :checkbox').attr("checked", "checked");
+			$(this).attr('title', 'Unselect All');
+		}else{
+			$('.td :checkbox').removeAttr('checked');
+			$(this).attr('title', 'Select All');
+		}
+		updateApplication();
+	});
+
+	$("#leftpane .table .tbody").on("click", ".application_delete", function(event){
+		deleteAction(this,'application');
+		event.stopPropagation();
+	});
+
+	$(".inline .tbody").on("click", ".path_delete", function(event){
+		deleteAction(this,'path');
+		event.stopPropagation();
+	});
+
+	$(".inline .tbody").on("click", "[type=checkbox]", function(event){
+		udpateSelectAllCheckBox();
+		updateApplication();
+		event.stopPropagation();
+	});
+});
+</script>
+{% endblock %}

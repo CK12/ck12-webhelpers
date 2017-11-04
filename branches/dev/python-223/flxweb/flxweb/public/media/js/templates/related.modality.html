@@ -1,0 +1,76 @@
+<div class="individual-modality-wrapper js-individual-modality-wrapper left">
+	
+	<% if (data.collections.length > 0) { %>
+	 <a class="individual-modality" 
+		href="/c/<%= data.collections[0].collectionHandle %>/<%= data.collections[0].conceptCollectionAbsoluteHandle %>/<%=  data.artifactType %>/<%=  data.handle %>/?referrer=recommended_modalities" title="<%= data.title %>"
+		target="_blank">
+	<% } else { %>
+	  <a class="individual-modality" 
+	    href="<%= data.details_url %>"
+	    target="_blank">
+	<% } %>
+	
+		<% if ('asmtpractice' === data.artifactType) { %>
+			<div class="image-wrapper">
+				<div><img src="/media/images/modality_generic_icons/practice_image.png" alt="<%= data.title %>"/>
+					<div class="practice-badge">
+						<div class="pie-container">
+							<div class="inner-circle"></div>
+							<div class="hold">
+								<div class="pie"></div>
+								<div class="pie"></div>
+							</div>
+							<div class="content">
+								<span class="large-text">%</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		<% } else { %>
+			<div class="image-wrapper <% if(!data.thumbnail_img) { %> no-cover <% } %>">
+				<img src="<%= data.thumbnail_img %>" alt="<%= data.title %>">
+				<% if ('video' === data.modalityType.toLowerCase()) { %>
+					<div class="text-center thumbnail_wrapper overlay <% if(data.thumbnail_img) { %> hide-for-large-up <% } %>">
+						<i class="<%= data.modalityIcon %>" alt="<%= data.title %>"></i>
+					</div>
+				<% } %>
+				<% if ('simulations' === data.modalityType.toLowerCase()) { %>
+					<i class="icon-simulations"></i>
+				<% } %>
+			</div>
+		<% } %>
+		<div class="modality-details-wrapper <% if ('asmtpractice' === data.artifactType) { %>related-practice<% } %>">
+			<% if ('asmtpractice' === data.artifactType) { %>
+				<div class="practice-summary text-center"><%= data.title %></div>
+				<div class="columns small-12 memory-boost-section hide">
+					<div class="row">
+						<div class="boost-icon"></div>
+						<div class="boost-message"></div>
+						<div class="tooltip-icon icon icon-help_icon"></div>				
+					</div>
+					<div class="boost-tooltip tooltip-info hide">
+						<div class="tooltip-title">MEMORY METER</div>
+						<div class="tooltip-msg">This indicates how strong in your memory this concept is</div>
+					</div>					
+				</div>
+				<div class="row">
+					<div class="columns small-12">
+						<div class="button standard tangerine js-practice_button related-practice-button hide-for-small"><span>Practice</span><i class="icon-arrow3_right practice-arrow"></i></div>
+						<div class="button standard tangerine js-practice_button_small practice-button show-for-small"><span>Practice</span></div>					
+					</div>
+				</div>				
+			<% } else { %>
+				<div class="modality-type-wrapper">
+					<i class="<%= data.modalityIcon %> modality-icon"></i>
+					<span class="modality-type">
+						<%= data.modalityType %>
+					</span>
+				</div>
+				<div class="modality-title">
+					<span><%= data.title %></span>
+				</div>
+			<% } %>
+		</div>
+	</a>
+</div>

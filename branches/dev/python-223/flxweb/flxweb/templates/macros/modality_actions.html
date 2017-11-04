@@ -1,0 +1,154 @@
+{% from "macros/artifact.html" import ck12_artifact_edit with context %}
+
+<!--
+*************************************************************************** 
+Macro: ck12_modality_add_to_fb
+Add to flexbook action for modality details pages (sidebar)
+***************************************************************************
+-->
+{% macro ck12_modality_add_to_fb (artifact) %}
+	{% if c.user %}
+		<a id="add_to_book"
+				data-artifactID="{{ artifact.get_artifact_id() }}" 
+				data-artifactType="{{ artifact.artifactType }}"
+				data-artifactRevisionID="{{ artifact.get_revision_id() }}"
+				data-title="{{ artifact.title|escape }}"
+				data-perma="{{ artifact.perma }}"
+				href="#" title="{{ _('Add to FlexBook&#174; textbook') }}">{{ _("Add to FlexBook&#174; Textbook") }}</a>
+	{% else %}
+		<a href="javascript:void(0);" class="js_signinrequired" title="{{ _('Add to FlexBook&#174; Textbook') }}">{{ _("Add to FlexBook&#174; Textbook") }}</a>
+	{% endif %}
+{% endmacro %}
+
+
+<!--
+*************************************************************************** 
+Macro: ck12_modality_bookmark
+Bookmark action for modality details pages (sidebar)
+***************************************************************************
+-->
+{% macro ck12_modality_bookmark( artifact ) %}
+<a class="js_tobeimplemented" href="#">{{ _("Bookmark") }}</a>
+{% endmacro %}
+
+<!--
+*************************************************************************** 
+Macro: ck12_modality_print_download
+Download action for modality details pages (sidebar)
+***************************************************************************
+-->
+{% macro ck12_modality_print_download( artifact ) %}
+<a class="dropdowntop hide-for-lti-context">{{ _("Download") }} <span class="tip"></span></a>
+<ul class="dropdown">
+	<li>
+		<a class="{% if not c.user %}js_signinrequired{% else %}js_renderlink{% endif %} pdf" 
+			{% if artifact.url_pdf and artifact.url_pdf[0] %}href="{{ artifact.url_pdf[0] }}"{% else %} href="#" {% endif %} 
+			data-rendertype="pdf" data-artifactid="{{ artifact.artifactID }}" data-artifactrevisionid="{{ artifact.artifactRevisionID }}" 
+			data-rendertemplatetype="onecolumn">{{ _('PDF') }}<span class="popupbubble">{{ _('Most Devices') }}</span></a>
+	</li>
+	<!-- <li>
+		<a class="{% if not c.user %}js_signinrequired{% else %}js_renderlink{% endif %} mobi" 
+			{% if artifact.url_mobi %}href="{{ artifact.url_mobi }}"{% else %} href="#" {% endif %} 
+			data-rendertype="mobi" data-artifactid="{{ artifact.artifactID }}" data-artifactrevisionid="{{ artifact.artifactRevisionID }}">{{ _('mobi') }}<span class="popupbubble">{{ _('Kindle') }}</span></a>
+	</li>
+	<li>
+		<a class="{% if not c.user %}js_signinrequired{% else %}js_renderlink{% endif %} epub" 
+			{% if artifact.url_epub %}href="{{ artifact.url_epub }}"{% else %} href="#" {% endif %} 
+			data-rendertype="epub" data-artifactid="{{ artifact.artifactID }}" data-artifactrevisionid="{{ artifact.artifactRevisionID }}">{{ _('ePub') }}<span class="popupbubble">{{ _('iPad and Android') }}</span></a>
+	</li> -->
+</ul>
+{% endmacro %}
+
+
+<!--
+*************************************************************************** 
+Macro: ck12_modality_edit
+Edit action for modality details pages (sidebar)
+***************************************************************************
+-->
+{% macro ck12_modality_edit( artifact ) %}
+	{{ ck12_artifact_edit( artifact, None, None, c.user, True ) }}
+{% endmacro %}
+
+<!--
+*************************************************************************** 
+Macro: ck12_modality_report_error
+Report an Error action for modality details pages (sidebar)
+***************************************************************************
+-->
+{% macro ck12_modality_report_error( artifact ) %}
+<a data-default="1" class="ck12support-open" href="#">{{ _("Report an Error") }}</a>
+<div id="ck12support" data-ck12-support.name="{{ c.user.fullname }}" data-ck12-support.email="{{ c.user.email }}" style="display:none"></div>
+<!-- <script data-main="http://mirugai.ck12.org/support/js/ck12support-modal.js"
+	src="{{ h.url_lib('require.js') }}"></script>
+-->
+{% endmacro %}
+
+
+<!--
+*************************************************************************** 
+Macro: ck12_modality_publish
+Publish action for modality details pages (sidebar)
+***************************************************************************
+-->
+{% macro ck12_modality_publish( artifact ) %}
+	<a id="js_publish_artifact_link" href="#"
+		data-artifactRevisionID="{{artifact.get_revision_id()}}" 
+		title="{{ _('Submit a Publish Request') }}">
+		{{_('Publish') }}
+	</a>
+{% endmacro %}
+
+<!--
+*************************************************************************** 
+Macro: ck12_modality_details
+Details view action for modality details pages (sidebar)
+***************************************************************************
+-->
+{% macro ck12_modality_details( artifact ) %}
+<a class="js_modality_details js_block_show" data-toggle='.js_metadata_toggle' data-container='.js_metadata_container'  href="javascript:void(0);" title="{{ _('Show Details') }}">{{ _("Details") }}</a>
+{% endmacro %}
+
+<!--
+*************************************************************************** 
+Macro: ck12_modality_details
+Details view action for modality details pages (sidebar)
+***************************************************************************
+-->
+{% macro ck12_modality_resources( artifact ) %}
+<a class="js_modality_resources js_block_show" data-toggle='.js_resources_toggle' data-container='.js_resources_container'  href="javascript:void(0);"  title="{{ _('Show Resources') }}">{{ _("Resources") }}</a>
+{% endmacro %}
+
+<!--
+*************************************************************************** 
+Macro: ck12_modality_item
+Sidebar item for modality details pages (sidebar)
+***************************************************************************
+-->
+{% macro ck12_modality_item( title, label ) %}
+<a class="" title="{{ title }}">{{ label }}</a>
+{% endmacro %}
+
+<!--
+*************************************************************************** 
+Macro: ck12_modality__download_pdf_html
+Download action for modality details pages (sidebar)
+***************************************************************************
+-->
+{% macro ck12_modality__download_pdf_html( artifact ) %}
+<a class="dropdowntop">{{ _("Download") }} <span class="tip"></span></a>
+<ul class="dropdown">
+	<li>
+		<a class="{% if not c.user %}js_signinrequired{% else %}js_renderlink{% endif %} pdf" 
+			{% if artifact.url_pdf and artifact.url_pdf[0] %}href="{{ artifact.url_pdf[0] }}"{% else %} href="#" {% endif %} 
+			data-rendertype="pdf" data-artifactid="{{ artifact.artifactID }}" data-artifactrevisionid="{{ artifact.artifactRevisionID }}" 
+			data-rendertemplatetype="onecolumn">{{ _('PDF') }}<span class="popupbubble">{{ _('Most Devices') }}</span></a>
+	</li>
+	<li>
+		<a class="{% if not c.user %}js_signinrequired{% else %}js_renderlink{% endif %} html" 
+			{% if artifact.url_html %}href="{{ artifact.url_html }}"{% else %} href="#" {% endif %} 
+			data-rendertype="html" data-artifactid="{{ artifact.artifactID }}" data-artifactrevisionid="{{ artifact.artifactRevisionID }}">{{ _('HTML') }}<span class="popupbubble">{{ _('Most Devices') }}</span></a>
+	</li>
+</ul>
+{% endmacro %}
+

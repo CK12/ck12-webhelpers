@@ -1,0 +1,81 @@
+{% extends "base/1column.html" %}
+{% set artifact = c.artifact %}
+{% set exercise = c.exercise %}
+{% block title %} {{ _("Contribute exericse for") }} {{ artifact.title }} {% endblock %}
+{% block stylesheets %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.url_css('details.css') }}" />
+{% endblock %}
+{% block js %}
+{{ super() }}
+<script language="JavaScript" type="text/javascript">
+	require(['main'], function(){
+		require(['jquery','flxweb.global'],function($){
+				require([
+					'jquery.validate',
+					'jquery.qtip',
+					'tinymce-jquery',
+					'tinymce-gzip',
+					'flxweb.editor.tinymce',
+					'flxweb.contribute.exercise',
+					'flxweb.exercise.common'
+				], function(){
+					
+				});
+		});
+	});
+</script>
+{% endblock %}
+
+{% block pageinfotop %}
+<div class="contenttop"></div>
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="grid_12">
+        {% if artifact.get('exercise_page_url') %}
+            <h1><a href="{{ artifact.get('exercise_page_url') }}">{{ artifact.title }}</a> / {{ _("Contribute Question") }}</h1>
+        {% else %}
+            <h1><a href="{{ h.url('modality_branch',branch=artifact.get_branch_handle(),handle=artifact.get('domain').get('handle'),mtype='exercise',mhandle=artifact.get('handle'),qualified=True) }}">{{ artifact.title }}</a> / {{ _("Contribute Question") }}</h1>
+        {% endif %}
+</div>
+<div class="gclear"></div>
+<div class="grid_12">
+<div class="spacetoplarge"></div>
+<div class="contentarea">
+	<div id="view_browse" class="contentview">
+		{% include 'exercise/create_question.html' %}
+		<div class="hide" id="exerciseid">{{ exercise.id }}</div>
+		<div class="hide" id="exercisehandle">{{ artifact.handle }}</div>
+		<div class="addquestionbtnwrap">
+			{% if c.user %}
+				<a class="btn ui-corner-all" id="add_this_question_btn" title="Add This Question">{{ _("Add This Question") }}</a>
+			{% else %}
+				<a class="btn ui-corner-all" onClick="javascript:$.flxweb.alertToSignin();return false;" title="Add This Question">{{ _("Add This Question") }}</a>
+			{% endif %}
+			<a class="btn ui-corner-all" id="reset_btn" title="Reset Form">{{ _("Reset") }} </a>
+		</div>
+		<div id="createq_loading_div" class="hide">
+			{{ _('Creating question...') }}
+			<img class="x-ck12-img-nopopup" src="{{ h.asset_image('images/icon_loading.gif') }}" width="43" height="11" />
+		</div>
+		<div class="createresultwrap hide"></div>
+		<div class="previewquestionwrap"></div>
+
+		<div class="hide" id="js_delete_question_failed_message">{{ _('Sorry, There was an error deleting the question. Please try again later') }}</div>
+		<div class="hide" id="js_add_question_failed_message">{{ _('Sorry, There was an error adding the question. Please try again later') }}</div>
+		<div class="hide" id="js_preview_question_failed_message">{{ _('Sorry, There was an error getting preview of your question. Please recreate your question and try again later') }}</div>
+		<!-- Create Questions body -->
+		<div class="clear"></div>
+	</div>
+</div>
+</div>
+<div class="gclear"></div>
+{% endblock %}
+{% block pageinfobottom %}
+<div class="backtotop">{{ _('Back to the <a href="#" title="Back to top of the page">top of the page &#8593;') }}</a></div>
+{% endblock %}
+

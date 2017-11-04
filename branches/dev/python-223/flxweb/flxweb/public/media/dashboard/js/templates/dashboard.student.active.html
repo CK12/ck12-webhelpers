@@ -1,0 +1,109 @@
+<div class="row collapse dashboard-body-container">
+    <div class="active-dashboard-parent">
+        <div class="row collapse dashboard-menu-wrapper">
+            <div class="large-12 small-12 columns active-dashboard-wrapper">
+                <div class="row collapse">
+                    <div class="header1-regular dashboard-heading hide-small">Dashboard</div>
+                    <a class="show-small text-center left dashboard-tabs-mobile latest-assignment-mobile active" id="latestAssignmentsMobile">Latest Assignments</a>
+                    <a class="show-small text-center left dashboard-tabs-mobile group-activity-mobile" id="groupActivityMobile">Group Activity</a>
+                    <a class="show-small text-center left dashboard-tabs-mobile self-study-mobile" id="selfStudyMobile">Self Study</a>
+                </div>
+                <div class="section-container auto active-dashboard-section" data-section="">
+                  <section>
+                    <p class="title header4-regular active-tab-header latest-assignment hide-for-small" data-section-title><a href="#latestAssignments">Latest Assignments</a></p>
+                    <div class="content row collapse assignments-container" data-section-content data-slug="panel1" id="assignmentsContainer">
+                        
+                    </div>
+                  </section>
+                  <section>
+                    <p class="title header4-regular active-tab-header group-activity hide-for-small" data-section-title><a href="#groupActivity">Group Activity</a></p>
+                    <div class="content row collapse group-activity-container" data-section-content data-slug="panel2" id="groupActivityContainer">
+                        
+                    </div>
+                  </section>
+                  <section>
+                    <p class="title header4-regular active-tab-header self-study hide-for-small" data-section-title><a href="#selfStudy">Self-Study</a></p>
+                    <div class="content row collapse self-study-container" data-section-content data-slug="panel3" id="selfStudyContainer">
+                        <div class="row collapse self-study-state hide" id="slefStudyZeroStateContainer">
+                            
+                        </div>
+                        <div class="row collapse self-study-state" id="latestTracksontainer">
+                           <div id="latestTracks" class="row collapse">
+                               
+                           </div>
+                           <div class="hide row collapse text-center all-subjects-progress-link" id="allSubjectsProgressLink">
+                               <a>See progress on all subjects</a>
+                           </div>
+                     </div>
+                          <div class="all-subjects-container row collapse hide self-study-state" id="allSubjectsContainer">
+                              <div class="large-12 columns selfstudy-view-container">
+                                  <div class="row collapse">
+                                      <div class="large-4 small-2 columns">
+                                          <div class="row collapse">
+                                              <div class="large-1  columns pointer back-button" id="showLatestSelfStudyView">
+                                                  <i class="icon-arrow"></i>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="large-4 small-10 columns selfstudy-select-wrappper text-center" id="allSubjectsHeader">
+                                         <span class="subject-dropdown-selector" data-dropdown="subjectListDropDown"></span>
+                                         <span class="header3-regular subject-name"></span>
+                                         <span class="progress-container js-subject-progress-container hide-important">
+                                             <input type="text" class="knob" value="@@percentage@@">
+                                         </span>
+                                         <span class="progress-count js-subject-progress-count">
+                                             <span class="progress-completed"></span>
+                                             <span class="disable progress-total"></span>
+                                         </span>
+                                         
+                                         <ul id="subjectListDropDown" class="f-dropdown subject-drop-down tangerine-list simple open text-left" data-dropdown-content="">
+                        
+                                         </ul>
+                                     </div>
+                                       <div class="large-4 small-12 columns view-list-wrapper left">
+                                           <div class="row collapse">
+                                               <div class="large-6 small-6 columns select-option-wrapper hidden">
+                                                   <span class="select-option custom-check-box"></span>
+                                                 <span>Completed only</span>
+                                               </div>
+                                               <div class="large-6 small-6 columns">
+                                                   <span class="list-view track-view active" title="List"><i class="icon-list"></i></span>
+                                                 <span class="grid-view track-view" title="Grid"><i class="icon-grid"></i></span>
+                                               </div>
+                                           </div>
+                                     </div>
+                                 </div>
+                             </div>
+                              
+                              <div class="large-12 small-12 columns tracks-container hide grid active" id="tracksGridView">
+                                  <!-- gridview template html -->
+                              </div>
+                              
+                              <div class="large-12 small-12 columns tracks-container list" id="tracksListView">
+                             <div class="row collapse">
+                                 <div class="large-10 small-12 columns small-centered large-centered list-items-wrapper">
+                                     <ul class="list-items-container" id="tracksListContainer">
+                                         <li class='track-list-header'>
+                                             <div class="items-row">
+                                                 <div class="row-left-column">
+                                                     <span class="">track</span>
+                                                 </div>
+                                                 <div class="row-right-column">
+                                                     <span class="">progress</span>
+                                                 </div>
+                                             </div>
+                                         </li>
+                                         <!-- listview template html -->
+                                     </ul>
+                                 </div>
+                             </div>
+                            </div>
+                              
+                          </div>
+                    </div>
+                  </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

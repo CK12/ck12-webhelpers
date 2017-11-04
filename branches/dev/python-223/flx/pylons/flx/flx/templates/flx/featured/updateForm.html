@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>Update Featured Artifact</title>
+    </head>
+    <body>
+        <form name="memberdata" method="POST" action="{{ c.prefix }}/update/featured/{{c.artifactID}}">
+            <table>
+                <tr>
+                    <td>Artifact:</td>
+                    <td>
+                        <input type="text"
+                               name="artifact"
+                               value="{{c.typeName + ":" + c.artifactName}}"
+                               readonly="readonly"
+                               size="16" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Order:</td>
+                    <td>
+                        <input type="number"
+                               name="order"
+                               value={{c.order}}
+                               size="10" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Comments:</td>
+                    <td>
+                        <input type="textarea"
+                               name="comments"
+                               value="{{c.comments}}"
+                               size="80" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" name="submit" value="OK" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

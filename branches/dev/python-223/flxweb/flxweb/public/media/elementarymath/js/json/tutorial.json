@@ -1,0 +1,20 @@
+{
+    "appName": "elementary-browse",
+    "showOnNextSession": true,
+    "tutorials": [
+        {
+            "selector": "none",
+            "content": "<div><h1>Introducing CK-12 Elementary Math!</h1><div class='introduction'><span class='text-center'>Take a quick tour to understand how to navigate and find content.</span></div></div>"
+        },
+        {
+            "selector": "#browse-grades",
+            "skipForSmall": false,
+            "smallViewSelector": ".grades-wrapper-parent",
+            "content": "<h2>1</h2><div>Select a grade level</div>"
+        },
+        {
+            "selector": "#topic-container",
+            "content": "<h2>2</h2><div>Pick the subject matter you'd like to explore.</div>"
+        }
+    ]
+}

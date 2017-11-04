@@ -1,0 +1,583 @@
+{% extends "master.html" %}  
+{% block content %}
+
+<!-- 
+    All of the required JS/CSS/HTML (ecept jquery) is included in this file for portability reasons.
+    Organization: 
+    1) STYLE 
+    2) HTML 
+    3) JS
+-->
+
+<style>
+    #user-trace {
+        padding: 20px;
+    }
+    #user-trace input {
+        width: 20ex;
+        cursor: pointer;
+    }
+    #event-types {
+        width: 30ex;
+    }
+    #time-wrapper input {
+        min-width: 6ex;
+        max-width: 10ex;
+        text-align: center;
+    }
+    #page-settings input {
+        width: 10em;
+    }
+    #submit {
+        padding: 3px;
+        line-height:3px;
+    }
+    
+    .head.sectionhead > tr {
+        line-height: 3px;
+    }
+    #breadcrumbs :first-child {
+        /*display: inline-block;*/
+    }
+    .crumb {
+        padding: 5px;
+        cursor: pointer;
+    }
+    .crumb.current-page {
+        font-weight: bold;
+    }
+    /* TABLE */
+    #table {
+        display: inline-block;
+        margin: 10px;
+        box-shadow: inset 0px 0px 1px #0f0f0f;
+        -webkit-tap-highlight-color: transparent;
+        cursor: default;
+    }
+    #table .head {
+        font-weight: bold;
+        border-bottom: 1px solid grey;
+    }
+    #table .head div:not(:first-child) {
+        border-left: 1px dotted black;
+    }
+    /* ROWS */
+    #table > div > div {
+        display: block;
+        position:relative;
+    }
+    /* CELLS */
+    #table .cell {
+        position:relative;
+        max-width: 450px;
+        word-wrap: break-word;
+    }
+    #table .head .cell {
+        border-bottom: 1px solid grey;
+    }
+    #table tr:not(:last-child) .cell {
+        border-bottom: 1px dotted black;
+    }
+    #table tr .cell:not(:first-child) {
+        border-left: 1px dotted black;
+    }
+    #table .cell {
+        padding: 15px;
+    }
+    #page-marker {
+        display:none;
+        padding-left:50px;
+    }
+    #data-fields {
+        -webkit-user-select:none;
+        -moz-user-select:none;
+        -ms-user-select:none;
+        user-select:none;
+        -webkit-tap-highlight-color: transparent;
+        cursor: pointer;
+        clear:both;
+    }
+    #data-fields * {
+        cursor: pointer;
+    }
+    /* JSON PRETTIFICATION */
+    .json-key {
+        color: brown;
+    }
+    .json-value {
+        color: navy;
+    }
+    .json-string {
+        color: olive;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+    }
+    .options_container_1{
+        float: left;
+        margin-top:10px;
+    }
+    .options_container_2{
+        float: left;
+        margin-left:15px;
+        margin-top:10px;
+    }
+    .separator{
+        clear:both;
+    }
+    .time-wrapper{
+        float:left;
+        margin-top:20px;
+        clear:both;
+    }
+    .result_pagination{
+        float:left;
+        margin-right:15px;
+    }
+    #page-settings{
+        padding-top:10px;
+    }
+</style>
+{% block searches %} 
+    <div>
+        <div class="options_container_1">
+            <span> Email: </span>
+            <input id="member-email" type="email" placeholder="enter user's email"/>
+        - OR -
+            <span>memberID: </span>
+            <input id="member-id" type="number" min="0" placeholder="enter memberID"/>
+        </div>
+        <div class="options_container_2">
+            <span> Event Types (optional) (comma separated): </span>
+            <input 
+                id="event-types" 
+                type="text" 
+                placeholder="Event, event_foo*, ..." 
+                title="Optional: comma separated list of events (regex ok)"
+            />
+        </div>
+        <div id="time-wrapper" class="time-wrapper">
+            <div class="col xwider">
+                {{ h.labelreadonly('From Date', 'from-date', 'short searchby', '') }}
+                <span> Hour (24-hr format): </span>
+                <input id="from-hour" type="number" min="0" max="23" value="0" placeholder="hour" title="from-hour"/>
+            </div>
+            <div class="col xwider">
+                {{ h.labelreadonly('To Date', 'to-date', 'short searchby', '') }}
+                <span> Hour (24-hr format): </span>
+                <input id="to-hour" type="number" min="0" max="23" value="0" placeholder="hour" title="to-hour" />
+            </div>
+        </div>
+        {{ h.submitbutton("Submit", "submit", id="submit")}}
+    </div> 
+{% endblock %} 
+    <hr class="separator"/>
+    <div id="data-fields"> </div>
+    <div id="page-marker">
+        <span> There are <strong></strong> events.</span>
+    </div>
+
+    <div id="breadcrumbs">
+        <div class="result_pagination"> </div>
+        <div id="page-settings"> 
+            <span> Items Per Page: </span>
+            <input id= "page-size" type="number" min="1" value="10" placeholder="items per page" />
+        </div>
+    </div>
+
+    <table cellspacing="0" id="table">
+        <thead class="head sectionhead"> </thead>
+        <tbody class="body"> </tbody>
+    </table>
+
+    <script>
+        (function(window) {
+            // JSON PRETTIFICATION LIB
+            var library = {};
+            library.json = {
+                replacer: function(match, pIndent, pKey, pVal, pEnd) {
+                    var key = "<span class=json-key>";
+                    var val = "<span class=json-value>";
+                    var str = "<span class=json-string>";
+                    var r = pIndent || "";
+                    if (pKey) { r = r + key + pKey.replace(/[": ]/g, "") + "</span>: "; }
+                    if (pVal) { r = r + (pVal[0] == '"' ? str : val) + pVal + "</span>"; }
+                    return r + (pEnd || "");
+                },
+                prettyPrint: function(obj) {
+                    var jsonLine = /^( *)("[\w]+": )?("[^"]*"|[\w.+-]*)?([,[{])?$/mg;
+                    return JSON.stringify(obj, null, 3)
+                        .replace(/&/g, "&amp;").replace(/\\"/g, "&quot;")
+                        .replace(/</g, "&lt;").replace(/>/g, "&gt;")
+                        .replace(jsonLine, library.json.replacer);
+                }
+            };
+
+            // GLOBALS / DECLARATIONS
+
+            const BREADCRUMB_LIMIT = 5;
+            const ERROR = {
+                NO_USER_INFO: "Please Enter memberID or memberEmail",
+                NO_DATE_SPAN: "Please Enter From Date and To Date"
+            };
+
+            // This is the main configuration object used in this app
+            var config = {
+                // turn on/off column headers
+                // add more properties to view additional columns
+                dataFields: {
+                    timestamp: true,
+                    clientID: false,
+                    payload: true,
+                    user_agent: true,
+                    memberID: false,
+                    client_ip: true
+                },
+                // base model object constructor
+                model: function() {
+                    return {
+                        dates: {
+                            from: {
+                                date: null,
+                                hour: 0 
+                            },
+                            to: {
+                                date: null,
+                                hour: 0 
+                            }
+                        },
+                        memberID: null,
+                        memberEmail: null,
+                        pageNum: 1,
+                        eventTypes: null,
+                        pageSize: 10,
+                        formatForAJAX: formatModelForAJAX
+                    }
+                },
+                // keep track of the order of rows (left to right)
+                colOrder: [],
+                // keep track of the formatted server response 
+                list: [] 
+            };
+
+            // model used in the app
+            const postData = new config.model();
+            // other global vars
+            const parser = new DOMParser();
+            var pageSize = null;
+            var breadcrumbsEl = null;
+
+            // CALL INIT AFTER DOMContentLoaded
+            if ( document.readyState === "loaded" ||
+                 document.readyState === "complete" ||
+                 document.readyState === "interactive" )
+            {
+                init();
+            } else { document.addEventListener("DOMContentLoaded", init); }
+
+            // =====================
+            // FUNCTION DECLARATIONS
+            // =====================
+
+            function getDate(dayDiff){
+                var today = new Date();
+                today.setDate(today.getDate()-dayDiff);
+                var dd = today.getDate();
+                var mm = today.getMonth()+1; //January is 0!
+                var yyyy = today.getFullYear();
+                if(dd<10){
+                    dd='0'+dd;
+                } 
+                if(mm<10){
+                    mm='0'+mm;
+                } 
+                today = yyyy+'-'+mm+'-'+ dd;
+        
+                return today
+            }
+            /**
+             * Run this function after DOMContentLoaded
+             * Set up the event bindings, add the data field selectors, and setup the table header.
+             */
+             
+            function init () {
+                pageSize = document.getElementById("page-size");
+                breadcrumbsEl = document.querySelector("#breadcrumbs :first-child");
+                $("#submit").click(getEvents);
+                tmpFromDate = new Date();
+                tmpFromDate.setDate(tmpFromDate.getDate() - 30);
+                $("#from-date").datepicker({
+                    "maxDate": "+0d",
+                    "dateFormat": "yy-mm-dd",
+                    "onSelect": function(date, stuff) { 
+                        postData.dates.from.date = date;
+                    },
+                }).datepicker("setDate", tmpFromDate);
+                
+                $("#to-date").datepicker({
+                    "dateFormat": "yy-mm-dd",
+                    "onSelect": function(date, stuff) { 
+                        postData.dates.to.date = date;
+                    },
+                    "maxDate": "+0d",
+                    "beforeShow": function () {
+                        $(this).datepicker('option', 'minDate', $('#from-date').val());
+                    }
+
+                }).datepicker("setDate", new Date());
+                postData.dates.from.date = $('#from-date').val();
+                postData.dates.to.date = $('#to-date').val();
+
+                $("#from-hour").on("input", function (event) {
+                    postData.dates.from.hour = this.value;
+                });
+                $("#to-hour").on("input", function (event) {
+                    postData.dates.to.hour = this.value;
+                }); $("#member-email").on("input", function (event) { postData.email = this.value;
+                });
+                $("#member-id").on("input", function (event) {
+                    postData.memberID = this.value;
+                });
+                $("#page-size").on("input", function (event) {
+                    postData.pageNum = 1;
+                    postData.pageSize = this.value;
+                });
+                $("#member-email").on("input", function (event) {
+                    postData.memberEmail = this.value;
+                });
+                $("#event-types").on("input", function (event) {
+                    postData.eventTypes = this.value;
+                });
+                setDataFields();
+                formatTableHead();
+
+                var dataFields = document.getElementById("data-fields");
+                var checkboxes = dataFields.querySelectorAll("input[type=checkbox]");
+                for (var i=0, len=checkboxes.length; i<len; i++) {
+                    checkboxes[i].addEventListener("change", function() {
+                        config.dataFields[this.id.replace("data-field-","")] = this.checked;
+                        emptyTable();
+                        formatTableHead();
+                        if (config.list.length) { populateTable(config.list); }
+                    });
+                }
+            }
+
+            /**
+             * Append breadcrumb elements to the breadcrumbs container.
+             */
+            function breadcrumbs (data) {
+                var pages = Math.ceil(data.total/postData.pageSize);
+                emptyDOMNode(breadcrumbsEl);
+                var txt = document.createTextNode("PAGE : ");
+                breadcrumbsEl.appendChild(txt);
+                for (var i=1; i<=pages; i++) {
+                    if (true || i <= BREADCRUMB_LIMIT || i === pages) {
+                        var crumb = document.createElement("span");
+                        crumb.classList.add("crumb");
+                        crumb.classList.add("pager_link");
+                        (function(i) {
+                            crumb.onclick = function() {
+                                postData.pageNum = i;
+                                getEvents();
+                            };
+                        })(i);
+                        crumb.appendChild(document.createTextNode(i));
+                        crumb.setAttribute("data-page", i);
+                        breadcrumbsEl.appendChild(crumb);
+                    }
+                    else {
+                        var crumb = document.createElement("span");
+                        crumb.classList.add("crumb");
+                        crumb.onclick = function() {
+                            postData.pageNum = pages;
+                            getEvents();
+                        };
+                        crumb.setAttribute("data-page", pages);
+                        crumb.appendChild(document.createTextNode("..."));    
+                        crumb.appendChild(document.createTextNode(pages));    
+                        breadcrumbsEl.appendChild(crumb);
+                        break;
+                    }
+                }
+                document.querySelector(".crumb[data-page='"+postData.pageNum+"']").classList.add("current-page");
+                document.querySelector(".crumb[data-page='"+postData.pageNum+"']").classList.add("pager_curpage");
+            }
+
+            /**
+             * Error checking before XHR
+             */ 
+            function formatModelForAJAX () {
+                var payload = {
+                    fromDate: this.dates.from.date + "-" + this.dates.from.hour,
+                    toDate: this.dates.to.date + "-" + this.dates.to.hour,
+                    memberID: this.memberID,
+                    pageNum: this.pageNum,
+                    eventTypes: this.eventTypes,
+                    pageSize: this.pageSize,
+                    memberEmail: this.memberEmail
+                };
+                if (this.memberID === null || this.memberID === "") { 
+                    delete payload.memberID;
+                }
+                if (this.memberEmail === null || this.memberEmail === "") {
+                    delete payload.memberEmail; 
+                }
+                if (!this.memberID && !this.memberEmail) {
+                    alert(ERROR.NO_USER_INFO);
+                    throw new Error(ERROR.NO_USER_INFO);
+                }
+
+                if (!this.dates.from.date || ! this.dates.to.date){
+                    alert(ERROR.NO_DATE_SPAN);
+                    throw new Error(ERROR.NO_DATE_SPAN);
+                }
+                if (this.eventTypes === null || this.eventTypes === "") {
+                    delete payload.eventTypes;
+                }
+                return payload;
+            }
+
+
+
+
+
+            /**
+             * Setup the checkboxes that will toggle on/off the various data fields.
+             * Add additional data fields by appending additional properties to the `config.dataFields` object.
+             * This method creates DOM elements and appends them to a designated container.
+             */
+            function setDataFields() {
+                var container = document.getElementById("data-fields");
+                emptyDOMNode(container);
+                for (var option in config.dataFields) {
+                    var input = document.createElement("input");    
+                    var label = document.createElement("label");
+                    input.setAttribute("type", "checkbox");
+                    input.setAttribute("name", "data-field");
+                    input.setAttribute("id", "data-field-"+option);
+                    input.setAttribute("name", "data-field");
+                    input.checked = (config.dataFields[option]) ? true : false;
+                    label.setAttribute("for", "data-field-"+option);
+                    label.appendChild(document.createTextNode(option));
+                    var span = document.createElement("span");
+                    span.appendChild(input);
+                    span.appendChild(label);
+                    container.appendChild(span);
+                }
+            }
+
+            function emptyDOMNode (node) {
+                while (node.lastChild) {
+                    node.removeChild(node.lastChild);
+                }
+            }
+
+            function emptyTable () {
+                emptyDOMNode(document.querySelector("#table .head"));
+                emptyDOMNode(document.querySelector("#table .body"));
+            }
+
+            /**
+             * Call API, format the API response object, and call the `populateTable` method.
+             */
+            function getEvents () {
+
+                postData.pageSize = pageSize.value;
+                
+                $.ajax({
+                    "type": "GET",
+                    "url" : "/dexter/get/trace/members",
+                    "data": postData.formatForAJAX(),
+                    success: function(data, status, jqXHR) {
+                        if (status !== "success" || data.responseHeader.status !== 0) {
+                            alert("non-zero response status... aborting");
+                        } else if (!data.response.events.length) {
+                            alert("NO EVENTS FOUND :(");
+                        } else {
+                            emptyTable();
+                            emptyList();
+                            formatTableHead();
+                            formatResponse(data.response.events);
+                            populateTable(config.list);
+                            var pageMarker = document.getElementById("page-marker");
+                            pageMarker.querySelector("span > strong").innerHTML = data.response.total;
+                            pageMarker.style.display = "block";
+                            breadcrumbs(data.response);
+                        }
+                    },
+                    error: function() {
+                        console.debug(arguments);
+                        alert("Error communicating with server :(");
+                    }
+                });
+            }
+
+            function emptyList () {
+                while ( config.list.length ) { config.list.pop(); }
+            }
+
+            // flatten the `payload` into the list event objects
+            function formatResponse (list) {
+                for (var i=0, len=list.length; i<len; i++) {
+                    if (typeof list[i].payload === "object") {
+                        for (var thing in list[i].payload) {
+                            list[i][thing] = list[i].payload[thing];
+                        }
+                    }
+                    config.list.push(list[i]);
+                }
+            }
+
+            /**
+             * Insert the data into the table. Create DOM elements for each new entry.
+             * @param {Array} list A list of event objects to be inserted into the table.
+             */ 
+            function populateTable (list) {
+                var body = document.querySelector("#table .body");
+                var colOrder = config.colOrder;
+                var text = "";
+
+                for (var i=0,len=list.length; i<len; i++) {
+                    var row = document.createElement("tr");
+                    for (var j=0, cols=colOrder.length; j<cols; j++) {
+                        var cell = document.createElement("td");
+                        cell.classList.add("cell");
+                        text = list[i][colOrder[j]];
+                        if (typeof text === "object") {
+                                
+                            text = parser.parseFromString("<pre><code>"+library.json.prettyPrint(text)+"</code></pre>", "text/html");
+                            cell.appendChild(text.querySelector("body>pre"));
+
+                        }
+                        else {
+                            cell.appendChild(document.createTextNode(text));
+                        }
+                        row.appendChild(cell);
+                    }
+                    body.appendChild(row);
+                }
+            }
+
+            /**
+             * Get the list of rows from the config object and insert table header elements
+             */
+            function formatTableHead () {
+                var tableHead = document.querySelector("#table .head");
+                var row = document.createElement("tr");
+                while (config.colOrder.length) { config.colOrder.pop(); }
+                for (var i in config.dataFields) {
+                    if ( config.dataFields[i] ) {
+                        var header = document.createElement("th");
+                        header.classList.add("cell");
+                        header.appendChild(document.createTextNode(i));
+                        row.appendChild(header);
+                        config.colOrder.push(i);
+                    }
+                }
+                tableHead.appendChild(row);
+            }
+        })(window);
+    </script>
+
+</div>
+{% endblock %}

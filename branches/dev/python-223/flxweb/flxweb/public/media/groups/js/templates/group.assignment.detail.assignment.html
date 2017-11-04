@@ -1,0 +1,70 @@
+   <!--Group-widget(1) code:Starts-->
+   <div class="left dashboard-widget expand-active @@assign-class@@" id="@@id@@">
+   	<a class="right expand-view-button active js-detail-close"><span class="expand-close"></span><span class="expand-open hide-important">...</span></a>
+   	<div class="widget-heading-container">
+     	<span><img class="group-image" alt="Group Image" src="@@imageSrc@@"/></span>
+         <span class="small-font widget-title">@@groupName@@</span>
+         <div class="header4 widget-main-title js-assignment-name-detail" title="@@assignmentName@@">@@assignmentName@@</div>
+         <div class="widget-main-instructions" title="@@assignmentInstructions@@"><strong>Instructions:</strong> @@assignmentInstructions@@</div>
+     </div>
+     <div class="left widget-body-container">
+     	<div class="bar-graph-container @@graphClass@@">
+     		<div class="bar-graph-header">
+     			<span class="bar-graph-header-complete">@@completed@@</span>
+     			<span>/@@total@@</span>
+     			<span class="bar-graph-header-text">COMPLETED</span>
+     		</div>
+	     	<div class="barGraphs">
+	         </div>
+	    </div>
+         <div class="row collapse">
+         	<span class="start-block concept @@hideStart@@" data-branch="@@branch@@" data-collection-handle="@@recentCollectionHandle@@" data-concept-collection-absolute-handle="@@recentConceptCollectionAbsoluteHandle@@" data-collection-creator-ID="@@recentCollectionCreatorID@@" data-concept-collection-handle="@@recentConceptCollectionHandle@@" data-mtype=@@mtype@@ data-contextName="@@contextName@@" data-contextUrl="@@data-contextUrl@@" data-encodedid="@@recentEncodedID@@" data-login="@@recentLogin@@" data-assignmentid="@@assignmentid@@" data-handle="@@recentHandle@@">start</span>
+             <div class="left body-left-side">
+             	<div class="widget-naivation-container @@hidden@@"><span class="recent-block concept" data-encodedid="@@recentEncodedID@@" data-login="@@recentLogin@@" data-mtype=@@mtype@@ data-contextName="@@contextName@@" data-contextUrl="@@data-contextUrl@@"  data-assignmentid="@@assignmentid@@" data-handle="@@recentHandle@@" data-collection-handle="@@recentCollectionHandle@@" data-collection-creator-ID="@@recentCollectionCreatorID@@" data-concept-collection-absolute-handle="@@recentConceptCollectionAbsoluteHandle@@" data-concept-collection-handle="@@recentConceptCollectionHandle@@">recent</span></div>
+                 <div class="header4-regular widget-instructions pointer concept" data-branch="@@branch@@" data-mtype=@@mtype@@  data-contextUrl="@@data-contextUrl@@" data-contextName="@@contextName@@" data-encodedid="@@recentEncodedID@@" data-login="@@recentLogin@@" data-assignmentid="@@assignmentid@@" data-collection-creator-ID="@@recentCollectionCreatorID@@" data-handle="@@recentHandle@@" data-collection-handle="@@recentCollectionHandle@@" data-concept-collection-absolute-handle="@@recentConceptCollectionAbsoluteHandle@@" data-concept-collection-handle="@@recentConceptCollectionHandle@@">
+                 	<i class="icon-quiz@@recentquiz@@"></i>
+                 	<span title="@@recentConceptName@@">@@recentConceptName@@</span>
+                 </div>
+                 <div class="score-container @@hidden@@">
+                     <span class="score-label">LAST SCORE </span>
+                     <span class="header4 score-count">@@lastScore@@</span>
+                 </div>
+                 <div class="score-container @@hideDone@@">
+                     <span class="icon-checkmark done-checkmark"></span>
+                     <span class="last-score-done">DONE</span>
+                 </div>
+             </div>
+             <div class="left body-right-side @@hideNext@@">
+             	<div class="widget-naivation-container @@hidden@@"><span class="next-block concept" data-mtype=@@nextmtype@@ data-encodedid="@@nextEncodedID@@" data-login="@@nextLogin@@" data-assignmentid="@@assignmentid@@" data-handle="@@nextHandle@@" data-collection-handle="@@nextCollectionHandle@@" data-concept-collection-absolute-handle="@@nextConceptCollectionAbsoluteHandle@@" data-collection-creator-ID="@@nextCollectionCreatorID@@" data-concept-collection-handle="@@nextConceptCollectionHandle@@">next</span></div>
+                 <div class="header4-regular widget-instructions pointer concept @@hideNextConceptWidget@@" data-encodedid="@@nextEncodedID@@" data-login="@@nextLogin@@" data-mtype=@@nextmtype@@  data-assignmentid="@@assignmentid@@" data-handle="@@nextHandle@@" data-collection-handle="@@nextCollectionHandle@@" data-collection-creator-ID="@@nextCollectionCreatorID@@" data-concept-collection-absolute-handle="@@nextConceptCollectionAbsoluteHandle@@" data-concept-collection-handle="@@nextConceptCollectionHandle@@">
+                 	<i class="icon-quiz@@nextquiz@@"></i>
+                 	<span>@@nextConceptName@@</span>
+                 </div>
+             </div>
+             <div class="left body-right-side completed-concepts @@hideComplete@@">
+               	<div class="completed-message-container">
+                   	<span class="success-ribbon"></span>
+                       <span class="paragraph completion-content">done</span>
+                       <div class="small-font concepts-completion-message">You have completed all the concepts</div>
+                   </div>
+               </div>
+         </div>
+         <div class="widget-assignment-footer @@isDueDate@@">
+             <div class="date-container">
+                 <span class="calendar-icon">DUE:</span>
+                 <span class="date-text">@@dueDate@@</span>
+             </div>
+         </div>
+     </div>
+     <!--widget-body-expand code:Starts-->
+     <div class="left widget-body-expands">                            	
+     	<span class="spindle-expand">
+             
+         </span>
+         <span class="swiped-top-button">...</span>
+         <div class="row collapse concepts-wrapper">
+         	<ul class="assignment-concept-list small-font">@@conceptList@@</ul>
+         </div>                    
+         <span class="swiped-bottom-button">...</span>  
+     </div><!--widget-body-expand code:Ends-->                            
+   </div><!--Group-widget(1) code:Ends-->

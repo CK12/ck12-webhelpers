@@ -1,0 +1,17 @@
+{% extends "base/auth/1column.html" %}
+{% block title %}Forbidden{% endblock %}
+
+{% block pageinfotop %}
+<div class="contenttop"></div>
+{% endblock %}
+
+{% block content %}
+<div class="prefix_3 grid_6 suffix_3">
+    <h1 class="sectiontitle toptitle">{{ _("You don't have permission to access the page or resource you requested.") }}</h1>
+    <div class="sectiondivider"></div>
+    {% if c.reason %}
+    <p>{{ c.reason }}</p>
+    {% endif %}
+    <p>{{ _("Error ID: ") }}{{ c.now }}</p>
+</div>
+{% endblock %}

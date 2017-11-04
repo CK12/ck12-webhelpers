@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns:dc="http://www.ck12.org/dc/will_create_ns"
+unique-identifier="chapterid" version="2.0">
+
+  <chapter>
+    <metadata>
+<chapterSeq>4</chapterSeq>
+
+<book>Algebra I</book>
+
+      <chapterid></chapterid>
+      <title>Graphs of Equations and Functions</title>
+      <description>Topics in this chapter:One-Step_Equations,Two-Step_Equations,Multi-Step_Equations,Equations_with_Variables_on_Both_Sides,Ratios_and_Proportions,Scale_and_Indirect_Measurement,Percent_Problems,Problem_Solving_Strategies.
+     </description>
+    </metadata>
+    
+    <lessons>
+      <item id="The_Coordinate_Plane" href="The_Coordinate_Plane.html" sequence="1" />
+      <item id="Graphs_of_Linear_Equations" href="Graphs_of_Linear_Equations.html" sequence="2" />
+      <item id="Graphing_Using_Intercepts" href="Graphing_Using_Intercepts.html" sequence="3" />
+      <item id="Slope_and_Rate_of_Change" href="Slope_and_Rate_of_Change.html" sequence="4" />
+      <item id="Graphs_Using_Slope-Intercept_Form" href ="Graphs_Using_Slope-Intercept_Form.html" sequence="5" />
+      <item id="Direct_Variation_Models" href ="Direct_Variation_Models.html" sequence="6" />
+      <item id="Linear_Function_Graphs" href ="Linear_Function_Graphs.html" sequence="7" />
+      <item id="Problem-Solving_Strategies-Graphs" href ="Problem-Solving_Strategies-Graphs.html" sequence="8" />
+     </lessons>
+  </chapter>
+
+</package>

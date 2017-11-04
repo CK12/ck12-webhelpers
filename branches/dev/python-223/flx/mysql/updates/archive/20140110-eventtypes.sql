@@ -1,0 +1,1 @@
+INSERT INTO `EventTypes` (`name`, `description`) VALUES ('ASMT_REJECTED_QUESTIONS', 'Questions rejected by admin');

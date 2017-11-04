@@ -1,0 +1,447 @@
+@import '../main';
+$activity-count-size: rem-calc(40);
+
+:local {
+    .groupCard {
+        border: $global-border;
+        border-radius: rem-calc(10);
+        box-shadow: $global-shadow;
+        background: $white;
+        position: relative;
+
+        > :global(.row) {
+            min-height: rem-calc(425);
+        }
+    }
+
+    .headerRow {
+        padding: ($global-padding * 2) $global-padding $global-padding;
+
+        .themeImage {
+            width: rem-calc(60);
+            height: rem-calc(60);
+            border: rem-calc(7) solid $IVORY;
+            cursor: pointer;
+        }
+
+        .headerTitles {
+            line-height: 1;
+            vertical-align: sub;
+            @include truncateText();
+
+            .groupName {
+                font-size: rem-calc(24);
+                color: $TIFFANY_BLUE;
+                font-weight: normal;
+            }
+
+            .groupType {
+                text-transform: uppercase;
+                font-size: rem-calc(16);
+                font-weight: normal;
+            }
+
+            i {
+                margin-left: rem-calc(7);
+                color: $GREY_BROWN;
+            }
+        }
+    }
+
+    .menuRow {
+        list-style-type: none;
+        margin-top: $global-padding * 2;
+        margin-bottom: $global-padding * 2;
+
+        .activityMenuOpen {}
+
+        .menuItem {
+            position: relative;
+
+            i {
+                font-size: rem-calc(50);
+                color: $SMOKE_GREY;
+            }
+
+            .menuItemTitle {
+                display: block;
+                text-transform: uppercase;
+                color: $EARTH;
+                margin-top: rem-calc(10);
+            }
+
+            .menuItemCount {
+                display: block;
+                font-weight: bold;
+                color: $SMOKE_GREY;
+                font-size: rem-calc(38);
+            }
+
+            .newCount {
+                cursor: pointer;
+                background: $TIFFANY_BLUE;
+                border-radius: 50%;
+                position: absolute;
+                width: $activity-count-size;
+                height: $activity-count-size;
+                top: 0;
+                left: 50%;
+                text-align: center;
+                transform: translate(50%, -50%)translateX(-(rem-calc(12.5)));
+                transition: transfrom 0.25s ease-out;
+
+                span {
+                    color: $white;
+                    font-weight: bold;
+                    font-size: rem-calc(20);
+                    line-height: 2;
+                }
+
+                &:hover {
+                    transform: translate(50%, -50%)translateX(-(rem-calc(12.5)))scale(1.15);
+                }
+            }
+        }
+    }
+
+    @include breakpoint(small only){
+        .menuRow .menuItem .menuItemTitle {
+            font-size: rem-calc(13);
+        }
+    }
+
+    .sectionRightContent {
+        padding-top: $global-padding;
+        padding-bottom: $global-padding;
+        margin-top: $global-padding;
+        margin-bottom: $global-padding;
+        border-left: $global-border;
+        position: relative;
+
+        & > :global(.row){
+            min-height: rem-calc(360); // Safari fix for centering...
+            height: 100%;
+        }
+
+        .noAssignments {
+            font-size: rem-calc(50);
+            margin-bottom: rem-calc(15);
+            color: $SMOKE_GREY;
+            display: block;
+        }
+
+        .mockInput{
+            width: 100%;
+            background-color: $IVORY;
+            box-shadow: inset 0 5px 7px 2px $transparent-black-deep;
+            padding: ($global-padding / 2) 0;
+            color: $EARTH;
+            font-weight: bold;
+            margin-bottom: rem-calc(15);
+        }
+
+        :global(.icon-notification) {
+            font-size: rem-calc(36);
+            color: $SMOKE_GREY;
+        }
+
+        h6 {
+            color: $OCEAN;
+            font-size: rem-calc(16);
+            margin-bottom: rem-calc(3);
+        }
+
+        p {
+            font-size: rem-calc(14);
+            color: $EARTH;
+        }
+    }
+
+    $animation-duration: 0.35s;
+
+    .sectionLeftContent {
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        > div:first-child {
+            flex: 1 1 content;
+        }
+
+        > div:nth-child(2n+0) {
+            flex: 3;
+        }
+
+        > div:nth-child(3n+0) {
+            flex: 1;
+            animation: flexShrink $animation-duration ease forwards;
+        }
+
+        &.hasActivity {
+            > div:nth-child(2n+0) {
+                flex: 1.75;
+            }
+
+            > div:nth-child(3n+0) {
+                flex: 1;
+                animation: flexGrow $animation-duration ease forwards;
+            }
+        }
+    }
+
+    @keyframes flexGrow {
+        to {
+            flex: 1;
+        }
+    }
+
+    @keyframes flexShrink {
+        to {
+           flex: .01;
+           flex: .00001;
+         }
+    }
+
+    .activityRow {
+        padding-top: $global-padding * 2;
+        padding-bottom: $global-padding;
+        margin-bottom: $global-padding;
+        background-color: $IVORY;
+        border-radius: $global-radius;
+        border: $global-border;
+        position: relative;
+    }
+
+    .members, .assignments, .shared, .qa {
+        @include top-arrow( $bg-color: $IVORY );
+
+        &:before, &:after {
+            transform: translateY(1px);
+        }
+    }
+
+    .members:before, .members:after {
+        left: calc(25% / 2);
+    }
+
+    .assignments:before, .assignments:after {
+        left: calc(25% / 2 + 25%);
+    }
+
+    .shared:before, .shared:after {
+        left: calc(25% / 2 + 50%);
+    }
+
+    .qa:before, .qa:after {
+        left: calc(25% / 2 + 75%);
+    }
+
+    .isStudyGroup.members:before, .isStudyGroup.members:after {
+        left: calc(33.333% / 2);
+    }
+
+    .isStudyGroup.shared:before, .isStudyGroup.shared:after {
+        left: calc(33.333% / 2 + 33.333%);
+    }
+
+    .isStudyGroup.qa:before, .isStudyGroup.qa:after {
+        left: calc(33.333% / 2 + 66.666%);
+    }
+
+    .activityRowClose {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: $EARTH;
+        border-radius: 50%;
+        text-align: center;
+        height: rem-calc(18);
+        width: rem-calc(18);
+        line-height: 1.2;
+        transform: translate(50%, -50%);
+        cursor: pointer;
+	    display: flex;
+	    display: -webkit-flex;
+	    align-items: center;
+	    justify-content: center;
+        i {
+        	margin:auto;
+            color: $IVORY;
+            font-size: rem-calc(9);
+        }
+    }
+
+    .bullets {
+        position: absolute;
+        top: $global-padding;
+        right: $global-padding;
+        list-style-type: none;
+
+        li {
+            display: inline-block;
+            content: '';
+            border-radius: 50%;
+            background-color: $EARTH;
+            width: rem-calc(10);
+            height: rem-calc(10);
+            margin-right: rem-calc(5);
+            cursor: pointer;
+            transition: transform 0.25s;
+            transform: scale(1);
+            transform-origin: center center;
+
+            &.activeBullet {
+                background-color: $TIFFANY_BLUE;
+                transform: scale(1.25);
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
+    .arrow {
+        cursor: pointer;
+    }
+
+    .userImage {
+        width: rem-calc(50);
+        height: rem-calc(50);
+        border-radius: 50%;
+        display: inline-block;
+    }
+
+    .activityDetails {
+        display: block;
+        vertical-align: middle;
+    }
+
+    .activitySubtitle {
+        color: darken($SMOKE_GREY, 20%);
+        font-size: rem-calc(12);
+    }
+
+    .activityTitle, .activitySubtitle {
+        display: block;
+        width: 100%;
+        @include truncateText();
+    }
+
+
+    @include breakpoint(small only){
+        .sectionRightContent{
+            min-height: rem-calc(200);
+        }
+
+        .activityRowClose {
+            font-size: rem-calc(13);
+            line-height: 1.5;
+        }
+
+        .userImage {
+            width: rem-calc(35);
+            height: rem-calc(35);
+        }
+
+        .activityTitle, .activitySubtitle {
+            font-size: rem-calc(12);
+        }
+    }
+}
+
+.tooltip {
+    position: absolute;
+    top: rem-calc(65);
+    z-index: 1;
+    max-width: rem-calc(300);
+    min-width: rem-calc(250);
+}
+
+.tooltipActivityCount {
+    position: absolute;
+    right: 0;
+    transform: translate(100%,-50%)translateX(-($activity-count-size / 2));
+    top: 0;
+    z-index: 1;
+    min-width: rem-calc(300);
+}
+
+.tooltipActivityFeed {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    transform: translateY(-100%);
+    max-width: rem-calc(300);
+    min-width: rem-calc(250);
+}
+
+$min-card-height-ie11: rem-calc(391);
+$min-card-height-ie11-small: rem-calc(350);
+
+@include breakpoint(small only){
+    .sectionRightContent, .sectionRightContent > :global(.row){
+        min-height: 0;
+    }
+}
+
+:global(#{$ie11}) {
+    .menuRow {
+
+        &.activityMenuOpen {
+            transform: translateY(-25%);
+        }
+    }
+
+    .sectionLeftContent, .sectionRightContent {
+        min-height: $min-card-height-ie11;
+    }
+
+    .sectionLeftContent {
+        position: relative;
+    }
+
+    .activityRow {
+        transform: translateY(-100%);
+    }
+
+    .members, .assignments, .shared, .qa {
+        &:before, &:after {
+            transform: translateY(-95px);
+        }
+    }
+
+    .activityRowClose {
+        line-height: 1;
+    }
+
+    .tooltipActivityFeed {
+        top: auto;
+        bottom: 0;
+        transform: translateY(-70%);
+    }
+
+    @include breakpoint(small only){
+        .menuRow {
+            width: 100%;
+        }
+
+        .sectionLeftContent {
+            min-height: $min-card-height-ie11-small;
+        }
+
+        .sectionRightContent {
+            min-height: auto;
+        }
+
+        .activityRow {
+            transform: translateY(-75%);
+        }
+
+        .members, .assignments, .shared, .qa {
+            &:before, &:after {
+                transform: translateY(-60px);
+            }
+        }
+    }
+}

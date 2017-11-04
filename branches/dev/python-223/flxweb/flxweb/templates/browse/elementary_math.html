@@ -1,0 +1,46 @@
+{% extends "common/master.html" %}
+{% block title %}{{ _("Elementary Math") }}{% endblock %}
+
+{% block stylesheets %}
+{{ super() }}
+	<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('elementarymath/css/elementarymath.css') }}" />
+	<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('elementarymath/css/tutorial.css') }}" />
+{% endblock %}
+
+{% block meta_extra %}
+	{{ super() }}
+    <meta name="description" content="Foster critical thinking skills with practice problems, video hints, and full step-by-step solutions, all clearly aligned with Common Core standards.">
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+<script type="text/javascript">
+document.getElementsByClassName('page-title')[0].innerHTML = 'Browse';
+require(['main'], function () {
+    require(['elementarymath/controllers/elementarymath'], function (elementary) {
+        elementary.init(document.getElementById('elementarymath_contentwrap'), document.getElementById('owncontent'), document.getElementById('owncontentsmall'));
+     });
+});
+</script>
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+	<div id="page-disable" class="page-disable js-page-disable hide"></div>
+ 	<div id="loading-icon" class="loading-icon js-loading-icon">
+        <img alt="loading" src="{{ h.asset_image('common/images/icon_loading.gif') }}">
+	</div>
+	<div id="elementarymath_contentwrap" class="row collapse"></div>
+
+{% endblock %}
+
+{% block owncontent %}
+	<div class="topic-details-wrapper hide">
+		<div id="owncontent" class="hide-for-small own-content"></div>
+		<div id="owncontentsmall" class="show-for-small own-content-small js-own-content-small"></div>
+		<div class="row collapse navigate-icon-wrapper js-navigate-icon-wrapper hide-for-small">
+			<i class="icon-arrow3_left left js-left-navigate"></i>
+			<i class="icon-arrow3_right right js-right-navigate"></i>
+		</div>
+	</div>
+{% endblock %}

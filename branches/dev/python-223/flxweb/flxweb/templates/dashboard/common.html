@@ -1,0 +1,64 @@
+{% extends "base/1column.html" %}
+
+{% block stylesheets %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.url_css('artifact_common.css') }}" />
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+<script>
+	require(['require','main'],function(require) {
+		require(['main-library']);
+	});
+</script>
+{% if config.enable_migration == "true" %}
+	{% include "dashboard/migration.html.tmpl" %}
+{% endif %}
+{% endblock %}
+
+{% block pageinfotop %}
+<div class="contenttop container_12">
+	<div id="pageinfotop">
+			{% if config.enable_migration == "true" and c.user.has_1x_books() %}
+			<div id="migration_status">
+			</div>
+		{% endif %}
+	</div>
+</div>
+{% endblock %}
+
+
+{% block content %}
+<div class="grid_12">
+	<h1 class="toptitle">{% block dashboard_titles %}{{ _("Dashboard") }}{% endblock %}</h1>
+	<div class="spacetoplarge"></div>
+</div>
+<div class="gclear"></div>
+<div id="dashboard">
+    <ul id="dashboard_tabs">
+        {# show tabs only for content and tests pages #}
+        {% if c.tab == 'content' or c.tab == 'tests' %}
+		<li {% if c.tab == 'content' %} class="active" {% endif %} >
+			{% if c.tab == 'content' %}
+			<div class="topshadowfix"></div>
+			<a href="{{ h.url('mylib',tab='content') }}">{{ _("Library") }}</a>
+			{% else %}
+			<a href="{{ h.url('mylib',tab='content') }}">{{ _("Library") }}</a>
+			{% endif %}
+		</li>
+		<li {% if c.tab == 'tests' %} class="active" {% endif %} >
+			{% if c.tab == 'tests' %}
+			<div class="topshadowfix"></div>
+			<a href="{{ h.url('mylib',tab='tests') }}">{{ _("My Quizzes") }}</a>
+			{% else %}
+			<a href="{{ h.url('mylib',tab='tests') }}">{{ _("My Quizzes") }}</a>
+			{% endif %}
+         </li>
+        {% endif %}
+	</ul>
+	<div class="clear"></div>
+	{% block dashboardcontent %}
+	{% endblock %}
+</div>
+{% endblock %}

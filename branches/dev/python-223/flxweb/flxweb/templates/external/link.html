@@ -1,0 +1,20 @@
+{% extends "base/1column.html" %}
+
+{% block subjects %}{% endblock %}
+{% block search_box %}{% endblock %}
+{% block usersettings %}{% endblock %}
+
+{% block contentwrap %}
+	<div class="externalurlwrap">
+    {% if c.url_safe %}
+        <div class="originalurl">&#187;&nbsp;<a href="{{ c.external_url }}" title="{{ _('Go to original website -')}} {{ c.external_url }}" target="new">{{ _('Go to original website') }}</a></div>
+        <iframe id="imagepgframe" src="{{c.external_url}}"></iframe>
+    {% else %}
+
+        {{ _('This URL is currently not in our white list. Please contact <a href="mailto:support@ck12.org">support@ck12.org</a> for further queries') }}
+    {% endif %}
+    </div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

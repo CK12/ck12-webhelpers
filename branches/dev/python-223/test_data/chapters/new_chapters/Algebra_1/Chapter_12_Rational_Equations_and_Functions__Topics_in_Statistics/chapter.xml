@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns:dc="http://www.ck12.org/dc/will_create_ns"
+unique-identifier="chapterid" version="2.0">
+
+  <chapter>
+    <metadata>
+<chapterSeq>12</chapterSeq>
+
+<book>Algebra I</book>
+
+      <chapterid></chapterid>
+      <title>Rational Equations and Functions; Topics in Statistics</title>
+      <description>Topics in this chapter:Inverse_Variation_Models,Graphs_of_Rational_Functions,Rational_Expressions,Multiplication_and_Division_of_Rational_Expressions,Addition_and_Subtraction_of_Rational_Expressions,Solutions_of_Rational_Equations,
+     </description>
+    </metadata>
+    
+    <lessons>
+      <item id="Inverse_Variation_Models" href="Inverse_Variation_Models.html" sequence="1" />
+      <item id="Graphs_of_Rational_Functions" href ="Graphs_of_Rational_Functions.html" sequence="2" />
+      <item id="Division_of_Polynomials" href ="Division_of_Polynomials.html" sequence="3" />      
+      <item id="Rational_Expressions" href ="Rational_Expressions.html" sequence="4" />
+      <item id="Multiplication_and_Division_of_Rational_Expressions" href ="Multiplication_and_Division_of_Rational_Expressions.html" sequence="5" />
+      <item id="Addition_and_Subtraction_of_Rational_Expressions" href ="Addition_and_Subtraction_of_Rational_Expressions.html" sequence="6" />
+      <item id="Solutions_of_Rational_Equations" href ="Solutions_of_Rational_Equations.html" sequence="7" />
+      <item id="Surveys_and_Samples" href ="Surveys_and_Samples.html" sequence="8" />
+    </lessons>
+  </chapter>
+
+</package>

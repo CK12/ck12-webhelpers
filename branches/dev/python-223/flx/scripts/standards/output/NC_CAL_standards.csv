@@ -1,0 +1,61 @@
+STANDARD ID,TITLE,DESCRIPTION
+MAT.NC.9-12.CAL.1.01,,Demonstrate an understanding of limits both local and global.
+MAT.NC.9-12.CAL.1.01a,,"Calculate limits, including one-sided, using algebra."
+MAT.NC.9-12.CAL.1.01b,,Estimate limits from graphs or tables of data.
+MAT.NC.9-12.CAL.1.02,,Recognize and describe the nature of aberrant behavior caused by asymptotes and unboundedness.
+MAT.NC.9-12.CAL.1.02a,,Understand asymptotes in terms of graphical behavior.
+MAT.NC.9-12.CAL.1.02b,,Describe asymptotic behavior in terms of limits involving infinity.
+MAT.NC.9-12.CAL.1.02c,,Compare relative magnitudes of functions and their rates of change.
+MAT.NC.9-12.CAL.1.03,,Identify and demonstrate an understanding of continuity of functions
+MAT.NC.9-12.CAL.1.03a,,Develop an intuitive understanding of continuity. (Close values of the domain lead to close values of the range.)
+MAT.NC.9-12.CAL.1.03b,,Understand continuity in terms of limits.
+MAT.NC.9-12.CAL.1.03c,,Develop a geometric understanding of graphs of continuous functions. (Intermediate Value Theorem and Extreme Value Theorem).
+MAT.NC.9-12.CAL.2.01,,"Explore and interpret the concept of the derivative graphically, numerically, analytically and verbally."
+MAT.NC.9-12.CAL.2.01a,,Interpret derivative as an instantaneous rate of change.
+MAT.NC.9-12.CAL.2.01b,,Define derivative as the limit of the difference quotient.
+MAT.NC.9-12.CAL.2.01c,,Identify the relationship between differentiability and continuity.
+MAT.NC.9-12.CAL.2.02,,Apply the concept of derivative at a point.
+MAT.NC.9-12.CAL.2.02a,,"Find the slope of a curve at a point. Examples are emphasized, including points at which there are vertical tangents and points at which there are no tangents."
+MAT.NC.9-12.CAL.2.02b,,Find the tangent line to a curve at a point and local linear approximation.
+MAT.NC.9-12.CAL.2.02c,,Find the instantaneous rate of change as the limit of average rate of change.
+MAT.NC.9-12.CAL.2.02d,,Approximate a rate of change from graphs and tables of values.
+MAT.NC.9-12.CAL.2.03,,Interpret the derivative of a function.
+MAT.NC.9-12.CAL.2.03a,,Identify corresponding characteristics of graphs of f and f’.
+MAT.NC.9-12.CAL.2.03b,,Indentify relationship between the increasing and decreasing behavior of f and the sign of f’.
+MAT.NC.9-12.CAL.2.03c,,Investigate the Mean Value Theorem and its geometric consequences.
+MAT.NC.9-12.CAL.2.03d,,Translate between verbal and algebraic descriptions of equations involving derivatives.
+MAT.NC.9-12.CAL.2.04,,Demonstrate fluency and accuracy in the computation of derivatives.
+MAT.NC.9-12.CAL.2.04a,,"Find the derivatives of basic functions, including power, exponential, logarithmic, trigonometric, and inverse trigonometric functions."
+MAT.NC.9-12.CAL.2.04b,,"Use the basic rules for the derivative of sums, products, and quotients of functions."
+MAT.NC.9-12.CAL.2.04c,,Use the chain rule and implicit differentiation.
+MAT.NC.9-12.CAL.2.05,,Interpret the second derivative.
+MAT.NC.9-12.CAL.2.05a,,"Identify the corresponding characteristics of the graphs of f, f’, and f’’."
+MAT.NC.9-12.CAL.2.05b,,Identify the relationship between the concavity of f and the sign of f’’.
+MAT.NC.9-12.CAL.2.05c,,Identify points of inflection as places where concavity changes.
+MAT.NC.9-12.CAL.2.06,,Apply the derivative in graphing and modeling contexts.
+MAT.NC.9-12.CAL.2.06a,,"Analyze curves, including the notions of monotonicity and concavity."
+MAT.NC.9-12.CAL.2.06b,,Optimize with both absolute (global) and relative (local) extrema.
+MAT.NC.9-12.CAL.2.06c,,"Model rates of change, including related rates problems."
+MAT.NC.9-12.CAL.2.06d,,Use implicit differentiation to find the derivative of an inverse function.
+MAT.NC.9-12.CAL.2.06e,,"Interpret the derivative as a rate of change in varied applied contexts, including velocity, speed, and acceleration."
+MAT.NC.9-12.CAL.2.06f,,Interpret differential equations via slope fields and the relationship between slope fields and solution curves for differential equations.
+MAT.NC.9-12.CAL.3.01,,Explore and interpret the concept of the definite integral.
+MAT.NC.9-12.CAL.3.01a,,"Compute Riemann sums using left, right, and midpoint evaluation points."
+MAT.NC.9-12.CAL.3.01b,,Find the definite integral as a limit of Riemann sums over equal subdivisions.
+MAT.NC.9-12.CAL.3.01c,,Find the definite integral of the rate of change of a quantity over an interval interpreted as the change of the quantity over the interval: f’(x)dx = f(b) – f(a)
+MAT.NC.9-12.CAL.3.01d,,Identify basic properties of definite integrals. (Examples include additivity and linearity.)
+MAT.NC.9-12.CAL.3.02,,Apply standard techniques of anti-differentiation.
+MAT.NC.9-12.CAL.3.02a,,Find anti-derivatives following directly from derivatives of basic functions.
+MAT.NC.9-12.CAL.3.02b,,Find anti-derivatives by substitution of variables (including change of limits for definite integrals).
+MAT.NC.9-12.CAL.3.03,,Apply and interpret the Fundamental Theorem of Calculus.
+MAT.NC.9-12.CAL.3.03a,,Use the Fundamental Theorem to evaluate definite integrals.
+MAT.NC.9-12.CAL.3.03b,,"Use the Fundamental Theorem to represent a particular anti-derivative, and the analytical and graphical analysis of functions so defined."
+MAT.NC.9-12.CAL.3.04,,Define and use appropriate integrals in a variety of applications.
+MAT.NC.9-12.CAL.3.04a,,Interpret the integral of a rate of change to give accumulated change.
+MAT.NC.9-12.CAL.3.04b,,Find specific antiderivatives using initial conditions.
+MAT.NC.9-12.CAL.3.04c,,Set up and use an approximating Riemann sum or trapezoidal sum and represent its limit as a definite integral.
+MAT.NC.9-12.CAL.3.04d,,Find the area of a region.
+MAT.NC.9-12.CAL.3.04e,,Find the volume of a solid with known cross sections.
+MAT.NC.9-12.CAL.3.04f,,Find the average value of a function.
+MAT.NC.9-12.CAL.3.04g,,Find the distance traveled by a particle along a line.
+MAT.NC.9-12.CAL.3.04h,,"Solve separable differential equations and use them in modeling. In particular, study the equation y’ = ky and exponential growth."

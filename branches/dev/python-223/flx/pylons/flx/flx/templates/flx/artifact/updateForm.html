@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>Update Artifact</title>
+    </head>
+    <body>
+        <form name="artifact" method="POST" action="{{ h.url(controller='artifact', action='updateArtifact', id=c.id, rev=c.rev, type=None) }}">
+            <table>
+                <input type="hidden" name="id" value="{{ c.id }}" />
+                <input type="hidden" name="xhtmlID" value="{{ c.xhtmlID }}" />
+                {% for key in c.keys %}
+                <tr>
+                    <td>
+                        {{ key }}:
+                    </td>
+                    <td>
+                        {% if key == 'xhtml' %}
+                        <textarea name="{{ key }}" rows="30" cols="120" wrap="physical">{{ c.metaDict[key] }}</textarea>
+                        {% else %}
+                        <input type="text"
+                               name="{{ key }}"
+                               value="{{ c.metaDict[key] }}"
+                               {% if c.readonly[key] %}
+                               readonly="readonly"
+                               {% endif %}
+                               size="105"/>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+                {% if c.metaDict['type'] == 'section' %}
+                <tr>
+                  <td style="text-align:right;"><input type="checkbox" name="upgradeToLesson" value="true" /></td>
+                  <td>Upgrade to lesson</td>
+                </tr>
+                {% endif %}
+                <tr>
+                  <td style="text-align:right;"><input type="checkbox" name="autoSplitLesson" value="true" /></td>
+                  <td>Split lesson xhtml into lesson and concept</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" name="submit" value="OK" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,154 @@
+/***
+ * Used when the app is within a diffrent context such as lti
+ ****/
+
+/*
+ * Help banner style
+ */
+#lti_help_banner {
+    position: relative;
+    z-index: 1;
+    margin-top: 0.2em;
+    box-shadow: 0 2px 3px RGBA(0,0,0,.15);
+    background: #FFF9D5;
+}
+#lti_help_banner.concept{
+    margin-bottom: 0px;
+}
+#lti_banner_msg_container{
+    padding-top: 20px;
+    padding-bottom: 5px;
+    padding-left: 40px;
+    text-align: left;
+}
+#lti_banner_message .lti_assign_message{
+    top: 0px;
+    color: #FF6633;
+}
+
+a.close-lti-help-banner {
+    position: absolute;
+    right: 0px;
+    margin-top: 5px;
+    height: 50px;
+    width: 50px;
+}
+.close-lti-help-banner .close-icon:before,
+.close-lti-help-banner .close-icon:after{
+    height: 20px;
+    right: 30px;
+}
+.show-for-lti-context {
+	display: none;
+}
+
+/* auto search box*/
+html[data-app-context='lti_app'] .ui-widget.ui-autocomplete.search{
+    max-width: 320px !important;
+}
+
+html[data-app-context='lti_app'] .show-for-lti-context {
+	display: inherit;
+}
+html[data-app-context='lti_app'] .hide-for-lti-context {
+    display: none !important;
+}
+/* Resources customize link*/
+html[data-app-context='lti_app'] a.editAttachmentLink {
+    display: inline;
+}
+html[data-app-context='lti_app'] span.assign-info-img {
+    display: none !important;
+}
+html[data-app-context='lti_app'] .original-nav-container li[data-magellan-arrival="header_groups"],
+html[data-app-context='lti_app'] li[data-magellan-arrival="header_dashboard"],
+html[data-app-context='lti_app'] li[data-magellan-arrival="header_forums"]
+/*html[data-app-context='lti_app'] li[data-magellan-arrival="header_library"],*/
+/*html[data-app-context='lti_app'] li[data-magellan-arrival="header_browse"],*/
+/*html[data-app-context='lti_app'] li#search*/{
+        display: none !important;
+}
+html[data-app-context='lti_app'] li[data-magellan-arrival="header_browse"]{
+    margin-left:35px;
+    margin-right:35px;
+}
+
+html[data-app-context='lti_app'] li[data-magellan-arrival="header_library"]{
+    margin-left:35px;
+    margin-right:35px;
+}
+html[data-app-context='lti_app'] #lti_home_browse{
+    margin-right:50px;
+}
+html[data-app-context='lti_app'] #lti_classic_switch{
+    right: 35px;
+    position: absolute;
+    margin-top: 20px;
+}
+
+
+html[data-app-context='lti_app'] section.user-settings{
+        display: none;
+}
+html[data-app-context='lti_app'] header.original-nav{
+        height: 58px;
+}
+html[data-app-context='lti_app'] body .header-space{
+        padding-top: 50px;
+}
+
+html[data-app-context='lti_app'] #library_btn {
+    margin-right: 50px;
+}
+
+html[data-app-context='lti_app'] #library-show {
+    background-color: #b5b1a8;
+    border-bottom: 3px solid #9c9992;
+    border-top: 3px solid #fff;
+    box-shadow: 0 3px 0 #fff;
+    font-weight: bold;
+    padding: 6px 23px 14px !important;
+    height: 45px;
+    color: white;
+    top: 3px;
+}
+
+html[data-app-context='lti_app'] #searchClose {
+    display: none !important;
+}
+
+html[data-app-context='lti_app'] #lti_context_search_container {
+    width:340px;
+    padding-left: 20px;
+}
+
+html[data-app-context='lti_app'] #library-show i {
+    color: #FECF3F;
+    font-size: 1.3em
+}
+
+html[data-app-context='lti_app'] #lti-loading-icon{
+	display: block;
+}
+
+html[data-app-context='lti_app'] .assign-to-lms{
+	line-height: 15px;
+}
+
+html[data-app-context='lti_app'] .assign-to-lms a{
+	color: #FF6633;
+	font-size: 14px;
+}
+
+html[data-app-context='lti_app'] #lms_personalize_link {
+	display: inline;
+}
+
+html[data-app-context='lti_app'] #customizeModalityModal {
+	top: 60px !important;
+}
+
+html[data-app-context='lti_app'] button.supportButton {
+	display: none !important;
+}
+

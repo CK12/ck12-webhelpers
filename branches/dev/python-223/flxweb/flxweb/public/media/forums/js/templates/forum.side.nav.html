@@ -1,0 +1,47 @@
+<div class="side-nav-container">
+    <div class="side-nav">
+        <div class="nav-link-wrapper nav-clickable" id="nav-home">
+            <div class="nav-link">
+                <i class="icon-groups_home"></i>
+                <span>Home</span>
+            </div>
+        </div>
+        <div class="nav-link-wrapper nav-clickable" id="nav-guide-line">
+            <div class="nav-link" data-reveal-id="showGuidelines">
+                <i class="icon-guidelines"></i>
+                <span>CK-12 Cafe Guidelines</span>
+            </div>
+        </div>
+        <div class="nav-link-wrapper nav-clickable" id="nav-how-work">
+            <div class="nav-link" id="nav-tour">
+                <i class="icon-tutorial"></i>
+                <span> How does this work?</span>
+            </div>
+        </div>
+        <div class="nav-link-wrapper" id="nav-member">
+            <div class="nav-clickable">
+                <div class="nav-link forum-members-link">
+                    <i class="icon-members"></i>
+                    <span><%- total%> Followers</span>
+                </div>
+            </div>
+            <div class="followers-image-wrapper">
+                <% _.each(members ,function(member){%>
+                <img src="/auth/member/image/<%-member.id%>">
+                <%})%>
+            </div>
+            <div class="load-more">
+                <a href="" class="forum-members-link"> View all followers</a>
+            </div>
+        </div>
+        <% if(isMember){%>
+        <div class="nav-link-wrapper nav-clickable" id="nav-setting">
+            <div class="nav-link">
+                <i class=" icon-settings_single"></i>
+                <span>Settings</span>
+            </div>
+        </div>
+        <% }%>
+
+    </div>
+</div>

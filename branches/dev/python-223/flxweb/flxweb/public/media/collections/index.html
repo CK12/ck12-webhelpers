@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CK-12 Collections development page</title>
+  <link media="screen" type="text/css" href="/media/lib/jquery-ui/css/smoothness/jquery-ui-1.8.17.custom.css" rel="stylesheet"/>
+  <link rel="stylesheet" type="text/css" media="all" href="/media/common/css/master.css" />
+  <link rel="stylesheet" type="text/css" media="all" href="/media/css/browse.css" />
+  <link rel="stylesheet" type="text/css" media="all" href="/media/css/browse-toggle.css" />
+  <link rel="stylesheet" type="text/css" media="all" href="/media/common/css/3d-book.css" />
+  <link rel="stylesheet" type="text/css" media="all" href="/media/collections/css/collections.css" />
+
+</head>
+<body>
+  <div id="content-container" >
+    <div id="debug">
+
+    </div>
+    <div id="collectionMain" onscroll="onScroll()" class="content-wrap row"></div>
+    <div id="sharePlaneWrapper" class="row relative share-plane-container">
+
+    </div>
+  </div>
+  <script>
+    window._ck12cdnprefix = '' + window.location.protocol + '//' + window.location.host +  '/api/';
+    function onScroll() {
+      var sharePlane = (document.getElementsByClassName("share-plane-div") || [])[0],
+          footer = (document.getElementsByTagName('footer') || [])[0],
+          rect = footer && footer.getBoundingClientRect();
+      if(!sharePlane || !footer)
+        return;
+      if(rect.top < window.innerHeight)//footer is visible
+        sharePlane.classList.add('absolute');
+      else
+        sharePlane.classList.remove('absolute');
+    }
+  </script>
+  <script language="JavaScript" type="text/javascript" src="/media/common/vendor/requirejs/require.js" data-main="/media/main"></script>
+  <script src="/collections.js"></script>
+  <script>
+    Collections.init(document.getElementById('collectionMain'));
+  </script>
+
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+{% from "macros/pagination.html" import paginate with context %}  
+
+{% if c.paginator.item_count > 0 %}
+  {% for i in c.paginator.items %}
+  <div class="tr">
+    <div class="td id">{{i.id}}</div>
+    <div class="td">{{h.userlink(i, 'ownerID', 'ownerID')}}</div>
+    <div class="td">{{i.typeName}}</div>
+  {% if i.objectType=='artifact' and i.objectID %}
+    <div class="td">{{h.idlink('artifact', i, 'objectType', 'objectID')}}</div>
+  {% else %}
+    <div class="td">{{i.objectType}}</div>
+  {% endif %}
+  {#<div class="td">{{h.idlink('event', i, 'typeDesc', 'id')}}</div>#}
+    <div class="td">{{i.typeDesc}}</div>
+    <div class="td nowrap">{{i.created|compact}}</div>
+  </div>
+  {% endfor %}
+  {{ paginate(c.paginator) }}
+{% endif %}

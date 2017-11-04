@@ -1,0 +1,31 @@
+{% extends "listings.html" %}  
+
+{% block filters %} 
+  <div class="col tiny">Filter by:</div>
+  <div class="col wide">
+    {{ h.labelselect('Name', 'name_filter', c.form.name_sel, 'filter') }}
+  </div>
+  <div class="col sml">
+    {{ h.labelselect('Status', 'status_filter', c.form.status_sel, 'filter') }}
+  </div>
+{% endblock %}
+
+{% block aftersearches %}
+  <div class="col med">
+    {{ h.labelselect('Auto Refresh List', 'autorefresh', c.form.refresh_sel) }}
+  </div>
+  {{ super() }}
+{% endblock %}
+
+{% block js_scripts %}
+{{ super() }}
+<script type='text/javascript'>
+  Listings({
+    sort: 'updated,desc',
+    ajaxRoot: CK12.admUrl('tasks_list'),
+    formAjax: CK12.admUrl('task/'),
+    viewmode: '{{c.viewmode}}',
+    extraStyling: function(){ Fns.colorStatus(); }
+  });
+</script>
+{% endblock %}

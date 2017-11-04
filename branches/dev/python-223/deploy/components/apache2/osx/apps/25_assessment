@@ -1,0 +1,10 @@
+    WSGIPythonPath /opt/2.0/assessment/engine/pyramid:/opt/env/asmt/lib/python2.7/site-packages
+    WSGIDaemonProcess assessment_wsgi processes=5 threads=25 maximum-requests=10000 home=/opt/ python-path=/opt/env/asmt/lib/python2.7/site-packages display-name=%{GROUP}
+    WSGIScriptAlias /assessment/api /opt/2.0/assessment/engine/pyramid/assessment.wsgi
+    <Directory /opt/2.0/assessment/engine/pyramid/>
+        Require all granted
+    </Directory>
+    <Location /assessment/api>
+        WSGIProcessGroup assessment_wsgi
+    </Location>
+

@@ -1,0 +1,3 @@
+Summer Program
+
+{{ events[0].eventData['body'] }}

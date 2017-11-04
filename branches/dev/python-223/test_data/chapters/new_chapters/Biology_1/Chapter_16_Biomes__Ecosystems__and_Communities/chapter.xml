@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns:dc="http://www.ck12.org/dc/will_create_ns"
+unique-identifier="chapterid" version="2.0">
+
+  <chapter>
+    <metadata>
+<chapterSeq>16</chapterSeq>
+
+<book>Biology I</book>
+
+      <chapterid></chapterid>
+      <title>Biomes, Ecosystems, and Communities</title>
+      <description>Topics in this chapter include:Biomes,Terrestrial_Biomes,Aquatic_Biomes,Community_Interactions.
+     </description>
+    </metadata>
+    
+    <lessons>
+      <item id="Biomes" href="Biomes.html" sequence="1" />
+      <item id="Terrestrial_Biomes" href ="Terrestrial_Biomes.html" sequence="2" />
+      <item id="Aquatic_Biomes" href ="Aquatic_Biomes.html" sequence="3" />
+      <item id="Community_Interactions" href ="Community_Interactions.html" sequence="4" />
+    </lessons>
+  </chapter>
+
+</package>

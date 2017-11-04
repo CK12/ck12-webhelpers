@@ -1,0 +1,59 @@
+<div class="secondarytext">
+	<h1 class="toptitle"></h1>
+	<div class="spacetoplarge"></div>
+	<h2 class="resultfiltertitle caption spacetop">{{ _("Search Tools") }}<span class="tip up"></span></h2>
+	
+	<div class="divider"></div>
+	<div class="resultfiltercontainer">
+		<h2 class="caption spacetop">{{ _("Categories") }}</h2>
+	{% for filter in c.search_filters %}
+		{% if filter.key in c.selected_filters and c.selected_filters[filter.key] == filter.value %}
+			<div class="selected-category">{{ filter.label }}</div>
+		{% else %}
+			<div><a class="category-filter" href="{{request.path}}{{ request.url|ck12_query_parameters({filter.key:filter.value,'pageNum':1,'m':'all'}) }}" title="{{filter.label}}">{{filter.label}}</a></div>
+		{% endif %}
+	{% endfor %}
+
+	<div class="divider spacetop"></div>
+	
+{% if c.user %}
+	{% if c.only_my_artifacts %}
+		<div class="spacetop"><a class="content-type" href="{{request.path}}{{ request.url|ck12_query_parameters({'my':false,'pageNum':1}) }}{{c.m_query_params}}">{{_("All Content") }}</a></div>
+		<div class="my-library">{{ _("In My Library") }}</div>
+	{% else %}
+		<div class="spacetop">{{_("All Content") }}</div>
+		<div><a class="content-type library" href="{{request.path}}{{ request.url|ck12_query_parameters({'my':true,'pageNum':1}) }}{{c.m_query_params}}">{{ _("In My Library") }}</a></div>
+	{% endif %}
+
+	<div class="divider spacetop"></div>
+{% endif %}
+	{% if not c.at or c.at == 'everything' or c.at == 'concept' %}
+	<h2 class="caption spacetop">{{ _("Modalities") }}&nbsp;&nbsp;&nbsp;&nbsp;</h2><a href="{{request.path}}{{ ''|ck12_query_parameters({'q':c.search_term,'at':c.at,'pageNum':1,'my':c.only_my_artifacts}) }}"><span style="font-size:0.7em;">reset</span></a>
+	<div class="spacetop"></div>
+	<div class="js_modality_filters" data-search_url="{{request.path}}{{ ''|ck12_query_parameters({'q':c.search_term,'at':'concept','pageNum':1,'my':c.only_my_artifacts,'origin':'mf'}) }}">
+		<table class="sidebarfilters">
+		{% for filter in c.search_modality_filters %}
+			{% set filter_checked = '' %}
+			{% if filter.key in c.selected_filters and filter.value in c.selected_filters[filter.key] %}
+				{% set filter_checked = 'checked' %}
+			{% endif %}
+				<tr>
+					<td>
+						<input type="checkbox" name="{{filter.key}}" id="{{filter.value}}" value="{{filter.value}}" {% if filter_checked %}checked="{{filter_checked}}" {% endif %} />
+					</td>
+					<td>
+						<label for="{{filter.value}}" class="{{filter_checked}}">{{ filter.label }}</label>
+					</td>
+				</tr>
+		{% endfor %}
+		</table>
+	</div>
+	
+	<div class="divider spacetop"></div>
+	<a id="applyFilters" class="button standard turquoise">Apply</a>
+	<div class="divider spacetop"></div>
+	{% endif %}	
+
+	</div>
+</div>
+

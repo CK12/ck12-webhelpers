@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cmap xmlns:dcterms="http://purl.org/dc/terms/" xmlns="http://cmap.ihmc.us/xml/cmap/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:vcard="http://www.w3.org/2001/vcard-rdf/3.0#">
+    <res-meta>
+        <dc:title>ProbStat</dc:title>
+        <dc:creator>
+            <vcard:FN>Chris Yu</vcard:FN>
+            <vcard:EMAIL>christopher@ck12.org</vcard:EMAIL>
+            <vcard:ORG>
+                <vcard:Orgname>CK-12</vcard:Orgname>
+            </vcard:ORG>
+        </dc:creator>
+        <dc:contributor>
+            <vcard:FN>Chris Yu</vcard:FN>
+            <vcard:EMAIL>christopher@ck12.org</vcard:EMAIL>
+            <vcard:ORG>
+                <vcard:Orgname>CK-12</vcard:Orgname>
+            </vcard:ORG>
+        </dc:contributor>
+        <dcterms:rightsHolder>
+            <vcard:FN>Chris Yu</vcard:FN>
+            <vcard:EMAIL>christopher@ck12.org</vcard:EMAIL>
+            <vcard:ORG>
+                <vcard:Orgname>CK-12</vcard:Orgname>
+            </vcard:ORG>
+        </dcterms:rightsHolder>
+        <dcterms:created>2011-07-27T09:24:09-07:00</dcterms:created>
+        <dcterms:modified>2011-07-27T11:10:56-07:00</dcterms:modified>
+        <dc:language>en</dc:language>
+        <dc:format>x-cmap/x-storable</dc:format>
+        <dc:publisher>FIHMC CmapTools 5.04.02</dc:publisher>
+        <dc:extent>12885 bytes</dc:extent>
+        <dc:source>cmap:1JL4LSB3Q-1JMC4MV-1:1JL4LSHYY-59CBFS-Y:1JP1VS1WN-S59M9G-6X3M</dc:source>
+    </res-meta>
+    <map width="1627" height="3156">
+        <concept-list>
+            <concept id="1JP1W9HLC-23B2RCH-6XDN" label="Planning and Conducting&#xa;an Experiment or Study&#xa;[MAT.APS.270]"/>
+            <concept id="1JP1YJLRK-6WVK7Q-6Z07" label="Standard Normal Probability&#xa;Distribution&#xa;[MAT.APS.184]"/>
+            <concept id="1JP1WD7YV-1BGSJ11-6XP8" label="Non-Parametric&#xa;Statistics&#xa;[MAT.APS.810]"/>
+            <concept id="1JP1ZWB6D-1PC1W6H-70CR" label="Testing a Proportion&#xa;Hypothesis&#xa;[MAT.APS.461]"/>
+            <concept id="1JP1XZSK6-PV78Y6-6YPQ" label="The Poisson Probability&#xa;Distribution&#xa;[MAT.APS.120]"/>
+            <concept id="1JP1ZXGL4-1GRCKX3-70HD" label="Testing a Hypothesis for&#xa;Dependent and Independent Samples&#xa;[MAT.APS.473]"/>
+            <concept id="1JP20VRNG-2DTVYHD-71SN" label="The Two-Way ANOVA&#xa;Test&#xa;[MAT.APS.741]"/>
+            <concept id="1JP1Z46Y2-FZW415-6ZY7" label="The z-Score and Central&#xa;Limit Theorem&#xa;[MAT.APS.384]"/>
+            <concept id="1JP213TRG-M56SVD-729H" label="The Rank Sum Test and&#xa;Rank Correlation&#xa;[MAT.APS.817]"/>
+            <concept id="1JP1ZVSZP-1QB3V4V-70B9" label="Hypothesis Testing and&#xa;the P-Value&#xa;[MAT.APS.454]"/>
+            <concept id="1JP204DZT-1VF2ZW3-70SQ" label="Multiple Regression&#xa;[MAT.APS.560]"/>
+            <concept id="1JP1WG618-YR6FYC-6XT9" label="Resources on the Web for&#xa;Creating Examples and Activities&#xa;[MAT.APS.989]"/>
+            <concept id="1JP2036J0-5ZKB4R-70NW" label="Scatterplots and Linear&#xa;Correlation&#xa;[MAT.APS.543]"/>
+            <concept id="1JP1ZX3L8-1XZ0RTQ-70G8" label="Student's t-Distribution&#xa;[MAT.APS.469]"/>
+            <concept id="1JP1XZBCK-1JM49GS-6YMS" label="The Binomial Probability&#xa;Distribution&#xa;[MAT.APS.115]"/>
+            <concept id="1JP1XVKHS-5LSM23-6Y99" label="Two Types of Random&#xa;Variables&#xa;[MAT.APS.095]"/>
+            <concept id="1JP209HWM-5XVL7D-71FL" label="Test of Independence&#xa;[MAT.APS.646]"/>
+            <concept id="1JP1XJG9N-5B69CP-6Y1K" label="Histograms and&#xa;Frequency Distributions&#xa;[MAT.APS.003]"/>
+            <concept id="1JP1WBQ6V-GRQ89S-6XJQ" label="Hypothesis Testing&#xa;[MAT.APS.450]"/>
+            <concept id="1JP1YKC37-2DT1L7X-6Z2G" label="The Density Curve of&#xa;the Normal Distribution&#xa;[MAT.APS.192]"/>
+            <concept id="1JP1VS6JV-GMTRP9-6X41" label="Advanced Probability&#xa;and Statistics"/>
+            <concept id="1JP2041BR-22WPQ9J-70RH" label="Inferences about&#xa;Regression&#xa;[MAT.APS.555]"/>
+            <concept id="1JP1XYRSY-BF6RZC-6YKH" label="Sums and Differences of&#xa;Independent Random Variables&#xa;[MAT.APS.110]"/>
+            <concept id="1JP1WFCKL-1NFYP3Y-6XQL" label="CK-12 Advanced Probability&#xa;and Statistics - 2nd Edition Resources&#xa;[MAT.APS.900]"/>
+            <concept id="1JP1XKCKS-RR59B5-6Y3D" label="Common Graphs and&#xa;Data Plots&#xa;[MAT.APS.010]"/>
+            <concept id="1JP203P7V-D41ZJF-70QC" label="Least-Squares&#xa;Regression&#xa;[MAT.APS.548]"/>
+            <concept id="1JP1WCDC1-S17H9C-6XLV" label="Chi-Square&#xa;[MAT.APS.630]"/>
+            <concept id="1JP1ZWRWD-ZPMTBT-70F3" label="Testing a Mean&#xa;Hypothesis&#xa;[MAT.APS.465]"/>
+            <concept id="1JP1W45YD-D2Y64P-6X7V" label="Visualizations of&#xa;Data&#xa;[MAT.APS.000]"/>
+            <concept id="1JP1W4WXY-4PZGZ0-6X99" label="Discrete Probability&#xa;Distribution&#xa;[MAT.APS.090]"/>
+            <concept id="1JP1YY3JC-1KXJ0RT-6ZQC" label="Surveys and Sampling&#xa;[MAT.APS.273]"/>
+            <concept id="1JP1W8F25-F2Y4KS-6XBR" label="Normal Distribution&#xa;[MAT.APS.180]"/>
+            <concept id="1JP1XKWXR-273ZP6-6Y4X" label="Box and Whisker&#xa;Plots&#xa;[MAT.APS.021]"/>
+            <concept id="1JP1Z3VXP-W17MQ3-6ZX6" label="Sampling Distribution&#xa;[MAT.APS.372]"/>
+            <concept id="1JP20VCNM-1KF031Y-71RG" label="The One-Way ANOVA&#xa;Test&#xa;[MAT.APS.734]"/>
+            <concept id="1JP1YKWCZ-23XT52V-6Z4K" label="Applications of the&#xa;Normal Distribution&#xa;[MAT.APS.198]"/>
+            <concept id="1JP1Z4S7B-1J8S098-7005" label="Confidence Intervals&#xa;[MAT.APS.306]"/>
+            <concept id="1JP1YYJJZ-34DYCB-6ZRC" label="Experimental&#xa;Design&#xa;[MAT.APS.292]"/>
+            <concept id="1JP1WB63W-VQLBJ1-6XGT" label="Sampling Distributions&#xa;and Estimations&#xa;[MAT.APS.360]"/>
+            <concept id="1JP1XW8XH-PMHHBS-6YC9" label="Probability Distribution&#xa;for a Discrete Random Variable&#xa;[MAT.APS.100]"/>
+            <concept id="1JP1Y0DR0-235YXXN-6YR9" label="Geometric Probability&#xa;Distribution&#xa;[MAT.APS.125]"/>
+            <concept id="1JP1WCQK9-25GHTVQ-6XMN" label="Analysis of Variance&#xa;and F-Distribution&#xa;[MAT.APS.720]"/>
+            <concept id="1JP209171-ZQBCLR-71D8" label="The Goodness-of-Fit&#xa;Test&#xa;[MAT.APS.638]"/>
+            <concept id="1JP1WC28H-6VVLC6-6XKN" label="Regression and&#xa;Correlation&#xa;[MAT.APS.540]"/>
+            <concept id="1JP209TQJ-1P15HW0-71GN" label="Testing One Variance&#xa;[MAT.APS.654]"/>
+            <concept id="1JP214L4C-RP89LB-72CB" label="The Kruskal-Wallis Test&#xa;and the Runs Test&#xa;[MAT.APS.824]"/>
+            <concept id="1JP20TSZR-52YG69-71P9" label="The F-Distribution and&#xa;Testing Two Variances&#xa;[MAT.APS.727]"/>
+            <concept id="1JP1XWZ1F-1BJGPKN-6YFH" label="Mean and Standard Deviation&#xa;of Discrete Random Variables&#xa;[MAT.APS.105]"/>
+        </concept-list>
+        <connection-list>
+            <connection id="1JP2107HD-1034BWB-71W5" from-id="1JP20TSZR-52YG69-71P9" to-id="1JP20VCNM-1KF031Y-71RG"/>
+            <connection id="1JP1ZZ01N-NX71Z9-70LT" from-id="1JP1ZVSZP-1QB3V4V-70B9" to-id="1JP1ZWB6D-1PC1W6H-70CR"/>
+            <connection id="1JP2022W8-13ZKNWF-70NG" from-id="1JP1ZX3L8-1XZ0RTQ-70G8" to-id="1JP1ZXGL4-1GRCKX3-70HD"/>
+            <connection id="1JP21C4MG-S8VLRQ-72JR" from-id="1JP1VS6JV-GMTRP9-6X41" to-id="1JP1WFCKL-1NFYP3Y-6XQL"/>
+            <connection id="1JP1XYHG6-TY2QK5-6YK6" from-id="1JP1XVKHS-5LSM23-6Y99" to-id="1JP1XW8XH-PMHHBS-6YC9"/>
+            <connection id="1JP212S7N-1K5ZWFT-728M" from-id="1JP1VS6JV-GMTRP9-6X41" to-id="1JP1W4WXY-4PZGZ0-6X99"/>
+            <connection id="1JP2174RD-21KMXRD-72H8" from-id="1JP20VRNG-2DTVYHD-71SN" to-id="1JP1WD7YV-1BGSJ11-6XP8"/>
+            <connection id="1JP2102D5-P8HT7J-71VK" from-id="1JP1WCQK9-25GHTVQ-6XMN" to-id="1JP20TSZR-52YG69-71P9"/>
+            <connection id="1JP1XLYVK-23TS3VT-6Y74" from-id="1JP1W45YD-D2Y64P-6X7V" to-id="1JP1XKWXR-273ZP6-6Y4X"/>
+            <connection id="1JP1XLVNV-1L5CCR0-6Y6P" from-id="1JP1W45YD-D2Y64P-6X7V" to-id="1JP1XKCKS-RR59B5-6Y3D"/>
+            <connection id="1JP1Y7FPL-ZJLJ2J-6YXS" from-id="1JP1XZBCK-1JM49GS-6YMS" to-id="1JP1XZSK6-PV78Y6-6YPQ"/>
+            <connection id="1JP1YM45Y-15NB3T4-6Z7C" from-id="1JP1YKC37-2DT1L7X-6Z2G" to-id="1JP1YKWCZ-23XT52V-6Z4K"/>
+            <connection id="1JP1ZZ327-22Y4JR5-70M8" from-id="1JP1ZVSZP-1QB3V4V-70B9" to-id="1JP1ZWRWD-ZPMTBT-70F3"/>
+            <connection id="1JP216XY2-18H7G39-72G2" from-id="1JP1WD7YV-1BGSJ11-6XP8" to-id="1JP213TRG-M56SVD-729H"/>
+            <connection id="1JP20B8TB-29N36P6-71HY" from-id="1JP1WCDC1-S17H9C-6XLV" to-id="1JP209171-ZQBCLR-71D8"/>
+            <connection id="1JP1YM1ZT-1N0M6SP-6Z6X" from-id="1JP1YJLRK-6WVK7Q-6Z07" to-id="1JP1YKC37-2DT1L7X-6Z2G"/>
+            <connection id="1JP1YZQRQ-24231LK-6ZT2" from-id="1JP1YY3JC-1KXJ0RT-6ZQC" to-id="1JP1YYJJZ-34DYCB-6ZRC"/>
+            <connection id="1JP1WLL4J-6GWHHY-6XZL" from-id="1JP1VS6JV-GMTRP9-6X41" to-id="1JP1W45YD-D2Y64P-6X7V"/>
+            <connection id="1JP20CF8F-16ZWDYQ-71KH" from-id="1JP1WCDC1-S17H9C-6XLV" to-id="1JP209TQJ-1P15HW0-71GN"/>
+            <connection id="1JP2019BC-18L21F-70MY" from-id="1JP1ZWRWD-ZPMTBT-70F3" to-id="1JP1ZX3L8-1XZ0RTQ-70G8"/>
+            <connection id="1JP20W7ST-JWCJYY-71TX" from-id="1JP20VCNM-1KF031Y-71RG" to-id="1JP20VRNG-2DTVYHD-71SN"/>
+            <connection id="1JP1XYCLQ-1HR74GC-6YJR" from-id="1JP1W4WXY-4PZGZ0-6X99" to-id="1JP1XVKHS-5LSM23-6Y99"/>
+            <connection id="1JP20JKZC-R9294F-71LS" from-id="1JP203P7V-D41ZJF-70QC" to-id="1JP1WCDC1-S17H9C-6XLV"/>
+            <connection id="1JP1ZYQ09-RHFWL7-70L3" from-id="1JP1WBQ6V-GRQ89S-6XJQ" to-id="1JP1ZVSZP-1QB3V4V-70B9"/>
+            <connection id="1JP1Z8BN7-SHJP41-7034" from-id="1JP1Z3VXP-W17MQ3-6ZX6" to-id="1JP1Z46Y2-FZW415-6ZY7"/>
+            <connection id="1JP1YGVLS-1KQTML3-6YYH" from-id="1JP1XZBCK-1JM49GS-6YMS" to-id="1JP1Y0DR0-235YXXN-6YR9"/>
+            <connection id="1JP216VQP-196BV4P-72FM" from-id="1JP1WD7YV-1BGSJ11-6XP8" to-id="1JP214L4C-RP89LB-72CB"/>
+            <connection id="1JP205JVR-P04B3L-70VP" from-id="1JP1WC28H-6VVLC6-6XKN" to-id="1JP2036J0-5ZKB4R-70NW"/>
+            <connection id="1JP1YH0V4-121RSP1-6YYY" from-id="1JP1XZBCK-1JM49GS-6YMS" to-id="1JP1W8F25-F2Y4KS-6XBR"/>
+            <connection id="1JP205YDZ-285GS0X-70WQ" from-id="1JP203P7V-D41ZJF-70QC" to-id="1JP2041BR-22WPQ9J-70RH"/>
+            <connection id="1JP1Z7W4R-1FTK5M6-7025" from-id="1JP1YKWCZ-23XT52V-6Z4K" to-id="1JP1WB63W-VQLBJ1-6XGT"/>
+            <connection id="1JP20BF1Z-1C0JQK8-71JF" from-id="1JP1WCDC1-S17H9C-6XLV" to-id="1JP209HWM-5XVL7D-71FL"/>
+            <connection id="1JP1XLTDM-WC3NB7-6Y68" from-id="1JP1W45YD-D2Y64P-6X7V" to-id="1JP1XJG9N-5B69CP-6Y1K"/>
+            <connection id="1JP205R9R-1G3XVNZ-70W6" from-id="1JP2036J0-5ZKB4R-70NW" to-id="1JP203P7V-D41ZJF-70QC"/>
+            <connection id="1JP1ZR4J6-1HNF297-709K" from-id="1JP1YKWCZ-23XT52V-6Z4K" to-id="1JP1WBQ6V-GRQ89S-6XJQ"/>
+            <connection id="1JP1YLNWL-C8KXQN-6Z6G" from-id="1JP1W8F25-F2Y4KS-6XBR" to-id="1JP1YJLRK-6WVK7Q-6Z07"/>
+            <connection id="1JP206053-7G7CRY-70X4" from-id="1JP203P7V-D41ZJF-70QC" to-id="1JP204DZT-1VF2ZW3-70SQ"/>
+            <connection id="1JP1YZHV8-D5TQTC-6ZSK" from-id="1JP1W9HLC-23B2RCH-6XDN" to-id="1JP1YY3JC-1KXJ0RT-6ZQC"/>
+            <connection id="1JP1Z8KCV-2CCWPGJ-703M" from-id="1JP1Z46Y2-FZW415-6ZY7" to-id="1JP1Z4S7B-1J8S098-7005"/>
+            <connection id="1JP211M70-19BY31C-71YN" from-id="1JP209TQJ-1P15HW0-71GN" to-id="1JP1WCQK9-25GHTVQ-6XMN"/>
+            <connection id="1JP1Z848V-1S3G9P2-702M" from-id="1JP1WB63W-VQLBJ1-6XGT" to-id="1JP1Z3VXP-W17MQ3-6ZX6"/>
+            <connection id="1JP1WH096-2DVQBV4-6XWV" from-id="1JP1WFCKL-1NFYP3Y-6XQL" to-id="1JP1WG618-YR6FYC-6XT9"/>
+            <connection id="1JP207WDS-14WFNZ-714H" from-id="1JP1ZXGL4-1GRCKX3-70HD" to-id="1JP1WC28H-6VVLC6-6XKN"/>
+            <connection id="1JP1XXJDF-133PSH-6YHW" from-id="1JP1XW8XH-PMHHBS-6YC9" to-id="1JP1XWZ1F-1BJGPKN-6YFH"/>
+            <connection id="1JP1Y4ZTB-28S00J4-6YVH" from-id="1JP1XYRSY-BF6RZC-6YKH" to-id="1JP1XZBCK-1JM49GS-6YMS"/>
+            <connection id="1JP1Y3YP9-179LXCB-6YTR" from-id="1JP1XWZ1F-1BJGPKN-6YFH" to-id="1JP1XYRSY-BF6RZC-6YKH"/>
+            <connection id="1JP212W7K-23ZK249-7291" from-id="1JP1VS6JV-GMTRP9-6X41" to-id="1JP1W9HLC-23B2RCH-6XDN"/>
+        </connection-list>
+        <concept-appearance-list>
+            <concept-appearance id="1JP1W9HLC-23B2RCH-6XDN" x="1646" y="248" width="166" height="55" background-color="0,255,0,255"/>
+            <concept-appearance id="1JP1YJLRK-6WVK7Q-6Z07" x="1480" y="1035" width="186" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP1WD7YV-1BGSJ11-6XP8" x="2066" y="3019" width="110" height="55" background-color="0,255,0,255"/>
+            <concept-appearance id="1JP1ZWB6D-1PC1W6H-70CR" x="1531" y="1598" width="138" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP1XZSK6-PV78Y6-6YPQ" x="1136" y="936" width="155" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP1ZXGL4-1GRCKX3-70HD" x="1702" y="1813" width="244" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP20VRNG-2DTVYHD-71SN" x="2066" y="2895" width="144" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP1Z46Y2-FZW415-6ZY7" x="1330" y="1595" width="161" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP213TRG-M56SVD-729H" x="1962" y="3148" width="159" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP1ZVSZP-1QB3V4V-70B9" x="1625" y="1480" width="157" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP204DZT-1VF2ZW3-70SQ" x="1706" y="2293" width="134" height="41" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP1WG618-YR6FYC-6XT9" x="1992" y="360" width="215" height="55" background-color="0,255,0,255"/>
+            <concept-appearance id="1JP2036J0-5ZKB4R-70NW" x="1704" y="2041" width="156" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP1ZX3L8-1XZ0RTQ-70G8" x="1702" y="1700" width="156" height="41" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP1XZBCK-1JM49GS-6YMS" x="1312" y="794" width="162" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP1XVKHS-5LSM23-6Y99" x="1312" y="352" width="149" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP209HWM-5XVL7D-71FL" x="1870" y="2436" width="146" height="41" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP1XJG9N-5B69CP-6Y1K" x="698" y="379" width="159" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP1WBQ6V-GRQ89S-6XJQ" x="1625" y="1368" width="131" height="41" background-color="0,255,0,255"/>
+            <concept-appearance id="1JP1YKC37-2DT1L7X-6Z2G" x="1480" y="1146" width="157" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP1VS6JV-GMTRP9-6X41" x="1478" y="53" width="305" height="63" font-size="24" font-style="bold" background-color="255,100,0,255" stylesheet-id="1JP1VS6JV-1VV9LFY-6X44"/>
+            <concept-appearance id="1JP2041BR-22WPQ9J-70RH" x="1543" y="2297" width="117" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP1XYRSY-BF6RZC-6YKH" x="1312" y="681" width="205" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP1WFCKL-1NFYP3Y-6XQL" x="1994" y="247" width="243" height="55" background-color="0,255,0,255"/>
+            <concept-appearance id="1JP1XKCKS-RR59B5-6Y3D" x="890" y="379" width="143" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP203P7V-D41ZJF-70QC" x="1706" y="2156" width="105" height="54" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP1WCDC1-S17H9C-6XLV" x="1870" y="2294" width="105" height="41" background-color="0,255,0,255"/>
+            <concept-appearance id="1JP1ZWRWD-ZPMTBT-70F3" x="1702" y="1597" width="108" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP1W45YD-D2Y64P-6X7V" x="890" y="248" width="114" height="55" background-color="0,255,0,255"/>
+            <concept-appearance id="1JP1W4WXY-4PZGZ0-6X99" x="1312" y="247" width="134" height="55" background-color="0,255,0,255"/>
+            <concept-appearance id="1JP1YY3JC-1KXJ0RT-6ZQC" x="1646" y="355" width="150" height="41" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP1W8F25-F2Y4KS-6XBR" x="1480" y="930" width="133" height="41" background-color="0,255,0,255"/>
+            <concept-appearance id="1JP1XKWXR-273ZP6-6Y4X" x="1065" y="380" width="117" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP1Z3VXP-W17MQ3-6ZX6" x="1330" y="1482" width="146" height="41" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP20VCNM-1KF031Y-71RG" x="2064" y="2778" width="144" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP1YKWCZ-23XT52V-6Z4K" x="1480" y="1255" width="133" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP1Z4S7B-1J8S098-7005" x="1330" y="1712" width="139" height="41" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP1YYJJZ-34DYCB-6ZRC" x="1646" y="460" width="105" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP1WB63W-VQLBJ1-6XGT" x="1330" y="1375" width="152" height="55" background-color="0,255,0,255"/>
+            <concept-appearance id="1JP1XW8XH-PMHHBS-6YC9" x="1312" y="459" width="204" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP1Y0DR0-235YXXN-6YR9" x="1312" y="936" width="146" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP1WCQK9-25GHTVQ-6XMN" x="2060" y="2548" width="137" height="55" background-color="0,255,0,255"/>
+            <concept-appearance id="1JP209171-ZQBCLR-71D8" x="1694" y="2441" width="136" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP1WC28H-6VVLC6-6XKN" x="1702" y="1927" width="109" height="55" background-color="0,255,0,255"/>
+            <concept-appearance id="1JP209TQJ-1P15HW0-71GN" x="2060" y="2436" width="145" height="41" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP214L4C-RP89LB-72CB" x="2165" y="3148" width="156" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP20TSZR-52YG69-71P9" x="2062" y="2663" width="151" height="55" background-color="255,255,255,255"/>
+            <concept-appearance id="1JP1XWZ1F-1BJGPKN-6YFH" x="1312" y="573" width="195" height="55" background-color="255,255,255,255"/>
+        </concept-appearance-list>
+        <connection-appearance-list>
+            <connection-appearance id="1JP2107HD-1034BWB-71W5" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP1ZZ01N-NX71Z9-70LT" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="1624" y="1532"/>
+                <control-point x="1531" y="1532"/>
+            </connection-appearance>
+            <connection-appearance id="1JP2022W8-13ZKNWF-70NG" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP21C4MG-S8VLRQ-72JR" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="1478" y="143"/>
+                <control-point x="1994" y="143"/>
+            </connection-appearance>
+            <connection-appearance id="1JP1XYHG6-TY2QK5-6YK6" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP212S7N-1K5ZWFT-728M" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="1478" y="143"/>
+                <control-point x="1312" y="143"/>
+            </connection-appearance>
+            <connection-appearance id="1JP2174RD-21KMXRD-72H8" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP2102D5-P8HT7J-71VK" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP1XLYVK-23TS3VT-6Y74" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="890" y="304"/>
+                <control-point x="1065" y="304"/>
+            </connection-appearance>
+            <connection-appearance id="1JP1XLVNV-1L5CCR0-6Y6P" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP1Y7FPL-ZJLJ2J-6YXS" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="1312" y="856"/>
+                <control-point x="1136" y="856"/>
+            </connection-appearance>
+            <connection-appearance id="1JP1YM45Y-15NB3T4-6Z7C" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP1ZZ327-22Y4JR5-70M8" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="1624" y="1532"/>
+                <control-point x="1702" y="1532"/>
+            </connection-appearance>
+            <connection-appearance id="1JP216XY2-18H7G39-72G2" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="2065" y="3078"/>
+                <control-point x="1962" y="3078"/>
+            </connection-appearance>
+            <connection-appearance id="1JP20B8TB-29N36P6-71HY" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="1870" y="2357"/>
+                <control-point x="1694" y="2357"/>
+            </connection-appearance>
+            <connection-appearance id="1JP1YM1ZT-1N0M6SP-6Z6X" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP1YZQRQ-24231LK-6ZT2" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP1WLL4J-6GWHHY-6XZL" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="1478" y="143"/>
+                <control-point x="890" y="143"/>
+            </connection-appearance>
+            <connection-appearance id="1JP20CF8F-16ZWDYQ-71KH" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="1870" y="2357"/>
+                <control-point x="2060" y="2357"/>
+            </connection-appearance>
+            <connection-appearance id="1JP2019BC-18L21F-70MY" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP20W7ST-JWCJYY-71TX" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP1XYCLQ-1HR74GC-6YJR" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP20JKZC-R9294F-71LS" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="1706" y="2217"/>
+                <control-point x="1870" y="2217"/>
+            </connection-appearance>
+            <connection-appearance id="1JP1ZYQ09-RHFWL7-70L3" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP1Z8BN7-SHJP41-7034" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP1YGVLS-1KQTML3-6YYH" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP216VQP-196BV4P-72FM" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="2065" y="3078"/>
+                <control-point x="2165" y="3078"/>
+            </connection-appearance>
+            <connection-appearance id="1JP205JVR-P04B3L-70VP" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP1YH0V4-121RSP1-6YYY" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="1312" y="856"/>
+                <control-point x="1480" y="856"/>
+            </connection-appearance>
+            <connection-appearance id="1JP205YDZ-285GS0X-70WQ" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="1706" y="2217"/>
+                <control-point x="1543" y="2217"/>
+            </connection-appearance>
+            <connection-appearance id="1JP1Z7W4R-1FTK5M6-7025" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="1481" y="1308"/>
+                <control-point x="1330" y="1308"/>
+            </connection-appearance>
+            <connection-appearance id="1JP20BF1Z-1C0JQK8-71JF" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP1XLTDM-WC3NB7-6Y68" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="890" y="304"/>
+                <control-point x="698" y="304"/>
+            </connection-appearance>
+            <connection-appearance id="1JP205R9R-1G3XVNZ-70W6" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP1ZR4J6-1HNF297-709K" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="1481" y="1308"/>
+                <control-point x="1625" y="1308"/>
+            </connection-appearance>
+            <connection-appearance id="1JP1YLNWL-C8KXQN-6Z6G" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP206053-7G7CRY-70X4" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP1YZHV8-D5TQTC-6ZSK" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP1Z8KCV-2CCWPGJ-703M" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP211M70-19BY31C-71YN" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP1Z848V-1S3G9P2-702M" from-pos="center" to-pos="bottom" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP1WH096-2DVQBV4-6XWV" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP207WDS-14WFNZ-714H" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP1XXJDF-133PSH-6YHW" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP1Y4ZTB-28S00J4-6YVH" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP1Y3YP9-179LXCB-6YTR" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JP212W7K-23ZK249-7291" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="1478" y="143"/>
+                <control-point x="1646" y="143"/>
+            </connection-appearance>
+        </connection-appearance-list>
+        <style-sheet-list>
+            <style-sheet id="_Default_">
+                <map-style background-color="255,255,255,0" image-style="full" image-top-left="0,0"/>
+                <concept-style font-name="Verdana" font-size="12" font-style="plain" font-color="0,0,0,255" text-margin="4" background-color="237,244,246,255" background-image-style="full" border-color="0,0,0,255" border-style="solid" border-thickness="1"
+                    border-shape="rounded-rectangle" text-alignment="center" shadow-color="none"/>
+                <linking-phrase-style font-name="Verdana" font-size="12" font-style="plain" font-color="0,0,0,255" text-margin="1" background-color="0,0,255,0" background-image-style="full" border-color="0,0,0,0" border-style="solid" border-thickness="1"
+                    border-shape="rectangle" text-alignment="center" shadow-color="none"/>
+                <connection-style color="0,0,0,255" style="solid" thickness="1" type="straight" arrowhead="if-to-concept-and-slopes-up"/>
+                <resource-style font-name="SanSerif" font-size="12" font-style="plain" font-color="0,0,0,255" background-color="192,192,192,255"/>
+            </style-sheet>
+            <style-sheet id="_LatestChanges_">
+                <concept-style background-color="255,255,255,255"/>
+                <linking-phrase-style font-size="18"/>
+                <connection-style arrowhead="if-to-concept"/>
+            </style-sheet>
+            <style-sheet id="1JP1VS6JV-1VV9LFY-6X44">
+                <concept-style font-name="Verdana" font-size="12" font-style="plain" font-color="0,0,0,255" text-margin="4" background-color="237,244,246,255" background-image-style="full" border-color="0,0,0,255" border-style="solid" border-thickness="1"
+                    border-shape="rounded-rectangle" text-alignment="center" shadow-color="none"/>
+                <linking-phrase-style font-name="Verdana" font-size="12" font-style="plain" font-color="0,0,0,255" text-margin="1" background-color="0,0,255,0" background-image-style="full" border-color="0,0,0,0" border-style="solid" border-thickness="1"
+                    border-shape="rectangle" text-alignment="center" shadow-color="none"/>
+                <connection-style color="0,0,0,255" style="solid" thickness="1" type="straight" arrowhead="if-to-concept-and-slopes-up"/>
+                <resource-style font-name="SanSerif" font-size="12" font-style="plain" font-color="0,0,0,255" background-color="192,192,192,255"/>
+            </style-sheet>
+        </style-sheet-list>
+        <extra-graphical-properties-list>
+            <properties-list id="1JP1VS1WN-S59M9G-6X3M">
+                <property key="StyleSheetGroup_0" value="//*@!#$%%^&amp;*()() No Grouped StyleSheets @"/>
+            </properties-list>
+        </extra-graphical-properties-list>
+    </map>
+</cmap>

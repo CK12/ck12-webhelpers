@@ -1,0 +1,16 @@
+{% extends "base/plain.html" %}
+{% block title %}{{ _('Report Error') }}{% endblock %}
+
+{% block stylesheets %}
+{{ super() }}
+<style type="text/css">body.plain{height: auto;}</style>
+{% endblock %}
+
+{% block contentwrap %}
+<div class="exercise_report_error">
+	<div class="errorwrap">
+               <h2>{{ _("Thank you for your feedback!") }}</h2>
+               <p>{{ _("We will review your report in a timely manner") }}</p>
+	</div>
+</div>
+{% endblock %}

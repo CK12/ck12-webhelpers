@@ -1,0 +1,18 @@
+<form method="POST" action="{{ c.approvalURL }}">
+    <p><b>{{ c.domain }}</b> {{ _("is asking for some information from your CK-12 Account") }} <b>{{ c.account }}</b></p>
+    <ul>
+    {% for item in c.items %}
+        <li>{{ item }}</li>
+    {% endfor %}
+    </ul>
+    <div>
+      <input type="submit" value="Allow" name="allow" id="approveButton" />
+      <input type="submit" value="No thanks" name="cancel" id="rejectButton" />
+      <input type="hidden" value="{{ c.domain }}" name="domain" />
+    </div>
+    <input type="checkbox"
+           checked="checked"
+           value="yes"
+           name="remember"
+           id="rememberChoiceCheckbox">{{ _("Remember this approval") }}</input>
+</form>

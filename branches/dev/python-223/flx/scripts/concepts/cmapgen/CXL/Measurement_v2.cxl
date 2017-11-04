@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cmap xmlns:dcterms="http://purl.org/dc/terms/" xmlns="http://cmap.ihmc.us/xml/cmap/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:vcard="http://www.w3.org/2001/vcard-rdf/3.0#">
+    <res-meta>
+        <dc:title>Measurement_v2</dc:title>
+        <dc:creator>
+            <vcard:FN>Chris Yu</vcard:FN>
+            <vcard:EMAIL>christopher@ck12.org</vcard:EMAIL>
+            <vcard:ORG>
+                <vcard:Orgname>CK-12</vcard:Orgname>
+            </vcard:ORG>
+        </dc:creator>
+        <dc:contributor>
+            <vcard:FN>Chris Yu</vcard:FN>
+            <vcard:EMAIL>christopher@ck12.org</vcard:EMAIL>
+            <vcard:ORG>
+                <vcard:Orgname>CK-12</vcard:Orgname>
+            </vcard:ORG>
+        </dc:contributor>
+        <dcterms:rightsHolder>
+            <vcard:FN>Chris Yu</vcard:FN>
+            <vcard:EMAIL>christopher@ck12.org</vcard:EMAIL>
+            <vcard:ORG>
+                <vcard:Orgname>CK-12</vcard:Orgname>
+            </vcard:ORG>
+        </dcterms:rightsHolder>
+        <dcterms:created>2012-02-17T08:56:57-08:00</dcterms:created>
+        <dcterms:modified>2012-02-17T09:03:20-08:00</dcterms:modified>
+        <dc:language>en</dc:language>
+        <dc:format>x-cmap/x-storable</dc:format>
+        <dc:publisher>FIHMC CmapTools 5.04.02</dc:publisher>
+        <dc:extent>8514 bytes</dc:extent>
+        <dc:source>cmap:1JL4LSB3Q-1JMC4MV-1:1JL4LSHYY-59CBFS-Y:1KB0LQSWY-1WCRTZM-M0</dc:source>
+    </res-meta>
+    <map width="1300" height="835">
+        <concept-list>
+            <concept id="1JLBKY346-1C0RHDQ-77S" label="Money&#xa;[MAT.MEA.900]"/>
+            <concept id="1JLBLDPNP-16DMKW5-81T" label="Measurement&#xa;of Circle Area&#xa;[MAT.MEA.320]"/>
+            <concept id="1JLBL7CMY-736HPS-7RD" label="Clock with&#xa;Hands&#xa;[MAT.MEA.720]"/>
+            <concept id="1JLBKWFC1-RCTZGH-74N" label="Measure&#xa;of Area&#xa;[MAT.MEA.300]"/>
+            <concept id="1JLBLFQRW-D09929-846" label="Measurement of&#xa;Surface Area&#xa;[MAT.MEA.330]"/>
+            <concept id="1JMJ069N1-1BGK106-3F8" label="Celsius&#xa;[MAT.MEA.620]"/>
+            <concept id="1JLBKVKX5-18BKYFZ-72N" label="Measurement"/>
+            <concept id="1JLBL77B8-QPXNBL-7QP" label="Digital Clock&#xa;[MAT.MEA.710]"/>
+            <concept id="1JMHZBGMC-SX83Y7-2V3" label="Measurement&#xa;of Circumference&#xa;[MAT.MEA.230]"/>
+            <concept id="1JLBKWRP9-27V9V36-759" label="Weight and&#xa;Mass&#xa;[MAT.MEA.500]"/>
+            <concept id="1JLBKWKJV-YG6CG4-74Y" label="Measure&#xa;of Volume&#xa;[MAT.MEA.400]"/>
+            <concept id="1JLBKZTM8-QFMFKV-7BY" label="Metric System&#xa;[MAT.MEA.110]"/>
+            <concept id="1JLBLFV0J-1PS7JX6-84R" label="Measurement&#xa;of&#xa;Nonstandard Shape Area&#xa;[MAT.MEA.340]"/>
+            <concept id="1JLBL0DGB-89M13S-7DF" label="Nonstandard Units&#xa;[MAT.MEA.130]"/>
+            <concept id="1JLBL8TQV-12RDC06-7VQ" label="Measurement&#xa;of Perimeter&#xa;[MAT.MEA.220]"/>
+            <concept id="1JLBL0SNM-1TKPVVD-7F8" label="Reading Maps,&#xa;Legends/Scale&#xa;[MAT.MEA.140]"/>
+            <concept id="1JLBKVTQ1-20PXY52-737" label="Units of Measurement&#xa;[MAT.MEA.100]"/>
+            <concept id="1JLBKX7R5-G50KML-76D" label="Temperature&#xa;[MAT.MEA.600]"/>
+            <concept id="1JLBKW6PB-24Q6435-741" label="Linear Measure&#xa;[MAT.MEA.200]"/>
+            <concept id="1JLBLDKQ6-HN6BTH-81D" label="Measurement&#xa;of Polygon Area&#xa;[MAT.MEA.310]"/>
+            <concept id="1JLBKXD55-2DLDKF1-76Y" label="Time&#xa;[MAT.MEA.700]"/>
+            <concept id="1JLBKXPTB-1WHTN2L-778" label="Speed&#xa;[MAT.MEA.800]"/>
+            <concept id="1JLBL05L1-16YHV4P-7CR" label="Standard Units&#xa;[MAT.MEA.120]"/>
+            <concept id="1JLBL5KXQ-21CRY2M-7NK" label="Fahrenheit&#xa;[MAT.MEA.610]"/>
+            <concept id="1JLBL8P09-1GRSDYQ-7V9" label="Measurement&#xa;of Distance&#xa;[MAT.MEA.210]"/>
+        </concept-list>
+        <linking-phrase-list>
+            <linking-phrase id="1JMHXQWCK-1YCS69K-XL" label="&#x2219;"/>
+        </linking-phrase-list>
+        <connection-list>
+            <connection id="1JMHY4N3C-M2YK4B-17T" from-id="1JLBKXD55-2DLDKF1-76Y" to-id="1JLBL7CMY-736HPS-7RD"/>
+            <connection id="1JMHYG5GZ-VG9YSN-1HN" from-id="1JLBKW6PB-24Q6435-741" to-id="1JLBL8P09-1GRSDYQ-7V9"/>
+            <connection id="1JMHX185N-1MNC6FH-C1" from-id="1JLBKVTQ1-20PXY52-737" to-id="1JLBL0SNM-1TKPVVD-7F8"/>
+            <connection id="1JMHXSBRS-14X0MNL-ZK" from-id="1JLBL0DGB-89M13S-7DF" to-id="1JMHXQWCK-1YCS69K-XL"/>
+            <connection id="1JMJ080J5-8F18M8-3GX" from-id="1JLBKX7R5-G50KML-76D" to-id="1JMJ069N1-1BGK106-3F8"/>
+            <connection id="1JMHY9HJK-294330X-191" from-id="1JLBKXD55-2DLDKF1-76Y" to-id="1JLBL77B8-QPXNBL-7QP"/>
+            <connection id="1JMHZRJ9H-463Y8W-2XL" from-id="1JLBL8P09-1GRSDYQ-7V9" to-id="1JMHZBGMC-SX83Y7-2V3"/>
+            <connection id="1JMHXX7R1-1F7CT91-112" from-id="1JMHXQWCK-1YCS69K-XL" to-id="1JLBKW6PB-24Q6435-741"/>
+            <connection id="1JMHX0R85-1MCMNS2-BK" from-id="1JLBKVTQ1-20PXY52-737" to-id="1JLBKZTM8-QFMFKV-7BY"/>
+            <connection id="1JMHYJQYY-1L0X1Y6-1JS" from-id="1JLBKW6PB-24Q6435-741" to-id="1JLBKWFC1-RCTZGH-74N"/>
+            <connection id="1JLBLL28V-1Q579WS-89H" from-id="1JLBLFQRW-D09929-846" to-id="1JLBKWKJV-YG6CG4-74Y"/>
+            <connection id="1JLBL1QDC-148N3MZ-7H7" from-id="1JLBKVTQ1-20PXY52-737" to-id="1JLBL05L1-16YHV4P-7CR"/>
+            <connection id="1JMHZYMMD-1NNSXLP-35Q" from-id="1JLBKWFC1-RCTZGH-74N" to-id="1JLBLDKQ6-HN6BTH-81D"/>
+            <connection id="1KB0LW5WJ-T4YVBB-107" from-id="1JLBL8P09-1GRSDYQ-7V9" to-id="1JLBKXPTB-1WHTN2L-778"/>
+            <connection id="1JMHXZ1H6-1S87JRD-11M" from-id="1JMHXQWCK-1YCS69K-XL" to-id="1JLBKX7R5-G50KML-76D"/>
+            <connection id="1JMHXQWCP-8FY4LT-XP" from-id="1JLBKZTM8-QFMFKV-7BY" to-id="1JMHXQWCK-1YCS69K-XL"/>
+            <connection id="1JMJ01HND-DKTW35-36Z" from-id="1JLBKWFC1-RCTZGH-74N" to-id="1JLBLFQRW-D09929-846"/>
+            <connection id="1JLBLD384-QMCD7J-811" from-id="1JLBL8P09-1GRSDYQ-7V9" to-id="1JLBL8TQV-12RDC06-7VQ"/>
+            <connection id="1KB0M2D94-P3XXF1-19X" from-id="1JLBKWFC1-RCTZGH-74N" to-id="1JLBLDPNP-16DMKW5-81T"/>
+            <connection id="1KB0LW7Y0-20XPSNY-10L" from-id="1JLBKXD55-2DLDKF1-76Y" to-id="1JLBKXPTB-1WHTN2L-778"/>
+            <connection id="1JMHXWGB2-XG9X83-10J" from-id="1JMHXQWCK-1YCS69K-XL" to-id="1JLBKXD55-2DLDKF1-76Y"/>
+            <connection id="1JLBKZQY5-1JSPMML-7BM" from-id="1JLBKVKX5-18BKYFZ-72N" to-id="1JLBKVTQ1-20PXY52-737"/>
+            <connection id="1JMHXZSGG-YHXKW7-125" from-id="1JMHXQWCK-1YCS69K-XL" to-id="1JLBKY346-1C0RHDQ-77S"/>
+            <connection id="1JLBL1XGR-1KJQCBH-7J1" from-id="1JLBL05L1-16YHV4P-7CR" to-id="1JLBL0DGB-89M13S-7DF"/>
+            <connection id="1JMHXQWCQ-WJX6DK-XV" from-id="1JMHXQWCK-1YCS69K-XL" to-id="1JLBKWRP9-27V9V36-759"/>
+            <connection id="1JMJ0781Y-KWLZ97-3GF" from-id="1JLBKX7R5-G50KML-76D" to-id="1JLBL5KXQ-21CRY2M-7NK"/>
+            <connection id="1JMHYPHWH-YGNHBV-1X4" from-id="1JLBLDKQ6-HN6BTH-81D" to-id="1JLBLFV0J-1PS7JX6-84R"/>
+        </connection-list>
+        <concept-appearance-list>
+            <concept-appearance id="1JLBKY346-1C0RHDQ-77S" x="1633" y="615" width="108" height="40" background-color="0,255,0,255"/>
+            <concept-appearance id="1JLBLDPNP-16DMKW5-81T" x="1218" y="844" width="108" height="41" background-color="247,246,246,0"/>
+            <concept-appearance id="1JLBL7CMY-736HPS-7RD" x="580" y="739" width="108" height="55" background-color="247,246,246,0"/>
+            <concept-appearance id="1JLBKWFC1-RCTZGH-74N" x="1218" y="742" width="108" height="40" background-color="0,255,0,255"/>
+            <concept-appearance id="1JLBLFQRW-D09929-846" x="1368" y="845" width="108" height="41" background-color="247,246,246,0"/>
+            <concept-appearance id="1JMJ069N1-1BGK106-3F8" x="1552" y="732" width="108" height="41" background-color="255,255,255,255"/>
+            <concept-appearance id="1JLBKVKX5-18BKYFZ-72N" x="1402" y="130" width="99" height="25" background-color="255,100,0,255"/>
+            <concept-appearance id="1JLBL77B8-QPXNBL-7QP" x="441" y="732" width="103" height="41" background-color="247,246,246,0"/>
+            <concept-appearance id="1JMHZBGMC-SX83Y7-2V3" x="933" y="840" width="108" height="41" background-color="255,255,255,255"/>
+            <concept-appearance id="1JLBKWRP9-27V9V36-759" x="1310" y="621" width="108" height="55" background-color="0,255,0,255"/>
+            <concept-appearance id="1JLBKWKJV-YG6CG4-74Y" x="1368" y="921" width="108" height="41" background-color="0,255,0,255"/>
+            <concept-appearance id="1JLBKZTM8-QFMFKV-7BY" x="1216" y="370" width="108" height="41" background-color="247,246,246,0"/>
+            <concept-appearance id="1JLBLFV0J-1PS7JX6-84R" x="1079" y="923" width="108" height="55" background-color="247,246,246,0"/>
+            <concept-appearance id="1JLBL0DGB-89M13S-7DF" x="1405" y="466" width="132" height="41" background-color="247,246,246,0"/>
+            <concept-appearance id="1JLBL8TQV-12RDC06-7VQ" x="779" y="839" width="108" height="41" background-color="247,246,246,0"/>
+            <concept-appearance id="1JLBL0SNM-1TKPVVD-7F8" x="1568" y="382" width="108" height="55" background-color="247,246,246,0"/>
+            <concept-appearance id="1JLBKVTQ1-20PXY52-737" x="1402" y="230" width="149" height="41" background-color="0,255,0,255"/>
+            <concept-appearance id="1JLBKX7R5-G50KML-76D" x="1472" y="617" width="108" height="40" background-color="0,255,0,255"/>
+            <concept-appearance id="1JLBKW6PB-24Q6435-741" x="1028" y="614" width="108" height="41" background-color="0,255,0,255"/>
+            <concept-appearance id="1JLBLDKQ6-HN6BTH-81D" x="1076" y="843" width="108" height="41" background-color="247,246,246,0"/>
+            <concept-appearance id="1JLBKXD55-2DLDKF1-76Y" x="508" y="625" width="108" height="41" background-color="0,255,0,255"/>
+            <concept-appearance id="1JLBKXPTB-1WHTN2L-778" x="649" y="906" width="108" height="41" background-color="0,255,0,255"/>
+            <concept-appearance id="1JLBL05L1-16YHV4P-7CR" x="1402" y="372" width="108" height="41" background-color="247,246,246,0"/>
+            <concept-appearance id="1JLBL5KXQ-21CRY2M-7NK" x="1404" y="731" width="108" height="41" background-color="247,246,246,0"/>
+            <concept-appearance id="1JLBL8P09-1GRSDYQ-7V9" x="853" y="740" width="108" height="41" background-color="247,246,246,0"/>
+        </concept-appearance-list>
+        <linking-phrase-appearance-list>
+            <linking-phrase-appearance id="1JMHXQWCK-1YCS69K-XL" x="1310" y="516" width="13" height="7" font-size="18"/>
+        </linking-phrase-appearance-list>
+        <connection-appearance-list>
+            <connection-appearance id="1JMHY4N3C-M2YK4B-17T" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JMHYG5GZ-VG9YSN-1HN" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="1028" y="668"/>
+                <control-point x="974" y="668"/>
+            </connection-appearance>
+            <connection-appearance id="1JMHX185N-1MNC6FH-C1" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="1402" y="306"/>
+                <control-point x="1568" y="306"/>
+            </connection-appearance>
+            <connection-appearance id="1JMHXSBRS-14X0MNL-ZK" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="1405" y="516"/>
+            </connection-appearance>
+            <connection-appearance id="1JMJ080J5-8F18M8-3GX" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="1472" y="671"/>
+                <control-point x="1544" y="671"/>
+            </connection-appearance>
+            <connection-appearance id="1JMHY9HJK-294330X-191" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="580" y="676"/>
+                <control-point x="458" y="676"/>
+            </connection-appearance>
+            <connection-appearance id="1JMHZRJ9H-463Y8W-2XL" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="915" y="772"/>
+                <control-point x="983" y="772"/>
+            </connection-appearance>
+            <connection-appearance id="1JMHXX7R1-1F7CT91-112" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="1310" y="555"/>
+                <control-point x="1152" y="555"/>
+            </connection-appearance>
+            <connection-appearance id="1JMHX0R85-1MCMNS2-BK" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="1402" y="306"/>
+                <control-point x="1216" y="306"/>
+            </connection-appearance>
+            <connection-appearance id="1JMHYJQYY-1L0X1Y6-1JS" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="1028" y="668"/>
+                <control-point x="1168" y="668"/>
+            </connection-appearance>
+            <connection-appearance id="1JLBLL28V-1Q579WS-89H" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JLBL1QDC-148N3MZ-7H7" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JMHZYMMD-1NNSXLP-35Q" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1KB0LW5WJ-T4YVBB-107" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JMHXZ1H6-1S87JRD-11M" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="1310" y="555"/>
+                <control-point x="1465" y="555"/>
+            </connection-appearance>
+            <connection-appearance id="1JMHXQWCP-8FY4LT-XP" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="1217" y="516"/>
+            </connection-appearance>
+            <connection-appearance id="1JMJ01HND-DKTW35-36Z" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="1292" y="783"/>
+                <control-point x="1528" y="783"/>
+            </connection-appearance>
+            <connection-appearance id="1JLBLD384-QMCD7J-811" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="915" y="772"/>
+                <control-point x="861" y="772"/>
+            </connection-appearance>
+            <connection-appearance id="1KB0M2D94-P3XXF1-19X" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1KB0LW7Y0-20XPSNY-10L" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JMHXWGB2-XG9X83-10J" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="1310" y="555"/>
+                <control-point x="861" y="554"/>
+            </connection-appearance>
+            <connection-appearance id="1JLBKZQY5-1JSPMML-7BM" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JMHXZSGG-YHXKW7-125" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="1310" y="555"/>
+                <control-point x="1593" y="555"/>
+            </connection-appearance>
+            <connection-appearance id="1JLBL1XGR-1KJQCBH-7J1" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JMHXQWCQ-WJX6DK-XV" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+            <connection-appearance id="1JMJ0781Y-KWLZ97-3GF" from-pos="center" to-pos="center" type="vector" arrowhead="if-to-concept">
+                <control-point x="1472" y="671"/>
+                <control-point x="1426" y="671"/>
+            </connection-appearance>
+            <connection-appearance id="1JMHYPHWH-YGNHBV-1X4" from-pos="center" to-pos="center" arrowhead="if-to-concept"/>
+        </connection-appearance-list>
+        <style-sheet-list>
+            <style-sheet id="_Default_">
+                <map-style background-color="255,255,255,0" image-style="full" image-top-left="0,0"/>
+                <concept-style font-name="Verdana" font-size="12" font-style="plain" font-color="0,0,0,255" text-margin="4" background-color="237,244,246,255" background-image-style="full" border-color="0,0,0,255" border-style="solid" border-thickness="1"
+                    border-shape="rounded-rectangle" text-alignment="center" shadow-color="none"/>
+                <linking-phrase-style font-name="Verdana" font-size="12" font-style="plain" font-color="0,0,0,255" text-margin="1" background-color="0,0,255,0" background-image-style="full" border-color="0,0,0,0" border-style="solid" border-thickness="1"
+                    border-shape="rectangle" text-alignment="center" shadow-color="none"/>
+                <connection-style color="0,0,0,255" style="solid" thickness="1" type="straight" arrowhead="if-to-concept-and-slopes-up"/>
+                <resource-style font-name="SanSerif" font-size="12" font-style="plain" font-color="0,0,0,255" background-color="192,192,192,255"/>
+            </style-sheet>
+            <style-sheet id="_LatestChanges_">
+                <concept-style background-color="255,255,255,255"/>
+                <linking-phrase-style font-size="18"/>
+                <connection-style arrowhead="if-to-concept"/>
+            </style-sheet>
+        </style-sheet-list>
+        <extra-graphical-properties-list>
+            <properties-list id="1KB0LQSWY-1WCRTZM-M0">
+                <property key="StyleSheetGroup_0" value="//*@!#$%%^&amp;*()() No Grouped StyleSheets @"/>
+            </properties-list>
+        </extra-graphical-properties-list>
+    </map>
+</cmap>

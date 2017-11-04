@@ -1,0 +1,82 @@
+<div>
+	<div id="group-assignment-container" class="row collapse group-assignment-container">
+		<div class="small-12 large-12 columns">
+			<div class="row collapse non-zero-assignment-header">
+				<div class="small-12 large-5 columns members-select">
+					<a data-dropdown="assignment-select" class="small button dropdown members-dropdown" id="dropdown-title">Most Recent Due Date</a>
+					<ul id="assignment-select" data-dropdown-content="" class="f-dropdown resource-type-dropdown">
+						<li class="js-dropdown-element" data-sort="due,asc"><a>Most Recent Due Date</a></li>
+						<li class="js-dropdown-element" data-sort="due,desc"><a>Least Recent Due Date</a></li>
+						<li class="js-dropdown-element" data-sort="name,asc"><a>Alphabetical</a></li>
+						<li class="js-dropdown-element" data-sort="assign,asc"><a>Assign</a></li>
+						<li class="js-dropdown-element" data-sort="assign,desc"><a>Assigned to this class</a></li>
+					</ul>
+				</div>
+				<div class="small-12 large-6 columns hide-for-small">
+					<a id="create-assignment" class="button standard tangerine right assignment-create">
+						<span class="assignment-create-icon">
+							<i class="icon-plus"></i>
+						</span>
+						<span><b>Create an assignment</b></span>
+					</a>
+				</div>
+			</div>
+			<div class="row collapse assignment-container">
+				<div class="small-12 large-12 columns">
+					<div class="row collapse assignment-list-header">
+						<div class="left assignment-title">
+							<span>ASSIGNMENTS</span>
+						</div>
+						<div class="text-center right assignment-message">
+							<span>ASSIGN</span>
+						</div>
+						<div class="text-center right assignment-due-date">
+							<i class="icon-calendar"></i>
+							<span class="hide-small">DUE DATE</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row collapse">
+				<div id="assignment-wrapper" class="small-12 large-12 columns"></div>
+
+				<div id="show-more-assignment-wrapper" class="small-12 large-12 columns hide">
+					<a id="show-more-assignment" class="button standard tangerine assignment-create">
+						<span class="assignment-create-icon">
+							<i class="icon-loop"></i>
+						</span>
+						<span><b>Show More</b></span>
+					</a>
+				</div>
+			</div>
+		</div>
+		<a id="assignment-unassign-modal-link" class="hide" data-reveal-id="unAssignAssignmentModal"></a>
+		<a id="assignment-assign-modal-link" class="hide" data-reveal-id="assignAssignmentModal"></a>
+	</div>
+	<div id="unAssignAssignmentModal" class="reveal-modal modal-uikit app-reveal-modal">
+		<a class="close-reveal-modal close">+</a>
+		<div class="row collapse">
+			<span>Are you sure you want to remove this assignment from your class members?</span>
+		</div>
+		<div class="row collapse unassign-assignment-modal-name-wrapper">
+			<span><b id="unassign-assignment-modal-name"></b></span>
+		</div>
+		<div class="row collapse">
+			<span>Student scores on this assignment will no longer be available in reports.</span>
+		</div>
+		<div class="row collapse unassign-assignment-modal-button-wrapper">
+			<a id="unassign-assignment-modal-unassign" class="button standard turquoise right">Yes, remove it</a>
+			<a id="unassign-assignment-modal-cancel" class="link-green right unassign-assignment-modal-cancel">Cancel</a>
+		</div>
+	</div>
+	<div id="assignAssignmentModal" class="reveal-modal modal-uikit app-reveal-modal">
+		<a class="close-reveal-modal close">+</a>
+		<div class="row collapse">
+			<p>You're about to assign <b id="assign-modal-assignment-name"></b> to <b id="assign-modal-group-name"></b>.</p>
+		</div>
+		<div class="row collapse assign-modal-button-wrapper">
+			<a id="assign-modal-assign" class="right button standard turquoise">Assign</a>
+			<a id="assign-modal-cancel" class="right link-green">Cancel</a>
+		</div>
+	</div>
+</div>

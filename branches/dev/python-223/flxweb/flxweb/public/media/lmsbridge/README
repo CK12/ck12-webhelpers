@@ -1,0 +1,19 @@
+Build Instructions
+----
+**Minified build**
+- npm install
+- npm run build-prod
+
+**Note:** Host for production build is *www*. See package.json config.host . To override the host run: 
+
+`npm run replace-flx-api-prefix --lmsbridge:host=<host_name>`
+`npm run build-prod`
+
+**Dev build (unminified)**
+- npm install
+- npm run build-prod
+
+**Note:** Host for dev build is gamma. See package.json config.devHost. To override the host use:
+`--lmsbridge:devHost=<host_name>`
+
+ex: `npm run build-dev --lmsbridge:devHost=qa-zeus`

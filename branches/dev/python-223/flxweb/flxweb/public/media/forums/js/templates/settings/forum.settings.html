@@ -1,0 +1,116 @@
+<div class="row collapse">
+    <div class="large12 columns forum-title-container">
+        <div class="large-12 column update-error-message hide"></div>
+        <div id="settings-header"></div>
+        <div class="large-12 columns back-button-container hide-for-small">
+            <a class="back-button"><i class="icon-arrow3_left"></i>Back</a>
+        </div>
+    </div>
+   <div class="large12 columns settings-wrapper">
+    <% if(isMember){ %>
+    <div class="settings-header">Email Notifications</div>
+    <div class="row collapse forums-select-wrapper">
+        <div class="row collapse white-background">
+            <div class="row collapse">
+                <div class="large-2 small-3 columns forums-switch">
+                    <div class="onoffswitch cyan">
+                        <input type="checkbox" id="email-notification" name="email-notification" class="onoffswitch-checkbox js-notify-big">
+                        <label class="onoffswitch-label" for="email-notification">
+                            <div class="onoffswitch-inner"></div>
+                            <div class="onoffswitch-switch"></div>
+                        </label>
+                    </div>
+                </div>
+                <div class="large-10 small-9 columns notification-text">
+                    Receive email notifications
+                    <div class="hint">We'll email you on discussions you've joined or voted on</div>
+                </div>
+            </div>
+            <div class="row collapse forums-notification-expand">
+                <div class="large-10 large-offset-2 columns">
+                <div class="row collapse notification-options">
+                    <div class="large-3 small-12 left forums-notification-type-label">
+                        <span>Email me about:</span>
+                    </div>
+                    <div class="large-3 small-6 columns">
+                        <div class="custom-box email-me-about">
+                            <input type="radio" id="peerHelp-all-big-common" class="js-type-radio js-peerHelp-all" name="peerHelp-type-big" data-text="all forum posts" checked="checked">
+                            <label class="radio" for="peerHelp-all-big-common"><span></span> all posts</label>
+                        </div>
+                    </div>
+                    <div class="large-6 columns">
+                        <div class="custom-box email-me-about">
+                            <input type="radio" id="peerHelp-my-big-common" class="js-type-radio js-peerHelp-my" name="peerHelp-type-big" data-text="your posts">
+                            <label class="radio" for="peerHelp-my-big-common"><span></span> just my posts</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row collapse notification-options">
+                    <div class="large-3 small-12 columns forums-notification-type-label">
+                        <span>Receive email:</span>
+                    </div>
+                    <div class="large-3 small-6 columns">
+                        <div class="custom-box receive-email-freq">
+                            <input type="radio" id="peerhelp-instant-big-common" class="js-noti-radio js-peerhelp-instant" name="peerhelp-big" data-text="Instant notifications" data-target="peerhelp-dropdown-big-common">
+                            <label class="radio" for="peerhelp-instant-big-common"><span></span> instantly</label>
+                        </div>
+                    </div>
+                    <div class="large-3 small-6 columns">
+                        <div class="custom-box receive-email-freq">
+                            <input type="radio" id="peerhelp-weekly-big-common" class="js-noti-radio js-peerhelp-weekly" name="peerhelp-big" data-text="Weekly digest" data-target="peerhelp-dropdown-big-common">
+                            <label class="radio" for="peerhelp-weekly-big-common"><span></span> weekly</label>
+                        </div>
+                    </div>
+                    <div class="large-3 small-12 columns">
+                        <div class="left forum-notification-expand-digest large-12 small-6 columns">
+                            <div class="custom-box receive-email-freq">
+                                <input type="radio" id="peerhelp-digest-big-common" class="js-noti-radio js-peerhelp-digest js-has-dropdown" name="peerhelp-big" data-text="in a digest every " data-target="peerhelp-dropdown-big-common">
+                                <label class="radio" for="peerhelp-digest-big-common"><span></span> every</label>
+                            </div>
+                        </div>
+                        <div class="forum-notification-expand-dropdown large-12 small-6 columns">
+                            <div data-dropdown="peerhelp-dropdown-big-common" class="button small split simple js-frequency-option-dropdown"><a class="dropdown-label js-close-drop-down">6 hours</a><span class="js-close-drop-down"></span></div>
+                            <ul id="peerhelp-dropdown-big-common" class="f-dropdown tangerine-list simple" data-dropdown-content="">
+                                <li id="peerhelp-6hours-big-common" class=" active js-peerhelp-6hours"><a>6 hours</a></li>
+                                <li id="peerhelp-12hours-big-common" class="js-peerhelp-12hours"><a>12 hours</a></li>
+                                <li id="peerhelp-daily-big-common" class="js-peerhelp-daily"><a>24 hours</a></li>
+                            </ul>
+                        </div>
+                        <div id="close-dropdown"></div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <!--     <div class="settings-header forum-delete-header js-only-leader">Delete Forum</div>
+    <div class="row collapse white-background">
+        <div class="settings-content js-only-leader js-for-class">Deleting your forum will mean that all discussions will be lost. You will no longer have access to your forum pages.</div>
+        <div class="setting-button-wrapper js-only-leader">
+            <a data-reveal-id="deleteforumModal" class="button standard tangerine delete">Delete forum <span class="icon-remove"></span></a>
+        </div>
+    </div> -->
+    </div>
+    <%}else{%>
+        <div class="row collapse">
+            <div class="large-12 small-12 columns setting-warning-container">
+                <div class="row collapse">
+                    <div class="large-10 large-offset-1 columns">
+                        <div class="title">
+                            Want to follow and receive notifications for <%-group.name%>?
+                        </div>
+                        <div class="img-container">
+                            <img src="/media/forums/images/no-q.png">
+                        </div>
+                        <div class="button-container">
+                            <div class="button dusty-grey js-setting-no">No, Don't Follow</div>
+                            <div class="button tangerine js-setting-yes">Yes, Follow</div>
+                        </div>
+                        <div class="browse-link js-setting-no">
+                            <a href="#">Browse Discussion</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <%}%>
+</div>

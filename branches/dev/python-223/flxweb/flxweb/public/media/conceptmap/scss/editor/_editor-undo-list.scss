@@ -1,0 +1,52 @@
+$font-size: rem-calc(12);
+
+#editor-undo-widget {
+    position: fixed;
+    right: 0%;
+    bottom: rem-calc(100);
+    list-style-type: none;
+    max-width: 20vw;
+    max-height: 50%;
+    overflow-x: hidden;
+    padding-right: rem-calc(30);
+
+    .undo-label {
+        transform: translateY(75%);
+        -moz-transform: translateY(-15%);
+
+        span {
+            background-color: #b5b1a8;
+            color: white;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-size: $font-size;
+            margin-left: 0.9375em;
+        }
+    }
+}
+
+
+.undo-list {
+    transition: all 0.25s ease-in-out;
+    max-height: 100%;
+}
+
+
+.undo-item {
+    animation: 0.25s fadeIn;
+
+    .undo-titles {
+        font-size: $font-size;
+        color: lighten($dark-gray, 25%);
+
+        &__subject {
+            color: $medium-gray;
+        }
+    }
+
+    .undo-button {
+        font-size: $font-size;
+    }
+}
+
+ @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 }  }

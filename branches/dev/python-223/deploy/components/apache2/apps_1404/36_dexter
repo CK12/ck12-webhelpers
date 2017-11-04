@@ -1,0 +1,8 @@
+    WSGIScriptAlias /dexter /opt/2.0/dexter/core/pyramid/dexter.wsgi
+    <Directory /opt/2.0/dexter/core/pyramid/>
+        Require all granted
+    </Directory>
+    <Location /dexter>
+        WSGIProcessGroup dexter_wsgi
+    </Location>
+

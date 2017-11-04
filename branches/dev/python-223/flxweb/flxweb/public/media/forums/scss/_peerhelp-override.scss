@@ -1,0 +1,117 @@
+.ph-how-it-works{
+    display:none;
+}
+
+.ph-qa-count{
+    visibility: hidden;
+}
+.common-info{
+    h2{
+        margin: 0;
+        padding: 0;
+        font-size: 1em;
+        line-height: 1;
+    }
+}
+//
+.ph-peerhelp-content{
+    padding-right: 22px;
+}
+
+div.ph-body {
+    background-color: transparent !important;
+}
+
+div.posts-container > div.ph-post-wrapper {
+    background-color: white !important;
+    margin-bottom: 25px !important;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.10);
+    border-radius: 5px;
+}
+
+.ph-child-posts .ph-post-wrapper {
+    margin-right: 0;
+    padding-right: 10px;
+}
+
+.ph-peerhelp-content {
+    padding-right: 0;
+}
+
+.ask-question-container {
+    margin-left: 0px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.10);
+    border-radius: 5px;
+}
+
+.forum-detail-container [class^="icon-"], [class*=" icon-"] {
+    font-family: "ProximaNova", 'ck12' ;
+}
+
+.comments-editable-container {
+    margin-left: 0;
+    .comment-posted{
+        font-family: 'ProximaNova';
+    }
+}
+.comment-container{
+     margin-left: 0;
+     .ph-content{
+        &.post-type-question{
+            padding-left: 53px;
+        }
+     }
+}
+.side-container{
+    left: -14px;
+}
+.ph-post-comment-box-wrapper, .ph-child-post-wrapper {
+    margin-left: 50px;
+}
+
+.comment-answers {
+    margin-left: 50px;
+}
+
+.comment-answer-container {
+    margin-left: 0px;
+}
+
+.comment-type-container {
+    padding-left: 0px;
+}
+
+.answer-button-container {
+    width: 15%;
+    padding: 0 5px 0 5px;
+}
+
+.ph-child-posts .comment-container, .ph-child-posts .comments-editable-container {
+    background-color: white;
+}
+.ph-concept-tags{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.edit-tools-container{
+    margin-right: 15px;
+}
+.ph-peerhelp-header, .ph-peerhelp-content{
+    max-width: none;
+}
+.ph-peerhelp-header{
+    margin-bottom: 0;
+}
+.tooltip-bottom{
+    &.vote-tips{
+        left: -30px;
+        &:before{
+            left: 28%;
+        }
+    }
+}
+.ph-show-all-btn-container{
+    span{
+        margin-left: -95px;
+    }
+}

@@ -1,0 +1,2 @@
+ALTER TABLE ConceptNodes DROP INDEX NAME;
+ALTER TABLE ConceptNodes ADD UNIQUE INDEX (`NAME`, `branchID`);

@@ -1,0 +1,29 @@
+
+{% extends "common/master.html" %}
+{% block stylesheets %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.url_css('bookmark_removed.css') }}" />
+{% endblock %}
+{% block title %}{{ _("My Bookmarks") }}{% endblock %}
+{% block contentwrap %}
+	<div class="row collapse">
+		<div class="large-7  small-7 columns large-centered small-centered">
+			<div class="row collapse">
+			<h3 class="bookmark-removed-title">Looking for Bookmarks?</h3>
+				<div class="bookmark-removed-content">
+					<div class="bookmark-removed">
+						We've removed our Bookmarks feature temporarily so we can bring it back with a bang!
+					</div>
+					<div class="bookmark-removed">
+						Don't worry, all of your CK-12 bookmarks have been saved.You'll be able to use them again when we release our new and improved Bookmarks feature.
+					</div>
+					<div>
+						<span>See how you can</span>
+						<a href="http://help.ck12.org/hc/en-us/articles/201397150-CK-12-Bookmarks-Temporary-Removal-Workaround"> bookmark our content using your browser.</a>
+					</div>
+					<a class="button standard turquoise back-to-dashboard" href="/my/dashboard/">Back to Dashboard</a>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,46 @@
+.hide-plane {
+    display: none;
+}
+.share-plane-div {
+    position: fixed;
+    width: 70px;
+    height: 70px;
+    bottom: 5px;
+    cursor: pointer;
+    z-index: 50;
+    -webkit-transition: bottom 1s;
+    transition: bottom 1s;
+}
+.share-plane-div.bottom-right {
+    right: 10px;
+}
+.share-plane-div.bottom-left {
+    left: 10px;
+}
+.plane_image {
+    background: url('../images/plane_static.svg') no-repeat center center;
+    width: 70px;
+    height: 70px;
+    background-size: 70px;
+}
+.share-plane-div:hover .plane_image {
+    background: url('../images/plane_hover.svg') no-repeat center center;
+    background-size: 70px;
+}
+.share-plane-div.flying .plane_image {
+    background: url('../images/plane_flying.svg') no-repeat center center;
+    background-size: 70px;
+}
+.share-plane-div.flying {
+    -webkit-transition: right 500ms ease-out, bottom 500ms ease-out, left 500ms ease-out;
+    -moz-transition: right 500ms ease-out, bottom 500ms ease-out, left 500ms ease-out;
+    -ms-transition: right 500ms ease-out, bottom 500ms ease-out, left 500ms ease-out;
+    -o-transition: right 500ms ease-out, bottom 500ms ease-out, left 500ms ease-out;
+    transition: right 500ms ease-out, bottom 500ms ease-out, left 500ms ease-out;
+}
+.share-plane-div.absolute {
+    position: absolute;
+}
+.share-plane-container {
+    height: 50px;
+}

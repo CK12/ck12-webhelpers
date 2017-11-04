@@ -1,0 +1,5 @@
+    Alias /assessment/ui/build-20150908114042 /opt/2.0/assessment/ui/build-20150908114042
+    Alias /assessment/ui /opt/2.0/assessment/ui/build-20150908114042
+    <Directory /opt/2.0/assessment/ui/build-20150908114042/>
+        Require all granted
+    </Directory>

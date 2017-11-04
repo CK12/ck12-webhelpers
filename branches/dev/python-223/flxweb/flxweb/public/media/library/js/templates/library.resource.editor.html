@@ -1,0 +1,85 @@
+<div class="container">
+	<form class="frm_resource_editor">
+		<div class="row js_title_row">
+			<div class="large-12 small-12">Title:</div>
+			<div class="large-12 small-12">
+				<input type="text" class="txt_resource_title" value="<%= data.name %>">
+			</div>
+			<div class="large-12 small-12 hide error js_error_title"></div>
+		</div>
+		<div class="row js_desc_row">
+			<div class="large-12 small-12">Description:</div>
+			<div class="large-12 small-12"> 
+				<textarea class="txt_resource_desc"><%= data.description %></textarea>
+			</div>
+			<div class="large-12 small-12 hide error js_error_desc"></div>
+		</div>
+		<div class="row js_type row">
+			<div class="large-8 small-8 column">
+			Type:
+				<select class="resource_type js_res_type">
+					<option value="activity" 
+						<% if( data.type ==='activity' ){ %>selected<% } %> >Activity</option>
+					<option value="attachment" 
+						<% if( data.type ==='attachment' ){ %>selected<% } %> >Attachment</option>
+					<option value="assessment" 
+						<% if( data.type ==='assessment' ){ %>selected<% } %> >Assessment</option>
+					<option value="audio" 
+						<% if( data.type ==='audio' ){ %>selected<% } %> >Audio</option>
+					<option value="classwork" 
+						<% if( data.type ==='classwork' ){ %>selected<% } %> >Classwork</option>
+					<option value="cthink" 
+						<% if( data.type ==='cthink' ){ %>selected<% } %> >Critical Thinking</option>
+					<option value="handout"  
+						<% if( data.type ==='handout' ){ %>selected<% } %> >Handout</option>
+					<option value="homework" 
+						<% if( data.type ==='homework' ){ %>selected<% } %> >Homework</option>
+					<option value="image" 
+						<% if( data.type ==='image' ){ %>selected<% } %> >Image</option>
+					<option value="interactive" 
+						<% if( data.type ==='interactive' ){ %>selected<% } %> >Interactive Object</option>
+					<option value="lab" 
+						<% if( data.type ==='lab' ){ %>selected<% } %> >Lab</option>
+					<option value="lessonplan" 
+						<% if( data.type ==='lessonplan' ){ %>selected<% } %> >Lesson Plan </option>
+					<option value="notes" 
+						<% if( data.type ==='notes' ){ %>selected<% } %> >Notes</option>
+					<option value="reading" 
+						<% if( data.type ==='reading' ){ %>selected<% } %> >Presentation</option>
+					<option value="project" 
+						<% if( data.type ==='project' ){ %>selected<% } %> >Project</option>
+					<option value="reading" 
+						<% if( data.type ==='reading' ){ %>selected<% } %> >Reading</option>
+					<option value="rubric" 
+						<% if( data.type ==='rubric' ){ %>selected<% } %> >Rubric</option>
+					<option value="starter" 
+						<% if( data.type ==='starter' ){ %>selected<% } %> >Starter/Do now</option>
+					<option value="studyguide" 
+						<% if( data.type ==='studyguide' ){ %>selected<% } %> >Study Guide</option>
+					<option value="syllabus" 
+						<% if( data.type ==='syllabus' ){ %>selected<% } %> >Syllabus</option>
+					<option value="quiz" 
+						<% if( data.type ==='quiz' ){ %>selected<% } %> >Test/Quiz</option>
+					<option value="video" 
+						<% if( data.type ==='video' ){ %>selected<% } %> >Video</option>
+					<option value="web" 
+						<% if( data.type ==='web' ){ %>selected<% } %> >Web</option>
+					<option value="worksheet" 
+						<% if( data.type ==='worksheet' ){ %>selected<% } %> >Worksheet</option>
+					<option value="answer key" 
+						<% if( data.type ==='answer key' ){ %>selected<% } %> >Answer Key</option>
+					<option value="answer demo" 
+						<% if( data.type ==='answer demo' ){ %>selected<% } %> >Answer Demo</option>
+				</select>
+			</div>
+			<div class="large-4 small-5 column">
+				<label>
+					<input {% if (data.isPublic){ %}checked="checked"{% } %} type="checkbox" class="js_published"> Published 
+				</label>
+			</div>
+		</div>
+	</form>
+</div>
+
+
+			

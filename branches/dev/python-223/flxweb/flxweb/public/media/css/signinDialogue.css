@@ -1,0 +1,242 @@
+.close-icon:before, .close-icon:after {
+    background-color: #8E8774;
+    content: "";
+    height: 34px;
+    position: absolute;
+    right: 15px;
+    top: 0;
+    width: 2px;}
+.close-icon:before {
+	transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);}
+.close-icon:after {
+	transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);}
+.sign-in-modal {
+    padding: 0 !important;}
+.sign-in-header-small {
+	background-color: #FFFFFF;
+}
+.sign-in-text {
+    padding-bottom: 22px;
+    font-size: 2em;
+    font-weight: bold;}
+#sign-in-modal .sign-in-button {
+	padding: 11px 10px 12px !important;
+    width: 100%;
+    margin: 0 0 15px !important;
+    text-align: left;/*  !important */}
+.sign-in-button-container .button i {
+    color: #FFFFFF !important;}
+.sign-in-button-container {
+	border-bottom: 1px solid #CCCCCC;
+	position: relative;
+	padding: 0 0 15px;
+	height: 145px;
+	transition: height 1s ease 0s;
+	overflow: hidden;}
+.sign-in-button-wrapper {
+    padding: 31px 0;}
+.show-more {
+	background-color: #FFFFFF;
+    bottom: -10px;
+    left: -webkit-calc(50% - 51px);
+    left: calc(50% - 51px);
+    padding: 0 12px;
+    position: absolute;
+    color: #B4AFA6;}
+#sign-in-modal .sign-in-button-hide {
+	padding: 11px 10px 12px !important;
+	width: 48%;
+	margin: 0 0 15px !important;}
+#sign-in-modal .twitter-button {
+	margin-right: 4% !important;}
+.button-open {
+    padding-bottom: 0;}
+.button-open .sign-in-button-container {
+	border: 0;
+	padding: 0;
+	height: 195px;}
+.sign-in-email {
+	background-color: #EFECE6;
+	padding: 43px 0 33px;
+	position: relative;}
+.sign-in-email .row.sign-in-separator {
+    background-color: #FFFFFF;
+    border-radius: 13px;
+    height: 26px;
+    left: -webkit-calc(50% - 13px);
+    left: calc(50% - 13px);
+    position: absolute;
+    top: -13px;
+    width: 26px;}
+ .sign-in-submit {
+ 	margin: 7px 0 18px !important;}
+.sign-in-email .forgot-password-link {
+    color: #B4AFA6;}
+.forgot-password {
+    text-shadow: none !important;}
+.terms-of-use {
+	font-size: 14px;
+	text-shadow: none !important;
+	padding-top: 9px;}
+.sign-up {
+	padding: 15px 0 12px;}
+.signin-error {
+	color: #FB6C33;
+    left: 0;
+    position: absolute;
+    text-align: left;
+    text-shadow:none;
+    top: -25px;}
+.button[disabled]:hover {
+	background: #DDD;
+	border-bottom: 3px solid #CCC;
+	border-top: 3px solid #DDD;
+	box-shadow: none;
+	color: #999;
+	opacity: 1;}
+.button[disabled]:active {
+	background: #DDD;
+	border-bottom: 3px solid #CCC;
+	border-top: 3px solid #DDD;
+	box-shadow: none;
+	color: #999;
+	opacity: 1;}
+.button.disabled {
+	box-shadow: 0 0;}
+.button.disabled:hover {
+	box-shadow: 0 0;}
+@media all and (min-width: 768px) and (max-width: 1023px) {
+
+	.medium-11 {
+		width: 91.6667%;}
+}
+
+@media all and (min-width: 768px) {
+	.show-small {
+	    display: none;}
+}
+
+@media all and (max-width: 767px) {
+
+	.hide-small {
+	    display: none;}
+	.sign-in-modal.medium {
+	    height: 100%;
+	    left: 40%;
+	    top: 0 !important;
+	    width: 100%;}
+	.sign-in-button-container {
+		height: 141px;}
+	.button-open .sign-in-button-container {
+		height: 182px;}
+	.sign-in-button-wrapper {
+		background-color: #F8F8F5;
+    	padding: 26px 0 28px;}
+	.sign-in-text-small {
+		width: -webkit-calc(100% - 47px);
+		width: calc(100% - 47px);
+		height: 47px;
+    	padding: 11px 0;
+    	font-size: 21px;}
+	.sign-in-close {
+	    background-color: #FF6633;
+	    height: 47px;
+	    width: 47px;}
+	.sign-in-close i:after, .sign-in-close i:before {
+		background-color: #FFFFFF;
+    	right: 22px;
+    	top: 6px;}
+    .show-more {
+    	background-color: #F8F8F5;}
+    .sign-in-email .row.sign-in-separator {
+    	background-color: #F8F8F5;}
+    .sign-up {
+    	background-color: #F8F8F5;
+    	height: 40px;
+    	padding: 10px 0 0;}
+    .sign-in-email {
+    	padding: 19px 0 5px;}
+    .sign-in-email input {
+    	margin-bottom: 10px;}
+    .email-sign-in-text {
+    	font-size: 12px;
+    	padding-bottom: 7px;}
+    .sign-in-submit {
+    	float: right;
+    	margin: 0 -1px 0 0;}
+    .forgot-password {
+    	line-height: 17px;
+	    float: left;
+	    margin: 0 0 7px -1px;
+	    text-align: left;
+	    width: 160px;
+	    font-size: 14px;}
+	    .terms-of-use{
+	    	padding-left :5px;
+	    	padding-right :5px;
+	    }
+	.signin-error {
+    	position: relative;
+    	top: 0;}
+
+}
+
+ /* over rides for non-foundation pages Starts */
+.sign-in-modal .close-reveal-modal {
+    text-decoration: none;
+    text-shadow:none;
+    z-index: 100;}
+#sign-in-modal .small-button {
+	width: -webkit-calc(48% - 21px);
+	width: calc(48% - 21px);
+	text-align: left;}
+.pretty-input {
+	margin: 0 0 1em;}
+.sign-in-modal input.pretty-input {
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset;
+    display: block;
+    width: 100%;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;}
+.sign-in-modal a.pretty-button {
+	border: none;} /* required, do not change/remove */
+.sign-in-modal a.pretty-button:hover {
+	border: none;} /* required, do not change/remove */
+.sign-in-modal .btn.pretty-button.disabled {
+	cursor: default;
+	opacity: 0.6;}
+.sign-in-modal .btn.pretty-button {
+	box-shadow: none;
+	text-shadow: none;
+	border-bottom: 3px solid #9C9992;
+    border-top: 3px solid #B5B1A8;}
+.sign-in-modal .btn.pretty-button[disabled] {
+	border-bottom: 3px solid #CCCCCC;
+    border-top: 3px solid #DDDDDD;}
+.sign-in-modal .btn.pretty-button:hover {
+	border-bottom: 3px solid #B5B1A8;
+    border-top: 3px solid #CEC9BE;
+    background: none repeat scroll 0 0 #CEC9BE;}
+.sign-in-modal .btn.pretty-button:active {
+	border-bottom: 3px solid #B5B1A8;
+    border-top: 3px solid #CEC9BE;
+    background: none repeat scroll 0 0 #8E8774;
+    color: #ffffff;}
+.close-button {
+	float: right;}
+.sign-in-text-short {
+	height: 25px;}
+.sign-in-buttons {
+	padding: 0;}
+/* over rides for non-foundation pages Ends */
+.signup-terms {
+padding-bottom: 15px;}

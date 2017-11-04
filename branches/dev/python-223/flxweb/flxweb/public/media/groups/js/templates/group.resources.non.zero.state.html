@@ -1,0 +1,65 @@
+<div>
+	<div id="page">
+		<div class="resource-member members-select-container-small row collapse show-for-small">
+				<div class="members-select">
+					<a class="resource-filter-header-small" data-dropdown="drop4">Sort by:</a>
+					<a data-dropdown="drop4" class="small members-dropdown js-dropdown-title" id="dropdown-title-sort">Type</a>
+					<span class="round-arrow-container js-sort-dropdowm-icon icon-arrow_right drop-down-mobile" data-dropdown="drop4"></span>
+					<ul id="drop4" data-dropdown-content="" class="f-dropdown resource-type-dropdown-small members-dropdown-content">
+						<li class="js-dropdown-element"><a>Type</a></li>
+						<li class="js-dropdown-element"><a>Members</a></li>
+					</ul>
+				</div>
+				<div class="groups-select-wrapper">
+					<a class="resource-filter-header-small" data-dropdown="drop3">Shared by:</a>
+					<span class="round-arrow-container js-shared-dropdowm-icon icon-arrow_right drop-down-mobile" data-dropdown="drop3"></span>
+					<ul id="drop3" data-dropdown-content="" class="f-dropdown resource-type-dropdown-small groups-select-dropdown-content custom-checkbox-dropdown">
+						<li class="js-resources-filters"><span class="icon-checkmark select-filter-icon js-my-resource checked"></span><span class="filter-text">Me</span></li>
+						<li class="js-resources-filters"><span class="icon-checkmark select-filter-icon js-other-resource checked"></span><span class="filter-text">Others</span></li>
+					</ul>
+				</div>
+		</div>
+		<div class="members-container-wrapper">
+			<div class="resource-member members-select-container row collapse hide-for-small">
+				<h2 class="">Sort by:</h2>
+				<div class="members-select">
+					<a data-dropdown="drop2" class="small button dropdown members-dropdown js-dropdown-title" id="dropdown-title">Type</a>
+					<ul id="drop2" data-dropdown-content="" class="f-dropdown resource-type-dropdown">
+						<li class="js-dropdown-element"><a>Type</a></li>
+						<li class="js-dropdown-element"><a>Members</a></li>
+					</ul>
+				</div>
+				<span class="groups-select-wrapper">
+					<span class="title">Show:</span>
+					<span class="select-option js-resources-filters">
+						<span class="custom-check-box checked js-my-resource" id="my-resource"></span><span>Shared by me</span>
+					</span>
+					<span class="select-option js-resources-filters">
+						<span class="custom-check-box checked js-other-resource" id="other-resource"></span><span>Shared by others</span>
+					</span>
+				</span>
+			</div>
+			<!-- resource-members-select-container code :Ends-->
+			<div class="resource-member-details-wrapper" id="resources-container"></div>
+			<div id="no-resources" class="row collapse hide">
+				<div class="small-12 large-12 columns no-results">
+					<span>No results found for your selection.</span>
+				</div>
+			</div>
+			<!-- resource-member-details-wrapper code: Ends-->
+		</div>
+	</div>
+	<div id="modal">
+		<div id="deleteResourceModal" class="reveal-modal modal-uikit app-reveal-modal">
+			<a class="close-reveal-modal close">+</a>
+			<p><b>Remove This Resource?</b></p>
+			<div>
+				<p>If you remove <b><span class="js-delete-title"></span></b> group members will no longer see it in the "shared resources" section of this group.</p>
+			</div>
+			<div class="text-center">
+				<a id="delete-resource" class="button standard turquoise">Remove</a>
+				<a id="cancel-delete" class="button standard dusty-grey">Cancel</a>
+			</div>
+		</div>
+	</div>
+</div>

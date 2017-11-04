@@ -1,0 +1,68 @@
+<div class="left <% if ('asmtpractice' !== data.artifactType) { %>pointer<% } else { %>featured_practice_wrapper<% } %> relative featured_modality_wrapper js_concept_link">
+	<% if ('asmtpractice' === data.artifactType) { %>
+		<div class="text-center relative featured_thumbnail_wrapper cover">
+			<div><img src="/media/images/modality_generic_icons/practice_image.png" alt="<%= data.title %>"/></div>
+			<div class="score_circle svg-circle">
+				<svg version="1.1" xmlns="http://www.w3.org/2000/svg" height="90px" width="90px">
+					<circle cx="45" cy="45" r="39" stroke="#fff" stroke-width="6" class="progress-wrapper" fill="transparent"></circle>
+					<circle cx="45" cy="45" r="39" stroke="#B8D543" stroke-dasharray="244.92" stroke-dashoffset="244.92" stroke-width="6" class="progress-bar" fill="transparent" transform="rotate(-90 45 45)""></circle>
+				</svg>
+				<span class="js-practice_score">0%</span>
+			</div>
+		</div>
+	<% } else if (data.thumbnail_img) { %>
+		<div class="text-center featured_thumbnail_wrapper cover">
+			<a href="<%= data.details_url %>?referrer=featured_content" title="<%= data.title %>"><img src="<%= data.thumbnail_img %>" alt="<%= data.title %>"/></a>
+		</div>
+		<div class="text-center featured_thumbnail_wrapper overlay">
+			<a href="<%= data.details_url %>?referrer=featured_content" title="<%= data.title %>"><i class="<%= data.modalityIcon %>" alt="<%= data.title %>"></i></a>
+		</div>
+	<% } else { %>
+		<div class="text-center featured_thumbnail_wrapper no-cover">
+			<a href="<%= data.details_url %>?referrer=featured_content" title="<%= data.title %>"><i class="<%= data.modalityIcon %>" alt="<%= data.title %>"></i></a>
+		</div>
+	<% } %>
+	<div class="featured_text<% if ('asmtpractice' === data.artifactType) { %> featured_practice<% } %>">
+		<% if ('asmtpractice' === data.artifactType) { %>
+			<div class="memory-boost-section hide">
+				<div class="row">
+					<div class="boost-icon columns small-2"></div>
+					<div class="boost-message columns small-8"></div>
+					<div class="tooltip-icon icon icon-help_icon columns small-2"></div>				
+				</div>
+				<div class="tooltip-info hide">
+					<div class="tooltip-title">MEMORY METER</div>
+					<div class="tooltip-msg">This indicates how strong in your memory this concept is</div>
+				</div>				
+			</div>
+			<a class="button standard tangerine js-practice_button hide"><span>Practice</span><i class="icon-arrow3_right"></i></a>
+			<div class="asmt-title hide">
+				<div class="featured_group" title="<%= (data.modality_display_label || '').toUpperCase() %>"><%= (data.modality_display_label || '').toUpperCase() %></div>
+				<div class="featured_title " 
+					title="<% if(data.artifactType === 'asmtpractice' && data.collectionTitle) {%>
+								<%= data.collectionTitle%>
+							<% } else { %>
+								<%= data.title || '' %>
+							<% } %>">
+					<a href="<%= data.details_url %>?referrer=featured_content">
+						<% if(data.artifactType === 'asmtpractice' && data.collectionTitle) {%>
+							<%= _.escape(data.collectionTitle) %>
+						<% } else { %>
+							<%= _.escape(data.title) || '' %>
+						<% } %>		
+					</a>
+				</div>
+			</div>
+			<span class="left featured_summary" title="Practice questions">Practice questions</span>
+		<% } else { %>
+			<div class="featured_group" title="<%= (data.modality_display_label || '').toUpperCase() %>"><%= (data.modality_display_label || '').toUpperCase() %></div>
+			<div class="featured_title " title="<%= data.title || '' %>">
+				<a href="<%= data.details_url %>?referrer=featured_content"><%= _.escape(data.title) || '' %></a>
+			</div>
+			<div class="featured_summary" title="<%= data.summary || '' %>"><%= data.summary || '' %></div>
+		<% } %>
+	</div>
+	<% if (data.duration) { %>
+		<div class="video_details"><i class="icon-video"></i><span><%= Math.floor(data.duration / 60) + ':' +  (data.duration % 60) + ' mins' %></span></div>
+	<% } %>
+</div>

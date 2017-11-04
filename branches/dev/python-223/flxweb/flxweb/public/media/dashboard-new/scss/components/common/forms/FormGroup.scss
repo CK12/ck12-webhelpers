@@ -1,0 +1,16 @@
+@import '../../../main';
+
+:local {
+    .sectionError {
+        position: relative;
+
+        input + label {
+            border: 1px solid $error-color;
+        }
+
+        label > input {
+            border: 1px solid $error-color !important;
+        }
+    }
+}
+

@@ -1,0 +1,9 @@
+    WSGIScriptAlias /iss /opt/2.0/iss/pylons/iss/iss.wsgi
+    <Directory /opt/2.0/iss/pylons/iss/>
+        Require all granted
+    </Directory>
+    <Location /iss>
+        WSGIProcessGroup iss_wsgi
+    </Location>
+
+

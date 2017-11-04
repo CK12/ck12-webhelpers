@@ -1,0 +1,42 @@
+{% macro tooltip(type=false) %}
+    <div class="filter__tooltip filter__tooltip-initial">
+        <i class="icon-close2"></i>
+        This will show different connections in {{ type.capitalize() }}.<br>
+        <a href="#" class="filter__tooltip__{{ type }}">Discover {{ type.capitalize() }} Connections</a>
+    </div>
+    <div class="filter__tooltip filter__tooltip-final">
+        You can always change this setting here.<br>
+        <a href="#" class="filter__tooltip__{{ type }}">Got it!</a>
+    </div>
+{% endmacro %}
+
+
+{% macro create(mock=false) %}
+    <div class="filter filter--is-active {% if mock %}mock{% endif %}">
+        <button class="filter__button conceptmap__ui-button math {% if mock %}mock{% endif %}" type="button">Connections <span class="filter__button__arrow"></span></button>
+        <ul class="filter__holder">
+            <li>
+                <input name="branch{% if mock %}mock{% endif %}" type="radio" id="All{% if mock %}mock{% endif %}" value="All" data-css-class="all" checked/>
+                <label for="All{% if mock %}mock{% endif %}" class="filter__all">Math and Science</label>
+            </li>
+            <li>
+                <input name="branch{% if mock %}mock{% endif %}" type="radio" id="Math{% if mock %}mock{% endif %}" value="Math" data-css-class="math"/>
+                <label for="Math{% if mock %}mock{% endif %}" class="filter__math">Math</label>
+
+                {% if not mock %}
+                    {{ tooltip('math')}}
+                {% endif %}
+
+            </li>
+            <li>
+                <input name="branch{% if mock %}mock{% endif %}" type="radio" id="Science{% if mock %}mock{% endif %}" value="Science" data-css-class="science" />
+                <label for="Science{% if mock %}mock{% endif %}" class="filter__science">Science</label>
+
+                {% if not mock %}
+                    {{ tooltip('science')}}
+                {% endif %}
+
+            </li>
+        </ul>
+    </div>
+{% endmacro %}

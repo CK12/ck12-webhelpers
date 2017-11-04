@@ -1,0 +1,12 @@
+SELECT `id` INTO @subjectID FROM `Subjects` WHERE `shortname` = 'SCI';
+SELECT `id` INTO @branchID FROM `Branches` WHERE `shortname` = 'ESC';
+INSERT INTO `ConceptNodes` (`encodedID`, `subjectID`, `branchID`, `name`, `parentID`, `status`, `created`) select 'SCI.ESC.712', @subjectID, @branchID, 'Relative Ages of Rocks', id, 'published', NOW() from `ConceptNodes` where `encodedID` = 'SCI.ESC.710';
+SELECT `id` INTO @subjectID FROM `Subjects` WHERE `shortname` = 'SCI';
+SELECT `id` INTO @branchID FROM `Branches` WHERE `shortname` = 'ESC';
+INSERT INTO `ConceptNodes` (`encodedID`, `subjectID`, `branchID`, `name`, `parentID`, `status`, `created`) select 'SCI.ESC.712.1', @subjectID, @branchID, 'Principles of Relative Dating', id, 'published', NOW() from `ConceptNodes` where `encodedID` = 'SCI.ESC.712';
+SELECT `id` INTO @subjectID FROM `Subjects` WHERE `shortname` = 'SCI';
+SELECT `id` INTO @branchID FROM `Branches` WHERE `shortname` = 'ESC';
+INSERT INTO `ConceptNodes` (`encodedID`, `subjectID`, `branchID`, `name`, `parentID`, `status`, `created`) select 'SCI.ESC.712.2', @subjectID, @branchID, 'Determining Relative Ages', id, 'published', NOW() from `ConceptNodes` where `encodedID` = 'SCI.ESC.712';
+SELECT `id` INTO @parentID FROM `ConceptNodes` where `encodedID` = 'SCI.ESC.712';
+UPDATE `ConceptNodes` SET `parentID` = @parentID WHERE `encodedID` = 'SCI.ESC.712.3';
+UPDATE `ConceptNodes` SET `parentID` = @parentID WHERE `encodedID` = 'SCI.ESC.712.4';

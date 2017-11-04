@@ -1,0 +1,32 @@
+{% extends "details/modalities/modality_details_read.html" %}
+
+{#% block modality_js %}
+<script language="JavaScript" type="text/javascript">
+	require(['main'],function(){
+		require(['flxweb.details.modality.read']);
+	})
+</script>
+{% endblock %#}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{{ h.url_css('noty_theme_twitter.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ h.url_css('jquery.noty.css') }}" />
+{{ super() }}
+{% endblock %}
+
+{#% block modality_actions %}
+<ul>
+	{% if c.modality_data_json.artifact.revisionInLibrary == None %}
+		<li> <a id="add_to_library" title="Add to Library"> Add to Library </a> </li>
+	{% else %}
+		<li> <a class="already_in_library" title="Already in Library"> Add to Library </a> </li>
+	{% endif %}
+	<li> <a class="js-shareGroupLink" data-sharetype="group" data-artifactID="{{ c.modality_data.artifact.id }}" title="{{ _('Share via Groups') }}">Share to Groups</a> </li>
+    {% if c.show_details %}<li> {{ ck12_modality_details( c.modality_data.artifact ) }} </li>{% endif %}
+</ul>
+{% endblock %#}
+
+{% block after_modality_content_main %}
+{% endblock %}
+
+{#% block resources %}{% endblock %#}

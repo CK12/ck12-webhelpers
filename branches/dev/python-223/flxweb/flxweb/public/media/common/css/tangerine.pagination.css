@@ -1,0 +1,19 @@
+.paginator-wrapper{
+    text-align: center;
+    padding: 10px 0;
+}
+
+.paginator-wrapper .paginator-edge{
+    background: none repeat scroll 0 0 #00aba4;
+    border-radius: 15px;
+    color: #fff;
+    display: inline-block;
+    height: 30px;
+    line-height: 35px;
+    width: 30px;
+}
+
+.paginator-wrapper .paginator-edge.disabled{
+    background-color:#eeeeee;
+    cursor: default;
+}

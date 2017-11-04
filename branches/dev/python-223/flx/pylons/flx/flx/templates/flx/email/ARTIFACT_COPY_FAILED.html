@@ -1,0 +1,19 @@
+{% extends "MASTER_CK12_LOGO.html" %}
+{% block email_body %}
+<html>
+    <body>
+    <p>Dear {{ member.name }},</p>
+    <br/>
+    <p>Greetings from CK-12 Foundation!</p>
+    <br/>
+    <p>Unfortunately, the request to copy the {{ events[0]['objectDict']['artifactType'] }} titled <a href="{{ site }}{{ events[0]['objectDict']['perma'] }}/r{{ events[0]['objectDict']['revisions'][0]['revision'] }}" target="_blank">{{ events[0]['objectDict']['title'] }}</a> failed.</p>
+    <p>Status note: {{ events[0]['eventData'] }}</p>
+    <br/>
+    <p>Do you have questions or feedback? Do not hesitate to email <a href="mailto:support@ck12.org">support@ck12.org</a>.</p>
+    <br/>
+    <p>Sincerely,</p>
+    <p>The CK-12 Team</p>
+    </body>
+</html>
+{% endblock %}
+

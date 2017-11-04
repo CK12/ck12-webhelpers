@@ -1,0 +1,416 @@
+html {
+    height: auto;
+    background-color: #EFECE6;
+}
+body.nochrome {
+    background-color: #FFFFFF;
+}
+.content-wrap {
+    padding-top: 0px;
+}
+.bookmarklet-signin-container {
+    background-color: #FFFFFF;
+}
+.bookmarklet-header-text {
+    font-size: 20px;
+    font-weight: bold;
+    padding-top: 14px;
+}
+.bookmarklet-header {
+    padding: 10px 9px 20px 5px;
+}
+.sign-in-button-wrapper {
+    padding: 0px 0px 20px ;
+}
+.sign-in-email {
+    background-color: #EFECE6;
+    position: relative;
+    padding: 35px 0 5px;
+}
+.sign-in-button {
+    width: 100%;
+    font-weight: bold;
+}
+.sign-in-button-container .button i {
+    color: #FFFFFF;
+    font-size: 14px;
+}
+.sign-in-button-container {
+    border-bottom: 1px solid #B9B4AC;
+    position: relative;
+    padding: 0 0 15px;
+    height: 110px;
+    transition: height 1s ease 0s;
+    overflow: hidden;
+}
+.button-open .sign-in-button-container {
+    border: 0;
+    padding: 0;
+    height: 140px;
+}
+.show-more {
+    background-color: #FFFFFF;
+    bottom: -10px;
+    left: -webkit-calc(50% - 51px);
+    left: calc(50% - 51px);
+    padding: 0 12px;
+    position: absolute;
+    color: #B4AFA6;
+}
+.sign-in-button-container .button span {
+    margin-right: 0px;
+    font-size: 14px;
+}
+.sign-in-email .row.sign-in-separator {
+    background-color: #FFFFFF;
+    border-radius: 13px;
+    height: 26px;
+    left: -webkit-calc(50% - 13px);
+    left: calc(50% - 13px);
+    position: absolute;
+    top: -13px;
+    width: 26px;
+}
+.sign-up {
+    padding: 20px 10px 10px;
+}
+.forgot-password {
+    padding-top: 7px;
+}
+.twitter-button {
+    margin-right: 4%;
+}
+.sign-in-button-hide {
+    width: 48%;
+    font-weight: bold;
+}
+.close-bookmarklet i:before, .close-bookmarklet i:after {
+    background-color: #F63;
+    top: 7px;
+    right: 15px;
+    height: 22px;
+}
+.close-bookmarklet {
+    height: 16px;
+    width: 16px;
+}
+.signin-error {
+    color: #FB6C33;
+    left: 0;
+    position: absolute;
+    text-align: left;
+    text-shadow: none;
+    top: -23px;
+}
+.terms-container label {
+    display: inline;
+}
+.terms-content > span, .terms-content > a {
+    font-size: 0.875em;
+}
+.terms-content {
+    padding-left: 2px;
+    margin-bottom: 10px;
+}
+.terms-wrapper {
+    padding: 2px 0 0 3px;
+    font-size: 0.875em;
+}
+
+/* RESOURCE VIEW CSS STARTS */
+.resource-view-container {
+    height: 100%;
+    background-color: #EFEDE7;
+}
+.resource-view-header {
+     background-color: #FFFFFF;
+}
+.resource-view-profile-header {
+    background-color: #56544D;
+    padding: 10px 18px;
+}
+.resource-view-profile-header div {
+    color: #00ABA4;
+}
+.resource-view-header .logo-img {
+    margin: 10px 17px 13px 15px;
+}
+.resource-view-header .close-bookmarklet {
+    height: 20px;
+    width: 20px;
+    margin: 12px
+}
+.resource-view-header .close-bookmarklet i:before, .resource-view-header .close-bookmarklet i:after {
+    top: 11px;
+    right: 21px;
+}
+.user-profile-image img {
+    height: 55px;
+    width: 55px;
+}
+.user-profile-image i {
+    font-size: 45px;
+    display: inline-block;
+    margin-top: 3px;
+}
+.user-fullname {
+    padding: 12px 0;
+    font-weight: bold;
+    font-size: 20px;
+}
+.dropdown-icon {
+    width: 30px;
+    height: 30px;
+    background-color: #424038;
+    border-radius: 50%;
+    margin-top: 11px;
+}
+.down-arrow {
+    background: none repeat scroll 0 0 transparent;
+    border-color: #00ABA4 transparent transparent;
+    border-style: solid;
+    border-width: 8px 7px 0;
+    content: " ";
+    left: 8px;
+    position: absolute;
+    top: 12px;
+}
+.resource-view-content {
+    padding: 15px;
+}
+.resource-view-content input {
+    border: 1px solid #ccc;
+}
+.resource-title-input {
+    border-radius: 5px;
+    resize: vertical;
+    margin-bottom: 16px;
+}
+.title-text {
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px 0 20px;
+}
+.input-header-text {
+    color: #8e8774;
+    font-size: 14px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.save-resource-button {
+    padding-top: 25px;
+    font-weight: bold;
+}
+.resource-view-container .user-dropdown-content {
+    width: 120px !important;
+    margin-left: -83px;
+}
+.dropdown-icon > a {
+    height: 12px;
+}
+.dropdown-items .item-title {
+    display: inline-block;
+    height: auto;
+    min-width: -moz-calc(100% - 31px);
+    min-width: -webkit-calc(100% - 31px);
+    min-width: calc(100% - 31px);
+    vertical-align: top;
+}
+.dropdown-items .user-dropdown-icon {
+    display: inline-block;
+    min-width: 20px;
+    text-align: center;
+}
+.user-dropdown-content li {
+    padding: 6px 0;
+}
+.user-fullname div {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.remember-container .remember-label.checkbox span {
+    top: 4px;
+}
+.resouce-saved-content {
+    background-color: #DDECA4;
+    border-radius: 5px;
+    padding: 20px;
+}
+.resource-added-icon i {
+    color: #FFFFFF;
+    font-size: 24px;
+    border-radius: 50%;
+    background-color: #B7D733;
+    padding: 6px;
+}
+.resource-save-text {
+    margin-top: 10px;
+}
+.view-on-ck12 {
+    margin-top: 20px;
+}
+.resource-title-input.error {
+    color: #d9491a;
+    background-color: #FFFFFF;
+    border-color: #d9491a;
+}
+.text-bold {
+    font-weight: bold;
+}
+.close-clipper {
+    margin-top: 30px;
+    width: 93px;
+}
+.ck12-resource-clip-container {
+    padding: 15px;
+}
+.bottom-message-text {
+    margin-top: 10px;
+}
+body.nochrome .ui-autocomplete.ui-widget-content a {
+    color: #56544d;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+body.nochrome .ui-widget.ui-autocomplete {
+    width: 260px !important;
+    margin-top: 10px;
+    border-top: 1px solid #ccc;
+}
+body.nochrome .ui-widget.ui-autocomplete:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border: inset 6px;
+    border-color: transparent transparent #fff transparent;
+    border-bottom-style: solid;
+    position: absolute;
+    top: -12px;
+    left: 10px;
+    z-index: 99;
+}
+body.nochrome .ui-widget.ui-autocomplete:after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border: inset 7px;
+    border-color: transparent transparent #ccc transparent;
+    border-bottom-style: solid;
+    position: absolute;
+    top: -14px;
+    left: 9px;
+    z-index: 98;
+}
+.ui-menu .ui-menu-item a.ui-state-hover {
+    background: #FFF9D5;
+    border: none;
+    margin: 0px;
+}
+.tag-label {
+    padding: 10px 2px 10px 10px;
+    max-width: 192px;
+}
+.tag-wrapper {
+    margin: 0 5px 10px 0;
+    background-color: #FFF9D5;
+}
+.tag-wrapper a {
+    height: 28px;
+    width: 28px;
+    position: relative;
+    font-size: 10px;
+    margin: 3px 3px 0px 8px;
+}
+.content-wrapper {
+    position: relative;
+}
+.user-fullname div {
+    padding-left: 10px;
+}
+.custom-loading-search {
+    right: 12px;
+    top: 7px;
+}
+.search-input-container {
+    position: relative;
+}
+.embed-code-wrapper.embed-open {
+    height: 116px;
+}
+.embed-code-wrapper {
+    -webkit-transition: height 0.5s ease 0s;
+    -moz-transition: height 0.5s ease 0s;
+    -o-transition: height 0.5s ease 0s;
+    transition: height 0.5s ease 0s;
+    height: 19px;
+    overflow: hidden;
+}
+.embed-code-wrapper .expand-icon {
+    margin-right: 4px;
+    padding-top: 1px;
+    color: #00aba4;
+    font-size: 11px;
+    display: inline-block;
+}
+.embed-code-help {
+    background-color: #00ABA4;
+    border-radius: 9px;
+    font-size: 12px;
+    height: 15px;
+    width: 15px;
+    position: relative;
+    display: inline-block;
+    margin-left: 5px;
+    padding: 1px;
+    color: #FFFFFF;
+}
+.embed-code-help:hover {
+    color: #FFF;
+}
+.embed-help-tooltip {
+    position: absolute;
+    top: 62px;
+}
+.embed-help-tooltip:before {
+    right: 41px;
+}
+.tag-header-text {
+    margin-top: 10px;
+}
+.embed-code-input {
+    border-radius: 5px;
+}
+.embed-code-wrapper.embed-open .expand-icon {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+    margin: 0 4px;
+}
+
+/* RESOURCE VIEW CSS ENDS */
+
+/* INVALID VIEW CSS STARTS */
+
+.invalid-resource-clip-container {
+    padding: 15px;
+    background-color: #efece6;
+    height: 100%;
+}
+
+/* INVALID VIEW CSS ENDS */
+
+/* CK12 VIEW CSS STARTS */
+
+.ck12-resource-clip-container {
+    padding: 15px;
+    background-color: #efece6;
+    height: 100%;
+}
+
+/* CK12 VIEW CSS ENDS */

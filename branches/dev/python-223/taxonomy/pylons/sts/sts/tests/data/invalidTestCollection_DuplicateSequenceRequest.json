@@ -1,0 +1,22 @@
+{
+  "handle": "Subtraction of Integers",
+  "title": "Subtraction of Integers",
+  "description": "A very quick collection for learning the subtraction of basic integers for grade 1,2 and 3",
+  "country": "US",
+  "isPublished": true,
+  "canonicalID": "MAT.ALG",
+  "contains": [
+    {
+      "title": "Basic Integers",
+      "encodedID": "MAT.ALG.100",
+      "sequence": 1
+    },
+    {
+      "title": "Medium Integers",
+      "description": "Subtraction of Basic Integers for 2nd grade",
+      "country": "US",
+      "encodedID": "MAT.ALG.200",
+      "sequence": 1
+    }
+  ]
+}

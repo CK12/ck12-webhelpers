@@ -1,0 +1,47 @@
+{% extends "common/master.html" %}
+
+{% block title %}{{ _("Groups") }}{% endblock %}
+
+{% block stylesheets %}
+{{ super() }}
+	<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('groups/assets/css/tangerine.groups.css') }}" />
+        <link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('roster/build/css/roster.css') }}" />
+{% endblock %}
+
+{% block js %}
+<script type='text/javascript' src="{{ h.asset_lib('common/vendor/react-0.14.0/build/react-with-addons.min.js') }}"></script>
+<script type='text/javascript' src="{{ h.asset_lib('roster/build/roster.js') }}"></script>
+{{ super() }}
+	<script>
+		document.getElementsByClassName('page-title')[0].innerHTML = 'Members';
+		if ('classList' in document.createElement('a')) {
+			document.getElementsByClassName('back-icon')[0].classList.remove('hide-one', 'hidden');
+			document.getElementsByClassName('name')[0].classList.add('hide-small');
+		} else { // IE-9 :(
+			var temp = document.getElementsByClassName('back-icon')[0]; 
+			temp.className = temp.className.replace(/\bhide-one\b/, '');
+			temp.className = temp.className.replace(/\bhidden\b/, '');
+			document.getElementsByClassName('name')[0].className += 'hide-small'; 
+		}
+	    require(['main'], function(){
+	        require(['groups/controllers/group.members'],function(groups){
+	        	groups.load(document.getElementById('group-members'));
+	        });
+	    });
+	</script>
+{% endblock %}
+ 
+<!-- Main Page Content and Sidebar -->
+{% block content %}
+{{ super() }}
+	<div id="page-disable" class="page-disable js-page-disable hide"></div>
+ 	<div id="loading-icon" class="loading-icon js-loading-icon">
+        <img alt="loading" src="{{ h.asset_image('common/images/icon_loading.gif') }}">
+	</div>
+ 	<div id="group-members" class="row collapse groups-container" data-user="{{c.user.id}}" data-user-role="{{c.user.role.description}}"></div>
+{% endblock %}
+<!-- End Main Content and Sidebar -->
+ 
+  
+
+

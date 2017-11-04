@@ -1,0 +1,32 @@
+.aligned-search-carousel button.slick-arrow{
+	width:'55px';
+	height:'90px';
+	position:'absolute';
+	border-radius:'7px';
+	background-color:'grey';
+	top:'185px';
+	z-index:10;
+	opacity: 0.5;
+}
+.aligned-search-carousel button.slick-disabled{
+	opacity: 0;
+	cursor: default;
+}
+#content-container{
+	background: white;
+}
+
+#seach-container{
+	transition: margin-top .5s;
+	-webkit-transition: margin-top .5s;
+}
+
+#search-input-box{
+	transition: width .5s;
+	-webkit-transition: width .5s;
+}
+
+#carouselView, #relatedQuestionsView{
+	/*transition: width .3s;
+	-webkit-tr*/ansition: width .3s;
+}

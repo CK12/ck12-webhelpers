@@ -1,0 +1,3 @@
+include flxweb/config/deployment.ini_tmpl
+recursive-include flxweb/public *
+recursive-include flxweb/templates *

@@ -1,0 +1,10 @@
+<div class="popup-overlay"></div>
+<div class="popup-wrapper">
+<div class="popup-body <% if(bodyClass) { %> <%=bodyClass %> <% } %>"  style="<% if( popupStyle ) { %> <%=popupStyle %> <% } %>" >
+	<div class="popup-template" style="<% if( width ) { %> width:<%- width %>; <%}%>" >
+		<%=  bodyTemplate %>
+	</div>
+	<% if(!hideCloseBtn){ %> 
+		<div class="dxtrack-user-action popup-close" data-dx-desc='<%=closeDesc%>'  data-dx-style='<%=style%>' data-dx-popup='<%=popup%>' title='close'></div>
+	<%} %>
+</div>

@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.node circle {
+  cursor: pointer;
+  stroke: #e0ddd5;
+  stroke-width: 4px;
+}
+
+.node text {
+  font: 15px sans-serif;
+  pointer-events: none;
+  text-anchor: middle;
+  font-weight:bold;  
+}
+line.link {
+  fill: none;
+  stroke: grey;
+  stroke-width: 1.5px;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: #f9f9f5;  
+}
+#LandingSearchForm {
+	padding: 10px 0 0 0;
+	margin: auto;
+	position: absolute;
+	width: 100%;
+	max-width: 700px;
+	top: 50%;
+	text-align: center;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	transform: translateX(-50%);
+	-webkit-transition-property: top;
+	-moz-transition-property: top;
+	-ms-transition-property: top;
+	transition-property: top;
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -ms-transition-duration: 0.5s;
+     transition-duration: 0.5s;
+}
+#LandingSearchForm > div {
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	width: 100%;
+}
+.searchInputWrapper {
+	width: 100%;
+	box-shadow: 0px 5px 5px #aaa;
+}
+#landingSearchTerm {
+	background: #fff;
+	border: 2px solid #cec9be;
+	color: #56544d;
+	font-size: 1.1em;
+	height: 61px;
+	line-height: 18px;
+	margin: 0;
+	padding: 5px 5px 5px 10px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-background-clip: padding-box;
+	width: 100%;
+	box-sizing: border-box;
+}
+.ui-helper-hidden-accessible {
+	position: absolute !important;
+	/* clip: rect(1px 1px 1px 1px); */
+	clip: rect(1px,1px,1px,1px);
+}
+.loading-search-landing {
+	right: 75px;
+}
+#LandingSearchForm .landingSearchButton {
+	position: absolute;
+	right: 6px;
+	top: 1px;
+}
+#landingSearchSubmit {
+	background: none repeat scroll 0 0 #FF5B3F;
+	border: none;
+	border-radius: 0 3px 3px 0;
+	-webkit-border-radius: 0 3px 3px 0;
+	-moz-border-radius: 0 3px 3px 0;
+	height: 49px;
+	margin: 0 auto 40px auto;
+	width: 60px;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 0.5em;
+	margin-top: 5px;
+	margin-bottom: 4px;
+	display: inline-block;
+	width: 55px;
+	height: 41px;
+}
+.searchSubmit {
+	color: #E83F2A;
+	font-size: 2em;
+	text-shadow: none;
+	display: inline-block;
+	width: 30px;
+	border: 1px solid transparent;
+}
+.hide{
+	display: none;
+}
+.ui-autocomplete > li {
+	padding: 3px 24px 3px 5px;
+	list-style-type: none;
+}
+.ui-menu .ui-menu-item {
+	margin: 0;
+	padding: 0;
+	zoom: 1;
+	float: left;
+	clear: left;
+	width: 100%;
+	cursor: pointer;
+}
+.ui-menu .ui-menu-item:hover {
+	background-color: rgb(255, 249, 213);
+}
+.autocomplete-list {
+	position: relative;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.ui-menu .ui-menu-item a {
+	text-decoration: none;
+	display: block;
+	padding: .2em .4em;
+	line-height: 1.5;
+	zoom: 1;
+}
+.ui-autocomplete.ui-widget-content a {
+	color: #00ABA4;
+	font-size: 16px;
+}
+.ui-widget.ui-autocomplete {
+	z-index: 999;
+	background: #ffffff;
+	border: 1px solid #ccc;
+	border-top: none;
+}
+.ui-widget.ui-autocomplete.landing {
+	position: absolute;
+	width: 765px !important;
+	padding-left: 0;
+}
+.ui-widget.ui-autocomplete.landing {
+	width: calc(85% - 1px) !important;
+	width: -webkit-calc(85% - 1px) !important;
+	max-width: 600px;
+}
+#load-image{
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	margin: auto;
+	height: 96px;
+	position: absolute;
+	width: 100px;	
+}
+.graph-available #LandingSearchForm{
+	top:0;
+}
+.eid-available #LandingSearchForm{
+	display: none;
+}
+.graph-available svg{
+	top: 80px;
+	position: relative;
+}
+.search-icon{
+	position: relative;
+	top: 5px;
+	cursor: pointer;
+	border-radius: 5px;
+}
+.select-div {
+    margin-left: 30%;
+    margin-top: 3%;
+    font-weight: bold;
+    border: 2px solid rgb(190, 183, 183);
+    width: 30%;
+    padding: 10px;
+    background: white;
+    color: #00ABA3;
+    display:none;
+}
+#load-image {
+    display: none;
+}
+body {
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 18px;
+  height: 100%;
+  background: #fff;
+}
+
+input[type=checkbox], input[type=radio] {
+  -webkit-appearance: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  position: relative;
+  width: 18px;
+  height: 18px;
+  background-image: left top;
+  vertical-align: middle;
+  outline: 0;
+}
+
+input[type=checkbox]:active:not(:disabled), input[type=radio]:active:not(:disabled) {
+  background-position: left center;
+}
+
+input[type=checkbox]:checked, input[type=radio]:checked {
+  -webkit-transition: all 0.1s;
+  -moz-transition: all 0.1s;
+  -o-transition: all 0.1s;
+  transition: all 0.1s;
+  background-position: left bottom;
+}
+
+input[type=checkbox]:disabled, input[type=radio]:disabled {
+  opacity: 0.75;
+}
+
+input[type=radio] {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAA6CAYAAAC9MQkMAAACxUlEQVR4AdWUz2oTURSHk3fQvbYu0ncQi21IQeyiLyAuiqvSbq1QjHs3iggd1EVx40Z3Kgh2OYJ1I2ibtMF%2FC6mpoZ3W5k8zOf4%2BSGG4mOk4GRce%2BMj03HO%2Bzsyde3J%2FirW1tQmxLDZFG7ju5yZFzsVNFMRqpVKxer1urVbLer0ecE3OWKOG2kGicRFsb2%2FbSUENtfS4Iuy7jUbDkga19NB7LMoLP%2F5OYu%2FMx4GoWK1WLW3QiwORx0tMG%2FTiQLTFjqQNenEgarO9aYNeHIiCbrebiWij2WwO%2B2g1RCs7OzupRfTiQDSVwfaXMvwghz8iY9kfWmeM%2BDx3dIyEYWjsLDnWqIkbIwB5URKeqImOOBDr5FijJn6wpeffi86KaTEvlqB%2FTW4kieiUuKq5XNaLLetll%2FWygWtyZdaooXaQ6IxY1NaWzSwWaqilxxVhv66PjMJEUEsPvdGZPRt%2FJ7F3NosD0Yg%2BMhZSQS8ORNO8xLQienEgmmdH0oroxYFoie1NK6IXB6JFzexMRHM62cM%2B2gKiGc3d1CJ6cSA6l8H2j2b6QQ57RE5nfmjdMTLLc0fHiGZ2mZ0lxxo11CaZ2aP9IbYglsQNMUeOtf94Zp%2B%2FszchlsWmaAPX%2FdykyLm4iYJYFRYLNdQOEI2LQFhCAnpcEfZdYX8JPYVjUV74wlLi40BUTNo083Dfqj%2B6du3JgbtWROQlkVz2AvvSCI34rF9n3UO0dZKkeD%2BwD9%2B7RnT0s%2FD0l1uzhagdTV55vG9vvx4Zd8DfF%2B%2Ft2btvR0aEPbNbLw%2FJu7Rz7pZ%2F%2BhkasVnv2qXlwF5VOnYct183qRko2ogmb744NP4z0ezooh%2BP3rTiHr%2BGaMVd4D9H49n7Nvk4VhBNCXN54LfsKDR7%2FrFjF%2B6Si6WU4Qc5%2FBEZy%2FzQRikkfEw%2FbowA5EVJeKImOuJArJNjjRq37zezS3H0OLowXgAAAABJRU5ErkJggg%3D%3D);
+}
+
+input[type=checkbox] {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAA6CAYAAAC9MQkMAAABvklEQVR42u2UPUvDUBSG%2Bx%2Fav1DSHyGC4CQuTt0cXV2ti3V3UURQ1MnFIbqpILgqWBdBQR38GmwVDTfRtraJr%2BeFK1w6NJ%2BbOfA0be55nwR6zy1kXo1GoyzYghIQgmKvzhQIP4glOM1mE77vI6zYw15mmDVFdqvVQtxihllTpPiUuBUEAUWeKULSYjYX5aKMNmT2I1IRHC5EHVotcZg1RcTSdldACK7utcxjJBX%2FTFQUqkJNqIdQ073FQVFJmJNzuC5%2FbR3AUNjDXmaYNUVV2RdsigUzzJqimn6TWMiIUDRviriQCGZzUS7KekOmHxFzaLkQcWi1ZHBotSzBMVLKz%2BwEopFlVRZsQQkIQbFXZwqEH8QSHAExcZg1RbQjIbYpUilEnilCFKa2PNy%2B%2BpjZ%2FRxYiyGa3HDx%2BBGA9SDXRKLxNRdXLz5YPbnM7n2Fi6Z3PJw%2F9cE34O%2BxVYWL5z5YwQ%2BweNTm%2FXDR%2FXsA1t2bj4l1F8c3PfzV0kmHPdFEC4dt8MmsTk%2B%2B6No%2B63I9uojwyWbtX37zfnwR2Tztoh8AB9c9jK4MlSDLDZn9iFRSDG3FFBFL290IAlf3WuYxkgm%2FDqwrTKvo5doAAAAASUVORK5CYII%3D);
+}
+
+label, span {
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+label {
+  color: #ccc;
+  cursor: pointer;
+}
+label:hover {
+  color: #333;
+  -webkit-transition: all 0.1s;
+  -moz-transition: all 0.1s;
+  -o-transition: all 0.1s;
+  transition: all 0.1s;
+}
+
+.select-form {
+  width: 220px;
+  padding: 10px;
+  box-shadow: 0px 0px 10px #aaa;
+  border-radius: 5px;
+}
+
+.select-form-div {
+float:right;
+margin-right:30px;
+margin-top:10px;
+height: 42px;
+line-height: 40px;
+}
+
+input[type=radio]:checked + label {
+  color: #000;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+}
+</style>
+<body>
+<div id = 'load-image'>
+	<img src= '/taxonomy/media/images/ajax-loader.gif'/>
+</div>
+
+<!--div class="select-div">
+    <span style="font-size:20px">Please select the Subject :</span>
+    <br/>
+    <div style="margin-top:10px">
+        <input type="radio" name="subject" value="all" checked/>All
+        <input type="radio" name="subject" value="sci"/>Science
+        <input type="radio" name="subject" value="mat" />Mathematics    
+    </div>
+</div-->
+
+<div class="select-form-div">
+    <form class="select-form">
+        <input checked="true" id="all" name="subject" type="radio" value="" /><label for="all"> All</label>
+        <input id="mat" name="subject" type="radio" value="mat" /><label for="mat"> Math</label>
+        <input id="sci" name="subject" type="radio" value="sci" /><label for="sci"> Science</label>
+    </form>
+</div>
+
+<form id="LandingSearchForm" action="/search/" method="GET">
+<div class="row collapse">
+	<div class="searchInputWrapper">
+		<input id="landingSearchTerm" type="text" placeholder="Search for concepts like Radiometric Dating, Photosynthesis, etc." name="q" value="" data-autocompleteclass="landing" class="ui-autocomplete-input" autocomplete="off"><span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+		<span class="loading-search-landing right js-loading-icon hide">
+			<img alt="loading" src="/taxonomy/media/images/loading.gif">
+		</span>
+	</div>
+	<div class="landingSearchButton">
+		<!-- <a id="landingSearchSubmit" class="pointer text-center"> -->
+			<img class="search-icon" src="/taxonomy/media/images/search_icon.png">
+		<!-- </a> -->
+	</div>
+</div>
+</form>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://code.jquery.com/jquery-2.1.3.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script src="/taxonomy/media/js/search.js"></script>
+<script src="/taxonomy/media/js/search.service.js"></script>
+
+<script>
+
+$(document).ready(function(){
+	$.ajaxSetup({
+	    async: false
+	});
+	
+	var relatedAPI = 'http://chaplin.ck12.org/taxonomy/get/info/related/concepts/#EID#?similarity=0.0',
+    prerequisiteAPI = 'http://chaplin.ck12.org/taxonomy/get/info/conceptPrerequires/#EID#',
+	defaultImage = 'http://www.ck12.org/media/images/thumb_dflt_concept_lg.png',
+	root_node, expandCount,
+	width = 1200,
+    height = 1000,
+    root,
+	force,
+	svg,
+	config,
+	link,
+	node,
+	root = {},
+	rootEID,
+	expandCount,
+	searchView,
+	searchBox = $("#landingSearchTerm"),
+	searchService;
+	
+	force= d3.layout.force()
+    .linkDistance(200)
+    .charge(-1000)
+    .gravity(.05)
+    .size([width, height])
+    .friction(0.3)
+    .linkStrength(1);
+
+	svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+	config = {
+    	"image_size" : 75
+	}
+
+	/* link = svg.selectAll(".link");
+    node = svg.selectAll(".node"); */
+    
+    searchView = new SearchView();
+    searchView.init(searchBox);
+    
+    searchService = new SearchService();
+    
+    window.graph = {};
+    window.graph.searchView = searchView;
+    window.graph.searchService = searchService;
+    window.graph.init = init;
+    window.graph.update = update;
+    
+    //rootEID = $('#roorEID').val();
+    expandCount = $('#expandCount').val();
+    expandCount = parseInt(expandCount);
+    if (isNaN(expandCount)){
+        expandCount = 5;
+    }
+    var conceptType = $('#conceptType').val().trim();
+    if (!(conceptType == "related" || conceptType == "prerequisites")) {
+        conceptType = "related"; // Set default concept type to prerequisites
+    }
+
+    $('input[type=radio][name=subject]').change(function() {
+        $("#load-image").css('display','block');
+    	setTimeout(function(){
+            init(root.eid);
+            update();
+        }, 500);
+    });
+
+    if($("#roorEID").val().trim() !== "" ){
+
+    	$("body").addClass("eid-available");
+    	init($("#roorEID").val().trim());
+    	update();
+	} else {
+	$('.select-form-div').css('display', 'none');
+	}
+    
+	function init(rootNodeEID) {
+		
+	   if (conceptType == "related") {
+		$('.select-form-div').css('display', 'block');
+	}
+        $("svg").html("");
+
+    // Create the arrowhead marker
+    svg.append("defs").append("marker")
+        .attr("id", "arrowhead")
+        .attr("refX", 28) /*must be smarter way to calculate shift*/
+        .attr("refY", 2)
+        .attr("markerWidth", 6)
+        .attr("markerHeight", 4)
+        .attr("orient", "auto")
+        .append("path")
+            .attr("d", "M 0,0 V 4 L6,2 Z");
+
+
+        link = svg.selectAll(".link");
+        node = svg.selectAll(".node");
+    	
+    	root = {};
+    	force.nodes([]);
+    	force.links([]);
+    	// Get the related concepts
+        if( conceptType == "related") {
+        	var currentLevelNodes = getRelatedConcepts(rootNodeEID);
+        } else {   // Get the prerequires concepts
+        	var currentLevelNodes = getPrerequisiteConcepts(rootNodeEID);
+        }
+    	currentLevelNodes = currentLevelNodes.splice(0, expandCount);
+    	// Get the root node information
+    	parent = getConceptInfo(rootNodeEID)
+    	// Add childrens to the root node
+    	//removeDupilcateNodes(currentLevelNodes);
+    	addChildrens(parent, currentLevelNodes);
+    }
+
+    // Add childrens to the root node
+    function addChildrens(parent, childs) {
+    	var parentEID = parent.eid.toLowerCase();
+    	// Intialise the root elements data at start
+    	if($.isEmptyObject(root)) {
+    	    root['eid'] = parent['eid'];
+    	    root['name'] = parent['name'];
+    	    root['branch'] = parent['branch'];
+    	    root['image_url'] = parent['image_url'];
+    	    root['children'] = childs;
+    	    return;
+    	}
+
+      function recurse(node) {
+        if (node.children) node.children.forEach(recurse);
+        if (node.eid.toLowerCase() == parentEID) {
+            node.children = childs;
+        }
+      }
+      // Update the nodes children  
+      recurse(root);
+    }
+
+    // Remove childrens to the root node
+    function removeChildrens(concept) {
+      var eid = concept.eid.toLowerCase();
+      function recurse(node) {
+        if (node.children) node.children.forEach(recurse);
+        if (node.eid.toLowerCase() == eid) {
+            node.children = null;
+        }
+      }
+      // Update the nodes children  
+      recurse(root);
+    }
+
+    function updateChildrens(concept) {
+    	if (d3.event.defaultPrevented) return;
+    	
+    	// set the friction to lower value to remove the elastic effect on adding children nodes
+    	force.friction(0.3);
+    	// If concept has children remove its children nested and update the graph
+    	if(concept.children) {
+    	    //removeChildrens(concept);
+    	    concept.children = null;
+    	    var tmpRoot = root;
+    	    root = null;
+    	    update();
+    	    root = tmpRoot;
+    	    update();
+    	
+    	} else {
+    	    // If concept has no childrens pull the same from api and update the graph
+    	    var eid = concept.eid;
+        	// Get the related concepts
+            if( conceptType == "related") {
+            	var currentLevelNodes = getRelatedConcepts(eid);
+            } else {   // Get the prerequires concepts
+            	var currentLevelNodes = getPrerequisiteConcepts(eid);
+            }
+    	    //var currentLevelNodes = getRelatedConcepts(eid)
+    	    parent = {'eid':eid, 'name':concept.name, 'image_url':concept.image_url }
+    	    currentLevelNodes = currentLevelNodes.splice(0, expandCount);
+    	    //addChildrens(parent, currentLevelNodes);
+    	    //removeDupilcateNodes(currentLevelNodes);
+    	    concept.children = currentLevelNodes;
+    	    update();
+    	}
+    }
+
+    //remove all nodes from chileNodes if already available in layout
+    function removeDupilcateNodes(childNodes){
+    	var availNodes = force.nodes(),
+    		i,
+    		currentNodeEid;
+    	for(i = 0; i < availNodes.length; i++){
+    		currentNodeEid = availNodes[i].eid;
+    		for(j = 0; j < childNodes.length; j++){
+    			if(currentNodeEid === childNodes[j].eid){
+    				/* delete availNodes[i].index;
+    				delete availNodes[i].px;
+    				delete availNodes[i].py;
+    				delete availNodes[i].weight;
+    				delete availNodes[i].x;
+    				delete availNodes[i].y;
+    				delete availNodes[i].id;
+    				delete availNodes[i].fixed; */
+    				childNodes.splice(j,1);
+    			}
+    		}
+    	}
+    }
+    function update() {
+    	var nodes = [],
+		links;
+        var rootEID = '';
+      	if (root) {
+        	nodes = flatten(root);
+            rootEID = root.eid.toLowerCase();
+      	}
+          
+    	links = d3.layout.tree().links(nodes);
+    	console.log(nodes);  
+    	nodes.forEach(function(e){console.log(e.id + "::" + e.eid  + "::" + e.name)})  
+    	links.forEach(function(e){console.log(e.source.eid + "::" + e.target.eid )})  
+
+      // Restart the force layout.
+     	force
+        .nodes(nodes)
+        .links(links)
+        .start();
+
+      // Update links.
+      link = link.data(links, function(d) { return d.target.id; });
+      link.exit().remove();
+
+      // Show direction to links only in case of prerequisites
+      if (conceptType== "prerequisites") {
+      link.enter().insert("line", ".node")
+          .attr("class", "link")
+          .attr("marker-end", "url(#arrowhead)");
+        } else {
+        link.enter().insert("line", ".node")
+          .attr("class", "link")
+        }
+
+
+
+      // Update nodes.
+      nodes.forEach(function(e){console.log(e.id + "X::X" + e.eid  + "::" + e.name)})  
+
+       console.log(svg.selectAll("g.node"));
+     
+       var node = svg.selectAll("g.node")
+            .data(nodes, function(d) { console.log(d.id + 'AAA::AAA' + d.name);return d.id});
+
+      //node = node.data(nodes, function(d) { console.log(d.id + 'AAA::AAA' + d.name);return d.id; });
+
+      node.exit().remove();
+
+      var nodeEnter = node.enter().append("g")
+          .attr("class", "node")
+          .on("click", function(d) {updateChildrens(d)})
+          .call(force.drag)
+
+
+        nodeEnter.append('svg:defs').append("svg:pattern")
+        .attr("id", function(d) {return "cimage_" + d.id})
+        .attr("width", 90)
+        .attr("height", 90)
+        .attr("x", function(d) {if(d.eid.toLowerCase() == rootEID) {return -40;} else {return -32;}})
+        .attr("y", function(d) {if(d.eid.toLowerCase() == rootEID) {return -40;} else {return -32;}})
+        .attr("patternUnits", "userSpaceOnUse")
+        .append("svg:image")
+        .attr("xlink:href", function(d) {return d.image_url})
+        .attr("width", function(d) {if(d.eid.toLowerCase() == rootEID) {return 120;} else {return 90;}})
+        .attr("height", 90)
+        .attr("x", 0)
+        .attr("y", -10);
+
+        //nodeEnter.append("circle")
+        //.attr("r", 35)
+
+       nodeEnter.append("circle")
+           .attr("cx", 0)
+           .attr("cy", 0)
+       .attr("r", function(d) {if(d.eid.toLowerCase() == rootEID) {return 40;} else {return 30;}})
+       .style("fill", "#fff")
+       .style("fill", function(d){return "url(#cimage_" +d.id+ ")"})
+       .style("stroke", function(d) {if(d.eid.toLowerCase() == rootEID) {return "darkorange";}})         
+       // .on("click", function(d) {updateChildrens(d)});    
+     //.attr("r", function(d) { return Math.sqrt(d.size) / 10 || 4.5; });
+
+
+ nodeEnter.append("text")
+      .attr("y", function(d) {if(d.eid.toLowerCase() == rootEID) {return "-8";} else {return "0";}})
+      .style("font-size", function(d) {if(d.eid.toLowerCase() == rootEID) {return "13px";} else {return "10px";}}) 
+      .style("text-anchor", "initial")  
+      .append('svg:tspan')
+      .attr('x', "0")
+      .attr('dy', function(d) {if(d.eid.toLowerCase() == rootEID) {return "-40";} else {return "-32";}})
+      .text(function(d) { return getSmallNames(d.name, d.branch, d.priority)[0]; })
+      .append('svg:tspan')
+      .attr('x', "30")
+      .attr('dy', "10")
+      .text(function(d) { return getSmallNames(d.name, d.branch, d.priority)[1]; });
+
+//  var allNodes = nodeEnter.append("text")
+//      .attr("dy", "10px")
+//      .attr("dx", "100px")
+//      .style("font-size","10px")
+//      .append("tspan"); 
+      //.text(function(d) { return getNodeName(d); });
+
+  //    setNodeText(allNodes);
+      //node.select("circle")
+      //    .style("fill", function(d){return "url(#cimage_" +d.id+ ")"});
+
+      // nodes[node_length-1] will be the root node 
+      node_length = nodes.length;
+      var link_dst = 150;
+      if(node_length) {
+      // Set the root node(start node) at center 
+      var start_node  = nodes[node_length-1];
+      start_node.x = width /2;
+      start_node.y = height /2;
+      // Put the children nodes around the center node with equal distance without collision
+      // 2PIEr = no of children * diameter of children (circle)
+      // r = ((no of children * diameter of children) / 2PIE) + 30 
+      // + 30 because children redius is 30
+      if(start_node.children) {  
+          var child_len = start_node.children.length;  
+          var tmp_dst = ((60 * child_len) / (2* 3.14)) + 30;
+          if (tmp_dst > 150)
+            link_dst = tmp_dst;
+        }
+      }
+
+      //lnk = link.selectAll(".link")
+      link.attr("x1", function(d) { return d.source.x; })
+          .attr("y1", function(d) { return d.source.y; })
+          .attr("x2", function(d) { return d.target.x; })
+          .attr("y2", function(d) { return d.target.y; });
+
+         
+      node.attr("transform", function(d) { return "translate(" + d.x + 0 + "," + d.y + 0 + ")"; });
+
+      force.on("tick", function(d) {
+      node_length = nodes.length;
+      if(node_length) {
+          nodes[node_length-1].x = width /2;
+          nodes[node_length-1].y = height /2;
+      }
+
+      link.attr("x1", function(d) { return d.source.x; })
+          .attr("y1", function(d) { return d.source.y; })
+          .attr("x2", function(d) { return d.target.x; })
+          .attr("y2", function(d) { return d.target.y; });
+
+
+      node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+
+      });
+
+    	force
+    	.linkDistance(function(d) {
+    		if(d.target.children){
+    			return link_dst+80;
+    		}else{
+    			return  link_dst;
+    		}
+    	})
+    	.start();
+    	setTimeout(function(){
+    		force.friction(0.9);
+    		force.resume();
+    		
+    		// set bounding box and show scroll bars if required
+    		var chkAlpha = setInterval(function(){
+    			if(force.alpha() === 0){
+    				var svgElement = $('svg')[0],
+    				boundingBox = svgElement.getBBox(),
+    				viewBox,
+    				updatedWidth = boundingBox.width > width ? boundingBox.width : width,
+    				updatedHeight = boundingBox.height > height ? boundingBox.height : height,
+    				newX,
+    				newWidth,
+    				newY,
+    				newHeight;
+    				
+    				// calculation for horizontal scroll bar
+    				if(boundingBox.x < 0){
+    					newX = boundingBox.x;
+    					newWidth = 	updatedWidth;
+    				}
+    				else{
+    					if(boundingBox.width + boundingBox.x > width){
+    						newX = boundingBox.x;
+    						newWidth = updatedWidth;
+    					}
+    					else{
+    						newX = 0;
+    						newWidth = width;
+    					}
+    				}
+    				// calculation for vertical scroll bar
+    				if(boundingBox.y < 0){
+    					newY = boundingBox.y;
+    					newHeight = updatedHeight;
+    				}
+    				else{
+    					if(boundingBox.height + boundingBox.y > height){
+    						newY = boundingBox.y;
+    						newHeight = updatedHeight;
+    					}
+    					else{
+    						newY = 0;
+    						newHeight = height;
+    					}
+    				}
+    				//set bounding box
+    				svgElement.setAttribute("viewBox",newX+" "+newY+" "+newWidth+" "+newHeight);
+    				svgElement.setAttribute("width",newWidth);
+    				svgElement.setAttribute("height",newHeight);
+    				clearInterval(chkAlpha);				
+    			}
+    		},1000);
+    	},100);  
+    	//$("#load-image").addClass("hide");
+        $("#load-image").css('display','none');
+    }
+
+    function color(d) {
+      return d._children ? "#3182bd" // collapsed package
+          : d.children ? "#c6dbef" // expanded package
+          : "#fd8d3c"; // leaf node
+    }
+
+    // Toggle children on click.
+    function click(d) {
+
+      if (d3.event.defaultPrevented) return; // ignore drag
+      if (d.children) {
+        d._children = d.children;
+        d.children = null;
+      } else {
+        d.children = d._children;
+        d._children = null;
+      }
+      //update();
+    }
+
+    // Returns a list of all nodes under the root.
+    function flatten(root) {
+      var nodes = [], i = 0;
+
+      function recurse(node) {
+        if (node.children) {
+        	node.children.forEach(recurse);
+        }
+        node.id = ++i;    
+        nodes.push(node);
+      }
+
+      recurse(root);
+      return nodes;
+    }
+
+    //Function to get the concept information
+    function getConceptInfo(eid) {
+    concptInfo = {}
+    concptInfo['eid'] = eid;
+    var api = 'http://chaplin.ck12.org/taxonomy/get/info/concept/' + eid;
+        $.getJSON(api, function(data) {
+                concptInfo['name'] = data.response.name;
+            concptInfo['branch'] = data.response.branch.shortname;
+            if (data.response.previewImageUrl && data.response.previewImageUrl != "") {
+            concptInfo['image_url'] = data.response.previewImageUrl;
+            } else {
+                concptInfo['image_url'] = defaultImage;
+        
+            }
+            //concptInfo['image_url'] = '';
+    });
+console.log(concptInfo);
+return concptInfo;
+}
+
+    function getRelatedConcepts(eid) {
+    var rootEID = '';
+    if(root.eid) 
+        rootEID = root.eid.toLowerCase();
+    var api = relatedAPI.replace('#EID#', eid)
+    var currentLevelNodes = [];
+    $.getJSON(api, function(data) {
+            data.response.related_concepts.forEach(function(record) {
+                var eid =  record.encodedID.toLowerCase();               
+                var tmpRecord = {};
+                if(rootEID == eid) {
+                    return;
+                }
+                var selSubject = $('input:radio[name=subject]:checked').val();
+                if(selSubject == 'sci') {
+                    if(eid.split('.')[0] == 'mat') 
+                        return; 
+                } else if (selSubject == 'mat') {
+                    if(eid.split('.')[0] == 'sci') 
+                        return;
+                }
+                tmpRecord['name'] = record.name;
+                tmpRecord['eid'] = record.encodedID;
+           		tmpRecord['branch'] = record.branchName;
+                tmpRecord['priority'] = '';
+                if (record.previewImageUrl && record.previewImageUrl != "") {
+                    tmpRecord['image_url'] = record.previewImageUrl;
+                } else {
+                    tmpRecord['image_url'] =  defaultImage;
+                }
+                
+                currentLevelNodes.push(tmpRecord);            
+            });
+        console.log(currentLevelNodes);
+    });
+
+    return currentLevelNodes;
+    }
+    
+    function getPrerequisiteConcepts(eid) {
+    var rootEID = '';
+    if(root.eid) 
+        rootEID = root.eid.toLowerCase();
+    var api = prerequisiteAPI.replace('#EID#', eid)
+    var currentLevelNodes = [];
+    $.getJSON(api, function(data) {
+            data.response.prerequires.forEach(function(record) {
+                var tmpRecord = {};
+                if(rootEID == record.encodedID.toLowerCase()) {
+                    return;
+                }
+                tmpRecord['name'] = record.name;
+                tmpRecord['eid'] = record.encodedID;
+           		tmpRecord['branch'] = record.branch.shortname;
+                tmpRecord['priority'] = record.priority;
+
+                if (record.previewImageUrl && record.previewImageUrl != "") {
+                    tmpRecord['image_url'] = record.previewImageUrl;
+                } else {
+                    tmpRecord['image_url'] =  defaultImage;
+                }
+                //tmpRecord['image_url'] = '';
+                currentLevelNodes.push(tmpRecord);            
+            });
+        console.log(currentLevelNodes);
+    });
+
+    return currentLevelNodes;
+    }
+
+    function setNodeText(allNodes){
+    	$.each(allNodes[0],function(i,v){
+    		var data = v.__data__,
+    			name = data.name,
+    			branch = data.branch,
+    			firstName,
+    			secondName,
+    			subLength = 25,
+    			subStr,
+    			isSpace,
+    			dx,
+    			dy = 10,
+    			width;
+    		if(name.length > 25){
+    			subStr = name.substring(25,name.length);
+    			isSpace = subStr.indexOf(" ");
+    			if(isSpace > 0){
+    				while(name.charAt(subLength) !== " "){
+        				subLength++;
+        			}
+        			firstName = name.substring(0,subLength);
+        			$(v).text(firstName);
+        			dx = (v.getBoundingClientRect().width)*(-1);
+        			secondName = name.substring(subLength+1,name.length)+ " ("+ branch+")";
+        			//$(v.parentNode).append("<tspan dx='"+dx+"'dy='"+dy+"'>"+secondName+"</tspan>");
+        			var tspan = document.createElement("tspan");
+        			tspan.setAttribute("dx", dx);
+        			tspan.setAttribute("dy", dy);
+        			tspan.appendChild(document.createTextNode(secondName));
+        			v.parentNode.appendChild(tspan);
+    			}
+    			else{
+	    			$(v).text(name + " ("+ branch+")");
+    			}
+    		}
+    		else{
+    			$(v).text(name + " ("+ branch+")");
+    		}
+    	});
+    }
+});
+function getSmallNames(name, branch, priority) {
+if(priority)
+    //var name = name + ' (' + branch + ') ' + ' ' + '(' + priority + ')';
+    //var name = priority + '. ' +  name + ' (' + branch + ') ';
+    var name = name + ' (' + branch + ') ' ;
+else
+    var name = name + ' (' + branch + ')';
+
+var tmp_name = name.slice(25);
+var tmp_idx = tmp_name.search(' ');
+var mid_idx = 25 + tmp_idx;
+
+var part1 = name.slice(0, mid_idx);
+var part2 = name.slice(mid_idx+1);
+if (part2.length < 6) {
+    part1 = name;
+    part2 = '';
+}
+return [part1, part2];
+}
+</script>
+<input type="hidden" id="roorEID" value="{{c.encodedID}}"/>
+<input type="hidden" id="conceptType" value="{{c.conceptType}}"/>
+<!--input type="hidden" id="roorEID" value="MAT.ALG.100"/-->
+<input type="hidden" id="expandCount" value="5"/>
+</body>

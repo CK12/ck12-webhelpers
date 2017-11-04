@@ -1,0 +1,159 @@
+{% extends "listings.html" %}  
+
+{% block header %}{% if not c.asOverlay %} {{super()}} {% endif %}{% endblock %}
+{% block crumbs %}{% if not c.asOverlay %} {{super()}} {% else %}
+  <span id="pagetitle">{{_(c.pagetitle)}}</span> {% endif %}
+{% endblock %}
+{% block footer %}{% if not c.asOverlay %} {{super()}} {% endif %}{% endblock %}
+
+{% block filters %} 
+     <div class="col tiny">Filter by:</div>
+
+    <div class="col">
+        {{ h.labelselect('Test Type', 'type_filter', c.form.type_sel, 'filter')}}
+    </div>
+    
+    <div class="col topalign">
+            {{ h.labelselect('Published', 'public_filter', c.form.test_public_sel, 'filter')}}
+    </div>
+{% endblock %}
+
+{% block searches %}
+    <div class="col wide padleft">
+      {{ h.labelinput('Test Title', 'title', 'med searchby')}}
+      <img id="admin_search_icon" src="{{h.url_images('icon_magnifier2.png')}}"/>
+    </div>
+    <div class="col wide">
+        {{ h.labelinput('Encoded IDs', 'encodedIDs', 'med searchby')}}
+        <img id="admin_search_icon" src="{{h.url_images('icon_magnifier2.png')}}"/>
+    </div>
+    <div class="col wide">
+        {{ h.labelinput('Owner IDs', 'ownerID', 'med searchby')}}
+        <img id="admin_search_icon" src="{{h.url_images('icon_magnifier2.png')}}"/>
+    </div> 
+{% endblock %}
+
+{% block aftersearches %} 
+    {{ super() }}
+    <div>
+    	<input id='disableListOnEmptySearch' type='checkbox' checked='true'>
+    	<label>Disable Listing on Empty Searches</label>
+    </div>
+{% endblock %}
+
+{% block admincontent %}
+    <div class="clear">{{ h.htmla('/create/exercise/test', 'New Test', 'newTest', target='_blank')}}</div>
+    {{ super() }}
+{% endblock %}
+
+{% block js_scripts %}
+{{ super() }}
+<script type="text/javascript" src="{{ h.url_js('colorbox_popup_resize.js') }}"></script>
+<script type='text/javascript'>
+  var idsStrSep = ',';
+
+$('#leftpane .table').css('margin-top','10px');
+
+function  reloadListingPage(options){
+    window.location.href = CK12.admUrl('assessment/tests?search=ownerID,{{c.loggedInUserID}}&sort=updated,desc');
+}
+
+function contributeQuestionForConcept(options){
+	if(options && options.conceptId){
+		window.location.href = CK12.admUrl('assessment/questions#contributeQuestion/' + options.conceptId);
+	}
+}
+
+function createAssessmentListener(){
+    window.assessmentFrameListener = {
+        "resize": resize,
+        "loadMyTests" : reloadListingPage,
+        "contributeQuestionForConcept" : contributeQuestionForConcept,
+        "setParentURL" : function(url){
+        	window.location.href = url;
+        }
+    };
+}
+
+createAssessmentListener();
+
+{% if c.asOverlay %}
+  Defaults.blockOverlay = true;
+  var 
+    ADD = '[Add]',
+    DEL = '[Remove]',
+    input = $('#exercise_ids').text().trim(),
+    ids = input? input.split(/,\s*/) : [],
+    Qclass_id = '{{c.Qclass}}/{{c.Qid}}',
+    isOverlayFromPaneview = '{{c.from_view}}'=='pane';
+{% endif %}
+
+  Listings({
+    sort: 'updated,desc',
+    enableMultipleIdsFilter: true,
+    idsStrSep: idsStrSep,
+    params: '{{c.query}}',
+    postLoad: function(){
+      $('.tiptrigger').tooltip({
+        bodyHandler: function(){ return $(this).siblings('.tipdiv').html(); }
+      });
+  {% if c.asOverlay %}
+
+  {% else %}
+      },
+    viewmode: '{{c.viewmode}}',
+    formAjax: CK12.admUrl('assessment/test/'),
+    ajaxRoot: CK12.admUrl('assessment/tests_list'),
+    updateUrlOnAjax: true
+  {% endif %}
+  });
+  
+  $('#disableListOnEmptySearch').click(function() {
+	   var url = window.location.href,
+	   locationhref = '',
+	   isDisableList = false;
+	   if(url.indexOf('disableList') > -1){
+		   isDisableList = true;
+	   }
+	   if($(this).is(":checked")) {
+        //change queryString "disableList=checked" when checbox is checked
+ 	   if(isDisableList){
+ 	       locationhref = location.href.replace("disableList=unchecked","disableList=checked");
+ 	   }else{
+ 	 	   var splitedUrl = url.split('assessment/')[1];
+	           window.history.pushState(null,null, splitedUrl+"&disableList=checked");	
+ 	 	}
+     }else{
+     	//change queryString "disableList=unchecked" when checbox is unchecked
+         if(isDisableList){
+     	    locationhref = location.href.replace("disableList=checked","disableList=unchecked");
+     	 }
+     }
+	   if(isDisableList){
+		   var url = window.location.href;
+		   splitedUrl = url.split("/"), 
+		   len = (splitedUrl.length)-2,
+		   secondLastArgOfUlr = splitedUrl[len],
+		   locationhref = locationhref.split(secondLastArgOfUlr+'/')[1];
+		   window.history.pushState(null,null, locationhref);
+	   }
+     
+ });
+if($('#disableListOnEmptySearch').is(':checked')){
+	var url = window.location.href,
+	splitedUrl = url.split("/"),
+	len = (splitedUrl.length)-2,
+	secondLastArgOfUlr = splitedUrl[len],
+	splitedUrl = url.split(secondLastArgOfUlr+"/")[1];
+	if ((splitedUrl.indexOf("disableList=checked")< 0) && (splitedUrl.indexOf("disableList=unchecked") < 0)){
+	    window.history.pushState(null,null, splitedUrl+"?disableList=checked");
+	}
+};
+
+//show all tests after relaoding page
+if ((window.location.href).indexOf("disableList=unchecked") > -1){
+	$('#disableListOnEmptySearch').prop('checked', false);
+}
+  
+</script>
+{% endblock %}

@@ -1,0 +1,8 @@
+{
+    "extends": "./node_modules/eslint-config-ck12/index.js",
+    "ecmaFeatures": {
+        "jsx": true,
+        "experimentalObjectRestSpread": true,
+        "modules": true
+    }
+}

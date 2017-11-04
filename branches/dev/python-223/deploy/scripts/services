@@ -1,0 +1,69 @@
+#!/bin/bash
+
+#initScripts="nginx paster flxweb-paster sts-paster hwp-paster auth-paster celeryd tomcat"
+initScriptsLite="apache2 celeryd celeryd-asmt celeryd-peerhelp celeryd-auth"
+initScripts="tomcat redis-server mongod neo4j-service ${initScriptsLite}"
+
+case "$1" in
+    start|starttest)
+        #removing cache
+        rm -rf /opt/data/cache/*
+        rm -rf /opt/2.0/flxweb/data/cache/*
+        echo "*** Starting Services ***"
+        [ -x "/etc/init.d/mysql" ] && sudo start mysql
+        sleep 5
+        for script in ${initScripts}; do
+            if [ -x "/etc/init.d/${script}" ]; then
+                echo "*** Starting ${script} ***"
+                sudo /etc/init.d/${script} start
+            else
+                service ${script} status
+                [ $? -eq 0 ] && service ${script} start
+            fi
+        done
+    ;;
+
+    stop|stop-lite)
+        echo "*** Stop Services ***"
+        scripts=${initScripts}
+        [ "${1}" = "stop-lite" ] && scripts=${initScriptsLite}
+        for script in ${scripts}; do
+            if [ -x "/etc/init.d/${script}" ]; then
+                echo "*** Stopping ${script} ***"
+                sudo /etc/init.d/${script} stop
+            else
+                service ${script} status
+                [ $? -eq 0 ] && service ${script} stop
+            fi
+        done
+        pkill -9 celeryd
+        [ "${1}" = "stop" ] && [ -x "/etc/init.d/mysql" ] && sudo stop mysql || echo "Failed to stop MySQL"
+    ;;
+
+    restart|restart-lite)
+        echo "*** Restart Services ***"
+        if [ "${1}" != "restart-lite" ]; then
+            #removing cache
+            rm -rf /opt/data/cache/*
+            rm -rf /opt/2.0/flxweb/data/cache/*
+            [ -x "/etc/init.d/mysql" ] && sudo restart mysql
+            sleep 5
+        fi
+        scripts=${initScripts}
+        [ "${1}" = "restart-lite" ] && scripts=${initScriptsLite}
+        for script in ${scripts}; do
+            if [ -x "/etc/init.d/${script}" ]; then
+                echo "*** Restarting ${script} ***"
+                sudo /etc/init.d/${script} restart
+            else
+                service ${script} status
+                [ $? -eq 0 ] && service ${script} restart
+            fi
+        done
+    ;;
+
+    *)
+        echo $"Usage: $0 {start|starttest|stop|stop-lite|restart|restart-lite}"
+        exit 1
+esac
+

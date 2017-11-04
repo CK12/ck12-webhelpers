@@ -1,0 +1,32 @@
+{
+	"wildeTilde" : {
+		"data" : "\\widetilde{}",
+		"pos" : [0,11,12],
+		"length" : 12
+	},
+	"vector" : {
+		"data" : "\\vec{}",
+		"pos" : [0,5,6],
+		"length" : 6
+	},
+	"lineOverExpressions" : {
+		"data" : "\\overline{}",
+		"pos" : [0,10,11],
+		"length" : 11
+	},
+	"rightarrowOverExpression" : {
+		"data" : "\\overrightarrow{}",
+		"pos" : [0,16,17],
+		"length" : 17
+	},
+	"leftarrowOverExpression" : {
+		"data" : "\\overleftarrow{}",
+		"pos" : [0,15,16],
+		"length" : 16
+	},
+	"botharrowOverExpression" : {
+		"data" : "\\overleftrightarrow{}",
+		"pos" : [0,20,21],
+		"length" : 21
+	}
+}

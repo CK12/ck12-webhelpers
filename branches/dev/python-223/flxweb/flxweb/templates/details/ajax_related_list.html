@@ -1,0 +1,13 @@
+{% from "macros/carousel.html" import ck12_carousel with context %}
+{% if c.related_list %}
+	<h2>{{ _("%(relation)s Materials"  % {'relation':c.relation_type.title()}) }}</h2>
+	<ul>
+	{% for artifact in c.related_list %}
+	<li>
+		<a href="{{ config.webroot_url }}{{ artifact.perma }}" title="{{ artifact.title }}">
+			{{ artifact.title }}
+		</a>
+	</li>
+	{% endfor %}
+	</ul>
+{% endif %}

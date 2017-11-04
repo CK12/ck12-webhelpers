@@ -1,0 +1,71 @@
+<script type="text/javascript">
+/* Check for app-context:
+ * -- set the <html> data-app-context = {app-context}
+ */ 
+var _context = sessionStorage.getItem('app-context');
+if (_context && _context === 'lti-app' && window.name !=="lms-context-override"){
+    try {
+	// Set data-app-context for css
+        document.getElementsByTagName('html')[0].setAttribute('data-app-context','lti_app');
+	// Set window lmsContext for js
+	window.lmsContext='lti-app';
+    } catch(e){
+        console.log("Error setting lms app context:"+ String(e));	 
+    }
+}
+
+function closeLTIHelpBanner(){
+    try {
+        document.getElementById('lti_help_banner').remove();
+    } catch(e){
+	console.log("Could not close banner:"+ String(e));
+    }
+}
+
+/*
+ *  Need to show a loading icon on some pages.
+ *  - browse, library
+ */
+function loadingCheck(){
+try {
+    var pathname = window.location.pathname;
+    if (/library|browse/.test(pathname)){
+	// Create loading icon and append to body
+	var loading_div = document.createElement("div");
+	loading_div.setAttribute('id','lti-loading-icon');
+	loading_div.setAttribute('class','loading-icon js-loading-icon');
+	var img_el = document.createElement("img");
+	img_el.setAttribute('alt','loading');
+	img_el.setAttribute('src','/media/common/images/icon_loading.gif');
+
+	loading_div.appendChild(img_el);
+	document.body.appendChild(loading_div);
+
+	if (document.readyState === 'complete'){
+	    removeLoadingIcon();
+	}
+
+	document.addEventListener('readystatechange', function(evnt){
+	    if (evnt.target.readyState ==='complete'){
+		removeLoadingIcon();
+	    }
+	}, false);
+    }
+
+} catch(e){
+    console.log("Error in loadingCheck: "+ String(e));
+}
+}
+
+// Remove the loading icon after 2 seconds
+function removeLoadingIcon(){
+try {
+    window.setTimeout(function(){
+        $('#lti-loading-icon').remove();
+	console.log("removed loading icon");
+    }, 1500);
+} catch(e){
+    console.log("Error in removeLoadingIcon: "+ String(e));
+}
+}
+</script>

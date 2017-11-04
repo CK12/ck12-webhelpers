@@ -1,0 +1,213 @@
+/* CSS placed here will be applied to all skins */
+
+/* CK-12 Rosetta Stone 2.0 Styles */
+
+.x-ck12-underline {
+    text-decoration: underline;
+}
+
+.x-ck12-strikethrough {
+    text-decoration: line-through;
+}
+
+.x-ck12-element-box {
+    border: 1px solid #000000;
+    background-color: #ddddff;
+}
+
+.x-ck12-element-box-header {
+    background-color: lightblue;
+    border-bottom: 1px solid #000000;
+    padding: 5px;    
+}
+
+.x-ck12-element-box-body {
+     padding: 5px;    
+}
+
+/* Text Colors */
+.x-ck12-textcolor-aqua {
+     color: #00FFFF;
+}
+
+.x-ck12-textcolor-black {
+     color: #000000;
+}
+
+.x-ck12-textcolor-blue {
+    color:#0000FF;
+}
+
+.x-ck12-textcolor-fuchsia {
+    color: #FF00FF;
+}
+
+.x-ck12-textcolor-gray, ..x-ck12-textcolor-grey {
+    color: #808080;
+}
+
+.x-ck12-textcolor-green {
+     color: #008000;
+}
+
+.x-ck12-textcolor-lime {
+    color: #00FF00;
+}
+
+.x-ck12-textcolor-maroon {
+    color: #800000;
+}
+
+.x-ck12-textcolor-navy {
+    color: #000080;
+}
+
+.x-ck12-textcolor-olive {
+    color: #808000;
+}
+
+.x-ck12-textcolor-purple {
+   color: #800080;
+}
+
+.x-ck12-textcolor-red {
+    color: #FF0000;
+}
+
+.x-ck12-textcolor-silver {
+    color: #C0C0C0;
+}
+
+.x-ck12-textcolor-teal {
+    color: #008080;
+}
+
+.x-ck12-textcolor-white {
+    color: #FFFFFF;
+}
+
+.x-ck12-textcolor-yellow {
+    color: #FFFF00;
+}
+
+.x-ck12-textcolor-orange {
+    color: #FFA500;
+}
+
+.x-ck12-textcolor-darkorange {
+    color: #FF8C00;
+}
+
+/* Background Colors */
+.x-ck12-textbgcolor-aqua {
+     background-color: #00FFFF;
+}
+
+.x-ck12-textbgcolor-black {
+     background-color: #000000;
+}
+
+.x-ck12-textbgcolor-blue {
+    background-color:#0000FF;
+}
+
+.x-ck12-textbgcolor-fuchsia {
+    background-color: #FF00FF;
+}
+
+.x-ck12-textbgcolor-gray, ..x-ck12-textbgcolor-grey {
+    background-color: #808080;
+}
+
+.x-ck12-textbgcolor-green {
+     background-color: #008000;
+}
+
+.x-ck12-textbgcolor-lime {
+    background-color: #00FF00;
+}
+
+.x-ck12-textbgcolor-maroon {
+    background-color: #800000;
+}
+
+.x-ck12-textbgcolor-navy {
+    background-color: #000080;
+}
+
+.x-ck12-textbgcolor-olive {
+    background-color: #808000;
+}
+
+.x-ck12-textbgcolor-purple {
+   background-color: #800080;
+}
+
+.x-ck12-textbgcolor-red {
+    background-color: #FF0000;
+}
+
+.x-ck12-textbgcolor-silver {
+    background-color: #C0C0C0;
+}
+
+.x-ck12-textbgcolor-teal {
+    background-color: #008080;
+}
+
+.x-ck12-textbgcolor-white {
+    background-color: #FFFFFF;
+}
+
+.x-ck12-textbgcolor-yellow {
+    background-color: #FFFF00;
+}
+
+.x-ck12-textbgcolor-orange {
+    background-color: #FFA500;
+}
+
+.x-ck12-textbgcolor-darkorange {
+    background-color: #FF8C00;
+}
+/* Numbered List Styles */
+
+/* nested ordered lists */
+ol ol {list-style-type:lower-alpha}
+ol ol ol {list-style-type:lower-roman}
+
+.x-ck12-decimal {
+    list-style-type: decimal;
+}
+
+.x-ck12-lower-alpha {
+    list-style-type: lower-alpha;
+}
+
+.x-ck12-upper-alpha {
+    list-style-type: upper-alpha;
+}
+
+.x-ck12-lower-roman {
+    list-style-type: lower-roman;
+}
+
+.x-ck12-upper-roman {
+    list-style-type: upper-roman;
+}
+
+/* Float */
+
+.x-ck12-float {
+     float: left;
+     margin-right: 10px;
+}
+
+.x-ck12-nofloat {
+     clear: both;
+}
+
+/* Indent box */
+.x-ck12-indent {
+    padding-left: 40px;
+}

@@ -1,0 +1,108 @@
+{% extends "common/master.html" %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_css('common/css/master.css') }}" />
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_css('embed/css/embed.css') }}" />
+{% endblock %}
+
+{% block js %}
+<script data-main="{{ h.asset_js('main') }}" src="{{ h.asset_lib('common/vendor/requirejs/require.js') }}"></script>
+{% include 'common/global_js.html' %}
+<script>
+    require(['main'], function(){
+        require(['jquery', 'underscore'], function($,_){
+            var tmpl = '<iframe src="{{ h.url('/', qualified=True) }}embed/#module=concept&handle=<%=concept%>&filters=<%=types%>&branch=<%=branch%>" width="<%=width%>" height="500" ></iframe>';
+            function getConcept(){
+                return $("#conceptselect").val().split('/')[1];
+            }
+            function getBranch(){
+                return $("#conceptselect").val().split('/')[0];
+            }
+            function getTypes(){
+                var types = [];
+                $(".cb_types").each(function(){
+                    if ($(this).is(":checked")){
+                        types.push($(this).val());
+                    }
+                });
+                return types.join(',');
+            }
+            function getWidth(){
+                return $("#widthselect").val();
+            }
+            $("#muhaha").click(function(){
+                var obj = {
+                    'concept': getConcept(),
+                    'types': getTypes(),
+                    'width': getWidth(),
+                    'branch': getBranch()
+                }
+                var embed = _.template(tmpl, obj);
+                $("#txt_embed").val(embed);
+                $("#embed_container").html(embed);
+            });
+        });
+    });
+    
+</script>
+{% endblock %}
+
+{% block header %}
+<header class="header embedded" data-user="{{c.user.id}}">
+	<a id="skip-navigation" href="#anchor-content"><img src="{{ h.asset_image('common/images/1x1.gif' )}}" width="1" height="1" alt="Skip Navigation" /></a>
+	<nav class="top-bar-section top-nav">
+		<a id="embed_nav_logo" href="/" title="CK-12 Foundation Home">
+			<img class="logo-img" src="{{ h.asset_image('common/images/logo_ck12_medium.png') }}" width="60" height="22" alt="{{ _('CK-12') }}" />
+		</a>
+	</nav>
+</header>
+{% endblock %}
+
+{% block content %}
+<div id="embed_controller">
+    <div class="row">
+        <div class="column large-4">
+            <select id="conceptselect">
+                <option value="algebra/pemdas">PEMDAS</option>
+                <option value="algebra/order-of-operations">Order of Operations</option>
+                <option value="earth-science/flow-of-energy-in-ecosystems">Flow of Energy in Ecosystems</option>
+            </select>
+        </div>
+        <div class="column large-4">
+            <label><input class="cb_types" type="checkbox" value="text" checked="checked">Read</label>
+            <label><input class="cb_types" type="checkbox" value="multimedia" checked="checked">Video</label>
+            <label><input class="cb_types" type="checkbox" value="activities" checked="checked">Activities</label>
+            <label><input class="cb_types" type="checkbox" value="study_resource" checked="checked">Study Aids</label>
+            <label><input class="cb_types" type="checkbox" value="real_world" checked="checked">Real World Applications</label>
+            <label><input class="cb_types" type="checkbox" value="assessment" checked="checked">Assessment</label>
+        </div>
+        <div class="column large-4">
+            <select id="widthselect">
+                <option value="360">360x500</option>
+                <option value="600">600x500</option>
+                <option value="768">768x500</option>
+                <option value="800">800x500</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <input type="submit" id="muhaha" />
+    </div>
+</div>
+<div class="row"></div>
+<div class="row"> <textarea id="txt_embed" readonly="readonly"></textarea>  </div>
+<div id="embed_container">
+	
+</div>
+{% endblock %}
+
+{% block footer %}
+<footer class="footer embedded">
+	<div class="row">
+		<ul>
+			<li>Powered by FlexBook&#174; textbook Platform &reg;</li> 
+			<li>&copy; 2013 CK-12 Foundation</li>
+		</ul>
+</div>
+</footer>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "MASTER_CK12_LOGO.html" %}
+{% block email_body %}
+<html>
+    <body>
+    <p>Dear {{ events[0].eventData['memberName'] }},</p>
+    <p>
+        The finalization of <a href={{ events[0].eventData['bookPerma'] }}>{{ events[0].eventData['bookName'] }}</a>
+        {% if not events[0].eventData['failureList'] %}
+            was successful.
+        {% else %}
+            failed with the following errors:
+            <ol>
+            {% for item in events[0].eventData['failureList'] %}
+                <li>
+                item['message']
+                </li>
+            {% endfor %}
+            </ol>
+        {% endif %}
+    </p>
+    <br>
+    <p>Sincerely,</p>
+    <p>The CK-12 Team</p>
+    </body>
+</html>
+{% endblock %}

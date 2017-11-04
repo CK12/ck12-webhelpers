@@ -1,0 +1,12 @@
+/opt/runtime/tomcat/logs/*.log /opt/runtime/tomcat/logs/*.out {
+        su www-data www-data
+        daily
+        missingok
+        rotate 5
+        size 100M
+        compress
+        nodelaycompress
+        notifempty
+        copytruncate
+}
+

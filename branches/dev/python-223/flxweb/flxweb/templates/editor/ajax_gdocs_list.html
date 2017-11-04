@@ -1,0 +1,32 @@
+{% from "macros/pagination.html" import ck12_pagination with context%}
+{% if c.show_collections %}
+	{% set list_url = 'gdt/get/collist' %}
+{% else %}
+	{% set list_url = 'gdt/get/doclist' %}
+{% endif %}
+<div class="gdoc_listinfo">
+		
+	{% if c.gdocs_paginator.last_itemnumber() == c.gdocs_paginator.items_per_page*c.page_num or   c.page_num > 1%}
+	<div class="js_gdoc_paginator gdoc_paginator clearfix">
+			{% if c.gdocs_paginator.last_itemnumber() == c.gdocs_paginator.items_per_page*c.page_num %}
+				<a class="next_lnk" href="javascript:void(0);" data-page_url="{{ h.url(list_url, qualified=True, pageNum=c.page_num+1) }}">Next</a>
+			{% endif %}
+			{% if c.page_num > 1 %}
+				<a class="prev_lnk" href="javascript:void(0);" data-page_url="{{ h.url(list_url, qualified=True, pageNum=c.page_num-1) }}">Previous</a>
+			{% endif %}
+	</div>
+	{% endif %}
+	
+<div class="clear"></div>
+</div>
+<div class="spacetop gdoc_item_list">
+	{% for doc in c.gdocs_paginator.current_page.items() %}
+	<a href="#" class="js_gdoc gdoc" data-docid="{{ doc.id }}" data-doctype="{{ c.doc_type }}" data-doctitle="{{ doc.title }}">{{ doc.title|e }}</a>
+	{% else %}
+		{% if c.show_collections %}
+			{{ _("There are no collections to display.") }}
+		{% else %}
+			{{ _("There are no documents to display.") }}
+		{% endif %}
+	{% endfor %}
+</div>

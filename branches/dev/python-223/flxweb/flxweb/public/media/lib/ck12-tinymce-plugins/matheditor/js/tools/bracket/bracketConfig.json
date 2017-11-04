@@ -1,0 +1,32 @@
+{
+    "parentheses": {
+        "data": "\\left(\\right)",
+        "pos": [0,6,13],
+        "length": 13
+    },
+    "square": {
+        "data": "\\left[\\right]",
+        "pos": [0,6,13],
+        "length": 13
+    },
+    "braces": {
+        "data": "\\left\\{\\right\\}",
+        "pos": [0,7,15],
+        "length": 15
+    }, 
+    "absoluteBar": {
+        "data": "\\left|\\right|",
+        "pos": [0,6,13],
+        "length": 13
+    },
+    "parenthesesBar": {
+        "data": "\\left({}|{}\\right)",
+        "pos": [0,7,10,18],
+        "length": 18
+    },
+    "bracesBar": {
+        "data": "\\left\\{{}|{}\\right\\}",
+        "pos": [0,8,11,20],
+        "length": 20
+    }
+}

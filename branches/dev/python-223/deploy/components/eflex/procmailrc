@@ -1,0 +1,12 @@
+SHELL=/bin/sh
+MAILDIR=/opt/users
+LOGFILE=$MAILDIR/$LOGNAME/procmailrc.log
+DEFAULT=$MAILDIR/$LOGNAME/mailbox/
+VERBOSE=on
+
+:0c:
+$DEFAULT
+
+:0fw
+| /bin/sh /opt/2.0/flx/pylons/flx/runas.sh python /opt/2.0/flx/pylons/flx/invoke_eflex.py
+

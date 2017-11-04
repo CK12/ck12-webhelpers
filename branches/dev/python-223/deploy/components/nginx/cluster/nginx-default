@@ -1,0 +1,13 @@
+include /etc/nginx/upstream/*;
+
+server {
+        listen 80 default;
+        client_max_body_size 4G;
+        server_name _;
+
+        keepalive_timeout 5;
+        #expires  modified +24h;
+        #add_header  Cache-Control  private;
+
+        include /etc/nginx/locations/*;
+}

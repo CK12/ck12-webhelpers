@@ -1,0 +1,186 @@
+
+
+<div class="createquestionwrap">
+	<div class="questionclasswrap">
+		<h2>{{ _('Choose Question Type') }}</h2>
+		<div class="questiontclassbtns">
+			<div class="questionclassbtn selected" id="declarative">
+				 {{ _('Static') }}
+			</div>
+			<div class="questionclassbtn secondary" id="algorithmic">
+				 {{ _('Algorithmic') }}
+			</div>
+			<div class="questionclassbtn secondary" id="generative">
+				 {{ _('Programmatic') }}
+			</div>
+			
+		</div>
+		<div class="questionclasshelps">
+			<div class="create_question_help declarativeclasshelp">
+				<div class="question_type_description">
+					{{ _("Static Questions are the simplest to author. They display exactly the way they were written.") }} 
+					
+				</div>
+				<div class="toggle_detail_help"><a>show details</a></div>
+				<div class="question_type_detail_help hide">
+					{{ _("The author specifies the question text and all the answer choices.  
+					Static Questions are similar to the ones you would find on a traditional paper-based test; 
+					they appear the same way to each student. 
+					They may be authored in the forms of short-answer, true/false, or multiple-choice. 
+					Choose Static Question when you need to author a simple fact-based question.") }} 
+					<h2>{{ _('Guideline')}}</h2>
+					<ul>
+						<li>{{ _("Adding text enclosed with '<' and '>' from question and options text will treat as HTML tag in a page, which may not work as you expected in some HTML tags. So please make sure it is working as you expected if you use HTML tags inside the text.") }}</li>
+					</ul>
+				</div>
+			</div>
+			<div class="create_question_help algorithmicclasshelp">
+				<div class="question_type_description">
+					{{ _("Algorithmic Questions allow some variability of question instances by substituting values in 
+					various placeholders throughout the question definition.") }} 
+				</div>
+				<div class="toggle_detail_help"><a>show details</a></div>
+				<div class="question_type_detail_help hide">
+					<p>
+					{{ _("The author specifies variables, and uses them in the question text and in the text for the options. 
+					Variables are authored using the variable widget. 
+					They can hold constant value or a randomly chosen value from a set of parameters. 
+					Variable values can also be defined by performing arithmetic operations on previously defined variables.")}}
+					</p>
+					<p>
+					{{ _("Each time the question is rendered, it may have different values.
+					 For example, one student might be asked to solve 4(2+4) while another student might be asked to solve 6(1+3). 
+					 The Algorithmic Question type is an efficient way to author many practice questions for a given concept.
+					 Only multiple-choice format is currently supported.")}}
+					</p>
+                                        <h2>{{ _('Example')}}</h2>
+                                        <table>
+                                          <tr>
+                                            <td>{{_('Question Text:')}}</td> 
+                                            <td>{{_('Anne has $a$ apples and $b$ oranges. How many fruits does she have?')}}</td>
+                                          </tr>
+                                          <tr>
+                                            <td>{{_('Variables:')}}</td>
+                                            <td>{{_('A <em>constant</em> variable: <strong>a</strong>, which has a value of 5.')}}<br />
+                                                {{_('A <em>random</em> variable: <strong>b</strong>, which is between 3 and 10 with an interval of 1.')}}<br />
+                                                {{_('A <em>rule based</em> variable: <strong>c</strong>, which has an arithmetic expression of  a + b - 1.')}}<br />
+                                                {{_('A <em>rule based</em> variable: <strong>d</strong>, which has an arithmetic expression of  a + b.')}}<br />
+                                                {{_('A <em>rule based</em> variable: <strong>e</strong>, which has an arithmetic expression of  a + b + 1.')}}<br />
+                                                {{_('A <em>rule based</em> variable: <strong>f</strong>, which has an arithmetic expression of  a + b + 2.')}}<br />
+                                            </td>
+                                          </tr> 
+                                          <tr>
+                                            <td>{{_('Options:')}}</td>
+                                            <td>{{_('Option 1: $c$')}} <br />
+                                                {{_('Option 2: $d$, tick the checkbox to denote the correct answer.')}} <br />
+                                                {{_('Option 3: $e$')}} <br />
+                                                {{_('Option 4: $f$')}} <br />
+                                            </td>
+                                          </tr>
+                                        </table>
+                                        <h2>{{ _('Guidelines')}}</h2>
+                                        <ul>
+                                                <li>{{ _("In Python, any number prefixed with 0 is Octal (base-8 number system, which uses the digits 0 to 7) and number prefixed with 0x is Hexadecimal (base-16 number system, which uses digits 0 to 9 and symbols A to F (or alternatively a to f) to represent values from 0 to 15). To avoid confusion while using these numeral systems, skip leading 0 or 0x to any number. For Example: <br />1. 030(Octal) = 24(Decimal)<br />2. 0x18(Hexadecimal) = 24(Decimal)") }}</li>
+                                                <li>{{ _("Adding text enclosed with '<' and '>' from question and options text will treat as HTML tag in a page, which may not work as you expected in some HTML tags. So please make sure it is working as you expected if you use HTML tags inside the text.") }}</li>
+                                        </ul>
+				</div>
+				
+			</div>
+			<div class="create_question_help generativeclasshelp">
+				<div class="question_type_description">
+					{{ _("Programmatic Questions provide the expressive power of the Python programming language. 
+					They are the most flexible and powerful, albeit more complex compared to questions of the other two types.") }} 
+				</div>
+				<div class="toggle_detail_help"><a>show details</a></div>
+				<div class="question_type_detail_help hide">
+                                        <p>
+                                                {{ _('The author defines variables and use them in the question texts in the same way as when authoring Algorithmic Questions.
+                                                However, authors can also programmatically define rules on how to evaluate each components of the question.
+                                                They may be authored in the forms of short-answer, true/false, or multiple-choice. ')}}
+                                        </p>
+                                        <h2>{{ _('Example')}}</h2>
+                                        <table>
+                                          <tr>
+                                            <td>{{_('Question Text')}}</td> 
+                                            <td>{{_('Suzanne wants to write $s$ novels and Marcos wants to write $m$ novels. Each novel requires $novel_length$ sheets of paper. How much paper will they need for all the novels?')}}</td>
+                                          </tr>
+                                          <tr>
+                                            <td>{{_('Answer Expression')}}</td>
+                                            <td>{{_('$sheets_required$=novel_length * ( s + m )')}}</td>
+                                          </tr> 
+                                          <tr>
+                                            <td>{{_('Answer Associated Text')}}</td>
+                                            <td>{{_('$sheets_required$ sheets of paper')}}</td>
+                                          </tr>
+                                          <tr>
+                                            <td>{{_('Variable Rules')}}</td>
+                                            <td>
+                                                {{_('s = choice([3,6,9,12])')}}<br />
+                                                {{_('m = choice([5,6,7,8])')}}<br />
+                                                {{_('novel_length = choice(range(120,250))')}}<br />
+                                            </td>
+                                          </tr>
+                                        </table>
+                                        <h2>{{ _('Details')}}</h2>
+                                        <ul>
+                                                <li>{{ _('Generative rules should be written in Python syntax. The following python functions are available:')}}
+                                                  <table class="generativerulestable"> 
+                                                    <tr>
+                                                      <td><a target="_blank" href="http://docs.python.org/library/math.html#math.acos">{{_('acos')}}</a></td>
+                                                      <td><a target="_blank" href="http://docs.python.org/library/math.html#math.asin">{{_('asin')}}</a></td>
+                                                      <td><a target="_blank" href="http://docs.python.org/library/math.html#math.atan">{{_('atan')}}</a></td>
+                                                      <td><a target="_blank" href="http://docs.python.org/library/math.html#math.atan2">{{_('atan2')}}</a></td>
+                                                      <td><a target="_blank" href="http://docs.python.org/library/math.html#math.ceil">{{_('ceil')}}</a></td>
+                                                      <td><a target="_blank" href="http://docs.python.org/library/math.html#math.cos">{{_('cos')}}</a></td>
+                                                      <td><a target="_blank" href="http://docs.python.org/library/math.html#math.cosh">{{_('cosh')}}</a></td>
+                                                      <td><a target="_blank" href="http://docs.python.org/library/math.html#math.degrees">{{_('degrees')}}</a></td>
+                                                      <td><a target="_blank" href="http://docs.python.org/library/math.html#math.exp">{{_('exp')}}</a></td>
+                                                      <td><a target="_blank" href="http://docs.python.org/library/math.html#math.fabs">{{_('fabs')}}</a></td>
+                                                    </tr><tr>
+                                                      <td><a target="_blank" href="http://docs.python.org/library/math.html#math.floor">{{_('floor')}}</a></td>
+                                                      <td><a target="_blank" href="http://docs.python.org/library/math.html#math.fmod">{{_('fmod')}}</a></td>
+                                                      <td><a target="_blank" href="http://docs.python.org/library/math.html#math.frexp">{{_('frexp')}}</a></td>
+                                                      <td><a target="_blank" href="http://docs.python.org/library/math.html#math.hypot">{{_('hypot')}}</a></td>
+                                                      <td><a target="_blank" href="http://docs.python.org/library/math.html#math.ldexp">{{_('ldexp')}}</a></td>
+                                                      <td><a target="_blank" href="http://docs.python.org/library/math.html#math.log">{{_('log')}}</a></td>
+                                                      <td><a target="_blank" href="http://docs.python.org/library/math.html#math.log10">{{_('log10')}}</a></td>
+                                                      <td><a target="_blank" href="http://docs.python.org/library/math.html#math.modf">{{_('modf')}}</a></td>
+                                                      <td><a target="_blank" href="http://docs.python.org/library/math.html#math.pow">{{_('pow')}}</a></td>
+                                                      <td><a target="_blank" href="http://docs.python.org/library/math.html#math.radians">{{_('radians')}}</a></td>
+                                                    </tr><tr>
+                                                      <td><a target="_blank" href="http://docs.python.org/library/math.html#math.sin">{{_('sin')}}</a></td>
+                                                      <td><a target="_blank" href="http://docs.python.org/library/math.html#math.sinh">{{_('sinh')}}</a></td>
+                                                      <td><a target="_blank" href="http://docs.python.org/library/math.html#math.sqrt">{{_('sqrt')}}</a></td>
+                                                      <td><a target="_blank" href="http://docs.python.org/library/math.html#math.tan">{{_('tan')}}</a></td>
+                                                      <td><a target="_blank" href="http://docs.python.org/library/math.html#math.tanh">{{_('tanh')}}</a></td>
+                                                      <td><a target="_blank" href="http://docs.python.org/library/random.html#random.choice">{{_('choice')}}</a></td>
+                                                      <td><a target="_blank" href="http://docs.python.org/library/random.html#random.shuffle">{{_('shuffle')}}</a></td>
+                                                      <td><a target="_blank" href="http://docs.python.org/library/random.html#random.range">{{_('range')}}</a></td>
+                                                      <!-- <td><a target="_blank" href="http://docs.python.org/library/fractions.html#fractions.Fraction">{{_('Fraction')}}</a></td> -->
+                                                      <td><a target="_blank" href="http://docs.python.org/library/fractions.html#fractions.gcd">{{_('gcd')}}</a></td>
+                                                    </tr><tr>
+                                                      <td><a id="e2n-help" >{{_('e2n')}}</a></td>
+                                                      <td><a id="n2e-help" >{{_('n2e')}}</a></td>
+                                                    </tr>
+                                                  </table> 
+                                                </li>
+                                                <li>{{ _('Variables within text elements are enclosed by the dollar sign. For example: Each cat can catch $a$ rats. How many cats are needed to catch  $b$ rats?') }}</li>
+                                                <li>{{ _('Mathematical expressions within text may be written using latex syntax. For example: "&amp; $a$ \ + &amp; $b$"') }}</li>
+                                        </ul>
+                                        <h2>{{ _('Guidelines')}}</h2>
+                                        <ul>
+                                                <li>{{ _("In Python, any number prefixed with 0 is Octal (base-8 number system, which uses the digits 0 to 7) and number prefixed with 0x is Hexadecimal (base-16 number system, which uses digits 0 to 9 and symbols A to F (or alternatively a to f) to represent values from 0 to 15). To avoid confusion while using these numeral systems, skip leading 0 or 0x to any number. For Example: <br />1. 030(Octal) = 24(Decimal)<br />2. 0x18(Hexadecimal) = 24(Decimal)") }}</li>
+                                                <li>{{ _("Adding text enclosed with '<' and '>' from question and options text will treat as HTML tag in a page, which may not work as you expected in some HTML tags. So please make sure it is working as you expected if you use HTML tags inside the text.") }}</li>
+                                        </ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<h2>{{ _('Create Your Question') }}</h2>
+	{% include 'exercise/create_declarative_question.phtml' %}	
+	{% include 'exercise/create_algorithmic_question.phtml' %}	
+	{% include 'exercise/create_generative_question.phtml' %}	
+
+
+</div>
+{% include 'exercise/create_question_hints.html' %}

@@ -1,0 +1,497 @@
+/* CSS placed here will be applied to all skins */
+
+/* CK-12 Rosetta Stone 2.0 Styles */
+
+.x-ck12-underline {
+	text-decoration: underline;
+}
+
+.x-ck12-strikethrough {
+	text-decoration: line-through;
+}
+
+.x-ck12-underline.x-ck12-strikethrough {
+ text-decoration: underline line-through;
+  }
+  
+.x-ck12-element-box {
+	margin:20px 0;
+	border: 1px solid #000;
+	background:#eee;
+	overflow:auto;
+}
+
+.x-ck12-element-box-header {
+	background: #ccc;
+	border-bottom: 1px solid #000;
+	padding: 5px;
+	font-weight: bold;
+}
+
+.x-ck12-element-box-body {
+	padding: 10px;
+}
+
+/* Text Colors */
+.x-ck12-textcolor-aqua {
+	color: #0ff;
+}
+
+.x-ck12-textcolor-black {
+	color: #000;
+}
+
+.x-ck12-textcolor-blue {
+	color:#00f;
+}
+
+.x-ck12-textcolor-fuchsia {
+	color: #f0f;
+}
+
+.x-ck12-textcolor-gray, .x-ck12-textcolor-grey {
+	color: #808080;
+}
+
+.x-ck12-textcolor-green {
+	color: #008000;
+}
+
+.x-ck12-textcolor-lime {
+	color: #0f0;
+}
+
+.x-ck12-textcolor-maroon {
+	color: #800000;
+}
+
+.x-ck12-textcolor-navy {
+	color: #000080;
+}
+
+.x-ck12-textcolor-olive {
+	color: #808000;
+}
+
+.x-ck12-textcolor-purple {
+	color: #800080;
+}
+
+.x-ck12-textcolor-red {
+	color: #f00;
+}
+
+.x-ck12-textcolor-silver {
+	color: #C0C0C0;
+}
+
+.x-ck12-textcolor-teal {
+	color: #008080;
+}
+
+.x-ck12-textcolor-white {
+	color: #fff;
+}
+
+.x-ck12-textcolor-yellow {
+	color: #ff0;
+}
+
+.x-ck12-textcolor-orange {
+	color: #FFA500;
+}
+
+.x-ck12-textcolor-darkorange {
+	color: #FF8C00;
+}
+
+/* Background Colors */
+.x-ck12-textbgcolor-aqua {
+	background: #0ff;
+}
+
+.x-ck12-textbgcolor-black {
+	background: #000;
+}
+
+.x-ck12-textbgcolor-blue {
+	background:#00f;
+}
+
+.x-ck12-textbgcolor-fuchsia {
+	background: #f0f;
+}
+
+.x-ck12-textbgcolor-gray, .x-ck12-textbgcolor-grey {
+	background: #808080;
+}
+
+.x-ck12-textbgcolor-green {
+	background: #008000;
+}
+
+.x-ck12-textbgcolor-lime {
+	background: #0f0;
+}
+
+.x-ck12-textbgcolor-maroon {
+	background-color: #800000;
+}
+
+.x-ck12-textbgcolor-navy {
+	background-color: #000080;
+}
+
+.x-ck12-textbgcolor-olive {
+	background: #808000;
+}
+
+.x-ck12-textbgcolor-purple {
+	background: #800080;
+}
+
+.x-ck12-textbgcolor-red {
+	background: #f00;
+}
+
+.x-ck12-textbgcolor-silver {
+	background: #C0C0C0;
+}
+
+.x-ck12-textbgcolor-teal {
+	background: #008080;
+}
+
+.x-ck12-textbgcolor-white {
+	background: #fff;
+}
+
+.x-ck12-textbgcolor-yellow {
+	background: #ff0;
+}
+
+.x-ck12-textbgcolor-orange {
+	background: #FFA500;
+}
+
+.x-ck12-textbgcolor-darkorange{
+	background: #FF8C00;
+}
+
+
+.x-ck12-validationerror{
+    background: #f2b7b4;
+} 
+
+/* Numbered List Styles */
+
+/* nested ordered lists */
+ol ol {
+	list-style-type:lower-alpha
+}
+ol ol ol {
+	list-style-type:lower-roman
+}
+
+.x-ck12-decimal {
+	list-style-type: decimal;
+}
+
+.x-ck12-lower-alpha {
+	list-style-type: lower-alpha;
+}
+
+.x-ck12-upper-alpha {
+	list-style-type: upper-alpha;
+}
+
+.x-ck12-lower-roman {
+	list-style-type: lower-roman;
+}
+
+.x-ck12-upper-roman {
+	list-style-type: upper-roman;
+}
+
+/* Float */
+.x-ck12-float {
+	margin-right: 20px;
+	overflow:auto;
+}
+
+.x-ck12-nofloat {
+	clear: both;
+	overflow:auto;
+}
+
+.x-ck12-table-slender {
+    width: auto !important;
+}
+
+.x-ck12-align-center {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.x-ck12-editor-clearbottom
+{
+    clear: both;
+    height: 0px; 
+    padding: 0px;
+    margin: 0px;
+}
+/* images */
+
+.watermark {
+	background-color: #56544D;
+    color: #FFFFFF;
+    font-size: 14px;
+    left: 146px;
+    line-height: 1.1;
+    padding: 17px;
+    position: absolute;
+    text-shadow: none;
+    z-index: 99;
+}
+
+.watermark:before {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border-color: rgba(0, 0, 0, 0) #56544D rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+    border-style: solid;
+    border-width: 10px 10px 10px 0;
+    content: "";
+    left: -10px;
+    position: absolute;
+    top: 10px;
+}
+
+.image-attribution-tooltip {
+	background-color: #56544D;
+    bottom: 0;
+    padding: 10px;
+    position: fixed;
+    text-shadow: none;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.close-tooltip {
+	color: #FF6633;
+    position: absolute;
+    right: 14px;
+    top: 10px;
+}
+
+.image-attribution-tooltip div {
+    color: #FFFFFF;
+}
+
+.image-attr {
+	display: inline-block;
+    padding-left: 4px;
+}
+
+.image-attr-block {
+	padding-left: 4px;
+}
+
+.image-with-caption .watermark {
+	left: 213px;
+}
+
+.watermark * {
+    color: #FFFFFF !important;
+    font-family: proximanova;
+}
+
+.watermark .img_source {
+    padding: 2px 0;
+}
+
+.x-ck12-img-thumbnail.x-ck12-float {
+	width:192px;  /* floated items must have absolute width */
+}
+.x-ck12-img-postcard.x-ck12-float {
+	width:500px; /* floated items must have absolute width */
+}
+
+.x-ck12-img-thumbnail, .x-ck12-img-postcard, .x-ck12-img-fullpage {
+
+}
+
+.x-ck12-img-thumbnail p + p, .x-ck12-img-postcard p + p, .x-ck12-img-fullpage p + p {
+	font-size:12px;
+	font-weight:500;
+	color:#666;
+	margin-bottom:10px;
+	border-top:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+	word-wrap:break-word;
+}
+
+img.x-ck12-math, img.x-ck12-block-math {
+	border:0;
+	border:none;
+	background:transparent;
+	cursor:default;
+}
+
+img.x-ck12-block-math {
+    display: block;
+    margin: 0 auto;
+}
+
+span.x-ck12-mathEditor {
+	background-color: inherit !important;
+}
+/* #hintContainer span.x-ck12-mathEditor[data-mathmethod=inline] {
+	top: 9px;
+	overflow-x: hidden;
+}   */
+span.x-ck12-mathEditor[data-mathmethod=inline], span.x-ck12-mathEditor[data-mathmethod=alignat] {
+	/* position: relative;
+    top: -1px; */
+}
+span.x-ck12-mathEditor[data-mathmethod=inline] {
+    margin-right: -1px;
+    /* margin-left: -2px; */
+    width: auto !important;
+}
+span.x-ck12-mathEditor[data-mathmethod=alignat] {
+	margin-top: 3px;
+	width: 100%;
+}
+#dataStemContainer span.x-ck12-mathEditor[data-mathmethod=inline] {
+	top: 0px;
+}
+
+/* Indent box */
+.x-ck12-indent {
+	padding-left: 40px;
+}
+
+/* elastic video */
+.x-ck12-mediawrapper {
+	width: 640px;
+	max-width: 100%;
+}
+
+.x-ck12-media {
+	position: relative;
+	padding-bottom: 56.25%;
+	padding-top: 30px;
+	height: 0;
+	overflow: hidden;	
+}
+
+.x-ck12-media iframe,
+.x-ck12-media object,
+.x-ck12-media embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+
+/* tables */
+table {
+	/* border:1px solid #ccc; */
+	border-collapse: collapse;
+	margin:10px 0;
+	/* font-size:12px;*/
+	width:100%;
+}
+
+table caption {
+	font-weight:bold;
+}
+
+table tr, table td, table th {
+	/* border:1px solid #ccc; */
+	/* Bug 9861 border color for cell in table inserted in content commented. 
+	/*border-color:#ccc; */
+	padding:3px;
+}
+
+table th {
+	background:#eee;
+	text-align:left;
+}
+
+table ul, table ul li {
+	padding:0;
+}
+
+
+/* pre */
+
+pre {
+	white-space:pre-wrap;
+	font-family:monospace;
+	font-size:13px;
+	line-height:15px;
+}
+
+/* blockquote */
+blockquote {
+    padding: 0 20% 0 10%;
+    font-style: italic;
+    color: #666;
+    border-left: 0 none;
+}
+blockquote p {
+    padding-top: 20px;
+}
+.mceContentBody blockquote p {
+    padding: 0;
+    margin: 0;
+}
+blockquote:before, blockquote:after { 
+    display: block; 
+    font-size: 300%; 
+    color: #ccc; 
+}
+blockquote:before { 
+    content: open-quote; 
+    margin-left: -10%; 
+    height: 0; 
+}
+blockquote:after { 
+    content: close-quote; 
+    margin-left: 100%; 
+    margin-top: -54px; 
+    height: 33px; 
+}
+.mceContentBody blockquote:after {
+    margin-top: -19px;
+}
+
+/* pagebreak */
+.x-ck12-pagebreak{
+    border-top:1px dotted #aaaaaa;
+    color: #fff;
+    background-color: #fff;
+    height: 1px;
+  }
+
+  
+.figure-index {
+    color: #1AABA3;
+    font-size: 14px;
+}
+
+.figure-index-with-caption {
+	margin-left: 5px;
+}
+
+#modality_content p {
+	margin-bottom: 9px;
+}
+  
+#modality_content .x-ck12-hide-for-web {
+	display: none;
+}

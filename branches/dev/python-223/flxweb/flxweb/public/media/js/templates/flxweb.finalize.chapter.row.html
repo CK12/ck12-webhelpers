@@ -1,0 +1,57 @@
+<% for (var i=0; i< data.length; i++) { %>
+    <% if (data[i].artifactType === 'chapter') { %>
+        <li class="artifact_type_chapter" data-artifactrevisionid="<%= data[i].artifactRevisionID %>">
+            <div>
+                <div class="artifact_row js_artifact_row js_first_level">
+                    <div class="js_expand_toggle row_expand_toggle left ui-icon ui-icon-triangle-1-e"></div>
+                    <span class="index_label js_index_label child"><%= i+1 %></span>
+                    <span class="row_artifact_title js_artifact_title"><%= data[i].title %></span>
+                    <span class="draft-chapter">
+                        <% if (data[i].draftChildrenCount) { %>
+                            Drafts(<%= data[i].draftChildrenCount %>)
+                        <% } %>
+                    </span>
+                     <% if (data[i].draftChildrenCount) { %>
+                        <div class="custom-box">
+                            <input type="checkbox" id="checkbox<%= data[i].artifactRevisionID %>">
+                            <label for="checkbox<%= data[i].artifactRevisionID %>" class="checkbox"><span><i class="icon-validated"></i></span></label>
+                        </div>
+                    <% } %>
+                    <div class="clear"></div>
+                </div>
+                <div class="editor_chapterinfo hide" id="chapterinfo_<%= data[i].artifactID %>">
+                    <ul class='conceptlist child js_artifact_list' data-artifactID="<%= data[i].artifactID %>">
+            
+                    </ul>
+                </div>
+            </div>
+        </li>
+        <div class="finalize-chapter-divider"></div>
+    <% } else { %>
+        <li class="ui-corner-all js_artifact_list_item artifact_list_item js-first-level-section"
+            data-artifactId="<%= data[i].artifactID %>"
+            data-artifactType="<%= data[i].artifactType %>"
+            data-artifactRevisionID = "<%= data[i].artifactRevisionID %>"
+            data-draft="<%= data[i].hasDraft %>"
+            >
+            <div>
+                <div class="artifact_row js_artifact_row">
+                    <span class="index_label js_index_label child"><%= i+1 %></span>
+                    <div class="row_artifact_title js_artifact_title">
+                        <span class="draft-chapter-title"><%= data[i].title %></span>
+                        <% if (data[i].hasDraft) { %>
+                            <span class="draft-section">DRAFT</span>
+                        <% } %>
+                    </div>
+                    <% if (data[i].hasDraft) { %>
+                        <div class="custom-box">
+                            <input type="checkbox" id="checkbox<%= data[i].artifactRevisionID %>">
+                            <label for="checkbox<%= data[i].artifactRevisionID %>" class="checkbox"><span><i class="icon-validated"></i></span></label>
+                        </div>
+                    <% } %>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </li>
+    <% } %>
+<% } %>

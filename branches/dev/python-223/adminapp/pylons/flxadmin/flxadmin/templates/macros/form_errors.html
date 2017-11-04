@@ -1,0 +1,43 @@
+{#
+*************************************************************************** 
+Macro: paginate
+Macro to display insert form errors
+
+Parameters:
+<css_classes>
+Additional css classes for error div
+
+***************************************************************************
+#}
+
+{% macro form_errors(css_classes='') %}
+$(document).ready(function(){
+
+{% for error in c.form_errors %}
+  {% if c.form_errors[error] %}
+    {% if 'after' in css_classes %}
+      $('input[type="text"][name="{{error}}"],\
+         input[type="file"][name="{{error}}"],\
+         fieldset[id="{{error}}"],\
+         select[name="{{error}}"]')
+        .addClass('error')
+        .after('<div class="field error {{css_classes}}">"{{c.form_errors[error]}}"</div>');
+    {% else %}     
+      $('input[type="text"][name="{{error}}"],\
+         input[type="file"][name="{{error}}"]').addClass('error');
+      if ($('fieldset[id="{{error}}"]').length > 0){
+        $('fieldset[id="{{error}}"]')
+        .append('<div class="field error inline {{css_classes}}">"{{c.form_errors[error]}}"</div>');
+      }else if ($('select[name="{{error}}"]').length > 0){
+        $('select[name="{{error}}"]')
+        .after('<div class="field error inline {{css_classes}}">"{{c.form_errors[error]}}"</div>');
+      }else{
+        $('form label[for="{{error}}"]')
+        .after('<div class="field error {{css_classes}}">"{{c.form_errors[error]}}"</div>');
+      }
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
+});
+{% endmacro %}

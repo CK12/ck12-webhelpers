@@ -1,0 +1,5 @@
+<a class="text-center left<% if ('ck12' === data.selected) { %> selected<% } %>" href="<%= data.href%>ck12" data-value="ck12">CK-12 Content</a>
+<a class="text-center left<% if ('community' === data.selected) { %> selected<% } %>" href="<%= data.href%>community" data-value="community"><span>Community</span><span class="hide-small"> Contributed</span></a>
+<% if (data.user) { %>
+	<a class="text-center left<% if ('my' === data.selected) { %> selected<% } %>" href="<%= data.href%>my" data-value="my">My Library</a>
+<% } %>

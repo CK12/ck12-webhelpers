@@ -1,0 +1,1 @@
+ALTER TABLE `LMSProviderAssignments` ADD COLUMN `isValid` TINYINT(1) NOT NULL DEFAULT 1;

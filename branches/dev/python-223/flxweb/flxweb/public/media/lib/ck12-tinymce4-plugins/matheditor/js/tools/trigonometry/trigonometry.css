@@ -1,0 +1,15 @@
+.trigContainer.tool-bar-tools {
+	line-height: 21px;
+	padding-top: 5px;
+}
+.tool-tip-row:first-child .tooltip-tools-inner {
+    /*border-bottom: 1px solid;*/
+}
+.trigContainer .tool-tip-row:first-child .tooltip-tools-inner:last-child {
+    /*text-align: left;
+    width: 89px;*/
+}
+.trigContainer .close-cont{
+ 	height:98%;
+}
+ 

@@ -1,0 +1,480 @@
+<!doctype html>
+<html>
+<meta charset="UTF-8" >
+<head>
+    <title>test</title>
+    <style>
+        @-moz-keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            25% {
+                transform: rotate(-90deg);
+            }
+            50% {
+                transform: rotate(-180deg);
+            }
+            75% {
+                transform: rotate(-270deg);
+            }
+            100% {
+                transform: rotate(-360deg);
+            }
+        }
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+            25% {
+                -webkit-transform: rotate(-90deg);
+            }
+            50% {
+                -webkit-transform: rotate(-180deg);
+            }
+            75% {
+                -webkit-transform: rotate(-270deg);
+            }
+            100% {
+                -webkit-transform: rotate(-360deg);
+            }
+        }
+        h1.title {
+            display: inline;
+        }
+        .spin {
+            display: inline;
+            position: relative;
+        }
+        .spin:after {
+            top: -10px;
+            left: 7px;
+            font-style:normal;
+            font-weight:normal;
+            font-size: 28px;
+            content: "\2622";
+            position: absolute;
+            -webkit-animation: spin 4s infinite;
+            -webkit-animation-timing-function: linear;
+            animation: spin 4s infinite;
+            animation-timing-function: linear;
+            timing-function: linear;
+        }
+        #tests {
+            margin: 0;
+            padding:0;
+        }
+        #tests li {
+            display: block;
+            margin: 0;
+            border: 1px solid black;
+        }
+        #tests li div {
+            display: inline-block;
+            padding: 10px;
+        }
+        #tests li div:nth-child(1) {
+            max-width: 150px;
+            min-width: 150px;
+            margin-right: 30px;
+            border-right: 2px solid black;
+        }
+
+        #tests .pass {
+            background: rgba(0,255,0,0.8);
+        }
+        #tests .fail {
+            background: rgba(255,0,0,0.8);
+        }
+        #tests .unknown {
+            background: rgba(255,255,0,0.8);
+        }
+
+        #tests li:first-child .pass:after {
+            font-size: larger;
+            content: "PASSING!!!!";
+        }
+
+        #tests li:first-child .fail:after {
+            font-size: larger;
+            content: "FAILING!!!!";
+        }
+
+        #tests li:first-child div:nth-child(2) span:after {
+            font-size: 28px;
+            margin: 0 1ex;
+            content: "\235F";
+        }
+
+    </style>
+</head>
+<body>
+<h1 class="title">dexterjs<span id="version"></span> test</h1> <span class="spin"></span>
+    <div>
+        <ul id="tests">
+            <li><div>TEST</div><div>TEST RESULTS<span></span></div></li>
+        </ul>
+    </div>
+    <script>
+        window.dexter =
+        [
+            {
+                eventName: "SOME_EVENT",
+                payload: {
+                    "some" : "JSON^$#@'"
+                }
+            }
+        ];
+        dexter.config = {
+            clientID : 1234
+        };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js"></script>
+    <!-- <script src="/dexterjs/dexterjs.min.js"></script> -->
+    <script>
+        var tests = document.getElementById("tests");
+        var testLog = function(tagString, resultString, pass) {
+            var tag, result, li;
+            li      = document.createElement("li");
+            tag     = document.createElement("div");
+            result  = document.createElement("div");
+            pass    = (pass === undefined) ? "unknown" : pass;
+            if (pass === true) {
+                pass = "pass";
+            }
+            else if (pass === false) {
+                pass = "fail";
+            }
+
+            if (resultString === undefined) {
+                resultString = tagString;
+                tagString = "no name test";
+            }
+            li.appendChild(tag);
+            li.appendChild(result);
+
+            tag.innerHTML    = tagString;
+            result.innerHTML = resultString;
+            li.setAttribute("class", pass);
+
+            tests.appendChild(li);
+
+        }
+    </script>
+
+    <script>
+        var default_configuration = null;
+        var testCases = [];
+        var buff = null;
+        testCases.delayed = []; // delayed tests for xhr results
+
+        function outputFunction(result, string) {
+            if (!result) {
+                return string;
+            }
+            else {
+                return "PASS";
+            }
+        }
+
+        function initializeTests() {
+            // DEFINED?
+            testCases.push(function() {
+                this.tag = "dexterjs is defined";
+                this.result = (typeof dexterjs !== "undefined");
+                this.output = outputFunction(this.result, "dexterjs isn't defined");
+            });
+
+            testCases.push(function() {
+                this.tag = "dexterjs is a factory function";
+                this.result = (typeof dexterjs === "function");
+                this.output = outputFunction(this.result, "dexterjs isn't a function");
+            });
+
+            // dexter object
+            testCases.push(function() {
+                this.tag = "dexter object exists";
+                this.result = (typeof dexter === "object");
+                this.output = outputFunction(this.result, "The dexter (not dexterjs) object isn't an object");
+            });
+
+            testCases.push(function() {
+                this.tag = "dexter object is an array";
+                try {
+                    this.result = (dexter instanceof Array);
+                    buff = "dexter isn't an Array";
+                } catch (e) {
+                    this.result = (false);
+                    buff = e;
+                }
+                this.output = outputFunction(this.result, buff);
+            });
+
+            // dexter object has logEvent
+            testCases.push(function() {
+                this.tag = "dexter has logEvent method";
+                this.result = (typeof dexter.logEvent === "function");
+                this.output = outputFunction(this.result, "dexter.logEvent isn't a function");
+            });
+
+            // dexter.logEvent()
+            testCases.push(function() {
+                this.tag = "dexter.logEvent()"
+                try {
+                    dexter.logEvent("MY_EVENT", {
+                        "key1": "value1",
+                        "key2": {"innerkey1" : "innerValue1"}
+                    });
+                    this.result = true;
+                }
+                catch (e) {
+                    buff = e;
+                    this.result = false;
+                }
+                this.output = outputFunction(this.result, buff)
+            });
+
+            // dexter.flush()
+            testCases.push(function() {
+                this.tag = "dexter.flush()";
+                try {
+                    dexter.flush();
+                    this.result = true;
+                    buff = "success";
+                }
+                catch (e) {
+                    buff = e;
+                    this.result = false;
+                }
+                this.output = outputFunction(this.result, buff);
+            });
+
+            // cookies
+            for (var cookieName in default_configuration.clientCookies) {
+                if (default_configuration.clientCookies[cookieName].name) {
+                    (function(cookieName) {
+                        var cookie = default_configuration.clientCookies[cookieName].cookie;
+                        testCases.push(function() {
+                            this.tag = "checking cookie: "+cookieName;
+                            var re = new RegExp(cookie);
+                            if (document.cookie.match(re)) {
+                                this.result = true;
+                            }
+                            else {
+                                this.result = false;
+                            }
+                            this.output = outputFunction(this.result, "Couldn't find cookie string: "+cookie);
+                        });
+                    })(cookieName);
+                }
+            }
+
+            //
+            // dexterjs factory output tests
+            // =============================
+
+            testCases.push(function() {
+                buff = null;
+                this.tag = "Verifying dexterjs factory output";
+                this.result = true;
+                try { buff = dexterjs(); }
+                catch (e) {
+                    buff = e;
+                    this.result = true;
+                }
+                this.output = outputFunction(this.result, buff);
+            });
+
+            // check missing clientID
+            testCases.push(function() {
+                this.tag = "Verifying dexterjs factory output";
+                buff = dexterjs();
+                this.result = false; // expecting dexterjs to throw an error...
+                try { buff.logEvent("TestForMissingClientID", {}); }
+                catch (error) { this.result = true; }
+                this.output = outputFunction(this.result, "logEvent didn't fail with a falsy clientID");
+            });
+
+            // logEvent test
+            testCases.push(function() {
+                this.tag = "Verifying dexterjs factory output";
+                buff = dexterjs();
+                buff.set("config:clientID", 123);
+                this.result = true;
+                try { buff.logEvent("TestLogEvent", { payload:{a:"b", c:{d:"e"}} }); }
+                catch (error) {
+                    buff = error;
+                    this.result = false;
+                }
+                this.output = outputFunction(this.result, buff);
+            });
+
+            // logEvent bulk upload test
+            testCases.push(function() {
+                this.tag = "Verifying dexterjs factory output";
+                buff = dexterjs();
+                buff.set("config:clientID", 123);
+                this.result = true;
+                try {
+                    buff.logEvent([
+                        { eventType: "event1", payload: {score:1} },
+                        { eventType: "event2", clientID: 321, payload: {score:2} },
+                        { eventType: "event1", payload: {scores: [1,2,3,4,5]} },
+                    ]);
+                }
+                catch (error) {
+                    buff = error;
+                    this.result = false;
+                }
+                this.output = outputFunction(this.result, buff);
+            });
+
+            // CHECK SUCCESS FUNCTION CALLBACK HANDLER
+            testCases.push(function() {
+                this.tag = "checking success callback";
+                this.output = "n/a";
+                buff = dexterjs();
+                buff.set("config:clientID", 123);
+                this.result = true;
+                var triggered = false;
+                try {
+                    buff.logEvent("test", {test:"Test"}, function() {
+                        triggered = true;
+                    });
+                    testCases.delayed.push(function() {
+                        this.tag = "success handler triggered";
+                        this.result = (triggered) ? true : false;
+                        this.output = outputFunction(this.result);
+                    });
+                } catch (error) {
+                    buff = error;
+                    this.result = false;
+                }
+            });
+
+            // CHECK OBJECT CALLBACK HANDLER
+            testCases.push(function() {
+                this.tag = "checking success callback from object";
+                this.output = "n/a";
+                buff = dexterjs();
+                buff.set("config:clientID", 123);
+                this.result = true;
+                var triggered = false;
+                try {
+                    buff.logEvent("test", {test:"Test"}, {
+                        success: function() {
+                            triggered = true;
+                        }
+                    });
+                    testCases.delayed.push(function() {
+                        this.tag = "success handler triggered from object";
+                        this.result = (triggered) ? true : false;
+                        this.output = outputFunction(this.result);
+                    });
+                } catch (error) {
+                    buff = error;
+                    this.result = false;
+                }
+            });
+
+            // CHECK OBJECT CALLBACK HANDLER
+            testCases.push(function() {
+                this.tag = "checking error callback from object";
+                this.output = "n/a";
+                buff = dexterjs();
+                buff.set("config:clientID", 123);
+                buff.set("config:apis", { recordEvent: "/dexter/broken/link/test" });
+                this.result = true;
+                var triggered = false;
+                try {
+                    buff.logEvent("test", {test:"Test"}, {
+                        success: function() {},
+                        error: function (event) {
+                            console.log('triggered');
+                            triggered = true;
+                        }
+                    });
+                    testCases.delayed.push(function() {
+                        this.tag = "error handler triggered from object";
+                        this.result = (triggered) ? true : false;
+                        this.output = outputFunction(this.result);
+                    });
+                } catch (error) {
+                    buff = error;
+                    this.result = false;
+                }
+            });
+
+            // CHECK DEXTERJS VERSION IS WELL FORMED
+            testCases.push(function() {
+                this.tag = "Checking dexterjs' factory function version is well formed";
+                this.result = true;
+                // looks like "{number}.{number}.{number}" ... "12.32.100"
+                if ( ! dexterjs.version.match(/([0-9]+\.){2}[0-9]+/) ) {
+                    this.result = false;
+                }
+                this.output = outputFunction(this.result);
+            });
+
+        }
+    </script>
+    <script>
+        testCases.run = function(c) {
+            var passing = true;
+            var that = this;
+            this.c = c || 0;
+            function tryTestCase(testCase, idx, array) {
+                var results = new testCase();
+                console.log("executing test #"+idx);
+                testLog(results.tag, results.output, results.result);
+                if (!results.result) { passing = false; }
+            }
+            var delayedCounter = 0;
+            //this.forEach(tryTestCase);
+            var interval = window.setInterval(function() {
+                if (that.c < testCases.length) {
+                    tryTestCase(testCases[that.c++], that.c, testCases);
+                }
+                if (that.c === testCases.length) {
+                    if (delayedCounter < testCases.delayed.length) {
+                        (function(delayedCounter){
+                        setTimeout(function() {
+                            tryTestCase(testCases.delayed[delayedCounter], delayedCounter, testCases.delayed);
+                            if (!delayedCounter) {
+                                end();
+                            }
+                        }, 1000);
+                        })(delayedCounter++);
+                    } else {
+                        window.clearInterval(interval);
+                    }
+                }
+            }, 50);
+
+            function end() {
+                buff = document.querySelector("#tests li:first-child div:nth-child(2)");
+                buff.className += (!passing) ? " fail" : " pass";
+            }
+        };
+
+        require.config ({
+            baseUrl: '.',
+            paths : {
+                'dexterjs' : '../dist',
+                'src': '../js'
+            }
+        });
+
+        require(["dexterjs/dexterjs.min", "src/var/default_configuration"], function(dexterjs, config) {
+            // append version to span
+            var versionSpan = document.getElementById("version");
+            versionSpan.appendChild(document.createTextNode(" v" + dexterjs.version));
+
+            default_configuration = config;
+
+            window.dexterjs = dexterjs;
+            initializeTests();
+            testCases.run();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{% extends "listings.html" %}  
+{% from "macros/form_errors.html" import form_errors with context %} 
+
+{% block admintop %} 
+{% endblock admintop %}
+{% block admincontent %}
+{{ super() }} 
+{% endblock admincontent %}
+
+
+{% block js_scripts %}
+{{ super() }}
+<script type='text/javascript'>
+
+{{ form_errors() }}
+
+$(document).ready(function(){
+	Listings({
+		sort: '',
+        ajaxRoot: CK12.admUrl('get-real-contributions-list'),
+    });
+});
+</script>
+{% endblock %}

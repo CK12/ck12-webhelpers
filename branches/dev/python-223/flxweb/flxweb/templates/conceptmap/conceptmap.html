@@ -1,0 +1,222 @@
+{% import "conceptmap/filter.html" as filter %}
+<div class="page-disable"></div>
+<div class="spinner"></div>
+
+<div id="conceptmap-wrapper" class="zeroState">
+
+
+    <nav id="conceptmap-nav" class="conceptmap-nav">
+        <div class="row">
+            <div class="column small-3 conceptmap-nav__left">
+                <a href="/conceptmap" class="conceptmap-nav__left__link">
+                    <svg class="conceptmap-nav__left__link__logo" xmlns="http://www.w3.org/2000/svg" viewBox="-1238 809.4 114.1 111.6">
+                        <path class="line" d="M-1211.343 913.354l-3.958-3.056 32.266-41.796 3.958 3.055z"/>
+                        <path class="line" d="M-1128.812 882.045l-53.314-8.58.794-4.937 53.314 8.58z"/>
+                        <path class="line" d="M-1166.127 913.224l-17.966-41.586 4.59-1.983 17.966 41.586z"/>
+                        <path class="line" d="M-1182.53 873.326l-26.925-58.28 4.54-2.097 26.925 58.28z"/>
+                        <path class="line" d="M-1179.618 872.69l-3.872-3.165 32.716-40.032 3.87 3.164z"/>
+                        <circle class="blue1" cx="-1153.7" cy="835.2" r="12.9"/>
+                        <circle class="blue2" cx="-1209.2" cy="904.3" r="9.2"/>
+                        <circle class="green" cx="-1203.6" cy="824.1" r="14.7"/>
+                        <path class="line" d="M-1181.91 874.087l-52.12-8.458.802-4.937 52.12 8.46z"/>
+                        <circle class="blue2" cx="-1228.8" cy="860.9" r="9.2"/>
+                        <circle class="green" cx="-1164.4" cy="911.8" r="9.2"/>
+                        <circle class="green" cx="-1135" cy="875.6" r="11.1"/>
+                        <path class="green" d="M-1190 880.1l-4.4-11.7 7.9-9.6 12.3 2 4.4 11.7-7.9 9.6z" />
+                    </svg>
+                    <h1 class="conceptmap-nav__left__link__title">Concept Map</h1>
+                </a>
+            </div>
+
+            <div class="column small-6 conceptmap-nav__middle">
+                <h2 class="conceptmap-nav__middle__title">Explore Connections in Math and Science</h2>
+                <form id="concept__search" class="concept__search" onkeypress="return event.keyCode != 13;">
+
+                    <input id="concept__search__input" class="concept__search__input" type="text" placeholder="Search for a concept" name="q" value="" data-autocompleteclass="landing" class="ui-autocomplete-input" autocomplete="off">
+                    <i class="concept__search-icon icon-search"></i>
+
+                    <span class="concept__search-loading-icon hide">
+                        <img alt="loading" src="/media/common/images/icon_loading.gif">
+                    </span>
+                </form>
+                <h3 class="conceptmap-nav__middle__subtitle">
+                    Start with CK-12 recommended concepts.
+                    <img src="/media/conceptmap/images/zero-state-arrow.png" class="conceptmap-nav__middle__subtitle__arrow">
+                </h3>
+
+                <div class="conceptmap-nav__middle__editor-suggest">
+                    Make a suggestion
+                    <div class="tooltip-container">
+                        <i class="icon-help_icon"></i>
+                        <div class="tooltip-bottom">
+                            How do I Edit?
+                        </div>
+                    </div>
+
+
+
+                    <!-- Info Slide -->
+                    <section class="conceptmap-nav__middle__editor-suggest__info-slide">
+                        <div class="row">
+                            <div class="column small-2">
+                                <img src="/media/conceptmap/images/editor/suggest-add.svg">
+                            </div>
+                            <div class="column small-10">
+                                Add a missing connection.
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="column small-2">
+                                <img src="/media/conceptmap/images/editor/close-button.svg">
+                            </div>
+                            <div class="column small-10">
+                                Remove an incorrect connection.
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="column small-12 text-center">
+                                <button data-slide="2" class="button turquoise small">
+                                    OK, got it
+                                </button>
+                            </div>
+                        </div>
+
+                    </section>
+                    <!-- End Info Slide -->
+                </div>
+            </div>
+
+            <ul class="column small-2 small-offset-1 conceptmap-nav__right">
+                <li class="column small-6 end">
+                    <i class="nav__tips icon-Info"></i>
+                    <div class="tooltip-bottom">
+                        Take a tour
+                    </div>
+                    <span>Info</span>
+                </li>
+                <!-- <i class="nav__plane icon-paperplane"></i> -->
+            </ul>
+        </div>
+    </nav>
+
+    <div class="side-nav-left">
+        {{ filter.create() }}
+        <div class="tooltip-bottom">
+            Show connections by Math or Science.
+        </div>
+    </div>
+
+    <div class="side-nav-right">
+        <button id="aerial" class="conceptmap__ui-button">
+            <i class="custom-icon-aerial"></i>
+        </button>
+        <div class="tooltip-left">
+            Aerial view
+        </div>
+
+        <div class="side-nav-right__button-group">
+            <button id="zoom-in" data-zoom="+0.33" class="conceptmap__ui-button" disabled>
+                <i class="icon-plus"></i>
+            </button>
+            <button id="zoom-out" data-zoom="-0.33" class="conceptmap__ui-button">
+                <i class="icon-minus"></i>
+            </button>
+            <div class="tooltip-left">
+                Zoom
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ======Notification block===== -->
+    <div class="conceptmap-notification conceptmap-notification--fade-out">
+        <i class="conceptmap-notification__close icon-close2"></i>
+        <div class="conceptmap-notification__header"></div>
+        <div class="conceptmap-notification__body"></div>
+        <div class="conceptmap-notification__action"></div>
+
+        <div class="conceptmap-notification__buttons row">
+            <div class="small-12 column">
+                <div class="conceptmap-notification__buttons__confirm button tangerine">OK</div>
+                <div class="conceptmap-notification__buttons__cancel button dusty-grey">Cancel</div>
+            </div>
+        </div>
+    </div>
+    <!-- ======End Notification block===== -->
+
+    <!-- ======More info block===== -->
+    <div id="more-info-block" class="more-info" style="display: none;">
+        <i class="icon-close2 more-info__close-button conceptmap__close-button" id="close-icon"></i>
+
+        <div class="more-info__inner">
+
+            <hgroup id="more-info__header" class="more-info__header">
+                <h1>
+                    <a class="more-info__header__name" target="_blank">Concept Name</a>
+                </h1>
+                <a class="more-info__header__subject" target="_blank">Subject</a>
+                <span>&nbsp;&gt;&nbsp;</span>
+                <a class="more-info__header__category" target="_blank">Category</a>
+                <p class="more-info__header__summary">Insert short description/summary of this topic.</p>
+            </hgroup>
+
+            <p class="more-info__message hide">
+                Bummer. There are no modalities for this concept.
+            </p>
+
+            <ul class="modalities">
+                <li id="modality1" class="modality">
+                    <div class="modality__thumbnail">
+                        <a class="modality__thumbnail__link">
+                            <i class="modality__thumbnail__icon"></i>
+                            <span class="modality__thumbnail__image"></span>
+                        </a>
+                    </div>
+                    <div class="modality__info">
+                        <div class="modality__info__type">
+                            <i></i>
+                            <span class="modality__info__type__label"></span>
+                        </div>
+                        <a class="modality__info__title"></a>
+                    </div>
+                </li>
+                <li id="modality2" class="modality">
+                    <div class="modality__thumbnail">
+                        <a class="modality__thumbnail__link">
+                            <i class="modality__thumbnail__icon"></i>
+                            <span class="modality__thumbnail__image"></span>
+                        </a>
+                    </div>
+                    <div class="modality__info">
+                        <div class="modality__info__type">
+                            <i></i>
+                            <span class="modality__info__type__label"></span>
+                        </div>
+                        <a class="modality__info__title"></a>
+                    </div>
+                </li>
+            </ul>
+
+            <a id="arrow" target="_blank" class="more-info__arrow-button">
+                <span>Learn more</span>
+                <i class="icon-arrow2_right" id="arrow-icon"></i>
+            </a>
+
+        </div>
+    </div>
+    <!-- ======End more info block===== -->
+
+
+    {% include "conceptmap/editor-search.html" %}
+    {% include "conceptmap/mobile.html" %}
+
+    <div class="svg-container"></div>
+</div>
+<!-- ====== Tutorial ===== -->
+{% include "conceptmap/tutorial.html" %}
+<!-- ====== End Tutorial ===== -->
+<div class="conceptmap__overlay"></div>
+<!-- ====== Editor ===== -->
+{% include "conceptmap/editor.html" %}
+<!-- ====== End Editor ===== -->

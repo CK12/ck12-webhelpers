@@ -1,0 +1,245 @@
+.books {
+	/* for Safari to render 3d transforms correctly */
+	perspective: 100000px;
+	-webkit-perspective: 100000px;
+}
+
+.books ul {
+	height: 100%;
+	position: relative;
+	list-style: none;
+}
+
+.books ul li {
+  top: 0px;
+  position: absolute;
+  width: 100%;
+  left: 15px;
+  /* background: #efede7; */
+}
+
+.books * {
+	box-sizing: border-box;
+	transition: all 0.4s ease-in-out, z-index 0.6s;
+	-webkit-transition: all 0.4s ease-in-out, z-index 0.6s;
+}
+
+.book {
+	width: 104.5px;
+	height: 133px;
+	perspective: 1800px;
+	-webkit-perspective: 1800px;
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	position: relative;
+	top: 1px;
+}
+
+/* FRONT */
+
+.front {
+  /* style */
+  
+  z-index: 10;
+  height: 100%;
+  border: 1px solid #cccccc;
+  /* 3D */
+  
+  -ms-transform-origin: 0% 100%;
+  transform-origin: 0% 100%;
+  -webkit-transform-origin: 0% 100%;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  transform: rotateY(-32deg);
+  -webkit-transform: rotateY(-32deg);
+}
+
+.book:hover {
+  -webkit-transform-origin: 0% 100%;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transform: rotateY(-7deg);
+}
+
+.book.no-transform:hover {
+  -webkit-transform-origin: initial;
+  -webkit-transform-style: initial;
+  -webkit-transform: initial;
+}
+
+.front .cover {
+  height: 100%;
+  background-color: white;
+}
+
+.front .cover img {
+  width: 100%;
+  height: 131px;
+  /* -webkit-backface-visibility: hidden;
+  backface-visibility: hidden; */
+}
+
+.default-camera-image .front img {
+  position: relative;
+  top: 33px;
+  left: 2px;
+  height: auto;
+}
+
+.front .shadow {
+  box-shadow: 15px -5px 30px 8px #333;
+}
+/* PAGES */
+
+.pages {
+  height: 100%;
+  width: 100%;
+}
+
+.pages * {
+  transition: all 0.2s ease-in-out, z-index 0.1s;
+  -webkit-transition: all 0.2s ease-in-out, z-index 0.1s;
+}
+
+.pages div {
+  width: 98%;
+  height: 98%;
+  top: 1%;
+  border: 1px solid lightgrey;
+  position: absolute;
+  -ms-transform-origin: 0% 100%;
+  transform-origin: 0% 100%;
+  -webkit-transform-origin: 0% 100%;
+  -webkit-transform-style: preserve-3d;
+  transform-style: presever-3d;
+  background-color: white;
+}
+
+.thin.page1 {
+  transform: rotateY(-23deg) translateZ(0px);
+  -webkit-transform: rotateY(-23deg) translateZ(0px);
+  z-index: 3;
+}
+
+.thin.page2 {
+  transform: rotateY(-18deg) translateZ(-1px);
+  -webkit-transform: rotateY(-18deg) translateZ(-1px);
+  z-index: 2;
+}
+
+.thin.page3 {
+  transform: rotateY(-13deg) translateZ(-2px);
+  -webkit-transform: rotateY(-13deg) translateZ(-2px);
+  z-index: 1;
+}
+
+.page1 {
+  transform: rotateY(-27deg) translateZ(0px);
+  -webkit-transform: rotateY(-27deg) translateZ(0px);
+  z-index: 3;
+}
+
+.page2 {
+  transform: rotateY(-25deg) translateZ(-1px);
+  -webkit-transform: rotateY(-25deg) translateZ(-1px);
+  z-index: 2;
+}
+
+.page3 {
+  transform: rotateY(-22deg) translateZ(-2px);
+  -webkit-transform: rotateY(-22deg) translateZ(-2px);
+  z-index: 1;
+}
+
+.page4 {
+  transform: rotateY(-19deg) translateZ(-1px);
+  -webkit-transform: rotateY(-19deg) translateZ(-1px);
+  z-index: 1;
+}
+
+.page5 {
+  transform: rotateY(-15deg) translateZ(-2px);
+  -webkit-transform: rotateY(-15deg) translateZ(-2px);
+  z-index: 1;
+}
+
+.page6 {
+  transform: rotateY(-10deg) translateZ(-2px);
+  -webkit-transform: rotateY(-10deg) translateZ(-2px);
+  z-index: 1;
+}
+
+.page7 {
+  transform: rotateY(-8deg) translateZ(-2px);
+  -webkit-transform: rotateY(-8deg) translateZ(-2px);
+  z-index: 1;
+}
+/* BACK */
+
+.back {
+  border: 2px solid lightgrey;
+  height: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: -3;
+  background-color: #fffbec;
+  transform: rotateY(-5deg) translateZ(-10px);
+  -webkit-transform: rotateY(-5deg) translateZ(-10px);
+}
+
+.shadow {
+  box-shadow: -4px 0px 10px 3px #333;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  z-index: -10;
+  opacity: 0.5;
+  -webkit-transform: rotateX(85deg);
+  transform: rotateX(85deg);
+}
+@media all and (min-width: 768px) and (max-width: 1023px) {
+	.book {
+		width: 77px;
+		height: 98px;
+		left: -2px;
+	}
+
+	.front .cover img {
+  		height: 96px;
+	}
+
+	.default-camera-image .front img {
+		height: auto;
+		top: 25px;
+	}
+	.front .shadow {
+  		box-shadow: 15px -5px 30px 5px #333;
+	}
+	.shadow {
+  		box-shadow: -4px 0px 10px 2px #333;
+	}
+}
+
+@media all and (max-width: 767px) {
+	.book {
+		width: 60.5px;
+		height: 77px;
+		top: 4px;
+		left: 4px;
+	}
+
+	.front .cover img {
+  		height: 75px;
+	}
+
+	.default-camera-image .front img {
+		height: auto;
+		top: 19px;
+	}
+	.front .shadow {
+  		box-shadow: 15px -5px 30px 5px #333;
+	}
+	.shadow {
+  		box-shadow: -4px 0px 10px 2px #333;
+	}
+}

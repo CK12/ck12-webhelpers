@@ -1,0 +1,36 @@
+{% extends "common/header.html" %}
+
+{% block extra_header_class %}no-icons{% endblock %}
+
+{% block role_selection %}
+<ul class="left role-selection-wrapper">
+	<li class="role-icon list-box">
+		<a id="nav_switch_teacher" href="{{ h.url('teacher') }}" title="{{ _('Find information on how CK-12 can help Teachers teach') }}" class="box-anchor">
+			<i class="icon-teacher-version menu-item-img menu-item-img-top"></i>
+			<span class="menu-item-title menu-item-title-top bold">{{ _('Switch to Teacher Version') }}</span>
+		</a>
+	</li>
+</ul>
+{% endblock %}
+{% block after_nav_items %}
+<li class="forum-header-link {% if c.page_name == 'schools' %} active {% endif %}" data-magellan-arrival="header_forums">
+	<a id="nav_forums" href="{{ h.url('/schools') }}" title="{{ _('Schools') }}">
+		<span class="menu-item-img icon-comments"></span>
+		<span class="menu-item-title">{{ _('Schools') }}</span>
+	</a>
+</li>
+<li class="role-icon list-box show-for-small">
+    <a href="{{ h.url('teacher') }}" title="{{ _('Find information on how CK-12 can help Teachers teach') }}" class="box-anchor">
+        <i class="icon-teacher-version menu-item-img menu-item-img-top"></i>
+        <span class="menu-item-title menu-item-title-top">{{ _('Switch to Teacher Version') }}</span>
+    </a>
+</li>
+{% endblock %}
+{% block notify_image %}
+	<a href="http://www.ck12.org/about/whats-new/?utm_medium=ck12_header&amp;utm_source=ut:&amp;utm_content=site_header_1&amp;utm_campaign=whats_new-2015-09#student" class="whatsnew">
+		<img src="http://www.ck12.org/about/wp-content/uploads/2015/09/whats-new-animation-.gif" class="role-image">
+	</a>
+{% endblock %}
+{% block notify_text %}
+	<a href="http://www.ck12.org/about/whats-new/?utm_medium=ck12_header&amp;utm_source=ut:&amp;utm_content=site_header_1&amp;utm_campaign=whats_new-2015-09#student" class="whatsnew">See what's new this school year</a>
+{% endblock %}

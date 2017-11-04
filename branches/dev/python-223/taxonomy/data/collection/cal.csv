@@ -1,0 +1,238 @@
+Level 1,Level 2,Level 3,Level 4,Level 5,Level 6,EncodedID,Original EncodedIDs,Description
+Limits,,,,,,MAT.CAL.100,"MAT.CAL.220, MAT.ALY.130",Component functions and provisions for the limit of the composite.
+,Concept of Limit,,,,,MAT.CAL.100.5,"MAT.CAL.222, MAT.ALY.811",Value that the output of a function approaches as the input approaches a given value.
+,Evaluate Limits using Graphs and Tables,,,,,MAT.CAL.101.5,"MAT.CAL.224, MAT.ALY.817",Estimate limits using numbers increasingly close to a particular value.
+,Evaluate Limits Using Substitution,,,,,MAT.CAL.102.5,MAT.CAL.226,Canceling factors and plugging in values to find limits.
+,Properties of Limits,,,,,MAT.CAL.103.5,MAT.CAL.230,"Limit rules for sums, differences, products, quotients, powers, and roots of simpler functions."
+,Types of Limits,,,,,MAT.CAL.105.0,MAT.CAL.240,Identify various types of limits in Calculus.
+,,One-Sided Limit Type,,,,MAT.CAL.105.010,"MAT.CAL.242, MAT.ALY.812, MAT.ALY.816",Limit that only applies as the limit is approached from a specific side.
+,,Infinite Limit Type,,,,MAT.CAL.105.030,"MAT.CAL.244, MAT.ALY.813, MAT.ALY.132",End behavior or x value where values of the function increase or decrease without bound.
+,,Limits of Polynomial and Rational Functions,,,,MAT.CAL.105.050,"MAT.CAL.247, MAT.ALY.814, MAT.ALY.815","End behavior, substitution, and where the denominator equals zero."
+,,Basic Trigonometric Limits,,,,MAT.CAL.105.070,MAT.CAL.246,Values of the functions at x and two-sided limits that don't exist.
+,,Limits Involving Radical Functions,,,,MAT.CAL.105.090,"MAT.CAL.248, MAT.ALY.134",Direct substitution and transformations of indeterminate or undefined forms.
+,Continuity,,,,,MAT.CAL.106.0,MAT.CAL.250,Conditions for continuous functions and discontinuities related to limits.
+,,"Continuity at a Point, Continuity Test, Types of Discontinuity",,,,MAT.CAL.106.020,MAT.CAL.252,"Continuity when two functions are added, subtracted, multiplied, or divided."
+,,"Intermediate Value Theorem, Existence of Solutions",,,,MAT.CAL.106.040,"MAT.CAL.258, MAT.ALY.256",Continuity on an interval proves existence of values and heights within the interval.
+Derivatives,,,,,,MAT.CAL.200,"MAT.CAL.300, MAT.CAL.310, MAT.ALY.840","Introduction to the concept of a derivative, a function that provides the slope of the tangent line of the parent function."
+,Slope Models using Derivatives,,,,,MAT.CAL.201.0,,
+,,Average Rate of Change,,,,MAT.CAL.201.010,MAT.ALY.120,Change in y coordinates divided by change in x coordinates.
+,,,Minimums and Maximums,,,MAT.CAL.201.01020,MAT.ALY.122,Highest or lowest y values within an area or function.
+,,,Discrete and Continuous Functions,,,MAT.CAL.201.01040,MAT.ALY.124,"Functions without breaks; removable, jump, and infinite discontinuities. "
+,,,Increasing and Decreasing Functions,,,MAT.CAL.201.01060,MAT.ALY.126,x value intervals where the y values are moving up or down.
+,,Average and Instantaneous Rates of Change,,,,MAT.CAL.201.020,"MAT.CAL.312, MAT.ALY.830",Average velocity and velocity at a point using slope of tangents.
+,,Slope of Tangent Line,,,,MAT.CAL.201.040,"MAT.CAL.311, MAT.ALY.820",Slope of a secant and slope of a tangent as a limit.
+,,Tangent Line Approximation,,,,MAT.CAL.201.060,"MAT.CAL.352, MAT.CAL.355",Approximation of a function at a point by the tangent line.
+,Derivatives of Trigonometric Functions,,,,,MAT.CAL.201.5,MAT.CAL.330,"Derivative of sin(x), cos(x), tan(x), sec(x), csc(x), and cot(x)."
+,Differentiation Rules and Formulas,,,,,MAT.CAL.203.0,MAT.CAL.340,Differentiation uses in rational functions
+,,"Constant, Identity, and Power Rules",,,,MAT.CAL.203.010,"MAT.CAL.321, MAT.ALY.842",Derivative of a constant is zero and the derivative of x^n = (n)x^(n-1).
+,,Sum and Difference Differentiation Rules,,,,MAT.CAL.203.030,"MAT.CAL.322.1, MAT.ALY.844",The derivative of two functions added or subtracted is the derivative of each added or subtracted.
+,,Product and Quotient Differentiation Rules,,,,MAT.CAL.203.050,"MAT.CAL.322.2, MAT.ALY.846",Computation of the derivative when two functions are multiplied or divided.
+,,Chain Rule,,,,MAT.CAL.203.070,MAT.CAL.344,Using u-substitution to solve the derivative of composite functions.
+,,Implicit Differentiation,,,,MAT.CAL.203.090,MAT.CAL.345,Differentiate both sides of an equation with respect to x and solve for dy/dx.
+,Multi-Step Differentiation,,,,,MAT.CAL.205.0,MAT.CAL.343,Derivate a derivative through a multi-step process.
+,,Higher Order Derivatives,,,,MAT.CAL.205.020,MAT.CAL.346,"Derivatives of derivatives, such as 2nd and 3rd derivatives. Applications include acceleration and jerk."
+,,Related Rates,,,,MAT.CAL.205.040,MAT.CAL.348,Derivatives of variables that are common to one or more linked equations.
+,,Derivatives of Exponential Functions,,,,MAT.CAL.205.060,MAT.CAL.349,Natural log of the base times the exponential function.
+,Increasing and Decreasing Values and Extrema,,,,,MAT.CAL.207.0,,"Greatest and least values of a function, and increasing and decreasing values of a function."
+,,Derivatives with Mean Value Theorem and Rolle's Theorem,,,,MAT.CAL.207.010,MAT.CAL.360,Slope of secant line equals the value of the derivative somewhere in the interval.
+,,Absolute versus Local Extrema,,,,MAT.CAL.207.030,MAT.CAL.361,"Local and absolute extrema, and critical values where the derivative is zero or does not exist."
+,,First Derivative Test,,,,MAT.CAL.207.050,MAT.CAL.365,The first derivative shows whether a function is increasing (positive sign) or decreasing (negative sign).
+,,Concavity and Inflection,,,,MAT.CAL.207.070,MAT.CAL.366,"The second derivative determines concavity. When the sign is negative, the curve is concave down. When the sign is positive, the curve is concave up."
+,,Second Derivative Test,,,,MAT.CAL.207.090,MAT.CAL.367,"Sign of the 2nd derivative, inflection points, extrema, and concavity."
+,Derivative Applications,,,,,MAT.CAL.209.0,,Uses of Derivative Calculations
+,,Absolute Extrema and Optimization,,,,MAT.CAL.209.020,MAT.CAL.382,Minimum or maximum value of a function within an acceptable region.
+,,Newton's Method,,,,MAT.CAL.209.040,MAT.CAL.386,Iterative procedure for computing the root of an equation with linear approximations.
+,,Analyzing the Graphs of Functions,,,,MAT.CAL.209.060,MAT.CAL.390,"Summary of general properties, asymptotes, limits, and differentiability of a function."
+Integral,,,,,,MAT.CAL.300,MAT.ALY.850,Area under a curve
+,Area Under the Curve,,,,,MAT.CAL.300.5,"MAT.ALY.852, MAT.CAL.415",Integrals and Riemann Sums.
+,Indefinite Integral and Integral Formulas,,,,,MAT.CAL.301.0,MAT.CAL.410,The relationship between antiderivatives and indefinite integrals
+,,Antiderivative,,,,MAT.CAL.301.020,"MAT.CAL.411, MAT.ALY.860",Relationship between functions where the starting function is the derivative of the other.
+,Area Computations,,,,,MAT.CAL.302.0,MAT.CAL.430,Use integrals to determine the area of curved shapes.
+,,Area Sums,,,,MAT.CAL.302.020,"MAT.CAL.434, MAT.CAL.435",Summation of an integer number of rectangular areas drawn beneath a curve.
+,,Probability and Probability Density Functions,,,,MAT.CAL.302.060,MAT.CAL.436,Definite integrals to calculate the probability of being in a given interval.
+,Definite Integrals and Integration Techniques,,,,,MAT.CAL.303.0,,
+,,Integral Substitution,,,,MAT.CAL.303.010,"MAT.CAL.440, MAT.CAL.616",Finding antiderivatives and integrals by u-substitution to simplify the problem.
+,,Properties of Definite Integrals,,,,MAT.CAL.303.030,MAT.CAL.441,"Rules for operations, constants, and intervals when evaluating integrals."
+,,Riemann Sum,,,,MAT.CAL.303.040,MAT.CAL.443,Area under the curve and limit at infinity of the Riemann Sum over an interval.
+,,Fundamental Theorem of Calculus,,,,MAT.CAL.303.050,"MAT.CAL.450, MAT.ALY.862",Demonstrates that integration performed on a function can be reversed by differentiation.
+,,Integration with Mean Value Theorem,,,,MAT.CAL.303.060,MAT.CAL.451,Exists a value of x in an interval where the function attains the average value
+,,Trapezoidal and Midpoint Approximations,,,,MAT.CAL.303.070,MAT.CAL.456,Definite integral computed as the sum of the area of trapezoidal segments.
+,,Simpson's Rule,,,,MAT.CAL.303.080,"MAT.CAL.458, MAT.CAL.455",Definite integral computed as the sum of the area of overlapping parabolic segments.
+,,Area Between Curves,,,,MAT.CAL.303.090,MAT.CAL.461,Definite integral computed as the area between two curves.
+,Solid of Revolution,,,,,MAT.CAL.304.0,MAT.CAL.460,"Disk, Washer, and Cylindrical Shell methods"
+,,Cross Section Method,,,,MAT.CAL.304.20,MAT.CAL.465,Volume computed using cross sections and definite integrals.
+,,,Volumes by Disks,,,MAT.CAL.304.2020,MAT.CAL.467.1 ,Definite integrals and disks to find volume of solids created by curves revolved around axes.
+,,,Volumes by Washers,,,MAT.CAL.304.2040,MAT.CAL.467.2,Definite integrals and washers to find volume of solids created by curves revolved around axes.
+,,Method of Cylindrical Shells,,,,MAT.CAL.304.040,MAT.CAL.468,Definite integrals and cylinders to find volume of solids created by curves revolved around axes.
+,Length of a Plane Curve,,,,,MAT.CAL.305.0,MAT.CAL.470,Definite integrals to find arc length.
+,,Basic Formula of Areas of Surfaces of Revolution,,,,MAT.CAL.305.020,MAT.CAL.482,Definite integrals to find surface area of solids created by curves revolved around axes.
+,Fluid Pressure,,,,,MAT.CAL.305.3,MAT.CAL.490,Definite integrals to compute forces of fluids.
+,Work and Force,,,,,MAT.CAL.305.7,MAT.CAL.495,Work as the definite integral of force.
+,Integration by Parts,,,,,MAT.CAL.306.0,MAT.CAL.620,
+,,One Pass Integration by Parts,,,,MAT.CAL.306.020,MAT.CAL.622,Break the integrand into two factors in order to integrate in one iteration.
+,,Multiple Pass Integration by Parts,,,,MAT.CAL.306.040,MAT.CAL.624,Transform difficult integrals into easier integrals in more than one iteration.
+,,Recursive Integration by Parts,,,,MAT.CAL.306.060,MAT.CAL.626,Evaluate difficult integrals by using integration by parts until the original integration appears again. Then manipulate the equation using algebra to find the solution of the integral.
+,Trigonometric Integrals,,,,,MAT.CAL.307.0,MAT.CAL.630,Use trig identities to evaluate integrals involving trigonometric functions
+,,Powers of Sines and Cosines,,,,MAT.CAL.307.020,MAT.CAL.632,Reduction formulas to integrate functions that are powers of sines and cosines.
+,,Powers of Secants and Tangents,,,,MAT.CAL.307.040,MAT.CAL.634,Reduction formulas to integrate functions that are powers of secants and tangents.
+,,Products of Sines and Cosines of Different Angles,,,,MAT.CAL.307.060,MAT.CAL.636,Use trigonometric identities to help integrate products of sines and cosines.
+,,Trigonometric Substitution,,,,MAT.CAL.307.080,MAT.CAL.642,Use trigonometric identities to help integrate special forms of radical functions.
+,Partial Fraction Decomposition,,,,,MAT.CAL.307.5,"MAT.CAL.652, MAT.CAL.658",Integrate rational functions by first decomposing them into the sum of simpler rational functions.
+,Improper Integrals,,,,,MAT.CAL.308.0,MAT.CAL.660,
+,,Convergence and Divergence of Integrals,,,,MAT.CAL.308.020,"MAT.CAL.662, MAT.CAL.664,
+MAT.CAL.665",Integrals with limits of infinity or negative infinity that converge or diverge.
+,,Improper Integrals and Infinite Discontinuities,,,,MAT.CAL.308.040,MAT.CAL.663,Calculate integrals of functions that are not continuous.
+,Differential Equations,,,,,MAT.CAL.309.0,"MAT.CAL.670, MAT.CAL.420",
+,,General and Particular Solutions,,,,MAT.CAL.309.010,MAT.CAL.671,Describe and solve equations that involve a dependent variable and its derivatives with respect to independent variables.
+,,"Euler's Numerical Methods (Improved Euler, Runge-Kutta)",,,,MAT.CAL.309.020,MAT.CAL.672,"Euler's method, Heun's method, and the Runge-Kutta method."
+,,Slope Fields and Isoclines,,,,MAT.CAL.309.030,MAT.CAL.673,Plots to help visualize the solution curve for an ODE of the first degree.
+,,Differential Equations and Integration,,,,MAT.CAL.309.050,MAT.CAL.674,General and particular solutions to equations with a function and its derivative(s).
+,,Solving Separable First-Order Differential Equations,,,,MAT.CAL.309.060,MAT.CAL.675,Solve ODEs by first separating x and y.
+,,Differential Equations Representing Growth and Decay,,,,MAT.CAL.309.070,"MAT.CAL.555, MAT.CAL.551",Solutions to differential equations to represent rapid change.
+Transcendental Functions,,,,,,MAT.CAL.400,,
+,Inverse Functions,,,,,MAT.CAL.402.0,"MAT.CAL.520, MAT.ALY.310",One-to-one functions have inverses that are also functions.
+,,Definition of Inverse Functions,,,,MAT.CAL.402.020,MAT.CAL.521,"Equations, graphs, continuity, and differentiability of inverse functions."
+,,"Existence (One-to-One, Monotonic)",,,,MAT.CAL.402.030,"MAT.CAL.523, MAT.ALY.312 ",Evaluate the existence of inverse of functions.
+,,Finding Inverse Functions,,,,MAT.CAL.402.040,MAT.CAL.524,Identify inverses of functions
+,,Continuity and Differentiability,,,,MAT.CAL.402.060,MAT.CAL.525,The link between continuity and differentiability
+,,Derivative Rule for Inverses,,,,MAT.CAL.402.080,MAT.CAL.526,Use the chain rule to differentiate inverse functions
+,Logarithmic Functions,,,,,MAT.CAL.404.0,"MAT.ALY.330, MAT.ALG.938",Inverse of exponential functions.
+,,Common and Natural Logarithms,,,,MAT.CAL.404.010,"MAT.CAL.531, MAT.ALY.336",Evaluate log base e expressions
+,,Analysis of Logarithmic Graphs,,,,MAT.CAL.404.020,"MAT.CAL.533, MAT.ALY.332",Graphs of logarithmic functions
+,,Properties of Logarithms,,,,MAT.CAL.404.040,"MAT.ALY.334, MAT.CAL.540",Functions based on logs with bases other than e or 10
+,,,Change of Base,,,MAT.CAL.404.04020,MAT.ALY.339,Log base b of x equals log of x divided by log of b with any new base.
+,,,Product and Quotient Properties of Logarithms,,,MAT.CAL.404.04040,MAT.ALY.334.1,Combine and expand logarithmic expressions
+,,,Power Property of Logarithms,,,MAT.CAL.404.04060,MAT.ALY.334.2,Manipulate exponents in logarithms
+,,,Inverse Properties of Logarithms,,,MAT.CAL.404.04080,MAT.ALY.334.3,Simplify expressions using two properties of inverse logs
+,,Solving Logarithmic Equations,,,,MAT.CAL.404.050,MAT.ALY.338,Use technology to solve equations with logs
+,,Logarithmic Models,,,,MAT.CAL.404.060,MAT.ALY.343,Solving logs and situations where growth levels off.
+,,Logarithmic Differentiation,,,,MAT.CAL.404.070,MAT.CAL.534,Using e in calculating the derivatives of exponential and logarithmic functions.
+,,Logarithmic Integration,,,,MAT.CAL.404.080,MAT.CAL.535,Using e in calculating the integrals of exponential and logarithmic functions.
+,Properties of Inverse Trigonometric Functions,,,,,MAT.CAL.406.0,MAT.CAL.560,Determine the derivatives of inverse sine and cosine functions.
+,,Derivatives of Six Inverse Trigonometric Properties,,,,MAT.CAL.406.020,MAT.CAL.562,"Differentiation of arcsine, arccosine, arctangent, arccosecant, arcsecant, and arccotangent."
+,,Analyzing Graphs of Inverse Trigonometric Functions,,,,MAT.CAL.406.040,MAT.CAL.564,"Properties of arcsine, arccosine, arctangent, arccosecant, arcsecant, and arccotangent."
+,,Integration of Inverse Trigonometric Functions by Substitution,,,,MAT.CAL.406.060,MAT.CAL.574,"Integration of functions whose solutions involve arcsine, arccosine, arctangent, arccosecant, arcsecant, or arccotangent."
+,Hyperbolic Functions,,,,,MAT.CAL.408.0,"MAT.CAL.580, MAT.CAL.582",Set of exponential functions with definitions and properties that resemble trigonometric functions.
+,,Derivatives and Integrals of Hyperbolic Functions,,,,MAT.CAL.408.020,MAT.CAL.584,"Trigonometric functions can help to differentiate and integrate sinh, cosh, tanh, csch, sech, and coth."
+,,Inverse Hyperbolic Functions,,,,MAT.CAL.408.040,MAT.CAL.586,"Domain, range, and basic properties of arsinh, arcosh, artanh, arcsch, arsech, and arcoth."
+,,Derivatives and Integrals of Inverse Hyperbolic Functions,,,,MAT.CAL.408.060,MAT.CAL.588,"Differentiation of the functions arsinh, arcosh, artanh, arscsh, arsech and arcoth, and solutions to integrals that involve these functions."
+Sequences and Series in Calculus,,,,,,MAT.CAL.500,"MAT.CAL.710, MAT.ALY.710",Identify the nth term in a sequence
+,Recursive Formulas,,,,,MAT.CAL.500.3,MAT.ALY.712,Where a term is based on prior term(s) in a sequence.
+,Explicit Formulas,,,,,MAT.CAL.500.5,MAT.ALY.714,Identify and apply a general rule for terms in a sequence
+,Sum Notation and Properties of Sigma,,,,,MAT.CAL.500.7,MAT.ALY.716,Identify and state the sum of terms in finite series
+,Mathematical Induction,,,,,MAT.CAL.501.0,"MAT.ALY.730, MAT.ALY.732",Recognize and apply inductive logic to sequences and sums.
+,,Induction and Factors,,,,MAT.CAL.501.040,MAT.ALY.734,Proving divisibility using properties of integers and inductive proofs.
+,,Induction and Inequalities,,,,MAT.CAL.501.060,MAT.ALY.736,"Transitive, addition, and multiplication properties of inequalities used in inductive proofs."
+,Sequences,,,,,MAT.CAL.501.5,"MAT.CAL.711, MAT.ALY.760",Notation involving specifically ordered lists of numbers
+,Arithmetic Sequences,,,,,MAT.CAL.503.0,MAT.ALY.761,Sequences with a common difference
+,,Finding the nth Term Given the Common Difference and a Term,,,,MAT.CAL.503.020,MAT.ALY.761.1,Sequences where difference between any two consecutive terms is constant.
+,,Finding the nth Term Given Two Terms for an Arithmetic Sequence,,,,MAT.CAL.503.040,MAT.ALY.761.2,"Identify common difference, use it to state a general rule"
+,Geometric Sequences,,,,,MAT.CAL.504.0,MAT.ALY.762,Sequences with a common ratio
+,,Finding the nth Term Given the Common Ratio and the First Term,,,,MAT.CAL.504.040,MAT.ALY.762.1,Sequences where ratio of any two consecutive terms is constant.
+,,Finding the nth Term Given Two Terms for a Geometric Sequence,,,,MAT.CAL.504.080,MAT.ALY.762.2,State a general rule for a geometric sequence.
+,Limit of a Sequence,,,,,MAT.CAL.504.5,MAT.CAL.712,"Generate sequences, calculate limits of sequences, and decide if a sequence converges or diverges."
+,Convergence and Divergence of Sequences,,,,,MAT.CAL.505.0,"MAT.CAL.713, MAT.CAL.715",L'Hopital's rule and the sandwich or squeeze theorems to evaluate limits of sequences.
+,,L'Hopital's Rule,,,,MAT.CAL.505.020,MAT.CAL.714,Instances where the limit of a ratio of functions equals the limit of the ratio of their derivatives.
+,Infinite Series and Series Sums,,,,,MAT.CAL.506.0,"MAT.CAL.720, MAT.ALY.720",
+,,Infinite Polynomials,,,,MAT.CAL.506.010,MAT.CAL.721,
+,,Sequence of Partial Sums,,,,MAT.CAL.506.020,"MAT.CAL.722, MAT.ALY.721",
+,,Series Sums and Gauss' Formula,,,,MAT.CAL.506.030,MAT.ALY.722,
+,,Problem Solving with Series Sums,,,,MAT.CAL.506.040,MAT.ALY.724,
+,,Arithmetic Series,,,,MAT.CAL.506.060,MAT.ALY.770,
+,,,Sums of Finite Arithmetic Series,,,MAT.CAL.506.06020,MAT.ALY.771,
+,,Geometric Series,,,,MAT.CAL.506.080,,
+,,,Sums of Geometric Series,,,MAT.CAL.506.08020,MAT.ALY.740,
+,,,Sums of Finite Geometric Series,,,MAT.CAL.506.08040,MAT.ALY.742,
+,,,Sums of Infinite Geometric Series,,,MAT.CAL.506.08060,"MAT.ALY.744, MAT.CAL.723",
+,,Alternating Series,,,,MAT.CAL.506.090,MAT.CAL.726,
+,Convergence and Divergence of Series,,,,,MAT.CAL.507.0,MAT.CAL.730,
+,,nth-Term Test,,,,MAT.CAL.507.005,MAT.CAL.731,
+,,Ratio Test,,,,MAT.CAL.507.010,MAT.CAL.732,
+,,Root Test,,,,MAT.CAL.507.015,MAT.CAL.733,
+,,Integral Test,,,,MAT.CAL.507.020,MAT.CAL.734,
+,,"Limit Comparison Test, Simplified Limit Comparison Test",,,,MAT.CAL.507.025,MAT.CAL.735,
+,,Alternating Series Test,,,,MAT.CAL.507.030,"MAT.CAL.741, MAT.CAL.742",
+,,Absolute and Conditional Convergence,,,,MAT.CAL.507.040,MAT.CAL.743,
+,,Summary of Procedures for Determining Convergence,,,,MAT.CAL.507.050,MAT.CAL.745,
+,,Power Series and Convergence,,,,MAT.CAL.507.060,MAT.CAL.751,
+,,Series Multiplication of Power Series,,,,MAT.CAL.507.065,MAT.CAL.755,
+,,Taylor and Maclaurin Polynomials,,,,MAT.CAL.507.080,"MAT.CAL.761, MAT.CAL.762",
+,,Maclaurin Series Truncation Error,,,,MAT.CAL.507.085,MAT.CAL.763,
+,Calculations with Series,,,,,MAT.CAL.508.0,"MAT.CAL.770, MAT.CAL.775",
+,,Binomial Series for Powers,,,,MAT.CAL.508.020,MAT.CAL.772,
+,,Choosing Centers,,,,MAT.CAL.508.040,MAT.CAL.773,
+Conic Sections,,,,,,MAT.CAL.600,"MAT.CAL.800, MAT.ALY.600",
+,Ellipses,,,,,MAT.CAL.602.0,MAT.ALY.610,
+,,Ellipses Centered at the Origin,,,,MAT.CAL.602.020,MAT.ALY.611,
+,,Equation of an Ellipse,,,,MAT.CAL.602.040,MAT.ALY.612,
+,,Ellipses Not Centered at the Origin,,,,MAT.CAL.602.060,MAT.ALY.613,
+,,Focal Property of Ellipses,,,,MAT.CAL.602.080,MAT.ALY.614,
+,Parabolas,,,,,MAT.CAL.604.0,MAT.ALY.620,
+,,Parabolas with Vertex at the Origin,,,,MAT.CAL.604.010,MAT.ALY.621,
+,,Parabolas and the Distance Formula,,,,MAT.CAL.604.030,MAT.ALY.622,
+,,Parabolas with any Vertex,,,,MAT.CAL.604.050,MAT.ALY.623,
+,,Parabolas and Analytic Geometry,,,,MAT.CAL.604.070,MAT.ALY.624,
+,,Applications of Parabolas,,,,MAT.CAL.604.090,MAT.ALY.626,
+,Hyperbolas,,,,,MAT.CAL.606.0,MAT.ALY.630,
+,,Graphs of Hyperbolas Centered at the Origin,,,,MAT.CAL.606.010,MAT.ALY.631,
+,,Equations of Hyperbolas Centered at the Origins,,,,MAT.CAL.606.030,MAT.ALY.632,
+,,Hyperbolas with any Center,,,,MAT.CAL.606.050,MAT.ALY.633,
+,,Hyperbola Equations and the Focal Property,,,,MAT.CAL.606.070,MAT.ALY.634,
+,,Hyperbolas and Asymptotes,,,,MAT.CAL.606.090,MAT.ALY.636,
+,Conic Sections and Dandelin Spheres,,,,,MAT.CAL.606.3,MAT.ALY.640,
+,General Forms of Conic Sections,,,,,MAT.CAL.606.5,MAT.ALY.650,
+,Classifying Conic Sections,,,,,MAT.CAL.606.7,MAT.ALY.651,
+,Equations of Circles,,,,,MAT.CAL.607.0,MAT.ALY.660,
+,,Circles Centered at the Origin,,,,MAT.CAL.607.030,MAT.ALY.661,
+,,Circles Not Centered at the Origin,,,,MAT.CAL.607.060,MAT.ALY.662,
+,Degenerate Conics,,,,,MAT.CAL.607.5,MAT.ALY.670,
+,Applications of Conics,,,,,MAT.CAL.608.5,MAT.ALY.680,
+,"Solving Systems of Lines, Quadratics, and Conics",,,,,MAT.CAL.609.5,MAT.ALY.681,
+Parametric Equations and Plane Curves,,,,,,MAT.CAL.700,,
+,Parametric Equations,,,,,MAT.CAL.700.5,"MAT.CAL.831, MAT.CAL.830, MAT.CAL.832",
+,Finding Parametric Equations of Parabolas,,,,,MAT.CAL.701.5,MAT.CAL.834,
+,Finding Parametric Equations of Hyperbolas,,,,,MAT.CAL.702.5,MAT.CAL.833,
+,Evaluating Parametric Equations,,,,,MAT.CAL.703.5,MAT.CAL.835,
+,Parametric-Inverses,,,,,MAT.CAL.704.5,MAT.CAL.836,
+,Parametric Equations and Calculus,,,,,MAT.CAL.705.0,"MAT.CAL.840, MAT.CAL.842, MAT.CAL.845",
+,,Differentiation and Parametric Form,,,,MAT.CAL.705.020,MAT.CAL.841,
+,,Parametric Formula for Length of a Curve,,,,MAT.CAL.705.040,MAT.CAL.843,
+,,Parametric Formulas for Area of a Surface of Revolution,,,,MAT.CAL.705.060,MAT.CAL.844,
+,,Parametric Formula for Area in the Plane,,,,MAT.CAL.705.080,MAT.CAL.846,
+Vectors,,,,,,MAT.CAL.800,,
+,Vectors as Directed Line Segments,,,,,MAT.CAL.800.5,MAT.TRG.566,Definition and representation of vectors.
+,Two-Dimensional Vectors,,,,,MAT.CAL.801.5,MAT.ALY.510,"Magnitude, direction, and components."
+,Operations with Vectors,,,,,MAT.CAL.802.0,MAT.TRG.560,Resultant vectors based on adding or subtracting vectors or multiplying by a constant.
+,,Vector Sum,,,,MAT.CAL.802.010,MAT.TRG.561,Resultant of vectors based on parallelogram or triangle method.
+,,Vector Difference,,,,MAT.CAL.802.020,MAT.TRG.562,Negative vectors and the triangle method.
+,,Vector Sum and Difference,,,,MAT.CAL.802.030,"MAT.CAL.912, MAT.CAL.910",Finding direction and magnitude of vectors; breaking vectors into component parts.
+,,Vector Scalar Product,,,,MAT.CAL.802.040,MAT.TRG.572,Multiplication by a constant which affects magnitude.
+,,Translation of Vectors and Slope,,,,MAT.CAL.802.060,MAT.TRG.574,Vectors not at the origin converted to standard position; change in y over change in x. 
+,,Dot Product (Tail to Tail),,,,MAT.CAL.802.080,"MAT.CAL.921, MAT.ALY.532",Multiplying vectors to produce a scalar and finding the angle between vectors.
+,,Cross Product,,,,MAT.CAL.802.090,MAT.ALY.536,Area of a parallelogram with two component vectors as the sides.
+,Vector Components,,,,,MAT.CAL.804.0,,
+,,Component Vector,,,,MAT.CAL.804.010,MAT.TRG.570,"Unit vectors and conversion of vectors into <x, y> form."
+,,Unit Vectors and Components,,,,MAT.CAL.804.020,"MAT.TRG.576, MAT.CAL.914",Vectors with length of one; two or more vectors whose sum is the given vector.
+,,Resultant,,,,MAT.CAL.804.040,MAT.TRG.578,Horizontal and vertical components of vectors.
+,,Resultant Applications,,,,MAT.CAL.804.050,MAT.TRG.564,Distances considered as vectors and applications such as speed and direction.
+,,Positions and Midpoints in Two Dimensions,,,,MAT.CAL.804.070,MAT.ALY.512,"Straight-line travel and displacement between points, and the center of endpoints."
+,,Positions in Three Dimensions,,,,MAT.CAL.804.080,MAT.ALY.520,"Octants and position based on x, y, and z-axes."
+,Vectors in the Plane,,,,,MAT.CAL.806.0,MAT.ALY.540,Equations based on intercepts or normal vectors and points.
+,,Resultant as Magnitude and Direction,,,,MAT.CAL.806.010,MAT.TRG.579,Application of laws of sines and cosines to vectors.
+,,Scalar Projection,,,,MAT.CAL.806.020,MAT.ALY.534,Dot product of a vector with a unit vector for a direction.
+,,Vector Projection,,,,MAT.CAL.806.030,MAT.ALY.538,Component vector parallel to a second vector. 
+,,Vector Direction,,,,MAT.CAL.806.040,"MAT.ALY.544, MAT.CAL.922","Directional angles and direction cosines, components of the unit vector.
+"
+,,Vector Equation of a Line,,,,MAT.CAL.806.060,MAT.ALY.550,Identifies the position vector of every point along the line.
+,,Vector Applications,,,,MAT.CAL.806.070,MAT.ALY.560,"Work, force, and torque."
+,,Vector-Valued Functions in the Plane,,,,MAT.CAL.806.080,MAT.CAL.942,Functions that receive scalars as inputs and return vectors as outputs.
+,,Distance Between a Point and a Plane,,,,MAT.CAL.806.090,MAT.ALY.542,Points closest to the origin and Dihedral Angles.
+,Vector Calculus,,,,,MAT.CAL.808.0,MAT.CAL.950,
+,,Derivative of a Vector-Valued Function,,,,MAT.CAL.808.010,"MAT.CAL.951, MAT.CAL.954",Use derivatives to find the magnitude and direction of change for vector-valued functions.
+,,Indefinite Integral of a Vector-Valued Function,,,,MAT.CAL.808.020,MAT.CAL.955,Find integrals of vector-valued functions and use to describe velocity.
+,,Plane Curve Differentiation (Unit Normal),,,,MAT.CAL.808.030,MAT.CAL.964,Special vectors to calculate change in direction and forces on objects.
+,,Plane Curve Integration,,,,MAT.CAL.808.040,MAT.CAL.966,Using vector-valued functions to solve problems related to position and velocity of objects.
+,,Plane Curve Motion,,,,MAT.CAL.808.050,MAT.CAL.971,Differentiate and integrate vector-valued functions to calculate length of curves.
+,,Tangential and Normal Components of Acceleration,,,,MAT.CAL.808.060,MAT.CAL.975,The rate of change of the velocity of vector-valued functions.
+,Unsorted Content,,,,,MAT.CAL.999.9998,"MAT.CAL.100, MAT.CAL.128, MAT.CAL.130, MAT.CAL.314, MAT.CAL.515, MAT.CAL.522, MAT.CAL.744, MAT.CAL.813, MAT.CAL.814, MAT.CAL.815, MAT.CAL.820, MAT.CAL.824, MAT.CAL.854, MAT.CAL.614, MAT.CAL.716, MAT.CAL.754",
+,Unused EIDs,,,,,MAT.CAL.999.9999,MAT.CAL.110,

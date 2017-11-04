@@ -1,0 +1,187 @@
+Encode ID,Level 1,Level 2,Level 3
+MAT.ARI.100,Whole Numbers
+MAT.ARI.110,,Addition
+MAT.ARI.120,,Subtraction
+MAT.ARI.130,,Multiplication
+MAT.ARI.132,,,Exponents
+MAT.ARI.140,,Division
+MAT.ARI.150,,Estimation and Rounding
+MAT.ARI.160,,Prime and Composite Numbers
+MAT.ARI.170,,"Factors, Multiples, Divisibility"
+MAT.ARI.180,,Greatest Common Factor
+MAT.ARI.190,,Least Common Multiple
+MAT.ARI.200,Decimals
+MAT.ARI.210,,Addition
+MAT.ARI.220,,Subtraction
+MAT.ARI.230,,Multiplication
+MAT.ARI.240,,Division
+MAT.ARI.250,,Estimating and Rounding
+MAT.ARI.260,,Scientific Notation
+MAT.ARI.300,Forms of Fractions
+MAT.ARI.310,,"Proper Fractions, Improper Fractions, Mixed Numbers"
+MAT.ARI.320,,Equivalent 
+MAT.ARI.400,Fractions
+MAT.ARI.410,,Addition
+MAT.ARI.420,,Subtraction
+MAT.ARI.430,,Multiplication
+MAT.ARI.440,,Division
+MAT.ARI.450,,Estimating
+MAT.ARI.500,Comparison and Conversion of Numbers
+MAT.ARI.510,,Converting Fractions to Decimals
+MAT.ARI.520,,Converting Decimals to Fractions
+MAT.ARI.600,"Ratios, Rates, Proportions"
+MAT.ARI.610,,Ratios
+MAT.ARI.620,,Rates
+MAT.ARI.630,,Proportions
+MAT.ARI.700,Percents
+MAT.ARI.710,,Converting a Decimal to a Percent
+MAT.ARI.720,,Converting a Percent to a Decimal
+MAT.ARI.730,,Converting a Fraction to a Percent
+MAT.ARI.740,,Converting a Percent to a Fraction
+
+MAT.MEA.100,Units of Measurement
+MAT.MEA.110,,Metric System
+MAT.MEA.120,,Standard Units
+MAT.MEA.130,,Nonstandard Units
+MAT.MEA.140,,"Reading Maps, Legends/Scale"
+MAT.MEA.200,Linear Measure
+MAT.MEA.210,,Distance
+MAT.MEA.220,,Perimeter
+MAT.MEA.230,,Circumference
+MAT.MEA.300,Area
+MAT.MEA.310,,Polygons
+MAT.MEA.320,,Circles
+MAT.MEA.330,,Surface Area
+MAT.MEA.340,,Nonstandard Shapes
+MAT.MEA.400,Volume
+MAT.MEA.500,Weight and Mass
+MAT.MEA.600,Temperature
+MAT.MEA.610,,Fahrenheit
+MAT.MEA.620,,Celsius
+MAT.MEA.700,Time
+MAT.MEA.710,,Digital Clock
+MAT.MEA.720,,Clock with Hands
+MAT.MEA.800,Speed
+MAT.MEA.900,Money
+
+MAT.ALG.100,Real Numbers
+MAT.ALG.110,,Number Lines
+MAT.ALG.120,,Sets and Symbols
+MAT.ALG.130,,Order of Operations
+MAT.ALG.132,,,Exponents
+MAT.ALG.140,,Definition of Variable
+MAT.ALG.142,,,Mathematical Expressions
+MAT.ALG.144,,,Mathematical Sentences
+MAT.ALG.150,,Working with Real Numbers
+MAT.ALG.152,,,Axioms for Real Numbers
+MAT.ALG.154,,,The Distributive Property
+MAT.ALG.156,,,Opposites and Absolute Values
+MAT.ALG.158,,,Operations with Real Numbers
+MAT.ALG.200,Linear Equations
+MAT.ALG.210,,Properties of Equality
+MAT.ALG.220,,One-Step Equations Transformed by Addition/Subtraction
+MAT.ALG.230,,One-Step Equations Transformed by Multiplication/Division
+MAT.ALG.240,,Multi-Step Equations
+MAT.ALG.250,,Equations with Variables on Both Sides
+MAT.ALG.260,,Problem-Solving Applications using Linear Equations
+MAT.ALG.300,Linear Inequalities
+MAT.ALG.310,,Properties of Order
+MAT.ALG.320,,One-Step Inequalities Transformed by Addition/Subtraction
+MAT.ALG.330,,One-Step Inequalities Transformed by Multiplication/Division
+MAT.ALG.340,,Multi-Step Inequalities
+MAT.ALG.350,,Compound Inequalities
+MAT.ALG.352,,,Union and Intersection of Sets
+MAT.ALG.360,,Absolute-Value Equations and Inequalities
+MAT.ALG.370,,Problem-Solving Applications Using Inequalities
+MAT.ALG.400,Graphs and Functions
+MAT.ALG.410,,Ordered Pairs and Functions
+MAT.ALG.420,,The Coordinate Plane
+MAT.ALG.430,,Relations and Functions
+MAT.ALG.440,,Solving Open Sentences in Two Variables
+MAT.ALG.450,,The Graph of a Linear Equation in Two Variables
+MAT.ALG.460,,The Graph of a Linear Inequality in Two Variables
+MAT.ALG.470,,The Slope of a Line
+MAT.ALG.480,,The Slope-Intercept Form of a Linear Equation
+MAT.ALG.482,,,Converting from Standard to Slope-Intercept to Point-Slope Form
+MAT.ALG.484,,,Equations of Parallel and Perpendicular Lines
+MAT.ALG.490,,Determining the Equation of a Line
+MAT.ALG.492,,,Given the Slope and a Point
+MAT.ALG.494,,,Given Two Points
+MAT.ALG.496,,,Fitting a Line to Data Points
+MAT.ALG.498,,,Predicting with Linear Models
+MAT.ALG.500,Systems of Equations and Inequalities
+MAT.ALG.510,,Systems of Linear Equations in Two Variables
+MAT.ALG.512,,,Using Graphs
+MAT.ALG.514,,,Using Addition or Subtraction
+MAT.ALG.516,,,Using Linear Combinations
+MAT.ALG.518,,,Using Substitution
+MAT.ALG.520,,Graphs of Systems of Linear Inequalities in Two Variables
+MAT.ALG.530,,Systems of Linear Equations in Three Variables
+MAT.ALG.540,,Problem-Solving Applications Involving Systems
+MAT.ALG.542,,,Wind/Water Current Problems
+MAT.ALG.544,,,Digit Problems
+MAT.ALG.546,,,Linear Programming
+MAT.ALG.600,Polynomials and Factoring
+MAT.ALG.610,,Operations with Polynomials
+MAT.ALG.612,,,Addition and Subtraction of Polynomials
+MAT.ALG.614,,,Multiplying Monomials
+MAT.ALG.616,,,Multiplying Polynomials
+MAT.ALG.618,,,Multiplying Binomials Mentally
+MAT.ALG.620,,Factoring
+MAT.ALG.622,,,Monomials
+MAT.ALG.624,,,Special Polynomials
+MAT.ALG.626,,,Quadratic Trinomials of the form x^2 + bx +c
+MAT.ALG.628,,,Quadratic Trinomials of the form ax^2 + bx +c
+MAT.ALG.630,,Applications of Factoring
+MAT.ALG.632,,,Solving Polynomial Equations by Factoring
+MAT.ALG.634,,,Solving Problems by Factoring
+MAT.ALG.700,Rational Expressions
+MAT.ALG.710,,Polynomials and Rational Expressions
+MAT.ALG.712,,,Dividing Monomials
+MAT.ALG.714,,,Dividing a Polynomial by a Monomial
+MAT.ALG.716,,,Dividing Polynomials-Rational Expressions
+MAT.ALG.720,,Simplifying Rational Expressions
+MAT.ALG.722,,,"Zero, Negative, and Fractional Exponents"
+MAT.ALG.730,,Operations with Rational Expressions
+MAT.ALG.732,,,Products and Quotients of Rational Expressions
+MAT.ALG.734,,,Sums and Differences of Rational Expressions with Equal Denominators
+MAT.ALG.736,,,Sums and Differences of Rational Expressions with Unequal Denominators
+MAT.ALG.738,,,Complex Fractions
+MAT.ALG.740,,Rational Expressions in Open Sentences
+MAT.ALG.742,,,Open Sentences Involving Fractions or Percents
+MAT.ALG.744,,,Open Sentences Involving Whole-Number Denominators
+MAT.ALG.746,,,Percent Problems
+MAT.ALG.750,,Rational Expressions in Equations and Problems
+MAT.ALG.752,,,Fractional Equations
+MAT.ALG.754,,,Number Problems
+MAT.ALG.756,,,Work Problems
+MAT.ALG.758,,,Motion Problems
+MAT.ALG.760,,"Ratio, Proportion, and Variation"
+MAT.ALG.762,,,Ratio and Proportion
+MAT.ALG.764,,,Direct Variation
+MAT.ALG.766,,,Inverse Variation
+MAT.ALG.768,,,Joint and Combined Variation
+MAT.ALG.800,Irrational Numbers and Radicals
+MAT.ALG.810,,Rational versus Irrational Numbers
+MAT.ALG.812,,,Properties of Rational Numbers versus Irrational Numbers
+MAT.ALG.814,,,Decimals and Fractions
+MAT.ALG.816,,,Rational Square Roots
+MAT.ALG.818,,,Irrational Square Roots
+MAT.ALG.820,,The Pythagorean Theorem from an Algebraic Perspective
+MAT.ALG.822,,,Solving Equations Using the Pythagorean Theorem
+MAT.ALG.824,,,The Distance Formula
+MAT.ALG.830,,Working with Radicals
+MAT.ALG.832,,,Products and Quotients of Square Roots
+MAT.ALG.834,,,Sums and Products of Expressions Containing Radicals
+MAT.ALG.836,,,nth Roots
+MAT.ALG.838,,,Equations Involving Radicals
+MAT.ALG.900,Quadratic Equations and Functions
+MAT.ALG.910,,Quadratic Equations
+MAT.ALG.912,,,Solving Quadratic Equations by Finding Square Roots
+MAT.ALG.914,,,Solving Quadratic Equations by Completing the Square
+MAT.ALG.916,,,Solving Quadratic Equations by Using the Quadratic Formula
+MAT.ALG.918,,,Using Quadratic Equations to Solve Problems
+MAT.ALG.920,,Graphing Quadratic and Other Polynomial Functions
+MAT.ALG.922,,,Quadratic Functions
+MAT.ALG.924,,,Polynomial Functions
+MAT.ALG.926,,,Quadratic Inequalities

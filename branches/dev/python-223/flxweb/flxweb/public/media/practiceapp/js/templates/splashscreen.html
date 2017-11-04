@@ -1,0 +1,25 @@
+<div class="row">
+	<div class="splashscreen-container text-center">
+	        <img  src="/lmspractice/media/practiceapp/images/<%= data.splash_img %>" />
+	</div>
+    <% if (data.app_name) { %>
+    <div class=" splashscreen-appname-container text-center">
+    <% if (data.app_name !=="google") { %>
+        <div class="splashscreen-appname"><%- data.app_name %></div>
+    <% } %>
+    </div>
+    <div class="row margin-top" id="loader">
+     <div class="columns small-12 text-center spinner-container">
+	    <div class="new-spinner">
+	    </div>
+     </div>
+    </div>
+    <div class="splashscreen-progress-text text-center">Initializing</div>
+    <% } %>
+</div>
+<div class="column small-12 splashscreen-footer hide">
+	<div class="row collapse">
+		<div class="column small-4"> <img class="right" src="/lmspractice/media/images/logo.png" /> </div>
+		<div class="column small-8 splash-footer-text ">CK-12 Foundation is a non-profit that creates and aggregates high quality curated STEM content.</div>
+	</div>
+</div>

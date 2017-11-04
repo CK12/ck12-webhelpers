@@ -1,0 +1,117 @@
+@import '../main';
+
+$radius: 50%;
+$zIndex: 1;
+
+:local{
+    .userPhoto {
+        border: $global-border;
+        border-radius: $radius;
+        background-color: $white;
+        padding: rem-calc(6);
+        width: $user-photo-size;
+        height: $user-photo-size;
+        position: absolute;
+        transform: translateY(-50%);
+        top: 0;
+        z-index: $zIndex;
+        cursor: pointer;
+    }
+
+    .userPhotoInner{
+        border-radius: $radius;
+        border: 1px solid $SMOKE_GREY ;
+        width: 100%;
+        height: 100%;
+        background-color: $IVORY;
+        overflow: hidden;
+        position: relative;
+        text-align: center;
+    }
+
+    .overlay {
+        position: absolute;
+        opacity: 0;
+        background-color: rgba(0,0,0,0.8);
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: $zIndex;
+    }
+
+    .contentContainer { height: 100%; }
+
+    .messaging {
+        position: relative;
+        z-index: $zIndex + 1;
+        width: 100%;
+
+        i {
+            font-size: rem-calc(56);
+            color: $SMOKE_GREY;
+        }
+
+        .uploadTitle {
+            margin-top: rem-calc(10);
+            text-transform: uppercase;
+            color: $GREY_BROWN;
+            font-size: rem-calc(14);
+            display: block;
+        }
+    }
+
+    .hasPhoto {
+        .messaging {
+            i, .uploadTitle { color: transparent; }
+        }
+    }
+
+    .isLoading {
+        &.hasPhoto .overlay { opacity: 1; }
+        i {
+            color: $SMOKE_GREY;
+            z-index: $zIndex + 1;
+            position: relative;
+            width: 100%;
+        }
+    }
+
+    .hasPhoto:hover {
+        .overlay { opacity: 1; }
+
+        .messaging {
+            i, .uploadTitle { color: $SMOKE_GREY; }
+        }
+    }
+
+    @include breakpoint(medium only){
+        .userPhoto {
+            width: $user-photo-size-medium;
+            height: $user-photo-size-medium;
+            padding: rem-calc(4);
+        }
+
+        .messaging {
+            i { font-size: rem-calc(48); }
+            .uploadTitle { font-size: rem-calc(12); }
+        }
+    }
+
+    @include breakpoint(small only){
+        .userPhoto {
+            width: $user-photo-size-small;
+            height: $user-photo-size-small;
+            padding: rem-calc(3);
+        }
+
+        .messaging {
+            i { font-size: rem-calc(36); }
+            .uploadTitle {
+                margin-top: rem-calc(5);
+                font-size: rem-calc(12);
+            }
+        }
+    }
+
+}

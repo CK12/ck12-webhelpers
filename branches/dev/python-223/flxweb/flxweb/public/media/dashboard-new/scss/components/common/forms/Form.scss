@@ -1,0 +1,17 @@
+@import '../../../main';
+
+:local {
+    .form {
+        legend {
+            font-size: rem-calc(12);
+            display: block;
+            margin: 0;
+            font-weight: normal;
+            line-height: 1.8;
+        }
+
+        legend, label {
+            text-transform: uppercase;
+        }
+    }
+}

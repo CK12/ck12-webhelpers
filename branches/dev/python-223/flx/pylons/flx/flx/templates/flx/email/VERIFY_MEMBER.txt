@@ -1,0 +1,19 @@
+Dear {% if member.name %}{{ member.name }}{% else %}{{ events[0]['eventData']['firstName'] }} {{events[0]['eventData']['lastName']}}{% endif %},
+
+Thank you for joining CK-12! We're glad to have you with us.
+
+{% if events[0]['eventData']['roleName'] != 'student' %}
+Verify your email address so you can create a class and assign practice.
+{% else %}
+Verify your email address so you can create a study group with your friends.
+{% endif %}
+
+Verify my email address by clicking {{ events[0]['eventData']['rurl'] }}.
+
+Sincerely,
+
+The CK-12 Team 
+
+CK-12 Foundation | 3430 West Bayshore Road, Palo Alto, CA 94303
+You received this email because you still need to verify your email address.
+You don't need to unsubscribe. Your account hasn't been subscribed to receive email from CK-12.

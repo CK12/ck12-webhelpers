@@ -1,0 +1,27 @@
+{% from "macros/pagination.html" import paginate with context %}  
+
+{% if c.paginator.item_count > 0 %}
+	{% for reply in c.paginator.items %}
+	<div class="tr">
+		<div class="td short">
+			{{ reply['reviewersMemberName'] }}
+		</div>
+		<div class="td long">
+			{{ reply['reviewComment'] }}
+		</div>
+		<div class="td short">
+			{{ reply['type'] }}
+		</div>
+		<div class="td short">
+			{{ reply['creationTime'] }}
+		</div>
+		<div class="td short">
+			{{ reply['updationTime'] }}
+		</div>
+		<div class="td short">
+			<span class='linklike review_delete' data-artifact-id="{{ reply['artifactID'] }}" data-review-id="{{ reply['id'] }}" data-reviewer-id="{{ reply['reviewersMemberID'] }}">[Delete]</span>
+		</div>
+	</div>
+	{% endfor %}
+  	{{ paginate(c.paginator) }}
+{% endif %}

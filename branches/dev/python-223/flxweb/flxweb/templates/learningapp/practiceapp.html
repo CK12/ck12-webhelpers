@@ -1,0 +1,27 @@
+{% extends "common/master.html" %}
+{% block title %}{{ _("") }}{% endblock %}
+
+{% block stylesheets %}
+{{ super() }}
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+<script>
+    require(['main'], function(){
+        require(['practiceapp/practiceapp'], function(PracticeApp){
+            var app = new PracticeApp();
+        })
+    });
+</script>
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+
+<div id="practiceapp_container">
+    
+    <p>Welcome to CK-12 edmodo app</p>
+</div>
+
+{% endblock %}

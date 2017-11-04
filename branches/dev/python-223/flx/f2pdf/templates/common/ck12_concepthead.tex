@@ -1,0 +1,75 @@
+%% Chapter Cover Page Here
+
+%% Specific pre-amble stuff here
+\renewcommand{\chaptername}{Concept}
+
+
+%% Title Page Here
+\begin{titlepage}
+\pagenumbering{roman}
+
+%% Interior Title Page here
+\vspace{3in}
+\begin{center}
+  { 
+  \\
+  \vspace{32pt}
+  { \fontsize{40}{48}\color{black}\selectfont 
+    %###TITLE### \\
+  }
+  \\
+  \vspace{24pt}
+  {\color{black}\titlerule[1pt]}
+  \vspace{72pt}
+  % Put authors here
+  %###AUTHORS###
+ ~ \vfill
+
+\vspace{48pt}
+
+{\large
+\textbf{ Say Thanks to the Authors} \\
+\href{http://www.ck12.org/saythanks}{Click http://www.ck12.org/saythanks} \\
+\emph{(No sign in required)}
+}
+
+% Some ck12 logos
+\begin{center}
+\includegraphics[width=1.5in]{Ck12_logo_300dpi.png}
+\includegraphics[width=1.5in]{flexbooks.jpg}
+\end{center}
+  
+\end{center}
+
+\end{titlepage}
+
+
+%\clearpage
+
+
+% Include copyright material here
+\ckCopyPage{\input{ck12_copy}}{
+%###ATTRIBU###
+}
+\clearpage
+
+
+\pagestyle{plain}
+\setcounter{tocdepth}{1}  % Shows Chapters/Sections(concepts)
+\setcounter{minitocdepth}{1}
+
+% Chapter Level TOC Here
+\mtcsetfont{minitoc}{section}
+{\fontsize{12}{16}\selectfont\sffamily\scshape\bfseries}
+
+\mtcsettitle{minitoc}{
+{\fontsize{16}{20}\selectfont\sffamily\scshape\bfseries\color{ckgreen}
+Chapter Outline
+}}
+
+\mtcsetpagenumbers{minitoc}{off}
+
+
+% Table of Contents
+\dominitoc 
+

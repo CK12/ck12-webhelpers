@@ -1,0 +1,542 @@
+Level 1,Level 2,Level 3,Level 4,Level 5,Level 6,Handle,EncodedID,Original EncodedIDs,Description
+Introduction to Physics ,,,,,,,SCI.PHY.001,,
+,Scope of Physics ,,,,,,SCI.PHY.002,"SCI.PHY.910, 
+SCI.PSC.111.52,
+SCI.PHY.900","Physics is the science of matter, energy, and related interactions"
+,Scientific Method,,,,,Scientific-Method-in-Physics,SCI.PHY.003,SCI.PHY.920,"Identify a problem, gather data, hypothesize, conduct experiments, and evaluate results."
+,Scientific Measurement,,,,,,SCI.PHY.004,SCI.PHY.921,"SI units, unit conversions, and types of measures."
+,Math Tools for Physics,,,,,,SCI.PHY.005,SCI.PHY.922,"Scientific notation, significant figures, and uncertainty in measurement."
+,Metric Units,,,,,,SCI.PHY.006,SCI.PHY.111,"A system of measurement. Basic units are the meter, the second, and the kilogram."
+,Unit Conversions,,,,,,SCI.PHY.007,"SCI.PHY.111.1,
+SCI.PSC.211.11",Converting between the English system and the metric system.
+,Vectors,,,,,Vectors-in-Physics,SCI.PHY.008,"SCI.PHY.112, 
+SCI.PSC.211.2",A scalar magnitude with a direction.  
+,Resolving Vectors into Components,,,,,,SCI.PHY.009,"SCI.PHY.112.1, 
+SCI.PSC.211.21",Identify perpendicular components of vectors.
+,Vector Addition,,,,,,SCI.PHY.010,"SCI.PHY.113,
+SCI.PSC.211.3","Understand independence of component vectors, add vectors mathematically."
+,Graphical Methods of Vector Addition,,,,,,SCI.PHY.011,"SCI.PHY.114,
+SCI.PSC.211.4","Know the difference between scalars and vectors, add vectors head to toe."
+Motion in One-Dimension,,,,,,,SCI.PHY.050,,
+,Motion,,,,,,SCI.PHY.051,"SCI.PSC.212,
+SCI.PHY.120,
+SCI.PHY.100,
+SCI.PSC.210",Calculate how objects move.
+,Position and Displacement,,,,,,SCI.PHY.052,"SCI.PHY.121,
+SCI.PSC.212.1","Understand scalar and vector quantities and relate them to position, distance, and displacement."
+,Distance,,,,,,SCI.PHY.053,"SCI.PHY.121.1,
+SCI.PSC.212.11",The length of the route between two points and it's SI unit of measurement.
+,Direction,,,,,,SCI.PHY.054,"SCI.PHY.121.2,
+SCI.PSC.212.12",A component of motion and how to use vectors to represent direction.
+,Speed,,,,,,SCI.PHY.055,"SCI.PHY.122.1,
+SCI.PSC.212.21",Introduction to how far something travels in a given about of time and the SI unit of measurement. 
+,Velocity,,,,,,SCI.PHY.056,"SCI.PHY.122,
+SCI.PSC.212.2",The speed of an object in a given direction.
+,Average Velocity,,,,,,SCI.PHY.057,"SCI.PHY.123,
+SCI.PSC.212.3",Define speed and velocity and calculate average velocity.
+,Instantaneous Velocity,,,,,,SCI.PHY.058,"SCI.PHY.123.1,
+SCI.PSC.212.31",Define instantaneous velocity and explore position vs time and position vs velocity graphs.
+,Velocity and Acceleration,,,,,,SCI.PHY.059,"SCI.PHY.124,
+SCI.PSC.212.4",The speed and direction of a moving object and how that rate changes over time. 
+,Acceleration,,,,,,SCI.PHY.060,"SCI.PHY.125,
+SCI.PSC.212.5",The measure of the change in velocity of a moving object.
+,Average Acceleration,,,,,,SCI.PHY.061,"SCI.PHY.125.1,
+SCI.PSC.212.51",Define and calculate average acceleration using formulas.
+,Uniform Acceleration,,,,,,SCI.PHY.062,"SCI.PHY.125.2,
+SCI.PSC.212.52",Define and calculate uniform acceleration using formulas.
+,Calculating Acceleration from Velocity and Time,,,,,,SCI.PHY.063,"SCI.PHY.126,
+SCI.PSC.212.6",Calculations showing change in velocity / change in time.
+,Displacement During Uniform Acceleration,,,,,,SCI.PHY.064,"SCI.PHY.128,
+SCI.PSC.212.8",Evaluate velocity vs time graphs and calculate displacement over time for objects under uniform acceleration.
+,Acceleration Due to Gravity ,,,,,,SCI.PHY.065,"SCI.PHY.129,
+SCI.PSC.212.9","As gravity pulls objects toward the ground, it causes them to accelerate at a rate of 9.8 m/s 2."
+,Graphing Motion,,,,,,SCI.PHY.066,"SCI.PHY.130,
+SCI.PSC.213",Use the slope of a graph to determine instantaneous velocity or acceleration for an object.
+,Position vs Time Graphs,,,,,,SCI.PHY.067,"SCI.PHY.132,
+SCI.PSC.213.2",Representing and interpreting motion using graphs.
+,Velocity vs Time Graphs,,,,,,SCI.PHY.068,"SCI.PHY.134,
+SCI.PSC.213.4",A graph where the slope represents acceleration. 
+Forces and Newton's Laws of Motion,,,,,,,SCI.PHY.100,,
+,Inertia,,,,,,SCI.PHY.101,"SCI.PHY.142.1,
+SCI.PSC.214.21",The tendency of an object to resist a change in its motion.
+,Weight ,,,,,,SCI.PHY.102,"SCI.PHY.145,
+SCI.PSC.214.5","Mass measures of the amount of matter of an object, while Weight measures the pull of gravity on an object."
+,Force,,,,,,SCI.PHY.103,"SCI.PHY.141.1,
+SCI.PSC.214.11",The push or pull acting on an object and it's representative SI unit of measurement. 
+,Types of Forces,,,,,,SCI.PHY.104,"SCI.PHY.141,
+SCI.PSC.214.1","Forces that act on objects such as Friction, gravity, tension, spring force. "
+,Elastic Force,,,,,,SCI.PHY.105,"SCI.PHY.141.3,
+SCI.PSC.214.13",The force that allows some materials to return to its original shape after being stretched or compressed.
+,Friction,,,,,,SCI.PHY.106,"SCI.PHY.146,
+SCI.PSC.214.6","Understand static and sliding friction, and calculate friction coefficient and net force."
+,Types of Friction,,,,,,SCI.PHY.107,"SCI.PHY.146.1,
+SCI.PSC.214.61","Introduction to static, sliding, rolling, and fluid friction."
+,Newton's First Law,,,,,,SCI.PHY.108,"SCI.PHY.142,
+SCI.PSC.214.2",An object at rest will remain at rest and an object in motion will remain in motion unless acted on by an unbalanced force.
+,Newton's Second Law,,,,,,SCI.PHY.109,"SCI.PHY.143,
+SCI.PSC.214.3",The acceleration of an object equals the net force acting on the object divided by the mass of the object.
+,Connecting Newton's First and Second Laws,,,,,,SCI.PHY.110,"SCI.PHY.144,
+SCI.PSC.214.4","Define force and Newton, and calculate using Newton's Second Law."
+,Newton's Third Law,,,,,,SCI.PHY.111,"SCI.PSC.214.9,
+SCI.PHY.149",Explain Newton's Third Law and understand 'equal and opposite forces'.
+,Calculating Acceleration from Force and Mass,,,,,,SCI.PHY.112,"SCI.PHY.143.1,
+SCI.PSC.214.31",The acceleration of an object equals the net force acting on it divided by its mass.
+,Combining Forces,,,,,,SCI.PHY.113,"SCI.PHY.141.2,
+SCI.PSC.214.12",The net force acting on an object is the combination of all of the individual forces acting on it.
+,Free Body Diagrams,,,,,,SCI.PHY.114,"SCI.PHY.147,
+SCI.PSC.214.7",Representation of all the forces acting on an object. 
+,Problem Solving Using Free Body Diagrams,,,,,,SCI.PHY.115,"SCI.PHY.147.1,
+SCI.PSC.214.71",Solve problems using Newton's Second Law. 
+,Pressure and Force,,,,,,SCI.PHY.116,"SCI.PHY.140,
+SCI.PSC.214",Pressure is a force spread out over an area.  A small force applied over a very small area can exert a large force. 
+Motion in Two-Dimensions,,,,,,,SCI.PHY.150,,
+,Gravitational Force and Inclined Planes,,,,,,SCI.PHY.151,SCI.PHY.226.1,"Learn about the normal force, center of gravity, parallel force and acceleration down an inclined plane."
+,Projectile Motion,,,,,,SCI.PHY.152,"SCI.PHY.162,
+SCI.PSC.216.2,
+SCI.PHY.160,
+SCI.PSC.216","When an object is thrown, gravity acts upon it and affects the path traveled. "
+,Projectile Motion Problem Solving,,,,,,SCI.PHY.153,"SCI.PHY.162.1,
+SCI.PSC.216.21",Equations of motion for moving objects.
+,Projectile Motion for an Object Launched Horizontally,,,,,,SCI.PHY.154,"SCI.PHY.162.2,
+SCI.PSC.216.22",Determine flight time and distance of horizontally-launched projectiles.
+,Projectile Motion for an Object Launched at an Angle,,,,,,SCI.PHY.155,"SCI.PHY.162.3,
+SCI.PSC.216.23",Determine flight time and distance of angular projectile launches.
+Circular Motion and Gravity,,,,,,,SCI.PHY.200,,
+,Circular Motion,,,,,,SCI.PHY.201,"SCI.PHY.163,
+SCI.PSC.216.3",Analyze circular motion using the centripetal motion equation.
+,Centripetal Force ,,,,,,SCI.PHY.202,"SCI.PHY.163.3,
+SCI.PSC.216.33",Differentiate between centripetal and centrifugal forces.
+,Centripetal Acceleration,,,,,,SCI.PHY.203,"SCI.PHY.163.2,
+SCI.PSC.216.32",Objects moving in a circle must experience acceleration and force perpendicular to their direction of travel.
+,Gravity,,,,,,SCI.PHY.204,"SCI.PSC.216.52,
+SCI.PHY.165.2",A force of attraction between things that have mass and how it relates to weight. 
+,Newton's Universal Law of Gravity,,,,,,SCI.PHY.205,"SCI.PHY.165,
+SCI.PSC.216.5,
+SCI.PHY.165.3,
+SCI.PSC.216.53",The force of gravity affects everything with mass in the universe.
+,Gravity and Space Problems,,,,,,SCI.PHY.206,"SCI.PHY.165.1,
+SCI.PSC.216.51",Learn how objects orbit each other in space by applying the laws of gravity to their motion.
+,Orbital Motion,,,,,,SCI.PHY.207,"SCI.PHY.166,
+SCI.PSC.216.6","The path followed by an object revolving around another object, under the influence of gravity. "
+,Kepler's Laws of Planetary Motion,,,,,,SCI.PHY.208,"SCI.PHY.166.1,
+SCI.PSC.216.61",Describe Kepler's laws and determine satellite periods mathematically.
+,Einstein's Concept of Gravity,,,,,,SCI.PHY.209,"SCI.PSC.216.7,
+SCI.PHY.167","Updates Newton's Law of Gravity, showing: gravity is a result of the warping of space-time."
+Conservation Laws,,,,,,,SCI.PHY.250,,
+,Momentum,,,,,,SCI.PHY.251,"SCI.PSC.221,
+SCI.PHY.210",A property of a moving object that makes it hard to stop. Momentum = Mass × Velocity
+,Impulse,,,,,,SCI.PHY.252,"SCI.PHY.212,
+SCI.PSC.221.2",Force created by the exchange of momentum between two objects.
+,Momentum and Impulse,,,,,,SCI.PHY.253,"SCI.PHY.213,
+SCI.PSC.221.3",Understand momentum as mass multiplied by velocity and impulse as change in momentum.
+,Conservation of Momentum,,,,,,SCI.PHY.254,"SCI.PHY.216,
+SCI.PSC.221.6,
+SCI.PHY.200,
+SCI.PSC.220","When an action and reaction occur, momentum is transferred, and total momentum is conserved."
+,Conservation of Momentum in One Dimension,,,,,,SCI.PHY.255,"SCI.PHY.216.1,
+SCI.PSC.221.61",Use conservation of momentum to solve collision problems in one dimension.
+,Conservation of Momentum in Two Dimensions,,,,,,SCI.PHY.256,"SCI.PHY.216.2,
+SCI.PSC.221.62",Apply component vectors to solve two dimensional collision problems.
+,Elastic Collisions,,,,,,SCI.PHY.257,"SCI.PHY.236,
+SCI.PSC.223.6",Collisions between objects in which total kinetic energy remains the same.
+,Inelastic Collisions,,,,,,SCI.PHY.258,"SCI.PHY.237,
+SCI.PSC.223.7",Collisions between objects in which kinetic energy is used to generate heat or change the colliding objects.
+,Energy-Momentum Problems ,,,,,,SCI.PHY.259,"SCI.PHY.230.2,
+SCI.PSC.223.02",Explore equations use to describe real world collisions.
+,Energy,,,,,,SCI.PHY.260,"SCI.PHY.230,
+SCI.PSC.223",Ability to move matter or change matter; the ability to do work.
+,Forms of Energy,,,,,,SCI.PHY.261,"SCI.PHY.230.3,
+SCI.PSC.223.03",The ability to cause changes in matter. Defines six different forms. 
+,Potential Energy,,,,,,SCI.PHY.262,"SCI.PHY.231,
+SCI.PSC.223.1",Explore conversion between kinetic and potential energy.
+,Kinetic Energy,,,,,,SCI.PHY.263,"SCI.PHY.233,
+SCI.PSC.223.3","Define kinetic energy, solve kinetic energy problems."
+,Energy Conversion,,,,,,SCI.PHY.264,"SCI.PHY.234.1,
+SCI.PSC.223.41","Different forms of energy—such as electrical, chemical, and thermal energy—often change to other forms of energy."
+,Conservation of Energy,,,,,,SCI.PHY.265,"SCI.PHY.234,
+SCI.PSC.223.4",Define and understand closed systems.
+,Energy Problem Solving,,,,,,SCI.PHY.266,"SCI.PHY.230.1,
+SCI.PSC.223.01",Explore equations used to keep track of where energy goes.
+Simple Machines,,,,,,,SCI.PHY.300,,
+,Work,,,,,,SCI.PHY.301,"SCI.PHY.232,
+SCI.PSC.223.2",The use of force to move an object. Work = Force × Distance
+,Calculating Work,,,,,,SCI.PHY.302,"SCI.PHY.232.1,
+SCI.PSC.223.21",Introduction to the SI Unit for work and calculations using Work = Force × Distance.
+,Mechanical Advantage,,,,,,SCI.PHY.303,"SCI.PHY.225,
+SCI.PSC.222.5",Machines allow us to do large amounts of work while exerting less force.
+,Machines,,,,,,SCI.PHY.304,"SCI.PHY.226,
+SCI.PSC.222.6",Introduction to six different devices that make work easier by changing a force.
+,Inclined Plane,,,,,,SCI.PHY.305,SCI.PSC.222.61,One of six types of simple machines. Consists of a sloping surface connecting a lower elevation to a higher elevation.
+,Wedge,,,,,,SCI.PHY.306,"SCI.PHY.226.2,
+SCI.PSC.222.62","One of six types of simple machines. Consists of two inclined planes, giving it a thin end and thick end."
+,Screw,,,,,,SCI.PHY.307,"SCI.PHY.226.3,
+SCI.PSC.222.63",One of six types of simple machines.  Consists of an inclined plane wrapped around a central cylinder.
+,Lever,,,,,,SCI.PHY.308,"SCI.PHY.226.4,
+SCI.PSC.222.64",One of six types of simple machines. Consists of a bar that rotates around a fixed point.
+,Wheel and Axle,,,,,,SCI.PHY.309,"SCI.PSC.222.65,
+SCI.PHY.226.5","One of six types of simple machines.  Consists of two connected rings or cylinders, one inside the other."
+,Pulley,,,,,,SCI.PHY.310,"SCI.PSC.222.66,
+SCI.PHY.226.6",One of six types of simple machines.  Consists of a rope and grooved wheel and is used to lift heavy loads. 
+,Compound Machine,,,,,,SCI.PHY.311,"SCI.PHY.226.7,
+SCI.PSC.222.67",Introduction and examples of a machine that consists of more than one simple machine.
+,Power,,,,,,SCI.PHY.312,"SCI.PHY.224,
+SCI.PSC.222.4",A measure of the amount of work that can be done in a given amount of time.
+,Efficiency,,,,,,SCI.PHY.313,"SCI.PHY.223,
+SCI.PSC.222.3",The percent of work put into by the user of a machine that becomes work done by the machine.
+Rotational Motion,,,,,,,SCI.PHY.350,,
+,Moment of Inertia,,,,,,SCI.PHY.351,"SCI.PHY.262,
+SCI.PSC.226.2",How difficult it is to rotate an object.
+,Torque,,,,,,SCI.PHY.352,"SCI.PHY.264,
+SCI.PSC.226.4",A force acting on an object that causes the object to rotate. 
+,Newton's Second Law for Rotation,,,,,,SCI.PHY.353,"SCI.PHY.264.1,
+SCI.PSC.226.41",Acceleration produced when a force acts on a mass (F = ma) can be applied to rotating systems as well.
+,Angular Speed,,,,,,SCI.PHY.354,"SCI.PHY.163.1,
+SCI.PSC.216.31",The rate change of the radial angle for an object moving in a circle.
+,Angular Momentum,,,,,,SCI.PHY.355,"SCI.PHY.265,
+SCI.PSC.226.5",Explores equations that keep track of momentum in rotating objects.
+,Kinematics of Rotation,,,,,,SCI.PHY.356,"SCI.PHY.260.1,
+SCI.PSC.226.01,
+SCI.PHY.260,
+SCI.PSC.226",Explore how rotating objects are described mathematically.
+,Rolling Objects,,,,,,SCI.PHY.357,"SCI.PHY.267,
+SCI.PSC.226.7",Explores equations used to describe the motion of rolling or sliding objects.
+,Rolling Energy Problems,,,,,,SCI.PHY.358,"SCI.PHY.263,
+SCI.PSC.226.3",Explores equations used to describe the energy of rolling or sliding objects.
+,Physics of a Yo-Yo,,,,,,SCI.PHY.359,"SCI.PHY.266,
+SCI.PSC.226.6",Calculations involving objects that are in free fall but attached to a string. 
+Thermal Physics,,,,,,,SCI.PHY.400,,
+,Heat,,,,,,SCI.PHY.401,"SCI.PHY.241.1,
+SCI.PSC.224.11",Explores how thermal energy moves between substances.
+,Thermal Energy,,,,,,SCI.PHY.402,"SCI.PHY.241,
+SCI.PSC.224.1",The kinetic energy of the atoms in a material.
+,Temperature,,,,,,SCI.PHY.403,"SCI.PHY.244,
+SCI.PSC.224.4",Explores how thermal energy in a substance is measured.
+,"Heat, Temperature, and Thermal Energy Transfer",,,,,,SCI.PHY.404,"SCI.PHY.240.1,
+SCI.PSC.224.01",Define heat and temperature and convert between temperature scales.
+,Thermal Expansion,,,,,,SCI.PHY.405,,Materials tend to expand when heated and contract when cooled.
+,Conduction ,,,,,,SCI.PHY.406,"SCI.PSC.224.21,
+SCI.PHY.242.1",Explores how heat is transferred between objects.
+,Convection,,,,,,SCI.PHY.407,"SCI.PHY.242.2,
+SCI.PSC.224.22",Illustrates how fluids absorb and diffuse heat.
+,Thermal Radiation,,,,,,SCI.PHY.408,"SCI.PHY.242.3,
+SCI.PSC.224.23",Thermal energy is emitted by objects into their surroundings.
+,Thermal Conductors and Insulators,,,,,,SCI.PHY.409,"SCI.PHY.242.4,
+SCI.PSC.224.24",The structure of a material dictates how well heat will transfer through it.
+,Specific Heat ,,,,,,SCI.PHY.410,"SCI.PHY.247.1,
+SCI.PSC.224.71",The energy required to effect a given temperature change in a known mass.
+,Specific Heat and Phase Change,,,,,,SCI.PHY.411,"SCI.PHY.247,
+SCI.PSC.224.7",Different materials require different amounts of thermal energy to achieve the same temperature increase.
+,Change of State,,,,,,SCI.PHY.412,"SCI.PHY.249,
+SCI.PSC.224.9","Explore the energy required to convert a substance between gas, liquid, and solid."
+,Heating Systems,,,,,,SCI.PHY.413,"SCI.PHY.248.1,
+SCI.PSC.224.81",Explores the different methods of conducting thermal energy though our homes to keep us comfortable.
+,Cooling Systems,,,,,,SCI.PHY.414,"SCI.PHY.248.2,
+SCI.PSC.224.82",Explores methods of removing thermal energy from spaces.
+,External Combustion Engines,,,,,,SCI.PHY.415,"SCI.PHY.248.3,
+SCI.PSC.224.83",Early inventions used to convert heat energy to kinetic energy with low efficiency.
+,Internal Combustion Engines,,,,,,SCI.PHY.416,"SCI.PHY.248.4,
+SCI.PSC.224.84",Devices used to convert heat energy to kinetic energy with higher efficiency.
+,Heat Engine,,,,,,SCI.PHY.417,"SCI.PHY.240,
+SCI.PSC.224",Devices used to convert heat energy to kinetic energy that can be used to do work.
+Fluids,,,,,,,SCI.PHY.450,,
+,Fluid Pressure,,,,,Fluid-Pressure-in-Physics,SCI.PHY.451,"SCI.PHY.253,
+SCI.PSC.225.3,
+SCI.PHY.250,
+SCI.PSC.225",Fluids exert force upon the containers that hold them.
+,Oceanic Pressure,,,,,,SCI.PHY.452,"SCI.PHY.253.2,
+SCI.PSC.225.32","As depth increases in the ocean, the pressure exerted by the water increases."
+,Atmospheric Pressure,,,,,,SCI.PHY.453,"SCI.PHY.256.1,
+SCI.PSC.225.61",The pressure exerted by the air in the atmosphere is greatest at Earth’s surface and falls as altitude increases.
+,Buoyancy,,,,,,SCI.PHY.454,"SCI.PHY.253.1,
+SCI.PSC.225.31",An upward force that fluids exert on any object that is placed in them.
+,Archimedes' Law,,,,,,SCI.PHY.455,"SCI.PHY.253.5,
+SCI.PSC.225.35",The buoyant force acting on an object equals the weight of the fluid displaced by the object.
+,Pascal's Law,,,,,,SCI.PHY.456,"SCI.PHY.253.3,
+SCI.PSC.225.33",A change in pressure at any point in an enclosed fluid is transmitted equally throughout the fluid.
+,Bernoulli's Law,,,,,,SCI.PHY.457,"SCI.PHY.253.4,
+SCI.PSC.225.34",The pressure of a moving fluid such as air is less when the fluid is moving faster.
+,Gas Pressure and Force,,,,,,SCI.PHY.458,"SCI.PHY.256,
+SCI.PSC.225.6",Pressure is the force exerted over a given area and the behavior of most gases can be described using the ideal gas law.
+,Combined Gas Law,,,,,Combined-Gas-Law-in-Physics,SCI.PHY.459,SCI.PHY.256.2,"Volume, temperature and pressure are interrelated qualities of gases."
+,Universal Gas Law,,,,,,SCI.PHY.460,SCI.PHY.256.3,"The universal gas law relates temperature, pressure, volume and moles of a gas in a single equation."
+Harmonic Motion and Waves ,,,,,,,SCI.PHY.500,,
+,Simple Harmonic Motion,,,,,,SCI.PHY.501,"SCI.PHY.170,
+SCI.PSC.217,
+SCI.PHY.300,
+SCI.PSC.230","Relate velocity, acceleration, and displacement in simple harmonic motion."
+,Harmonic Period and Frequency,,,,,,SCI.PHY.502,"SCI.PHY.171,
+SCI.PSC.217.1",Motion of a particle with time that produces a Sinusoidal wave. 
+,Springs,,,,,,SCI.PHY.503,"SCI.PHY.171.1,
+SCI.PSC.217.11",Calculations of objects on springs exhibiting simple harmonic motion.
+,Pendulum,,,,,,SCI.PHY.504,"SCI.PHY.171.2,
+SCI.PSC.217.12",Calculations of objects on strings exhibiting simple harmonic motion.
+,Wave Equation,,,,,,SCI.PHY.505,"SCI.PHY.310,
+SCI.PSC.231",Equations that describe wave movement.  Distance equals rate multiplied by time equation for one wave cycle. 
+,Types of Waves,,,,,,SCI.PHY.506,"SCI.PHY.311,
+SCI.PSC.231.1",Waves can exist perpendicular or parallel to their direction of travel through a material.
+,Mechanical Wave,,,,,,SCI.PHY.507,"SCI.PHY.311.1,
+SCI.PSC.231.11",Introduces waves in matter and how they transfer energy.
+,Transverse Wave,,,,,,SCI.PHY.508,"SCI.PHY.311.2,
+SCI.PSC.231.12",Mechanical waves in which energy travels perpendicular to the wave's oscillation.
+,Longitudinal Wave,,,,,,SCI.PHY.509,"SCI.PHY.311.3,
+SCI.PSC.231.13",Mechanical waves in which energy travels parallel to the wave's oscillation.
+,Surface Wave,,,,,,SCI.PHY.510,"SCI.PHY.311.4,
+SCI.PSC.231.14",Explores waves on the surface of a medium.
+,Wavelength,,,,,,SCI.PHY.511,"SCI.PHY.312.1,
+SCI.PSC.231.21",The distance between two peaks on a wave.
+,Wave Frequency,,,,,,SCI.PHY.512,"SCI.PHY.312.2,
+SCI.PSC.231.22",Defines frequency and discusses how it relates to the energy present in a wave.
+,Wave Speed,,,,,,SCI.PHY.513,"SCI.PHY.312.3,
+SCI.PSC.231.23",Discusses how wave speed is calculated and the effect of different materials on wave speed.
+,Wave Amplitude,,,,,,SCI.PHY.514,"SCI.PHY.313,
+SCI.PSC.231.3",Discusses waves in terms of how much they are disturbing the medium they pass through.
+,Wave Interactions,,,,,,SCI.PHY.515,"SCI.PHY.316,
+SCI.PSC.231.6",Explores ways waves interact with matter.
+,Wave Interference,,,,,,SCI.PHY.516,"SCI.PHY.316.2,
+SCI.PSC.231.62",Discusses what happens when waves collide with each other.
+,Beat Frequencies,,,,,,SCI.PHY.517,"SCI.PHY.317,
+SCI.PSC.231.7",When waves of two frequencies interfere a third wave is perceived by the observer.
+,Standing Waves,,,,,,SCI.PHY.518,"SCI.PHY.318,
+SCI.PSC.231.8",Waves with their ends fixed in place are important to music and electronics.
+,Reflection of Mechanical Waves,,,,,,SCI.PHY.519,SCI.PHY.319.1,"When mechanical waves encounter a new material, some of the wave energy bounces back into the old material."
+,Refraction of Mechanical Waves,,,,,,SCI.PHY.520,SCI.PHY.319.2,Mechanical waves entering a new material change their direction and velocity of travel.
+Sound ,,,,,,,SCI.PHY.550,,
+,Sound Waves,,,,,,SCI.PHY.551,"SCI.PHY.321,
+SCI.PSC.232.1,
+SCI.PHY.320,
+SCI.PSC.232",Longitudinal vibrations through the air are perceived as sound.
+,Speed of Sound,,,,,,SCI.PHY.552,"SCI.PHY.321.1,
+SCI.PSC.232.11",The speed at which sound travels through a material.
+,Sound in a Tube,,,,,,SCI.PHY.553,"SCI.PSC.232.2,
+SCI.PHY.322",Sound waves trapped in a tube generate sounds a frequencies dependent on the length of the tube.
+,Intensity and Loudness of Sound,,,,,,SCI.PHY.554,"SCI.PHY.324.1,
+SCI.PSC.232.41",Explores how the amount of energy present in a sound changes how we perceive it.
+,Frequency and Pitch of Sound,,,,,,SCI.PHY.555,"SCI.PHY.324.2,
+SCI.PSC.232.42",Explores how the frequency of a sound affects how it is perceived.
+,Doppler Effect,,,,,,SCI.PHY.556,"SCI.PHY.325,
+SCI.PSC.232.5",Waves emitted from a moving source are perceived at a higher or lower frequency by a stationary observer.
+,Hearing and the Ear,,,,,,SCI.PHY.557,"SCI.PHY.327.1,
+SCI.PSC.232.71",Illustrates the structure of the ear and how it allows us to perceive sound.
+,Hearing Loss,,,,,,SCI.PHY.558,"SCI.PHY.327.2,
+SCI.PSC.232.72",Warns of the hazards loud sounds present and how to protect yourself from them.
+,Musical Instruments,,,,,,SCI.PHY.559,"SCI.PHY.327.3,
+SCI.PSC.232.73",Explores how musical instruments work with examples.
+,Ultrasound,,,,,,SCI.PHY.560,"SCI.PHY.327.4,
+SCI.PSC.232.74",High-frequency sounds cannot be heard by the human ear but they can be used by some animals to see.
+Electromagnetic Radiation,,,,,,,SCI.PHY.600,,
+,Speed of Light,,,,,,SCI.PHY.601,"SCI.PHY.330,
+SCI.PSC.233",Light is the fastest thing in the universe and always has the same speed in a vacuum.
+,Electromagnetic Waves,,,,,,SCI.PHY.602,"SCI.PHY.332,
+SCI.PSC.233.2,
+SCI.PHY.332.1,
+SCI.PSC.233.21","Explores the frequency, wavelength and speed of electromagnetic waves."
+,Electromagnetic Spectrum,,,,,Electromagnetic-Spectrum-in-Physics,SCI.PHY.603,"SCI.PHY.333,
+SCI.PSC.233.3",Introduces the full spectrum of electromagnetic radiation from radio waves to gamma rays.
+,Radio Waves,,,,,,SCI.PHY.604,"SCI.PHY.333.1,
+SCI.PSC.233.31",Explores the behavior of radio waves and their common applications.
+,Microwaves,,,,,,SCI.PHY.605,"SCI.PHY.333.2,
+SCI.PSC.233.32",Discusses the properties of microwaves and what technologies use them.
+,Light,,,,,,SCI.PHY.606,"SCI.PHY.333.3,
+SCI.PSC.233.33","Explores visible light, why light appears colored and electromagnetic waves just outside of the visible range."
+,X-rays,,,,,,SCI.PHY.607,"SCI.PHY.333.4,
+SCI.PSC.233.34",X-rays are high-energy electromagnetic waves that can be used in technology but can also be harmful to living things.
+,Gamma rays,,,,,,SCI.PHY.608,"SCI.PHY.333.5,
+SCI.PSC.233.35",Explores the most energetic electromagnetic waves and how they interact with matter. 
+,Sources of Visible Light,,,,,,SCI.PHY.609,"SCI.PHY.336.1,
+SCI.PSC.233.61",Explores where light comes from in our surroundings and the different ways matter can emit light.
+,Artificial Light,,,,,,SCI.PHY.610,"SCI.PHY.336.2,
+SCI.PSC.233.62",Discusses the different technologies we use to produce light where we need it.
+,Visible Light and Matter,,,,,,SCI.PHY.611,"SCI.PHY.337,
+SCI.PSC.233.7",Explores what occurs when light collides with matter and terms used to describe these interactions.
+,Color,,,,,,SCI.PHY.612,"SCI.PHY.335,
+SCI.PSC.233.5",Discusses what creates individual colors and what makes objects appear to be a certain color.
+,Wave-Particle Theory,,,,,,SCI.PHY.613,"SCI.PSC.247.4,
+SCI.PHY.474",Electromagnetic radiation behaves as both a wave and a particle depending on how it is observed.
+,Photoelectric Effect ,,,,,Photoelectric-Effect-in-Physics,SCI.PHY.614,,Light acts like both a particle and a wave.
+,Lasers,,,,,,SCI.PHY.615,SCI.PHY.475,A device that produces light of the same wavelength.  
+Optics,,,,,,,SCI.PHY.650,,
+,Reflection,,,,,,SCI.PHY.651,"SCI.PHY.342,
+SCI.PSC.234.2,
+SCI.PHY.340,
+SCI.PSC.234",Discusses what reflections are and how light reflects off of a surface.
+,Refraction ,,,,,,SCI.PHY.652,"SCI.PHY.343,
+SCI.PSC.234.3",When light enters a medium that causes it to change speed it also changes direction.
+,Total Internal Reflection,,,,,,SCI.PHY.653,"SCI.PHY.346,
+SCI.PSC.234.6",Light passing into less dense materials may completely reflect back into the original material.
+,Mirrors,,,,,,SCI.PHY.654,"SCI.PHY.350,
+SCI.PSC.235",The shape of a reflective surface affects the images we see.
+,Plane Mirrors ,,,,,,SCI.PHY.655,"SCI.PHY.351,
+SCI.PSC.235.1",Light reflected by flat mirrors produces images that are identical to the object reflecting light.
+,Concave Mirrors ,,,,,,SCI.PHY.656,"SCI.PHY.352,
+SCI.PSC.235.2",Concave mirrors focus light and create reflected images are of different sizes than the original object.
+,Convex Mirrors ,,,,,,SCI.PHY.657,SCI.PHY.352.1,Convex mirrors disperse light and create reflected images are of different sizes than the original object.
+,Lenses,,,,,,SCI.PHY.658,"SCI.PHY.355,
+SCI.PSC.235.5",Focusing or dispersing light emitted from an object can change how we see it in many different ways.
+,Double Convex Lenses,,,,,,SCI.PHY.659,SCI.PHY.356.1,"Convex lenses refract parallel light waves, causing them to intersect one another."
+,Double Concave Lenses ,,,,,,SCI.PHY.660,SCI.PHY.357.1,"Concave lenses refract parallel light waves, causing them to disperse."
+,Vision and the Eye,,,,,,SCI.PHY.661,"SCI.PHY.347.1,
+SCI.PSC.234.71",Illustrates the structure of the eye and how it allows us to sense light.
+,Vision Problems and Corrective Lenses,,,,,,SCI.PHY.662,"SCI.PHY.347.2,
+SCI.PSC.234.72",Defects in the shape of the eye cause vision problems which can be corrected with lenses.
+,Diffraction,,,,,,SCI.PHY.663,"SCI.PHY.361,
+SCI.PSC.236.1",The wavelength of an incident light can be determined based on its diffraction pattern.
+,Single Slit Diffraction,,,,,,SCI.PHY.664,"SCI.PHY.363,
+SCI.PSC.236.3",Light passing through a single slit generates a pattern that predicts the light's wavelength.
+,Double Slit Diffraction,,,,,,SCI.PHY.665,"SCI.PHY.364,
+SCI.PSC.236.4",Light passing through a pair of slits generates a pattern that predicts the light's wavelength.
+,Diffraction Gratings,,,,,,SCI.PHY.666,"SCI.PHY.365,
+SCI.PSC.236.5",Diffraction gratings also generate interference patterns that indicate the wavelength of light passing through.
+,Optical Instruments,,,,,,SCI.PHY.667,"SCI.PHY.347,
+SCI.PSC.234.7,",Explores what occurs when light collides with matter and terms used to describe these interactions.
+Static Electricity ,,,,,,,SCI.PHY.700,,
+,Electric Charge and Electric Force ,,,,,,SCI.PHY.701,"SCI.PHY.411,
+SCI.PSC.241.1",Electric charge and electric force hold our universe together.
+,Electric Fields,,,,,,SCI.PHY.702,"SCI.PHY.420,
+SCI.PSC.242,
+SCI.PHY.421,
+SCI.PSC.242.1",Charged particles emit electric fields that cause other charged particles to experience force.
+,Transfer of Electric Charge,,,,,,SCI.PHY.703,"SCI.PSC.241.2,
+SCI.PHY.412","Introduction to conduction, friction, and polarization. "
+,Static Electricity and Static Discharge,,,,,,SCI.PHY.704,"SCI.PHY.415,
+SCI.PSC.241.5",The relationship between the buildup of electrons and the sudden flow of electrons from one charged object to another.
+,Electrostatics,,,,,,SCI.PHY.705,"SCI.PHY.410,
+SCI.PSC.241,
+SCI.PHY.400,
+SCI.PSC.240",Electrons are the fundamental unit of charge.
+,Coulomb's Law,,,,,,SCI.PHY.706,"SCI.PHY.416,
+SCI.PSC.241.6",The force between two charged particles is related to their charge and separation.
+Electric Current ,,,,,,,SCI.PHY.750,,
+,Voltage,,,,,,SCI.PHY.751,"SCI.PHY.423,
+SCI.PSC.242.3",In a uniform electric field the potential electrical energy of a charged particle can be measured in volts. 
+,Current,,,,,,SCI.PHY.752,"SCI.PHY.431,
+SCI.PSC.243.1",A continuous flow of electrons through a circuit and the representative SI Unit of measurement. 
+,Voltage and Current,,,,,,SCI.PHY.753,"SCI.PHY.430,
+SCI.PSC.243",Electrons flowing through a circuit create a current.  Voltage is the force that drives the current between two points.
+,Direct and Alternating Current,,,,,,SCI.PHY.754,"SCI.PHY.431.1,
+SCI.PSC.243.11",Differentiation between one-directional flow of a current and current that reverses direction within a circuit. 
+,Chemical and Solar Cells,,,,,,SCI.PHY.755,"SCI.PHY.431.2,
+SCI.PSC.243.12",Introduction to different sources of voltage. 
+,Ammeters and Voltmeters,,,,,,SCI.PHY.756,SCI.PHY.449,"Devices that measure current and voltage, respectively. "
+,Electric Conductors and Insulators,,,,,,SCI.PHY.757,"SCI.PHY.432.1,
+SCI.PSC.243.21","Matter offers resistance to the flow of electrons in an electric current.  Insulators have a high resistance, Conductors have a low resistance."
+,Resistance,,,,,,SCI.PHY.758,"SCI.PHY.432,
+SCI.PSC.243.2",The opposition to the flow of electric charges in an electric current and its SI Unit of measurement. 
+,Ohm's Law,,,,,,SCI.PHY.759,"SCI.PHY.434,
+SCI.PSC.243.4",Resistors impede electric currents by converting some of the electric energy into another type of energy.
+Electric Circuits ,,,,,,,SCI.PHY.800,,
+,Circuit,,,,,,SCI.PHY.801,"SCI.PSC.243.5,
+SCI.PHY.435",A closed loop through which current can flow.
+,Energy Transfer in Electric Circuits,,,,,,SCI.PHY.802,SCI.PHY.435.7,The amount of power delivered to an object by an electric current depends on its resistance and the time of the current.
+,Controlling Current in Electric Circuits,,,,,,SCI.PHY.803,SCI.PHY.435.8,The amount of electric current passing through a circuit depends on the voltage pushing the current and the resistance opposing the current.
+,Series and Parallel Circuits,,,,,,SCI.PHY.804,"SCI.PSC.244,
+SCI.PHY.440",Differences between single loop and multiple loop circuits through which current can flow.
+,Series Circuits,,,,,,SCI.PHY.805,"SCI.PHY.441,
+SCI.PSC.244.1",A closed circuit in which the current follows through one path.
+,Total Resistance in Series Circuits,,,,,,SCI.PHY.806,"SCI.PHY.442,
+SCI.PSC.244.2",All resistors are connected end to end within a circuit. The resistance of the circuit is the total of their resistances.
+,Parallel Circuits,,,,,,SCI.PHY.807,"SCI.PHY.443,
+SCI.PSC.244.3",A closed circuit in which the current divides into two or more paths before recombining to complete the circuit.
+,Total Resistance in Parallel Circuits,,,,,,SCI.PHY.808,"SCI.PHY.444,
+SCI.PSC.244.4",Many resistors branch from a single point.  The resistance of the circuit is the sum of the inverse of each resistor. 
+,Circuit Problem Solving,,,,,,SCI.PHY.809,"SCI.PHY.445,
+SCI.PSC.244.5",When resistors are in parallel and series there are some tricks you can use to simplify the ohms law calculation.
+,Combined Series-Parallel Circuits,,,,,,SCI.PHY.810,SCI.PHY.445.1,"Representing most real world circuits, these circuits are connected in series as well as in parallel. "
+,Capacitors,,,,,,SCI.PHY.811,"SCI.PHY.427,
+SCI.PSC.242.7",Charge disperses evenly between conductors in contact but can be held in place by insulators.
+,Capacitor Energy,,,,,,SCI.PHY.812,"SCI.PHY.427.1,
+SCI.PSC.242.71",The potential energy stored in a capacitor depends on its size and material.
+,Capacitor Circuits,,,,,,SCI.PHY.813,"SCI.PHY.437,
+SCI.PSC.243.7","Circuits containing capacitors are easy to understand, take a closer look at them."
+,Capacitors in Series and Parallel,,,,,,SCI.PHY.814,"SCI.PHY.448,
+SCI.PSC.244.8","A group of capacitors in series all have the same stored charge, a group of capacitors in parallel all have the same voltage."
+,RC Time Constant,,,,,,SCI.PHY.815,"SCI.PHY.438,
+SCI.PSC.243.8",A charging capacitor rapidly builds up charge at first but quickly slows down as it approaches its maximum capacity.
+,Internal Resistance,,,,,,SCI.PHY.816,"SCI.PHY.446,
+SCI.PSC.244.6",The voltage provided by a battery is less than the label says due to the parts of the battery charge must flow through.
+,Electric Power and Electrical Energy Use,,,,,,SCI.PHY.817,"SCI.PHY.435.2,
+SCI.PSC.243.52",The rate at which a device changes electric current to another form of energy and it's SI Unit of measurement. 
+,Energy Efficiency,,,,,,SCI.PHY.818,"SCI.PHY.447,
+SCI.PSC.244.7",The power used to do work divided by the power generated from that work.
+,Electric Safety,,,,,,SCI.PHY.819,"SCI.PHY.435.3,
+SCI.PSC.243.53",Introduction to short circuits and safety features and how to properly use electronics.
+,Electronic Signal ,,,,,,SCI.PHY.820,"SCI.PHY.435.4,
+SCI.PSC.243.54",Electric current that is used to encode information.
+,Electronic Component ,,,,,,SCI.PHY.821,"SCI.PHY.435.5,
+SCI.PSC.243.55",The parts used in electronic devices such as computers that change electric current so it can carry information.
+,Electronic Device,,,,,,SCI.PHY.822,"SCI.PHY.435.6,
+SCI.PSC.243.56","Devices that use electric current to encode, analyze, or transmit information."
+Magnetism,,,,,,,SCI.PHY.850,,
+,Magnet,,,,,,SCI.PHY.851,"SCI.PHY.451,
+SCI.PSC.245.1",Any magnet has two ends called poles where the magnetic effect is strongest.
+,Ferromagnetic Material,,,,,,SCI.PHY.852,"SCI.PHY.451.1,
+SCI.PSC.245.11",Introduction to magnetism and materials that can be magnetized. 
+,Magnetic Field,,,,,,SCI.PHY.853,"SCI.PHY.450,
+SCI.PSC.245","Invisible force created by charged, moving particles or solids with coordinated electron movement."
+,Earth as a Magnet,,,,,,SCI.PHY.854,"SCI.PHY.451.2,
+SCI.PSC.245.12",Earth has magnetic poles and a magnetic field over which it exerts magnetic force.
+,Magnetic Field Reversal,,,,,,SCI.PHY.855,"SCI.PHY.451.3,
+SCI.PSC.245.13",Changes in direction of the magnetic field of the Earth and evidence to support it.  
+,Why Earth Is a Magnet,,,,,,SCI.PHY.856,"SCI.PHY.451.4,
+SCI.PSC.245.14",The relationship between the inner structure of the Earth and it's magnetic field.
+,Using Earth's Magnetic Field,,,,,,SCI.PHY.857,"SCI.PHY.451.5,
+SCI.PSC.245.15",Introduction to the magnetic poles and the magnetosphere that surrounds Earth.
+Electromagnetism,,,,,,,SCI.PHY.900,,
+,Electromagnetism Overview,,,,,,SCI.PHY.901,"SCI.PHY.453,
+SCI.PSC.245.3",Magnetism produced by an electric current; uses and introduction to the right hand rule.
+,Discovery of Electromagnetism,,,,,,SCI.PHY.902,"SCI.PHY.453.1,
+SCI.PSC.245.31",History of magnetism produced by electricity. 
+,Electromagnet,,,,,,SCI.PHY.903,"
+SCI.PHY.454.2,
+SCI.PSC.245.42",A magnet and a solenoid can be used to generate electric current. 
+,Electromagnetic Devices ,,,,,,SCI.PHY.904,SCI.PSC.245.41,A coil of wire with electric current flowing through it. Current flowing through the coil produces a magnetic field. 
+,Solenoid,,,,,,SCI.PHY.905,"SCI.PHY.454.3,
+SCI.PSC.245.43,
+SCI.PHY.454.1",Introduction to common electronic devices contain electromagnets.
+,Current and Magnetism,,,,,,SCI.PHY.906,"SCI.PHY.456,
+SCI.PSC.245.6",A wire carrying a current in a magnetic field feels a force due to the magnetic field it creates.
+,Lorentz Force,,,,,,SCI.PHY.907,"SCI.PHY.455,
+SCI.PSC.245.5",A moving charged particle creates a magnetic field around it. 
+,Electromagnetic Induction,,,,,,SCI.PHY.908,"SCI.PHY.460,
+SCI.PSC.246",The process of generating electric current with a magnetic field.
+,Electromotive Force,,,,,,SCI.PHY.909,SCI.PHY.461,The potential difference within a circuit that is needed to maintain current flow. 
+,Electric Motor,,,,,,SCI.PHY.910,"SCI.PHY.457,
+SCI.PSC.245.7",A device that changes electrical energy into mechanical energy. Components include an electrical circuit with part of the wires inside a magnetic field. 
+,Generator,,,,,,SCI.PHY.911,"SCI.PHY.462,
+SCI.PSC.246.2",Devices that convert mechanical energy to electric energy.
+,Lenz's Law,,,,,,SCI.PHY.912,"SCI.PHY.464,
+SCI.PSC.246.4",An electric current always creates a force opposing the force inducing it. 
+,Transformers,,,,,,SCI.PHY.913,"SCI.PHY.466,
+SCI.PSC.246.6",A device used to increase or decrease voltage.
+,Electric Grid,,,,,,SCI.PHY.914,"SCI.PHY.466.1,
+SCI.PSC.246.61","An electrical system that generates, transmits, and distributes electric power throughout a region or country. "
+Modern Physics,,,,,,,SCI.PHY.950,,
+,Fundamental Particles,,,,,Fundamental-Particles-in-Physics,SCI.PHY.951,,Introduction to the theory known as The Standard Model.
+,Atomic Forces,,,,,Atomic-Forces-in-Physics,SCI.PHY.952,"SCI.PHY.500,
+SCI.PSC.250",Introduction to the three different forces acting inside of an atom.
+,Bohr's Atomic Model,,,,,Bohrs-Atomic-Model-in-Physics,SCI.PHY.953,SCI.PHY.512.1,"Also known as the planetary model, electrons are organized into energy levels with the nucleus at the center."
+,Quantum Mechanical Atomic Model,,,,,Quantum-Mechanical-Atomic-Model-in-Physics,SCI.PHY.954,"SCI.PHY.512.2,
+SCI.PSC.122.2","More exact than the Bohr Model, this model represents atomic energy levels "
+,Quarks,,,,,,SCI.PHY.955,"SCI.PHY.522,
+SCI.PSC.252.2","Components that make up protons, neutrons and electrons.  "
+,Standard Model of Particle Physics ,,,,,,SCI.PHY.956,,"Currently, the most accurate model of subatomic particles and the forces that govern them."
+,Isotopes and Nuclear Stability,,,,,,SCI.PHY.957,"SCI.PHY.523,
+SCI.PSC.252.3",Two or more forms of the same element that contain equal numbers of protons but different numbers of neutrons in their nuclei.
+,Radioactivity,,,,,Radioactivity-in-Physics,SCI.PHY.958,"SCI.PHY.524, 
+SCI.PSC.252.4",Some heavy elements have unstable atomic nuclei that occasionally change their chemical identity by releasing particles or energy.
+,Half-Life,,,,,Half-Life-in-Physics,SCI.PHY.959,"SCI.PHY.526, 
+SCI.PSC.252.6",Radioactive isotopes breakdown into other elements in an inverse exponential relationship to time. 
+,Radioactive Dating,,,,,Radioactive-Dating-in-Physics,SCI.PHY.960,"SCI.PHY.526.1, 
+SCI.PSC.252.61",The age of a once-living plant or animal can be determined based on the radioactive decay of common carbon isotopes.
+,Nuclear Reactions,,,,,,SCI.PHY.961,"SCI.PHY.525,
+SCI.PSC.252.5,",A reaction that changes the atomic nucleus.  Examples: fusion and fission.
+,Conservation of Mass and Energy in Nuclear Reactions,,,,,Conservation-of-Mass-and-Energy-in-Nuclear-Reactions-in-Physics,SCI.PHY.962,,"When atoms break apart, energy and matter become interchangeable according to Albert Einstein's famous equation E=mc^2."
+,Nuclear Fission,,,,,Nuclear-Fission-in-Physics,SCI.PHY.963,,Energy can be produced by the breakdown of large atomic nuclei.
+,Nuclear Fusion,,,,,Nuclear-Fusion-in-Physics,SCI.PHY.964,,Energy can be produced by the fusion of small atomic nuclei.
+,Nuclear Reactors,,,,,,SCI.PHY.965,"SCI.PHY.529,
+SCI.PSC.252.9","The nuclear reaction occurs which boils water into steam, the steam is used to spin a turbine, and the turbine turns an electrical generator."
+,Special Theory of Relativity,,,,,,SCI.PHY.966,SCI.PHY.530.3,Interpret motion between different objects that are moving at constant speeds relative to each other.
+,Time Dilation,,,,,,SCI.PHY.967,"SCI.PHY.531,
+SCI.PSC.253.1",As the velocity of an object approaches the speed of light it appears to move more slowly through time to a stationary observer.
+,Length Contraction,,,,,,SCI.PHY.968,"SCI.PHY.532,
+SCI.PSC.253.2",As the velocity of an object approaches the speed of light it appears to change length to a stationary observer.
+,General Theory of Relativity,,,,,,SCI.PHY.969,SCI.PHY.533,Explains how gravity affects space and time. 

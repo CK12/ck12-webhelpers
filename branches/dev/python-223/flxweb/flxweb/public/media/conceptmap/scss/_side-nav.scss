@@ -1,0 +1,38 @@
+$ns-module: 'side-nav';
+
+.#{$ns-module}-left, .#{$ns-module}-right {
+    position: absolute;
+    top: rem-calc(110);
+    z-index: 1;
+
+    transition: opacity $zero-state-duration;
+}
+
+.#{$ns-module}-left {
+    left: rem-calc(25);
+}
+
+.#{$ns-module}-right {
+    right: rem-calc(25);
+
+    &__button-group {
+        position: relative;
+
+        &:hover {
+            & > .tooltip-left {
+                @include tooltip--visible();
+            }
+        }
+
+        & > .tooltip-left {
+            @include tooltip-left($button-height * 1.5);
+        }
+    }
+}
+
+
+#{$zero-state} {
+    .#{$ns-module}-left, .#{$ns-module}-right {
+        @include hidden();
+    }
+}

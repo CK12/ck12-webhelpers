@@ -1,0 +1,5 @@
+upstream paster_sts {
+        server 127.0.0.1:7000 fail_timeout=0;
+}
+
+

@@ -1,0 +1,208 @@
+body {
+	font-family: Verdana,Arial,Helvetica,sans-serif;
+	font-size: 11px;
+	margin: 0;
+	*padding-top: 10px;
+	_padding-top: 10px;
+	overflow: hidden;
+}
+
+.clear {
+	clear: both;
+	font-size: 0px;
+	height: 0px;
+	line-height: 0px;
+}
+
+#doc {
+	text-align: left;
+	width: 790px;
+}
+
+#first-half {
+	float: left;
+	width: 280px;
+	padding: 2px;
+	height: 540px;
+	overflow: hidden;
+}
+
+.lstOpt {
+	width: 98%;
+	border: 1px solid #999;
+	height: 460px;
+	margin-bottom: 5px;
+	padding: 5px;
+}
+
+.se-accordion {
+	margin-top: 10px;
+}
+
+#group-tabs {
+	height: 520px;
+}
+
+#group-tabs .ui-widget-header {
+	background: none;
+	border: 0;
+	border-bottom: 1px solid #AAAAAA;
+}
+
+.ui-tabs-container {
+	padding: 0px;
+}
+
+.ui-tabs-nav {
+	padding: 0px;
+}
+
+.ui-tabs .ui-tabs-panel {
+	padding: 0px;
+}
+
+.ui-tabs .ui-tabs-nav li a {
+	padding: 2px 4px;
+}
+
+.cat-hover {
+	background-color: #aae;
+}
+
+.cat-selected {
+	background-color: #369;
+	font-weight: bold;
+	color: #fff;
+}
+
+.cat {
+	padding-left: 25px;
+}
+
+.cat-content {
+	display: block;
+}
+
+.ui-accordion .ui-accordion-content {
+	padding: 0
+}
+
+#second-half {
+	float: right;
+	width: 490px;
+	height: 540px;
+	overflow: hidden;
+	padding-right: 10px;
+}
+
+.SEContainer {
+	height: 490px;
+}
+
+#previewBlock {
+	border: 1px solid #999;
+}
+
+#preview-space {
+	vertical-align: middle;
+	background-color: #ffffff;
+	height: 225px;
+	overflow: auto;
+}
+
+#preview-title {
+	height: 20px;
+	border-bottom: solid 1px #ccc;
+	background-color: #9dce43;
+	text-align: center;
+	font-size: 12px;
+}
+
+#preview-error {
+	background-color: #FFF3F3;
+	border: 1px dashed #FF0000;
+	color: #FF0000;
+	font-size: 10pt;
+	line-height: 12pt;
+	margin: 10px 0px;
+	padding: 10px;
+	width: 300px;
+}
+
+#textBlock {
+	margin-top: 5px;
+	height: 215px;
+}
+
+.texEdit-caption {
+	text-align: left;
+	font-weight: bold;
+}
+
+.txtEdit {
+	width: 100%;
+	height: 195px;
+	border: 1px solid #ccc;
+	margin: 0px;
+	overflow: auto;
+	font-size: 12pt;
+}
+
+.tex-fontselect {
+	float: right;
+	width: 40%;
+	text-align: right;
+}
+
+.button-panel {
+	margin: 5px auto;
+/*	padding-left: 140px; */
+	text-align: left;
+	height: 26px;
+	width:420px;
+	text-align:center;
+}
+
+.button-panel .chkbox {
+	*position: relative;
+	*left: -50px;
+}
+
+.button-panel .chkbox input {
+	background: none;
+	border: 0px;
+}
+
+.button-panel .chkbox b {
+	position: relative;
+	top: -2px;
+}
+
+/* jQuery Tabs */
+
+.tabs-nav li {
+	min-width: 0;
+}
+
+.tabs-nav a {
+	font-size: 11px;
+}
+
+.tabs-nav .tabs-selected a span, .tabs-nav li a span {
+	padding-top: 2px;
+}
+
+.tabs-nav a span {
+	padding-top: 3px;
+	min-width: 0px;
+	width: 0px;
+}
+
+* > .tabs-nav a span {
+	height: auto;
+	width: auto;
+}
+
+.button-panel #cancel {
+	float: left;
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ContentApp">
+  <Id>98345999-1464-1434-1234-123456789CBA</Id>
+  <Version>1.0.1</Version>
+  <ProviderName>CK-12 Foundation</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="CK-12 Math Resources">
+  </DisplayName>
+  <Description DefaultValue="Find Videos, Real World examples, and text for math concepts to embed in your presentation.">
+  </Description>
+  <IconUrl DefaultValue="http://www.ck12.org/athenaapp/media/athenaapp/images/resources_math_app_32x32.png">
+  </IconUrl>
+  <HighResolutionIconUrl DefaultValue="http://www.ck12.org/athenaapp/media/athenaapp/images/resources_math_app_64x64.png">
+  </HighResolutionIconUrl>
+  <SupportUrl DefaultValue="http://help.ck12.org/hc/en-us/sections/200348334"></SupportUrl>
+  <Hosts>
+    <Host Name="Presentation"/>
+  </Hosts>  
+  <DefaultSettings>
+      <SourceLocation DefaultValue="https://www.ck12.org/athenaapp/math/"></SourceLocation>
+    <!--MAX WIDTH==1000: Only Incontent MOE can have both width and height-->
+    <RequestedWidth>960</RequestedWidth> 
+    <RequestedHeight>540</RequestedHeight>
+  </DefaultSettings>
+  <Permissions>Restricted</Permissions>
+  <!--Allowed snapshot can be true or false for InContent Agaves only-->
+  <AllowSnapshot>true</AllowSnapshot>
+</OfficeApp>

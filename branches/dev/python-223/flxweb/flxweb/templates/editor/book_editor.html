@@ -1,0 +1,239 @@
+{% extends "editor/artifact_editor_common.html" %}
+
+{% block stylesheets %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.url_css('book_editor.css') }}" />
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.url_css('../common/css/tangerine.pagination.css') }}" />
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.url_css('../common/css/google.docs.css') }}" />
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+<script language="JavaScript" type="text/javascript">
+	require(['main'], function(){
+		require(['main-editor-flexbook']);
+	});
+</script>
+{% endblock %}
+
+{% block extra_head %}
+{{ super() }}
+<script type="text/javascript">
+var pageType = "FlexBook Editor";
+</script>
+{% endblock %}
+
+{% block artifact_navigation %}{% endblock %}
+
+{% block ajaxwait %}
+	{{ super() }}
+	<div id="page-disable" class="page-disable js-page-disable hide"></div>
+	<div id="loading-icon" class="loading-icon js-loading-icon">
+		<img alt="loading" src="{{ h.asset_image('common/images/icon_loading.gif') }}">
+	</div>
+{% endblock %}
+
+{% block artifact_add_content %}
+	<!-- hide for collaborator -->
+	<div id="sideNav" data-menu-link="#editor_add_more" class="hide-for-collaborator hide">
+		<a class="actionLink button turquoise" href="#">{{ _("Add Content") }} <span>&#9660;</span></a>
+		<a id="btn_addcontent" href="#" title="{{ _('Add Content from Library') }}">{{ _("Search CK12") }}</a>
+		<a class="js_addconcept" href="{{ h.url('create-artifact',artifact_type='concept')}}?context={{ c.artifact.getPermaHandle(include_version=True) }}" title="{{ _('Add Content With Our Writer') }}">{{ _("Write a Modality") }}</a>
+		<a id="btn_addchapter" href="#"  title="{{ _('Add a Chapter') }}">{{ _("New Chapter") }}</a>
+		<h2>CK-12 Labs</h2>
+		<!-- <a id="btn_xdtimport" href="#" title="{{ _('Upload Word File') }}">{{ _("Word File") }}</a> -->
+		<!-- <a id="btn_gdtimport" href="#" title="{{ _('Import from Google Doc') }}">{{ _("Google Doc") }}</a> -->
+	</div>
+{% endblock %}
+
+{% block content_body %}
+<div class="js_detailbody js_book_editor">
+	<h2>{{ _("Table of Contents") }}</h2>
+	<div id="chapter_list">
+	<ul class="chapterlist js_artifact_list"
+		data-controller="editor"
+		data-booktype = "{{ c.artifact.artifactType }}"
+		data-book_handle = "{{ c.artifact.handle }}"
+		data-realm = "{{ c.artifact.realm }}"
+		data-version = "{{ c.artifact.getVersionNumber() }}"
+	>
+	{% for child in c.artifact.getChildren() %}
+		{% set chapter_idx = loop.index %}
+		{% set owned = child.is_owner(c.user) %}
+		<li class="ui-corner-all artifact_type_{{ child.artifactType }} js_artifact_list_item"
+			data-artifactId="{{ child.artifactID }}"
+			data-artifactType="{{ child.artifactType }}"
+			data-artifactRevisionID = " {{ child.get_revision_id() }}"
+			data-islatest = "{{ child.is_latest() }}"
+			data-chapterowner = "{{ owned }}"
+			data-draft = "{% if child.hasDraft %}true{% endif %}"
+			>
+			<div>
+				<div class="artifact_row js_artifact_row">
+					{% if child.artifactType == 'chapter' %}
+						<div class="row_expand_toggle_parent js-expand-toggle">
+							<div class="js_expand_toggle row_expand_toggle ui-icon ui-icon-triangle-1-e"></div>
+						</div>
+						<span class="index_label js_index_label child">{{ chapter_idx }}</span>
+						<span class="row_artifact_title js_artifact_title">{{ child.title|escape }}</span>
+						<span class="draft-chapter">
+							{% if child.draftChildrenCount %}
+								Drafts({{child.draftChildrenCount}})
+							{% endif %}
+						</span>
+						<span class="assignment-count" data-count=""></span>
+					{% else %}
+						<span class="index_label js_index_label grandchild">{{ chapter_idx }}</span>
+						<div class="row_artifact_title js_artifact_title">
+							<span class="draft-chapter-title">{{ child.title|escape }}</span>
+							{% if child.hasDraft == True %}
+								<span class="draft-section">DRAFT</span>
+							{% endif %}
+						</div>
+					{% endif %}
+					<div class="actions {% if child.artifactType == 'chapter' %}js_chapter_actions {% else %}js_concept_actions {% endif %}hide-for-collaborator hide">
+						<!-- Don't show chapter actions for collaborator -->
+						<a class="js_row_handle" title="{{ _('Rearrange')  }} " href="#"><span class="icon-arrow_drag row-action-icon"></span></a>
+						<a class="js_row_remove" title="{{ _('Remove') }}" href="#"><span class="icon-delete_cc row-action-icon"></span></a>
+						{% if not artifact.is_new() %}
+							{% if child.artifactType == 'chapter' %}
+								<a class="js_row_edit {% if ((not child.is_latest()) and owned) %}hide{% endif %}" title="{{ _('Edit') }}">
+									<span class="icon-edit"></span>
+								</a>
+							{% else %}
+								<a class="js_row_edit{% if ((not child.is_latest()) and owned) %} hide{% endif %}" title="{{ _('Edit') }}" href="{{ h.url(controller='editor', action='artifact_editor_context_book', booktype=c.artifact.artifactType, book_handle=artifact.handle, realm=c.artifact.realm, position='%s.0'%(loop.index), section_title=child.handle, version=c.artifact.getVersionNumber() ) }}">
+									<span class="icon-edit"></span>
+								</a>
+							{% endif %}
+							<a href="#" class="js_row_update {% if (child.is_latest() or not owned) %}hide{% endif %}" title="{{ _('Update') }}"><span class="icon-loop"></span></a>
+						{% endif %}
+					</div>
+					<div class="clear"></div>
+				</div>
+				{% if child.artifactType == 'chapter' %}
+				<div class="editor_chapterinfo hide" id="chapterinfo_{{ child.artifactID }}">
+					{% if child.hasChildren() %}
+					<ul class='conceptlist child js_artifact_list' data-artifactID="{{ child.artifactID }}">
+
+					</ul>
+					{% else %}
+					<ul class='conceptlist child js_artifact_list js_empty' data-artifactID="{{ child.artifactID }}">
+					</ul>
+					{% endif %}
+				</div>
+				{% endif %}
+			</div>
+		</li>
+	{% endfor %}
+	</ul>
+	</div>
+
+</div>
+{% endblock %}
+
+
+{% block before_content %}
+{% if c.user.isAdmin() %}
+    {% set user_isadmin = 'user_isadmin' %}
+{% else %}
+    {% set user_isadmin = '' %}
+{% endif %}
+<div class="book-editor-top-container js-book-editor-top-container show-for-content-admin hide {{ user_isadmin }}">
+	<a class="button turquoise manage-collaborators" id="manageCollaborators" title="Manage Collaborators">
+		<span>Manage Collaborators</span><span id="collabCount">(0)</span>
+	</a>
+</div>
+
+{% endblock %}
+
+{% block hidden_divs %}
+{{ super() }}
+<div id="ck12_template_tinymce">
+	<div class="ck12_tinymce_container">
+		<div class="sectioneditbuttonwrap">
+			<a class="btn_apply btn" title="{{_('Apply')}}" href="#">{{_('Apply')}}</a>
+			<a class="btn_cancel" href="#" "{{_('Cancel')}}">{{_('Cancel')}}</a>
+		</div>
+		<textarea style="width:100%" class="editor_content"></textarea>
+		<div class="sectioneditbuttonwrap">
+			<a class="btn_apply btn" title="{{_('Apply')}}" href="#">{{_('Apply')}}</a>
+			<a class="btn_cancel" href="#" "{{_('Cancel')}}">{{_('Cancel')}}</a>
+		</div>
+	</div>
+</div>
+<div id="ck12_template_editlink">
+	<a class="ck12-editor-editlink ck12-editor-discard" href="#" title="{{ _('Edit') }}"> [ {{ _('Edit') }} ]</a>
+</div>
+<div id="js_dialog_addcontent" data-dialogurl="{{ h.url('dialog/addcontent/',qualified=True) }}" data-dialogtitle="{{ _("Add Content from Library") }}"></div>
+<div id="js_dialog_addfromgdocs" data-dialogurl="{{ h.url('dialog/addfromgdocs/',qualified=True) }}" data-dialogtitle="{{ _("Import from Google Docs") }}"></div>
+<div id="js_dialog_uploadworddoc" data-dialogurl="{{ h.url('dialog/uploadworddoc/',qualified=True) }}" data-dialogtitle="{{ _("Import a Word Document") }}"></div>
+<div id="js_dialog_chapteredit" data-dialogurl="{{ h.url('dialog/chapteredit/',qualified=True) }}" data-dialogtitle="{{ _("Edit Chapter") }}" data-dialognocache="true" data-dialogueparentclass="chapter-editor-wrapper js_ck12_dialog_common"></div>
+<div id="js_dialog_managecollaborators" data-dialogurl="{{ h.url('dialog/managecollaborators/',qualified=True) }}" data-dialogtitle="{{ _("Manage Collaborators for Editing") }}" data-dialognocache="true" data-dialogueparentclass="manage-collaborators-dialog js_ck12_dialog_common"></div>
+<div id="js_dialog_customcover" data-dialogtitle="{{ _("Change Cover Image") }}">
+	<img id="cover_preview" style="border:1px solid #CCCCCC" src="{{ artifact|ck12_artifact_cover_thumbnail_large }}" title="Cover Image" />
+	<div class="js_loading hide" style="display:block"> <img src="{{ h.url_images('icon_loading.gif') }}" width="43" height="11" /> </div>
+	<div class="cover_image_upload_holder">
+		<div id="customcover_form_container" class="button turquoise">
+			<form id="frm_customcover" name="frm_customcover"  method="POST" enctype="multipart/form-data" action="{{ h.url('customcover',qualified=True) }}">
+			<input type="hidden" id="customcover_booktitle" name="book_title" value="{{ c.artifact.title|escape }}" />
+			<input id="file_coverimage" type="file" title="Upload Image" class="coverimage_input" name="file_coverimage" />
+			<div class="coverimage_btn_display js_cover_image_btn">{{ _("Upload Image") }}</div>
+			</form>
+		</div>
+		<div class="covereditapplywrap">
+			<input id="btn_coveredit_apply" class="button dusty-grey" type="submit" value="{{ _('Apply') }}" />
+		</div>
+	</div>
+</div>
+<script id="ck12_template_concept_row" type="text/template">
+	<li class="ui-corner-all artifact_type_<%=  artifactType  %> js_artifact_list_item"
+		data-artifactId="<%=  artifactID  %>"
+		data-artifactType="<%=  artifactType  %>"
+		data-artifactRevisionID = " <%=  artifactRevisionID  %>" >
+		<div>
+			<div class="artifact_row js_artifact_row">
+				<div class="index_label js_index_label grandchild"> <%=  index  %> </div>
+				<div class="row_artifact_title js_artifact_title" > <%=  _.escape(title)  %> </div>
+				<div class="actions grandchild js_concept_actions">
+					<a class="js_row_handle" title="Rearrange" href="#"><span class="icon-arrow_drag row-action-icon"></span></a>
+					<a class="js_row_remove" title="Remove" href="#"><span class="icon-delete_cc row-action-icon"></span></a>
+					<a class="js_row_edit" title="Edit" href="{{ h.url(controller='editor', action='edit_artifact', perma_handle=c.artifact.getPermaHandle(True).rstrip('/') )}}section/<%=  position  %>/<%=  handle  %>/,"><span class="icon-edit"></span></a>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</li>
+</script>
+<script id="ck12_template_chapter_row" type="text/template">
+	<li class="ui-corner-all artifact_type_<%=  artifactType  %> js_artifact_list_item"
+			data-artifactId="<%=  artifactID  %>"
+			data-artifactType="<%=  artifactType  %>"
+			data-artifactRevisionID = "<%=  artifactRevisionID  %>"
+			data-islatest = "<%= isLatest %>" >
+			<div>
+				<div class="artifact_row js_artifact_row">
+					<div class="row_expand_toggle_parent js-expand-toggle">
+						<div class="js_expand_toggle row_expand_toggle ui-icon ui-icon-triangle-1-e"> </div>
+					</div>
+					<span class="index_label js_index_label child"><%=  index  %></span>
+					<span class="row_artifact_title js_artifact_title"><%=  _.escape(title)  %></span>
+					<span class="draft-chapter"></span>
+					<span class="assignment-count"></span>
+					<div class="actions js_chapter_actions">
+						<a class="js_row_handle" title="Rearrange" href="#"><span class="icon-arrow_drag row-action-icon"></span></a>
+						<a class="js_row_remove" title="Remove" href="#"><span class="icon-delete_cc row-action-icon"></span></a>
+						<a class="js_row_edit" title="Edit" href="#"><span class="icon-edit"></span></a>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="editor_chapterinfo hide" id="chapterinfo_<%=  artifactID  %>">
+					<ul class='conceptlist child js_artifact_list js_empty' data-artifactID="<%=  artifactID  %>">
+
+					</ul>
+				</div>
+			</div>
+		</li>
+</script>
+{% endblock %}
+{% block extra_content %}{% endblock %}
+{% block comments %}{% endblock %}

@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns:dc="http://www.ck12.org/dc/will_create_ns"
+unique-identifier="chapterid" version="2.0">
+
+  <chapter>
+    <metadata>
+      <chapterid>5</chapterid>
+      <title>Cellular Respiration</title>
+      <description>Topics in this chapter include:powering the cell: cellular respiration and glycolysis,into the mitochondrion: making ATP with oxygen,anaerobic respiration: ATP, new fuels and yogurt without oxygen.
+     </description>
+    </metadata>
+    
+    <lessons>
+      <item id="powering_the_cell-cellular_respiration_and_glycolysis" href="powering_the_cell-cellular_respiration_and_glycolysis.html" sequence="1" />
+      <item id="into_the_mitochondrion-making_ATP_with_oxygen" href ="into_the_mitochondrion-making_ATP_with_oxygen.html" sequence="2" />
+	<item id="anaerobic_respiration-ATP_new_fuels_and_yogurt_without_oxygen.html" href="anaerobic_respiration-ATP_new_fuels_and_yogurt_without_oxygen.html" sequence="3" />
+	
+      </lessons>
+  </chapter>
+
+</package>

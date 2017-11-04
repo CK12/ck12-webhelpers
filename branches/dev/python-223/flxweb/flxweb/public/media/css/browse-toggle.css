@@ -1,0 +1,413 @@
+.level-1-concept {
+    background-color: #F9F9F5;
+    color: #68665F;
+    font-family: "ProximaNova", "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    margin-bottom: 3px;
+    border-radius: 3px;
+}
+.level1-title-1 {
+	font-family: "ProximaNova";
+    font-size: 16px;
+    color: #00aba4 !important;
+    font-weight: regular;
+    padding-bottom: 2px;
+    padding-top: 6px;
+   
+}
+.level-two-title-1 {
+	padding-bottom: 2px;
+	padding-left: 73px;
+    padding-top: 7px;
+}
+.level2-title-1 {
+	font-family: "ProximaNova";
+    font-size: 16px;
+    color: #00aba4 !important;
+    font-weight: regular;
+    padding-top: 6px;
+    padding-bottom: 3px;
+     line-height:30px
+}
+.noSubLevels {
+	padding-left:49px;
+}
+.noSubLevels .level1-title {
+	color:#00aba5 !important;
+}
+.group-name-link-l2 {
+    color: #00aba4;
+    line-height:30px
+}
+.show-child-concepts .group-name-link {
+    color:#ffffff;
+}
+.level-1-concept:hover {
+    cursor: pointer;
+    background-color:#00ABA5;
+ }
+.level2_parent .level-2-concept-name, .level-3-concept-container.l3hasChild .level-two-title {
+    cursor: pointer;
+    display: block;
+}
+.level2_parent .level-2-concept-name:hover {
+    background-color:#F9F9F5;
+}
+.level-1-concept:hover .group-name-link {
+    color: #FFFFFF;
+} 
+.level-1-concept:hover .conceptlist-icon {
+    color: #065D86;
+} 
+.level-2-concept:hover {
+    cursor: pointer;
+}
+.level-2-concept {
+    font-family: "ProximaNova";
+    font-size: 16px;
+    line-height: 22px;
+    position: relative;
+    cursor: pointer;
+    margin-left:35px;
+}
+.level-2-concept.level2-list-visible {
+	background-color: #F9F9F5;
+}
+.level2-list {
+    font-family: "ProximaNova";
+    font-size:16px;
+    color:#00aba4;
+}
+.concepts{
+    position:relative;
+}
+.level2-list .concepts{
+    width: 100%;
+    -webkit-width: 100%;
+    display: inline-block;
+}
+.level2-list .concepts .concepts{
+    width: 100%;
+}
+#view_browse.toggle-css .announce {
+    padding: 0 0 20px 21px;
+}
+.level2-number {
+    font-family: "ProximaNova";
+    font-weight: normal !important;
+    font-size: 13px;
+    color: #56544D;
+    line-height: 22px;
+    width:26px;
+    display: inline-block;
+    vertical-align: top;
+}
+.level-3-concept-container.l3hasChild .level-two-title {
+    margin-top: 3px;
+    padding: 3px 0px 3px 48px;
+    position: relative;
+}
+.sublist-title {
+    /* display: inline-block; */
+    font-size:13px;
+    color: #00aba4;
+    font-family: "ProximaNova";
+    font-weight: normal !important;
+    line-height:22px;
+}
+.level3-list .concepts {
+    padding-bottom: 5px;
+    padding-left: 73px;
+}
+.rightColumn {
+    padding-left: 10px !important;
+}
+#view_browse.toggle-css {
+    /* position:relative; */
+    padding: 50px 0px;
+}
+.list-concepts {
+    position: relative;
+    top:4px;
+}
+.list-concepts-bottom {
+    top: 0px;
+}
+.hide-l2-concepts {
+    display:none;
+}
+.hide-l3-concepts {
+    display:none;
+}
+.hide-concepts {
+    display:none;
+}
+.indent-concepts {
+    opacity:1;
+    transition-delay:0s;
+}
+.l3hasChild .level2-title {
+	color: #56544D!important;
+}
+.show-lists{
+    padding-bottom: 20px;
+    padding-top: 0px;
+}
+.conceptlist-icon{
+    font-size: 13px;
+    color: #8E8774;
+}
+.expand-icon{
+    font-size: 12px;
+    margin-right: 6px;
+    font-weight: normal;
+}
+#expand-all-container {
+    height: 50px;
+}
+.expand-all{
+    font-size: 18px;
+    position: relative;
+    float: right;
+    right: 10px;
+}
+.expand-all-bottom {
+    top: -53px;
+    right: -12px;
+}
+.browse-announce {
+    width:375px;
+}
+.no-toggle-css .browse-announce {
+	padding: 0 0 20px 1px;
+}
+#announce.toggle-css {
+    padding-bottom: 32px;
+}
+.group-name{
+    display: inline-block;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    position: relative;
+    padding-left: 10px;   
+}
+.icon-arrow3-up{
+    color: #56544D;
+}
+.level1-title{
+    font-family: "ProximaNova";
+    color: #565440 !important;
+    font-size: 16px;
+    line-height:30px
+}
+.level-two-title{
+	padding-left: 48px;
+}
+
+.level2-title{
+    font-family: "ProximaNova";
+    font-size: 16px;
+    color: #00aba4 !important;
+    font-weight: regular;
+    line-height: 30px;
+}
+
+.level3-title{
+    font-family: "ProximaNova";
+    font-size: 16px;
+    color: #00aba4 !important;
+    font-weight: regular;
+    padding-top: 5px;
+    padding-bottom: 3px;
+}
+
+.level3-list-visible .level2-title{
+    color: #56544D!important; 
+    line-height:30px;
+}
+.level3-list-visible.level2-title{
+    color: #56544D!important;
+    font-weight:bold !important;
+}
+#concept-list-container {
+	margin: 0 auto;
+	width: 98%;
+}
+#concept-list-container .concept-container {
+	margin-bottom: 3px;
+}
+#concept-list-container .level-1-concept {
+	background-color: #F9F9F5;
+    border-radius: 3px;
+    display: block;
+    padding: 15px 15px 15px 45px;
+    position: relative;
+}
+#concept-list-container .level-1-concept.clicked {
+    padding-left: 52px;
+}
+#concept-list-container .concept-arrow-image {
+	background-image: url("../common/images/browse-ui-arrow-grey.svg");
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 12px;
+    left: 25px;
+    margin-top: -7px;
+    position: absolute;
+    top: 50%;
+    width: 8px;
+}
+#concept-list-container .concept-name {
+	color: #56544D;
+    line-height: 30px;
+}
+#concept-list-container .level-1-concept:hover {
+    cursor: pointer;
+    background-color:#00ABA5;
+ }
+#concept-list-container .level-1-concept:not(.clicked):hover .concept-arrow-image {
+    background-image: url("../common/images/browse-ui-arrow-white.svg");
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 8px;
+    width: 12px;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+#concept-list-container .level-1-concept.clicked .concept-arrow-image {
+    background-image: url("../common/images/browse-ui-arrow-white.svg");
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 8px;
+    margin-top: -5px;
+    width: 12px;
+}
+#concept-list-container .level-1-concept.clicked .concept-name, #concept-list-container .level-1-concept:hover .concept-name {
+    color: #FFFFFF;
+}
+#concept-list-container .level-1-concept:hover .concept-arrow-image {
+    margin-top: -5px;
+}
+#concept-list-container .level-1-concept.show-child-concepts {
+    background-color: #00ABA5;
+}
+#concept-list-container .level1-inner-container, #concept-list-container .level2-list {
+    padding: 0px 0px 0px 35px;
+}
+#concept-list-container .level-2-concept-name, .group-name-link-l2 {
+    padding-left: 48px;
+    position: relative;
+    padding-top: 3px;
+    padding-bottom: 3px
+}
+#concept-list-container .level-2-concept-container:not(.level2_parent) .concept-name {
+	color: #00ABA5;
+}
+#concept-list-container .level-2-concept-container:not(.level2_parent) {
+	padding-bottom: 3px;
+    padding-top: 3px;
+}
+#concept-list-container .concept-group-name {
+    padding-top: 4px;
+}
+#concept-list-container .level-2-concept-name.clicked,
+#concept-list-container .level-two-title.clicked {
+	background-color: #F9F9F5;
+}
+#concept-list-container .level-2-concept-name.clicked .concept-arrow-image,
+#concept-list-container .level-two-title.clicked .concept-arrow-image {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+#concept-list-container .level-one-concept-title {
+    padding-bottom: 2px;
+    padding-left: 48px;
+    padding-top: 7px;
+}
+#concept-list-container .level-3-concept-container.l3hasChild .level-two-title:hover {
+	background-color: #F9F9F5;
+	cursor: pointer;
+}
+@media only screen and (max-width: 767px){
+    .level-one-title {
+    	max-width:70% !important;
+    	overflow: hidden;
+    	text-overflow: ellipsis;
+    	display: inline-block;
+	    padding-bottom: 9px;
+	    padding-top: 12px;
+	    left: 51px;
+	    position: relative;
+    }
+    .level-one-title-1{
+    	padding-left: 110px;
+    }
+    .level-one-title.noSubLevels{
+    	max-width:100% !important;
+    	overflow: hidden;
+    	text-overflow: ellipsis;
+	    padding-bottom: 9px;
+	    padding-top: 12px;
+	    left: 53px;
+	    position: relative;
+    }
+    .level-2-concept-name {
+        display: inline-block;
+    }
+    .level-2-concept-name .concept-name {
+        line-height: 22px;
+    }
+    .level-two-title {
+	    display: inline-block;
+        margin-bottom: 5px;
+	}
+	.level-two-title.noSubLevels2{
+    	max-width:100% !important;
+    }
+    .level2-title{
+	    line-height: 22px;
+    }
+    .level-2-concept {
+	    font-family: "ProximaNova";
+	    font-size: 15px;
+	    line-height: 22px;
+	    position: relative;
+	    padding-left: 27px;
+	}
+   .group-name {
+        display: inline-block;
+        max-width: 76%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        position: relative;
+        top: 5px;
+        left: 55px;
+    }
+    .rightColumn {
+        padding-left: 0px !important;
+    }
+	.noSubLevels {
+    	padding-left: 0px;
+	}
+	.l3hasChild {
+		position:relative;
+	}
+	.divider-line-l3 {
+    	margin-left: 115px;
+	}
+}
+@media only screen and (min-width:320px){
+    .list-concepts {
+        margin-left: 4px !important;
+        margin-right: 4px !important;
+    }
+    .inner-container-padding{
+       padding-right:10px !important;
+    }
+}

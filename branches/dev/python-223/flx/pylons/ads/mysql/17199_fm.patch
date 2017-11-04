@@ -1,0 +1,17 @@
+#! /bin/bash
+# -----------------------------------------------------------------------------------
+# CHANGE SET [17199]
+#   1. Added triggers to delete FlexMath ADS groups, students, and subjects.
+# -----------------------------------------------------------------------------------
+
+source funcs.sh
+
+echo 'Apply change set 17199 (FlexMath-specific changes)'
+
+echo '... Update triggers '
+set_updatescript 'students' 'students.trigger'
+set_updatescript 'groups' 'groups.trigger'
+set_updatescript 'subjects' 'subjects.trigger'
+
+echo 'Done'
+

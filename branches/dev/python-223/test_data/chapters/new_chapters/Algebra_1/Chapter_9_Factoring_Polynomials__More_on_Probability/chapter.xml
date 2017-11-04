@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns:dc="http://www.ck12.org/dc/will_create_ns"
+unique-identifier="chapterid" version="2.0">
+
+  <chapter>
+    <metadata>
+<chapterSeq>9</chapterSeq>
+
+<book>Algebra I</book>
+
+      <chapterid></chapterid>
+      <title>Factoring Polynomials; More on Probability</title>
+      <description>Topics in this chapter:Addition_and_Subtraction_of_Polynomials,Special_Products_of_Polynomials,Factoring_Quadratic_Expressions,Factoring_Special_Products,Factoring_Polynomials_Completely.
+     </description>
+    </metadata>
+    
+    <lessons>
+      <item id="Addition_and_Subtraction_of_Polynomials" href="Addition_and_Subtraction_of_Polynomials.html" sequence="1" />
+      <item id="Multiplication_of_Polynomials" href ="Multiplication_of_Polynomials.html" sequence="2" />
+      <item id="Special_Products_of_Polynomials" href ="Special_Products_of_Polynomials.html" sequence="3" />      
+      <item id="Polynomial_Equations_in_Factored_Form" href ="Polynomial_Equations_in_Factored_Form.html" sequence="4" />
+      <item id="Factoring_Quadratic_Expressions" href ="Factoring_Quadratic_Expressions.html" sequence="5" />
+      <item id="Factoring_Special_Products" href ="Factoring_Special_Products.html" sequence="6" />
+      <item id="Factoring_Polynomials_Completely" href ="Factoring_Polynomials_Completely.html" sequence="7" />
+    </lessons>
+  </chapter>
+
+</package>

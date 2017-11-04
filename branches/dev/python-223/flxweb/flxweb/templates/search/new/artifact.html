@@ -1,0 +1,520 @@
+<!--
+*************************************************************************** 
+Macro: ck12_grid_artifact
+Macro to display the artifacts in a grid view. Note this macro only displays
+one item within the grid view.
+***************************************************************************
+-->
+{% macro ck12_grid_artifact (artifact) %}
+<div class="griditem">
+	<div class="griditemallwrap">
+		<div class="griditemouterwrap ui-corner-all">
+			<div class="griditeminnerwrap ui-corner-all">
+				<div class="griditemimgwrap ui-corner-all">
+					<a href="{{ config.webroot_url }}{{ artifact.getPermaHandle() }}"><img src="{{ artifact|ck12_artifact_cover_thumbnail_large }}" alt="{{ artifact.title|escape }}" title="{{ artifact.title|escape }}"/></a>
+					<div class="griditemimgoverlap"></div>
+					<div class="griditemreview{% if artifact.isFavorite() %} reviewed{% endif %}"></div>
+					<div class="griditemview"></div>
+				</div>
+				<div class="griditemtitle">
+					{{ artifact.title|truncate(40)|escape }}
+				</div>
+				<div class="griditemsummary">
+					{{ artifact.summary|truncate(80)|escape }}
+				</div>
+			</div>
+		</div>
+		<div class="griditemshadow"></div>
+	</div>
+</div>
+
+{% endmacro %}
+
+<!--
+*************************************************************************** 
+Macro: ck12_list_artifact
+Macro to display the artifacts in a list view. Note this macro only displays
+one item within the list view.
+***************************************************************************
+-->
+{% macro ck12_list_artifact (artifact) %}
+<div class="listitem row collapse">
+
+	{% if artifact.get('isModality') == 1 or artifact.get('isModality') == 0 %}
+		{% set handle = h.artifact_url(artifact) %}
+		{% set group_classname = 'artifact' %}
+		{% set modality_icon_alt = artifact.display_label() %}
+		{% if artifact['modality_group'] %}
+			{% set group_classname = artifact['modality_group']['group_classname'] %}
+		{% endif %}
+		{% if artifact['modality'] %}
+			{% set modality_icon_alt = artifact['modality']['display_label'] %}
+		{% endif %}
+		<div class="listitemimg small-3 large-2 columns {% if artifact.is_flexbook() %}book{% endif %}">
+			<a class="listitemimglink" href="{{handle}}"><img src="{{ artifact|ck12_thumbnail }}" alt="{{ artifact.title|escape }}" title="{{ artifact.title|escape }}" /></a>
+		</div>
+		<div class="listiteminfo small-8 small-offset-1 large-offset-1 large-9 columns {% if artifact.is_flexbook() %}book{% endif %}">
+			<h2 class="listitemtitle"><a href="{{handle}}" title="{{ artifact.title|escape }}" class="group_{{group_classname}}">{{ artifact.title|escape }}</a></h2>
+			
+			<!-- Summary -->
+			<div class="summary hide-for-small">{{ (artifact.summary or '')|truncate(150)|escape }}</div>
+			<!-- Created By -->
+			{% if artifact.creator %}
+			<div class="creator">{{ _("Created by:") }}&nbsp;{{ artifact.creator }}</div>
+			{% endif %}
+			<!-- Difficulty Level -->
+			{% if artifact.level %}
+			<div class="difficulty hide-for-small">{{ _("Difficulty level:") }}&nbsp;<span class="level">{{ artifact.level|title }}</span></div>
+			{% endif %}
+			
+			{% set like_image_class = 'noratings'%}
+			{% set like_count = ''%}
+			{% if artifact.get('voting') and artifact.get('voting').get('like') > 0 %}
+				{% set like_image_class='ratings'%}
+				{% set like_count = artifact.get('voting').get('like') %}
+			{% endif %}
+			<!-- Voting commented out
+			<div class="voting {{like_image_class}}"></div>
+			{% if like_count %}
+				<div class="rating_count">{{like_count}}</div>
+			{% endif %}
+			-->
+			<div class="{% if group_classname == 'artifact' %}icon-book {% else %} group_{{group_classname}} imgwrap {% endif %} modality_icon" alt="{{modality_icon_alt}}" title="{{modality_icon_alt}}"></div>
+		</div>
+	{% elif artifact.type == 'domain' %}
+		{% set branch = artifact.get_branch() %}
+		{% set handle = h.url('concept',branch=branch.slug(),artifact_title=artifact.handle) %}
+		{% set handle_all = h.url('concept',branch=branch.slug(),artifact_title=artifact.handle, by='all') %}
+		<div class="listitemimg small-3 large-2 columns">
+			<a href="{{ handle }}"><img src="{{ artifact|ck12_thumbnail  }}" alt="{{ artifact.name|escape }}" title="{{ artifact.name|escape }}" /></a>
+		</div>
+		<div class="listiteminfo small-8 small-offset-1 large-offset-1 large-9 columns">
+			<h2 class="listitemtitle"><a href="{{handle}}" title="{{ artifact.name|escape }}">{{ artifact.name|escape }}</a> </h2>
+			{% if artifact.modality_groups %}
+			<ul id="modality_group_list" class="hide-for-small">
+			{% for group in artifact.modality_groups %}
+				<li class="modality_groups group_{{group.group_classname}}">
+					<a href="{% if group.group_classname == 'all' %}{{ handle }}{% else %}{{ handle_all }}{% endif %}#{{group.group_classname}}" >
+						<span class="imgwrap"></span>
+						{# {% if group['total_modality_count'] %}({{group['total_modality_count']}}){% endif %} #}
+						<span class="text">{{ group.display_text.lower() }}</span>
+					</a>
+				</li>
+			{% endfor %}	
+			</ul>
+			{% endif %}
+			<div class="group_node imgwrap modality_icon" alt="{{ _('Concept')}}" title="{{ _('Concept')}}"></div>
+		</div>	
+	{% endif %}
+		<div class="clear"></div>
+</div>
+{% endmacro %}
+
+<!--
+*************************************************************************** 
+Macro: ck12_list_artifact_simple
+Macro to display the artifacts in a simpler list view.
+Only shows artifact title in a div
+***************************************************************************
+-->
+{% macro ck12_list_artifact_simple (artifact) %}
+<div class="listitem clearfix">
+	<div class="listitemtitle" 
+		data-artifactid="{{ artifact.id }}" 
+		data-artifacttype="{{ artifact.display_label() }}">
+		{{ artifact.title|escape }} - ( {{ artifact.display_label() }} )
+	</div>
+</div>
+{% endmacro %}
+
+
+
+
+<!--
+*************************************************************************** 
+Macro: ck12_artifact_review_feedback_bottom
+Macro to display the review feedback list.
+summary and reviews list are filled from reviews.html templates
+***************************************************************************
+-->
+{% macro ck12_artifact_review_feedback_bottom () %}
+<div class="reviewswrap">
+	<a id="feedback"></a>
+	<h1 class="reviewstitle spacetopxxlarge">{{ _("Reviews") }}</h1>
+	<div class="reviewsdivider"></div>
+	<div>
+		<div id="reviews" class="listitem clearfix reviewslist">
+			<div id="reviewsSummary">
+				<!-- the artifact reviews summary goes here -->
+			</div>
+			<div id="reviewsList">
+				<!-- all the reviews show up here -->
+			</div>
+		</div>
+	</div>
+</div>
+{% endmacro %}
+
+
+
+
+<!--
+*************************************************************************** 
+Macro: ck12_artifact_navigation
+a macro to display prev/next navigation on artifact detail pages.
+Parameters:
+<prev_artifact>
+Previous artifact
+
+<prev_artifact_url>
+URLto the previous artifact
+
+<next_artifact_title>
+Next artifact
+
+<next_artifact_url>
+URLto the next artifact 
+***************************************************************************
+-->
+{% macro ck12_artifact_navigation (prev_artifact, prev_artifact_url, next_artifact, next_artifact_url) %}
+
+	{% if prev_artifact and prev_artifact_url or next_artifact and next_artifact_url %}
+	<nav id="nav_artifact" class="clearfix">
+	<div class="divider"></div>
+	<div class="spacetoplarge"></div>
+	{% endif %}
+
+	{% if prev_artifact and prev_artifact_url %}
+	<div class="prior rightinsidewidth">
+		<a href="{{ prev_artifact_url }}">
+			<span class="navartifactlinkwrap block">
+				<span class="icon-arrow3_left"></span>
+				<span class="nolink block">{{ _("Previous") }}</span>
+				<span class="link">{{ prev_artifact.title|escape }}</span>
+			</span>
+		</a>
+	</div>
+	{% endif %}
+	{% if next_artifact and next_artifact_url %}
+	<div class="next rightinsidewidth">
+		<a href="{{ next_artifact_url }}">
+			<span class="navartifactlinkwrap block">
+				<span class="icon-arrow3_right"></span>
+				<span class="nolink block">{{ _("Next") }}</span>
+				<span class="link">{{ next_artifact.title|escape }}</span>
+			</span>
+		</a>
+	</div>
+	{% endif %}
+	
+	{% if prev_artifact and prev_artifact_url or next_artifact and next_artifact_url %}
+	<div class="clear"></div>
+	<div class="divider spacetoplarge"></div>
+	</nav>
+	{% endif %}
+	
+{% endmacro %}
+
+<!--
+*************************************************************************** 
+Macro: ck12_artifact_navigation_top_small
+a macro to display top small prev/next navigation on artifact detail pages.
+Parameters:
+<prev_artifact>
+Previous artifact
+
+<prev_artifact_url>
+URLto the previous artifact
+
+<next_artifact_title>
+Next artifact
+
+<next_artifact_url>
+URLto the next artifact 
+***************************************************************************
+-->
+{% macro ck12_artifact_navigation_top_small (prev_artifact, prev_artifact_url, next_artifact, next_artifact_url) %}
+	
+	<nav id="navartifacttopsmall">
+		{% if next_artifact and next_artifact_url %}
+		<div class = "nextPrevArrow clearfix">
+			<a href="{{ next_artifact_url }}">
+				<span class="next">
+					<span class="imgarrow"></span>
+				</span>
+			</a>
+			<span class ="nextTitle">Next: {{ next_artifact.title }}</span>
+		</div><!--MeowMix-->
+		{% else %}
+		<span class="next">
+			<span class="imgarrow disabled" title="Next not available"></span>
+		</span>
+		{% endif %}
+		{% if prev_artifact and prev_artifact_url %}
+		<div class = "nextPrevArrow clearfix">
+			<a href="{{ prev_artifact_url }}">
+				<span class="prev">
+					<span class="imgarrow"></span>
+				</span>
+			</a>
+			<span class ="previousTitle">Previous: {{ prev_artifact.title }}</span>
+		</div><!--MeowMix-->
+		{% else %}
+		<span class="prev">
+			<span class="imgarrow disabled" title="Previous not available"></span>
+		</span>
+		{% endif %}
+	</nav>
+	
+{% endmacro %}
+
+<!--
+*************************************************************************** 
+Macro: ck12_metadata_keywords_list
+displays comma separated list of metadata keywords.
+@param metadata_type : (type of metadata displayed. example (Tags, Subjects etc.))
+@param metadata_list :  list of metadata dicts (usually in the form { id:<id>, name:<name> })
+@param labelfield    : name of the field which contains display label, default field is 'name'
+@param valuefield    : name of the field which contains actual value to be used 
+                      (ex: for states, 'CA' is value and 'California' is label)
+
+***************************************************************************
+-->
+{% macro ck12_metadata_keywords_list(metadata_type, metadata_list, labelfield='name', valuefield='name',separator='') %}
+<section>
+	{% if metadata_list  %}
+		{% if metadata_type == 'Tags:'%}
+			{% set searchParameter = 'tag'%}
+		{% endif %}
+		{% if metadata_type == 'Categories:'%}
+			{% set searchParameter = 'subject'%}
+		{% endif %}
+		{% if metadata_type == 'Search Keywords:'%}
+			{% set searchParameter = 'searchTerm'%}
+		{% endif %}
+		{% set keywordcount = metadata_list.__len__() %}
+		{% if keywordcount %}
+		<h2 class="toptitle"> {{ _(metadata_type.title()) }} </h2>
+		<div class="keywordlist">
+		{% for keyword in metadata_list %}
+			{% if loop.index <= 3 %}
+			<a class="keyworditem" itemprop="keywords" href="{{ h.url('search') }}?q={{ searchParameter }}:{{ keyword[valuefield] }}" title="{{ keyword[labelfield] }}">{% if keyword[labelfield] is lower %} {{ keyword[labelfield] }} {% else %} {{ keyword[labelfield] }} {% endif %}</a>
+			{% endif %}
+			{% if loop.index == 3 and keywordcount > 3 %}
+				<a href="#" class="js_lnk_show_meta">({{ keywordcount - 3 }} more)</a>
+			{% endif %}
+			{% if loop.index > 3 %}
+			<span class="js_more_keywords hide">
+				<a class="keyworditem" itemprop="keywords" href="{{ h.url('search') }}?q={{ searchParameter }}:{{ keyword[valuefield] }}" title="{{ keyword[labelfield] }}">{% if keyword[labelfield] is lower %} {{ keyword[labelfield] }} {% else %} {{ keyword[labelfield] }} {% endif %}</a>
+			</span>
+			{% endif %}
+		{% endfor%}
+			<div class="clear"></div>
+		</div>
+		{% endif %}
+	{% endif %}
+</section>
+{% endmacro %}
+
+<!--
+*************************************************************************** 
+Macro: ck12_metadata_list_for_standards
+@param metadata_type : (type of metadata displayed. example (Tags, Subjects etc.))
+@param metadata_list :  list of metadata dicts (usually in the form { id:<id>, name:<name> })
+@param labelfield    : name of the field which contains display label, default field is 'name'
+@param valuefield    : name of the field which contains actual value to be used 
+                      (ex: for states, 'CA' is value and 'California' is label)
+@param artifactId	: Artifact Id
+***************************************************************************
+-->
+{% macro ck12_metadata_list_for_standards(metadata_type, metadata_list, labelfield='name', valuefield='name', artifactId=None) %}
+<section>
+	{% if metadata_list  %}
+		{% set keywordcount = metadata_list.__len__() %}
+        {% set max_items = 7 %}
+		{% if keywordcount %}
+		<h2 class="toptitle"> {{ _(metadata_type.title()) }} </h2>
+		<div class="" id="standardBoardLinks">
+		{% for keyword in metadata_list %}
+			{% if loop.index <= max_items %}
+			<a itemprop="keywords" class="std_links" data-std_brd_id="{{ keyword[valuefield] }}" href="#" data-std_corr_href="{{config.webroot_url}}ajax/standards/correlated/{{ keyword[valuefield] }}/{{ artifactId }}" title="{{ keyword[labelfield] }}"><span class="imgwrap"></span> <span class="text">{{ keyword[labelfield] }}</span></a>{% if not loop.last %},{% endif %}
+			{% endif %}
+			{% if loop.index == max_items and keywordcount > max_items %}
+				<a href="#" class="js_lnk_show_meta">({{ keywordcount - max_items }} more)</a>
+			{% endif %}
+			{% if loop.index > max_items %}
+			<span class="js_more_keywords hide">
+              <a itemprop="keywords" class="std_links" data-std_brd_id="{{ keyword[valuefield] }}" href="#" data-std_corr_href="{{config.webroot_url}}ajax/standards/correlated/{{ keyword[valuefield] }}/{{ artifactId }}" title="{{ keyword[labelfield] }}"><span class="imgwrap"></span> <span class="text">{{ keyword[labelfield] }}</span></a>{% if not loop.last %},{% endif %}
+			</span>
+			{% endif %}
+		{% endfor%}
+		{% endif %}
+		</div>
+	{% endif %}
+</section>
+{% endmacro %}
+
+<!--
+*************************************************************************** 
+Macro: ck12_metadata_attributions_list
+@param attribution_label (label for attribution type [_("Authors:"), _("Contributors") etc...])
+@param attribution_list (list of attributions for a give type [ c.artifact.get_authors_by_role().get('author') ])
+
+***************************************************************************
+-->
+{% macro ck12_metadata_attributions_list (attribution_label, attribution_list) %}
+	{% for author in attribution_list %}
+		{% if loop.first %}<h2 class="toptitle">{{ attribution_label }}</h2>{% endif %}
+		<div>
+			<a itemprop="author" href="{{ h.url('search') }}?q=author:{{ author }}">{{ author }}</a>
+		</div>
+	{% endfor %}
+{% endmacro %}
+
+
+<!--
+*************************************************************************** 
+Macro: ck12_metadata_attributions_list
+@param attribution_type (type of attribution [author, contributor, source etc... ])
+@param attribution_label (label for attribution type [_("Authors:"), _("Contributors") etc...])
+@param attribution_list (list of attributions for a give type [ c.artifact.get_authors_by_role().get('author') ])
+
+***************************************************************************
+-->
+{% macro ck12_metadata_attributions_list_editable (attribution_type, attribution_label, attribution_list) %}
+	<div class="{% if not attribution_list %}hide{% endif %}" id="attribution_{{ attribution_type }}">
+		<span class="attribution_title">{{ attribution_label }}</span>
+		<span class="js_attributionlist_container" data-attribrole="{{ attribution_type }}" >
+			{% if attribution_list %}
+			{% for item in attribution_list %}
+			<span class="js_attribution break-word">
+				<span>{{ item }}</span>
+				<a class="js_removeattribution js_attribution_remove removeimg" data-attribname="{{ item|e }}" data-attribrole="{{ attribution_type }}" href="#">
+					<span class="icon-close"></span>
+				</a>
+			</span>
+			{% endfor %}
+			{% endif %}
+		</span>
+	</div>
+{% endmacro %}
+
+
+
+
+<!--
+*************************************************************************** 
+Macro: ck12_artifact_edit
+@param artifact: current artifact
+@param context: flexbook context, if any
+@param user: current user
+@param editable: flag, whether editable or not depends upon latestness of book+chapter
+
+***************************************************************************
+-->
+{% macro ck12_artifact_edit(artifact, context, position, user, editable) %}
+	
+	{% set owned = artifact.is_owner(user) %}
+	{% set context_owned = context and context.is_owner(user) %}
+	{% set latest = artifact.is_latest() %}
+	
+	{% set link_text = _('Edit') %}
+	{% set link_id = 'personalize_link' %}
+	{% set link_class = 'js_edit_link' %}
+	
+	{% if context %}
+		{% if editable %}
+			{% if context_owned %}
+				{% if owned %}
+					{% if latest %}
+						{{ _ck12_artifact_contextual_edit_link(artifact, context, position, user)  }}
+					{% else %}
+						{{ _ck12_artifact_update_link(artifact, context, position, user)  }}
+					{% endif %}
+				{% else %}
+					{{ _ck12_artifact_contextual_edit_link(artifact, context, position, user)  }}
+				{% endif %}
+			{% else %}
+				{% if owned and latest %}
+						{{ _ck12_artifact_contextual_edit_link(artifact, context, position, user)  }}
+				{% else %}
+					{{ _ck12_artifact_contextual_make_a_copy_link(artifact, context, position, user) }}
+				{% endif %}
+			{% endif %}
+		{% else %}
+		{% endif %}
+	
+	{% else %}
+		{% if owned %}
+			{% if latest %}
+				{{ _ck12_artifact_edit_link(artifact, context, position, user)  }}
+			{% else %}
+				{{ _ck12_artifact_view_latest_link(artifact, context, position, user) }}
+			{% endif %}
+		{% else %}
+			{{ _ck12_artifact_make_a_copy_link(artifact, context, position, user) }}
+		{% endif %}
+	
+	{% endif %}
+	
+	
+	
+{% endmacro %}
+
+{% macro _ck12_artifact_edit_link(artifact, context, position, user) %}
+	<a id="personalize_link" class="js_editable" href="/editor/{{ artifact.getPermaHandle(include_version=True) }}" title="{{ _('Edit This %(type)s' % {'type':artifact.display_label()} ) }}">	{{_('Edit' )}} </a>
+{% endmacro %}
+
+{% macro _ck12_artifact_contextual_edit_link(artifact, context, position, user) %}
+	<a id="personalize_link" href="{{ h.url(controller='editor',
+		action='artifact_editor_context_book',
+		realm=context.realm,
+		booktype=context.artifactType,
+		book_handle=context.handle,
+		version=context.getVersionNumber(),
+		position=position) }}" title="{{ _('Edit This %(type)s' % {'type':artifact.display_label()} ) }}">	{{_('Edit' )}} </a>
+{% endmacro %}
+
+{% macro _ck12_artifact_make_a_copy_link(artifact, context, position, user) %}
+{% if artifact.is_flexbook() %} 
+    {% set artifact_type = artifact.display_label() %} 
+{% elif artifact.artifactType in ['lesson','concept']  %}
+ {% set artifact_type = 'Modality' %} 
+{% else %} 
+    {% set artifact_type = artifact.modality_display_label %} 
+{% endif %}
+	<a id="personalize_link" class="{% if not user %}js_signinrequired{% endif %} js_editable" href="/editor/{{ artifact.getPermaHandle(include_version=True) }}" title="{{ _('Make a copy of this %(type)s' % {'type':artifact_type} ) }}">	{{ _("Make a Copy") }}</a>
+{% endmacro %}
+
+{% macro _ck12_artifact_contextual_make_a_copy_link(artifact, context, position, user) %}
+{% if artifact.is_flexbook() %} 
+    {% set artifact_type = artifact.display_label() %} 
+{% elif artifact.artifactType in ['lesson','concept']  %}
+ {% set artifact_type = 'Modality' %} 
+{% else %} 
+    {% set artifact_type = artifact.modality_display_label %} 
+{% endif %}
+	<a id="personalize_link" class="{% if not user %}js_signinrequired{% endif %}" href="/editor/{{ artifact.getPermaHandle(include_version=True) }}" title="{{ _('Make a copy of this %(type)s' % {'type':artifact_type} ) }}">	{{ _("Make a Copy") }}</a>
+{% endmacro %}
+
+{% macro _ck12_artifact_view_latest_link(artifact, context, position, user) %}
+	<a id="latest_link" href="{{ h.artifact_url(artifact) }}" 
+    						 title="{{ _('You are viewing an older version of this %(type)s. Click here to view the latest.' % {'type':artifact.display_label()} ) }}"> {{ _("View Latest") }} </a>
+{% endmacro %}
+
+{% macro _ck12_artifact_update_link(artifact, context, position, user) %}
+	<a class="js_update_link" href="#" title=" {{ 'Update this Concept to its latest version in FlexBook&#174; textbook %(bookname)s'  % { 'bookname':c.context.title|escape }  }} "> {{ _('Update')  }} </a>
+{% endmacro %}
+
+
+<!--
+*************************************************************************** 
+Macro: ck12_artifact_myreview_feedback
+Macro to display the my feedback (vote up/down) widget.
+widget filled from reviews.html templates
+***************************************************************************
+-->
+{% macro ck12_artifact_myreview_feedback () %}
+	<!-- Artifact Voting -->
+	<div id="myreview" ></div>
+{% endmacro %}

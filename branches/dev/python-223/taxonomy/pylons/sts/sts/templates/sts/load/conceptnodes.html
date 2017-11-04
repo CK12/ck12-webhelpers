@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                      "http://www.w3.org/TR/html4/loose.dtd"> 
+<html>
+    <head>
+        <title>Bulk Upload Foundation Grid</title>
+ 
+        <script src="/gp.fileupload.static/jquery.js" type="text/javascript">
+        </script>
+
+        <!--
+        <script type="text/javascript">
+            //<![CDATA[
+            jQuery(document).ready(function() {
+                jQuery("form[enctype^='multipart/form-data']").fileUpload();
+                jQuery("#sample").fileUpload({action: "/flx/upload/save"});
+            });
+            //]]>
+        </script> 
+        -->
+    </head>
+    <body>
+        <form action="/taxonomy/load/concepts"
+              enctype="multipart/form-data"
+              method="POST">
+            <input type="file" name="file" /><br/>
+            <label><input type="checkbox" name="keywordsOnly" value="true" /> Process only keywords</label><br/>
+            User: {{ c.member }}<br/>
+            <input type="submit" value="Upload" />
+        </form>
+
+        <!--
+        <h3>Upload</h3>
+        <div id="sample"></div>
+
+        <div>&nbsp;</div>
+        -->
+
+        <script type="text/javascript"
+                src="/gp.fileupload.static/jquery.fileupload.js">
+        </script>
+        <script type="text/javascript"
+                src="/gp.fileupload.static/jquery.fileupload.auto.js">
+        </script> 
+    </body>
+</html>
+

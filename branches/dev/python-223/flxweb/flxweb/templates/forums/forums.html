@@ -1,0 +1,44 @@
+{% extends "common/master.html" %}
+{% block title %}{{ _("Cafe") }}{% endblock %}
+
+{% block stylesheets %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('common/css/tangerine-ui.css') }}" />
+<link rel="stylesheet" href="{{ c.peerhelp_base_url }}/css/main_peerhelp.css">
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('widgets/multiSelection/multiSelection.css') }}" />
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('forums/css/forums.css') }}" />
+<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+<script data-main="{{ c.peerhelp_base_url }}/peerhelp.js"
+    src="{{ c.peerhelp_base_url }}/vendor/require/require-full-2.1.8.js">
+</script>
+<script>
+    require(['main'], function(){
+        require(['forums/forums']);
+    });
+</script>
+{% endblock %}
+
+
+{% block header %}
+{{ super() }}
+<div id="forumBanner" class="district-banner smooth-text narrow-banner"></div>
+{% endblock %}
+{% block content %}
+
+{{ super() }}
+<div id="page-disable" class="page-disable js-page-disable hide"></div>
+<div id="loading-icon" class="loading-icon js-loading-icon">
+    <!-- <img alt="loading" src="{{ h.asset_image('common/images/icon_loading.gif') }}"> -->
+    <div class="spinner"></div>
+</div>
+<div id="forums-main" class="row collapse smooth-text"></div>
+<div class="tutorial__modal hide">
+</div>
+<div class="tutorial__modal__overlay"></div>
+
+<!-- ====== End Tutorial ===== -->
+{% endblock %}

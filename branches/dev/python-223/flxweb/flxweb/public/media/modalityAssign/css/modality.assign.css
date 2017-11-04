@@ -1,0 +1,1094 @@
+@-webkit-keyframes sk-rotate { 100% { -webkit-transform: rotate(360deg) }}
+@keyframes sk-rotate { 100% { transform: rotate(360deg); -webkit-transform: rotate(360deg) }}
+
+@-webkit-keyframes sk-bounce {
+    0%, 100% { -webkit-transform: scale(0.0) }
+    50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bounce {
+    0%, 100% { 
+        transform: scale(0.0);
+        -webkit-transform: scale(0.0);
+    } 50% { 
+        transform: scale(1.0);
+        -webkit-transform: scale(1.0);
+    }
+}
+
+.hide-imp{
+	display: none !important;
+}
+
+.assign-class-modal * {
+    font-family: "ProximaNova", "Helvetica Neue", Arial, Helvetica, sans-serif !important;	/*To prevent CSS changes in SIM*/
+    box-sizing: border-box !important;
+}
+/*CSS font changes for PLIX and SIM*/
+
+.plix-modal div#assign-tooltip, .simulation div#assign-tooltip,.simulation div#assign-tooltip .speech-btn{
+	font-family: "ProximaNova","Helvetica Neue",Arial,Helvetica,sans-serif !important;
+}
+.simulation div#assign-tooltip div.speech-text {
+    font-family: "ProximaNova","Helvetica Neue",Arial,Helvetica,sans-serif !important;
+    font-size: 14px;
+    color: #56544D !important;
+    letter-spacing: normal;
+}
+
+div#assign-tooltip{
+    display: inline-block;
+    width: 173px;
+    border: 1px solid #d4d4d5;
+    position: absolute;
+    right: -158px;
+    top: -26px;
+    padding: 15px;
+    color: #0D1618;
+    border-radius: 10px;
+    z-index: 100;
+    background-color: #fff;
+    font-size: 14px;
+}
+#leftsecondary #assign-tooltip.new-icon-view{
+    left: 60px;
+}
+div#assign-tooltip .speech-text {
+    margin-top: 8px;
+    margin-bottom: 18px;
+    line-height: 17px;
+}
+div#assign-tooltip .speech-btn{
+    width: 100%;
+    margin-bottom:0;
+}
+div#assign-tooltip:before{	
+    content: "";
+    display: block;
+    position: absolute;
+    top: 28px;
+    left: -15px;
+    width: 0;
+    border-width: 15px 15px 15px 0px;
+    border-style: solid;
+    border-color: transparent #d4d4d5;
+}
+
+div#assign-tooltip:after{	
+    content: "";
+    display: block;
+    position: absolute;
+    top: 31px;
+    left: -14px;
+    width: 0;
+    border-width: 12px 14px 12px 0px;
+    border-style: solid;
+    border-color: transparent #fff;
+}
+.setTop{
+	top : 40px !important;
+}
+#assignClassModal{
+    z-index: 100;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 0 auto;
+    text-align: center;
+    width: 550px;
+    margin-left: -266px;
+}
+div.group-container{
+    max-height: 525px;
+    overflow-y: auto;
+    overflow-x: hidden;  
+}
+div.group-tmpl-section{
+    width: 99%;
+}
+span.load-more-grp, span.load-more-gclasses{
+    display: inline-block;
+    margin: 0 auto;
+    cursor: pointer;
+    color: #FF6633;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+#assignClassModal .close-modal{
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    color: #fff;
+    background-color: #666666;
+    border-radius: 50%;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    cursor: pointer;
+    font-size: 25px;
+    line-height: 1.35;
+}
+#assignClassModal .modal-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom : 25px;
+}
+i.icon-grps_assgnmts.grp-assignment {
+    color: #00ABA4;
+    margin-right: 5px;
+}
+i.icon-grps_assgnmts.grp-assignment-sim {
+    margin-right: 5px;
+}
+#assignClassModal .mod-title {
+    color: #B4B0A5;
+    font-size: 14px;
+    margin-right: 10px;
+}
+.assign-class-modal .description{
+    color: #FF6C3D;
+    font-weight: 500;
+    max-width: 400px;
+    display: inline-block;
+    vertical-align: middle;
+}
+#assign-tooltip.hide{
+    display : none !important;
+}
+#assignClassModal .hide{
+	display : none !important;
+}
+.icon-edit {
+    color: #00ABA4;
+    font-size: 13px;
+    margin-left: 10px;
+}
+div#assignClassModal .title {
+    margin-bottom: 20px !important;
+}
+span.instruction-txt.assign-instruction {
+    color: #B4B0A5;
+    font-size: 14px;
+    max-width: 326px;
+    display: inline-block;
+    vertical-align: middle;
+    word-break: break-all;
+}
+
+.instruction {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #E1DED7;
+    min-height: 78px;
+}
+.group-title-head{
+    clear: both;
+    height: 67px;
+    padding-top: 30px;
+}
+.lbl-txt{
+       display: inline-block;
+    vertical-align: middle;
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 10px;
+    color: #A9A497;
+    max-width: 130px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+     white-space: nowrap;
+}
+.simulation .bg-title{
+	width : 95%
+}
+.info-assign-title {
+    color: #A9A497;
+    font-size: 13px;
+     display: inline-block;
+    vertical-align: middle;
+}
+.group-info {
+    border-top: 1px solid #E1DED7;
+    padding-top: 5px;
+}
+.group-n {
+    margin-top: 10px;
+	min-height: 34px; /* For bug50589, happens only in chrome */
+}
+.group-assigned {
+    margin-top: 10px;
+}
+
+span.assigned-txt {
+    background: #999999;
+    font-size: 12px;
+    color: #fff;
+    width: 72px;
+    display: inline-block;
+}
+
+span.assigned-txt .last-assign{
+	font-size: 11px;
+}
+
+.group-info:last-child {
+    border-bottom: 1px solid #E1DED7;
+    margin-bottom: 20px;
+}
+.icon-edit:hover{
+    cursor: pointer;
+    background-color: transparent;
+}
+span.loadingContent {
+    margin-bottom: 100px;
+    display: inline-block;
+}
+.new-spinner {
+    margin-top: -72px;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    text-align: center;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    -webkit-animation: sk-rotate 2.0s infinite linear;
+    animation: sk-rotate 2.0s infinite linear;
+    left: 50%;
+    margin-left: -15px;
+}
+.zero-state .new-spinner {
+	    margin-top: -44px;
+}
+.dot1, .dot2 {
+    width: 60%;
+    height: 60%;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    background-color: #FF5B3F;
+    border-radius: 100%;
+
+    -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+    animation: sk-bounce 2.0s infinite ease-in-out;
+}
+.dot2 {
+    top: auto;
+    bottom: 0;
+    -webkit-animation-delay: -1.0s;
+    animation-delay: -1.0s;
+    background-color: #B8D543;
+}
+.zero-state .group-n {
+    margin-top: 10px;
+    margin-left: 0px;
+    padding-left: 0;
+    text-align: left;
+}
+.zero-state .group-due {
+    padding-right: 0;
+    margin-top: 7px;
+}
+input#groupName {
+    display: inline-block;
+    width: 145px;
+    border: 2px solid #CDCCCA;
+    box-shadow: none;
+    margin-top: -11px;
+    color: #00aba4;
+    margin-bottom: 0;
+    vertical-align: middle;
+    margin-left:-6px;
+}
+input.group-name:focus{
+    background : #fff;
+}
+.zero-lbl-txt {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 10px;
+    color: #36BCB6;
+    cursor: pointer;
+}
+.group-assigned {
+    margin-top: 4px;
+    color: #FF6C3D;
+    cursor: pointer;
+}
+.zero-state .group-assigned{
+    margin-top:8px;	
+}
+.due-date-disabled{
+    border: 2px solid #CDCCCA;
+    border-radius: 5px;
+    color: #56544D;
+    height: auto;
+    color: #ccc;
+    padding: 9px;
+}
+ 
+.plix-modal	.icon-edit:before {
+   	content: "\e93a";
+}
+
+.disable-row {
+    opacity: 0.7;
+}
+.assign-class-modal {
+    width: 60%;
+    margin: 0 auto;
+    left: 50%;
+    margin-left: -25%;
+    border: 1px solid #d4d4d5;
+    border-radius: 5px;
+    color: #ACA79A;
+}
+#successModal {
+
+    top: 100px !important;
+}
+a.lin-to-group {
+    word-wrap: break-word;
+}
+.green {
+    color: #B8D34F;
+}
+#successModal .ckeck-mark.green, #share-successModal .ckeck-mark.green {
+    width: 50px;
+    height: 50px;
+    margin: auto;
+    border-radius: 50%;
+    background: #B8D34F;
+    color: #fff !important;
+    vertical-align: middle;
+    margin-bottom: 15px;
+}
+.text-succes {
+    color: #A29C8E;
+    margin-bottom: 20px;
+}
+.success-btn.btn {
+    width: 100px;
+}
+i.icon.icon-checkmark {
+    font-size: 24px;
+    line-height: 46px;
+}
+span.error-msg {
+    font-size: 14px;
+    float: left;
+    color: #FB6C33;
+    margin-bottom:5px;
+    display :block;
+    width:100%;
+}
+.error-field{
+    border: 2px solid red !important;
+}
+.zero-state .loader{
+    display: block;
+    width: 100%;
+    text-align: center; 
+	background-color: transparent;
+	overflow:inherit;
+}
+.assign-btn.disabled {
+    background: grey;
+    border-top: 3px solid grey;
+    border-bottom: 3px solid grey;
+}
+.assign-btn.disabled:hover {
+    background: grey;
+    border-top: 3px solid grey;
+    border-bottom: 3px solid grey;
+}
+
+/* css override for jquery-ui DatePicker starts */
+.ui-datepicker {
+    border: 1px solid #57544E;
+    border-radius: 0px;
+    font-family: "ProximaNova","Helvetica Neue",Arial,Helvetica,sans-serif;
+padding: 0;}
+.ui-datepicker-header {
+    background: none repeat scroll 0 0 #B6D562;
+    border: 1px solid #B6D562;
+border-radius: 0px;}
+.ui-widget-header .ui-icon {
+background: none repeat scroll 0 0 transparent;}
+.ui-datepicker-title {
+color: #FFFFFF;}
+.ui-datepicker table {
+    border: medium none;
+margin: 0;}
+.ui-datepicker thead {
+background: none repeat scroll 0 0 #B6D562;}
+.ui-datepicker tbody tr:not(:last-child) {
+border-bottom: 1px solid #CACACA;}
+.ui-datepicker tbody td:not(:last-child) {
+border-right: 1px solid #CACACA;}
+.ui-widget-header .ui-state-default {
+border: medium none;}
+.ui-datepicker table tr td {
+line-height: 2.125em;}
+.ui-widget-content .ui-state-default {
+    text-align: center;
+    border: medium none;
+color: #00ABA2;}
+.ui-widget-content .ui-state-hover {
+    background: none repeat scroll 0 0 #E1EEBB;
+border: medium none;}
+/* .ui-widget-content .ui-state-active {
+background: none repeat scroll 0 0 #E1EEBB;} */
+.ui-datepicker td {
+    padding: 0;
+}
+.ui-datepicker .ui-datepicker-next, .ui-datepicker .ui-datepicker-prev {
+    font-size: 1em;
+    height: 16px;
+    width: 16px;
+    padding: 8px 0px;
+}
+.plix-modal .ui-datepicker .ui-datepicker-next, .plix-modal .ui-datepicker .ui-datepicker-prev {
+    height: 33px;
+}
+.ui-widget-content .ui-state-highlight {
+background: none repeat scroll 0 0 #E1EEBB;}
+.ui-widget-header a {
+color: #319C5D;}
+.ui-widget-header .ui-state-hover {
+color: #319C5D;}
+.ui-datepicker-calendar span {
+color: #57544E;}
+.ui-datepicker-current-day a {
+color: #EB8F00 !important;}
+/* css override for jquery-ui DatePicker ends */
+.button.primary.turquoise, .button.turquoise {
+    background: #00ABA4;
+    border-bottom: 3px solid #0089A6;
+    border-top: 3px solid #00ABA4;
+    color: #fff !important;
+    /* box-shadow: 0 3px 0 #0089A6; */
+}
+a {
+    color: #00aba4;
+}
+.desktop-text{
+    display : inline-block;
+}
+.mobile-text{
+    display : none;
+}
+.select-option .last-assign{
+    display : none;
+}
+.group-due {
+    font-size: 12px;
+}
+.for-group-mobile{
+    display :none;
+}
+
+.not-for-mobile{
+    display : inline-block;
+}
+.assign-class-modal .custom-check-box {
+    border: 2px solid #ccc;
+    /* background-color: #00aba4; */
+    border-radius: 3px;
+    display: inline-block;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+.assign-class-modal .custom-check-box.checked {
+    background-color: #00ABA4;
+    border: 0 none;
+}
+.assign-class-modal .custom-check-box.checked:after {
+    top: 3px;
+}
+.assign-class-modal .custom-check-box.checked:after {
+    z-index: 2;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 3px 3px 0;
+    content: "";
+    height: 12px;
+    left: 7px;
+    top: 4px;
+    position: absolute;
+    width: 7px;
+    -moz-box-shadow: 1px 1px 1px -1px #333;
+    -webkit-box-shadow: 1px 1px 1px -1px #333;
+    box-shadow: 1px 1px 1px -1px #333;
+    transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+}
+#loaderWindow .assign-class-modal .custom-check-box.checked:after{
+	width :5px;
+	height : 10px;
+}
+.assign-class-modal h1,.assign-class-modal h2, .assign-class-modal h3, .assign-class-modal h4, .assign-class-modal h5, .assign-class-modal h6, .assign-class-modal div, .assign-class-modalul, .assign-class-modalol, .assign-class-modal dt {
+    font-family: "ProximaNova", "Helvetica Neue", Arial, Helvetica, sans-serif;
+	color: #56544D !important;
+}
+.assign-class-modal textarea {
+    margin-bottom: 8px;
+    resize: none;
+    max-height: 78px;
+    min-height: 60px;
+    height: auto;
+    margin-top : 10px;
+}
+.assign-class-modal input[type='text'], .assign-class-modal input[type='email'], .assign-class-modal input[type='password'], .assign-class-modal textarea.tangerine-textarea {
+    border: 2px solid #CDCCCA;
+    border-radius: 5px;
+    color: #56544D;
+    height: auto; 
+}
+.assign-class-modal input[type='text']:not(textarea), .assign-class-modal input[type='text'].standard,.assign-class-modal input[type='password']:not(textarea),.assign-class-modal textarea.tangerine-textarea:not(textarea),.assign-class-modal textarea.tangerine-textarea.standard {
+    font-size: 1em;
+    height: 39px;
+    padding: 7px 15px; 
+}
+input[type='text'].due-date{
+    margin-bottom : 5px !important;
+    padding:0 !important;
+    text-align:center;
+}
+.assign-class-modal .button {
+    font-weight:normal;
+}
+.assign-class-modal .button, .assign-class-modal .button.standard {
+    border: medium none;
+    border-radius: 3px 3px 3px 3px;
+    font-size: 1em;
+    padding: 7px 16px 9px;
+    text-shadow: none;
+    box-shadow:none;
+    transition:background-color 100ms ease-out 0s; 
+    color: #fff;
+}
+.assign-class-modal .button.primary.tangerine, .assign-class-modal .button.tangerine {
+    background: #FF6633;
+    border-bottom: 3px solid #D9491A;
+    border-top: 3px solid #FF6633;
+    margin: 0 0 1.25em;
+    color : #fff !important;
+    /*box-shadow: 0 3px 0 #D9491A;*/ 
+}
+.assign-class-modal .button.primary.tangerine:hover,.assign-class-modal .button.tangerine:hover {
+    background: #D9491A;
+    border-bottom: 3px solid #FF6633;
+    border-top: 3px solid #D9491A;
+    /*box-shadow: 0 3px 0 #FF6633;*/
+    color: #FFF; 
+}
+.assign-class-modal .assign-class-modal .btn.disabled, .assign-class-modal .btn.disabled:hover {
+    text-shadow: 2px 1px #9c9c9c;
+    -webkit-box-shadow: inset 0 1px 0 0 #f1f1f1;
+    -moz-box-shadow: inset 0 1px 0 0 #f1f1f1;
+    box-shadow: inset 0 1px 0 0 #f1f1f1;
+    border: 1px solid #9b9b9b;
+    background: #b5b5b5;
+    background: -webkit-gradient(linear, left top, left bottom, from(#d0d0d0), to(#bebebe));
+    background: -moz-linear-gradient(top,  #d0d0d0,  #bebebe);
+    background: linear-gradient(-90deg, #d0d0d0, #bebebe);
+}
+.assign-class-modal .button.disabled.grey, .assign-class-modal .button[disabled] {
+    background: #DDDDDD;
+    border-bottom: 3px solid #CCCCCC;
+    border-top: 3px solid #DDDDDD;
+    box-shadow: none;
+    /* box-shadow: 0 3px 0 #CCCCCC; */
+    color: #B5B1A8;
+    opacity: 1;
+    border-right: none;
+    border-left: none;
+    text-shadow: none;
+}
+.actions-wrapper #shareGroupFormBtn.for-group-mobile {
+	display : none;
+}
+.assign-class-modal .button.disabled.grey i,.assign-class-modal .button[disabled] i {
+	color: #B5B1A8;
+}
+.tool-menu.assign-button {
+    line-height: 25px;
+    height: auto;
+    color: #fff !important;
+}
+/*For Simulation, btn hover on success modal*/
+.simulation .success-btn.turquoise:hover{
+	background: #00ABA4;
+    border-bottom: 0;
+    border-top: 0;
+}
+.plix-modal .modality-info-wrapper div{
+	opacity : 1 !important;
+}
+.plix-modal .modality-info-wrapper{
+	margin-top: -5px;	
+	width: 280px;
+}
+.plix-modal .button.standard.tangerine.btn.modality-info{
+	font-size: 15px;
+    font-weight: normal;
+}
+.plix-modal div#assign-tooltip{
+	top:45px;
+	right: -70px;
+}
+.plix-modal button.tangerine{
+	background: #FF6633;
+    border-bottom: 3px solid #D9491A;
+    border-top: 3px solid #FF6633;
+}
+.plix-modal div#assign-tooltip:after {
+    top: -12px;
+    left: 32px;
+    border-width: 0px 12px 12px 14px;
+    border-color: #fff transparent;
+}
+.plix-modal div#assign-tooltip:before {
+    top: -15px;
+    left: 30px;
+	border-width: 0px 15px 15px 15px;
+    border-color: #d4d4d5 transparent;
+}
+.simulation #assignClassModal{
+	top:7vh !important;
+}
+.simulation div.group-container{
+	max-height: 400px;
+}
+.small-due-date{
+		display: none;
+}
+@media only screen and (min-width: 768px){
+	.groups-temp{
+		overflow: auto;
+	}
+}
+@media only screen and (max-width: 767px){
+    .groups-temp .select-option{
+        width: 135px;
+    }
+	/*Fix for bug 51012*/
+	.fixPosition{
+		position: fixed;
+	}
+    .desktop-text{
+        display : none;
+    }
+    .mobile-text{
+        display : inline-block;
+    }
+    #assignClassModal {
+        z-index: 100;
+        position: absolute;
+        top: 0 !important;
+        left: 0;
+        background-color: #F9F9F5;
+        border: 1px solid black;
+        border-radius: 5px;
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        max-width: 100%;
+        margin-left: 0;
+        border: 0 none;
+        border-radius: 0;
+        height: 100%;
+        padding : 0;
+        overflow: auto;
+    }
+    #successModal{
+		top: 0 !important;
+		margin-top: 0 !important;
+ 	
+	}
+    .modal-title {
+        background: #fff;
+        padding: 10px;
+    }
+    i.icon-grps_assgnmts.grp-assignment {
+        color: #56544D;
+    }
+   #assignClassModal .close-modal{
+        background-color: #fff;
+        position: absolute;
+        top: -1px;
+        right: 3px;
+        cursor: pointer;
+        font-size: 33px;
+        color: #FF6D3D;
+    }
+    .paadin-on{
+        padding-left :10px;
+        padding-right :10px;
+        font-size: 12px;
+    }
+    .mod-title{
+        font-size: 12px;
+
+    }
+    .row.zero-state {
+        font-size: 12px;
+        margin-bottom :30px;
+    }
+    .group-due-head {
+        display :none;
+    }
+    .zero-state .group-n {
+	    margin-top: 10px;
+	    padding-left: 0;
+	    text-align: left;
+	    margin-left: 10px;
+	    width : 60%;
+	}
+	.zero-state-container .lbl-txt{
+		    padding-right: 4px;
+	}
+    .zero-state .group-due {
+        padding-right: 0;
+        margin-top: 7px;
+        width: 40%;
+        text-align: right;
+        padding-right: 14px;
+        display:none;
+    }
+    .zero-state .group-assigned {
+        margin-top: 11px;
+        float: right;
+    }
+    .zero-state input#groupName {
+        background: transparent;
+    }
+    .group-n{
+        width : 50%; 
+    }
+    .small-3.columns.group-due {
+        width: 30%;
+    }
+    a.lin-to-group {
+        display: inline-block;
+        word-wrap: initial;
+        white-space: inherit;
+        min-width: 50px;
+        max-width:220px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        vertical-align: middle;
+    }
+
+    .assign-class-modal {
+        width: 100%;
+        margin: 0 auto;
+        left: 0;
+        margin-left: 0;
+        border: 1px solid #d4d4d5;
+        border-radius: 5px;
+        color: #ACA79A;
+        top: 0 !important;
+        border: 0 none;
+        border-radius: 0px;
+        height: 100%;
+        position: fixed;
+    }
+    .group-assigned.assigned-status {
+        width: 40%;
+        float: right;
+    }
+    .assigned-status~.group-due{
+        display : none;
+    }
+    .assigned-status.group-assigned-last~.group-due{
+        display : block;
+    }
+    .grp-lbl{
+        width: 100px;
+        word-break: break-all;
+        text-align : left;
+    }
+    .group-assigned.assigned-status {
+        width: 30%;
+        float: right;
+    }
+    .last-assign {
+	/*  color: #A9A497;
+        position: relative;
+        left: 36px; */
+        display :inline-block;
+    }
+    .assigned-status .last-assign {
+        display: none;
+    }
+   .modality-actions-mobile .groups_share_dialog {
+        left: auto;
+        bottom: auto;
+        right: 10px;
+        top: 30px;
+        width: 100%;
+        height: 100%;
+        left: 1px;
+        z-index : 51;
+        top : -1px;
+        background : #f9f9f5;
+        padding : 0;
+    }
+  	#shareGroupFormBtn.for-group-mobile {
+	    display: inline;
+	    width: 80%;
+	}
+	.actions-wrapper  #shareGroupFormBtn.for-group-mobile {
+	    display: none;
+	    width: 80%;
+	}
+	.actions-wrapper #shareGroupFormBtn.not-for-mobile {
+	    display: inline-block;
+	    width: auto;
+	    margin-top: -19px;
+	    margin-bottom: 11px;
+	}
+	.actions-wrapper .close-modal.for-group-mobile{
+		display :none;
+	}
+	
+	.actions-wrapper .groups_share_dialog {
+      
+        width: 270px;
+       	height : auto;
+        background : #fff;
+        padding : 0;
+        left: auto;
+	    bottom: auto;
+	    right: 10px;
+	    top: 30px;
+	    padding :10px;
+    }
+    .modalities-common ul.modality-actions-mobile li.column {
+        display: inline-block;
+        list-style-type: none;
+        position: static;
+    }
+  
+    .shareGroupsContainer {
+        overflow: inherit;
+        max-height: 100%;
+    }
+   
+    .actions-wrapper .shareGroupsContainer {
+ 	   overflow: auto;
+    	max-height: 131px;
+	}
+    .grp-heading {
+        background: #fff;
+        padding: 7px;
+    }
+    .grp-assignment.for-group-mobile {
+        font-size: 21px;
+        vertical-align: -1px;
+    }
+    .grp-heading {
+        background: #fff;
+        padding: 10px;
+    }	
+    .shareGroupsContainer .groups_checkbox {
+        margin-top: 8px;
+        padding: 5px 10px 5px 10px;
+        border-bottom: 1px solid #F3F3F1;
+    }
+    .modality-title, .all-groups{
+        margin-top: 8px;
+        padding: 5px 10px 5px 10px;
+        border-bottom: 1px solid #F3F3F1;
+        font-size :12px;
+    }
+    .actions-wrapper .shareGroupsContainer .groups_checkbox {
+    	border-bottom: 0 none;
+    }
+    .actions-wrapper .modality-title, .all-groups{
+    	border-bottom: 0 none;
+    }
+    #shareGroupsContainer .groups_checkbox label.checkbox > i{
+        color: #BAB6A9;
+        font-weight : bold;
+        font-size:12px;
+        background: transparent;
+    }
+    .button_container {
+        text-align: center;
+    }
+    .for-group-mobile{
+        display :inline-block;
+    }
+    .all-groups.for-group-mobile{
+        display :block;
+    }
+    .not-for-mobile{
+        display : none;
+    }
+    .groups_checkbox label.checkbox span {
+        top: 1px;
+    }
+    .custom-box input[type='checkbox']:not([disabled]):checked + label.checkbox .all-lbl-txt{
+        background: #f9f9f5;
+        color: #BAB6A9;
+        display: inline-block;
+    }
+    .groups_share_dialog strong {
+        font-size: 18px;
+    }
+    .all-lbl-txt {
+        font-style: normal;
+        vertical-align: 4px;
+        color : #BAB6A9;
+        padding-left : 5px;
+        font-weight : bold;
+    }
+    /* span.assigned-txt{
+        margin-bottom : 8px;
+    } */
+    .no_groups_text {
+        padding: 12px;
+        text-align: center;
+    }
+    .groups_share_dialog .load-more-groups {
+        margin: 0 auto;
+        color: #FF6633;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        text-align: center;
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 870px){
+    a.assign_to_class {
+        font-size: 14px;
+    }
+    .assign-info-img {
+        margin-left: 8px;
+        font-size: 10px;
+    }
+}
+
+@media only screen and (max-height: 900px){
+	.simulation #assignClassModal div.group-container{
+		max-height: 40vh;
+	}
+}
+
+@media only screen and (max-height: 768px){
+    .simulation #assignClassModal.assign-class-modal{
+        max-height: 81vh;
+        top:3vh !important;
+        padding-top: 5vh;
+        position: fixed;
+    }
+    
+    .simulation #assignClassModal .modal-title{
+        margin-bottom: 10px;
+    }
+    
+    .simulation #assignClassModal .title {
+        margin-bottom: 1vh !important;
+    }
+    
+    .simulation #assignClassModal .instruction {
+        padding-bottom: 2vh;
+    }
+    
+    .simulation #assignClassModal .group-title-head {
+        clear: both;
+        height: 6vh;
+        padding-top: 2vh;
+    }
+    
+    .simulation .assign-class-modal textarea{
+   	    max-height: 12vh;
+   		min-height: 10vh;
+    }
+    
+    .simulation #assignClassModal div.group-container{
+        max-height: 25vh;
+    }
+    
+    .simulation span.load-more-grp{
+    	margin-top: 0;
+    	margin-bottom: 0;
+    }
+}
+@media only screen and (max-width: 600px){
+	span.description{
+		width : 215px;
+	}
+	span.assigned-txt{
+		font-size: 10px;
+		display: block;
+		margin: 0 auto;
+	}
+	.small-due-date{
+		display: inline-block;
+		background-color: #fff;
+		color: #A9A497;
+		font-size: 10px;
+	}
+}
+
+/*
+ * Google Classroom related css
+ */
+.assign-platform-select-heading {
+    font-size: 18px;
+    color: #56544D;
+    margin-top: 10px;
+}
+.assign-platform-select-card {
+    border: 1px solid #eceae6;
+    height: 150px;
+    box-shadow: 0px 3px 2px 1px #ECEAE6;
+    padding: 10px;
+    margin: 10px 5px 0px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#google-classroom-login-container {
+    padding-top: 20px;
+}
+
+.js_google-classroom-groups-container {
+    padding-top: 20px;
+}
+
+.assign-platform-divder-container{
+    top: 40px;
+    max-width: 60px;
+}
+.assign-platform-divder{
+    height:90px;
+    width:1px;
+    background:#ddd;
+    display:inline-flex;
+    text-align:center;
+}
+.gclassroom-courses-list {
+   max-width: none;
+   padding-left: 0px;
+   padding-right: 0px;
+   border: 2px solid #CCCCCC;
+   border-radius: 3px;
+}
+.google-date-validation {
+    font-size: 12px;
+}

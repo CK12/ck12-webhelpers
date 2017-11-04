@@ -1,0 +1,1 @@
+INSERT INTO BrowseTerms (`name`, `encodedID`, `termTypeID`, `parentID`, `handle`, `description`) values ('GetReal Competition Fall 2013', null, 11, null, 'GetReal-Competition-Fall-2013', 'RWAs submitted for the GetReal Competition during Fall 2013 will be associated with this BrowseTerm')

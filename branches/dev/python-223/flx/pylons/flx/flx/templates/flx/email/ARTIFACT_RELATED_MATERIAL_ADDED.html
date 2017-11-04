@@ -1,0 +1,24 @@
+{% extends "MASTER_CK12_LOGO.html" %}
+{% block email_body %}
+<html>
+    <body>
+    <p>Dear {{ member.name }},</p>
+
+    <p>Greetings from CK-12 Foundation!</p>
+
+    <p>We're happy to inform you that we have added some supporting materials.</p>
+
+    <ul>
+    {% for event in events %}
+        <li>For the {{ event['objectDict']['title'] }} FlexBook in your library, now available at CK12.org is <a href="{{ site }}{{ event['newObject']['perma'] }}" target=_blank">{{ event['newObject']['title'] }}</a>. 
+            <br/>Summary: {{ event['newObject']['summary'] }}</li>
+    {% endfor %}
+    </ul>
+
+    <p>Do you have questions or feedback? Do not hesitate to email <a href="mailto:support@ck12.org">support@ck12.org</a>.</p>
+
+    <p>Sincerely,</p>
+    <p>The CK-12 Team</p>
+    </body>
+</html>
+{% endblock %}

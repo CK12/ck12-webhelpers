@@ -1,0 +1,48 @@
+@import 'sprites-config';
+$small-letter-spacing: 0.05em;
+
+.icon-plix {
+  @include sprite($plix);
+}
+.icon-attachment {
+  @include sprite($attachment);
+}
+.icon-activity {
+  @include sprite($activity);
+}
+.icon-image {
+  @include sprite($image);
+}
+.icon-lesson-plan {
+  @include sprite($lesson-plan);
+}
+.icon-mind-map {
+  @include sprite($mind-map);
+}
+.icon-assessment {
+  @include sprite($assessment);
+}
+.icon-read {
+  @include sprite($read);
+}
+.icon-real-world-application {
+  @include sprite($real-world-application);
+  .title {
+    letter-spacing: $small-letter-spacing;
+  }
+}
+.icon-simulation {
+  @include sprite($simulation);
+  .title {
+    letter-spacing: $small-letter-spacing;
+  }
+}
+.icon-study-aid {
+  @include sprite($study-aid);
+}
+.icon-video {
+  @include sprite($video);
+}
+.icon-web-link {
+  @include sprite($web-link);
+}

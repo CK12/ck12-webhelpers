@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+
+<project name="R2.0 Core Build" default="config-tier-all">
+        <property file="build.properties"/>
+        <taskdef resource="net/sf/antcontrib/antlib.xml">
+                <classpath>
+                        <pathelement location="${r2.core.home}/flx/deploy/components/ant/ant-contrib.jar"/>
+                </classpath>
+        </taskdef>
+
+	<target name="config-tier-all" description="Set runtime configuration parameters based on property values for : Search Tier" >
+
+        	<!-- START BLOCK: Update File: solr_config_slave.xml -->
+                <if>
+                       	<isset property="masterurl"/>
+                       	<then>
+				<replaceregexp file="${solr.slave.file}" flags="g" match="(&lt;str name=&quot;masterUrl&quot;&gt;)\s*(.*)"   replace="${masterurl}" />
+			</then>
+                </if>
+	        
+		<echo message="Parameters replaced in: ${solr.slave.file}"/>
+        	<!-- END BLOCK: Update File: solrconfig.xml -->
+
+                <!-- START BLOCK: Update File: celery_config.py -->
+                <if>
+                        <isset property="broker.host"/>
+                        <then>
+                                <replaceregexp file="${celery.config.file}" flags="g" match="(BROKER_HOST)\s*=\s*(.*)"   replace='\1 = "${broker.host}"'  />
+                        </then>
+                </if>
+
+                <echo message="Parameters replaced in file: ${celery.config.file}"/>
+                <!-- END BLOCK: Update File: celery_config.py -->
+
+                <!-- START BLOCK: Update File: test.ini -->
+                <if>
+                        <isset property="sqlalchemy.url"/>
+                        <then>
+                        	<replaceregexp file="${test.ini.file}" flags="g" match="(sqlalchemy.url)\s*=\s*(.*)"   replace='\1 = ${sqlalchemy.url}/flx2test'  />
+                        </then>
+                </if>
+
+                <echo message="Parameters replaced in file: ${test.ini.file}"/>
+                <!-- END BLOCK: Update File: test.ini -->
+
+                <!-- START BLOCK: Update File: production.ini -->
+		<copy file="${development.ini.file}" tofile="${production.ini.file}" verbose="true" overwrite="true" />
+                <if>
+                        <isset property="solr.update.url"/>
+                        <then>
+                        	<replaceregexp file="${production.ini.file}" flags="g" match="(solr_update_url)\s*=\s*(.*)"   replace='\1 = ${solr.update.url}'  />
+                        </then>
+                </if>
+                <if>
+                        <isset property="fedora.commons.url"/>
+                        <then>
+                        	<replaceregexp file="${production.ini.file}" flags="g" match="(fedora_commons_url)\s*=\s*(.*)"   replace='\1 = ${fedora.commons.url}'  />
+                        </then>
+                </if>
+                <if>
+                        <isset property="sqlalchemy.url"/>
+                        <then>
+                        	<replaceregexp file="${production.ini.file}" flags="g" match="(sqlalchemy.url)\s*=\s*(.*)"   replace='\1 = ${sqlalchemy.url}/flx2'  />
+                        </then>
+                </if>
+                <if>
+                        <isset property="data.dir"/>
+                        <then>
+                        	<replaceregexp file="${production.ini.file}"  match="(data_dir)\s*=\s*(.*)"   replace='\1 = ${data.dir}'  />
+                        </then>
+                </if>
+                <if>
+                        <isset property="vcs.dir"/>
+                        <then>
+                        	<replaceregexp file="${production.ini.file}"  match="(vcs_dir)\s*=\s*(.*)"   replace='\1 = ${vcs.dir}'  />
+                        </then>
+                </if>
+                <if>
+                        <isset property="cache.dir"/>
+                        <then>
+                        	<replaceregexp file="${production.ini.file}" match="(cache_dir)\s*=\s*(.*)"   replace='\1 = ${cache.dir}'  />
+                        </then>
+                </if>
+                <echo message="Parameters replaced in file: ${production.ini.file}"/>
+
+                <!-- END BLOCK: Update File: production.ini -->
+
+                <!-- START BLOCK: Update File: flx.wsgi -->
+
+		<copy file="${src.flx.wsgi.file}" tofile="${dst.flx.wsgi.file}" verbose="true" overwrite="true" />
+
+                <!-- END BLOCK: Update File: flx.wsgi -->
+	</target>
+
+</project>

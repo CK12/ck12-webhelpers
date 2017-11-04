@@ -1,0 +1,9 @@
+    WSGIScriptAlias / /opt/2.0/flxweb/flxweb.wsgi
+    <Directory /opt/2.0/flxweb/>
+        Require all granted
+    </Directory>
+
+    RewriteEngine On
+    RewriteCond %{REQUEST_URI} !^/media/build-.*
+    ## Keep this line commented out - the build will uncomment it.
+    ## RewriteRule ^/media/(build-\d+\/)?(.*) /media/build-000/$2 [L,PT]

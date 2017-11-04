@@ -1,0 +1,56 @@
+{% extends "base/auth/1column.html" %}
+
+{% block js %}
+{{ super() }}
+<script>
+require(['main'], function(){
+   require(['auth/flx.signup.underage']); 
+});
+</script>
+{% endblock %}
+
+{% block pageinfotop %}
+<div class="contenttop"></div>
+{% endblock %}
+
+{% block content %}
+<div class="signup">
+	<div class="large-8 large-centered columns">
+		<h1 class="toptitle">{{ _("Hello, youngster") }}</h1>
+		<div class="spacetoplarge"></div>
+	</div>
+	
+	<div id="signup" class="contentarea large-8 large-centered columns">
+	<div class="signup-area">
+	<div class="spacetopxlarge"></div>
+	{% if c.form_errors %}
+		<div id="signin_errors">
+			<ul class="messaging error">
+				{% for error in c.form_errors %}
+				<span class="icon-close"></span>
+				<li>{{error}}
+					{% if c.form_errors[error] %}
+					- {{ c.form_errors[error] }}
+					{% endif %}
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
+	{% endif %}
+			<div class="divider"></div>
+			<p>{{ _("To create an account with us, you'll need to be at least thirteen years old.") }}</p>
+			<p>{{ _("Enter your teacher, parent or guardian's email address below. We'll let them know how they can set up an account for you") }}</p>
+			<div class="error large-offset-underage-3" data-for="parent_email">&nbsp;</div>
+			<form id="signup_underage_form" method="POST" action="{{ h.url('member_underage_signup') }}" class="custom">
+				<div class="large-8 large-centered column">
+					<input type="text" id="parent_email" name="parent_email" placeholder="e.g. yourteacher@email.com" />
+					<input type="hidden" id="underageinfo" name="underageinfo" value="{{ c.encodedData }}" />
+				</div>
+				<div class="text-center large-8 large-centered column">
+					<input class="button" type="submit" value="Submit" />
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}

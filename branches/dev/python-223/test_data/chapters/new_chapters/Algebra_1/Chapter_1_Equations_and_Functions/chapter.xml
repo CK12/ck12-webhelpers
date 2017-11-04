@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns:dc="http://www.ck12.org/dc/will_create_ns"
+unique-identifier="chapterid" version="2.0">
+
+  <chapter>
+    <metadata>
+<chapterSeq>1</chapterSeq>
+
+<book>Algebra I</book>
+
+      <chapterid></chapterid>
+      <title>Equations_and_Functions</title>
+      <description>Topics in this chapter include:Additional_Resources,Equations_and_Inequalities,Functions_as_Graphs,Functions_as_Rules_and_Tables,Order_of_Operations,Patterns_and_Equations,Problem-Solving_Plan,Problem-Solving_Strategies.    
+     </description>
+    </metadata>
+    
+    <lessons>
+      <item id="Variable_Expressions" href="Variable_Expressions.html" sequence="1" />
+      <item id="Order_of_Operations" href ="Order_of_Operations.html" sequence="2" />
+      <item id="Patterns_and_Equations" href ="Patterns_and_Equations .html" sequence="3" />
+      <item id="Equations_and_Inequalities" href ="Equations_and_Inequalities.html" sequence="4" />
+      <item id="Functions_as_Rules_and_Tables" href ="Functions_as_Rules_and_Tables.html" sequence="5" />
+      <item id="Functions_as_Graphs" href ="Functions_as_Graphs.html" sequence="6" />
+      <item id="Problem-Solving_Plan" href ="Problem-Solving_Plan.html" sequence="7" />
+      <item id="Problem-Solving_Strategies" href ="Problem-Solving_Strategies.html" sequence="8" />
+      <item id="Additional_Resources" href ="Additional_Resources.html" sequence="9" />
+      </lessons>
+  </chapter>
+
+</package>

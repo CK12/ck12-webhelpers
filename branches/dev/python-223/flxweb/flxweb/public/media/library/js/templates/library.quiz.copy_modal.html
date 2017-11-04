@@ -1,0 +1,40 @@
+<div class="reveal-modal" id="copyQuizModal">
+		<div class="row title-row">
+			<div class="columns small-3 text-right">
+				<label class="inline">Enter Title</label>
+			</div>
+			<div class="columns small-9">
+				<input type="text" class="testTitle" maxlength="100" data-validate="^[0-9a-zA-Z_ \.:-]*$" placeholder="Enter the title..." />
+			</div>
+		</div>	
+		<div class="row collapse message">
+		</div>
+		<div id="loadingTemplate" class="hide">
+			<div class="loader"></div>copying quiz...
+		</div>
+		<div class="row collapse text-center">
+			<div class="button standard tangerine" id="copyTest" value="Copy Quiz">Copy Quiz</div>
+			<div class="button dusty-grey close-modal" id ="closeCopyModal" value="Cancel">Cancel</div>
+		</div>
+</div>
+<div class="reveal-modal" id="quizPreviewModal" data-options="closeOnBackgroundClick:false">
+	<span class="close-modal">+</span>
+	<header class="preview-header row">
+		<span class="columns modal-lebal"><h6>Preview</h6></span>
+		<div class="columns small-3 select-option"><a id="" class="small dropdown button library-dropdown-secondary js-size-dropdown" >Desktop</a>
+		<div class="more-options-dropdown-wrapper hide">
+			<ul class="more-options-dropdown" data-dropdown-content="" id="">
+				<li class="js-dropdown-element" data-item="quiz-desktop">Desktop</li>
+				<li class="js-dropdown-element" data-type="ipad-portrait" data-item="quiz-ipad-portrait">iPad (portrait)</li>
+				<li class="js-dropdown-element" data-type="ipad-landscape"  data-item="quiz-ipad-landscape">iPad (landscape)</li>
+				<li class="js-dropdown-element" data-type="iphone-portrait" data-item="quiz-iphone-portrait">iPhone (portrait)</li>
+				<li class="js-dropdown-element" data-type="iphone-landscape" data-item="quiz-iphone-landscape">iPhone (landscape)</li>
+			</ul>
+		</div>
+	</header>
+	<section style="overflow-y:hidden;overflow-x:auto;height:90%;">
+		<div class="text-center quiz-desktop view-type"style="overflow-y:auto;overflow-x:auto;max-height:100%" >
+			<iframe id="testContainer" src="" class="iframe-container" style="height:1393px;"></iframe>
+		</div>
+	</section>
+</div>

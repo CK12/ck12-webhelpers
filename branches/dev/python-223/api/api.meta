@@ -1,0 +1,14 @@
+((synopsis "API access-control")
+ (author "Peter Danenberg")
+ (category web)
+ (license "BSD")
+ (depends autocompile
+          call-with-query
+          debug
+          define-record-and-printer
+          fmt
+          matchable
+          mysql-client
+          setup-helper)
+ (test-depends)
+ (foreign-depends))

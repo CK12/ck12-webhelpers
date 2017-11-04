@@ -1,0 +1,211 @@
+{% extends "base/1column.html" %}
+{% block title %}{{ _("Modality Configuration") }}{% endblock %}
+{% block content %}
+<div class="sectionhead sectiontitle">{{c.pagetitle}}</div>
+	<div class="errorline">{{c.error}}</div>
+{% if c.modality_conf %}
+	<div>
+    {% if c.modality_conf_type == 'modalities' %}
+    	<div style="float:left">
+      		<b>Modalities</b> &nbsp;|&nbsp;
+      		<a href="{{_('/modality/configuration?confType=modality_groups')}}">Modality Groups</a>
+      	</div>
+      	<div id="navigationtop" style="float:righ;text-align:right">
+			<a class="new_modality" href="javascript:void(0);">{{_("New Modality")}}</a> | 
+			<a class="update_all_modalities" href="javascript:void(0);">{{_("Update All")}}</a>
+		
+	{% elif c.modality_conf_type == 'modality_groups' %}
+		<div style="float:left">
+			<b>Modality Groups</b> &nbsp;|&nbsp;
+			<a href="{{_('/modality/configuration?confType=modalities')}}">Modalities</a>
+		</div>
+		<div id="navigationtop" style="float:right;text-align:right">
+			<a id="update_all_groups" href="javascript:void(0);">{{_("Update All")}}</a>
+    {% endif %}
+    	| <a href="/download/modality_configuration/" target="_blank" class="download_conf">Download As XML</a>
+    	</div>
+	</div>    
+
+    <div id='resultmsgs'>
+      <p class='ajaxError'></p>
+      <p id='resultmsg'></p>
+      <p id='clearactions'></p>
+    </div>
+
+   	{% if c.modality_conf_type == 'modalities' %}
+   		
+		<div class="healthcheck table clear" style="margin-top:0px">  
+  			<div class="thead sectionhead">
+    			<div class="tr">
+    			{% for head in c.form.modalities_listhead %}
+      				<div class="td">
+        				{{head}}<div class='sort-indicator hide'></div>
+      				</div>
+    			{% endfor %}
+    			</div>
+  			</div>
+  				
+  			<div class="tbody">
+  			{% set modalities = c.modality_conf[c.modality_conf_type] %}
+  			{% for modality in modalities.keys()|sort %}
+				<form class='tr' method="post">
+           			<div class="td xmed inputwrap">
+           				<span class = "hide">{{modality}}</span>
+               			<input class='efull' type='text' readonly="readonly" name='title' value='{{ modalities[modality]['artifact_type'] }}'/>
+           			</div>
+
+           			<div class="td xmed inputwrap">
+               			<input class='efull' type='text' name='title' value='{{ modalities[modality]['display_label'] }}'/>
+           			</div>
+
+           			<div class="td tdcenter">
+           				<select class="type_filter js_stateselect">
+           					{% for i in range(100) %}
+           						{% if modalities[modality]['weight_teacher'] == i %}
+           							<option value={{i}} selected>{{i}}</option>
+           						{% else %} 
+           							<option value={{i}}>{{i}}</option>
+           						{% endif %}
+           					{% endfor %}
+           				</select> 
+           			</div>
+
+           			<div class="td tdcenter">
+               			<select class="type_filter js_stateselect">
+           					{% for i in range(100) %}
+           						{% if modalities[modality]['weight_student'] == i %}
+           							<option value={{i}} selected>{{i}}</option>
+           						{% else %} 
+           							<option value={{i}}>{{i}}</option>
+           						{% endif %}
+           					{% endfor %}
+           				</select>
+           			</div>
+
+		            <div class="td short tdcenter">
+		            	{% if modalities[modality]['student_show'] == True %}
+		            		<input id="type_filter" type="checkbox" checked="checked" />
+		            	{% elif modalities[modality]['student_show'] == False %}
+		            		<input id="type_filter" type="checkbox" />
+		            	{% endif %}
+            		</div>
+
+           			<div class="td tdcenter">
+               			<a class="modalities_update" href="javascript:void(0);">{{_("Update")}}</a>
+           			</div>
+       			</form>
+			{% endfor %}
+	  		</div>
+		</div>
+		<div id="navigationbottom" style="text-align:right">
+			<a class="new_modality" href="javascript:void(0);">{{_("New Modality")}}</a> | 
+			<a class="update_all_modalities" href="javascript:void(0);">{{_("Update All")}}</a> |
+			<a href="/download/modality_configuration/" target="_blank" class="download_conf">Download As XML</a>
+		</div>
+		
+		<div id = "emptyModalityContainer" class="hide">
+		<form  class='tr' method="post">
+		<div class="td xmed inputwrap">
+        	<span class = "hide"></span>
+			<input class='efull' type='text' name='title' value=''/>
+		</div>
+		<div class="td xmed inputwrap">
+			<input class='efull' type='text' name='title' value=''/>
+		</div>
+		<div class="td tdcenter">
+			<select class="type_filter js_stateselect">
+				{% for i in range(100) %}
+					<option value={{i}}>{{i}}</option>
+				{% endfor %}
+			</select> 
+		</div>
+		<div class="td tdcenter">
+			<select class="type_filter js_stateselect">
+				{% for i in range(100) %}
+					<option value={{i}}>{{i}}</option>
+				{% endfor %}
+           	</select>
+		</div>
+		<div class="td short tdcenter">
+			<input id="type_filter" type="checkbox"/>
+		</div>
+		<div class="td">
+			<a href="javascript:void(0);" class="add_modality">Add</a> | <a href="javascript:void(0);" class="remove_modality_row">Cancel</a>
+		</div>
+	</form>
+	</div>
+	{% elif c.modality_conf_type=='modality_groups' %}
+		<div class="healthcheck table clear" style="margin-top:0px">
+  			<div class="thead sectionhead">
+				<div class="tr">
+					{% for head in c.form.groups_listhead %}
+						<div class="td">
+							{{head}}<div class='sort-indicator hide'></div>
+						</div>
+    				{% endfor %}
+				</div>
+			</div>
+
+			<div class="tbody">
+			{% set modality_groups = c.modality_conf[c.modality_conf_type] %}
+			{% for group in modality_groups %}
+				<form class='tr' method="post">
+					<div class="td med inputwrap" style="width:200px;">
+						<input class='efull' style="width: 98%" type='text' readonly="readonly" name='title' value='{{ group['group_name'] }}'/>
+					</div>
+
+					<div class="td med inputwrap" style="width:200px;">
+						<input class='efull' style="width: 98%" type='text' readonly="readonly" name='title' value='{{ group['group_classname'] }}'/>
+					</div>
+				
+					<div class="td short inputwrap" style="width:80px;">
+						<input class='efull' style="width: 98%" type='text' name='title' value='{{ group['display_text'] }}'/>
+					</div>
+				
+					<div class="td longer inputwrap" style="width:520px;">
+						{% set artifact_types = group['artifact_types']|join(', ') %}
+						<input class='efull' style="width: 98%" type='text' name='title' value='{{ artifact_types }}'/>
+					</div>
+				
+					<div class="td tdcenter">
+						<select class="type_filter js_stateselect">
+           					{% for i in range(20) %}
+           						{% if group['sequence'] == i %}
+           							<option value={{i}} selected>{{i}}</option>
+           						{% else %} 
+           							<option value={{i}}>{{i}}</option>
+           						{% endif %}
+           					{% endfor %}
+           				</select>
+					</div>
+
+					<div class="td short tdcenter" style="width:80px;">
+						{% if group['show_text_label'] == True %}
+		            		<input id="type_filter" type="checkbox" checked="checked" />
+		            	{% elif group['show_text_label']== False %}
+		            		<input id="type_filter" type="checkbox" />
+		            	{% endif %}
+					</div>
+					
+					<div class="td med inputwrap" style="width:200px;">
+						<input class='efull' style="width: 98%" type='text' name='title' value='{{ group['default_thumb'] }}'/>
+					</div>
+					
+					<div class="td tdcenter">
+						<a class="group_update" href="javascript:void(0);">{{_("Update")}}</a>
+					</div>
+				</form>
+			{% endfor %}
+			</div>
+		</div>
+	{% endif %}
+{% endif %}
+{% endblock content %}
+
+{% block js %}
+{{ super() }}
+<script language="JavaScript" type="text/javascript">
+	require(['flxweb.modality.configuration'], function(){
+	});
+</script>
+{% endblock js %}

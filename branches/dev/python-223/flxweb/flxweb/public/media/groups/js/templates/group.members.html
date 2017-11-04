@@ -1,0 +1,46 @@
+<div>
+	<div id="group-members-container" class="members-container-wrapper ie8text">
+		<!-- Begin edit member modal -->
+	        <!-- End edit member modal -->
+	<!--<div class="members-select-container">
+                 <h2 class="">Sort by:</h2>
+ 				<span class="members-select">
+					<a data-dropdown="dropdown1" class="small button dropdown members-dropdown" id="members-dropdown"><span class="js-name">All Members</span> (<span class="js-count"></span>)</a>
+					<ul id="dropdown1" data-dropdown-content="" class="f-dropdown" style="position: absolute; top: 87.6833px; left: -99999px;">
+						<li class="js-dropdown-element" data-filter="all"><a><span class="js-name">All Members</span> (<span id="all-members-count" class="js-count">0</span>)</a></li>
+						<li class="js-dropdown-element" data-filter="leader"><a><span class="js-name">Group Leader</span> (<span id="group-leader-count" class="js-count">1</span>)</a></li>
+						<li class="js-dropdown-element" data-filter="teacher"><a><span class="js-name">Teachers</span> (<span id="group-teacher-count" class="js-count">0</span>)</a></li>
+						<li class="js-dropdown-element" data-filter="students"><a><span class="js-name">Students</span> (<span id="group-student-count" class="js-count">0</span>)</a></li>
+					</ul>
+				</span>
+		</div> -->
+		<div id="member-container" class="member-details-wrapper">
+			<div id="group-leader" class="row collapse member-detail-container" data-filter="all-leader" data-filter-role="groupMemberRole,groupadmin">
+				<h1 class="members-header">@@GroupLeader@@ Leader</h1>
+			</div>
+			<div id="group-teacher" class="row collapse member-detail-container" data-filter="all-teacher">
+				<h1 class="members-header">Teacher (<span class="js-member-count"></span>)</h1>
+			</div>
+			<div id="group-student" class="row collapse member-detail-container" data-filter="all-students">
+				<h1 class="members-header">Students (<span class="js-member-count"></span>)</h1>
+			</div>
+		</div>
+            <!-- member-details-wrapper code :Ends-->
+	</div>
+
+	<div id="removeMemberModal" class="reveal-modal app-reveal-modal modal-uikit group-member-modals text-center">
+		<a class="close-reveal-modal close">+</a>
+		<div class="row collapse ie8text">
+			<div class="large-12 columns">
+				<div class="modal-contents ie8text">Are you sure you want to remove <b id="member-long-name"></b>&nbsp;?</div>
+				<div class="modal-contents ie8text js-for-study"><b id="member-short-name"></b> won’t be able to share with other group members.</div>
+				<div class="modal-contents ie8text js-for-class"><b id="member-short-name"></b> won’t be able to receive assignments for this group.</div>
+				<div class="button-wrapper ie8text">
+					<a class="button turquoise standard" id="delete-member">Remove</a>
+					<a class="button dusty-grey standard" id="cancel-modal">Cancel</a> 
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>

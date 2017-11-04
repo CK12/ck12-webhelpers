@@ -1,0 +1,561 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+{% block head %}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <link rel="shortcut icon" href="{{h.url_images('favicon.ico')}}" type="image/x-icon" />
+  <title>
+  {% block title %}
+    {% if c.pagetitle %}{{_(c.pagetitle)}}{% else %}{{ _("Admin Home") }}{% endif %}
+  {% endblock %}
+  {% block common_title %}| {{ _("CK-12 Admin") }} {% endblock %}
+  </title>
+  <meta name="description" content="CK-12 Admin">
+  <meta name="author" content="CK-12 Foundation">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  {% block stylesheets %}
+  <link rel="stylesheet" type="text/css" media="all" href="{{ h.url_css('style.css')}}"/>
+   <link rel="stylesheet" href="{{ h.url_js('libs/jquery-ui/css/smoothness/jquery-ui-1.8.17.custom.css')}}" />
+  {% endblock %}
+  <!-- html5.js for IE less than 9 --> 
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]--> 
+
+  <!-- css3-mediaqueries.js for IE less than 9 --> 
+  <!--[if lt IE 9]>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+  <![endif]--> 
+{% endblock %}
+</head>
+<body>
+{% block header %}
+<header id="header">
+  {% block mainnav %}
+  <nav id="main-nav" class="clearfix">
+    <div id="headerwrap" class="clearfix">
+      <ul id="primary" class='dropdown'>
+        <li><a id="site-logo" href="{{config.webroot_url}}"><img src="{{ h.url_images('logo-sml.png' )}}" alt="{{ _('CK-12 Logo') }}" /></a>
+        </li>
+
+        {% for nav in c.nav %}
+        <li>{%if (nav.links.0.0) %} {{h.htmla_(nav.links.0)}} {%else%} <span class="nav-linklike">{{nav.links.0.1 }}</span> {%endif%}
+          {% if nav.links|length > 1 %}
+          <ul class='subnav hidden'>
+            {% for link in nav.links[1:] %}
+              <li>{{h.htmla_(link)}}</li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </li>
+        {% endfor %}
+        
+      </ul>
+      <ul id="secondary">
+        <li><a href="/">Main App</a></li>
+        {% for link in c.right_navs %}<li>{{link}}</li>{% endfor %}
+      </ul>
+    </div>
+  </nav>
+  {% endblock %}
+</header>
+{% endblock %}
+
+<div id="page">
+{% block page %}
+
+  <div id="crumbs">
+  {% block crumbs %}
+    {% for link in c.crumbs %} {{link}} &gt;{% endfor %}
+    {% if c.pagetitle %}
+      <span id="pagetitle">{{_(c.pagetitle)}}</span>
+    {% endif %}
+  {% endblock %}
+  </div>
+  <div id="waitblock">
+    <!-- Div to block for block UI. Does not actually block any UI -->
+  </div>
+
+  <div id="contentwrap">
+    <div id="content">
+    {% block content %}
+
+      <div id="admintop">
+      {% block admintop %}
+        {# for filters, search, etc. #}
+      {% endblock %}
+      </div>
+
+      {% block messages %}
+        {% for error in c.errors %}
+          <div class="error messaging">{{error}}</div>
+        {% endfor %}
+        {% if c.success %}
+          <div class="success messaging">{{c.success}}</div>
+        {% endif %}
+      {% endblock %}
+
+      {% block admincontent %}
+        {# normal page templates should define admincontent #}
+      {% endblock %}
+
+    {% endblock content %}
+    </div>
+  </div>
+
+  {% block footer %}
+  <div id='spinner' style="display:none; cursor:wait">
+    <img src="{{ h.url_images('spinner.gif' )}}" alt="{{ _('Please Wait..') }}" />
+  </div>
+  
+  <footer id="footer">
+    <nav></nav>
+    <div class="footercenter">
+      {{ _("CK-12 Internal Admin Application") }}
+    </div>
+  </footer>
+  {% endblock footer %}
+
+{% endblock page %}
+</div>
+
+{% block js_globals %}
+<script type="text/javascript" src="{{ h.url_js('libs/jquery-1.7.min.js') }}"></script>
+<script type="text/javascript" src="{{ h.url_js('libs/jquery.ba-bbq.min.js')}}"></script>
+<script type="text/javascript" src="{{ h.url_js('libs/jquery.validate.min.js')}}"></script>
+<script type="text/javascript" src="{{ h.url_js('libs/jquery.blockUI.min.js')}}"></script>
+<script type="text/javascript" src="{{ h.url_js('libs/jquery.colorbox-min.js')}}"></script>
+<script type="text/javascript" src="{{ h.url_js('libs/jquery.hoverIntent.min.js')}}"></script>
+<script type="text/javascript" src="{{ h.url_js('libs/jquery.tooltip.min.js')}}"></script>
+<script type="text/javascript" src="{{ h.url_js('libs/jquery.elementReady.js')}}"></script>
+<script type="text/javascript" src="{{ h.url_js('libs/underscore-1.2.3.min.js') }}"></script>
+<script type="text/javascript" src="{{ h.url_js('libs/underscore.string.min.js') }}"></script>
+<script type="text/javascript" src="{{ h.url_js('libs/jquery-ui/js/jquery-ui-1.8.17.custom.min.js') }}"></script>
+
+<script type="text/javascript" src="{{ h.url_js('libs/json2.js') }}"></script>
+<script type="text/javascript" src="{{ h.url_js('utils.js') }}"></script>
+<script type="text/javascript">
+  _.mixin(_.string.exports());
+
+  Poll = null; //global polling for setInterval
+  Poll2 = null; //2nd global polling to be used in same page as Poll is used
+  Defaults = {
+    tmce_plugins_url: "{{h.url_js('lib/ck12-tinymce-plugins/')}}",
+    tmce_content_css : "{{ h.url_css('rosetta.css') }}, {{ h.url_css('editor.css') }}",
+    UIAlreadyBlocked: false,
+    elmToBlock: '#waitblock',
+    blockOverlay: false, 
+    inProgressStatuses: ['PENDING', 'IN PROGRESS', 'In Progress'],
+    fetchFailStatuses: ['SUCCESS (Failed to get details)'],
+    successStatuses: ['SUCCESS','Success','SUCCESS (Failed to get details)'],
+    overlay: function(type){
+      var _default = {
+        transition:"none", width:"92%", height:"92%", opacity:.6
+      };
+      if (type=='flxweb'){
+        _default = {
+            transition:"none", width:"70%", height:"70%", opacity:.6
+        };
+        return $.extend({}, _default, {iframe: true, fastIframe: false});
+      }
+      else if (type=='listing'){
+        return $.extend({}, _default, {width:"95%", height:"95%", overlayClose:false, 
+          onClosed: function(){
+            Fns.resetElmToBlock();
+            Fns.unblockUI();
+          }
+        });
+      }else{
+        return _default;
+      }
+    },
+    tooltip: {
+    },
+    interval: {
+      short: 15000,
+      med:   30000,
+      long:  60000
+    },
+    modal: {
+      fadeoutTime: 2000,
+      style: {
+        form: {
+          width: '280px', 'background-color': '#ffffd0'
+        },
+        dialog: {
+          width: '280px', 'line-height': '8em'
+        },
+        error: {
+          width: '280px', 'line-height': '8em', 'background-color': '#fff8f8'
+        },
+        success: {
+          width: '280px', 'line-height': '8em', 'background-color': '#e8ffe8'
+        }
+      }
+    }
+  };
+
+  Fns = { // Global functions (non-Ck12 specific)
+    htmla: function(url, txt){
+      var txt = txt||url;
+      return '<a href="'+url+'">'+ txt +'</a>';
+    },
+    colorStatus: function(elmOrSel){
+      elmOrSel = elmOrSel || '.status';
+      $(elmOrSel).each(function(i, elm){
+        var $elm = $(elm), 
+          s = $elm.text().trim();
+        // CAPS are task statuses, others are other statuses
+        (s=='SUCCESS'||s=='Done'||s=='Acknowledged')? $elm.css({color: 'royalBlue'}):
+        (s=='IN PROGRESS'||s=='In Progress')?         $elm.css({color: 'limeGreen'}):
+        (s=='PENDING')?                               $elm.css({color: 'orange'}):
+        (s=='FAILURE'||s=='Failed')?                  $elm.css({color: 'red'}):null;
+      });
+    },
+    isEnterKey: function(e){
+      return (e.which || e.keyCode || e.charCode) == 13;
+    },
+    prependSlash: function(s){
+      return _(s).startsWith('/')? s : '/'+s;
+    },
+    getXhrResponseText: function(xhr){
+      if (xhr && xhr.responseText){
+        if (xhr.responseText.match(/id=.container/))
+          return $(xhr.responseText).find('#container').text();
+        else
+          return xhr.responseText;
+      }
+      return '';
+    },
+    inProgress: function(status){ 
+      return _.any(Defaults.inProgressStatuses, function(stat){ 
+        return status==stat;
+      });
+    },
+    fetchFailed: function(status){ 
+      return _.any(Defaults.fetchFailStatuses, function(stat){ 
+        return status==stat;
+      });
+    },
+    isSuccess: function(status){ 
+      return _.any(Defaults.successStatuses, function(stat){ 
+        return status==stat;
+      });
+    },
+    showHide: function(target, toggler, showText, hideText){
+      // toggles target. show/hideText args optional, indicates text to be displayed
+      $(toggler).click(function(){
+        $(target).toggleClass('hide').select(); //selects textarea if target is textarea
+        var txt = $(this).text();
+
+        if (showText && hideText){
+          txt==showText? $(this).text(hideText) : $(this).text(showText);
+        }else{
+          if (txt.match(/Show/)){
+            $(this).text(txt.replace('Show', 'Hide'));
+          }
+          else if (txt.match(/Hide/)){
+            $(this).text(txt.replace('Hide', 'Show'));
+          }
+        }
+      });
+    }
+  };
+  Fns.formatResponseError = function(xhr, textStatus, errorThrown){
+    var 
+      xhrMsg = Fns.getXhrResponseText(xhr),
+      errMsg = textStatus? textStatus+', '+errorThrown : errorThrown;
+    return errMsg? errMsg+', '+xhrMsg : xhrMsg;
+  },
+  Fns.closeModal = function(){
+    $(Defaults.elmToBlock).unblock();
+  };
+  Fns.resetElmToBlock = function(){
+    Defaults.blockOverlay = false;
+  };
+  Fns.blockUI = function(){
+    if (!Defaults.UIAlreadyBlocked){
+      var elmToBlock = Defaults.blockOverlay? '#cboxWrapper' : Defaults.elmToBlock;
+      $(elmToBlock).block({
+        message: $('#spinner'),
+        css: {
+          top: $(window).scrollTop(), left:'45%', height:'28px', width:'28px',
+          border: 0
+        },
+        centerX: false,
+        centerY: false,
+        overlayCSS: {opacity: 0}
+      });
+      // Automatically unblock after 10s
+      // setTimeout(Fns.unblockUI, 10000);
+    }
+  };
+  Fns.unblockUI = function(){
+    if (!Defaults.UIAlreadyBlocked){
+      var blockedElm = Defaults.blockOverlay? '#cboxWrapper' : Defaults.elmToBlock;
+      $(blockedElm).unblock();
+    }
+  };
+  Fns.ajaxfor = function(jqsel, args){
+  // Adds ajax click event on jqsel selector (string or jq object), where
+  //   args is a json of:
+  // @string url: required
+  // @string method: ajax method, defaults to 'GET'
+  // @string redirect: redirection after call, optional
+  // @string confirmMsg: confirmation msg before calling, optional
+  // @string successMsg: success msg after call, optional
+  // @object data: data to be sent, optional
+    $(jqsel).click(function(){
+      if (!args.confirmMsg || confirm(args.confirmMsg)){
+        $.ajax({url: args.url, 
+          type: args.method || 'GET', 
+          data: args.data || {},
+          timeout: args.timeout || 0, //default is 0, leaving for browser to set
+          success: function(data, status, xhr){ //data is just {} for artifacts
+            if (args.successMsg) alert(args.successMsg);
+            if (args.isOverlayFromPaneview){
+              $.get(args.redirect+'?viewmode=pane', function(d){
+                if ($.colorbox) $.colorbox.close();
+                $('#rightpane').html(d);
+              });
+            }
+            if (!args.isOverlayFromPaneview && args.redirect) 
+              window.location.replace(args.redirect);
+          },
+          error: function(xhr, textStatus, errorThrown){
+            alert('API Error: '+Fns.formatResponseError(
+              xhr, textStatus, errorThrown));
+          }
+        });
+      }
+    }); 
+  };
+  Fns.confirm = function(msgsOrName, url, redirect, method, data, jqsel, extras){
+  // wrapper for Fns.ajaxfor()
+  // msgsOrName: Either string of item to be deleted (for display purposes)
+  //             or list of [confirm, success] msgs.
+    var 
+      argIsMsgs = typeof(msgsOrName)=='object',
+      extras = extras || {};
+    Fns.ajaxfor(jqsel || '#delete', {
+      confirmMsg: argIsMsgs? msgsOrName[0] :
+        "This will delete the "+msgsOrName+" and can NOT be undone.  Are you sure?",
+      successMsg: (argIsMsgs && msgsOrName.length>1 && msgsOrName[1])? msgsOrName[1] :
+        _.capitalize(msgsOrName)+' deleted successfully',
+      url: url,
+      redirect: redirect,
+      method: method,
+      data: data,
+      timeout: extras.timeout
+    });
+  };
+  Fns.setActionMsg = function($elm, successOrErrorStr, msg, errorThrown){
+    var rem_css, add_css;
+    if (successOrErrorStr=='success'){
+      rem_css = 'hide error';
+      add_css = 'actionmsg success';
+    }else{
+      msg = Fns.formatResponseError(null, msg, errorThrown);
+      rem_css = 'hide success';
+      add_css = 'actionmsg error';
+    }
+    $elm.removeClass(rem_css).addClass(add_css).css({padding: '0 10px 4px 30px'}).text(msg);
+  };
+  Fns.setActionLink = function($elm, url, label){
+    if (url=='hide')
+      $elm.addClass('hide');
+    else
+      $elm.removeClass('hide').html('<a href="'+url+'">'+label+'</a>');
+  };
+  Fns.setActionStat = function($elm, stat){
+    if (stat=='hide')
+      $elm.addClass('hide');
+    else
+      $elm.removeClass('hide').text(stat);
+  };
+
+  CK12 = {  // CK12 specific attrs and functions
+    admroot: "{{ h.url_('/') }}",
+    apiroot: "{{ h.api_server_root() }}",
+    minlength: { // from flx's flx.member.js or other sources
+      password: 6  
+    }
+  };
+  CK12.apiUrl = function(api){
+    if (_(CK12.apiroot).endsWith('proxy')){
+      return CK12.apiroot+"?path="+api;
+    }else{
+      return CK12.apiroot+Fns.prependSlash(api);
+    }
+  };
+  $.extend(CK12, {
+    imgUrl: function(api){
+      return "{{h.img_server_root()}}"+Fns.prependSlash(api);
+    },
+    flxUrl: function(api){
+      return CK12.apiUrl('/flx'+Fns.prependSlash(api));
+    },
+    authUrl: function(api){
+      return CK12.apiUrl('/auth'+Fns.prependSlash(api));
+    },
+    hwpUrl: function(api){
+      return CK12.apiUrl('/hwp'+Fns.prependSlash(api));
+    },
+    aeUrl: function(api){
+      return CK12.apiUrl('/assessment/api'+Fns.prependSlash(api));
+    },
+    flxwebUrl: function(api){
+      return CK12.apiUrl('/flxweb'+Fns.prependSlash(api));
+    },
+    adsUrl: function(api){
+      return CK12.apiUrl('/ads'+Fns.prependSlash(api));
+    },
+    admUrl: function(path){
+      var path = _(path).startsWith('/')? path.substring(1) : path;
+      return CK12.admroot+path;
+    },
+    admHtmla: function(url, txt){
+      return Fns.htmla(CK12.admUrl(url), txt);
+    },
+    taxonomyUrl: function(api){
+      return CK12.apiUrl('/taxonomy'+Fns.prependSlash(api));
+    }
+  });
+  $.extend(CK12, {
+    math_endpoint: '/flx/math/',
+    math_preview_endpoint: CK12.flxwebUrl('preview/math/'),
+    resource_upload_endpoint: CK12.admUrl('resource/upload')
+    // other attrs defined in $.flxweb.settings, modify these as needed:
+      // 'webroot_url' : "{{h.url('/',qualified='True')}}",
+      // 'webroot_url_relative' : "{{config.webroot_url}}",
+      // 'artifact_data_endpoint' : "{{config.webroot_url}}ajax/data/artifact/",
+      // 'render_resource_perma_endpoint' : "/flx/render/perma/resource",
+  });
+
+  $(document).ready(function(){ 
+    $('.switchuser').colorbox($.extend(Defaults.overlay('flxweb'),{width:"700px", title : "Switch User"}));
+    $.ajaxSetup({'cache': false });
+    $(document).ajaxStart(Fns.blockUI);
+    $(document).ajaxStop(Fns.unblockUI);
+    $('form').not('.doNotBlockUI').submit(Fns.blockUI);
+
+    {% if c.nav %}
+        /*window.idealTime = 0;
+        $(document).bind("DOMSubtreeModified", function() {
+            window.idealTime = 0;
+        });
+
+        $(document).on("click", function(){
+            window.idealTime = 0;
+        });
+
+        setInterval(checkIdelTime, 1000);
+
+        function checkIdelTime(){
+            if ((window.idealTime/60) >= 30){
+                location.href = "{{ h.url('signout') }}"
+            }else{
+                 window.idealTime += 1;
+            }
+        }*/
+    {% endif %}
+
+    // nav menu:
+    $(".subnav").css('visibility', 'hidden');
+    $("ul.dropdown li").hoverIntent(function(){
+      $('ul:first', this).css('visibility', 'visible');
+    }, function(){
+      $('ul:first', this).css('visibility', 'hidden');
+    });
+  });
+
+  $(document).ajaxSuccess(function(event, xhr, settings){
+    $('.ajaxError').text('');
+  });
+  $(document).ajaxError(function(event, xhr, settings, exception){
+    /*if (Poll) clearInterval(Poll);
+    if (Poll2) clearInterval(Poll2);*/
+    if (exception=='Unauthorized') 
+      exception += ' (possibly due to session timed out)';
+    //$('.ajaxError').text(Fns.formatResponseError(xhr, '', exception));
+    if (console){
+      console.error('Ajax xhr, settings, exception: ', xhr, settings, exception);
+    }
+  });
+
+  /*
+  * jQuery.ajaxQueue - A queue for ajax requests
+  * 
+  * (c) 2011 Corey Frang
+  * Dual licensed under the MIT and GPL licenses.
+  *
+  * Requires jQuery 1.5+
+  */ 
+  (function($) {
+
+  // jQuery on an empty object, we are going to use this as our Queue
+  var ajaxQueue = $({});
+
+  $.ajaxQueue = function( ajaxOpts ) {
+      var jqXHR,
+          dfd = $.Deferred(),
+          promise = dfd.promise();
+
+      // queue our ajax request
+      ajaxQueue.queue( doRequest );
+
+      // add the abort method
+      promise.abort = function( statusText ) {
+
+          // proxy abort to the jqXHR if it is active
+          if ( jqXHR ) {
+              return jqXHR.abort( statusText );
+          }
+
+          // if there wasn't already a jqXHR we need to remove from queue
+          var queue = ajaxQueue.queue(),
+              index = $.inArray( doRequest, queue );
+
+          if ( index > -1 ) {
+              queue.splice( index, 1 );
+          }
+
+          // and then reject the deferred
+          dfd.rejectWith( ajaxOpts.context || ajaxOpts,
+              [ promise, statusText, "" ] );
+
+          return promise;
+      };
+
+      // run the actual query
+      function doRequest( next ) {
+          jqXHR = $.ajax( ajaxOpts )
+              .done( dfd.resolve )
+              .fail( dfd.reject )
+              .then( next, next );
+      }
+
+      return promise;
+  };
+
+  })(jQuery);
+  
+  
+  
+</script>
+
+
+{% endblock js_globals %}
+
+{% block js_scripts %}
+  {# let js_scripts blocks include their own script tags so editors can recognize js syntax #}
+{% endblock %}
+
+</div>
+</body>
+</html>

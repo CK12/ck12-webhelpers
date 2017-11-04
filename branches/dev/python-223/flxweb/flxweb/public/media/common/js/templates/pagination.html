@@ -1,0 +1,15 @@
+<div class="paginator-wrapper columns large-8 small-12 large-centered">
+    <a class="paginator-edge paginator-edge-left js-pagination-link <%= (data.currentPage === 1)?'disabled':'' %>" title="Previous Page" data-pagenum="<%= data.prevPage %>"><i class="icon-arrow3_left"></i></a>
+    <% for (var i = 0, l = data.pages.length; i < l; i++){ %>
+        <% if (data.pages[i] === "|"){ %>
+        <span class="pagination_separator"><%= data.separator %></span>
+        <% } else { %>
+            <% if (data.pages[i] === data.currentPage){ %>
+                <span><%= data.pages[i] %></span>
+            <% } else { %>
+                <a class="js-pagination-link" title="<%= data.pages[i] %>" data-pagenum="<%= data.pages[i] %>"> <%= data.pages[i] %> </a>
+            <% } %>
+        <% } %>
+    <% } %>
+    <a class="paginator-edge js-pagination-link <%= (data.currentPage === data.totalPages)?'disabled':'' %>" title="Next Page" data-pagenum="<%= data.nextPage %>"><i class="icon-arrow3_right"></i></a>
+</div>

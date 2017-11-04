@@ -1,0 +1,19 @@
+    RewriteEngine On
+
+    ## Redirect non-build urls to latest build (always versioned - no browser caching)
+    RewriteCond %{REQUEST_URI} !^/peerhelp/ui/build.*
+    RewriteRule ^/peerhelp/ui/(.*) /peerhelp/ui/build-000/$1 [L,R=302]
+
+    ## Redirect old build urls to latest build (urls bookmarked)
+    RewriteCond %{REQUEST_URI} !^/peerhelp/ui/build-000/
+    RewriteRule ^/peerhelp/ui/build[^/]*/(.*) /peerhelp/ui/build-000/$1 [L,R=302]
+
+    Alias /peerhelp/ui/build-000 /opt/2.0/peerhelp/ui/build-000
+    Alias /peerhelp/ui /opt/2.0/peerhelp/ui/build-000
+    <Directory /opt/2.0/peerhelp/ui/build-000/>
+        #Header set Access-Control-Allow-Origin "*"
+        #Header set Access-Control-Allow-Methods "POST, GET, PUT, DELETE, OPTIONS"
+        Order allow,deny
+        Allow from all
+    </Directory>    
+

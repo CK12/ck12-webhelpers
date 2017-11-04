@@ -1,0 +1,148 @@
+<div id="<%= data.groupsID %>" class="row collapse background-vanilla account-notification-padding groups-notification-section js-groups-row">
+	<div class="small-12 large-12 columns">
+		<div class="row collapse account-notification-secondary-padding">
+			<div class="row collapse">
+				<div class="left group-image">
+					<img src="<%= data.groupImage %>" alt="group theme"/>
+				</div>
+				<div class="left group-name">
+					<span class="js-group-name" title="<%= data.groupName %>"><%= data.groupName %></span>
+				</div>
+			</div>
+			<div class="row collapse groups-switch-wrapper">
+				<div class="row collapse">
+					<div class="notification-switch-wrapper">
+						<div class="notification-switch">
+							<div class="onoffswitch cyan">
+								<input type="checkbox" id="share-<%= data.groupsID %>" class="onoffswitch-checkbox js-toggle-check" name="resourceShared">
+								<label for="share-<%= data.groupsID %>" class="onoffswitch-label">
+									<div class="onoffswitch-inner"></div>
+									<div class="onoffswitch-switch"></div>
+								</label>
+							</div>
+						</div>
+						<div class="notification-switch-label">
+							<span><%= data.resourceSharedLabel %></span>
+						</div>
+					</div>
+					<div class="row collapse notification-links">
+						<div class="js-resourceShared-on">
+							<span id="share-<%= data.groupsID %>-label">Instant notifications</span>
+							<i data-name="share-open" class="icon-edit pointer js-notifications-edit"></i>
+						</div>
+						<div class="js-resourceShared-off hide">
+							<a class="js-on-link" data-target="resourceShared">Turn on notifications</a>
+						</div>
+					</div>
+				</div>
+				<div class="row collapse groups-notification-expand hide">
+					<div class="left groups-notification-expand-label">
+						<span>Send emails:</span>
+					</div>
+					<div class="left group-notification-expand-instant">
+						<div class="custom-box">
+							<input type="radio" id="share-instant-<%= data.groupsID %>" class="js-frequency-radio" name="share-<%= data.groupsID %>" data-text="Instant notifications" checked="checked" data-target="share-dropdown-<%= data.groupsID %>">
+							<label class="radio" for="share-instant-<%= data.groupsID %>"><span></span> instantly</label>
+						</div>
+					</div>
+					<div class="group-notification-expand-weekly">
+						<div class="custom-box">
+							<input type="radio" id="share-weekly-<%= data.groupsID %>" class="js-frequency-radio" name="share-<%= data.groupsID %>" data-text="Weekly digest" data-target="share-dropdown-<%= data.groupsID %>">
+							<label class="radio" for="share-weekly-<%= data.groupsID %>"><span></span> weekly in a digest</label>
+						</div>
+					</div>
+					<div class="left group-notification-expand-digest">
+						<div class="custom-box">
+							<input type="radio" id="share-digest-<%= data.groupsID %>" class="js-frequency-radio js-has-dropdown" name="share-<%= data.groupsID %>" data-text="in a digest every " data-target="share-dropdown-<%= data.groupsID %>">
+							<label class="radio" for="share-digest-<%= data.groupsID %>"><span></span> in a digest every</label>
+						</div>
+					</div>
+					<div class="group-notification-expand-dropdown">
+						<div data-dropdown="share-dropdown-<%= data.groupsID %>" class="button small split simple disabled js-dropdown"><a class="dropdown-label js-close-drop-down">6 hours</a><span class="js-close-drop-down"></span></div>
+						<ul id="share-dropdown-<%= data.groupsID %>" class="f-dropdown tangerine-list simple" data-dropdown-content="" style="position: absolute; top: 31px; left: -99999px;">
+							<li data-param="6hours" class="active js-frequency-dropdown"><a>6 hours</a></li>
+							<li data-param="12hours" class="js-frequency-dropdown"><a>12 hours</a></li>
+							<li data-param="daily" class="js-frequency-dropdown"><a>24 hours</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="groups-white-border hide"></div>
+			<div class="row collapse groups-switch-wrapper groups-peerhelp-wrapper">
+				<div class="row collapse">
+					<div class="notification-switch-wrapper">
+						<div class="notification-switch">
+							<div class="onoffswitch cyan">
+								<input type="checkbox" id="peerHelp-<%= data.groupsID %>" class="onoffswitch-checkbox js-toggle-check" name="peerHelp">
+								<label for="peerHelp-<%= data.groupsID %>" class="onoffswitch-label">
+									<div class="onoffswitch-inner"></div>
+									<div class="onoffswitch-switch"></div>
+								</label>
+							</div>
+						</div>
+						<div class="notification-switch-label notification-label-peerhelp">
+							<span>Q&A</span>
+						</div>
+					</div>
+					<div class="row collapse notification-links">
+						<div class="js-peerHelp-on">
+							<span><span id="peerHelp-<%= data.groupsID %>-label">Instant notifications</span> on <span id="peerHelp-type-<%= data.groupsID %>-label">all group posts</span></span>
+							<i data-name="peerHelp-open" class="icon-edit pointer js-notifications-edit"></i>
+						</div>
+						<div class="notification-label-peerhelp-off js-peerHelp-off hide">
+							<a class="js-on-link" data-target="peerHelp">Turn on notifications</a>
+						</div>
+					</div>
+				</div>
+				<div class="row collapse groups-notification-expand hide">
+					<div class="left group-notification-type-wrapper">
+						<div class="left groups-notification-type-label">
+							<span>Email me about:</span>
+						</div>
+						<div class="left group-notification-type-all">
+							<div class="custom-box">
+								<input type="radio" id="peerHelp-all-<%= data.groupsID %>" class="js-type-radio" name="peerHelp-type-<%= data.groupsID %>" data-text="all group posts" checked="checked">
+								<label class="radio" for="peerHelp-all-<%= data.groupsID %>"><span></span> all posts from the group</label>
+							</div>
+						</div>
+						<div class="left group-notification-type-my">
+							<div class="custom-box">
+								<input type="radio" id="peerHelp-my-<%= data.groupsID %>" class="js-type-radio" name="peerHelp-type-<%= data.groupsID %>" data-text="your posts">
+								<label class="radio" for="peerHelp-my-<%= data.groupsID %>"><span></span> just my posts</label>
+							</div>
+						</div>
+					</div>
+					<div class="left groups-notification-expand-label">
+						<span>Send emails:</span>
+					</div>
+					<div class="left group-notification-expand-instant">
+						<div class="custom-box">
+							<input type="radio" id="peerHelp-instant-<%= data.groupsID %>" class="js-frequency-radio" name="peerHelp-<%= data.groupsID %>" data-text="Instant notifications" checked="checked" data-target="peerHelp-dropdown-<%= data.groupsID %>">
+							<label class="radio" for="peerHelp-instant-<%= data.groupsID %>"><span></span> instantly</label>
+						</div>
+					</div>
+					<div class="group-notification-expand-weekly">
+						<div class="custom-box">
+							<input type="radio" id="peerHelp-weekly-<%= data.groupsID %>" class="js-frequency-radio" name="peerHelp-<%= data.groupsID %>" data-text="Weekly digest" data-target="peerHelp-dropdown-<%= data.groupsID %>">
+							<label class="radio" for="peerHelp-weekly-<%= data.groupsID %>"><span></span> weekly in a digest</label>
+						</div>
+					</div>
+					<div class="left group-notification-expand-digest">
+						<div class="custom-box">
+							<input type="radio" id="peerHelp-digest-<%= data.groupsID %>" class="js-frequency-radio js-has-dropdown" name="peerHelp-<%= data.groupsID %>" data-text="in a digest every " data-target="peerHelp-dropdown-<%= data.groupsID %>">
+							<label class="radio" for="peerHelp-digest-<%= data.groupsID %>"><span></span> in a digest every</label>
+						</div>
+					</div>
+					<div class="group-notification-expand-dropdown">
+						<div data-dropdown="peerHelp-dropdown-<%= data.groupsID %>" class="button small split simple disabled js-dropdown"><a class="dropdown-label js-close-drop-down">6 hours</a><span class="js-close-drop-down"></span></div>
+						<ul id="peerHelp-dropdown-<%= data.groupsID %>" class="f-dropdown tangerine-list simple" data-dropdown-content="" style="position: absolute; top: 31px; left: -99999px;">
+							<li data-param="6hours" class="active js-frequency-dropdown"><a>6 hours</a></li>
+							<li data-param="12hours" class="js-frequency-dropdown"><a>12 hours</a></li>
+							<li data-param="daily" class="js-frequency-dropdown"><a>24 hours</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

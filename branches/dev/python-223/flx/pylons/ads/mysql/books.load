@@ -1,0 +1,4 @@
+SELECT distinct d.tag, tb.id, tb.name, a2.id, substring_index(a2.name, '-::of::-', 1), a.id, substring_index(a.name, '-::of::-', 1)
+FROM flx2.ArtifactRevisions r, B_revisions b, D_artifacts d, flx2.ArtifactRevisions r2, flx2.Artifacts a2, flx2.ArtifactTypes t2, flx2.Artifacts a
+LEFT JOIN taxonomy.Branches tb ON tb.shortname=substring_index(substring_index(a.encodedID, '.', 2), '.', -1) 
+WHERE r.artifactID=a.id AND r.id=b.childID AND b.parentID=r2.id AND r2.artifactID=a2.id AND a2.artifactTypeID=t2.id AND t2.name='book' AND a.id=d.artifactID;

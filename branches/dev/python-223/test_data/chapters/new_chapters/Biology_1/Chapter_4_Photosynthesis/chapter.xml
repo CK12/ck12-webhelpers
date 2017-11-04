@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns:dc="http://www.ck12.org/dc/will_create_ns"
+unique-identifier="chapterid" version="2.0">
+
+  <chapter>
+    <metadata>
+<chapterSeq>4</chapterSeq>
+
+<book>Biology I</book>
+
+      <chapterid></chapterid>
+      <title>Photosynthesis</title>
+      <description>Topics in this chapter include:Energy_for_Life,Into_the_Chloroplast.
+     </description>
+    </metadata>
+    
+    <lessons>
+      <item id="Energy_for_Life" href="Energy_for_Life.html" sequence="1" />
+      <item id="Into_the_Chloroplast" href ="Into_the_Chloroplast.html" sequence="2" />
+    </lessons>
+  </chapter>
+
+</package>

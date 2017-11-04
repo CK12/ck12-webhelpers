@@ -1,0 +1,40 @@
+{% from "macros/pagination.html" import paginate with context %}
+
+{% if c.paginator.item_count > 0 %}
+  {% for i in c.paginator.items %}
+    <div class="tr paneview {{ h.hide_if_full(c.viewmode)}}">
+      <div class="td id">{{i.id}}</div>
+      <div class="td viewtrigger" data-id="{{i.id}}"><span class="tiptrigger">{{h.idlink2('group/', i, alttext=i.name|truncate(20))}}</span><br/>
+      {{i.accessCode}}<div class='hide tipdiv'>{{i.name|escape}}</div></div>
+      <div class="td">{{i.groupScope}}<br/>
+      {{i.groupType}}
+      </div>
+      <div class="td nowrap">{{i.updateTime|parseISODate|compact}}</div>
+      <div class="td">{{h.userlink(i.creator, 'email', idkey='id', truncate=10)}}</div>
+      <div class="td">{% if i.isVisible %}Visible{% else %}Hidden{% endif %}</div>
+    </div>    
+    <div class="tr fullview {{ h.hide_if_pane(c.viewmode)}}">
+      <div class="td id">{{i.id}}</div>
+      <div class="td viewtrigger" data-id="{{i.id}}">
+          <span class="tiptrigger">{{h.idlink2('group/', i, alttext=i.name|truncate(70))}}</span>
+          <div class='hide tipdiv'>{{i.name|escape}}</div>
+      </div>
+      <div class="td">{{h.userlink(i.creator, 'email', idkey='id', truncate=10)}}</div>
+      <div class="td">{% if i.isVisible %}Visible{% else %}Hidden{% endif %}</div>
+      <div class="td">{{i.accessCode}}</div>
+      <div class="td">{{i.groupScope}}</div>
+      <div class="td">{{i.groupType}}</div>
+      <div class="td">
+      {% if i.lmsGroups %}
+        {% for lmsGroup in i.lmsGroups %}
+            {{lmsGroup.appID,lmsGroup.providerGroupID}}
+        {% endfor %}
+      {% else %} -
+      {% endif %}
+      </div>
+      <div class="td nowrap">{{i.creationTime|parseISODate|compact}}</div>
+      <div class="td nowrap">{{i.updateTime|parseISODate|compact}}</div>
+    </div>    
+  {% endfor %}
+  {{ paginate(c.paginator) }}
+{% endif %}

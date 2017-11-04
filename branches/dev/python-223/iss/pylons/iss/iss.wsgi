@@ -1,0 +1,1 @@
+../../../deploy/components/wsgi/iss/iss.wsgi

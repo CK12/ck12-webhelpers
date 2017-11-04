@@ -1,0 +1,160 @@
+{% extends "/assessment/questions.html" %}  
+
+{% block crumbs %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+     {% block messages %}
+        {{ super() }}
+    {% endblock %}
+    
+    {% if not c.invalid_questions_format %}
+    <div id="top_navigation">
+        <div id="link_1">
+            <span class="manage_test">Manage Test</span> |
+            <a class="all_questions" href="javascript:void(0);">Select Questions</a>
+        </div>
+        <div id="link_2" class="hide">
+            <a class="manage_test" href="javascript:void(0);">Manage Test</a> |
+            <span class="all_questions">Select Questions</span>
+        </div>
+
+        <div id="message">
+                <span></span>
+        </div>
+    </div>
+    {% endif %}
+    {% block admintop %}
+        {% if not c.invalid_questions_format %}
+        <div class="all_questions_pane hide">
+           {{ super() }}
+        </div>
+        {% endif %}
+    {% endblock %}
+
+    {% block admincontent %}
+        {% if not c.invalid_questions_format %}
+        <div class="all_questions_pane hide" style="clear:both;">
+            {{ super() }}
+            {% if c.showPoolLink %}
+            	<a id="addQuestion">Add questions as individual</a> | <a id="addPool">Add questions as pool</a>
+            {% else %}
+            	<a id="addQuestion">Add questions as individual</a>
+            {% endif %}
+        </div>
+        <div class="test_questions_pane">
+            {{ c.test_items }}
+        </div>
+        {% endif %}
+    {% endblock %}
+{% endblock %}
+
+
+{% block js_scripts %}
+{% if not c.invalid_questions_format %}
+{{ super() }}
+{% endif %}
+{% if c.test %}
+<script type="text/javascript" src="{{ h.url_js('colorbox_popup_resize.js') }}"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(".all_questions").click(function(){
+       $(".all_questions_pane").removeClass('hide');
+       $(".test_questions_pane").addClass('hide');
+       $("#link_1").addClass('hide');
+       $("#link_2").removeClass('hide');
+       // Bug 42005 
+       $("#panes").width(1250);
+    });
+    
+    $(".manage_test").click(function(){
+        $(".all_questions_pane").addClass('hide');
+       $(".test_questions_pane").removeClass('hide');
+       $("#link_2").addClass('hide');
+       $("#link_1").removeClass('hide');
+    });
+    $(".test_questions_pane").on("click", ".delete_button", function(event){
+        event.stopPropagation();
+        if (!confirm("Are you sure you want to remove this question from the test?")) {
+          return false;
+        }
+
+        var questionId = $(this).attr("container"),
+            seqNo;
+        if($(this).parents("ul:first").hasClass("pool_question_list")){
+            seqNo = $(this).parents("li.question_pool:first").index();
+        }else{
+              seqNo = $(this).parents("li:first").index();
+        }
+        if(seqNo !== undefined){
+            deleteQuestion(questionId, parseInt(seqNo, 10));
+        }
+    });
+    $('.previewQuestion').colorbox(Defaults.overlay('flxweb'));
+    $("#update_sequence").click(function(){
+        // Create items list   
+        var items = [],
+            seqArray = [],
+            updateTest = true;
+        
+        $(".question_item").each(function(i, obj) {
+            var target = $(this),
+                item_type = target.find(".question_id").attr('itemtype'),
+                question_id = target.find(".question_id").attr('questionid'),
+                seq = parseInt(target.find(".question_sequence").val(), 10);
+                // Two sequence can't be same 
+                if(seqArray.indexOf(seq) > -1){
+                    alert("Two Sequence can't be same");
+                    updateTest = false;
+                    return false;
+                }
+                seqArray.push(seq);
+            
+            if(item_type == 'question'){
+                console.log('q: '+ typeof question_id)
+                items.push({'type':item_type, 'id': question_id, 'seq' : seq});
+            }
+            else{
+                qpObj = question_id.split(',');
+                items.push({'type':item_type, 'items': qpObj, 'seq' : seq});
+            }
+         });
+        
+        if(updateTest){
+            // Sort items by using sequence 
+            items.sort(function(a,b){
+                return a.seq - b.seq;
+            });
+            
+            // delete 'seq' field, appended to sort the items 
+            for(var i = 0; i < items.length; i++){
+                delete items[i].seq;
+            }
+            data = {}
+            data['items'] = JSON.stringify(items);
+            
+            // Call update test API, to re-sequence questions 
+            $.ajax({
+                "url" : "/assessment/api/update/test/{{c.test._id}}",
+                "type" : "POST",
+                "dataType" : "json",
+                "data" : data,
+                "success" : function(response){
+                    if(response.responseHeader.status === 0){
+                        alert('Sequence updated successfully');
+                        window.location.href = CK12.admUrl('/assessment/test/' + response.response.test._id);
+                    }else{
+                        alert(response.response.message);
+                    }
+                },
+                "error" : function(){
+                    alert('Error');
+                }
+            });
+        }
+    })
+  });
+</script>
+{% endif %}
+{% endblock %}

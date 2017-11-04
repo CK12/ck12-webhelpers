@@ -1,0 +1,34 @@
+{% extends "MASTER_CK12_LOGO.html" %}
+{% block email_body %}
+<html>
+    <body>
+    <p>Here is the list of questions that were contributed in past {{ events[0].eventData['days']}} days and waiting for the approval</p>
+
+    <table cellpadding="10" border="1">
+    <tr align="center">
+	<th>Q No.</th>
+	<th>Question</th>
+	<th>QuestionClass</th>
+	<th>Exercise</th>
+	<th>CreatedBy</th>
+	<th>Link</th>
+    </tr> 
+    {% for question in  events[0].eventData['questions'] %}
+    <tr align="center">
+	<td>{{ loop.index }}</td>
+	<td>{{ question['displayText']|replace("/flx/math/", flxhost+"/flx/math/") }}</td>
+	<td>{{ question['questionClass'] }}</td>
+        {% if question['parentExercises'] %}  
+	    <td>{{ question['parentExercises'][0]['title'] }}</td>
+        {% else %}
+	    <td></td>
+        {% endif %} 
+	<td>{{ question['creator'] }}</td>
+	<td><a href="{{ site }}{{ ('/flxadmin/question/')}}{{ question['questionClass'] }}{{('/') }}{{ question['id'] }}" target=_blank">{{ question['id'] }}</a></td>
+    </tr> 
+    {% endfor %}  
+    </table>
+        
+    </body>
+</html>
+{% endblock %}

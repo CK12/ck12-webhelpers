@@ -1,0 +1,152 @@
+<li id="<%= data.artifactID %>" class="modality type_<%= data.artifactType %><% if ('interactive' === data.modality_group.group_classname || 'simulations' === data.modality_group.group_classname) { %> hide-small<% } %>">
+
+	<div class="assignment-banner creator-image"/>
+
+	<div class="modality_inner">
+		<div class="modalitywrap">
+			<div class="modality_info_wrapper">
+				<div class='resource_meta'>
+					<span class="label">
+						<i class="<%= data.modalityIcon %>"></i>
+						<span><%= data.modality_display_label %></span>
+					</span>
+				</div>
+				<% if (data.practice) {%>
+				<div class="thumbnail_wrapper">
+						<a href="<%= data.details_url %>?referrer=concept_details" class="thumbnaillink <%= data.artifactType %>" 
+						   title="<% if(data.artifactType === 'asmtpractice' && data.collectionTitle) {%><%- data.collectionTitle%><% } else { %><%- data.title%><% } %>">
+						<img src="/media/images/modality_generic_icons/modality_practice_1024b.png" alt="<%- data.title %>" /></a>
+						<div class="score_circle svg-circle">
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg" height="90px" width="90px">
+								<circle cx="45" cy="45" r="39" stroke="#fff" stroke-width="6" class="progress-wrapper" fill="transparent"></circle>
+								<circle cx="45" cy="45" r="39" stroke="#B8D543" stroke-dasharray="244.92" stroke-dashoffset="244.92" stroke-width="6" class="progress-bar" fill="transparent" transform="rotate(-90 45 45)""></circle>
+							</svg>
+							<span class="js-practice_score">0%</span>
+						</div>
+					</div>
+				<% } else if (data.thumbnail_img) { %>
+				<div class="thumbnail_wrapper">
+					<a href="<%= data.details_url %>?referrer=concept_details" class="thumbnaillink <%= data.artifactType %>" title="<%- data.title %>"><img src="<%= data.thumbnail_img %> " alt="<%- data.title %>" /></a>
+				</div>
+				<% } else { %>
+				<div class="thumbnail_wrapper">
+					<a href="<%= data.details_url %>?referrer=concept_details&<%= data.data_state %>" class="thumbnaillink" title="<%- data.title %>"><img src="/media/images/modality_generic_icons/<%= data.modality_group.group_classname %>_ic.png" alt="<%- data.title %>" /></a>
+				</div>
+				<% } %>
+				<div class="data_wrapper">
+					<div class="modalitybody">
+						<h2>
+							<a title="<% if(data.artifactType === 'asmtpractice' && data.collectionTitle) {%>
+										<%- data.collectionTitle%>
+									  <% } else { %>
+										<%- data.title%>
+									  <% } %>" 
+								href="<%= data.details_url %>?referrer=concept_details<%= data.collectionParams %>">
+								<% if(data.artifactType === 'asmtpractice' && data.collectionTitle) {%>
+									<%- data.collectionTitle%>
+								<% } else { %>
+									<%- data.title%>
+								<% } %>			
+							</a>
+						</h2>
+						<div class="modality-info">
+							<% if (window.ck12_signed_in ) { %>
+								<% if (data.creator !== 'CK-12') {%>
+								<div class="image-block">
+									<img class="creator-image" src='<%= webroot_url %>auth/member/image/<%= data.creatorAuthID %>'/>
+								</div>
+								<%} else{ %>
+								<div class="image-block">
+									<img class="creator-image" src='/media/common/images/logo_ck12_small.png'/>
+								</div>
+								<% } %>
+							<% } %>
+							<div class="creator-level">
+								<span class="creator-name">by <%= data.creator %></span>
+								<span class="difficulty-level"> <span>//</span><span><%= data.level %></span></span>
+							</div>
+						</div>
+						<!-- Contributed By -->
+						<% if (data.contributed_by){ %>
+						<p class="contributiondesc">
+							<%= data.contributed_by %>
+						</p>
+						<% } %>
+						<div class="resource_desc">
+							<% if (data.practice ) { %>
+							<div class="row">
+								<div class="columns small-5 memory-boost-section hide">
+									<div class="row memory-boost-section-icon">
+										<div class="columns small-2">&nbsp;</div>
+										<div class="boost-icon columns small-2"></div>
+										<div class="boost-message columns small-5"></div>
+										<div class="boost-tooltip tooltip-icon icon icon-help_icon columns small-3"></div>				
+									</div>
+									<!--<div class="boost-tooltip tooltip-info hide">
+										<div class="boost-tooltip tooltip-title">MEMORY METER</div>
+										<div class="boost-tooltip tooltip-msg">This indicates how strong in your memory this concept is</div>
+									</div>	 -->			
+								</div>
+								<div class="columns small-6 practice-cn">
+									<a class="js-practice_button button standard tangerine"><span>Practice</span><i class="icon-arrow3_right"></i></a>								
+								</div>	
+								<div class="columns small-1">
+									&nbsp;								
+								</div>									
+							</div>							
+							<% } else {%>
+							<%= _.escape(data.summary) %>
+							<% } %>
+						</div>
+						<!-- Difficulty Level -->
+						<% if (data.level && data.artifactType=='lesson' && window.modality_data && window.modality_data.read_modality_count > 1  && !window.modality_data.difficulty) { %>
+						<p class="difficulty">
+							Difficulty Level:&nbsp; <span class="level"><%= data.level %></span>
+						</p>
+						<% } %>
+					</div>
+				</div>
+				<div class="boost-tooltip tooltip-info hide">
+					<div class="boost-tooltip tooltip-title">MEMORY METER</div>
+					<div class="boost-tooltip tooltip-msg">This indicates how strong in your memory this concept is</div>
+				</div>					
+			</div>
+			<div class="modality_actions_wrap">
+				<div class="modality_actions">
+					<div class="modality_action share">
+						<div class="sharemenuwrap js_sharemenuwrap">
+							<a class="js_lnk_share"><i class="icon-share"></i><span class="label"> </span></a>
+							<ul class="share_menu hide">
+								<li>
+									<a class="twitter js_social_share" target="_blank" title="Share on Twitter " data-sharetype="twitter" href="http://twitter.com?status=<%= webroot_url.slice(0,-1) %><%= encodeURIComponent(data.details_url) %>">
+										<i class="icon-twitter"></i><span class="label">Twitter</span>
+									</a>
+								</li>
+								<li>
+									<a class="facebook js_social_share" target="_blank" title="Share on Facebook" data-sharetype="facebook" href="https://www.facebook.com/sharer.php?u=<%= webroot_url.slice(0,-1) %><%= encodeURIComponent(data.details_url) %>">
+										<i class="icon-facebook"></i><span class="label">Facebook</span>
+									</a>
+								</li>
+								<li>
+									<a class="email js_social_share open-share-email-modal" title="Share via Email" data-sharetype="email">
+										<i class="icon-email"></i><span class="label">Email</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="left voting">
+						<span class="imgwrap like" title="Helpful"></span>   <span> <%= data.feedbacks.voting.like %> </span>
+					</div>
+					<% if (data.artifactType=='asmtpracticeint') { %>
+                    <!--
+						<div class="left text-center contribute-question">
+							<a title="Add Question" href="/exercise/add/<%= data.handle %>/ae?artifact_type=<%= data.artifactType %>&realm=<%= (data.realm || 'None') %>&ep=<%= data.details_url %>">Add Question</a>
+						</div>
+                      -->
+					<% }%>
+				</div>
+			</div>
+		</div>
+	</div>
+</li>

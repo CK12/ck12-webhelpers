@@ -1,0 +1,6 @@
+<div class="createworksheetresult">
+	{% for each in c.worksheet %}
+		<a href="{{ each.uri }}" target="_blank" >{{ _("Download %(type)s worksheet") % {'type':each.worksheetType }  }}</a>
+	{% endfor %}
+</div>
+

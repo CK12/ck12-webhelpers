@@ -1,0 +1,234 @@
+body#ck12image {
+  margin: 0;
+}
+
+#ck12image p, #ck12image #appearance_panel span {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: top;
+  background: 0 0;
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  text-shadow: none;
+  float: none;
+  width: auto;
+  height: auto;
+  cursor: inherit;
+  -webkit-tap-highlight-color: transparent;
+  line-height: normal;
+  font-weight: 400;
+  text-align: left;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  direction: ltr;
+  max-width: none;
+}
+
+#ck12image p.strong {
+    font-weight: bold;
+}
+
+#ck12image p.right, #ck12image .mce-container.right {
+  float: right;
+}
+
+#ck12image p.asterisk, #ck12image span.asterisk {
+  font-size: 70%;
+  color: #908D87;
+}
+
+#ck12image span.asterisk {
+  font-size: 1em;
+  position: relative;
+  top: -0.1em;
+  margin-left: 0.2em;
+}
+
+label#srclabel {
+  width: 15%;
+  vertical-align: middle;
+  padding-right: 2%;
+  text-align: right;
+}
+
+input#src {
+  width: 79.5%;
+}
+
+.fileinput-button {
+  width: 100%;
+}
+
+.fileinput-button:active {
+  border: 0;
+  background-color: transparent;
+}
+
+input#uploadfile, #fileName {
+  font-size: 18px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: inline-block;
+  line-height: 18px;
+  width: 50%;
+  position: relative;
+  text-align: left;
+  top: 10px;
+  left: 65px;
+}
+
+input#uploadfile {
+  display: none;
+}
+
+input#uploadfile:focus {
+  outline: none;
+}
+
+
+#imageform fieldset {
+    border: 0;
+    margin: 0 0 15px;
+    padding: 0;
+}
+
+#general_panel, #appearance_panel {
+  padding: 20px 20px 0;
+}
+
+#appearance_tab {
+  position: relative;
+  left: -4px;
+}
+
+#appearance_panel label, #appearance_panel input, #appearance_panel select, #appearance_panel textarea {
+    display: inline-block;
+    margin-bottom: 0.75em;
+}
+
+#appearance_panel select {
+  border: 1px solid #CCC;
+  color: #000;
+}
+
+#appearance_panel label {
+    text-align: right;
+    width: 13%;
+    padding-right: 2%;
+}
+
+#appearance_panel input, #appearance_panel select, #appearance_panel textarea  {
+    width:70%;
+}
+
+#appearance_panel input::after, #appearance_panel select::after, #appearance_panel textarea::after {
+    display: block;
+    content: "";
+}
+
+#license-info {
+    width: 70%;
+    display: inline-block;
+    padding-left: 5%;
+    vertical-align: middle;
+    margin-bottom: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+#src_list, #over_list, #out_list {width:280px;}
+.mceActionPanel {margin-top:7px;}
+.alignPreview {border:1px solid #000; width:140px; height:140px; overflow:hidden; padding:5px;}
+.checkbox {border:0;}
+.panel_wrapper div.current {height:352px;}
+#prev {margin:0; width:428px; height:150px; overflow:auto;}
+#align, #classlist {width:150px;}
+#width, #height {vertical-align:middle; width:50px; text-align:center;}
+#vspace, #hspace, #border {vertical-align:middle; width:30px; text-align:center;}
+#class_list {width:180px;}
+input {width: 280px;}
+#constrain, #onmousemovecheck {width:auto;}
+#id, #dir, #lang, #usemap, #longdesc, #alt, #title {width:200px;}
+#ck12image input[disabled], #ck12image select[disabled], #ck12image textarea[disabled] {
+    background-color:#DDDDDD
+}
+
+div.x-ck12-img-postcard img {
+  max-width: 400px;
+  min-width:30px;
+}
+
+div.x-ck12-img-postcard {
+  text-align: center;
+  font-style: italic;
+  font-size: smaller;
+  border: thin silver solid;
+  text-indent: 0;
+  margin: 0.5em;
+  padding: 0.5em;
+}
+
+img.scaled {
+  width: 100%;
+}
+
+div.x-ck12-img-thumbnail img {
+  max-width: 300px;
+  min-width:30px;
+}
+
+div.x-ck12-img-thumbnail {
+  text-align: center;
+  font-style: italic;
+  font-size: smaller;
+  border: thin silver solid;
+  text-indent: 0;
+  margin: 0.5em;
+  padding: 0.5em;
+}
+
+div.x-ck12-img-fullpage img {
+  max-width: 600px;
+  min-width:30px;
+}
+
+div.x-ck12-img-fullpage {
+  text-align: center;
+  font-style: italic;
+  font-size: smaller;
+  border: thin silver solid;
+  text-indent: 0;
+  margin: 0.5em;
+  padding: 0.5em;
+}
+
+#license a {
+    color: #00aba4;
+    outline: medium none;
+    text-decoration: none;
+}
+
+#license a:hover {
+    color: #00aba4;
+    outline: medium none;
+    text-decoration: underline;
+}
+
+.mceActionPanel {
+  height: 68px !important;
+}
+
+legend.mce-label {
+  margin-bottom: 0.5em;
+}
+
+legend.mce-label + div {
+  margin-bottom: 0.75em;
+}

@@ -1,0 +1,26 @@
+<% var index, subject; %>
+<% for (subject in data.filters) { %>
+	<% if (data.filters.hasOwnProperty(subject)) {
+	    var hasSelection = data.selected && data.filters[subject].value.some(function (v) {
+	       return data.selected.indexOf(v) !== -1;
+	    }); %>
+		<div class="subject-header-title">
+			<div class="bold pointer subject-heading js-subject-heading <% if (hasSelection) { %> expanded <% } %>">
+				<span><%= subject %></span>
+				<span class="filter-clear-wrap <% if (!hasSelection) { %> hide <% } %>">
+		                <span class="separator">|</span>
+		                <a class="js-clear-individual-filters">Clear</a>
+	            </span>
+				<i class="icon-arrow3_right right hide-small"></i>
+			</div>
+			<div class="<%= subject %>_branches branches-container <% if (!hasSelection) { %> hide <% } %>">
+				<% for (index = 0; index < data.filters[subject].label.length; index++) { %>
+					<div class="custom-box hide-small">
+						<input type="checkbox" id="<%= data.filters[subject].value[index] %>_large" name="subject-filter" <% if (data.selected && -1 !== data.selected.indexOf(data.filters[subject].value[index])) { %> checked <% } if (!data.filters[subject].count || !data.filters[subject].count[index]) { %> disabled <% } %> >
+						<label for="<%= data.filters[subject].value[index] %>_large" class="checkbox"><span><i class="icon-validated"></i></span><%= data.filters[subject].label[index] %><% if (data.filters[subject].count && data.filters[subject].count[index]) {%> (<%= data.filters[subject].count[index] %>)<%} %></label>
+					</div>
+				<% } %>
+			</div>
+		</div>
+	<% } %>
+<% } %>

@@ -1,0 +1,6 @@
+The file is uploaded to S3 to avoid unnecessary network downloads during checkouts.
+    File Location: https://s3.amazonaws.com/ip2location.ck12.org/IPV6-COUNTRY-REGION-CITY-LATITUDE-LONGITUDE-ZIPCODE-ISP-DOMAIN.BIN
+    S3 Location: s3://ip2location.ck12.org/IPV6-COUNTRY-REGION-CITY-LATITUDE-LONGITUDE-ZIPCODE-ISP-DOMAIN.BIN
+
+To download use:
+    curl -o "/opt/2.0/deploy/components/ip2location/IPV6-COUNTRY-REGION-CITY-LATITUDE-LONGITUDE-ZIPCODE-ISP-DOMAIN.BIN" "https://s3.amazonaws.com/ip2location.ck12.org/IPV6-COUNTRY-REGION-CITY-LATITUDE-LONGITUDE-ZIPCODE-ISP-DOMAIN.BIN" 

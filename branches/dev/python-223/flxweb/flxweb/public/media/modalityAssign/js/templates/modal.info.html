@@ -1,0 +1,101 @@
+<div class="assign-class-modal reveal-modal setTop" data-reveal id="assignClassModal">
+	<div id="loading-icon" class="loading-icon js-loading-icon hide">
+		       	<img alt="loading" src="/media/common/images/icon_loading.gif">
+				</div>
+	<div class="row text-left modal-title">
+			<i class="icon-grps_assgnmts grp-assignment"></i>Assign to Class</div>
+	<div class="row text-left paadin-on">
+			<div class="title">
+				<span id="error-message" class="error-msg hide-imp"></span>
+				<b class="mod-title">TITLE: </b><span class="description assign-title"><%= assignTitle %></span>
+				<input class="bg-title hide-imp" type="text" value="" />	
+				<i class="icon-edit edit-assign-title" title="Edit title"></i>
+			</div>
+			<div class="instruction">
+				<span class="error-msg hide-imp"></span>
+				<b class="mod-title">INSTRUCTIONS: </b><span class="instruction-txt assign-instruction hide-imp"><%= assignInstruction %></span>
+				<textarea class="bg-instruction" type="text"></textarea>
+				<i class="icon-edit edit-assign-instruction hide-imp" title="Edit instruction"></i>
+			</div>
+	</div>
+	<div id="assign-platform-selection-container" class="row assign-platform-selection-container paadin-on">
+		<div class="assign-platform-select-heading row align-center"><b>Please select your platform</b></div>
+		<div class="row">
+			<div class="small-12 large-5 columns assign-platform-select-card js-platform-select dxtrack-user-action" data-platform="ck12" data-dx-desc="assign_to_ck12">
+			    <div style="margin-top: 30px;">
+			        <img src="/media/common/images/logo_ck12.svg" alt="CK-12" itemprop="logo" style="height:70px;width:130px;">
+			    </div>
+			</div>
+		        <div class="hide-for-small large-2 columns assign-platform-divder-container">
+                    <span class="assign-platform-divder"></span>  
+                </div>	
+			<div class="small-12 large-5 columns assign-platform-select-card js-platform-select dxtrack-user-action" data-platform="google_classroom" data-dx-desc="assign_to_google_classroom">
+			    <div style="margin-top: 25px;">
+				<img src="/media/common/images/google_classroom.png" alt="Google classroom" itemprop="logo" style="height:80px;" height="80" width="80">
+                <p>Google Classroom</p>
+			    </div>
+			</div>
+		</div>
+	</div>
+	<div id="google-classroom-login-container" class="row js_google-classroom-login-container align-center hide-imp">
+		<a id="googleclassroom_auth_link" href="#" target="_new" class="js_googleclassroom_auth_link">Connect to Google Classroom</a>
+		<p id="googleclassroom_error" class="hide-imp">Could not connect to Google Classroom, please try again later.</p>
+	</div>
+	<div class="row js_google-classroom-groups-container hide-imp"></div>
+	<div class="row group-info-head paadin-on hide-imp">
+		<div class="group-title-head">
+			<span class="select-option left">
+				<span id="select-all" class="pointer custom-check-box js-class group-select-head"></span><span class="lbl-txt desktop-text">Select All</span>
+		       <span class="lbl-txt mobile-text">Groups</span>
+			</span>
+			
+			<div class="group-due-head right">
+				<i class="icon-Info info-assign-title"></i>
+				<span class="lbl-txt">DUE DATE</span>
+			</div>
+		</div>
+		
+		<div class="group-container">
+			<div class="group-tmpl-section">
+			</div>
+		</div>
+		<span class="load-more-grp hide-imp" title="Load more classes">
+			load more
+		</span>		
+		<span class="load-more-gclasses hide-imp" title="Load more classes">
+			load more
+		</span>		
+	</div>
+	<div class="row zero-state hide-imp">
+		<span class="error-msg hide-imp"></span>
+		<div class="zero-state-container">
+			<div class="small-5 columns group-n" id="groupNameField">
+			
+				<span class=" pointer zero-state-slect">
+					<span class="custom-check-box group-select"></span>
+					<span class="zero-lbl-txt">Create New class</span>
+				</span>
+				<span class="edit-mode hide-imp">
+					<span class="custom-check-box group-select"></span><span class="lbl-txt"></span>
+					<input type="text" id="groupName" class="group-name" placeholder="Group name">
+				</span>
+			</div>
+			<div class="small-3 columns group-assigned hide-imp" id ="createGroup">
+				<span class="new group">Create?</span>
+			</div>
+			<div class="small-3 columns group-due">
+				<span class="due-date-disabled">mm/dd/yyyy</span>
+			</div>
+		</div>
+		<span class="loader hide-imp"></span>
+	</div>
+	<div class="row">
+		<div class="button standard tangerine assign-btn btn hide-imp">
+			Assign to class(es)
+		</div>
+	</div>
+	<span class="close-modal">
+		&#10005;
+	</span>
+	
+</div>

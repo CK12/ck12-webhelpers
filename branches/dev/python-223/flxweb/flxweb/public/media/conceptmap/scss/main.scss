@@ -1,0 +1,162 @@
+@import 'functions',
+        'mixins',
+        'node_modules/foundation-sites/scss/util/util',
+        'variables',
+        'tooltip';
+
+@import "shared",
+        "svg",
+        "nav",
+        "side-nav",
+        "filter",
+        "autocomplete",
+        "icon-buttons",
+        "notification",
+        "moreinfo",
+        "tutorial/tutorial",
+        "editor/editor",
+        "loader",
+        "mobile";
+
+//////////
+// Body //
+//////////
+
+body {
+    text-shadow: none;
+    overflow: hidden;
+    height: 100vh;
+
+
+    // Fixes font flash on FF in OSX
+    -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body .header-space {
+    padding-top: 103px;
+}
+
+.page-disable {
+    opacity: 1;
+    position: absolute;
+    z-index: 998;
+    min-height: 100vh;
+}
+
+#nav_search { display: none !important; }
+
+/////////////////
+// Browse Page //
+/////////////////
+
+.browseheader--conceptmap {
+    margin: 0.65rem auto 0;
+
+    .browsebuttonswrap {
+        margin-bottom: 0;
+
+        .button.small {
+            margin-bottom: 7px;
+        }
+    }
+}
+
+@media screen and #{breakpoint(small only)} {
+    .browseheader--conceptmap {
+        display: none;
+    }
+}
+
+@media #{$medium-landscape} {
+    .browseheader--conceptmap {
+        display: none;
+    }
+}
+
+@media #{$small-landscape} {
+    .browseheader--conceptmap {
+        display: none;
+    }
+}
+
+
+/////////////////////
+// Content Wrapper //
+/////////////////////
+$gradient-opacity: 0.1;
+$zero-state-gradient-opacity: 0.7;
+
+$soft-white: rgb(246, 252, 252);
+$tan: rgb(241, 224, 201);
+$soft-blue: rgb(174, 218, 221);
+$soft-red: rgb(228, 190, 177);
+
+$transparent-white: rgba(255, 255, 255, 0);
+
+##{$parent-ns-module}{
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+##{$parent-ns-module}, .tutorial__modal__slide-1 {
+    background-image:
+                radial-gradient(circle at -6% -128%, rgba($soft-white, $gradient-opacity) 32%, $transparent-white 51%),
+                radial-gradient(circle at 43% -67%,  rgba($soft-white, $gradient-opacity) 32%, $transparent-white 49%),
+                radial-gradient(circle at 27% 100%,  rgba($tan,        $gradient-opacity) 36%, $transparent-white 55%),
+                radial-gradient(circle at 83% -12%,  rgba($soft-blue,  $gradient-opacity) 24%, $transparent-white 52%),
+                radial-gradient(circle at 75% 100%,  rgba($soft-red,   $gradient-opacity) 0%,  $transparent-white 69%),
+                radial-gradient(circle at 9% 30%,    rgba($soft-blue,  $gradient-opacity) 0%,  $transparent-white 86%);
+}
+
+#{$zero-state} {
+    background-image:
+                radial-gradient(circle at -6% -128%, rgba($soft-white, $zero-state-gradient-opacity) 32%, $transparent-white 51%),
+                radial-gradient(circle at 43% -67%,  rgba($soft-white, $zero-state-gradient-opacity) 32%, $transparent-white 49%),
+                radial-gradient(circle at 27% 100%,  rgba($tan,        $zero-state-gradient-opacity) 36%, $transparent-white 55%),
+                radial-gradient(circle at 83% -12%,  rgba($soft-blue,  $zero-state-gradient-opacity) 24%, $transparent-white 52%),
+                radial-gradient(circle at 75% 100%,  rgba($soft-red,   $zero-state-gradient-opacity) 0%,  $transparent-white 69%),
+                radial-gradient(circle at 9% 30%,    rgba($soft-blue,  $zero-state-gradient-opacity) 0%,  $transparent-white 86%);
+}
+
+.conceptmap__overlay {
+    transition: all $tutorial-animation-duration;
+    background-color: rgba($medium-gray, 0.5);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    z-index: $overlay-z-index;
+
+    @include hidden();
+}
+
+.conceptmap__overlay.show{
+    @include visible();
+}
+
+
+// Overwrites
+
+button[disabled]:hover {
+    background: #DDDDDD !important;
+    border-bottom: 3px solid #CCCCCC !important;
+    border-top: 3px solid #DDDDDD !important;
+    box-shadow: none !important;
+    color: #B5B1A8 !important;
+}
+
+#zenbox_tab {
+    display: none !important;
+}
+
+footer#footer, .footer-space, .backtotop, .divider {
+    display: none !important;
+}
+
+
+#intercom-launcher {
+    display: none !important;
+}

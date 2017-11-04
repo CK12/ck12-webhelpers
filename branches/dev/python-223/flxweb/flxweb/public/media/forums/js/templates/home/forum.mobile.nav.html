@@ -1,0 +1,43 @@
+<div class="side-nav-container">
+    <div class="side-nav">
+        <div class="nav-link-wrapper nav-clickable">
+            <div class="nav-link" id="mobile-forum-home">
+                <i class="icon-groups_home"></i>
+                <span>Home</span>
+                <!-- <i class="icon-arrow3_right right"></i> -->
+            </div>
+        </div>
+        <div class="nav-link-wrapper nav-clickable">
+            <div class="nav-link" id="mobile-forum-guidelines" data-reveal-id="showGuidelines-home" onclick="window.scrollTo(0, 0)">
+                <i class="icon-book"></i>
+                <span>CK-12 Cafe Guidelines</span>
+                <i class="icon-arrow3_right right"></i>
+            </div>
+        </div>
+        <div class="nav-link-wrapper nav-clickable" id="mobile-nav-tour">
+            <div class="nav-link">
+                <i class="icon-tutorial"></i>
+                <span>How does this work?</span>
+                <i class="icon-arrow3_right right"></i>
+            </div>
+        </div>
+        <div class="nav-link-wrapper" id="mobile-forum-members">
+            <div class="nav-clickable">
+                <div class="nav-link">
+                    <i class="icon-user"></i>
+                    <span class="follower-count"><span id='mobile-nav-member-count'><%- group.membersCount%></span> followers</span>
+                    <i class="icon-arrow3_right right"></i>
+                </div>
+            </div>
+        </div>
+        <% if(isMember){%>
+        <div class="nav-link-wrapper nav-clickable" id="mobile-forum-settings-link">
+            <div class="nav-link">
+                <i class=" icon-settings_single"></i>
+                <span>Forum Settings</span>
+                <i class="icon-arrow3_right right"></i>
+            </div>
+        </div>
+        <%}%>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+{% from "exercise/exercise_macros.html" import ck12_display_add_exercise with context %}
+{% extends "base/1column.html" %}
+
+{% block content %}
+	<div id="pageinfotop"></div>
+	<div class="error_content">
+		{{ ck12_display_add_exercise(c.title) }}
+	</div>
+{% endblock %}

@@ -1,0 +1,134 @@
+/**
+ * This css file defines the colors of the concept headings.
+ * TODO: shorten the number of selectors for getting the banner icons.
+ */
+
+
+/*
+ * MATH BRANCHES
+ * */
+
+/* Arithemetic */
+.arithmetic {
+    background: #42BDCD;
+}
+.arithmetic .concept_top_icon span[class^="icon-"] {
+    color :  #42BDCD;
+}
+
+/* Measurement */
+.measurement {
+    background: #A2B8C5;
+}
+.measurement .concept_top_icon span[class^="icon-"] {
+    color :  #A2B8C5;
+}
+
+/* Algebra */
+.algebra {
+    background: #51A2F3;
+}
+.algebra .concept_top_icon span[class^="icon-"] {
+    color: #51A2F3;
+}
+
+/* Geometry */
+.geometry {
+   background: #E8C33F;
+}
+.geometry .concept_top_icon span[class^="icon-"] {
+   color: #E8C33F;
+}
+
+/* Probability */
+.probability {
+   background: #F07562;
+}
+.probability .concept_top_icon span[class^="icon-"] {
+   color: #F07562;
+}
+
+/* Statistics */
+.statistics {
+    background:#7BA27F;
+}
+.statistics .concept_top_icon span[class^="icon-"] {
+    color:#7BA27F;
+}
+
+/* Trigonometry */
+.trigonometry {
+   background: #c5a072;
+}
+.trigonometry .concept_top_icon span[class^="icon-"] {
+   color: #c5a072;
+}
+
+/* Analysis */
+.analysis {
+   background: #FEA07A;
+}
+.analysis .concept_top_icon span[class^="icon-"] {
+   color: #FEA07A;
+}
+
+/* Calculus */
+.calculus {
+   background: #77707F;
+}
+.calculus .concept_top_icon span[class^="icon-"] {
+   color: #77707F;
+}
+
+/* 
+ * SCIENCE BRANCHES 
+ *
+ * */
+
+/* Earth Science */
+.earth-science {
+   background: #336666;
+}
+.earth-science .concept_top_icon span[class^="icon-"] {
+   color: #336666;
+}
+
+/* Life Science */
+.life-science {
+   background: #51C57F;
+}
+.life-science .concept_top_icon span[class^="icon-"] {
+   color: #51C57F;
+}
+
+/* Physical Science */
+.physical-science {
+   background: #F641A1;
+}
+.physical-science .concept_top_icon span[class^="icon-"] {
+   color: #F641A1;
+}
+
+/* Biology */
+.biology {
+   background: #B8A891;
+}
+.biology .concept_top_icon span[class^="icon-"] {
+   color: #B8A891;
+}
+
+/* Chemistry */
+.chemistry {
+   background: #9E83C4;
+}
+.chemistry .concept_top_icon span[class^="icon-"] {
+   color: #9E83C4;
+}
+
+/* Physics */
+.physics {
+   background: #42453F;
+}
+.physics .concept_top_icon span[class^="icon-"] {
+   color: #42453F;
+}

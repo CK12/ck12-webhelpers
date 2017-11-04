@@ -1,0 +1,74 @@
+#!/bin/bash
+
+ACTION=--run
+SRC_DIR=/opt/2.0/flx/scripts
+if [ ! -f "${SRC_DIR}/split-concept-artifacts.py" ]; then
+    echo "Missing script ${SRC_DIR}/split-concept-artifacts.py"
+    exit 1
+fi
+if [ ! -f "${SRC_DIR}/split-concept-resources.py" ]; then
+    echo "Missing script ${SRC_DIR}/split-concept-resources.py"
+    exit 1
+fi
+if [ ! -f "${SRC_DIR}/fix-multiple-parent-concepts.py" ]; then
+    echo "Missing script ${SRC_DIR}/fix-multiple-parent-concepts.py"
+    exit 1
+fi
+if [ ! -f "${SRC_DIR}/fix-artifact-not-latest-resource.py" ]; then
+    echo "Missing script ${SRC_DIR}/fix-artifact-not-latest-resource.py"
+    exit 1
+fi
+
+LOG_DIR=/tmp/logs/`date +%Y%m%d-%H`
+mkdir -p ${LOG_DIR}
+#
+#  Rename conflicting artifacts of 'Inverse-Functions-CALC'.                                                                                                                                                   
+#
+if [ "${ACTION}" == "--run" ]; then
+    echo "update Artifacts set name = '1 to 1 Functions', handle = '1-to-1-Functions-CALC' where id in (1723156, 1723157, 1752795, 1334729);" | mysql --user=dbadmin --password=D-coD#43 --host=mysql.master flx2
+    echo "select id, artifactTypeID, name, handle from Artifacts where id in (1723156, 1723157, 1752795, 1334729);" | mysql --user=dbadmin --password=D-coD#43 --host=mysql.master flx2 | tee ${LOG_DIR}/renamed-handles.log
+fi
+#
+#  Need to run the handle changing script for CK12 Math and CK12 Editor before running the following scripts.
+#
+read -p "Press the Enter/Return key after running the paster script that changes handles for both CK12 Math and CK12 Editor..."
+#
+#  CK12 Math.
+#
+time python -u ${SRC_DIR}/split-concept-artifacts.py --concepts="1782711, 1782741, 1782764, 1782793, 1782805, 1783008, 1783049, 1783055, 1832863, 1832870, 1832876, 1832891, 1832899, 1832903, 1832905, 1832913, 1832944, 1832954, 1832964, 1832966, 1832983, 1833076, 1833121, 1833150, 1833152, 1833154, 1833156, 1833158, 1833160, 1833192, 1833205, 1833219, 1833229, 1833233, 1833246, 1833260, 1833262, 1833264, 1833270, 1833272, 1833274, 1833279, 1833287, 1833289, 1833295, 1833301, 1833303, 1833313, 1833315, 1833328, 1833332, 1833344, 1833356, 1833368, 1833370, 1833377, 1833386, 1833388, 1833392, 1833403, 1833407, 1833411, 1833413, 1833417, 1833419, 1833425, 1833427, 1833429, 1833431, 1833435, 1833437, 1833445, 1833447, 1833458, 1833460, 1833464, 1833466, 1833470, 1833472, 1833474, 1833476, 1833486, 1833488, 1833490, 1833492, 1833500, 1833504, 1833506, 1833510, 1833512, 1833516, 1833520, 1833524, 1833541, 1833547, 1833559, 1833561, 1833565, 1833568, 1833576, 1833578, 1833580, 1833586, 1833588, 1833590, 1833592, 1833594, 1833596, 1833604, 1833606, 1833615, 1833617, 1833619, 1833621, 1833624, 1833626, 1833636, 1833640, 1833642, 1833646, 1833654, 1833665, 1833679, 1833681, 1833683, 1833691, 1833693, 1833696, 1833698, 1833702, 1833704, 1833716, 1833722, 1833741, 1833743, 1833747, 1833754, 1833756, 1833760, 1833762, 1833764, 1833781, 1833791, 1833795, 1833810, 1833818, 1833828, 1833832, 1919331, 1919559, 1919561, 1919656, 1919756, 1919768, 1919774, 1919782, 1919787, 1919801, 1919813, 1919820, 1919836, 1919843, 1919853, 1919867, 1919951, 1920014, 1920022, 1920184, 1920195, 1920197, 1920207, 1920209, 1920232, 1920251, 1920305, 1920316, 1920371, 1920381, 1920385, 1920389, 1920396, 1920403, 1920406, 1920408, 1920410, 1920463, 1920551, 1920557, 1920566, 1920570, 1920577, 2052997, 2053001, 2053005, 2053007, 2074813, 2074821, 2074823, 2074825, 2121115" ${ACTION} | tee ${LOG_DIR}/split-artirfacts-5111.log
+
+time python -u ${SRC_DIR}/split-concept-resources.py --member=5111 --type=4 ${ACTION} | tee ${LOG_DIR}/split-resources-5111-4.log
+time python -u ${SRC_DIR}/split-concept-resources.py --member=5111 --type=3 ${ACTION} | tee ${LOG_DIR}/split-resources-5111-3.log
+
+time python -u ${SRC_DIR}/fix-multiple-parent-concepts.py --concepts="1782741, 1782793, 1783055, 1832863, 1832876, 1832903, 1832905, 1832913, 1833150, 1833152, 1833154, 1833156, 1833158, 1833160, 1833192, 1833279, 1833315, 1833356, 1833405, 1833409, 1833415, 1833439, 1833441, 1833464, 1833470, 1833476, 1833486, 1833492, 1833541, 1833547, 1833559, 1833561, 1833565, 1833576, 1833592, 1833642, 1833781, 1833791, 1833795, 1833810, 1833818, 1833828, 1833832, 1919656, 1919853, 1920381, 1920385, 1920396, 1920408, 1920551, 1920566, 1920570, 2052997, 2053005, 2053007, 2074813, 2074821, 2074823, 2074825, 2075895, 2439792, 2439794, 2439796, 2439800, 2439802, 2439806, 2439808, 2439810, 2439812, 2439816, 2439818, 2439820, 2439822, 2439824, 2439827, 2439830, 2439832, 2439836, 2439838, 2439840, 2439842, 2439844, 2439846, 2439848, 2439850, 2439852, 2439854, 2439860, 2439862, 2439866, 2439872, 2439874, 2439878, 2439880, 2439882, 2439884, 2439888, 2439890, 2439892, 2439894, 2439896, 2439898, 2439900, 2439902, 2439904, 2439906, 2439908, 2439910, 2439912, 2439914, 2439916, 2439918, 2439920, 2439922, 2439924, 2439927, 2439936, 2439938, 2439944, 2439946, 2439948, 2439953, 2439955, 2439957, 2439961, 2439963, 2439969, 2439971, 2439973, 2439975, 2439977, 2439979, 2439981, 2439985, 2439987, 2439989, 2439991, 2439993, 2439997, 2439999, 2440001, 2440005, 2440007, 2440011, 2440013, 2440015, 2440017, 2440019, 2440022, 2440024, 2440026, 2440028, 2440030, 2440032, 2440034, 2440036, 2440038, 2440040, 2440042, 2440044, 2440046, 2440048, 2440050, 2440052, 2440054, 2440056, 2440058, 2440060, 2440062, 2440066, 2440068, 2440074, 2440081, 2440083, 2440085, 2440087, 2440089, 2440091, 2440093, 2440095, 2440097, 2440099, 2440101, 2440103, 2440105, 2440107, 2440109, 2457523, 2457524, 2457525, 2457526, 2457527, 2457528, 2457529, 2457530, 2457531, 2457532, 2457533, 2457534, 2457535, 2457536, 2457537, 2457538, 2457539, 2457540, 2457544, 2457545, 2457546" --member=5111 ${ACTION} | tee ${LOG_DIR}/fix-multiple-parents-5111.log
+#
+#  CK12 Editor.
+#
+time python -u ${SRC_DIR}/split-concept-artifacts.py --concepts="7461, 7737, 7748, 7756, 7787, 7793, 7797, 7815, 7821, 7838, 310338, 310414, 313405, 1057101, 1081158, 1081164, 1081170, 1081178, 1081185, 1081193, 1081238, 1081248, 1081260, 1081369, 1081414, 1081488, 1081524, 1081539, 1081553, 1081555, 1081557, 1081563, 1081565, 1081567, 1081580, 1081582, 1081588, 1081594, 1081596, 1081606, 1081621, 1081625, 1081633, 1105619, 1106751, 1124340, 1124354, 1124358, 1124360, 1124364, 1124372, 1124412, 1124414, 1124450, 1124470, 1124472, 1124476, 1124480, 1124486, 1124488, 1124490, 1124492, 1124494, 1124504, 1124508, 1124512, 1124524, 1124563, 1340991, 1348217, 2140465, 2140466, 2294995, 2302898, 2302900, 2302906, 2302910, 2302912, 2457524, 2457525, 2457530, 2457531, 2457533, 2457535, 2302863, 2302860, 2302731, 1057096, 2344857, 2308226, 1081637, 2302794, 2302792, 2302842, 2302721, 2302717, 2302711, 2302701, 2302705, 2339297, 2302894, 2302888, 2302886, 2302775, 2302880, 2302872, 2302866, 2302689, 2302675, 2302641, 1081258, 2302631, 2302665, 2302625, 2302663, 2302613, 2339646, 2302733, 2308231, 2308228, 2308217, 2308226, 2302864" ${ACTION} | tee ${LOG_DIR}/split-artirfacts-3.log
+
+time python -u ${SRC_DIR}/split-concept-resources.py --member=3 --type=4 ${ACTION} | tee ${LOG_DIR}/split-resources-3-4.log
+time python -u ${SRC_DIR}/split-concept-resources.py --member=3 --type=3 ${ACTION} | tee ${LOG_DIR}/split-resources-3-3.log
+
+time python -u ${SRC_DIR}/fix-artifact-not-latest-resource.py --member=3 ${ACTION} | tee ${LOG_DIR}/fix-not-latest-3.log
+
+time python -u ${SRC_DIR}/fix-multiple-parent-concepts.py --concepts="7187, 7199, 7205, 7213, 7218, 7232, 7244, 7251, 7267, 7274, 7298, 7380, 7443, 7451, 7459, 7461, 7486, 7494, 7496, 7506, 7508, 7530, 7549, 7603, 7614, 7679, 7681, 7697, 7737, 7748, 7756, 7787, 7793, 7797, 7815, 7821, 7838, 86223, 310338, 310414, 310460, 313405, 1057096, 1057101, 1057222, 1057258, 1081158, 1081164, 1081170, 1081185, 1081193, 1081238, 1081248, 1081258, 1081260, 1081277, 1081369, 1081414, 1081498, 1081512, 1081522, 1081526, 1081539, 1081553, 1081555, 1081557, 1081563, 1081565, 1081567, 1081580, 1081582, 1081588, 1081594, 1081596, 1081606, 1081621, 1081625, 1081637, 1105619, 1106747, 1106749, 1106753, 1106766, 1106768, 1106866, 1106868, 1106870, 1106872, 1106874, 1106876, 1106878, 1106880, 1122292, 1124351, 1141448, 1141450, 1198381, 1198383, 2140465, 2140466, 2294995, 2302613, 2302625, 2302631, 2302635, 2302641, 2302663, 2302665, 2302675, 2302689, 2302701, 2302705, 2302711, 2302717, 2302721, 2302731, 2302733, 2302775, 2302792, 2302794, 2302842, 2302860, 2302864, 2302866, 2302872, 2302880, 2302886, 2302888, 2302894, 2302898, 2302900, 2302906, 2302910, 2302912, 2306564, 2308217, 2308226, 2308228, 2308231, 2339297, 2339646, 2344857" --member=3 ${ACTION} | tee ${LOG_DIR}/fix-multiple-parents-3.log
+#
+#  Fix Inconsistent revisions and resources.
+#
+if [ "${ACTION}" == "--run" ]; then
+    echo "delete from ResourceRevisions where id = 10472526;" | mysql --user=dbadmin --password=D-coD#43 --host=mysql.master flx2
+    echo "select * from ResourceRevisions where resourceID = 9543154 order by id;" | mysql --user=dbadmin --password=D-coD#43 --host=mysql.master flx2
+    echo "update ArtifactRevisionRelations set hasArtifactRevisionID = 3963221 where artifactRevisionID = 3664995 and hasArtifactRevisionID = 3664916;" | mysql --user=dbadmin --password=D-coD#43 --host=mysql.master flx2
+    echo "select * from ArtifactRevisionRelations where artifactRevisionID = 3664995 and sequence = 5;" | mysql --user=dbadmin --password=D-coD#43 --host=mysql.master flx2
+    echo "update ArtifactRevisionRelations set hasArtifactRevisionID = 3975889 where artifactRevisionID = 4086376 and sequence = 13;" | mysql --user=dbadmin --password=D-coD#43 --host=mysql.master flx2
+    echo "select * from ArtifactRevisionRelations where artifactRevisionID = 4086376 and sequence = 13;" | mysql --user=dbadmin --password=D-coD#43 --host=mysql.master flx2
+    echo "update ArtifactRevisionRelations set hasArtifactRevisionID = 3898868 where artifactRevisionID = 3902164 and sequence = 3;" | mysql --user=dbadmin --password=D-coD#43 --host=mysql.master flx2
+    echo "select *  from ArtifactRevisionRelations where artifactRevisionID = 3902164 and sequence = 3;" | mysql --user=dbadmin --password=D-coD#43 --host=mysql.master flx2
+    echo "update ArtifactRevisionHasResources set resourceRevisionID = 10472527 where artifactRevisionID = 3646748 and resourceRevisionID = 10164884;" | mysql --user=dbadmin --password=D-coD#43 --host=mysql.master flx2
+    echo "select * from ArtifactRevisionHasResources where artifactRevisionID = 3646748;" | mysql --user=dbadmin --password=D-coD#43 --host=mysql.master flx2
+fi
+#
+#  Done fixing the database inconsistency.
+#
+echo "Now please again run the paster script that changes handles for both CK12 Math and CK12 Editor."
+exit 0

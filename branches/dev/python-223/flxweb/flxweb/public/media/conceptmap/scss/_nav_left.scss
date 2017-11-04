@@ -1,0 +1,98 @@
+$ns-module: "conceptmap-nav__left";
+
+.#{$ns-module} {
+    &__link {
+        position: relative;
+        top: $top-center-offset;
+        display: block;
+
+        &__logo {
+            .line {
+                fill: #EFEDE7;
+            }
+
+            .blue1 {
+                fill: #29B6F6;
+            }
+
+            .blue2 {
+                fill: #4FC3F7;
+            }
+
+            .green {
+                fill: #8EE000;
+            }
+            display: inline-block;
+            height: $nav-icon-height;
+            width: $nav-icon-width;
+            cursor: pointer;
+
+            transition: transform $zero-state-duration;
+        }
+
+        &__title {
+            display: inline-block;
+            font-size: rem-calc(18);
+            line-height: rem-calc(40);
+            height: rem-calc(40);
+            font-weight:normal;
+            vertical-align: top;
+            margin: 0 0 0 rem-calc(5);
+            color: transparent;
+            transform: translateX(-100%);
+            transition: all $zero-state-duration;
+
+            @include betaIcon(10);
+        }
+
+        &:hover {
+            .#{$ns-module}__link__logo {
+                transform: rotate(360deg);
+                transition: transform 1s;
+            }
+
+            .#{$ns-module}__link__title {
+                color: inherit;
+                opacity: 1;
+                transform: translateX(0%);
+                color: $dark-gray;
+            }
+        }
+    }
+}
+
+#{$zero-state} {
+    .#{$ns-module} {
+        &__link {
+            &__logo {
+                transform: scale(1.25);
+                .line {
+                    fill: #E0DDD5;
+                }
+            }
+
+            &__title {
+                transform: translateX(20%)scale(1.25);
+                @include visible();
+                color: $dark-gray;
+                &:after {
+                    content: 'Beta';
+                }
+            }
+        }
+    }
+}
+
+@media screen and #{breakpoint(medium down) } {
+    .#{$ns-module}__link__title {
+
+    }
+}
+
+
+
+@media screen and #{breakpoint(small only) } {
+    .#{$ns-module}__link__title {
+        display: none;
+    }
+}

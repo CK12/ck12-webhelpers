@@ -1,0 +1,63 @@
+.emailVerified{
+	background:#019690;
+	border: 2px solid #54CCC3;
+	top:100px !important;
+	padding-bottom: 30px;
+    padding-top: 29px;
+}
+.verified-title {
+    color: #FFFFFF;
+    font-size: 30px;
+    font-weight: bold;
+    text-shadow: none;
+}
+.verified-text{
+	font-size:18px;
+	text-shadow: none;
+	color:#FFFFFF;
+	padding-bottom: 44px;
+}
+.verified-image {
+    padding-bottom: 33px;
+    padding-top: 30px;
+}
+.verified-ok-button{
+	width:165px;
+}
+#email-verified-mob{
+	background:#019690;
+	text-align:center;
+}
+@media only screen and (max-width: 767px){
+	.emailVerified {
+	left:0;
+	height:100%;
+	margin-left: -3px;
+    top: 47px !important;
+    width: 102%;
+    border:none;
+    padding-top:0;
+	}
+	.close-email-verified{
+	display:none;
+	}
+	.verified-title-small{
+	text-shadow:none;
+	font-size:24px;
+	color:#a7e5d8;
+	}
+	.verified-image > img {
+    height: 70px !important;
+	}
+	.verified-image {
+    padding-top: 40px;
+    padding-bottom:21px;
+	}
+	.verified-text {
+	padding-bottom:34px;
+	line-height:21px;
+	}
+	.verified-title-small {
+    padding-bottom: 12px;
+	}
+}

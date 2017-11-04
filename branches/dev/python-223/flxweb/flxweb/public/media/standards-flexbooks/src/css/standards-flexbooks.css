@@ -1,0 +1,95 @@
+.content-wrap {
+    padding-top: 0px;
+    padding-bottom: 3em;
+    max-width: 100%;
+}
+.book {
+    height: 193px;
+    width: 139px;
+}
+.front .cover img {
+    height: 191px;
+}
+.bold {
+    font-weight: bold;
+}
+#standardsFlexbooks .standards-banner-wrapper {
+    padding: 11px 20px;
+    max-width: 63.75em;
+    margin-left: auto;
+    margin-right: auto;
+}
+#standardsFlexbooks .flexbooks-container {
+    max-width: 63.75em;
+    margin: 3em auto;
+    padding: 0px 30px 0px 95px;
+}
+.standards-flexbooks-banner {
+    height: 90px;
+    background-repeat: no-repeat;
+}
+.ccss-flexbooks-banner {
+    background-image: url('../images/CCSS_banner.png');
+}
+.ngss-flexbooks-banner {
+    background-image: url('../images/NGSS_banner.png');
+}
+.standards-banner-image {
+    width: 56px;
+    height: 68px;
+}
+.standards-banner-text {
+    display: inline-block;
+    font-size: 30px;
+    margin-left: 12px;
+    margin-top: 12px;
+}
+.flexbook-title {
+    font-size: 18px;
+    height: 95px;
+    padding-top: 16px;
+    word-wrap: break-word;
+    width: 180px;
+}
+.flexbook-header {
+    display: inline-block;
+}
+.book-container {
+    margin-bottom: 25px;
+    height: 315px;
+}
+.tgHeader {
+    margin-bottom: 25px;
+}
+
+@media all and (max-width: 767px) {
+    .standards-flexbooks-banner {
+        height: 180px;
+    }
+    #standardsFlexbooks .standards-banner-wrapper {
+        text-align: center;
+    }
+    .standards-banner-image {
+        float: none !important;
+    }
+    .standards-banner-text {
+        display: block;
+    }
+    #standardsFlexbooks .flexbooks-container {
+        padding: 0px;
+    }
+    .book {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .books {
+        padding-right: 38px;
+    }
+    .flexbook-title {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .flexbook-header {
+       display: block;
+    }
+}

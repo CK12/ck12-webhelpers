@@ -1,0 +1,61 @@
+<div id="sign-in-modal" class="reveal-modal modal-uikit app-reveal-modal sign-in-modal medium">
+	<a class="close-reveal-modal close hide-small">+</a>
+	<div class="row collapse">
+		<div class="row collapse show-small sign-in-header-small">
+			<div class="left text-center sign-in-text-small">Sign In</div>
+			<div class="right pointer sign-in-close js-sign-in-close">
+				<i class="close-icon"></i>
+			</div>
+		</div>
+		<div class="row collapse sign-in-button-wrapper">
+			<div class="small-10 medium-11 large-8 column large-centered small-centered">
+				<div class="row collapse text-center sign-in-text hide-small">
+					<span>Sign In</span>
+				</div>
+				<div class="row collapse sign-in-button-container">
+					<a class="button dark-tangerine large text-left sign-in-button js-sign-in-button" data-provider="google">
+						<i class="icon-google"></i><span>Sign in with Google</span>
+					</a>
+					<a class="button midnight-blue large text-left sign-in-button js-sign-in-button" data-provider="facebook">
+						<i class="icon-facebook"></i><span>Sign in with Facebook</span>
+					</a>
+					<a class="button sky-blue large text-left left sign-in-button-hide hide twitter-button js-sign-in-button" data-provider="twitter">
+						<i class="icon-twitter"></i><span>Twitter</span>
+					</a>
+					<a class="button royal-blue large text-left sign-in-button-hide hide js-sign-in-button" data-provider="azure">
+						<i class="icon-microsoftlive"></i><span>Microsoft</span>
+					</a>
+				</div>
+				<div id="show-more" class="row collapse text-center pointer show-more">Show More</div>
+			</div>
+		</div>
+		<div class="row collapse sign-in-email">
+			<div class="row collapse">
+				<div class="small-10 medium-11 large-8 column large-centered small-centered text-center">
+					<div class="row collapse">
+						<div class="email-sign-in-text show-small">Sign in with your CK-12 account</div>
+						<div class="hide signin-error js-empty-error js-signin-error ">Please enter username and password.</div>
+						<div class="hide signin-error js-unknown-error js-signin-error">Login failed. Please try again later.</div>
+						<div class="hide signin-error js-incorrect-error js-signin-error">Incorrect login or password.</div>
+						<input type="text" placeholder="Username or Email" name="login" class="js-signin-edit"/>
+						<input type="password" placeholder="Password" name="token" class="js-signin-edit"/>
+						<input type="hidden" name="authType" value="ck-12"/>
+						<input type="button" class="btn button dusty-grey sign-in-submit js-sign-in-submit" disabled = "disabled" value="Sign In"/>
+						<div class="forgot-password">
+							<a class="forgot-password-link js-return-to" title="Forgot Your Password?">Forgot Your password?</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row collapse text-center terms-of-use hide-small">
+				<span>By signing up, I confirm that I have read and agree to the</span>
+				<a target="_blank" href="http://www.ck12.org/about/terms-of-use/">Terms of use.</a>
+			</div>
+			<div class="row collapse text-center sign-in-separator">or</div>
+		</div>
+		<div class="row collapse text-center sign-up">
+			<span>Don't have an account?</span>
+			<a class="js-sign-up" rel="nofollow">Sign up</a>
+		</div>
+	</div>
+</div>

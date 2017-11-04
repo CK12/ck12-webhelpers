@@ -1,0 +1,772 @@
+@font-face {
+  font-family: 'ck12';
+  src:
+    url('../font/ck12/ck12.ttf?nkkb9m') format('truetype'),
+    url('../font/ck12/ck12.woff?nkkb9m') format('woff'),
+    url('../font/ck12/ck12.svg?nkkb9m#ck12') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'ck12' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-roster:before {
+  content: "\e9f8";
+}
+.icon-sigma:before {
+  content: "\e9f7";
+}
+.icon-publish:before {
+  content: "\e9f6";
+}
+.icon-offline-reader:before {
+  content: "\e9d1";
+}
+.icon-pdf:before {
+  content: "\e9d2";
+}
+.icon-vocab:before {
+  content: "\e9d3";
+}
+.icon-add-members:before {
+  content: "\e9d4";
+}
+.icon-alerts:before {
+  content: "\e9d5";
+}
+.icon-assignments:before {
+  content: "\e9d6";
+}
+.icon-bold:before {
+  content: "\e9d7";
+}
+.icon-calendar2:before {
+  content: "\e9d8";
+}
+.icon-camera-2:before {
+  content: "\e9d9";
+}
+.icon-camera2:before {
+  content: "\e9da";
+}
+.icon-chat-bubble:before {
+  content: "\e9db";
+}
+.icon-content:before {
+  content: "\e9dc";
+}
+.icon-dotted-list:before {
+  content: "\e9dd";
+}
+.icon-downloaded:before {
+  content: "\e9de";
+}
+.icon-edit2:before {
+  content: "\e9df";
+}
+.icon-globe:before {
+  content: "\e9e0";
+}
+.icon-groups2:before {
+  content: "\e9e1";
+}
+.icon-hidden:before {
+  content: "\e9e2";
+}
+.icon-italic:before {
+  content: "\e9e3";
+}
+.icon-last-read:before {
+  content: "\e9e4";
+}
+.icon-library:before {
+  content: "\e9e5";
+}
+.icon-location:before {
+  content: "\e9e6";
+}
+.icon-no-q:before {
+  content: "\e9e7";
+}
+.icon-notes_multiple_icon:before {
+  content: "\e9e8";
+}
+.icon-notes_multiple_icon2:before {
+  content: "\e9e9";
+}
+.icon-notification-2:before {
+  content: "\e9ea";
+}
+.icon-numbered-list:before {
+  content: "\e9eb";
+}
+.icon-pencil:before {
+  content: "\e9ec";
+}
+.icon-plus-2:before {
+  content: "\e9ed";
+}
+.icon-qa:before {
+  content: "\e9ee";
+}
+.icon-send:before {
+  content: "\e9ef";
+}
+.icon-share2:before {
+  content: "\e9f0";
+}
+.icon-speedometer:before {
+  content: "\e9f1";
+}
+.icon-students:before {
+  content: "\e9f2";
+}
+.icon-tag:before {
+  content: "\e9f3";
+}
+.icon-take-note:before {
+  content: "\e9f4";
+}
+.icon-target2:before {
+  content: "\e9f5";
+}
+.icon-about:before {
+  content: "\e902";
+}
+.icon-activity:before {
+  content: "\e903";
+}
+.icon-add:before {
+  content: "\e904";
+}
+.icon-algebra:before {
+  content: "\e905";
+}
+.icon-analysis:before {
+  content: "\e906";
+}
+.icon-answer:before {
+  content: "\e907";
+}
+.icon-arithmetic:before {
+  content: "\e908";
+}
+.icon-arrow_down:before {
+  content: "\e909";
+}
+.icon-arrow_drag:before {
+  content: "\e90a";
+}
+.icon-arrow_left:before {
+  content: "\e90b";
+}
+.icon-arrow_right:before {
+  content: "\e90c";
+}
+.icon-arrow_up:before {
+  content: "\e90d";
+}
+.icon-arrow-down-2:before {
+  content: "\e90e";
+}
+.icon-arrow-left:before {
+  content: "\e90f";
+}
+.icon-arrow-up-2:before {
+  content: "\e910";
+}
+.icon-arrow-up:before {
+  content: "\e911";
+}
+.icon-arrow:before {
+  content: "\e912";
+}
+.icon-arrow2_left:before {
+  content: "\e913";
+}
+.icon-arrow2_right:before {
+  content: "\e914";
+}
+.icon-arrow3_left:before {
+  content: "\e915";
+}
+.icon-arrow3_right:before {
+  content: "\e916";
+}
+.icon-arrow3-down:before {
+  content: "\e917";
+}
+.icon-arrow3-up:before {
+  content: "\e918";
+}
+.icon-astronomy:before {
+  content: "\e919";
+}
+.icon-backpack:before {
+  content: "\e91a";
+}
+.icon-bell:before {
+  content: "\e91b";
+}
+.icon-biology:before {
+  content: "\e91c";
+}
+.icon-blog:before {
+  content: "\e91d";
+}
+.icon-book:before {
+  content: "\e91e";
+}
+.icon-bookmark:before {
+  content: "\e91f";
+}
+.icon-brain:before {
+  content: "\e920";
+}
+.icon-calculus:before {
+  content: "\e921";
+}
+.icon-calendar:before {
+  content: "\e922";
+}
+.icon-camera:before {
+  content: "\e923";
+}
+.icon-checkmark:before {
+  content: "\e924";
+}
+.icon-chemistry:before {
+  content: "\e925";
+}
+.icon-choices:before {
+  content: "\e926";
+}
+.icon-clock:before {
+  content: "\e927";
+}
+.icon-close:before {
+  content: "\e928";
+}
+.icon-close2:before {
+  content: "\e929";
+}
+.icon-comments:before {
+  content: "\e92a";
+}
+.icon-community:before {
+  content: "\e92b";
+}
+.icon-compass:before {
+  content: "\e92c";
+}
+.icon-contract-2:before {
+  content: "\e92d";
+}
+.icon-contract:before {
+  content: "\e92e";
+}
+.icon-copy:before {
+  content: "\e92f";
+}
+.icon-create-quiz:before {
+  content: "\e930";
+}
+.icon-dashboard:before {
+  content: "\e931";
+}
+.icon-dashboard2:before {
+  content: "\e932";
+}
+.icon-delete_cc:before {
+  content: "\e933";
+}
+.icon-dice:before {
+  content: "\e934";
+}
+.icon-down_quiz:before {
+  content: "\e935";
+}
+.icon-download-pdf:before {
+  content: "\e936";
+}
+.icon-download:before {
+  content: "\e937";
+}
+.icon-earth-science:before {
+  content: "\e938";
+}
+.icon-economics:before {
+  content: "\e939";
+}
+.icon-edit:before {
+  content: "\e93a";
+}
+.icon-elementary-math-grade-1:before {
+  content: "\e93b";
+}
+.icon-elementary-math-grade-2:before {
+  content: "\e93c";
+}
+.icon-elementary-math-grade-3:before {
+  content: "\e93d";
+}
+.icon-elementary-math-grade-4:before {
+  content: "\e93e";
+}
+.icon-elementary-math-grade-5:before {
+  content: "\e93f";
+}
+.icon-elementary-math:before {
+  content: "\e940";
+}
+.icon-elementary-science:before {
+  content: "\e941";
+}
+.icon-ellipsis:before {
+  content: "\e942";
+}
+.icon-email_phone:before {
+  content: "\e943";
+}
+.icon-email:before {
+  content: "\e944";
+}
+.icon-engineering:before {
+  content: "\e945";
+}
+.icon-english:before {
+  content: "\e946";
+}
+.icon-eraser:before {
+  content: "\e947";
+}
+.icon-exercise:before {
+  content: "\e948";
+}
+.icon-expand-2:before {
+  content: "\e949";
+}
+.icon-expand:before {
+  content: "\e94a";
+}
+.icon-facebook-2:before {
+  content: "\e94b";
+}
+.icon-facebook-3:before {
+  content: "\e94c";
+}
+.icon-facebook:before {
+  content: "\e94d";
+}
+.icon-fire:before {
+  content: "\e94e";
+}
+.icon-flag:before {
+  content: "\e94f";
+}
+.icon-geometry:before {
+  content: "\e950";
+}
+.icon-google:before {
+  content: "\e951";
+}
+.icon-google2:before {
+  content: "\e952";
+}
+.icon-googleplus:before {
+  content: "\e953";
+}
+.icon-googleplus2:before {
+  content: "\e954";
+}
+.icon-googleplus3:before {
+  content: "\e955";
+}
+.icon-grid:before {
+  content: "\e956";
+}
+.icon-groups_home:before {
+  content: "\e957";
+}
+.icon-groups:before {
+  content: "\e958";
+}
+.icon-grps_assgnmts:before {
+  content: "\e959";
+}
+.icon-grps_report:before {
+  content: "\e95a";
+}
+.icon-grps_share:before {
+  content: "\e95b";
+}
+.icon-grps_timeline:before {
+  content: "\e95c";
+}
+.icon-guidelines:before {
+  content: "\e95d";
+}
+.icon-health:before {
+  content: "\e95e";
+}
+.icon-heart:before {
+  content: "\e95f";
+}
+.icon-help_icon:before {
+  content: "\e960";
+}
+.icon-help2:before {
+  content: "\e961";
+}
+.icon-history:before {
+  content: "\e962";
+}
+.icon-icn_scratchpad:before {
+  content: "\e963";
+}
+.icon-icn_solution:before {
+  content: "\e964";
+}
+.icon-ilo:before {
+  content: "\e965";
+}
+.icon-image2:before {
+  content: "\e966";
+}
+.icon-images:before {
+  content: "\e967";
+}
+.icon-infinity:before {
+  content: "\e968";
+}
+.icon-Info:before {
+  content: "\e969";
+}
+.icon-interactive_group:before {
+  content: "\e96a";
+}
+.icon-interactive_practice:before {
+  content: "\e96b";
+}
+.icon-lessonplans:before {
+  content: "\e96c";
+}
+.icon-life-science:before {
+  content: "\e96d";
+}
+.icon-lightbulb:before {
+  content: "\e96e";
+}
+.icon-lightbulb2:before {
+  content: "\e96f";
+}
+.icon-like:before {
+  content: "\e970";
+}
+.icon-linkedin:before {
+  content: "\e971";
+}
+.icon-links:before {
+  content: "\e972";
+}
+.icon-list:before {
+  content: "\e973";
+}
+.icon-lock:before {
+  content: "\e974";
+}
+.icon-loop:before {
+  content: "\e975";
+}
+.icon-loop2:before {
+  content: "\e976";
+}
+.icon-map:before {
+  content: "\e977";
+}
+.icon-measurement:before {
+  content: "\e978";
+}
+.icon-members:before {
+  content: "\e979";
+}
+.icon-menu:before {
+  content: "\e97a";
+}
+.icon-microsoftlive:before {
+  content: "\e97b";
+}
+.icon-mindmap:before {
+  content: "\e97c";
+}
+.icon-minus:before {
+  content: "\e97d";
+}
+.icon-mobile-phone:before {
+  content: "\e97e";
+}
+.icon-more:before {
+  content: "\e97f";
+}
+.icon-network:before {
+  content: "\e980";
+}
+.icon-new-window:before {
+  content: "\e981";
+}
+.icon-notice:before {
+  content: "\e982";
+}
+.icon-notification:before {
+  content: "\e983";
+}
+.icon-open_new_window:before {
+  content: "\e984";
+}
+.icon-other_file:before {
+  content: "\e985";
+}
+.icon-paintcan:before {
+  content: "\e986";
+}
+.icon-paperplane:before {
+  content: "\e987";
+}
+.icon-pause:before {
+  content: "\e988";
+}
+.icon-physical-science:before {
+  content: "\e989";
+}
+.icon-physics:before {
+  content: "\e98a";
+}
+.icon-pinterest-2:before {
+  content: "\e98b";
+}
+.icon-pinterest-3:before {
+  content: "\e98c";
+}
+.icon-pinterest:before {
+  content: "\e98d";
+}
+.icon-play:before {
+  content: "\e98e";
+}
+.icon-plus:before {
+  content: "\e98f";
+}
+.icon-polygon:before {
+  content: "\e990";
+}
+.icon-print:before {
+  content: "\e991";
+}
+.icon-probability:before {
+  content: "\e992";
+}
+.icon-progress:before {
+  content: "\e993";
+}
+.icon-puzzle_locked:before {
+  content: "\e994";
+}
+.icon-puzzle:before {
+  content: "\e995";
+}
+.icon-quiz:before {
+  content: "\e996";
+}
+.icon-read:before {
+  content: "\e997";
+}
+.icon-reminder:before {
+  content: "\e998";
+}
+.icon-remove:before {
+  content: "\e999";
+}
+.icon-retry:before {
+  content: "\e99a";
+}
+.icon-running:before {
+  content: "\e99b";
+}
+.icon-rwa:before {
+  content: "\e99c";
+}
+.icon-sat:before {
+  content: "\e99d";
+}
+.icon-schools:before {
+  content: "\e99e";
+}
+.icon-scratchpad_medium:before {
+  content: "\e99f";
+}
+.icon-scratchpad_thick:before {
+  content: "\e9a0";
+}
+.icon-scratchpad_thin:before {
+  content: "\e9a1";
+}
+.icon-search:before {
+  content: "\e9a2";
+}
+.icon-settings_single:before {
+  content: "\e9a3";
+}
+.icon-settings:before {
+  content: "\e9a4";
+}
+.icon-share:before {
+  content: "\e9a5";
+}
+.icon-shared_res:before {
+  content: "\e9a6";
+}
+.icon-shuffle:before {
+  content: "\e9a7";
+}
+.icon-signin:before {
+  content: "\e9a8";
+}
+.icon-signout:before {
+  content: "\e9a9";
+}
+.icon-simulations:before {
+  content: "\e9aa";
+}
+.icon-skipped:before {
+  content: "\e9ab";
+}
+.icon-spelling-2:before {
+  content: "\e9ac";
+}
+.icon-spelling:before {
+  content: "\e9ad";
+}
+.icon-standards:before {
+  content: "\e9ae";
+}
+.icon-star-2:before {
+  content: "\e9af";
+}
+.icon-star-3:before {
+  content: "\e9b0";
+}
+.icon-star:before {
+  content: "\e9b1";
+}
+.icon-statistics:before {
+  content: "\e9b2";
+}
+.icon-stopwatch:before {
+  content: "\e9b3";
+}
+.icon-streak:before {
+  content: "\e9b4";
+}
+.icon-student-version:before {
+  content: "\e9b5";
+}
+.icon-student:before {
+  content: "\e9b6";
+}
+.icon-studyaid:before {
+  content: "\e9b7";
+}
+.icon-support:before {
+  content: "\e9b8";
+}
+.icon-target:before {
+  content: "\e9b9";
+}
+.icon-teacher-version:before {
+  content: "\e9ba";
+}
+.icon-teacher:before {
+  content: "\e9bb";
+}
+.icon-technology:before {
+  content: "\e9bc";
+}
+.icon-toc:before {
+  content: "\e9bd";
+}
+.icon-tries:before {
+  content: "\e9be";
+}
+.icon-trigonometry:before {
+  content: "\e9bf";
+}
+.icon-trophy:before {
+  content: "\e9c0";
+}
+.icon-trophyCircle:before {
+  content: "\e9c1";
+}
+.icon-try:before {
+  content: "\e9c2";
+}
+.icon-tutorial:before {
+  content: "\e9c3";
+}
+.icon-twitter-2:before {
+  content: "\e9c4";
+}
+.icon-twitter-3:before {
+  content: "\e9c5";
+}
+.icon-twitter:before {
+  content: "\e9c6";
+}
+.icon-unlike:before {
+  content: "\e9c7";
+}
+.icon-unlocked:before {
+  content: "\e9c8";
+}
+.icon-untitled:before {
+  content: "\e9c9";
+}
+.icon-user_join:before {
+  content: "\e9ca";
+}
+.icon-user:before {
+  content: "\e9cb";
+}
+.icon-validated:before {
+  content: "\e9cc";
+}
+.icon-video:before {
+  content: "\e9cd";
+}
+.icon-view:before {
+  content: "\e9ce";
+}
+.icon-you:before {
+  content: "\e9cf";
+}
+.icon-zoom-in:before {
+  content: "\e9d0";
+}
+.icon-highlight:before {
+  content: "\e900";
+}
+.icon-notes:before {
+  content: "\e901";
+}

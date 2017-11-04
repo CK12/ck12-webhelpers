@@ -1,0 +1,15 @@
+@import '../../main';
+
+.dropDown {
+	   padding: 0 10px;
+	   margin-bottom: 10px;
+		max-width:300px;
+	
+	select {
+	    margin-bottom: 10px;
+	    border: 1px solid #ccc;
+	    text-transform: capitalize;
+	    width:100%;
+	}
+
+}

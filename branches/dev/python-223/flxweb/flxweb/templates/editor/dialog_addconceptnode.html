@@ -1,0 +1,28 @@
+<div class="searchdialog">
+	<div class="dialogcontent">
+		<form id="frm_taxonomysearchdialog" name="frm_taxonomysearchdialog" action="{{config.webroot_url}}ajax/search/collection" method="GET">
+			<div class="searchbox">
+				<input class="txt_searchbox forminput" type="text" id="input_concept_node" name="q"/>
+				<input id="btn_search" class="button turquoise" type="submit" value="{{ _('Search') }}" />
+				<div class="clear"></div>
+			</div>
+		</form>
+		<div class="term_results addcontent_results gdoc_dialog_content resultblock_ht">
+			{{ _("Search for Concept node and add it to this concept/lesson.") }}
+		</div>
+	</div>
+	<div class="js_dialog_loading searchdialog_loading hide">
+		<img src="{{ h.url_images('icon_loading.gif') }}" width="43" height="11" title="loading" />
+		<div class="msg"></div>
+	</div>
+
+	<div class="hide">
+		<div class="js_dialog_loading_placeholder">
+			{{ _('Loading results...') }}<img src="{{ h.url_images('icon_loading.gif') }}" width="43" height="11" />
+		</div>
+        <div class="js_empty_input_message">
+            {{ _('Please enter search term to get Concept nodes.') }}
+        </div>
+	</div>
+	<!-- <div class="concept_node_note gdoc_dialog_content">{{ _('Note: Only one concept node can be associated with Concept.') }}</div>  -->
+</div>

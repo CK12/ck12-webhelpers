@@ -1,0 +1,43 @@
+<html>
+<head><title>Request for Content</title>
+<style>
+.main-content {
+border: 1px solid;
+width: 45%;
+padding: 30px;
+margin-left: 300px;
+margin-top: 50px;
+}
+</style>
+</head>
+<body>
+<form name="content" action="/flxadmin/cms/createContent" method="POST">
+<div class="main-content">
+<table>
+<tr><td colspan="2"><h3>Request for Content</h3></td></tr>
+<tr><td>Requester</td><td><input name="requester" type="text" value="akshay.valsa@ck12.org"/></td></tr>
+<tr><td>Content Type</td>
+<td>
+<select name="content_type">
+<option value="">--Please Select--</option>
+<option value="ILO" selected="selected">ILO</option>
+<option value="WIKI">WIKI</option>
+</select>
+</td>
+</tr>
+<tr><td>Summary</td><td><input name="summary" type="text" value="This is test summary."/></td></tr>
+<tr><td>Description</td>
+<td><textarea name="description" rows="5" cols="50">This is test description.
+</textarea></td></tr>
+<tr><td>Concept EIDs*</td><td><input name="concept_eids" type="text" value="SCI.BIO.100, MAT.ALG.100"/></td></tr>
+<tr><td>Assignee</td><td><input name="assignee" type="text" value="admin@ck12.org"/></td></tr>
+<tr><td>Statue</td><td><b>New</b></td></tr>
+<tr><td>Comments</td><td><textarea name="comments" rows="5" cols="50">This is test comment.
+</textarea></td></tr>
+<tr><td>*Required</td><td><input type="submit" name="Create" Value="Create"></td></tr>
+
+</table>
+</div>
+</form>
+</body>
+</html>

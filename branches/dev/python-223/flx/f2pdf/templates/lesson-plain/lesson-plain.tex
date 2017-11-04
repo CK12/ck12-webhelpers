@@ -1,0 +1,307 @@
+%% Bug 2983 PCO
+\documentclass[xetex,11pt,twoside,openany]{book}
+%% leaving out floatflt pkg until return to PCO / Textwrap (careful re conflict w placeins used for FloatBarrier)
+%%\usepackage[rflt]{floatflt}
+%%
+%% for side captions:
+%% (try floatrow instead)
+%% these 2 lines for sidecap have unexplained bad side effect of producing "=1" and extra blank page at top of PDF
+%%\usepackage[pdftex]{graphicx}
+%%\usepackage{sidecap}
+%%
+%% set DeclareMathSizes below
+%%\documentclass[xetex,10pt,twoside]{book}
+\usepackage{amssymb}
+\usepackage{amsmath}
+%% needed for black heart and diamond suit symbols
+\usepackage{txfonts}
+%% Bug 3039: caron
+\usepackage{textcomp}
+%% \usepackage{xunicode}
+%% \usepackage{fixltx2e}
+%% xunicode and fixltx2e are in xltxtra
+\usepackage{xltxtra}
+\usepackage{ifthen}
+\usepackage{calc}
+\usepackage{fullpage}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+%% \usepackage{floatflt}
+\usepackage{graphicx}
+%% \usepackage{tabularx}
+%% Bug 2950
+%% If usepackage{float}, that must come before wrapfig
+%%\usepackage{wrapfig}
+\usepackage{ltxtable}
+\usepackage{caption}
+\usepackage{filecontents}
+\usepackage{booktabs}
+%% Bug 3287
+\usepackage{sectsty}
+%% Bug 814 5-11-10 for ragged right chapter titles limiting hyphenation
+%%\usepackage{sectsty}
+%%\chapterfont{\raggedright}
+%%
+%% \usepackage{indentfirst}
+%% flush left paragraphs
+%% Bug 2950
+\setlength{\parindent}{0em}
+%% \setlength{\parindent}{2.5em}
+%%
+%% space in between paragraphs
+%% Bug 2950
+%%\setlength{\parskip}{0.7em}
+\setlength{\parskip}{0.5em}
+%% \setlength{\parskip}{0em}
+%%
+%% suppress subsection numbering
+\setcounter{secnumdepth}{1}
+%% remove vertical spacing in lists
+\setlist{noitemsep}
+%% redefine sections to include \FloatBarrier
+%% Bug 2214: original:
+%% \usepackage[above,section]{placeins}
+\usepackage{placeins}
+%% Bug 2214
+\makeatletter
+\renewcommand\section{\@startsection
+ {section}{1}{0mm}
+ {-\baselineskip}
+ {0.5\baselineskip}
+ {\FloatBarrier\normalfont\Large\bfseries}}
+\makeatother
+%
+\usepackage[normalem]{ulem}
+%% Bug 2948, original:
+%%  urlcolor=blue,
+%% First changed to: (which worked also)
+%%   urlcolor=black,
+\usepackage[xetex,
+  pdfborder={0 0 0},
+  colorlinks,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue,
+  filecolor=blue,
+]{hyperref}
+\usepackage[sectionbib]{chapterbib}
+\usepackage{natbib}
+\renewcommand{\bibname}{Image Sources}
+\makeatletter
+\renewcommand\@biblabel[1]{(#1)}
+\makeatother
+\usepackage{fontspec}
+%%Hindi font
+%\setmainfont[Script=Devanagari]{Nakula}
+%%\setmainfont{Arial}
+%\setmainfont{Computer Modern}
+%\setmainfont{Gentium}
+%\setmainfont{GNU Unifont}
+%\setmainfont{Summersby}
+\usepackage{xunicode}
+%% JG's request (i think color is already included from hyperref)
+\usepackage{color}
+\usepackage{cancel}
+%% Bug 814 5-11-10: to increase title's linespacing
+\usepackage{setspace}
+%% To customize headers
+\usepackage{titlesec}
+%% Bug 814
+\usepackage{titling}
+\renewcommand{\LARGE}{\fontsize{16}{18}\selectfont}
+\titleformat{\chapter}[display]
+{\raggedright \normalfont\Huge\bfseries}{\chaptertitlename\ \thechapter}{24pt}{\Huge}
+%% Pre Bug 3199: {\normalfont\huge\bfseries}, LARGE, large
+%% {\thesubsection} (twice) {\thesubsubsection}
+%% {1em}{} for all 3
+\titleformat{\section}
+{\normalfont\huge\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}
+{\normalfont\LARGE\bfseries}{\thesubsection}{0em}{}
+\titleformat{\subsubsection}
+{\normalfont\Large\bfseries}{\thesubsubsection}{0em}{}
+%% maybe do some math with \real{} to test @DOCUMENTRATING@ < 100;
+%% or even just \not\equal{@DOCUMENTRATING@}{100}
+
+%%EZ
+%%\ifthenelse{\equal{@DOCUMENTRATING@}{0} \OR \equal{@DOCUMENTRATING@}{60}}
+%%           {\usepackage{draftwatermark}
+%%             \SetWatermarkText{DRAFT}}
+%%           {}
+
+
+\newcommand{\Beta}{B}
+\newcommand{\unit}[1]{\ensuremath{\, \mathrm{#1}}}
+%% only show chapters and first sections
+\setcounter{tocdepth}{1}
+%% \usepackage[strings]{underscore}
+%% newcommand  do\label  etc , see docs in Bug 2345 Notes, underscore pkg
+%% Bug 2949. When textsize=10pt: mathsize=12pt, scriptsize=9pt, scriptscriptsize=6pt when textsize=10pt
+%%\DeclareMathSizes{10}{12}{9}{6}
+\DeclareMathSizes{11}{12}{9}{6}
+%% Bug 2950, try to reduce vertical margins by half
+\newcounter{tempc} \newcounter{tempcc}
+\setlength\textheight %
+%%	{10in-\topskip}
+        {9.5in-\topskip}
+\setcounter{tempc}{\textheight}
+\setcounter{tempcc}{\baselineskip}
+\setcounter{tempc} %
+	{\value{tempc}/\value{tempcc}}
+\setlength\textheight{\baselineskip*\value{tempc}+\topskip}
+%%\setlength\topmargin{-48pt}
+%%\setlength\oddsidemargin{-36pt}
+%%\setlength\evensidemargin{-36pt}
+%%\setlength\marginparwidth{-47pt}
+%%\setlength\textwidth{7.5in}
+\setlength\topmargin{-30pt}
+\setlength\oddsidemargin{-18pt}
+\setlength\evensidemargin{-18pt}
+\setlength\marginparwidth{-29pt}
+\setlength\textwidth{7in}
+%%
+%% Bug 2950
+%% \linespread{0.9167}\selectfont
+%%
+\usepackage{underscore}
+\begin{document}
+%%\maketitle
+%%\pagenumbering{roman}
+%%\setcounter{page}{1}
+\begin{titlepage}
+\begin{center}
+\pagenumbering{roman}
+% Upper part of the page
+%%~\vfill
+%%\vspace{10cm}
+%% Bug 814 5-11-10 : was \LARGE , with "Foundation"
+\textsc{\href{http://www.ck12.org}{\fontsize{18}{24}\selectfont CK-12 F\fontsize{14}{24}\selectfont OUNDATION}}\\[1.5cm]
+ 
+% Title
+%% Bug 814 5-11-10 : was 0.4cm
+\HRule\hrulefill \\[0.8cm]
+%% try vspace
+%%\begin{onehalfspace}
+\linespread{1.1}
+%%EZ
+\Huge{} \textbf{EZ TEST BOOK}
+
+\linespread{1.0}
+%%\end{onehalfspace}
+\\
+%%[0.4cm] 
+\HRule \hrulefill
+%% Bug 814 5-11-10 : removed:
+%%\\[1.5cm] 
+~\vfill
+% Author
+\begin{minipage}[b]{0.8\textwidth}
+\begin{center} \Large
+
+%%EZ
+\textbf{EZ}
+
+\end{center}
+\end{minipage}
+ 
+% Bottom of the page
+ 
+\end{center}
+ 
+\end{titlepage}
+\newpage
+%% Bug 814 5-11-10 moved copyright stuff here
+~\vfill
+\thispagestyle{empty}
+{
+  \setlength{\parindent}{0pt}
+  \setlength{\parskip}{\baselineskip}
+%% Bug 814 : limit hyphenation
+\begin{sloppypar}
+  \\
+  CK-12 Foundation is a non-profit organization with a mission to reduce the cost
+  of textbook materials for the K-12 market both in the U.S. and worldwide.
+  Using an open-content, web-based collaborative model termed the “FlexBook,”
+  CK-12 intends to pioneer the generation and distribution of high-quality
+  educational content that will serve both as core text as well as provide an
+  adaptive environment for learning, powered through the FlexBook Platform\texttrademark.
+
+  Copyright \copyright\  2011 CK-12 Foundation, www.ck12.org
+
+  Except as otherwise noted, all CK-12 Content (including CK-12 Curriculum
+  Material) is made available to Users in accordance with the Creative
+  Commons Attribution-Non-Commercial 3.0 Unported (CC BY-NC 3.0)
+  License (\url{http://creativecommons.org/licenses/by-nc/3.0/}), as
+  amended and updated by Creative Commons from time to time (the ``CC License''),
+  which is incorporated herein by this reference.
+
+  Specific details can be found at \url{http://www.ck12.org/terms}.
+  \end{sloppypar}
+
+  Printed: \today
+
+  \includegraphics[width=1in]{flexbooks.jpg}\\
+  \includegraphics[width=1in]{ccbync.png}
+}
+%% Bug 814 5-11-10 end moved copyright stuff here
+\frontmatter{}
+\fancypagestyle{plain}{%
+\fancyhf{} % clear all header and footer fields
+\fancyfoot[C]{\Large\bfseries \thepage} % except the center
+\fancyfoot[LE,RO]{\href{http://www.ck12.org}{www.ck12.org}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}}
+
+\thispagestyle{plain}
+\twoside
+{
+\begin{center}
+~\vfill
+  \Large{}
+%%EZ  \textbf{@BYWORD@}
+  \normalsize{}
+%%EZ  @AUTHORCOMPLETELIST@
+  \Large{} 
+%%EZ  \textbf{@CONTRIBUTORWORD@}
+  \normalsize{} 
+%%EZ  @CONTRIBUTORLIST@
+  \Large{} 
+%%EZ  \textbf{@EDITORWORD@}
+  \normalsize{} 
+%%EZ  @EDITORLIST@
+  \Large{} 
+%%EZ  \textbf{@TRANSLATORWORD@}
+  \normalsize{} 
+%%EZ  @TRANSLATORLIST@
+  \Large{} 
+%%EZ  \textbf{@SOURCEWORD@}
+  \normalsize{} 
+%%EZ  @SOURCELIST@
+\vfill
+\end{center}
+}
+\twoside
+\newpage
+%% Bug 814 5-11-10 moved copyright stuff
+%% Bug 814 5-11-10 end moved copyright stuff
+%% Bug 814 5-11-10 Dedication pg before TOC
+%%\newpage
+
+%%EZ @DEDICATION@
+%%
+\pagestyle{plain}
+\setcounter{tocdepth}{1}
+\tableofcontents
+%% Bug 2564
+%% NOTE:  no longer includes Dedication, which is separate
+%%EZ @FRONTMATTER@
+\mainmatter{}
+%% Bug 2564
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\setcounter{chapter}{0}
+%% Bug 814 5-11-10 to left-justify chapter titles and limit hyphenation in them
+%%\chapterfont{\raggedright}
+%%EZ @CHAPTERS@
+\include{concept1}
+\end{document}

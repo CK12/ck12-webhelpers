@@ -1,0 +1,1017 @@
+%%% ck12_common LaTeX commands reside here.  Th 
+%%% FILE: ck12_common.tex
+%%% DESC: Common macros and functions used for the one/two-column templates and
+%%%       with f2pdf.py.  To be included at in the individual template files' header.
+%%% AUTH: Britton Olson
+%%% DATE: Aug. 30, 2011
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Package declarations here %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{txfonts}   %% needed for black heart and diamond suit symbols
+
+\usepackage{textcomp}
+\usepackage{ifthen}
+\usepackage{calc}
+\usepackage{fullpage}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{breqn}     % Break equation package.... nice
+
+\usepackage{graphicx}
+\usepackage{multicol}  % Used for twocolumn template
+\usepackage{float}
+\usepackage{morefloats}
+\usepackage{afterpage}
+
+\usepackage{ltxtable}
+\usepackage{caption}
+\captionsetup[figure]{labelformat=empty, labelsep=none} % This will supress the default caption for figures
+\usepackage{filecontents}
+\usepackage{booktabs}
+\usepackage{lscape}
+
+\usepackage{minitoc}
+\usepackage{tocloft}
+\setlength{\cftsecnumwidth}{40 pt}
+\cftpagenumbersoff{sec}
+
+
+\usepackage[vertfit]{breakurl}
+\usepackage{grffile}
+
+% Definition for filled suits (diamonds and hearts)
+\DeclareSymbolFont{extraup}{U}{zavm}{m}{n}
+\DeclareMathSymbol{\varheart}{\mathalpha}{extraup}{86}
+\DeclareMathSymbol{\vardiamond}{\mathalpha}{extraup}{87}
+
+% For the ``permille'' symbol
+\usepackage{wasysym}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,        % false: boxed links; true: colored links
+    linkcolor=blue,        % color of internal links
+    urlcolor=blue,           % color of external links
+    breaklinks=true
+}
+\usepackage[all]{hypcap}    % Used to fix ref. click to image function
+
+\usepackage[utf8x]{inputenc}  % Encoding for utf8 characters
+\usepackage[encapsulated]{CJK}
+\PrerenderUnicode{}
+%\usepackage{xunicode}
+
+%% JG's request (i think color is already included from hyperref)
+\usepackage{color}
+\usepackage{cancel}
+\usepackage{setspace}
+\usepackage{titling}
+    
+\setlength{\parindent}{0em}
+\setlength{\parskip}{0.5em}
+\setcounter{secnumdepth}{2}
+\setcounter{chapter}{0}
+
+\setlist{noitemsep}
+
+\usepackage{placeins}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  Command definitions and functions here  %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\def\UrlFont{\normalsize}  % Perhaps use URL for links as hyperef spills over columns
+
+% Macro for ck12 colored logo
+\newcommand{\cklogo}{{\color{black}www.}{\color{ckorange}c}{\color{ckgreen}k12}{\color{black}.org}}
+
+
+%% For figure captions 
+\captionsetup{format=plain,font=large}
+\captionsetup{labelfont={Large,sc,bf,color=ckgreen,sf}} % Add "sc" for all caps
+\captionsetup{textfont={sf}}
+
+
+
+%% For the customized section titles
+\usepackage[explicit]{titlesec}
+\usepackage[T1]{fontenc}
+\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
+
+\newcommand*\chapterlabel{}         % This is 'title'
+\newcommand*\sectionlabel{}         % This is 'h1'
+\newcommand*\subsectionlabel{}      % This is 'h2'
+\newcommand*\subsubsectionlabel{}   % This is 'h3'
+
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,shadows,patterns,fadings}
+
+
+\usepackage{pslatex}
+\usepackage{contour}
+\contourlength{1pt} %how thick each copy is
+\contournumber{20}  %number of copies
+\newcommand{\outL}[2]{\contour{black}{\textcolor{#1} {#2}}}
+
+
+\titleformat{\chapter}
+  { \color{white}\tiny } {} {} {} {}
+
+%% Long Fancy Section: For Long titles that may spill over, use this function
+%% \Custom section
+%%%\newcommand{\CKchapter}[2]{
+%%%  \chapter{#1}
+%%%  \vspace*{-2in}
+%%%  % and now format the header according to spec.
+%%%  \begin{tikzpicture}[remember picture,overlay]
+%%%    \filldraw[top color=white,bottom color=ckgreen, draw=white] (-60pt, -.5in) rectangle (\paperwidth ,.5in); %3cm);
+%%%    \node[anchor=west,yshift=0pt,xshift=-30pt] {\sffamily\Huge\bfseries\scshape\fontsize{60}{72}\selectfont \outL{ckorange}{\thechapter}  };
+%%%    \node[anchor=east,xshift=.9\paperwidth,yshift=-.5in,rectangle,
+%%%      %rounded corners=20pt,inner sep=11pt,fill=ckorange,minimum height=36pt]
+%%%      rounded corners=20pt,inner sep=11pt,left color=ckorange,right color=ckorange, minimum height=36pt]
+%%%         {#2\normalfont\sffamily\bfseries\scshape\color{white} #1\fontsize{30}{36}\selectfont\color{ckorange}{ }};
+%%%  \end{tikzpicture}
+%%%  \vspace*{.65in}
+%%%}
+
+\newcommand{\CKchapter}[2]{
+  \chapter{#1}
+  \vspace*{-144pt}
+  \begin{tikzpicture}[remember picture,overlay]
+  \node at (current page.north west) [anchor=west,xshift=0.75in, yshift=-48pt] (dummy) {};
+    \draw [ color=ckgreen, line width=2pt] (dummy.west) --++ ( 7.0in , 0pt);   
+    \node at (dummy.west) [anchor=north west, xshift=8pt , yshift=0pt] (chap) { \scshape\fontsize{20}{24}\selectfont \chaptername };
+    \node at (chap.north east) [anchor=north west, xshift=2pt , yshift=0pt,rectangle,top color=ckgreen,bottom color=ckgreen!80!white ] {\sffamily\Huge\bfseries\scshape\fontsize{50}{60}\selectfont\color{black} {\thechapter}  };
+  \end{tikzpicture}
+  \vspace*{16pt}  
+  \begin{flushright}  { #2 \normalfont\sffamily\bfseries\color{black} ~ ~ ~ ~ ~ ~ ~ ~ ~ \NOhyph{#1}} \end{flushright}
+  \vspace*{0pt}
+}
+
+% DEPRECATED
+\newcommand{\CKchapterC}[3]{
+  \chapter{#1}
+  \vspace*{-144pt}
+  \begin{tikzpicture}[remember picture,overlay]
+    \node at (current page.north west) [anchor=west,xshift=16pt, yshift=-48pt] (dummy) {};
+    \draw [ color=ckgreen, line width=2pt] (dummy.west) --++ ( 580pt , 0pt);   
+    \node at (dummy.west) [anchor=north west, xshift=8pt , yshift=0pt] (chap) { \scshape\fontsize{20}{24}\selectfont #3 };
+    \node at (chap.north east) [anchor=north west, xshift=2pt , yshift=0pt,rectangle,top color=ckgreen,bottom color=ckgreen!80!white ] {\sffamily\Huge\bfseries\scshape\fontsize{50}{60}\selectfont\color{black} {\thechapter}  };
+  \end{tikzpicture}
+  \vspace*{16pt}  
+  \begin{flushright}  { #2 \normalfont\sffamily\bfseries\color{black} ~ ~ ~ ~ ~ ~ ~ ~ #1 } \end{flushright}
+  \vspace*{0pt}
+}
+
+% Sometimes content isn't a chapter, it's a concept.
+\newcommand{\CKconcept}[2]{
+  \chapter{#1}
+  \vspace*{-144pt}
+  \begin{tikzpicture}[remember picture,overlay]
+  \node at (current page.north west) [anchor=west,xshift=0.75in, yshift=-48pt] (dummy) {};
+    \draw [ color=ckgreen, line width=2pt] (dummy.west) --++ ( 7.0in , 0pt);   
+    \node at (dummy.west) [anchor=north west, xshift=8pt , yshift=0pt] (chap) { \scshape\fontsize{20}{24}\selectfont {Concept} };
+    \node at (chap.north east) [anchor=north west, xshift=2pt , yshift=0pt,rectangle,top color=ckgreen,bottom color=ckgreen!80!white ] {\sffamily\Huge\bfseries\scshape\fontsize{50}{60}\selectfont\color{black} {\thechapter}  };
+  \end{tikzpicture}
+  \vspace*{16pt}  
+  \begin{flushright}  { #2 \normalfont\sffamily\bfseries\color{black} ~ ~ ~ ~ ~ ~ ~ ~ ~ \NOhyph{#1}} \end{flushright}
+  \vspace*{0pt}
+}
+
+
+
+
+%% Title format for section... this only used to wrap *Section functions.
+%% Will increment for the TOC and footer... actual display handeled in *Section.
+\titleformat{\section}
+  { \color{white}\tiny } {} {} {} {}
+
+%% Long Fancy Section: For Long titles that may spill over, use this function
+%% \Custom section
+%%%\newcommand{\CSection}[2]{
+%%%  \section{#1}
+%%%  % and now format the header according to spec.
+%%%  \begin{tikzpicture}[remember picture,overlay]
+%%%    %\fill[left color=ckgreen,right color=white, top color = white,bottom color=ckgreen] (-60pt, 32pt) rectangle (1.5\paperwidth ,0.25cm);
+%%%    \shade[left color=ckgreen,right color=white ] (-60pt, 32pt) rectangle (\paperwidth ,0.25cm);
+%%%    \node[anchor=west,xshift=0,yshift=0 \paperwidth,rectangle,
+%%%      rounded corners=20pt,inner sep=11pt,fill=ckorange]
+%%%         {#2\normalfont\sffamily\bfseries\scshape\color{white}{\Huge\thesection} \ #1};
+%%%  \end{tikzpicture}
+%%%  \vspace*{.2in}
+%%%}
+
+\titleformat{\section}
+  { \color{white}\tiny } {} {} {} {}
+
+%% Long Fancy Section: For Long titles that may spill over, use this function                                                                                                                                                                
+%% \Custom section                                                                                                                                                                                                                           
+\newcommand{\CSection}[2]{
+  \section{#1}
+  \begin{minipage}[t]{\textwidth}
+  \begin{tikzpicture}[remember picture,overlay]
+    \node at [ anchor= west, xshift=0.0in, yshift=20pt ] (dummy) {};
+    %\node at (current page.north west) [anchor=west,xshift=.35in, yshift=-48pt] (dummy) {};
+    \draw[ color=ckorange, line width=2pt] (dummy.west) --++ ( 7.0in , 0pt);
+    \node at (dummy.west) [anchor=north west, xshift=8pt , yshift=0pt] (chap) {}; %{ \scshape\fontsize{14}{16}\selectfont Section };
+    \node at (chap.north east) [anchor=north west, xshift= 25pt,yshift=0pt,rectangle,top color=ckorange,bottom color=ckorange!80!white ] (thenum)
+        {\sffamily\Huge\bfseries\selectfont\color{black} {\thesection}  };
+    \node at (thenum.north east) [anchor=north west, xshift=0pt, yshift=-2pt, text width=6in] (sectitle) {#2\normalfont\sffamily\bfseries\color{black}\NOhyph{#1}};
+  \end{tikzpicture}
+  \vspace*{-22pt}
+  %\begin{flushleft} {  #2\normalfont\sffamily\bfseries\color{black} ~ ~ ~ ~ ~ ~ #1 } \end{flushleft}
+  \vspace*{0pt}
+  \end{minipage}
+}
+
+
+
+%\titleformat{ command }[ shape ]{ format }{ label }{ sep }{ before }[ after ]
+%% Set up the section and subsection fonts/colors
+%\titleformat{\subsection}[block]{}
+%{}{}%{\thesubsection}{10pt}
+%{ \noindent
+%\color{ckgreen}{\titlerule[2pt]} \\
+%\noindent\bfseries\Large\sffamily\color{ckorange}{ #1}
+%}
+
+%% Subsection is the h2 level
+\titleformat{\subsection}[block]
+{\Large\sffamily}
+{\color{ckgreen}\titlerule[2pt] \\
+\bfseries\color{ckorange}\Large\sffamily{#1}}
+{10pt}
+{}
+
+%% Subsubsection is the h3 level
+\titleformat{\subsubsection}[block]
+{} %\large\sffamily\color{ckorange}}
+{}%{\bfseries\thesubsubsection #1  }}
+{}
+{\bfseries\large\sffamily\color{ckorange} #1 }
+
+%% Paragraph is the h4 level: overload function
+% Alternative paragraph command
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+  {-3.25ex\@plus -1ex \@minus -.2ex}%
+  {1.5ex \@plus .2ex}%
+  {\normalfont\large\sffamily\bfseries}}
+\makeatother
+
+%% Paragraph is the h5 level: overload function
+% Alternative subparagraph command
+\makeatletter
+\renewcommand\subparagraph{\@startsection{subparagraph}{4}{\z@}%
+  {-3.25ex\@plus -1ex \@minus -.2ex}%
+  {1.5ex \@plus .2ex}%
+  {\normalfont\normalsize\sffamily\bfseries}}
+\makeatother
+
+
+
+%%%% Figure short cuts here
+%% need this is make figure show up in multicol
+\floatstyle{plain}
+\newfloat{ckfloat}{!hbpt}{lop}[chapter]
+\floatname{ckfloat}{CKfloat}
+
+
+\makeatletter
+\newenvironment{tablehere}
+  {\def\@captype{table}}
+  {}
+
+\newenvironment{longtablehere}
+  {\def\@captype{longtable}}
+  {}
+
+\newenvironment{figurehere}
+  {\def\@captype{figure}}
+  {}
+
+\newenvironment{imagehere}
+  {\def\@captype{figure*}}
+  {}
+\makeatother
+
+%% Wrapper macro for figure stuff.  Make sure thw following are set in template.tex file
+%\newdimen\ckfigwidth
+%\ckfigwidth=3in
+%\newdimen\ckfigwidthW
+%\ckfigwidthW=6in
+
+%\newcommand{\ckfigWpre}{
+%\end{multicols}
+%\clearpage
+%}
+
+%\newcommand{\ckfigWpost}{
+%\begin{mulitcols}{2}
+%}
+
+
+
+\newcommand{\ckfig}[4]{ 
+%\vspace{.25in}
+
+\raisebox{1ex-\height}{
+\begin{minipage}{\columnwidth}
+\\ 
+\begin{figurehere}
+	\begin{center}
+	\includegraphics[width=.9\columnwidth]{#1}
+ 	\caption[#2]{#3}
+	\label{#4}
+        \end{center}
+\end{figurehere}
+\\
+\end{minipage}
+}\vspace*{6}
+%\vspace{.25in}
+}
+
+\newcommand{\ckfigw}[4]{ 
+\ckfigWpre
+%\vspace{.25in}
+\begin{figure}
+	\begin{center}
+	\includegraphics[width=\ckfigwidthW]{#1}
+	\caption[#2]{#3}
+	\label{#4}
+        \end{center}
+\end{figure}
+%\vspace{.25in}
+\ckfigWpost
+}
+
+
+\captionsetup[figure]{labelformat=empty, labelsep=none}
+
+
+\newcommand{\ckfigb}[5]{
+\noindent
+%\raisebox{1ex-\height}{
+%\begin{center}                                  % No indent to keep the entire figure aligned
+\begin{minipage}{\textwidth}             % Minipage will ensure caption and image are on same page/column
+    \begin{minipage}{\columnwidth}                                       
+    \captionof{figure}{                    % Add to caption/label the proper way here
+         \label{#4}}
+    \begin{center}                         % Center the image
+        \includegraphics[width=#5]{#1}  % Include the actual image file here
+    \end{center}
+    \end{minipage}
+    \begin{minipage}{\columnwidth}
+    \begin{center}
+    \vspace*{10pt}                          % Spacing between figure caption and figure
+    \ckCaptionb{#2}{#3}                    % Put the custom figure caption in here
+    \end{center}
+    \vspace*{1em}
+    \end{minipage}
+\end{minipage} 
+%\end{center}%}
+%\vspace{-32pt}  % This causes things to break on rare occasions
+}
+
+\newlength{\figcapL}
+\newcommand{\ckfigwbc}[7]{
+\setlength{\figcapL}{#6}
+\ckfigWpre
+\newline
+\noindent
+%\begin{ckfloat}
+\begin{minipage}{\textwidth}             % Minipage will ensure caption and image are on same page/column
+    %\vspace*{20pt}                                          
+    \begin{minipage}{#5}
+    \begin{minipage}{#5}                % No bigger than 4.5in
+    \captionof{figure}{                    % Add to caption/label the proper way here... place at top of image
+         \label{#4}}
+    \begin{center}                         % Center the image
+        \if\relax#7\relax     % #7 is reserved for url links: if exists, then execute the else
+            \includegraphics[width=#5]{#1}  % Include the actual image file here
+        \else
+            \href{#7}{\includegraphics[width=#5]{#1}}
+        \fi
+    \end{center}
+    \end{minipage}
+    \end{minipage}
+    \hspace*{20pt}
+    \begin{minipage}{#6}
+    \centering        
+    \begin{minipage}{.8\figcapL}%{2.3in}
+        \ckCaptionb{#2}{#3}                    % Put the custom figure caption in here (already incremented)
+    \end{minipage}
+    \end{minipage}
+\end{minipage}%}
+%\end{ckfloat}
+\ckfigWpost
+}
+
+
+
+\newcommand{\ckfigwb}[6]{
+\ckfigWpre
+\newline
+\noindent
+
+
+%\raisebox{1ex-\height}{    %  No indent to keep the entire figure aligned
+%\begin{ckfloat}
+\begin{minipage}{\textwidth}
+\begin{center}
+\begin{minipage}{#5}             % Minipage will ensure caption and image are on same page/column
+    \captionof{figure}{                    % Add to caption/label the proper way here
+         \label{#4}}
+    \begin{center}                         
+        % #6 is reserved for url links, if one exists, then execute the \else part:
+        \if\relax#6\relax 
+          \includegraphics[width=#5]{#1}  % Include the actual image file here
+        \else 
+          \href{#6}{\includegraphics[width=#5]{#1}}
+        \fi
+    \end{center}
+\vspace*{5pt}             % Spacing between figure caption and figure
+\ckCaptionb{#2}{#3}       % Put the custom figure caption in here
+\end{minipage}
+\end{center}%}
+\end{minipage}
+\ckfigWpost
+%\end{ckfloat}
+}
+
+
+\newcommand{\iFrame}[7]{
+\vspace*{10pt}
+\noindent
+\begin{center}
+        \begin{minipage}{#7}
+                \begin{center}
+                \href{#1}
+                { \mbox{
+                  \includegraphics[width=#7]{#2}
+                }}
+                \end{center}
+                \vspace*{5pt}
+                \ckCaptionC{#3}{#4}{#6}
+        \end{minipage}
+\end{center}
+}
+
+\newcommand{\iFrameW}[9]{
+\vspace*{10pt}
+\noindent
+\begin{center}
+\begin{minipage}{7in}
+        \begin{center}
+        \begin{minipage}{#7}
+                \href{#1}
+                { \mbox{
+                  \includegraphics[width=#7]{#2}
+                }}
+        \end{minipage}
+        \hspace*{20pt}
+        \begin{minipage}{3.5in}
+                \vspace*{0.2in}
+                \centering
+                \ckCaptionIframe{#3}{#4}{#6}{#9}
+        \end{minipage}
+        \end{center}
+\end{minipage}
+    \label{#8}
+\end{center}
+}
+
+\newcommand{\iFrameT}[7]{
+\vspace*{10pt}
+\noindent
+\begin{center}
+\begin{minipage}{3.2in}
+        \begin{center}
+        \begin{minipage}{#7}
+                \href{#1}
+                { \mbox{
+                  \includegraphics[width=#7]{#2}
+                }}
+        \end{minipage}
+        \hspace*{0.1in}
+        \begin{minipage}{#7}
+                \vspace*{0.2in}
+                \centering
+                \ckCaptionC{#3}{#4}{#6}
+        \end{minipage}
+        \end{center}
+\end{minipage}
+\end{center}
+}
+
+
+
+
+\newcommand{\ckCaptionb}[2]{
+\begin{tikzpicture}
+    \node (B) [thick, fill=ckgreen!50 ,                                                      % Thickness of outer line, fill color, line color
+    rounded corners=0pt]                                                                     % Width of the box and rounded corners                    
+    { {\large\sffamily\MakeUppercase{ Figure~\thefigure }}   };                              % Title/header                                                       
+    \draw[ultra thick,anchor=west,color=ckorange] (B.north west) -- +(\columnwidth ,0);   % Add horizontal line above
+    \draw[ultra thick,anchor=west,color=ckorange] (B.south east) -- (B.north east);          % Add vertical line after label
+    %\node (TT) [anchor=south west] at (B.south east) { #1 };                                % Optional short caption
+    \node (T1) [anchor=north west] at (B.south west) {                                       % Full caption text here
+          \noindent
+          \begin{minipage}{.95\columnwidth}
+          {\sffamily\small #2}
+          \end{minipage} } ;
+    \draw[ultra thick,color=ckorange,anchor=north west] (T1.south west) -- +(\columnwidth ,0);  % Add horizontal line below
+\end{tikzpicture}  
+}
+
+\newcommand{\ckCaptionC}[3]{
+\begin{tikzpicture}
+    \node (B) [thick, fill=ckgreen!50 ,                                                      % Thickness of outer line, fill color, line color
+    rounded corners=0pt]                                                                     % Width of the box and rounded corners                    
+    { {\large\sffamily\MakeUppercase{ #3 }}   };                              % Title/header                                                       
+    \draw[ultra thick,anchor=west,color=ckorange] (B.north west) -- +(\columnwidth ,0);   % Add horizontal line above
+    \draw[ultra thick,anchor=west,color=ckorange] (B.south east) -- (B.north east);          % Add vertical line after label
+    %\node (TT) [anchor=south west] at (B.south east) { #1 };                                % Optional short caption
+    \node (T1) [anchor=north west] at (B.south west) {                                       % Full caption text here
+          \noindent
+          \begin{minipage}{.95\columnwidth}
+          {\sffamily\small #2} 
+          \end{minipage} } ;
+    \draw[ultra thick,color=ckorange,anchor=north west] (T1.south west) -- +(\columnwidth ,0);  % Add horizontal line below
+\end{tikzpicture}  
+}
+
+%% RESEMBLES ckCaptionC, but takes 4 arguments 
+\newcommand{\ckCaptionIframe}[4]{
+\begin{tikzpicture}
+    \node (B) [thick, fill=ckgreen!50 ,                                                      % Thickness of outer line, fill color, line color
+    rounded corners=0pt]                                                                     % Width of the box and rounded corners                    
+    { {\large\sffamily\MakeUppercase{ #3 }}   };                              % Title/header                                                       
+    \draw[ultra thick,anchor=west,color=ckorange] (B.north west) -- +(\columnwidth ,0);   % Add horizontal line above
+    \draw[ultra thick,anchor=west,color=ckorange] (B.south east) -- (B.north east);          % Add vertical line after label
+    %\node (TT) [anchor=south west] at (B.south east) { #1 };                                % Optional short caption
+    \node (T1) [anchor=north west] at (B.south west) {                                       % Full caption text here
+          \noindent
+          \begin{minipage}{.95\columnwidth}
+          {\sffamily\small #2} \\
+          {\sffamily\small #4}  % sub caption
+          \end{minipage} } ;
+    \draw[ultra thick,color=ckorange,anchor=north west] (T1.south west) -- +(\columnwidth ,0);  % Add horizontal line below
+\end{tikzpicture}  
+}
+
+
+%% Wrapper macro for figure(no caption) stuff
+\newcommand{\ckim}[3]{ 
+%\vspace{.25in}
+\\
+\begin{imagehere}
+  \begin{center}
+    \includegraphics[width=#2]{#1}
+    \label{#3}
+  \end{center}
+\end{imagehere}
+%\vspace{.25in}
+}
+
+\newcommand{\ckimC}[5]{ 
+%\vspace{.25in}
+%\\
+\begin{imagehere}
+  \begin{center}
+    \if\relax#5\relax
+      \includegraphics[width=#2]{#1}
+    \else
+      \href{#5}{\includegraphics[width=#2]{#1}}
+    \fi
+    \label{#3}
+  \end{center}
+\end{imagehere}
+%\vspace{.25in}
+}
+
+\newcommand{\ckigC}[2]{
+        \begin{center}
+        \includegraphics[width=#2]{#1}
+        \end{center}
+}
+
+
+
+\newcommand{\ckimw}[3]{ 
+\ckfigWpre
+%\vspace{.25in}
+\begin{figure*}
+	\centering
+	\includegraphics[width=#2]{#1}
+	\label{#3}
+\end{figure*}
+%\vspace{.25in}
+\ckfigWpost
+}
+
+
+
+\newcommand{\cktab}[6]{ 
+\begin{minipage}{\columnwidth}
+\vspace*{20pt}
+\begin{center}
+  \begin{tablehere}
+    \caption[#1]{#2}     % Caption arguments
+    \begin{tabular}{#3}  % Spacing string
+      #4                 % Table header
+      #5                 % Table contents
+      \label{#6}         % Label here
+    \end{tabular}
+  \end{tablehere}
+\end{center}
+\end{minipage}
+%\vspace{.25in}
+}
+
+% 1-fname. 2-spacing string, 3,4-caption, 5-head, 6-body, 7-label, 8-width
+\newcommand{\cktabular}[8]{
+\begin{filecontents}{#1}
+\begin{longtable}{#2}
+        \caption[#3]{#4 \label{#7}}
+        #5
+        #6
+\end{longtable}
+\end{filecontents}
+\LTXtable{#8}{#1}
+}
+
+\newcommand{\cktabw}[6]{ 
+\cktabWpre
+\begin{longtable}
+	\centering
+        \caption[#1]{#2}
+        \begin{tabular}{#3}
+          \hline
+          #4          % Table header
+          \hline
+          #5          % Table contents
+          \hline
+          \label{#6}  % Label here
+        \end{tabular}
+\end{longtable}
+\cktabWpost
+}
+
+
+\newcommand{\cktabww}[6]{ 
+%\vspace*{.25in}
+%\cktabWWpre
+%\begin{landscape}
+\begin{table}
+	\centering
+        \caption[#1]{#2}
+        \begin{tabular}{#3}
+          \hline
+          #4          % Table header
+          \hline
+          #5          % Table contents
+          \hline
+          \label{#6}  % Label here
+        \end{tabular}
+\end{table}
+%\end{landscape}
+%\cktabWWpost
+}
+
+\newcommand{\cktabB}[6]{ 
+%\vspace{.25in}
+\begin{center}
+  \begin{tablehere}
+    \caption[#1]{#2 \label{#6}}     % Caption arguments and label
+    \begin{tabular}{#3}  % Spacing string
+      \hline
+      #4                 % Table header
+      \hline
+      \hline
+      #5                 % Table contents
+      \hline
+    \end{tabular}
+  \end{tablehere}
+\end{center}
+%\vspace{.25in}
+}
+
+\newcommand{\cktabwB}[6]{ 
+\cktabWpre
+\begin{table}
+	\centering
+        \caption[#1]{#2 \label{#6}}
+        \begin{tabular}{#3}
+          \hline
+          #4          % Table header
+          \hline
+          \hline
+          #5          % Table contents
+          \hline
+        \end{tabular}
+\end{table}
+\cktabWpost
+}
+
+
+\newcommand{\cktabwwB}[6]{ 
+\vspace{.25in}
+\cktabWWpre
+\begin{landscape}
+\begin{table}
+	\centering
+        \caption[#1]{#2 \label{#6}}
+        \begin{tabular}{#3}
+          \hline
+          #4          % Table header
+          \hline
+          \hline
+          #5          % Table contents
+          \hline
+        \end{tabular}
+\end{table}
+\end{landscape}
+\cktabWWpost
+}
+
+
+
+%% Element Box Macro... use Tikz and take 3 arguments
+%\newdimen\Eboxwidth
+%\ckfigwidth=3in
+
+\newcommand{\Ebox}[3]{ 
+\begin{tikzpicture}
+    \node[ultra thick, fill=#1!20 , draw=#1,                % Thickness of outer line, fill color, line color
+    rectangle split, rectangle split parts=2,               % rectangle split node in 2 parts
+    drop shadow={shadow xshift=.1in, shadow yshift=-.1in},  % Overall width.. This needs to be 
+    text width=\Eboxwidth,rounded corners=10pt]                    % Width of the box and rounded corners
+        {
+        \vspace*{.05in}
+        {\large\sffamily\bfseries{#2}}               % Title/header
+        \vspace*{.05in}
+        \nodepart{second}
+        \vspace*{.05in}
+        #3                                                  % Body of element
+        \vspace*{.05in}
+        }; 
+\end{tikzpicture} 
+} 
+
+% Enhanced Ebox macro. This is an environment... not a command.
+\newcommand{\tmpColor}{}
+\newsavebox{\EboxRoundedBox}
+\newsavebox{\EboxRoundedBoxHead}
+\newenvironment{EEbox}[2]%
+   {\renewcommand{\tmpColor}{#2}%
+    \begin{lrbox}{\EboxRoundedBoxHead}
+        \begin{minipage}{\textwidth}
+        {\large\sffamily\bfseries{#1}}
+        \end{minipage}
+    \end{lrbox}
+    \begin{lrbox}{\EboxRoundedBox}
+       \begin{minipage}{\textwidth}}%
+   {   \end{minipage}
+    \end{lrbox}
+    \begin{center}
+    \begin{tikzpicture}%
+       \draw node[ultra thick,draw=\tmpColor,fill=\tmpColor!20,rounded corners=10pt,%
+             rectangle split, rectangle split parts=2,               % rectangle split node in 2 parts                                                                                                                                                
+                        drop shadow={shadow xshift=.1in, shadow yshift=-.1in},
+             inner sep=2ex,text width=\textwidth]%
+             {\usebox{\EboxRoundedBoxHead}
+             \nodepart{second}
+             \usebox{\EboxRoundedBox}};
+    \end{tikzpicture}
+    \end{center}}
+
+
+
+%% URL macro to protect line+page break combo which will break url
+\newcommand{\ckurl}[3]{
+\\
+\begin{minipage}{#3}
+        \vspace{3pt}
+        %\url{#1}
+        \href{#1}{#2}
+        \vspace*{3pt}
+\end{minipage}
+}
+
+%% Highlight macro here
+\newlength{\HLlen}
+\newcommand{\highlight}[2]{
+        \settowidth{\HLlen}{#2}
+        \pgfmathsetlength{\HLlen}{min(\HLlen,\textwidth)}
+        \noindent\colorbox{#1}{\noindent\parbox{\HLlen}{#2}}
+} 
+
+
+\newcommand{\ckHline}{
+\noindent
+\begin{tikzpicture}
+        \draw[color=black,line width=2pt] (0,0) --++ (\textwidth,0);
+\end{tikzpicture}
+}
+
+\newcommand\ckhl[2]{%
+    \tikz[baseline,%
+      decoration={random steps,amplitude=1pt,segment length=15pt},%
+      outer sep=-15pt, inner sep = 0pt%
+    ]%
+   \node[decorate,rectangle,fill=#1,anchor=text]{#2\xspace};%
+}%
+
+
+% No hypenation in this command
+\newcommand{\NOhyph}[1]{
+\lefthyphenmin=60\righthyphenmin=60{#1}\lefthyphenmin=3\righthyphenmin=3}
+
+
+
+%% Bold table text macro
+\newcommand{\bftab}[1]{\bf$\mathbf{#1}$}
+\newcommand{\bftabt}[1]{\bf #1}
+
+
+%% Macros for the book_head (authors,editors,contributors,etc.)
+
+\newcommand{\nameBox}[2]{
+\begin{centering}
+    {\color{ckgreen}\titlerule[2pt]} 
+    \\
+    \vspace*{18pt}
+    { \huge\color{black}
+    #1
+    }
+    \\
+    \vspace*{18pt}
+% 
+        {\color{ckgreen}\titlerule[2pt]} 
+\end{centering}
+
+{\large\sffamily\scshape\bfseries\color{ckorange} #2 } 
+}
+
+\newcommand{\ckMP}[2]{
+\begin{minipage}{#1}
+        #2
+\end{minipage}
+}
+
+
+\newcommand{\ckCopyPage}[2]{
+\begin{tikzpicture}
+        \node (A) []{
+              \ckMP{4.0in}{#1}
+              };
+        \draw[color=black] (A.north east)+(.025\textwidth , 0) --+ (.025\textwidth ,-\textheight);
+        \node [anchor=north west,xshift=.05\textwidth] at (A.north east) {
+              \ckMP{2.0in}{#2}
+              };
+\end{tikzpicture}
+}
+
+
+\usepackage[normalem]{ulem}
+
+
+\usepackage[sectionbib]{chapterbib}
+\usepackage{natbib}
+\renewcommand{\bibname}{Image Sources}
+\makeatletter
+\renewcommand\@biblabel[1]{(#1)}
+\makeatother
+
+
+\renewcommand{\LARGE}{\fontsize{16}{18}\selectfont}
+%\titleformat{\chapter}[display]
+%{\raggedright \normalfont\Huge\bfseries}{\chaptertitlename\ \thechapter}{24pt}{\Huge}
+
+
+\newcommand{\Beta}{B}
+\newcommand{\unit}[1]{\ensuremath{\, \mathrm{#1}}}
+
+
+\DeclareMathSizes{11}{12}{9}{6}
+%% Bug 2950, try to reduce vertical margins by half
+\newcounter{tempc} \newcounter{tempcc}
+\setlength\textheight %
+%%	{10in-\topskip}
+        {9.5in-\topskip}
+\setcounter{tempc}{\textheight}
+\setcounter{tempcc}{\baselineskip}
+\setcounter{tempc} %
+	{\value{tempc}/\value{tempcc}}
+\setlength\textheight{\baselineskip*\value{tempc}+\topskip}
+
+
+%% Margins and spacings
+% Left - Right stuff
+\setlength{\hoffset}{-1.0in}                    %% Zero out the left side
+\setlength{\oddsidemargin}{.75in}		%% Left start of text
+\setlength{\evensidemargin}{.75in}		%% Right start of text
+\setlength{\columnsep}{0.5in}			%% Gap between the columns
+\setlength{\textwidth}{7.0in}			%% Total text width... = (8.5 - odd - even ) / 2
+
+%% Top Bottom stuff
+\setlength{\voffset}{-1.0in} 
+\setlength{\topmargin}{.25in}  % .75
+\setlength{\headheight}{12pt}
+\setlength{\headsep}{.25in}
+\setlength{\textheight}{9.65in}
+%\setlength{\footskip}{.25in}
+
+
+%% For custom footers and Headers
+\usepackage{fancyhdr}
+\fancypagestyle{plain}{%
+\fancyhf{} % clear all header and footer fields
+\fancyfoot[LE,RO]{\thepage  } 
+\fancyhead[LO,RE]{\href{http://www.ck12.org}{ \cklogo } }
+\renewcommand{\chaptername}{Chapter}
+\fancyhead[LE]{\nouppercase{\slshape  \rightmark}}
+\fancyhead[RO]{\nouppercase{\leftmark \slshape}} %RO=right odd, RE=right even
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+}
+
+\fancypagestyle{concept}{%
+\fancyhf{} % clear all header and footer fields
+\fancyfoot[LE,RO]{\thepage  } 
+\fancyhead[LO,RE]{\href{http://www.ck12.org}{ \cklogo } }
+\renewcommand{\chaptername}{Concept}
+\fancyhead[LE]{\nouppercase{\slshape  \rightmark}}
+\fancyhead[RO]{\nouppercase{\leftmark \slshape}} %RO=right odd, RE=right even
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+}
+
+\pagestyle{plain}
+
+
+%\usepackage{underscore}  % this package breaks file path with underscores
+
+%%%% Define some colors
+\definecolor{ckorange}{RGB}{207, 87, 38}      % ck12 orange
+\definecolor{lckorange}{RGB}{231, 156, 126}   % ck12 light orange
+
+\definecolor{ckgreen}{RGB}{167, 203, 101}     % ck12 green
+\definecolor{lckgreen}{RGB}{201, 223, 159}    % ck12 light green
+
+
+
+% From Rosetta Stone: Missing colors
+\definecolor{aqua}   {HTML}{00FFFF}
+\definecolor{lime}   {HTML}{00FF00} 
+\definecolor{green}  {HTML}{008000} 
+\definecolor{navy}   {HTML}{000080}  
+\definecolor{olive}  {HTML}{808000} 
+\definecolor{silver} {HTML}{C0C0C0}
+\definecolor{teal}   {HTML}{008080}
+\definecolor{ckgrey} {HTML}{808080}
+\definecolor{grey}   {HTML}{808080}
+\definecolor{gray}   {HTML}{808080}
+\definecolor{fuchsia}{HTML}{FF00FF}
+\definecolor{purple} {HTML}{800080}
+\definecolor{maroon} {HTML}{800000}
+\definecolor{orange} {HTML}{FFA500}
+\definecolor{darkorange} {HTML}{FF8C00}
+
+
+% Multi-cols parameters:
+\setlength\premulticols{10\baselineskip}  % Ensure there is enough space at the bottom  (Fixes most image overflows...)
+\setcounter{columnbadness}{7000}
+\setcounter{finalcolumnbadness}{7000}
+
+
+%\tolerance=1
+%\emergencystretch=\maxdimen
+%\hyphenpenalty=10000
+%\hbadness=10000
+
+\usepackage{hyphenat}
+
+% Alter some LaTeX defaults for better treatment of figures:
+% See p.105 of ``TeX Unbound'' for suggested values.
+%   General parameters, for ALL pages:
+%\renewcommand{\topfraction}{0.9}    % max fraction of floats at top
+%\renewcommand{\bottomfraction}{0.8} % max fraction of floats at bottom
+%   Parameters for TEXT pages (not float pages):
+%\setcounter{topnumber}{2}
+%\setcounter{bottomnumber}{2}
+%\setcounter{totalnumber}{4}     % 2 may work better
+%\setcounter{dbltopnumber}{2}    % for 2-column pages
+%\renewcommand{\dbltopfraction}{0.9}   % fit big float above 2-col. text
+%\renewcommand{\textfraction}{0.07}    % allow minimal text w. figs
+%%   Parameters for FLOAT pages (not text pages):
+%\renewcommand{\floatpagefraction}{0.7}   % require fuller float pages
+% N.B.: floatpagefraction MUST be less than topfraction !!
+%\renewcommand{\dblfloatpagefraction}{0.7}   % require fuller float pages

@@ -1,0 +1,68 @@
+.retrolation-widget {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    cursor: default;
+}
+/* view for books */
+#view_content .retrolation-widget {
+    position: relative;
+    display: inline-block;
+    float: right;
+    margin: 15px 0 40px 40px;
+    padding: 4px 16px 4px 16px;
+    box-shadow: 0px 0px 1px #0e0e0e;
+    text-align: left;
+    min-width: 180px;
+}
+
+#artifact_content .retrolation-widget h2 {
+    font-size: 18px;
+    line-height:2em;
+    margin:0;
+    height:2em;
+    text-align: center;
+}
+
+.retrolation-widget .concept-link {
+    display: block;
+    font-size: 14px;
+    padding: 5px 0px;
+
+}
+.retrolation-widget .concept-link:first-child {
+    margin-top: 12px;
+}
+
+
+/* view for concepts */
+#rw-book-img {
+    box-shadow: 0px 0px 0px 1px #EFEEEC;
+    max-height:110px;
+    max-width:110px;
+}
+
+.retrolation-widget .right,
+.retrolation-widget .left {
+    display: inline-block;
+}
+.retrolation-widget .right {
+    max-width: calc(100% - 120px);
+}
+.retrolation-widget .readit {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 20px 0px;
+}
+#rw-title {
+    font-size: 16px;
+    font-weight: bold;
+}
+#rw-title {
+    font-size: 16px;
+    font-weight: normal;
+}
+#rw-description {
+    font-size: 14px;
+}

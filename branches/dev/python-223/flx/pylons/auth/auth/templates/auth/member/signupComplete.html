@@ -1,0 +1,113 @@
+{% extends "base/auth/1column.html" %}
+{% block title %} {{_('Sign Up Complete') }} {% endblock %}
+
+{% block js %}
+{{ super() }}
+<script>
+    require(['main'], function(){
+       require(['jquery', 'auth/flx.signup','auth/flx.global'],function($){ 
+           $(document).ready(function(){
+               var referrer = $.flx.queryParam('referrer');
+               var requestor = $.flx.queryParam('requestor');
+               var returnTo = $.flx.queryParam('returnTo');
+               var payload = {};
+               // Fire the ADS event only if the referrer is not assessment.
+               // TODO: assessment has its own events, remove those
+                 if (!referrer || referrer.indexOf('/assessment/ui/') == -1) {
+                    payload['authType'] = '{{c.member.ext[0].authType.name}}';
+                    if(referrer) {
+                        payload['referrer'] = referrer;
+                    } else if(requestor) {
+                        payload['referrer'] = requestor;
+                    } else if(returnTo) {
+                        payload['referrer'] = returnTo;
+                    } else {
+                        payload['referrer'] = 'unknown';
+                    }
+                    var referrer_at = $.flx.queryParam('referrer_at');
+                    if(referrer_at) {
+                        payload['referrer_at'] = referrer_at;
+                    }
+                    if(window._ck12) {
+                        window._ck12.logEvent('FBS_SIGNUPS', payload);
+                    }
+                }
+            });
+
+            function getRedirectUrl(returnTo, requestorUrl) {
+
+                var patt = /\?next=/;
+                var redirectUrl;
+                
+                if (returnTo) {
+                    returnTo = unescape(returnTo);
+                    redirectUrl = returnTo;
+                }
+                //if returnTo is specified and has next in it, make sure to escape next
+                if (returnTo && returnTo.match(patt)) {
+                    returnTo = returnTo.split(patt);
+                    returnTo[1] = encodeURIComponent(returnTo[1]);
+                    redirectUrl = returnTo.join('?next=');
+                }
+                //if no returnTo specified, see if we have requestor and use that instead.
+                if (!returnTo && requestorUrl) {
+                    redirectUrl = requestorUrl;
+                }
+                
+                //fallback to dashboard page, if no redirectUrl can be constructed
+                if(!redirectUrl) {
+                    redirectUrl = '/my/dashboard/';
+                }
+                return redirectUrl;
+            }
+
+            var returnTo = '{{ c.returnTo }}',
+                redirectUrl,
+                requestorUrl;
+
+            {% if c.requestor %}
+                requestorUrl = '{{ c.requestor }}';
+            {% endif %}
+          
+            redirectUrl = getRedirectUrl(returnTo,requestorUrl); 
+            $('#continueButton').attr('href', redirectUrl);
+         });
+    });
+</script>
+{% endblock %}
+
+{% block pageinfotop %}
+<div class="contenttop"></div>
+{% endblock %}
+
+{% block content %}
+<div class="signup">
+	<div class="large-8 large-centered small-10 small-centered columns">
+		<h1 class="toptitle text-center">{{ _("Account Created") }}</h1>
+		<div class="spacetoplarge"></div>
+	</div>
+	<div id="signup" class="contentarea large-8 large-centered small-11 small-centered columns">
+		<div class="signup-area">
+			<div class="spacetopxlarge"></div>
+			<!-- <div class="divider"></div> -->
+			<div class="spacetop">
+				<div class="noticeline">
+				{% if c.success %}
+				<div class="text-center congrats-text">{{ _("Congratulations ") }}{{c.member.givenName}}{{_("!")}}</div>
+				<div class="text-center congrats-text">{{_("Your account has been created.")}}</div>
+				{% else %}
+					{{ _("There was an error saving your profile. Please try again later.") }}
+				{% endif %}
+				</div>
+				<div class="text-center continue-button">
+					<a id="continueButton" class="btn button notice turquoise standard">{{ _('Continue ') }}</a>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<!-- <div class="divider spacetop"></div> -->
+			<div class="spacetopxlarge"></div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+

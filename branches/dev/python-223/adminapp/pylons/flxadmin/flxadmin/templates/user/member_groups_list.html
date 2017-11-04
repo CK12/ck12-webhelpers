@@ -1,0 +1,16 @@
+{% from "macros/pagination.html" import paginate with context %}
+
+{% if c.paginator.item_count > 0 %}
+  {% for i in c.paginator.items %}
+    {% if i.id != 1 %}
+    <div class="tr">
+      <div class="td id">{{i.id}}</div>
+      <div class="td xlong">{{h.idlink('group/',i, 'name', alttext=i.name|truncate(100))}}</div>
+      <div class="td">
+        {{ i.role }}
+      </div>
+    </div>
+    {% endif %}
+  {% endfor %}
+  {{ paginate(c.paginator) }}
+{% endif %}

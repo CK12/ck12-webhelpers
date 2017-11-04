@@ -1,0 +1,344 @@
+<html>
+<head>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<style type="text/css">
+    body {
+    background: #fff center top;
+    font: 12px/1.67 "Lucida Grande", Helvetica, Arial, sans-serif;
+    color: #555;
+    }
+	.params {
+		margin-top:20px;
+	}
+	td {
+		height: 20px;
+        border:none;
+        padding:5px;
+	}
+    .pagetitle {
+        font-weight: bold;
+        font-size: 1.2em;
+        color: #444;
+    }
+    .sectionhead {
+        border: 1px solid #9b5;
+        background-color: #9b5;
+        color: white;
+        background: linear-gradient(-90deg, #98c251, #669933);
+        padding: 2px 10px;
+        width:42%;
+        height:27px;
+        float:left;
+    }
+    input[type="text"] {
+        width: 260px;
+    }
+    .eventtitle {
+        color: white;
+        font-size: 15px;
+        font-weight: bold;
+    }
+    .eventtable {
+        border:1px solid ;
+        padding:10px;    
+    }
+    .showloading {
+        display:block;
+    }
+    .hideloading {
+        display:none;
+    }
+    .msg {
+        float: right;
+        font-weight: bold;
+        color: rgb(197, 37, 37);
+        margin-top: 5px;
+    }
+    .celerydlg {
+        background: rgb(201, 219, 180);
+        width: 330px;
+        border: 2px solid green;
+        border-radius: 5px;
+        padding: 5px;
+        float: left;
+        height: 20px;
+        margin-top: -2px;
+        margin-left: 2px;
+    }
+    .btn {
+        border-top-left-radius: 28px;
+        border-top-right-radius: 28px;
+        border-bottom-right-radius: 28px;
+        border-bottom-left-radius: 28px;
+        border: 1px solid rgb(24, 171, 41);
+        display: inline-block;
+        cursor: pointer;
+        color: rgb(255, 255, 255);
+        font-family: Arial;
+        font-size: 12px;
+        padding: 2px 9px;
+        text-decoration: none;
+        text-shadow: rgb(47, 102, 39) 0px 1px 0px;
+        background-color: rgb(61, 129, 79);
+        font-weight: bold;
+    }
+	</style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+</head>
+<body>
+<center><h1>Event Types & Parameters</h1></center>
+<hr/>
+<div>
+<br/>
+
+<div id="main">
+
+<div id="main_loading"><!--img style="margin-left:50%" src="spinner.gif"/--><span style="margin-left:50%"><b>Loading....</b></span></div>
+<div id="main_error" style="display:none;color:red"></div>
+</div>
+
+<div id="templates" style="display:none">
+    <div class="test" id="##EVENT_TYPE##_CONTAINER">
+        <form name="##EVENT_TYPE##_FORM" id="##EVENT_TYPE##_FORM">
+            <div class="sectionhead"><a href="javascript:display('##EVENT_TYPE##_TABLE')" class="eventtitle">##EVENT_TYPE##</a>
+            <!--a href="#" id="##EVENT_TYPE##_CELERY" class="celery">Celery</a-->
+            <span id="##EVENT_TYPE##_MSG" class="msg"></span>
+            <a class="list-group-item celery" id="##EVENT_TYPE##_ICON" style="float:right;cursor:hand"><i class="fa fa-cog fa-fw" style="color:white;font-size:15px"></i></a>
+            </div>
+            <div id="##EVENT_TYPE##_DLG" style="display:none">
+                <div class="celerydlg">
+                    <input type="radio" id="##EVENT_TYPE##_HOUR" name="frequency"/> Hour
+                    <input type="radio" id="##EVENT_TYPE##_DAY" name="frequency"/> Day
+                    <input type="radio" id="##EVENT_TYPE##_WEEK" name="frequency"/> Week
+                    <input type="radio" id="##EVENT_TYPE##_MONTH" name="frequency"/> Month
+                    <input type="button" class="btn" value="Trigger Celery" onclick="javascript:trigger_celery('##EVENT_TYPE##');"/>
+                </div>
+                <div id="##EVENT_TYPE##_CELERY_STATUS" style="display:none">
+                    <i class="fa fa-spinner fa-spin celery_loading" style="font-size: 24px;margin-left: 5px;"></i>
+                    <div class="celery_msg" style="padding-top: 13px;display: none;"><span>Successful</span></div>
+                </div>
+            </div>
+
+
+            <div style="clear:both"></div>
+            <div id="##EVENT_TYPE##_LOADING" class="hideloading"><!--img src="spinner.gif"/--><span style="margin-left:20%"><b>Saving....</b></span>
+            </div>
+            <div class="params" id="##EVENT_TYPE##_TABLE">
+                <table id="##EVENT_TYPE##_PARAMS" class="eventtable">
+                    <tbody>
+	                <tr>		
+		                <td><b>Parameter Name</b></td>
+		                <td><b>Parameter Types<b></td>
+	                </tr>
+                    <tr><td>##DATA##</td></tr>
+	                <tr>		
+		                <td colspan="2" align="right">
+                            <input type="button" name="add" value="Add Row" onClick="javascript:add_event_row('##EVENT_TYPE##')"/>
+                            <input type="button" name="save" value="Save" onClick="javascript:save_event_form('##EVENT_TYPE##')"/>
+                        </td>
+	                </tr>
+                    </tbody>
+                </table>
+            </div>
+        </form>
+    </div>
+
+</div>
+<script>
+
+var host = window.location.origin;
+//host = 'http://chaplin.ck12.org';
+
+var get_api = host + '/dexter/get/all/event/parameters';
+var add_api = host + '/dexter/add/event/parameters';
+var update_api = host + '/dexter/update/event/parameters';
+var celery_api = host + '/dexter/trigger/event/parameters/celery';
+var tr_template = '<tr><td><input type="text" name="param_##INDEX##" value="##NAME##"></input></td>' + 
+                '<td><input type="text" name="value_##INDEX##"  value="##VALUE##"></input></td></tr>';
+
+function toggle(elm) {
+    if (elm.css('display') == 'none')
+        elm.css('display', 'block');
+    else
+        elm.css('display', 'none');
+}
+function display(event_type) {
+    var elm = $('#' + event_type);
+    toggle(elm);
+}
+
+function add_row(table_id) {
+	$('#' + table_id + ' tr:last').after('<tr><td></td><td></td></tr>');
+}
+
+function save_event_form(event_type) {
+    
+    var event_loading = $('#'+ event_type + '_LOADING') 
+    event_loading.addClass('showloading');
+    event_loading.removeClass('hideloading');
+    var event_form = $('#'+ event_type + '_FORM')
+    var values = {};
+    var params = {'event_type':event_type};
+    var field_name, field_val ,param_index, param_val;
+    $.each(event_form.serializeArray(), function(i, field) {
+        field_name = $.trim(field.name);         
+        field_val = $.trim(field.value);
+        if (field_val) {            
+            values[field_name] = field_val;
+        }
+    });
+    $.each(values, function(name, value) {
+        if (name.match('param_')) {
+            param_index = name.split('_')[1];
+            param_val = values["value_" + param_index];
+            if(param_val) { 
+                params[value] = param_val;
+            }
+        }
+     });
+
+    var form_data = $.param(params);
+
+    console.log(form_data);
+     $.ajax({
+        type:'get',
+        url:update_api,
+        data:form_data,
+        success:function(result)
+        {
+            if (result.responseHeader.status == 0) {
+                $('#' + event_type + '_MSG').html('Save Successful');
+            } else {
+                $('#' + event_type + '_MSG').html('Save Failed');                
+            }
+            event_loading.addClass('hideloading');
+        }
+    });
+
+}
+
+function add_event_row(event_type) {
+
+console.log("event_type:" + event_type);
+var tmp_param = $('#' + event_type + '_PARAMS tr:last').prev().find("td:first input").attr('name');
+console.log("tmp_param" + tmp_param);
+var index = parseInt(tmp_param.split('_')[1]);
+console.log("index" + index);
+var template = tr_template.replace(/##INDEX##/g, index+1);
+template = template.replace('##NAME##', '').replace('##VALUE##', '');
+
+$('#' + event_type +'_PARAMS tr:last').before(template);
+
+}
+
+function populate_events(events) {
+    var tmp_rows = [];
+    var tmp_template, template, html;
+    var value, values, data;
+    var events_html = []
+    $.each(events, function(idx, event) {
+            template = $('#templates').clone().html();
+            html = template.replace(/##EVENT_TYPE##/g, event.eventType)
+            tmp_rows = [];
+            $.each(event.parameters, function(index, obj) {
+                    for(name in obj) {
+                            value = obj[name].join(',');
+                            tmp_template = tr_template.replace(/##INDEX##/g, index);
+                            tmp_template = tmp_template.replace('##NAME##', name).replace('##VALUE##', value);
+                            tmp_rows.push(tmp_template);
+                        }
+            });
+            data = tmp_rows.join("");
+            if (data == "") {
+                // Show 2 empty rows if no data
+                var row_template = tr_template.replace(/##INDEX##/g, 0);
+                row_template = row_template.replace('##NAME##', '').replace('##VALUE##', '');
+                var row_template_1 = tr_template.replace(/##INDEX##/g, 1);
+                row_template_1 = row_template_1.replace('##NAME##', '').replace('##VALUE##', '');
+                data = row_template + row_template_1
+            }
+            html = html.replace('<tr><td>##DATA##</td></tr>', data);
+            events_html.push(html);
+    });
+    $('#main_loading').css('display', 'none');
+    $('#main').append(events_html.join(" "));
+    $('.params').css('display', 'none');
+    $('.celery').bind('click', show_celery_dlg);
+    
+}
+
+function show_celery_dlg() {
+    var elm = $('#' + this.id.replace('_ICON', '_DLG'));
+    toggle(elm);
+}
+
+function trigger_celery(event_type) {
+
+if ($('#' + event_type + '_HOUR').is(":checked")) {
+    frequency = 'hour';
+    } else if ($('#' + event_type + '_DAY').is(":checked")) {
+        frequency = 'day';
+    } else if ($('#' + event_type + '_WEEK').is(":checked")) {
+        frequency = 'week';
+    } else if ($('#' + event_type + '_MONTH').is(":checked")) {
+        frequency = 'month';
+    } else {
+        alert("Please select the frequency");
+        return;
+    }
+    celery_event_type = 'Resolved_' + event_type;
+    var api = celery_api + '?event_type=' + celery_event_type + '&amp;frequency=' + frequency; 
+    console.log("Celery API:" + api);
+
+    $('#' + event_type + '_CELERY_STATUS .celery_loading').css('display', 'inline');
+    $('#' + event_type + '_CELERY_STATUS .celery_msg').css('display', 'none');
+    $('#' + event_type + '_CELERY_STATUS').css('display', 'block');
+
+     $.ajax({
+        type:'get',
+        url:api,
+        success:function(result)
+        {
+            $('#' + event_type + '_CELERY_STATUS .celery_loading').css('display', 'none');
+            $('#' + event_type + '_CELERY_STATUS .celery_msg').css('display', 'block');
+            console.log(result);
+            var msg_elm = $('#' + event_type + '_CELERY_STATUS .celery_msg span');
+
+            if (result.responseHeader.status == 0) {
+                msg_elm.css('color', 'green');
+                msg_elm.html('<b>Successful</b>');
+            } else {
+                msg_elm.css('color', 'red');
+                msg_elm.html('<b>Failed</b>');
+            }
+
+            $('#' + event_type + '_CELERY_STATUS').css('display', 'block');
+            //event_loading.addClass('hideloading');
+        }
+    });
+
+
+}
+
+$( document ).ready(function() {
+    $.getJSON( get_api, function( data ) {
+        if (data.responseHeader.status == 0) {
+			$('#main_error').css('display', 'none')
+	        populate_events(data.response.events);
+        } else {
+		    $('#main_loading').css('display', 'none');			
+			var elm = $('#main_error');
+			elm.css('display', 'block')
+            elm.html('<b>Unable to get the event paramters data.Error: ' + data.response.message + '</b>');
+        }
+
+    });
+
+});
+
+function call_celery() {
+
+}
+</script>
+</body>
+</html>

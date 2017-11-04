@@ -1,0 +1,26 @@
+{% extends "base/1column.html" %}
+{% block title %}{{ _("Internal Server Error") }}{% endblock %}
+
+{% block extra_head %}
+{{ super() }}
+<script type="text/javascript">
+var pageType = "500";
+</script>
+{% endblock %}
+
+
+{% block pageinfotop %}
+<div class="contenttop"></div>
+{% endblock %}
+
+{% block content %}
+<div id="errorcontent" class="clearfix row">
+	<h1 class="toptitle">{{ _("Sorry... It's not you. It's us.") }}</h1>
+	<div class="divider spacetoplarge"></div>
+	<p>{{ _("We're experiencing an internal server problem.") }}</p>
+	<p>{{ _("Please try again later or contact <a target='_blank' href='mailto:support@ck12.org'>support@ck12.org</a> and mention the Error ID.") }}</p>
+	<div class="divider spacetoplarge"></div>
+    <p>{{ _("Error ID: ") }}{{ c.now }}</p>    
+	<div class="divider spacetop"></div>
+</div>
+{% endblock %}

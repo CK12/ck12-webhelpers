@@ -1,0 +1,124 @@
+from celeryconfig_queues import *
+from celery.schedules import crontab
+
+CELERYD_CONCURRENCY = 3
+CELERY_IMPORTS = ( 
+                  "flx.controllers.celerytasks.search",
+                  "flx.controllers.celerytasks.importer",
+                  "flx.controllers.celerytasks.eflex",
+                  "flx.controllers.celerytasks.pdf",
+                  "flx.controllers.celerytasks.epub",
+                  "flx.controllers.celerytasks.mobi",
+                  "flx.controllers.celerytasks.zipper",
+                  "flx.controllers.celerytasks.mathcache",
+                  "flx.controllers.celerytasks.artifact",
+                  "flx.controllers.celerytasks.member",
+                  "flx.controllers.celerytasks.browseTerm",
+                  "flx.controllers.celerytasks.vcs",
+                  "flx.controllers.celerytasks.worksheet",
+                  "flx.controllers.celerytasks.gdt",
+                  "flx.controllers.celerytasks.gdt2epub",
+                  "flx.controllers.celerytasks.phonehome",
+                  "flx.controllers.celerytasks.notifier",
+                  "flx.controllers.celerytasks.taskmaintainer",
+                  "flx.controllers.celerytasks.standard",
+                  "flx.controllers.celerytasks.mongo.standard",
+                  "flx.controllers.celerytasks.flexr",
+                  "flx.controllers.celerytasks.ContentMover",
+                  "flx.controllers.celerytasks.hwpcontributedquestionsnotifier",
+                  "flx.controllers.celerytasks.modality",
+                  "flx.controllers.celerytasks.vocabulary",
+                  "flx.controllers.celerytasks.course",
+                  "flx.controllers.celerytasks.webthumbnail",
+                  "flx.controllers.celerytasks.documentLoader",
+                  "flx.controllers.celerytasks.retrolation",
+                  "flx.controllers.celerytasks.mongo.seometadata",
+                  "flx.controllers.celerytasks.reindexfeedbackartifacts",
+                  "flx.controllers.celerytasks.mongo.relatedartifacts",
+                  "flx.controllers.celerytasks.mongo.collection",
+                  "flx.controllers.celerytasks.artifacturlvalidator",
+                  "flx.controllers.celerytasks.compressImages",
+                  #"flx.controllers.celerytasks.persist_content_model",
+                  #"flx.controllers.celerytasks.compute_content_similarity",
+                  #"flx.controllers.celerytasks.compute_retrolation",
+                  #"flx.controllers.celerytasks.mongo.artifactvisits_curator",
+                  #"flx.controllers.celerytasks.data.updatemembergroups",
+                  #"flx.controllers.celerytasks.data.updatememberlocations",
+                  #"flx.controllers.celerytasks.data.updatememberschoollocations",
+                  #"flx.controllers.celerytasks.data.recordmemberlocationsfromgroup",
+                  #"flx.controllers.celerytasks.data.recordmemberlocationsfromip",
+                  #"flx.controllers.celerytasks.data.recordmemberschoollocationsfromgroup",
+                  #"flx.controllers.celerytasks.data.generatememberlocations",
+                 )
+
+from datetime import timedelta
+
+CELERYBEAT_SCHEDULE = {
+    #"run-every-119-min": {
+    #    "task": "flx.controllers.celerytasks.notifier.EmailNotifierTask",
+    #    "schedule": timedelta(seconds=119*60),
+    #},
+    #"run-every-2-hrs-assignment-push-msg": {
+    #    "task": "flx.controllers.celerytasks.notifier.AssignmentPushNotifierTask",
+    #    "schedule": timedelta(seconds=60*60*2),
+    #},
+    "run-every-2-hours": {
+        "task": "flx.controllers.celerytasks.taskmaintainer.TasksMaintainerTask",
+        "schedule": timedelta(seconds=2*60*60),
+    },
+    #"run-every-1-hours": {
+    #    "task": "flx.controllers.celerytasks.search.SyncIndex",
+    #    "schedule": timedelta(seconds=1*60*60),
+    #},
+    "run-every-5-days": {
+        "task": "flx.controllers.celerytasks.hwpcontributedquestionsnotifier.ContributedQuestionsNotifier",
+        "schedule": timedelta(seconds=5*24*60*60),
+    },
+#    "run-every-24-hours": {
+#        "task": "flx.controllers.celerytasks.webthumbnail.ThumbnailGenerationTask",
+#        "schedule": timedelta(seconds=24*60*60),
+#    },
+    #"run-everyday": {
+    #    "task": "flx.controllers.celerytasks.phonehome.ExecutiveEmailTask",
+    #    "schedule": crontab(minute=8, hour=8)
+    #},
+    #"run-every-midnight": {
+    #    "task": "flx.controllers.celerytasks.reindexfeedbackartifacts.reindexFeedbackArtifactTask",
+    #    "schedule": crontab(minute=5, hour=0),
+    #},
+    "run-every-midnight-05": {
+        "task": "flx.controllers.celerytasks.mongo.relatedartifacts.createRelatedArtifacts",
+        "schedule": crontab(minute=5, hour=0),
+    },
+#    "run-every-midnight-30": {
+#        "task": "flx.controllers.celerytasks.artifacturlvalidator.ArtifactUrlValidator",
+#        "schedule": crontab(minute=30, hour=0),
+#    },
+    "run-every-saturday-collection": {
+        "task": "flx.controllers.celerytasks.mongo.collection.SyncCollectionsTask",
+        #"schedule": crontab(day_of_week="saturday", hour=1, minute=1),
+        "schedule": crontab(hour=1, minute=1),
+    },
+#     "run-every-night": {
+#         "task": "flx.controllers.celerytasks.documentLoader.UploadDocumentBatch",
+#         "schedule": crontab(minute=15, hour=1),
+#      },
+
+#    "run-every-night-00_05-persist_content_model": {
+#        "task": "flx.controllers.celerytasks.persist_content_model.PersistContentModel",
+#        "schedule": crontab(minute=0, hour=18)
+#    },
+#    "run-every-night-01_00-compute_content_similarity": {
+#        "task": "flx.controllers.celerytasks.compute_content_similarity.ComputeContentSimilarity",
+#        "schedule": crontab(minute=0, hour=1)
+#    },
+#    "run-every-night-01_00-compute_retrolation": {
+#        "task": "flx.controllers.celerytasks.compute_retrolation.ComputeRetrolation",
+#        "schedule": crontab(minute=8, hour=13)
+#    },
+#    "run-every-midnight-15-artifactvisits_curator": {
+#        "task": "flx.controllers.celerytasks.mongo.artifactvisits_curator.ArtifactVisitsCuratorTask",
+#        "schedule": crontab(minute=15, hour=0, day_of_week='sunday')
+#    },
+}
+

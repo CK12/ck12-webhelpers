@@ -1,0 +1,22 @@
+/**
+ * Import all the common css files that are needed on all the pages
+ * These imports will be converted to a single css file at deploy time
+ **/
+@import url('../common/vendor/foundation/css/foundation.min.css');
+@import url('../common/vendor/foundation/css/normalize.css');
+@import url('webfont.css');
+@import url('../lib/jquery-ui/css/smoothness/jquery-ui-1.8.17.custom.css');
+@import url('fluid_grid.css');
+@import url('style.css');
+@import url('mediaqueries.css');
+@import url('../common/css/fontck12.css');
+@import url('../common/css/webfont.css');
+@import url('../common/themes/uikit/css/ui-kit.css');
+@import url('../common/css/main.css');
+@import url('../common/css/tangerine-ui.css');
+@import url('../common/css/tangerine.search.css');
+@import url('../common/css/header.css');
+@import url('../notification/css/notification.css');
+@import url('../common/css/3d-book.css');
+@import url('../softRegistration/css/SoftReg.css');
+@import url('../common/css/lms.integrations.css');

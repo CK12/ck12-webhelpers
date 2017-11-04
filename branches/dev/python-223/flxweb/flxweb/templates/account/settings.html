@@ -1,0 +1,26 @@
+{% extends "common/master.html" %}
+{% block title %}{{ _('Account Settings') }} {% endblock %}
+
+{% block stylesheets %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('account/css/tangerine.account.css') }}" />
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+<script>
+document.getElementsByClassName('page-title')[0].innerHTML = 'Account Settings';
+	require(['main'], function(){
+		require(['account/controllers/account'], function(account){
+			account.load(document.getElementsByClassName('content-wrap')[0]);
+		});
+	});
+</script>
+{% endblock %}
+
+{% block content %}
+<div id="page-disable" class="page-disable js-page-disable hide"></div>
+<div id="loading-icon" class="loading-icon js-loading-icon">
+   	<img alt="loading" src="{{ h.asset_image('common/images/icon_loading.gif') }}">
+</div>
+{% endblock %}

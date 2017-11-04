@@ -1,0 +1,11 @@
+Dear {{ member.name }},
+
+Greetings from CK-12 Foundation!
+
+Unfortunately, the request to copy the {{ events[0]['objectDict']['artifactType'] }} titled {{ events[0]['objectDict']['title'] }} failed.
+Status note: {{ events[0]['eventData'] }}
+
+Do you have questions or feedback? Do not hesitate to email support@ck12.org.
+
+Sincerely,
+The CK-12 Team

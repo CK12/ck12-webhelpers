@@ -1,0 +1,42 @@
+{% extends "MASTER_CK12_LOGO.html" %}
+{% block email_body %}
+<html>
+    <body>
+    <p>Dear {{ member.name }},</p>
+    <p>Greetings from CK-12 Foundation!</p>
+    <ul>
+    {% for event in events %}
+    
+    <p>Requested {{ event['objectDict']['artifactType'] }} has been published successfully</p>
+    <br>
+    <li>Title: <a href="{{ site }}{{ event['objectDict']['perma'] }}/r{{ event['objectDict']['revisions'][0]['revision'] }}" target="_blank">{{ event['objectDict']['title']|e }}</a>
+    <li>
+    Published On: {{ event['created'] }}
+    </li>
+    {% if event['objectDict']['summary'] %}
+    <li>
+      Summary: {{ event['objectDict']['summary'] }}
+     </li>
+    {% endif %}
+    </li>
+     <li>
+        Last Modified On: {{ event['objectDict']['modified'] }} {{ event['created'].split(' ')[-1] }}
+     </li>
+     {% if event['objectDict']['license'] %}
+     <li>
+        License: {{ event['objectDict']['license'] }}
+     </li>
+     {% endif %}
+    <p>
+    Please note that you must request to publish this {{ event['objectDict']['artifactType'] }} again if you make any changes to it.
+    </p>
+    
+     {% endfor %}
+    </ul>
+    <p>Do you have questions or feedback? Do not hesitate to email <a href="mailto:support@ck12.org">support@ck12.org</a>.</p>
+    <br>
+    <p>Sincerely,</p>
+    <p>The CK-12 Team</p>
+    </body>
+</html>
+{% endblock %}

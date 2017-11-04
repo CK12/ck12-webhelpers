@@ -1,0 +1,1 @@
+select ifnull(s.name, 'Misc'), a.id, substring_index(a.name, '-::of::-', 1) from flx2.Artifacts a left join taxonomy.Subjects s on s.shortname=substring_index(substring_index(trim(leading 'CK.' from a.encodedID), '.', 1), '.', -1)

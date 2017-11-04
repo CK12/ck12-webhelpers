@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/content_api/styles/widget.css">
+</head>
+<script type="text/javascript" src="/content_api/js/vendor.js"></script>
+<body>
+    <div class="main animated fadeIn">
+
+        <hgroup>
+            <h1>Learn More About</h1>
+            <h2 class="modality-title animated hidden">Newton's First Law</h2>
+        </hgroup>
+
+        <div class="loader"></div>
+
+        <section class="content hidden">
+
+            <!-- Knowledge Types Module -->
+            <ul id="modality-types">
+            </ul>
+            <!-- End Knowledge Types Module -->
+
+        </section>
+
+        <section class="error hidden">
+            An error occured. <a class="retry" href="#">Retry?</a>
+        </section>
+
+        <footer>
+            <span>Powered by&nbsp;&nbsp;</span><a href="http://www.ck12.org" target="_blank"><span class="icon icon-ck12-logo">&nbsp;</span></a>
+        </footer>
+
+        <template id="item-template">
+            <li class="item icon icon-{{type}} hidden animated">
+                <span class="title">{{title}}</span>
+            </li>
+        </template>
+
+    </div>
+    <!-- <script src="//dvninqhj78q4x.cloudfront.net/dexterjs/dexterjs.min.js"></script>
+    <script>
+        dexterjs.set('config', {
+            memberID: 2,
+            trackPageTime: false,
+            mixins: {
+                clientID: 24839961
+            }
+        });
+    </script> -->
+    <script type="text/javascript" src="/content_api/js/bundle.js"></script>
+
+
+    <!-- Google Tag Manager -->
+    <!-- <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WVB47G"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WVB47G');</script> -->
+    <!-- End Google Tag Manager -->
+</body>
+</html>

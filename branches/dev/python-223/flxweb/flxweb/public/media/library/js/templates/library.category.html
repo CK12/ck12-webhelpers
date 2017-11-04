@@ -1,0 +1,10 @@
+<div class="custom-box" data-category="<%= data.alias %>">
+	<input type="checkbox" name="category-filter" id="category_<%= data.alias %>">
+		<label class="checkbox" for="category_<%= data.alias %>"><span><i class="icon-validated"></i></span> 
+		<% if(data.displayText ==="Assessments"){%>
+		 Quizzes
+		 <%}else {%>
+		 <%= data.displayText %>
+		 <%}%>
+		 </label>
+</div>

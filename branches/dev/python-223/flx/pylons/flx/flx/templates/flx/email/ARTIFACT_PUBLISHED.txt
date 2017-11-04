@@ -1,0 +1,17 @@
+Dear {{ member.name }},</p>
+
+Greetings from CK-12 Foundation!</p>
+
+Requested artifact has been published successfully</p>
+
+{% for event in events %}
+ * Published {{ event['objectDict']['title'] }} FlexBook in your library is now available. 
+      Summary: {{ event['objectDict']['summary'] }}
+{% endfor %}
+
+
+Do you have questions or feedback? Do not hesitate to email <a href="mailto:support@ck12.org">support@ck12.org</a>.
+
+Sincerely,
+The CK-12 Team
+

@@ -1,0 +1,15 @@
+<div class="modality_details_container">
+    <div class="modality_title">
+    	<% if (!data.realm && !data.hideConceptLink) { %>
+			<div><a class="button small tangerine" href="<%= data.concept_url %>" title="back"><i class="icon-arrow"></i></a></div>
+		<% } %>
+        <h2><%- data.title %></h2>
+        <% if (data.domain && data.domain.description) { %>
+            <div class="artifact_description"><%= _.escape(data.domain.description) %></div>
+        <% } %>
+    </div>
+    <div>
+	    <div id="modality_content" class="modality_content" data-domaineid="<%= data.domain?data.domain.encodedID:"" %>" data-artifactid="<%= data.artifactID %>" data-title="<%= data.title %>">
+        </div>
+    </div>
+</div>

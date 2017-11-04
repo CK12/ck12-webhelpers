@@ -1,0 +1,25 @@
+{% extends "listings.html" %}  
+
+{% block filters %} 
+ <div class="col">
+    {{ h.labelselect('Type', 'type_filter', c.form.resource_type_sel, 'filter')}}
+ </div>
+{% endblock %}
+
+{% block searches %} 
+  <div class="col">
+    {{ h.labelinput('Aritfact Id', 'artifactID', 'searchby short') }}
+  </div>
+{% endblock %}
+
+{% block js_scripts %}
+{{ super() }}
+<script type='text/javascript'>
+  Listings({
+    sort: 'created,desc',
+    ajaxRoot: CK12.admUrl('resources_list'),
+    formAjax: CK12.admUrl('resource/'),
+    viewmode: '{{c.viewmode}}',
+  });
+</script>
+{% endblock %}

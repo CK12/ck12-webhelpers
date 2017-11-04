@@ -1,0 +1,1 @@
+UPDATE `ArtifactFeedbacks` SET `comments` = NULL WHERE `comments` = "" and `type` = 'vote';

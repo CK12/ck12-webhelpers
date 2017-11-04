@@ -1,0 +1,21 @@
+#! /bin/bash
+# -----------------------------------------------------------------------------------
+# CHANGE SET [16397]
+#   1. Replace artifacts dimension load and update scripts to fix tag column values
+# -----------------------------------------------------------------------------------
+
+source funcs.sh
+
+echo 'Apply change set 16397 (FlexBook-specific changes)'
+
+echo '... Reset load script of artifacts dimension'
+set_loadscript 'artifacts' 'artifacts.load'
+
+echo '... Reload artifacts dimension'
+http 'meta/load/dimension' 'dimension_name=artifacts'
+
+echo '... Reset update script of artifacts dimension'
+set_updatescript 'artifacts' 'artifacts.trigger'
+
+echo 'Done'
+

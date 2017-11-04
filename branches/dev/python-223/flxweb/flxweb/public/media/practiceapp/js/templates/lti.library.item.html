@@ -1,0 +1,36 @@
+<div class="listitem js-listitem row collapse js-select-concept-wrapper"
+    data-encodedid="<%= data.domain && data.domain.encodedID %>"
+    data-handle="<%= data.domain && data.domain.handle %>"
+    data-artifactID="<%= data.id %>"
+>
+        <div class="large-9 column">
+            <a title="<%- data.title %>" class="bold js-title"><%- data.title %></a>
+            <span class="artifacttype">
+                   - <%= data.modalityTypeInfo.display_label %>
+            </span>
+            <% if (data.hasDraft) {%>
+                <span class="draft-label">DRAFT &nbsp;</span>
+            <% } %>
+            <div class="hide js-concept-name"><%= data.domain && data.domain.name %></div>
+        </div>
+
+        <div class="actions large-3 column text-right">
+            <a href="#" class="button tangerine small  library-action library-assign js-assign-concept mylibrary_assign button-custom margin-bottom-zero"
+                data-artifactID="<%= data.artifactID %>" data-handle="<%- data.handle %>" data-domaineid="<%= data.domain && data.domain.encodedID %>" 
+                data-realm="<%= data.realm %>" data-mtype="<%= data.artifactType %>" data-title="<%- data.title %>" >Add</a>
+            <span class="hide">
+            <% if (data.artifactType !== "asmtpractice") {%>
+                <a title="Edit" target="_blank" class="mylibrary_edit hide-for-small library-action library-edit warn-external" href="<%= data.editor_url %>">
+                    <span class="icon-edit"></span>
+                </a>
+            <% } %>
+
+            <a title="Move to Archived" class="js_archive library-action library-archive" href="#"
+                data-revisionID="<%= data.artifactRevisionID?data.artifactRevisionID:data.resourceRevisionID %>"
+                data-itemtype="<%= data.artifactID?"artifactRevision":"resourceRevision" %>"
+                >
+                <span class="icon-remove"></span>
+            </a>
+            </span>
+        </div>
+</div>

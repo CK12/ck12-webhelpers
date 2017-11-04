@@ -1,0 +1,150 @@
+.integralContainer .eq-cont{
+ 	position: relative;
+    vertical-align: -0.5em;
+}
+.integralContainer .definateSymbolEdit {
+	display: inline-block;
+	margin-top: 5px;
+	font-size: 2.2em;
+	font-style:normal;
+}
+
+.integralContainer .definateUpperEdit .definateSymbolEdit {
+    font-size: 1.7em;
+}
+.integralContainer .definateLowerInt .definateSymbolEdit {
+    font-size: 1.7em;
+}
+.integralContainer .definate-single{
+	 vertical-align: 0.5em;
+}
+.integralContainer .input-cont {
+    display: inline-table;
+}
+
+.integralContainer .in-inter {
+	display: inline-table;
+	vertical-align: calc(130%);
+	vertical-align: 1.2em;
+}	
+.integralContainer .definateLowerInt {
+    font-size: 80%;
+    text-align: left;
+    vertical-align: sub;
+    display:table-footer-group;
+}
+.integralContainer .definateUpperEdit {
+    font-size: 80%;
+    vertical-align: text-bottom;
+}
+.definateLowerTool {
+    font-size: 80%;
+    left: -4px;
+    position: relative;
+    top: 2px;
+    vertical-align: sub;
+}
+.definateText {
+    vertical-align: 0.2em;
+}
+.definate  .definateText {
+    left: -10px;
+    position: relative;
+    top: -5px;
+     vertical-align: baseline;
+}
+
+.definateUpper {
+    font-size: 80%;
+    left: -9px;
+    position: relative;
+    top: -6px;
+    vertical-align: super;
+}
+.definateSymbol {
+    display: inline-block;
+    font-size: 23px;
+    margin-top: 12px;
+    font-style:normal
+}
+.doubleDefiniteUpper {
+    font-size: 80%;
+    left: -5px;
+    position: relative;
+    top: -11px;
+    vertical-align: super;
+}
+.doubleDefinite  .definateText {
+    left: -9px;
+    position: relative;
+    top: -3px;
+     vertical-align: baseline;
+}
+
+.integralContainer .tooltip-tools-inner{
+	line-height:14px;
+}
+.doubleIntergral {
+    letter-spacing: -3px;
+}
+.tooltip-tools-inner .doubleIntergral {
+	letter-spacing: -2px;
+}
+.txtew {
+    display: table-cell;
+}
+
+/** fix for safari */
+
+.integralContainer.definateInt .eq-cont {
+	position: relative;
+	vertical-align: middle;
+}
+.integralContainer.definateInt .definateSymbolEdit {
+	display: table-cell;
+	vertical-align: middle;
+}
+.definateInt .txtew {
+	display: table-cell;
+	vertical-align: bottom;
+}
+.definateInt.integralContainer .in-inter{
+	vertical-align:baseline;
+}
+.integralContainer .close-cont{
+	height:96%\9;
+	height:97%;
+}
+.inner-container .text {
+	font-size: 60%;
+}
+.antiderivative .sperator {
+	background: none repeat scroll 0 0 #00ABA4;
+	display: block;
+	height: 1px;
+	margin: 0px 2px -4px;
+	width: 9px;
+}
+.antiderivative .antiInnerLeft {
+	float: left;
+	margin-top: 3px;
+}
+.antiderivative .antiInnerRight {
+	float: right;
+}
+.tooltip-tools-inner.derivative {
+	line-height: 30px;
+}
+.functionText {
+ 	margin-right: 2px;
+}
+.integralContainer .bracTrans{
+	-ms-transform-origin-x :center;
+	-ms-transform-origin-y :bottom;
+	 transform-origin: center bottom 0;
+	-webkit-transform-origin: center bottom 0;
+	-moz-transform-origin: center bottom 0;
+    vertical-align: bottom;
+    font-style:normal;
+    font-size:18px !important;
+}

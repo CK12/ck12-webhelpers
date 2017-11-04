@@ -1,0 +1,1249 @@
+/*----Dashboard-modal CSS: Starts----*/
+.concept-coversheet, .concept-coversheet * {
+    box-sizing: border-box;
+}
+.dashboard-modal-wrapper .dashboard-container{
+    margin:40px auto;
+    position:relative;
+    padding: 0em 2em;
+}
+.dashboard-container .dashboard-modal-header{
+    border-bottom:1px solid #cec9be;
+    color:#8e8774;
+    font-family: "ProximaNova", "Helvetica Neue", Arial, Helvetica, sans-serif;
+    padding-bottom:14px;
+    padding-top:50px;
+}
+.modal-subtitle{
+    margin-top:30px;
+    display:inline-block;
+}
+.practice-question-wrapper{
+    margin:18px 0 0px;
+    position:relative;
+}
+.practice-container{
+    height:170px;
+    margin:0px;
+    text-align:center;
+}
+.practice-columns{
+    color:#b5b1a8;
+    display:inline-block;
+    line-height:normal;
+    min-height:170px;
+    padding-top:24px;
+    position:relative;
+    width:218px;
+}
+.practice-columns span{
+    font-size:12px;
+    font-weight:bold;
+    text-transform:uppercase;
+}
+.practice-columns .special-char{
+    font-size:72px;
+    line-height:72px;
+}
+.practice-columns.active{
+    background-color:#8e8774;
+    color:#56544d;
+}
+.practice-columns.active:before{
+    background: none repeat scroll 0 0 transparent;
+    border-color: transparent transparent transparent #56544d;
+    border-style: solid;
+    border-width: 18px 0px 18px 12px;
+    content: "";
+    left: 0px;
+    position: absolute;
+    top: 60px;
+}                    
+.practice-container .question-counts, 
+.practice-container .try-counts, 
+.practice-container .time-limit {
+    color:#fff;
+    font-size:60px;
+}
+.practice-question-wrapper .button.large{
+    position:absolute;
+    min-width:156px;
+    bottom:-50px;
+}
+.start-button{
+    left:145px;
+}
+.challenge-button{
+    right:20px;
+}
+.modality-types-wrapper{
+    margin:20px 0;
+}
+.modality-types-wrapper li{
+    border-bottom:1px dashed #d3cfc5;
+    padding:8px 0 8px 2px;
+    color:#00aba4;
+    list-style: none;
+}
+.modality-types-wrapper li:last-child{
+    border-bottom:0 none;
+}
+.modality-types-wrapper li a{
+    color:#00aba4;
+    display:inline-block;
+    min-width:150px;
+    margin-right:12px;
+}
+.modality-types-wrapper li a > i{
+    color:#b5b1a8;
+    margin:2px 10px 0 0;
+}
+.practice-question-wrapper>iframe{
+    width: 99%;
+    height: 100px;
+    margin: 5px 0.5%;
+    border: 0px;
+    background-color : #F9F9F5; /**bug 17186**/
+}
+        
+.expand-view-button{
+    display:inline-block;
+    height:42px;
+    position:relative;
+    width:42px;
+    text-align:center;
+}
+.expand-view-button .expand-close{
+    background:url("../images/dashboard-sprite.png") no-repeat scroll 0px -56px transparent;
+    height: 26px;
+    left: 8px;
+    position: absolute;
+    top: 8px;
+    width: 26px;
+}
+.concept{
+    cursor: pointer;
+}
+.active-dashboard-wrapper .concept:hover {
+    text-decoration: underline;
+}
+.concept-coversheet, .lt-ie9 .concept-coversheet{
+    background-color: #F9F9F5;
+    width : 100% !important;
+    min-height : 100%;
+    top    : 0 !important;
+    left : 0 !important;
+    margin : 0 !important;
+}
+.study-complete {
+    text-align: center;
+    margin-top: 80px;
+    width: 60%;
+    margin-left: 20%;
+    border: dashed 5px #EFEDE7;
+    padding: 40px;
+    margin-bottom: 40px;
+}
+.study-complete i {
+    font-size: 80px;
+    color: #CEC9BE;
+}
+.study-complete i.completed {
+    color: #B8D543;
+}
+.study-complete-message1 {
+    font-size: 25px;
+    padding: 15px;
+    color: #54524c;
+}
+.study-complete-message2 {
+    font-size: 17px;
+    padding: 5px;
+    color: #54524c;
+}
+.no-modalities {
+    padding: 70px;
+    font-size: 21px;
+}
+.footer-logo {
+    float: right;
+    bottom: 5px;
+    position: relative;
+}
+
+.expand-view-button.active{
+    background-color:#ff6633;
+}
+        
+/*----Dashboard-modal CSS: Ends----*/
+
+/*--Practice badge css starts here--*/
+/* .practice-badge {
+    float : right;
+} */
+
+.practice-badge-wrapper {
+    float : right;
+}
+
+.practice-badge-container.large{
+    background-color : #fdfdfd;
+    height : 120px;
+    max-height : 120px;
+    width : 320px;
+    max-width : 320px;
+    margin-right: -7px;
+    position : relative;
+}
+
+.practice-badge-container.large > .row {
+    height : 100%;
+}
+
+.practice-badge-container.small {
+    background-color : #fdfdfd;
+    width : 100%;    
+    max-width : 100%;
+    height : 35px;
+    display : none;
+}
+
+.practice-badge-container.small .best-score-block{
+    font-size : 10px;
+    line-height : 100%;
+}
+
+.practice-badge .pie-container {
+  box-sizing : border-box;
+  height: 100%;
+  position: relative;
+  max-width : 78px;
+  margin : 0 auto;
+  /*width: 78px;*/
+  width: 78px;
+  visibility : hidden;
+}
+
+
+.practice-badge .pie-container.limegreen .hold {
+    border-color : #B8D543;
+}
+
+.practice-badge .pie-container.tangerine .hold {
+    border-color : #FF6633;
+}
+
+.practice-badge .pie-container.gold .hold {
+    border-color : #FFCF2A;
+}
+
+.practice-badge .pie-container div {
+    box-sizing : border-box;
+    width : 100%;
+    height : 100%;
+    top : 0;
+    left : 0;
+    position : absolute; 
+}
+
+.practice-badge .pie-container .inner-circle {
+    border : 5px solid #efede7;
+    border-radius : 50%;
+}
+
+.practice-badge .pie-container .content {
+    margin-top : -0.75em;
+    padding : 0;
+    text-align : center;
+    top : 50%;
+}
+
+.practice-badge.small .pie-container .content {
+    display : none;
+}
+
+.practice-badge .pie-container .content span {
+    display: inline-block;
+    width: 100%;
+}
+
+.practice-badge .pie-container .content .large-text {
+    color : #efede7;
+    font-size : 1.5em;
+    line-height : 1;
+}
+
+.practice-badge .large-text sup{
+    top : -0.2em;
+    font-size: 75%; /* copied styles from normalize.css for the case if it is not included */
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+.practice-badge .pie-container.limegreen .content .large-text,
+ .practice-badge .pie-container.tangerine .content .large-text,
+.practice-badge .pie-container.gold .content .large-text {
+    color : #fff;
+}
+.img-bg{
+	position: absolute; 
+	left: 0px;
+	height: auto;
+	top: 0px; 
+	width: 131px;
+}
+.border-cont {
+	background-color: #fff;
+    border-bottom: 3px solid #b5b1a8;
+    box-shadow: 0 0 0 1px #b5b1a8;
+}
+.practice-badge .pie-container .pie{
+    /*clip: rect(0px,50px,100px,0px);*/
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    /*border: 10px solid #00ABA4;*/
+    border: 5px solid;
+    border-color : inherit;    
+    -webkit-transform : rotate(90deg);
+}
+
+.practice-badge .pie-container .pie.fill {
+    -moz-transform: rotate(180deg) !important;
+    -webkit-transform: rotate(180deg) !important;
+    -o-transform: rotate(180deg) !important;
+    -ms-transform: rotate(180deg) !important;
+    transform: rotate(180deg) !important;
+}
+
+.practice-badge .pie-container .hold.gt50 {
+    clip : rect(auto, auto, auto, auto) !important;
+}
+
+.practice-badge .capitalize {
+    text-transform : uppercase;
+    font-size : 0.8em;
+    font-weight : bold;
+}
+
+.practice-badge .icon-container {
+    width : 100%;
+/*    padding-top : 10px; */
+    text-align : center;
+    margin-bottom : 10px;
+}
+
+.practice-badge .icon-container i{
+    color : #FFCF2A;
+    font-size : 1.2em;    
+}
+
+.practice-badge .description {
+    width : 100%;
+    /*padding : 5px 0 0;*/
+    text-align : center;
+    margin-bottom : 15px;
+    line-height : 1.13;
+    max-height : 3.3em;
+    overflow : hidden;
+}
+
+.practice-badge .redirect-button {
+    font-weight : bold;
+    margin-bottom : 0;
+    padding : 7px 8px 9px !important;
+    /*width : 70%;*/
+}
+
+.practice-badge .redirect-button .button-text {
+    font-size: 14px;
+    margin-right: 5px;
+    vertical-align: text-top;
+}
+.teacher-user .redirect-button .button-text { 
+	font-size: 14px;
+    margin-right: 5px;
+    vertical-align: text-top;
+    display: inline-block;
+    width: 70%;
+    word-spacing: 0.025em;
+}
+i.js-badge-icon.icon-arrow-up {
+    color: #fff;
+    display: inline-block;
+    transform: rotate(-180deg);
+    -moz-transform: rotate(-180deg);
+    -webkit-transform: rotate(-180deg);
+    -o-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    font-size: 17px;
+    vertical-align: -2px;
+}
+.practice-badge .redirect-button i {
+    margin-right : 0;
+}
+
+.practice-badge .redirect-button i.icon-arrow_down{
+	color:#fff;
+}
+
+.practice-badge .redirect-button:hover i {
+    color : #fff;
+}
+
+.practice-badge .bottom {
+    /* bottom : 0;
+    position : absolute;
+    margin-bottom : 10px; */
+    width : 100%;
+    text-align : center;
+}
+
+.practice-badge .pie-container-label {
+    color : #AFABA2;
+    margin-top : 10px;
+    padding-left:5px;
+}
+
+.practice-badge-column {
+    height : 100%;    
+    padding : 10px !important;
+    display : table;
+}
+
+.practice-badge-detail {
+    display : table-cell;
+    vertical-align : middle;
+    position: relative;
+}
+
+/* .practice-badge-column:first-child {
+    border-right : 1px solid #f3f3f3;
+} */
+
+.practice-badge .small .table {
+    display : table;
+    width : 100%;
+    height : 100%;
+}
+
+.practice-badge .small .table-cell {
+    display : table-cell;
+    min-width : 40px;
+    width : 15%;
+    height : 100%;
+    vertical-align : middle;
+}
+
+.practice-badge .small .small-score {
+    font-weight : bold;
+    /*width : auto;*/
+    width : 20%;
+    min-width : 50px;
+    text-align : left;
+}
+
+.practice-badge .small .table-cell.hide {
+    display : none;
+}
+
+/* .practice-badge .small .table-cell.hide + .small-score {
+    width : 22%;
+    color : #b5b1a8;
+} */
+
+.practice-badge .small .table-cell.redirect-button {
+    width : auto;
+    max-width : 50%;
+    background-color : #ff6633;
+    color : #fff;
+    cursor : pointer;
+    font-weight : bold;
+    min-width : 130px;
+}
+
+.practice-badge .small .table-cell.redirect-button.for-boost{
+	width : 40%;
+}
+
+.practice-badge .small .table-cell.redirect-button i {
+    font-size : 20px;
+    vertical-align : middle;
+}
+
+.practice-badge .small-button-text {
+    margin-left : 5px;
+    font-size : 14px;
+    font-weight : bold;
+}
+
+.practice-badge .small .pie-container {
+    width : 20px;
+    height : 20px;
+    max-width : 20px;
+}
+
+.practice-badge .small .pie-container .pie,
+.practice-badge .small .pie-container .inner-circle{
+    border-width : 2px;    
+}
+
+/* css for flxbook page. artifact_details_common.html TODO: these css needs to be moved to their respective file */
+.with-practice-badge .header-left-content {
+    float : left;
+    width : -webkit-calc(100% - 320px);
+    width : -moz-calc(100% - 320px);
+    width : calc(100% - 320px);
+}
+
+.with-practice-badge .header-right-content {
+    float : right;
+}
+
+.with-practice-badge .spacetoplarge {
+    display : none;
+}
+
+/*changes for memory boost feature*/
+
+#practiceBadge .tooltip-info{
+	left: -16px;
+    bottom: 5px;	
+}
+.featured_three #featured_content .tooltip-info{
+    left: 20px;
+    bottom: 22px;
+}
+.individual-modality .tooltip-info{
+	right: 25%;
+    bottom: -115%;
+    width: 70%;
+}
+.tooltip-info {
+	background-color: #808080;
+    position: absolute;
+    padding: 8px 5px;
+    z-index: 10;
+    width: 81%;
+    border-radius: 10px;
+    border: 1px solid #d4d4d5;    
+}
+.js-practice_button .tooltip-info{
+    bottom: 120px !important;
+    left: 15px !important;
+}
+.js-practice_button .tooltip-info:after{
+	top: 99%;
+    left: 40%;
+    border-width: 14px 12px 0 12px;
+    border-color: #808080 transparent;
+}
+
+.js-practice_button .tooltip-info:before{
+	top: 99%;
+    left: 39%;
+    border-width: 15px 15px 0 15px;
+    border-color: #d4d4d5 transparent;
+}
+
+.tooltip-info:after{
+    content: "";
+    display: block;
+    position: absolute;
+    /* top: -12px;
+    left: 38%; */
+    top:22px;
+    right:-14px;
+    width: 0;
+    border-style: solid;
+    /* border-width: 0 12px 12px 14px;
+    border-color: #808080 transparent; */
+    border-width: 12px 0 12px 14px;
+    border-color: transparent #808080;
+}
+.tooltip-info:before{
+	content: "";
+    display: block;
+    position: absolute;
+	/* top: -15px;
+    left: 37%; */
+    top:19px;
+    right:-15px;
+    width: 0;
+	border-style: solid;
+	/* border-width: 0 15px 15px 15px;
+    border-color: #d4d4d5 transparent; */
+    border-width: 15px 0 15px 15px;
+    border-color: transparent #d4d4d5;	
+}
+.tooltip-info div{
+	color: #fff;
+}
+.tooltip-info .tooltip-title{
+	font-weight: bold;
+	font-size:14px;
+	text-align: center;
+}
+.tooltip-info .tooltip-msg{
+	margin-top: 2px;
+    text-align: center;
+    font-size:12px;
+}
+.tooltip-icon{
+	color:#B5B1A8;
+	text-align:left;
+}
+.tooltip-icon:hover{
+	cursor:pointer;
+}
+.practice-badge-detail .boost-tooltip.tooltip-icon {
+   float: left !important;
+    text-align:center;
+    margin-left: -6px
+}
+.practice-badge-wrapper {
+	float: right;
+}
+.practice-badge .memory-boost-section{
+	padding-left:10px;
+	padding-right:10px;
+}
+.practice-badge .memory-boost-section .boost-message{
+    text-align: center;
+    min-width: 95px;
+    max-width: 200px;
+    width: auto;
+    margin-left: 21px;
+}
+.modalities_container .memory-boost-section{
+	margin-top: 12px;
+	float: none !important;
+    display: inline-block;
+	 vertical-align: middle;    
+}
+.practice-cn {
+    float: none !important;
+    display: inline-block;
+	    vertical-align: top;
+}
+.memory-boost-section-icon{
+	    cursor: default;
+}
+ .memory-boost-section.hide {
+    display: none;
+}
+.boost-strong{
+	color: #006400;
+}
+.boost-overdue{
+	color: #8B0000;
+}
+.boost-due{
+	color: #e6b612;
+}
+.boost-icon{
+    height: 20px;
+    background-repeat: no-repeat;
+}
+.boost-message{
+	text-align:center;
+	font-size:14px;
+}
+.boost-icon.icon-boost-strong{
+	background-image: url('/assessment/ui/public/themes/honeydew/images/memory_meter_green.svg');
+}
+.boost-icon.icon-boost-due{
+	background-image: url('/assessment/ui/public/themes/honeydew/images/memory_meter_yellow.svg');
+}
+.boost-icon.icon-boost-overdue{
+	background-image: url('/assessment/ui/public/themes/honeydew/images/memory_meter_red.svg');
+}
+.memory-boost-section.hide + .practice-cn {
+    width: 96%;
+    margin-left: 2%;
+}
+.practice-badge-container.small .practice-section{
+	min-height: 56px;
+	display: table;
+}
+.practice-badge-container.small .boost-practice-section{
+	min-height: 56px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+
+.practice-badge-container.small .memory-boost-section{
+    border-left: 1px solid #DCDCDC;
+}
+.practice-badge-container.small .boost-practice-section .small-score{
+	text-align: center;
+	margin: 0 auto;
+}
+.practice-badge-container.small .boost-practice-section .boost-icon{
+    width: 20%;
+    margin: 0 auto;
+}
+.practice-badge-container.small .boost-practice-section .boost-message{
+	display: inline-block;
+    min-width: initial;
+    width: 70%;
+    margin-left: 0;
+}
+.practice-badge-container.small .boost-practice-section  .boost-tooltip{
+	display: inline-block;
+    width: 20%;
+}
+#practiceBadge .practice-badge-container.small .tooltip-info{
+	left:0px;
+	bottom: 45px;
+}
+#practiceBadge .practice-badge-container.small .tooltip-info:after{
+	top:50px;
+	right: 65px;
+	border-width: 14px 12px 0 12px;
+    border-color: #808080 transparent;
+}
+#practiceBadge .practice-badge-container.small .tooltip-info:before{
+	top:52px;
+	right: 62px;
+	border-width: 15px 15px 0 15px;
+    border-color: #d4d4d5 transparent;
+}
+
+.individual-modality .boost-icon{
+    display: inline-block;
+    width: 10%;
+    margin-left: 5%;
+    vertical-align: middle;
+}
+.individual-modality .boost-message{
+    display: inline-block;
+    width: 57%;
+}
+.individual-modality  .tooltip-icon{
+	display: inline-block;
+    width: 13%;
+    vertical-align: middle;
+}
+
+@media all and (min-width: 1024px) {
+	.featured_three #featured_content .tooltip-info:before{
+		top: 2px;
+	    left: 253px;
+	}
+	.featured_three #featured_content .tooltip-info:after{
+	    top: 5px;
+	    left: 252px;
+	}
+}
+@media all and (min-width: 768px) and (max-width: 1023px) {
+	.featured_three #featured_content .tooltip-info:before{
+		top: 4px;
+	    left: 185px;
+	}
+	.featured_three #featured_content .tooltip-info:after{
+		top: 7px;
+	    left: 184px;
+	}
+	.featured_three #featured_content .tooltip-info {
+		left: -8px !important;
+	}
+}
+@media all and (min-width: 768px) and (max-width: 899px){
+	/* .js-practice_button .tooltip-info{
+    	bottom: 120px !important;
+		left: -45px !important;
+	} */
+	.individual-modality .tooltip-info {
+    	bottom: -45px !important;
+	}
+	.small-tooltip-width .tooltip-info .tooltip-title{
+		font-size:11px;
+	}
+	.small-tooltip-width .tooltip-info .tooltip-msg{
+	    font-size:9px;
+	}    		
+}	
+@media all  and (max-width : 767px){
+    .with-practice-badge .header-left-content,
+    .with-practice-badge .header-right-content {
+        float : left;
+        width : 100%;
+    }
+    
+    .practice-badge-container.small {
+        display : block;
+    }
+    
+    .practice-badge-wrapper {
+      /*position : absolute;
+        top : 0;
+        right : 0;*/
+        float : left;
+        position : relative;
+        margin-top  : 15px;
+        width : 100%;        
+    }
+    .practice-badge-container.small {
+    	height :auto;
+    }
+	.individual-modality .tooltip-info{
+		right: 22.5%;
+    	bottom: -120%;
+    	width: 50%;
+	}
+	.js-practice_button .tooltip-info{
+		bottom: 130px !important;
+	}    
+	.practice-badge-container .icon-running{
+		display : none;
+	}
+}
+@media all and (max-width: 610px){
+	.js-practice_button .tooltip-info{
+        bottom: initial !important;
+	    left: 50% !important;
+   		top: 20px;
+	}
+	
+	.individual-modality .memory-boost-section{
+		margin-bottom : 0 !important;
+	}
+	
+	.tooltip-info {
+	    width: 68%;
+	}
+}
+.concept-title {
+    position: relative;
+}
+.dot {
+    background: none repeat scroll 0 0 #FFFFFF;
+    font-size: 18px;
+    font-weight: bold;
+    height: 19px;
+    position: absolute;
+    right: -4px;
+    top: 34px;
+    width: 18px;
+    z-index: 10;
+}
+
+@media all  and (min-width : 401px) and (max-width : 480px){
+	#practiceBadge .practice-badge-container.small .tooltip-info:after{
+		top:69px;
+	}
+	#practiceBadge .practice-badge-container.small .tooltip-info:before{
+		top:70px;
+	}
+}
+
+@media all  and (max-width : 400px){
+    .practice-badge {
+        float : none;
+    }
+    .modalities_container .memory-boost-section{
+   	    width: 100%;
+   	    margin-top: 7px;
+    }
+    .practice-cn{
+    	 width: 100%;
+    }
+	#practiceBadge .practice-badge-container.small .tooltip-info:after{
+		top:68px;
+		right: 75px;
+	}
+	#practiceBadge .practice-badge-container.small .tooltip-info:before{
+		top:68px;
+		right: 72px;
+	}
+	.individual-modality .tooltip-info{
+	    right: 25%;
+	    bottom: -45px;
+	    width: 70%;
+	}
+	.individual-modality .tooltip-info:after{
+		top:20px;
+	}
+	.individual-modality .tooltip-info:before{
+		top:17px;
+	}
+	.individual-modality{
+		min-height: 140px;
+	} 
+	.js-practice_button .tooltip-info {
+	    bottom: initial !important;
+	    right: 18px !important;
+	    left: initial !important;
+	    top: 22px;
+	}
+	.js-practice_button .tooltip-info:after {
+		left:128px;
+	}
+	.js-practice_button .tooltip-info:before {
+		left:125px;
+	}
+	#practiceBadge .practice-badge-container.small .tooltip-info{
+		left:30px; 
+	}	   
+}
+
+.practice-badge-container.large .redirect-button {
+    min-width : 150px;
+}
+.teacher-user .redirect-button {
+   width : 150px;
+   padding: 0 !important;
+}
+.teacher-user .redirect-button .button-text {
+    display: inline-block;
+    font-size: 14px;
+    margin-right: 5px;
+    vertical-align: middle;
+    width: 96px;
+}
+.badge-option-container{
+	position: relative;
+}
+
+.more-badge-option{
+    position: absolute;
+    z-index: 10;
+    background-color: #fff;
+    border: 2px solid #d4d4d5;
+    right: 0;
+    top: 55px;
+    width: 175px;
+}
+
+.more-badge-option:before{
+	content: "";
+    display: block;
+    position: absolute;
+    top: -15px;
+    right: 4px;
+    left: initial;
+    width: 0;
+    border-width: 0 15px 15px 15px;
+    border-style: solid;
+    border-color: #d4d4d5 transparent;
+}
+
+.more-badge-option:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -12px;
+    right: 6px;
+    left: initial;
+    width: 0;
+    border-width: 0 12px 12px 14px;
+    border-style: solid;
+    border-color: #fff transparent;
+}
+
+.more-badge-list-option{
+	margin-bottom: 3px;
+    margin-top: 3px;
+    list-style-type: none;
+}
+
+.more-badge-list-option li{
+	padding: 6px;
+    text-align: left;
+    padding-left: 8px;
+}
+
+.more-badge-list-option li:hover {
+    cursor: pointer;
+    background-color: #FFFAD3;
+}
+
+.badge-option-container .badge-pipe{
+    display: inline-block;
+    width: 1px;
+    height: 20px;
+    vertical-align: bottom;
+    background-color: #fff;
+    margin-right: 4px;
+}
+ .teacher-user .badge-pipe {
+    display: inline-block;
+    height: 34px;
+    vertical-align: middle;
+    width: 1px;
+}
+/*--Practice badge css ends here--*/
+
+/*** login modal CSS starts ****/
+/* Component containers
+----------------------------------*/
+.ui-widget.ui-dialog {  
+    font-size: 1.1em; 
+}
+.ui-widget.ui-dialog .ui-widget { 
+    font-size: 1em; 
+}
+.ui-widget.ui-dialog input, 
+.ui-widget.ui-dialog select, 
+.ui-widget.ui-dialog textarea, 
+.ui-widget.ui-dialog button {  
+    font-size: 1em; 
+}
+.ui-widget-content.ui-dialog { 
+    border: 1px solid #aaaaaa; 
+    background: #ffffff url(../images/ui-bg_flat_75_ffffff_40x100.png) 50% 50% repeat-x; 
+    color: #222222; 
+}
+.ui-widget-content.ui-dialog a { 
+    color: #222222; 
+}
+.ui-dialog .ui-widget-header { 
+    border: 1px solid #aaaaaa; 
+    background: #cccccc url(../images/ui-bg_highlight-soft_75_cccccc_1x100.png) 50% 50% repeat-x; 
+    color: #222222; 
+    font-weight: bold; 
+}
+.ui-dialog .ui-widget-header a { 
+    color: #222222; 
+}
+
+.ui-dialog .ui-dialog-titlebar-close span { 
+    display: block; 
+    margin: -5px; 
+}
+.ui-dialog .ui-dialog-titlebar-close:hover, 
+.ui-dialog .ui-dialog-titlebar-close:focus { 
+    padding: 0; 
+}
+
+.ui-widget-overlay { 
+    background: #aaaaaa url(../images/ui-bg_flat_0_aaaaaa_40x100.png) 50% 50% repeat-x; 
+    opacity: .30;filter:Alpha(Opacity=30); 
+}
+.ui-widget-shadow { 
+    margin: -8px 0 0 -8px; 
+    padding: 8px; 
+    background: #aaaaaa url(../images/ui-bg_flat_0_aaaaaa_40x100.png) 50% 50% repeat-x; 
+    opacity: .30;
+    filter:Alpha(Opacity=30); 
+    -moz-border-radius: 8px; 
+    -khtml-border-radius: 8px; 
+    -webkit-border-radius: 8px; 
+    border-radius: 8px; 
+}
+.js_ck12_dialog_common.ui-dialog .ui-dialog-titlebar-close {
+    top: 0px; 
+    margin: 0px; 
+    box-shadow: 0px 0px 0px #b5b1ab; 
+    border-radius: 0px;
+}
+/*** login modal CSS ends ****/
+
+/* CSS FOR STANDARDS ON COVERSHEET STARTS*/
+    
+.standard-list {
+    padding: 21px 25px 19px 25px;
+    background-color: #ffffff;
+}
+.learning-objective-header, .standard-header {
+    font-size: 14px;
+    font-weight: bold;
+}
+.standards-wrapper {
+    margin-bottom: 30px;
+}
+.standard-list-container {
+    padding-top: 12px;
+    line-height: 27px;
+}
+.concept-standards {
+    padding-left: 30px;
+}
+.standard-title {
+    color: #00aba4;
+}
+.standard-description {
+    margin-top: 17px;
+    line-height: 27px;
+}
+.not-visible {
+    visibility: hidden;
+}
+.dashboard-modal-wrapper.coversheet-open {
+    display: block !important;
+    visibility: visible !important;
+}
+.standard-description-modal {
+    padding: 0;
+    width: 50%;
+    margin-left: -25%;
+    z-index: 101;
+}
+.standard-description-header {
+    font-size: 18px;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    font-weight: bold;
+}
+.standard-description-wrapper {
+    font-size: 14px;
+    margin: 0px 10px 15px 0px;
+}
+.standard-heading-text {
+    font-weight: bold;
+}
+.standards-details-container .standard-row-header.collapse {
+    padding: 10px;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+    background-color: #00aba4;
+    color: #eee;
+    margin: 10px 0;
+}
+.standard-description-list {
+    overflow-y: auto;
+    height: 400px;
+}
+.standard-row-header div {
+    color: #eee;
+    font-weight: bold;
+}
+.standard-details-text {
+    padding: 10px;
+}
+.dashboard-modal-wrapper.coversheet-open ~ .reveal-modal-bg {
+    z-index: 100;
+}
+/* .standard-dropdown.dropdown {
+    background-color: #FFFFFF;
+    border: 2px solid #CCCCCC;
+    border-radius: 6px 6px 6px 6px;
+    color: #56544D;
+    font-weight: normal;
+    margin-bottom: 0px;
+    width: auto;
+    font-size: 16px;
+    padding-top: 7px;
+}
+.subject-dropdown:hover {
+    background-color: #fff;
+    color: inherit;
+} */
+
+/* CSS FOR STANDARDS ON COVERSHEET ENDS*/
+.restart-modal {
+    background: none repeat scroll 0 0 #fff;
+    height: 141px;
+    left: 50%;
+    margin-left: -114px;
+    padding: 15px;
+    position: fixed;
+    text-align: center;
+    top: 35%;
+    width: 279px;
+    z-index: 1000;
+}
+.message-body {
+    padding: 9px;
+}
+.button.dusty-grey.closeModal {
+    margin-right: 49px;
+}
+.window-page-disable {
+    background-color: #000;
+    height: 100%;
+    left: 0;
+    opacity: 0.5;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.see-all-link {
+	border : 1px solid #d3d3d3;
+	height : 0;
+	position : relative;
+	margin: 30px 0;
+}
+
+.see-all-link span {
+	position : absolute;
+	top: -11px;
+	left: 50%;
+	background-color : #E3E2DC;
+	padding: 2px;
+	border-radius: 20px;
+	text-transform: uppercase;
+	font-size: 14px;
+	font-weight: bold;
+	margin-left: -100px;
+	display: block;
+	width: 200px;
+	cursor : pointer;
+}
+.right{
+	float : right;
+}
+.pie-container .average-time {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    line-height: 0.8;
+    text-align: center;
+    color: white;
+    padding-top: 12px;
+    font-weight: bold;
+    line-height: 76%;
+    top: 0}
+.pie-container .average-time .small-text {
+    top: 0;
+    font-size: 11px;
+    display: inherit;
+    }
+.pie-container .average-time .large-text {
+    top: 0;
+    font-size: 16px;
+    }
+.pie-container .average-time .attach-text {
+    top: 0;
+    font-size: 12px;
+    }
+@media all and (max-width : 320px){
+    .concept-coversheet, .lt-ie9 .concept-coversheet {
+    	padding : 0;
+    }
+    
+    .dashboard-modal-wrapper .dashboard-container {
+    	padding : 15px;
+    	margin : 0;
+    }
+    
+    .practice-question-wrapper {
+    	margin : 16px -15px 0;	
+    }
+    
+    .dashboard-container .dashboard-modal-header {
+    	font-size : 21px;
+    	line-height : 30px;
+    }
+    
+    .practice-question-wrapper > iframe {
+    	width : 100%;
+    	margin : 0;
+    }
+    
+   	.individual-modality .tooltip-info{
+	    bottom: -64px;
+	}
+	
+	.individual-modality .tooltip-info:after {
+    	top: 34px;
+	}
+	
+	.individual-modality .tooltip-info:before {
+    	top: 31px;
+	}
+}

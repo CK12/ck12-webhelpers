@@ -1,0 +1,35 @@
+{% extends "base/auth/1column.html" %}
+{% block title %}File Not Found Error{% endblock %}
+
+{% block pageinfotop %}
+<div class="contenttop"></div>
+{% endblock %}
+
+{% block content %}
+<div class="prefix_3 grid_6 suffix_3">
+    <h1 class="sectiontitle toptitle">{{ _("Oops, the file's not here") }}</h1>
+    <div class="sectiondivider"></div>
+    {% if c.reason %}
+    <p>{{ c.reason }}</p>
+    <div class="sectiondivider"></div>
+    {% endif %}
+    <p>{{ _("That's &#34;404: File not found&#34; for the technically inclined.") }}</p>
+    <p>{{ _("For the not-so-technically inclined, that means that the link you clicked, or the URL you typed into your browser, didn't work for some reason.") }}</p>
+    <div class="sectiondivider"></div>
+    <p class="sectiontop">{{ _("Here are some possible reasons why:") }}</p>
+    <ol>
+            <li>{{ _("We have a &#34;bad&#34; link floating out there and you were unlucky enough to click it.") }}</li>
+            <li>{{ _("You may have typed the page address incorrectly.") }}</li>
+            <li>{{ _("This web server is going nutty.") }}</li>
+    </ol>
+    <p>{{ _("So now what?") }}</p>
+    <ol>
+            <li>{{ _("How about trying again?") }}</li>
+            <li>{{ _("If you have a keyword or two, you might try a Search.") }}</li>
+            <li>{{ _("Go use your browser back button to return to the previous page.") }}</li>
+            <!--<li>Visit our<a href="{{webroot_url}}help">Help</a> area.</li>-->
+    </ol>
+    <p>{{ _("(By the way, this 404 has been recorded so that we can fix it.)") }}</p>
+    <p>{{ _("Error ID: ") }}{{ c.now }}</p>
+</div>
+{% endblock %}

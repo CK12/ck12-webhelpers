@@ -1,0 +1,26 @@
+{% extends "listings.html" %}  
+
+{% block filters %} 
+  <div class="col tiny">Filter by:</div>
+  <div class="col">
+    {{ h.labelselect('Error Type', 'type_filter', c.form.type_sel, 'filter')}}
+  </div>
+  <div class="col sml">
+    {{ h.labelselect('Question Type', 'question_filter', c.form.question_sel, 'filter')}}
+  </div>
+  <div class="col">
+    {{ h.labelselect('Status', 'status_filter', c.form.status_sel, 'filter')}}
+  </div>
+{% endblock %}
+ 
+{% block js_scripts %}
+{{ super() }}
+<script type='text/javascript'>
+  Listings({
+    sort: 'updateTime,desc',
+    ajaxRoot: CK12.admUrl('hwerrors_list'),
+    formAjax: CK12.admUrl('hwerror/'),
+    viewmode: '{{c.viewmode}}'
+  });
+</script>
+{% endblock %}

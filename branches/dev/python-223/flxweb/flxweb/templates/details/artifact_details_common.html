@@ -1,0 +1,1158 @@
+{% extends "common/2_column_right_detail.html" %}
+{% set artifact = c.artifact %}
+{% if c.page_url %}
+{% set page_url = h.url(c.page_url, qualified=True) %}
+{% else %}
+{% set page_url = h.url(controller='details', action='book_details_react', artifact_type=c.artifact.artifactType, artifact_title=c.artifact.handle, realm=c.artifact.realm, ext='r%s' % c.artifact.getVersionNumber(), noindex=c.noindex, qualified=True) %}
+{% endif %}
+{% set embed_url = '%s%s' %( h.url('/embed/', qualified=True), artifact.getPermaHandle(False) ) %}
+{% set print_url = h.url('print_url',perma_handle = artifact.perma.rstrip('/'), qualified=True) %}
+{% set related_url = h.url('related_url',perma_handle = artifact.perma.rstrip('/'), qualified=True) %}
+{% from "macros/artifact.html" import ck12_artifact_navigation with context %}
+{% from "macros/artifact.html" import ck12_artifact_review_feedback_bottom with context %}
+{% from "macros/artifact.html" import ck12_artifact_navigation_top_small with context %}
+{% from "macros/artifact.html" import ck12_artifact_myreview_feedback with context %}
+{% from "macros/artifact.html" import ck12_metadata_keywords_list with context %}
+{% from "macros/artifact.html" import ck12_metadata_attributions_list with context %}
+{% from "macros/artifact.html" import ck12_artifact_edit with context %}
+{% from "macros/artifact.html" import ck12_flexbook_deeplink with context %}
+{% from "macros/artifact.html" import ck12_download_pdf_modal with context %}
+{% from "exercise/exercise_macros.html" import ck12_display_exercise with context %}
+{% from "exercise/exercise_macros.html" import ck12_display_add_exercise with context %}
+{% from "macros/attachments.html" import ck12_resources_tab with context %}
+{% from "macros/attachments.html" import ck12_artifact_resource_row_template with context %}
+{% from "macros/attachments.html" import ck12_artifact_edit_resource with context %}
+
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+{% block css_data_master %}{{ h.url_css('book_details_responsive.css') }}{% endblock %}
+{% block stylesheets %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.url_css('book_details.css') }}" />
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.url_css('details.css') }}" />
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('common/css/concept_coversheet.css') }}" />
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('common/css/download-PDF-dialog.css') }}" />
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('annotatorjs/css/annotator.css') }}" />
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.url_css('modalities.css') }}" />
+{% endblock %}
+
+{% block extra_head %}
+<script type="text/javascript">
+var pageType = "Modality Details";
+</script>
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+		{% block ads_js %}
+		<script language="JavaScript" type="text/javascript">
+				require(['main'],function(){
+						require(['flxweb.modalities.common']);
+				});
+		</script>
+		{% endblock %}
+
+<script language="JavaScript" type="text/javascript">
+
+	var artifactID = '{{c.artifact.get_artifact_id()}}';
+	var artifactRevisionID = '{{c.artifact.get_revision_id()}}';
+	var modality_type = '{{c.artifact.get('artifactType')}}';
+	var eid = '';
+	{% if c.artifact and c.artifact.get_domains() %}
+		{% for domain in c.artifact.get_domains() %}
+			 eid = '{{ domain.encodedid }}';
+		{% endfor %}
+	{% endif %}
+	var artifact_json = null;
+	var context_json = null;
+	var attachments = null;
+	//var artifactLabels = {{c.artifact.getLibraryLabels()|ck12_json}};
+	var standardBoards = {{c.artifact.get_standard_boards()|ck12_json}};
+
+	require(['main'], function(){
+		require(['main-details']);
+	});
+</script>
+
+<script language="JavaScript" type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+		tex2jax: {
+			inlineMath: [['@$','@$']],
+			displayMath: [['@$$','@$$']],
+			skipTags: ["script","noscript","style","textarea","code"]
+		},
+		showMathMenu : false,
+		jax: ["input/TeX","output/HTML-CSS"],
+		messageStyle: "none",
+		TeX: {
+			extensions: ["cancel.js", "color.js", "autoload-all.js"]
+		}
+	});
+</script>
+<script language="JavaScript" type="text/javascript" src="//d3lkjnwva6z405.cloudfront.net/mathjax-min-2.6-20160201/MathJax.js"></script>
+{% endblock %}
+
+{% block title %} {{ artifact.title|escape }} {% endblock %}
+
+{% block meta_extra %}
+{{ super() }}
+{% if page_url %}
+  {% for term in ['user:','user%3a','user-generated-content']%}
+    {% if (page_url.lower().find(term) !=-1) %}
+	<meta name="robots" content="noindex" />
+     {% endif %}
+  {% endfor %}
+{% endif %}
+<meta name="description" content="{{ c.artifact.summary|escape }}">
+{% endblock %}
+
+{% block canonical %}
+	{% set canonical_url = h.canonical_url() %}
+	{% if canonical_url %}
+	<link rel="canonical" href="{{ canonical_url }}"/>
+	{% endif %}
+{% endblock %}
+
+{% block schema_itemscope %} itemscope itemtype="http://schema.org/CreativeWork" {% endblock %}
+
+{% block pageinfotop %}
+<div class="contenttop-new contenttop clearfix">
+{% if (c.context and not c.context.is_latest()) or not c.artifact.is_latest() %}
+	{% if c.context %}
+		{% set old_artifact = c.context %}
+	{% else %}
+		{% set old_artifact = c.artifact %}
+	{% endif %}
+	<div class="container_12">
+		<div class="grid_10 prefix_2">
+		<div class="notificationwrap clearfix hide">
+			<div id="js_old_fb_notification" class="notification">
+
+				<!-- Book or Concept is not latest -->
+			{% if not c.context and (c.artifact.is_flexbook() or c.artifact.is_lesson()) and not c.artifact.is_latest() %}
+				{{ _('You are reading an older version of %(type)s: %(booktitle)s '% {'type':artifact.display_label(),  'booktitle'  : old_artifact.title|escape }) }}
+                        <a class="notificationlink" href="{{ h.url(controller='details',
+                                        action='book_details_react',
+                                        realm=old_artifact.realm,
+                                        artifact_type=old_artifact.artifactType,
+                                        artifact_title=old_artifact.handle,
+                                        ext = None ) }}" >{{ _("Go to the latest version.") }}</a>
+
+
+				<!-- Any artifact in context of a book that is not latest -->
+			{% elif c.context and not c.context.is_latest() %}
+				 {{ _('You are reading an older version of this FlexBook&#174; textbook: %(bookname)s'  % { 'bookname':c.context.title|escape } )}}
+                        <a class="notificationlink" href="{{ h.url(controller='details',
+                                        action='book_details_react',
+                                        realm=old_artifact.realm,
+                                        position = c.position,
+                                        booktype=old_artifact.artifactType,
+                                        book_handle=old_artifact.handle,
+                                        version = None ) }}" >{{ _("Go to the latest version.") }}</a>
+
+				 <!-- Reading an outdated concept/chapter in a context of a book that is latest -->
+			{% elif c.context and c.context.is_latest() and ( c.artifact.is_lesson() or c.artifact.is_chapter() ) and not c.artifact.is_latest() and artifact.is_owner(c.user) %}
+				 {{ _('You are reading an older version of this %(type)s in FlexBook&#174; textbook: %(bookname)s'  % { 'type':artifact.display_label(), 'bookname':c.context.title|escape } )}}
+						<a  href="/editor{{ c.breadcrumbs[0].perma }}" > {{ _('Please edit the flexbook to update this concept.')  }} </a>
+
+			{% endif %}
+
+			</div>
+		</div>
+		</div>
+	</div>
+{% endif %}
+</div>
+{% endblock %}
+
+
+{% block content_left_inner %}
+
+	{% block artifact_coverimage %}
+			<figure class="coverimage hide-for-small">
+					<div class="hide-for-student">
+					{% block artifact_coverimageimage %}
+					<img itemprop="image" src="{{ artifact|ck12_artifact_cover_thumbnail_large }}" alt="{{ artifact.title|escape }}" title="{{ artifact.title|escape }}"/>
+					{% endblock %}
+					</div>
+			</figure>
+	{% endblock %}
+
+	{% block customized_sticker %}
+		{% if (c.artifact.contributionType == 'derived' and c.artifact.creatorID != 3) %}
+			<div class="book-sticker-container">
+				<img src="{{ h.asset_image('images/modality_generic_icons/ck-12-sticker-arrow.svg') }}" class="sticker-arrow"/>
+				<div class="customized-sticker-text">
+					<span>Customized from </span><span class="ck-12-bold">CK-12</span><span> Content</span>
+				</div>
+			</div>
+		{% endif %}
+	{% endblock %}
+
+	{% block artifact_actions %}
+	<div id="sideNav2" class="hide-for-small hide-for-sidenav2">
+	 	{% if c.previewdraft != True %}
+        {% if ((not c.context or c.context.artifactType == 'book') and c.artifact.type.name in ['lesson', 'section']) %} {# and c.context and c.context.artifactType == 'book') %}#}
+              <div id="first_devider" class="divider spacetop hide"></div>
+              <div class="modality-info assign-to-class spacetop hide">
+              <a title="Create Assignment" class="assign_to_lms show-for-lti-context">
+                  <span class="old-icon-view show-for-lti-context" title="Create Assignment">Create Assignment</span>
+	      </a>
+              <a title="Assign to Class" class="assign_to_class hide-for-lti-context">
+              {% if (artifact.artifactType == 'section' ) %}
+                  <span class="old-icon-view hide-for-lti-context" title="Assign to Class">Assign to Class</span>
+                  <i class="icon-grps_assgnmts left-padding iconcolor icon-for-tp new-icon-view"></i>
+                  <span class="tooltip-sec">Assign to Class</span>
+              {% else %}
+                  <span title="Assign to Class" >Assign to Class</span>
+              {% endif %}
+              </a>
+              <span class="assign-info-img icon-Info"></span><div id="reveal-overlay" class="reveal-modal-bg"></div></div>	<!-- This change is for READ MODALITY from flexbook  -->
+            {% endif %}
+			{% block add_to_library %}
+				<div class="divider spacetop"></div>
+				<div class="spacetop">
+					{% if c.artifact_json.revisionInLibrary == None %}
+						<a id="add_to_library" >
+
+							 {% if (artifact.artifactType == 'section' ) or (artifact.artifactType == 'lesson'  and not (c.breadcrumbs[0].realm) and c.assessmentArtifact and c.assessmentArtifact.domain and c.assessmentArtifact.domain.encodedID)%}
+							 		<span class="old-icon-view" title="Add to Library" class="library-tp">
+								  		Add to Library </span>
+							 	 	<i class="icon-backpack left-padding iconcolor icon-for-tp new-icon-view" ></i>
+									<span class="tooltip-sec library-st">Add to Library</span>
+								 {% else %}
+								 	<span title="Add to Library" class="library-tp">
+								  		Add to Library </span>
+							{% endif %}
+							</a>
+					 {% else %}
+						<a class="already_in_library" >
+							 {% if (artifact.artifactType == 'section' ) or (artifact.artifactType == 'lesson'  and not (c.breadcrumbs[0].realm) and c.assessmentArtifact and c.assessmentArtifact.domain and c.assessmentArtifact.domain.encodedID)%}
+							 	 <span  class="old-icon-view" title="Already in Library">
+									Added to Library</span>
+									 <i class="icon-backpack left-padding iconcolor icon-for-tp disabled new-icon-view" ></i>
+								 	 <span class="tooltip-sec">Already in Library</span>
+								 {% else %}
+					 			 	 <span  title="Already in Library">
+										Added to Library</span>
+								{% endif %}
+						 </a>
+					{% endif %}
+				</div>
+			{% endblock %}
+			<div class="divider spacetop hide-for-lti-context"></div>
+			<div class="spacetop relative hide-for-lti-context">
+
+				 {% if (artifact.artifactType == 'section' ) or (artifact.artifactType == 'lesson'  and not (c.breadcrumbs[0].realm) and c.assessmentArtifact and c.assessmentArtifact.domain and c.assessmentArtifact.domain.encodedID)%}
+					<a class="js-shareGroupLink old-icon-view" data-sharetype="group" data-artifactID="{{ artifact.get_artifact_id() }}" title="{{ _('Share via Groups') }}">Share to Groups</a>
+
+						<a class="js-shareGroupLink new-icon-view" data-sharetype="group" data-artifactID="{{ artifact.get_artifact_id() }}">
+						<i class="icon-groups left-padding iconcolor icon-for-tp new-icon-view" ></i>
+						<span class="tooltip-sec">Share to Groups</span></a>
+					 {% else %}
+					<a class="js-shareGroupLink" data-sharetype="group" data-artifactID="{{ artifact.get_artifact_id() }}" title="{{ _('Share via Groups') }}">Share to Groups</a>
+				{% endif %}
+			</div>
+		{% endif %}
+		{% if c.user %}
+		<div class="divider spacetop hide-for-lti-context"></div>
+		<div class="spacetop hide-for-lti-context">
+			<a id="add_to_book"
+				data-artifactID="{{ artifact.get_artifact_id() }}"
+				data-artifactType="{{ artifact.artifactType }}"
+				data-artifactRevisionID="{{ artifact.get_revision_id() }}"
+				data-title="{{ artifact.title|escape }}"
+				data-perma="{{ artifact.perma }}">
+				  {% if (artifact.artifactType == 'section' ) or (artifact.artifactType == 'lesson'  and not (c.breadcrumbs[0].realm) and c.assessmentArtifact and c.assessmentArtifact.domain and c.assessmentArtifact.domain.encodedID)%}
+					<span class="old-icon-view" title="{{ _('Add to FlexBook&#174; Textbook') }}">{{ _('Add to FlexBook&#174; Textbook') }}</span>
+					<i class="icon-book left-padding iconcolor icon-for-tp new-icon-view "></i>
+					<span class="tooltip-sec">{{ _('Add to FlexBook&#174; Textbook') }}</span>
+				{% else %}
+					<span  title="{{ _('Add to FlexBook&#174; Textbook') }}">{{ _('Add to FlexBook&#174; Textbook') }}</span>
+				{% endif %}
+			</a>
+		</div>
+		{% else %}
+		<div class="divider spacetop hide-for-lti-context"></div>
+		<div class="spacetop hide-for-lti-context">
+			<a  onClick="javascript:$.flxweb.alertToSignin();return false;">
+
+			 {% if (artifact.artifactType == 'section' ) or (artifact.artifactType == 'lesson'  and not (c.breadcrumbs[0].realm) and c.assessmentArtifact and c.assessmentArtifact.domain and c.assessmentArtifact.domain.encodedID)%}
+			 	 <span class="old-icon-view" title="{{ _('Add to FlexBook&#174; Textbook') }}"> {{ _('Add to FlexBook&#174; Textbook') }} </span>
+			 	 <i class="icon-book left-padding iconcolor icon-for-tp new-icon-view" ></i>
+				<span class="tooltip-sec">{{ _('Add to FlexBook&#174; Textbook') }}</span>
+			 {% else %}
+				 <span title="{{ _('Add to FlexBook&#174; Textbook') }}"> {{ _('Add to FlexBook&#174; Textbook') }} </span>
+			{% endif %}
+			</a>
+		</div>
+		{% endif %}
+
+		{% block artifact_edit_link %}
+
+		{% if c.context and not c.editable %}
+
+		{% else %}
+			{% if ck12_artifact_edit( c.artifact, c.context, c.position, c.user, c.editable).strip() %}
+			<div class="divider spacetop"></div>
+			<div class="spacetop">
+			{{ ck12_artifact_edit( c.artifact, c.context, c.position, c.user, c.editable) }}
+			</div>
+			{% endif %}
+		{% endif %}
+
+		{% endblock %}
+
+		{% block artifact_publish_link %}
+		{% if c.previewdraft != True %}
+			{% if not c.artifact.type.name == 'chapter' %}
+				{% if c.artifact.is_owner(c.user) %}
+					{% if c.artifact|ck12_can_publish(c.user) and not c.artifact.is_published() %}
+					<div class="book_unpublished">
+						<div class="divider spacetop"></div>
+						<div class="spacetop">
+							<a artifact="{{c.artifact.is_published()}}" id="js_publish_artifact_link" href="#"
+								 data-artifactRevisionID="{{c.artifact.get_revision_id()}}" title="{{ _('Submit a Publish Request') }}">
+						 {% if (artifact.artifactType == 'section' ) or (artifact.artifactType == 'lesson'  and not (c.breadcrumbs[0].realm) and c.assessmentArtifact and c.assessmentArtifact.domain and c.assessmentArtifact.domain.encodedID)%}
+							 <span class="old-icon-view" title="{{_('Publish') }}"> {{_('Publish') }} </span>
+							 <i class="icon-publish left-padding iconcolor icon-for-tp new-icon-view" ></i>
+							<span class="tooltip-sec">{{_('Publish') }}</span>
+						 {% else %}
+							 <span title="{{_('Publish') }}"> {{_('Publish') }} </span>
+						{% endif %}
+         					</a>
+						</div>
+					</div>
+					{% else %}
+					<div class="divider spacetop"></div>
+					<div class="spacetop">
+
+						 {% if (artifact.artifactType == 'section' ) or (artifact.artifactType == 'lesson'  and not (c.breadcrumbs[0].realm) and c.assessmentArtifact and c.assessmentArtifact.domain and c.assessmentArtifact.domain.encodedID)%}
+							 <span class="old-icon-view" title="{{_('Published') }}"> {{_('Published') }} </span>
+							 <i class="icon-publish left-padding iconcolor icon-for-tp new-icon-view" ></i>
+							<span class="tooltip-sec">{{_('Published') }}</span>
+						 {% else %}
+							 <span title="{{_('Published') }}"> {{_('Published') }} </span>
+						{% endif %}
+					</div>
+					{% endif %}
+				{% endif %}
+			{% endif %}
+			<div class="book_published hide">
+				<div class="divider spacetop"></div>
+				<div class="spacetop">
+					 {% if (artifact.artifactType == 'section' ) or (artifact.artifactType == 'lesson'  and not (c.breadcrumbs[0].realm) and c.assessmentArtifact and c.assessmentArtifact.domain and c.assessmentArtifact.domain.encodedID)%}
+						 <span class="old-icon-view" title="{{_('Published') }}"> {{_('Published') }} </span>
+						 <i class="icon-publish left-padding iconcolor icon-for-tp new-icon-view" ></i>
+						<span class="tooltip-sec">{{_('Published') }}</span>
+					 {% else %}
+						 <span title="{{_('Published') }}"> {{_('Published') }} </span>
+					{% endif %}
+				</div>
+			</div>
+		{% endif %}
+		{% endblock %}
+
+		<!-- Download -->
+		{% if c.previewdraft != True %}
+			{% block artifact_downloads %}
+			{% if c.artifact.realm or ( c.context and c.context.realm )%}
+				<div class="divider spacetop hide-for-lti-context"></div>
+				<div id = "sidebarDownloads" class="hide-for-lti-context">
+					<div class="alternate-h2 old-icon-view">{{_('Download')}}</div>
+					<a title="{{ _('Download PDF') }}" id="pdfonecolumndownload" class="{% if c.user %}js_downloadlink{% else %}js_signinrequired{% endif %} pdf" href="{% if c.user and c.url_pdf_onecolumn %}{{c.url_pdf_onecolumn}}{% else %}#{% endif %}" data-rendertype="pdf" data-renderType="pdf" data-artifactID="{{c.artifact.get_artifact_id()}}" data-artifactRevisionID="{{c.artifact.get_revision_id()}}" data-renderTemplateType="onecolumn">
+					 {% if (artifact.artifactType == 'section' ) or (artifact.artifactType == 'lesson'  and not (c.breadcrumbs[0].realm) and c.assessmentArtifact and c.assessmentArtifact.domain and c.assessmentArtifact.domain.encodedID)%}
+							<span class="old-icon-view"> {{ _('PDF') }} </span>
+							<i class="icon-pdf left-padding iconcolor icon-for-tp new-icon-view" ></i>
+							<span class="tooltip-sec">{{ _('Download PDF') }}</span>
+					{% else %}
+							<span title="{{ _('PDF') }}">{{ _('PDF') }} </span>
+						<span class="popupbubble">{{ _('Most Devices') }}</span>
+
+					{% endif %}
+					</a>
+					<!-- <a title="{{ _('Download .mobi for Kindle') }}" id="mobidownload" class="{% if c.user %}js_downloadlink{% else %}js_signinrequired{% endif %} mobi" href="{% if c.user and artifact.url_mobi %}{{artifact.url_mobi}}{% else %}#{% endif %}" data-rendertype="mobi" data-renderType="mobi" data-artifactID="{{c.artifact.get_artifact_id()}}" data-artifactRevisionID="{{c.artifact.get_revision_id()}}">{{_("mobi")}}<span class="popupbubble">{{_("Kindle")}}</span></a>
+					<a title="{{ _('Download for iBooks') }}" id="epubdownload" class="{% if c.user %}js_downloadlink{% else %}js_signinrequired{% endif %} epub" href="{% if c.user and artifact.url_epub %}{{artifact.url_epub}}{% else %}#{% endif %}" data-rendertype="epub" data-renderType="epub" data-artifactID="{{c.artifact.get_artifact_id()}}" data-artifactRevisionID="{{c.artifact.get_revision_id()}}">{{_("ePub")}}<span class="popupbubble">{{_("iPad &amp; Android")}}</span></a> -->
+				</div>
+			{% endif %}
+			{% endblock %}
+		{% endif %}
+		<div class="divider spacetop hide-for-lti-context"></div>
+		{% if not artifact.artifactType in ['book', 'chapter'] %}
+			    <div data-magellan-expedition="fixed" data-magellan-top-offset="200" class="quick-tips-wrapper hide-for-lti-context">
+			     {% if (artifact.artifactType == 'section' ) or (artifact.artifactType == 'lesson'  and not (c.breadcrumbs[0].realm) and c.assessmentArtifact and c.assessmentArtifact.domain and c.assessmentArtifact.domain.encodedID)%}
+			      	<div class="alternate-h2 old-icon-view">{{_('Quick Tips')}}</div>
+			      	 	<ul class="quick-tips old-icon-view">
+					     	<li data-magellan-arrival="unselect-quicktips" class="hide"></li>
+					        <li data-magellan-arrival="myAnnotations"> <i class="icon-play"></i><a href="#myAnnotations" name="myAnnotations">Notes/Highlights</a></li>
+					        <li class="hide"> <i class="icon-play"></i><a title="Summary" class="artifact_summary_dialog">Summary</a></li>
+					        <li data-magellan-arrival="vocabulary"> <i class="icon-play"></i><a href="#vocabulary" name="vocabulary">Vocabulary</a></li>
+					   	</ul>
+
+					   <ul class="quick-tips quick-tips-student new-icon-view">
+				      	<li data-magellan-arrival="myAnnotations"> <i class="icon-play"></i><a href="#myAnnotations" name="myAnnotations"  style="position : relative">
+				      		<i class="icon-notes icon-to-show iconcolor icon-for-tp" ></i>
+							<span class="tooltip-sec">Notes/Highlights</span>
+				      	</a></li>
+				      	<li class="divider spacetop"></li>
+						<li data-magellan-arrival="vocabulary"> <i class="icon-play"></i><a href="#vocabulary" name="vocabulary" style="position : relative">
+							<i class="icon-vocab icon-to-show iconcolor icon-for-tp" ></i>
+							<span class="tooltip-sec">Vocabulary</span>
+							</a></li>
+				      	<li class="divider spacetop"></li>
+				      	<li class="hide"> <i class="icon-play"></i><a href="title="Summary" class="artifact_summary_dialog"  style="position : relative">
+				      		<i class="icon-sigma icon-to-show iconcolor icon-for-tp" ></i>
+							<span class="tooltip-sec">Summary</span>
+				      	</a></li>
+							<li class="divider spacetop"></li>
+								<li class="looking-for-pdf-container" style="text-align : left">
+							<a class="offline-reader-link dxtrack-user-action" data-dx-desc="reader_web_offline_sidenav_link" data-dx-artifactrevisionid="4140739">
+								<i class="icon-offline-reader icon-to-show iconcolor icon-for-tp"  ></i>
+								<span class="tooltip-sec reader-tp">
+									<span class="header-txt"><b>New feature!</b></span>
+									<span class="tooltip-txt">
+											The <b>Offline Reader</b> is now available. Experience and manage your FlexBooks in a whole new way!
+									</span>
+								</span></a>
+							</li>
+					</ul>
+			      	 {% else %}
+			      	 <div class="alternate-h2">{{_('Quick Tips')}}</div>
+			      	 	<ul class="quick-tips">
+					     	<li data-magellan-arrival="unselect-quicktips" class="hide"></li>
+					        <li data-magellan-arrival="myAnnotations"> <i class="icon-play"></i><a href="#myAnnotations" name="myAnnotations">Notes/Highlights</a></li>
+					        <li data-magellan-arrival="vocabulary"> <i class="icon-play"></i><a href="#vocabulary" name="vocabulary">Vocabulary</a></li>
+					   	</ul>
+			      	{% endif %}
+			    </div>
+				<div class="divider spacetop"></div>
+
+		{% endif %}
+		{% if config.fbdl_enabled == 'true' %}
+			{% if artifact.artifactType in ('book','tebook','workbook','quizbook','labkit') %}
+				<div class="flexbook_deeplink_container hide">
+					{{ ck12_flexbook_deeplink(artifact) }}
+					<div class="divider spacetop"></div>
+				</div>
+			{% endif %}
+		{% endif %}
+		  <div class="offline-reader-link-wrapper hide old-icon-view">
+        	<div class="spacetop">
+        		<a class="offline-reader-link dxtrack-user-action" title="Offline Reader"
+        			data-dx-desc="reader_web_offline_sidenav_link" data-dx-artifactRevisionID="{{ c.artifact.get_revision_id() }}">
+        			Offline Reader
+        		</a>
+        		<span class="offline-reader-help-img icon-help_icon"></span>
+        	</div>
+        	<div class="offline-reader-tooltip hide">
+        		<div class="speech-text">
+        			The FlexBook<sup>&#174;</sup> Reader allows for offline reading in a distraction-free environment.
+        		</div>
+        	</div>
+            <div class="divider spacetop"></div>
+        </div>
+		{% if not (c.artifact.realm or ( c.context and c.context.realm )) %}
+			<div class="flexbook-app-link hide-for-small">
+		   		<div id="appLinkPara" class="app-link-paragraph old-icon-view">Get the FlexBook&reg app for your mobile devices</div>
+				<div id="appLinks" class="old-icon-view">
+					<a id="apple-store-link" class="apple-app-link dxtrack-user-action" target="_blank" data-dx-desc="reader_web_ios_link" href="https://itunes.apple.com/us/app/flexbook/id1011793723" data-dx-referrer="side_navigation" data-dx-artifactRevisionID="{{ c.artifact.get_revision_id() }}" data-dx-artifactID="{{c.artifact.id}}">
+						<img class="apple-store-image" alt="Download on the app store" src="/media/common/images/apple-app-store.svg">
+					</a>
+					<a id="google-store-link" class="google-app-link dxtrack-user-action" target="_blank" data-dx-desc="reader_web_android_link" href="https://play.google.com/store/apps/details?id=org.ck12.reader" data-dx-referrer="side_navigation" data-dx-artifactRevisionID="{{ c.artifact.get_revision_id() }}" data-dx-artifactID="{{c.artifact.id}}">
+						<img class="google-store-image" alt="Get it on Google Play" src="/media/common/images/google-play-badge.png">
+					</a>
+				</div>
+				<div class="space-divider old-icon-view">
+					<div class="divider-message">
+						OR
+					</div>
+				</div>
+				<div class="emailpanel old-icon-view">
+					<div class="emailpanel-instructions">
+						Enter email to get app download link:
+					</div>
+					<div class="emailpanel-email old-icon-view">
+						<div class="tooltip-right hide">Invalid Email Address</div>
+						<div class="input">
+							<input type="text" class="emailpanel-email-input" placeholder="Email Address">
+							<i class="icon-notification hide"></i>
+						</div>
+					</div>
+					<button class="sendlink dxtrack-user-action old-icon-view" data-dx-desc="reader_web_email_sendlink" data-dx-referrer="side_navigation" data-dx-artifactRevisionID="{{ c.artifact.get_revision_id() }}" data-dx-artifactID="{{c.artifact.id}}">
+						Send Link
+					</button>
+				</div>
+				<div class="successpanel hide">
+					<div class="successpanel-message">Success!</div>
+					<i class="successpanel-tickmark icon-checkmark"></i>
+					<div class="successpanel-email-msg">Check your email for the app download link.</div>
+				</div>
+			</div>
+		{% endif %}
+
+	{% endblock %}
+
+	{% block artifact_sidebar_extra %}{% endblock %}
+{% endblock %}
+
+{% block content_right_inner %}
+<article>
+	<!-- Schema.org meta tags -->
+	<meta itemprop="dateCreated" content="{{ c.artifact.created }}" />
+	<meta itemprop="dateModified" content="{{ c.artifact.modified }}" />
+	<meta itemprop="provider" content="CK-12 Foundation"/>
+	<meta itemprop="url" content="{{page_url}}" />
+	{% if artifact.get_seo_keywords() %}
+		{% for keyword in artifact.get_seo_keywords() %}
+			<meta itemprop="keywords" content="{{ keyword }}"/>
+		{% endfor %}
+	{% endif %}
+
+	<!-- LRMI meta tags -->
+	{# check bug 7877 for details #}
+	<meta itemprop="interactivityType" content="mixed" />
+	<meta itemprop="license" content="http://creativecommons.org/licenses/by-nc/3.0/" />
+	<meta itemprop="learningResourceType" content="explanation" />
+	{% if c.artifact.is_concept() %}
+		<meta itemprop="timeRequired" content="P20M" />
+	{% endif %}
+	{% for age in c.artifact.get_age_ranges() %}
+		<meta itemprop="typicalAgeRange" content="{{ age }}" />
+	{% endfor %}
+
+	<!-- About the Artifact - cover image; summary; authors, relevant links -->
+	{% if artifact.artifactType=='lesson' and c.assessmentArtifact and c.assessmentArtifact.domain and c.assessmentArtifact.domain.encodedID %}
+		<header class="artifactabout with-practice-badge clearfix">
+	{% else %}
+		<header class="artifactabout clearfix">
+	{% endif %}
+
+		<div class="header-left-content">
+			{% block artifact_title %}
+				<h1 id="artifact_title">
+					<!-- Artifact top small navigation -->
+					{% block artifact_navigation_top_small %}
+						{{ ck12_artifact_navigation_top_small(c.prev_artifact, c.url_prev_artifact, c.next_artifact, c.url_next_artifact) }}
+					{% endblock %}
+					<!-- /Artifact top small navigation -->
+					{% if c.context and c.position %}<span>{{ c.position }}</span>:{% endif %} <span itemprop="name" class="artifact-title-details">{{ c.artifact.title|escape }}</span>
+					{% block draft_label %}
+						{% if c.previewdraft == True %}
+							<span id="draft-label" class="draft-label-details">DRAFT</span>
+						{% else %}
+							<span id="draft-label" class="draft-label-details hide">DRAFT</span>
+						{% endif %}
+					{% endblock %}
+
+					<div class="clear"></div>
+				</h1>
+
+
+				{% endblock %}
+
+				<!-- Difficulty Level and Owner/Creator -->
+				<div class="difficulty-level-wrapper">
+					{% if c.artifact.level %}
+						{{ _("Difficulty Level") }}: <strong>{{ c.artifact.get_level()|title }}</strong>
+					{% else %}
+						{{ _("Difficulty Level") }}: <strong>{{ "At Grade" }}</strong>
+					{% endif %}
+					<span class="verticalbar"></span>
+					{{ _("Created by") }}: {{ c.artifact.creator }}
+				</div>
+		</div>
+		<div class="header-right-content">
+			{% if artifact.artifactType=='lesson' and c.assessmentArtifact and c.assessmentArtifact.domain and c.assessmentArtifact.domain.encodedID %}
+				<div class="practice-badge-wrapper ff4-compt hide">
+					<!-- practice badge markup starts -->
+					{% if c.assessmentArtifact and c.assessmentArtifact.domain and c.assessmentArtifact.domain.encodedID %}
+						<input id="conceptEncodedId" type="hidden" value="{{ c.assessmentArtifact.domain.encodedID }}" />
+						<input id="conceptHandle" type="hidden" value="{{ c.practicePerma }}" />
+					{% endif %}
+					<div class="practice-badge hide" data-encodedid="{{ c.assessmentArtifact.domain.encodedID }}" data-handle="{{ c.practicePerma }}"  id="practiceBadge">
+						<div class="practice-badge-container large hide-for-small">
+							<div class="row collapse">
+								<div class="columns small-5 practice-badge-column">
+								<div  class="img-bg">
+										<img src="{{ h.asset_image('images/modality_generic_icons/practice_image.png') }}" alt="Atoms Practice" style="height: 91px;">
+									</div>
+									<div class="pie-container">
+										<div class="inner-circle">
+										</div>
+										<div class="hold">
+											<div class="pie"></div>
+											<div class="pie"></div>
+										</div>
+										<div class="content">
+											<span class="large-text">%</span>
+										</div>
+									</div>
+									<div class="text-center capitalize bottom pie-container-label">Progress</div>
+								</div>
+								<div class="columns small-7 practice-badge-column">
+									<div class="practice-badge-detail">
+										<div class="top-section">
+											<div class="icon-container hide"><i class=""></i></div>
+											<div class="description"></div>
+										</div>
+										<div class="memory-boost-section hide">
+											<div class="row memory-icon">
+												<div class="columns small-5 memory-icon">&nbsp;</div>
+												<div class="boost-icon columns small-1 memory-icon"></div>
+												<div class="columns small-6 memory-icon">&nbsp;</div>
+											</div>
+											<div class="row">
+												<div class="columns small-1">&nbsp;</div>
+												<div class="boost-message columns small-9"></div>
+												<div class="boost-tooltip tooltip-icon icon icon-help_icon columns small-2"></div>
+											</div>
+											<div class="boost-tooltip tooltip-info hide">
+												<div class="boost-tooltip tooltip-title">MEMORY METER</div>
+												<div class="boost-tooltip tooltip-msg">This indicates how strong in your memory this concept is</div>
+											</div>
+										</div>
+										<div class="bottom">
+											<div class="badge-option-container">
+												<div class="button tangerine standard redirect-button hide-for-lti-context">
+													<span class="button-text">Practice</span>
+													<span class="js-badge-pipe badge-pipe"></span>															
+													<i class="js-badge-icon icon-arrow_right"></i>
+												</div>
+												<div class="more-badge-option js-more-badge-option hide">
+												  	<ul class="more-badge-list-option">
+												  		<li class="js-preview-btn" data-render="preview">Preview</li>
+												  		<li class="js-assign-btn" data-render="assign">Assign Practice</li>
+												  	</ul>
+											  	</div>
+                                                                                                <div class="button tangerine standard show-for-lti-context js-preview-btn" sytle="display:inline-block;">
+												    <span class="button-text js-preview-btn">Preview</span>
+												    <i class="icon-arrow_right"></i>
+												</div>                                                                                                 
+											</div>											
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Hide in mobile view for teachers. Assign to Class button is shown instead -->
+						{% if ((c.user and not c.user.isTeacher()) or request.cookies.get('flxweb_role') != "teacher") %}
+						<div class="small practice-badge-container">
+							<div class="table text-center">
+								<div class="practice-section">
+									<div class="table-cell capitalize hide best-score-block pie-container-label text-right">Progress</div>
+									<div class="table-cell hide graph-block">
+										<div class="pie-container">
+											<div class="inner-circle">
+											</div>
+											<div class="hold">
+												<div class="pie"></div>
+												<div class="pie"></div>
+											</div>
+										</div>
+									</div>
+									<div class="table-cell small-score hide">%</div>
+								</div>
+								<div class="boost-practice-section hide-imp">
+									<div class="table-cell">
+										<div class="hide graph-block">
+											<div class="pie-container">
+												<div class="inner-circle">
+												</div>
+												<div class="hold">
+													<div class="pie"></div>
+													<div class="pie"></div>
+												</div>
+											</div>
+										</div>
+										<div class="small-score hide">%</div>
+									</div>
+									<div class="table-cell memory-boost-section">
+										<div class="boost-icon">
+										</div>
+										<div class="boost-message">
+										</div>
+										<div class="boost-tooltip tooltip-icon icon icon-help_icon">
+										</div>
+									</div>
+								</div>
+								<div class="table-cell tangerine redirect-button"><i></i><span class="small-button-text">Practice Now</div>
+							</div>
+							<div class="boost-tooltip tooltip-info hide">
+								<div class="boost-tooltip tooltip-title">MEMORY METER</div>
+								<div class="boost-tooltip tooltip-msg">This indicates how strong in your memory this concept is</div>
+							</div>
+						</div>
+						{% endif %}
+					</div>
+					<!-- practice badge markup ends -->
+				</div>
+			{% endif %}
+		</div>
+		<div class="spacetoplarge"></div>
+	</header>
+	<div class="row collapse show-for-small actions-wrapper modality-actions-mobile">
+		<!-- Assign to class button for mobile -->
+		{% if (not c.context or c.context.artifactType == 'book') and artifact.artifactType in ('lesson', 'section', 'lecture', 'enrichment', 'asmtpractice', 'asmtquiz', 'rwa') and ((c.user and c.user.isTeacher()) or request.cookies.get('flxweb_role') == "teacher") %}
+			<div class="assign-to-class-wrap text-center">
+				<div class="button turquoise modality-info assign_to_class">
+				<i class="icon-grps_assgnmts"></i><span>Assign to Class</span></div>
+			</div>
+		{% endif%}
+		<a title="Share via Groups" data-artifactID="{{ artifact.get_artifact_id() }}" data-sharetype="group" class="js-shareGroupLink share-group-link book-details-action right">
+			<span>Share</span>
+		</a>
+
+		{% block add_to_library_mobile %}
+			{% if c.artifact_json.revisionInLibrary == None %}
+				<a id="add_to_library_mob" title="Save" data-artifactid="" class="js-save book-details-action right">
+					<i class="icon-plus"></i>
+					<span>Add to Library</span>
+				</a>
+			{% else %}
+				<a id="add_to_library_mob" title="Already in Library" data-artifactid="" class="js-save book-details-action right already_in_library">
+					<i class="icon-plus"></i>
+					<span>Add to Library</span>
+				</a>
+			{% endif %}
+		{% endblock %}
+
+		{% block flexbook_deeplink_mobile %}
+			{% if config.fbdl_enabled == 'true' %}
+				{% if artifact.artifactType in ('book','tebook','workbook','quizbook','labkit') %}
+				<span class="flexbook-deeplink flexbook_deeplink_container hide book-details-action right">
+					{{ ck12_flexbook_deeplink(artifact) }}
+				</span>
+				{% endif %}
+			{% endif %}
+		{% endblock %}
+
+
+	</div>
+<div class="row collapse">
+{% if ((c.user and c.user.isTeacher()) or request.cookies.get('flxweb_role') == "teacher" or not artifact.artifactType in ['lesson', 'section']) %}
+	<div id="details_tabs" class="js_detailstabs details-tabs columns">
+	{% else %}
+	<div id="details_tabs" class="js_detailstabs details-tabs large-8 columns">
+	{% endif %}
+
+	<div id="quick-assignment-notification-container">
+		<div class="quick-assignment-notification"></div>
+	</div>
+	<ul class="hide tabs-list hide-for-small">
+		<li>
+			<div class="topshadowfix"></div>
+			<a data-ga-tab-name="read" href="#view_content">{{ _("Read") }}</a>
+		</li>
+		<!-- {% if artifact.getDomainEID() and artifact.artifactType=='lesson' %}
+		<li>
+			<div class="topshadowfix"></div>
+			<a data-ga-tab-name="exercises" href="#view_exercises">{{ _("Practice") }}</a>
+		</li>
+		{% endif %} -->
+
+		{% block resourcestab %}
+		<li class="hide-for-small">
+			<div class="topshadowfix"></div>
+			<a data-ga-tab-name="resources" href="#view_attachments">{{ _("Resources") }}</a>
+		</li>
+		{% endblock %}
+
+		{% block detailstab %}
+			{% if c.show_details_tab %}
+			<li>
+				<div class="topshadowfix"></div>
+				<a data-ga-tab-name="details" href="#view_details">{{ _("Details") }}</a>
+			</li>
+			{% endif %}
+		{% endblock %}
+	</ul>
+	<div class="contentarea">
+	<!-- START - CONTENT VIEW -->
+	<div id="view_content" class="contentview js_viewtab hide">
+		<div class="annotator-wrapper">
+			<!-- Artifact Navigation Top -->
+			{% block artifact_navigation %}
+				{#
+				{{ ck12_artifact_navigation(c.prev_artifact, c.url_prev_artifact, c.next_artifact, c.url_next_artifact) }}
+				#}
+			{% endblock %}
+			<!-- /Artifact Navigation Top -->
+
+
+			<!-- Content body -->
+			{% block before_content %}{% endblock %}
+			<div class="divider hide-for-small"></div>
+
+			{% if c.previewdraft != True %}
+				<section id="artifact_content" data-loadurl="{{'/flx/get/info/revisions/%s?format=json' % (c.artifact.get_revision_id())}}" class="clearfix">
+			{% else %}
+				<section id="artifact_content" data-loadurl="{{'/flx/artifactdraft/artifactDraftArtifactRevisionID=%s?format=json' % (c.artifact.get_revision_id())}}" class="clearfix">
+			{% endif %}
+			{% block content_body %}
+				{{ _("Loading...")}}&nbsp;<img title="{{ _('Loading...') }}" class="js_loadingplaceholder" src="{{ h.url_images('icon_loading.gif') }}" width="43" height="11" />
+			{% endblock %}
+			</section>
+			{% block after_content %}{% endblock %}
+			<!-- /Content body -->
+
+			{% block extra_content %}
+
+			{% endblock %}
+
+			<div id="view_content_footer hide-for-small"><span class="imgwrap"></span></div>
+		</div>
+	</div>
+	<!-- /END - CONTENT VIEW -->
+
+	{% if c.show_details_tab %}
+	<!-- START METADATA VIEW -->
+	<div class="collapse-details js-collapse-details show-for-small">
+		<span class="show">Show</span>
+		<span class="show hide">Hide</span>
+		<span>Details</span>
+		<span class="tip"></span>
+	</div>
+	<div id="view_details" class="metadataview js_viewtab hide">
+		{% block metadata_view %}
+		<div class="divider"></div>
+		<!-- Artifact Summary -->
+		<section>
+			<div class="alternate-h2 toptitle spacetopmedium">{{ _("Description") }}</div>
+			<div class="articleinfowrap js_moreinfo">
+				<div itemprop="description" id="artifact_summary">
+				{% if c.artifact.summary and c.artifact.summary != 'None' %}
+					{{ c.artifact.summary|escape }}
+				{% else %}
+					{{ _("No description available here...") }}
+				{% endif %}
+				</div>
+			</div>
+		</section>
+
+		{% if c.user and c.user.isAdmin() %}
+			{% block comment_edit %}
+				<section>
+					<h2>{{ _('Comments') }}</h2>
+					<div class="articleinfowrap js_description">
+						<p class="listitemsummary">{% if c.artifact.revisions and c.artifact.revisions[0]['comment'] and c.artifact.revisions[0]['comment'] != None %} {{ c.artifact.revisions[0]['comment'] }} {% else %} No revision comments available here... {% endif %}
+						</p>
+					</div>
+				</section>
+			{% endblock %}
+		{% endif %}
+
+		<!-- Objectives -->
+		{% block metadata_objectives %}
+		{% endblock %}
+
+		<!-- Related Materials -->
+		{% block related %}
+		<section id="related" class="relatedmaterials" >
+			{% if c.related_list %}
+				<div class="alternate-h2">{{ _("%(relation)s Materials"  % {'relation':c.relation_type.title()}) }}</div>
+				<ul>
+				{% for artifact in c.related_list %}
+				<li>
+					{% if artifact.is_concept() or artifact.is_lesson() %}
+						<a href="{{ h.artifact_url(artifact)}}" title="{{ artifact.title|escape }}">
+							{{ artifact.title }}
+						</a>
+					{% else %}
+						<a href="{{ config.webroot_url }}{{ artifact.perma }}" title="{{ artifact.title|escape }}">
+							{{ artifact.title }}
+						</a>
+					{% endif %}
+				</li>
+				{% endfor %}
+				</ul>
+			{% endif %}
+		</section>
+		{% endblock %}
+
+		<div class="divider"></div>
+		<!-- Other Details -->
+		<section>
+			<!--<h2>{{ _("Other Details") }}</h2>-->
+
+			{% if c.artifact.level %}
+			<div class="spacetopmedium">
+				<div class="toptitle infoitemname alternate-h2">{{ _("Difficulty Level:") }}</div> {{ c.artifact.get_level()|title }}
+			</div>
+			<div class="divider spacetopmedium"></div>
+			{% endif %}
+
+			{% set _attributions = c.artifact.get_authors_by_role() %}
+			<!-- Authors List -->
+			{% if 'author' in _attributions %}
+			<div class="spacetopmedium break-word">
+				{{ ck12_metadata_attributions_list( _("Authors:"), _attributions.get('author') ) }}
+			</div>
+			<div class="divider spacetopmedium"></div>
+			{% endif %}
+
+			<!-- Contributors List -->
+			{% if 'contributor' in _attributions %}
+			<div class="spacetopmedium break-word">
+				{{ ck12_metadata_attributions_list( _("Contributors:"), _attributions.get('contributor') ) }}
+			</div>
+			<div class="divider spacetopmedium"></div>
+			{% endif %}
+
+			<!-- Editors List -->
+			{% if 'editor' in _attributions %}
+			<div class="spacetopmedium break-word">
+				{{ ck12_metadata_attributions_list( _("Editors:"), _attributions.get('editor') ) }}
+			</div>
+			<div class="divider spacetop"></div>
+			{% endif %}
+
+			<!-- Translators List -->
+			{% if 'translator' in _attributions %}
+			<div class="spacetopmedium break-word">
+				{{ ck12_metadata_attributions_list( _("Translators:"), _attributions.get('translator') ) }}
+			</div>
+			<div class="divider spacetop"></div>
+			{% endif %}
+
+			<!-- Reviewer List -->
+			{% if 'reviewer' in _attributions %}
+			<div class="spacetopmedium break-word">
+				{{ ck12_metadata_attributions_list( _("Reviewer:"), _attributions.get('reviewer') ) }}
+			</div>
+			<div class="divider spacetop"></div>
+			{% endif %}
+
+			<!-- Technical Reviewer List -->
+			{% if 'technicalreviewer' in _attributions %}
+			<div class="spacetopmedium break-word">
+				{{ ck12_metadata_attributions_list( _("Technical Reviewer:"), _attributions.get('technicalreviewer') ) }}
+			</div>
+			<div class="divider spacetop"></div>
+			{% endif %}
+
+			<!-- Source List -->
+			{% if 'source' in _attributions %}
+			<div class="spacetopmedium break-word">
+				{{ ck12_metadata_attributions_list( _("Sources:"), _attributions.get('source') ) }}
+			</div>
+			<div class="divider spacetopmedium"></div>
+			{% endif %}
+
+			<!-- attributions end -->
+
+
+			<!-- Tags -->
+			{% if c.artifact.get_tags() %}
+			<div class="columnwrap spacetopmedium">
+				{{ ck12_metadata_keywords_list( _("Tags:"), c.artifact.get_tags() ) }}
+			</div>
+			{% endif %}
+
+			<!-- Categories -->
+			{% if c.artifact.get_subjects() %}
+			<div class="columnwrap spacetopmedium">
+				{{ ck12_metadata_keywords_list( _("Subjects:"), c.artifact.get_subjects() ) }}
+			</div>
+			<div class="clear"></div>
+			<div class="divider spacetop"></div>
+			{% endif %}
+
+			<div class="clear"></div>
+   			{% if c.artifact.get_search_keywords() %}
+			<div class="columnwrap spacetopmedium">
+				{{ ck12_metadata_keywords_list( _("Search Keywords:"), c.artifact.get_search_keywords(), separator=";" ) }}
+			</div>
+			{% endif %}
+
+
+			{% block metadata_concept_node %}
+
+			{% endblock %}
+
+
+			<!-- Grades -->
+			{% if c.artifact.get_grades() %}
+			<div class="columnwrap spacetopmedium">
+				<div class="alternate-h2 toptitle"> {{  _("Grades:") }} </div>
+				<div class="">
+				 {% for grade in c.artifact.get_grades() %}
+				  <a href="{{ url('search') }}?q=grade:{{ grade['name'] }}" title="{{ grade['name'] }}"><span>{{ grade['name'] }} </span></a>
+				  {% if not loop.last %},{% endif %}
+				 {% endfor %}
+				</div>
+			</div>
+			{% endif %}
+
+			<!-- Standards Correlations (Replaced States - SLING) -->
+			{% block standard_correlations %}
+			{% endblock %}
+
+			<div class="clear"></div>
+
+			<div class="spacetopmedium">
+				<div class="alternate-h2 toptitle infoitemname">{{ _("Date Created:") }}</div>
+				{{ c.artifact.created|ck12_date }}
+			</div>
+			<div>
+				<div class="alternate-h2 toptitle infoitemname">{{ _("Last Modified:") }}</div>
+				{{ c.artifact.modified|ck12_date }}
+			</div>
+			<div class="clear"></div>
+			<div class="divider spacetopmedium"></div>
+
+
+			{% block after_metadata %}
+			{% endblock %}
+		</section>
+
+		{% endblock %}
+	</div>
+	<!-- /END METADATA VIEW -->
+	{% endif %}
+	<!-- BEGIN EXERCISE VIEW -->
+	<!-- {% if artifact.getDomainEID() and artifact.artifactType=='lesson' %}
+	<div id="view_exercises" class="exerciseview smallpadding js_viewtab hide" itemscope itemtype="http://schema.org/WebPageElement">
+   	<meta itemprop="url" content="{{ request.host_url }}{{ h.url(controller='exercise', action='exercise_perma', exercise_title=artifact.handle, realm=None, ext=None, render_context="embed" ) }}">
+	<meta itemprop="educationalUse" content="self learning" />
+	<meta itemprop="interactivityType" content="active" />
+	<meta itemprop="learningResourceType" content="exercise" />
+	<section id="exercise">
+		 <div id="interactive_practice_block">
+			<div id="exercisewidget">
+				<div id="exercisewrapper" class="active">
+					{% if c.assessmentArtifact and c.assessmentArtifact.domain and c.assessmentArtifact.domain.encodedID %}
+						<input id="assessment_base_url" type="hidden" value="{{ h.url_assessment("?test/") }}" />
+						<iframe id="assessmentArtifactFrame" class="js-assessment-frame" src="" style="width:100%;border:0px;height: 675px;" scrolling="no" data-src="{{ h.url_assessment("?test/") }}{{_("detail/")}}{{ c.practicePerma }}{{_("&nextPractice=false")}}"></iframe>
+					{% else %}
+					<div class="error_content">
+						<div class="div_as_h1">{{ _("We need you!") }}</div>
+						<p>{{ _("At the moment, we do not have exercises for <b>%(title)s</b>." % {'title':artifact.title}) }}</p>
+						<div class="divider spacetop"></div>
+						<div>
+							{% if c.user %}
+								<a class="btn exercise exercise_tools_link" href="{{ h.url(controller='exercise_generator',action='addQuestionForExercise_ae',exercise_title=artifact.handle, artifact_type=artifact.artifactType, realm=artifact.realm, ep=page_url) }}">Contribute</a>
+							{% else %}
+								<a class="btn exercise" onClick="javascript:$.flxweb.alertToSignin();return false;" href="#">Contribute</a>
+							{% endif %}
+						</div>
+						<div class="divider"></div>
+					</div>
+					{% endif %}
+				</div>
+			</div>
+
+
+			<div id="exercisewidget">
+			 	<img title="{{ _('Loading Interactive Practice..') }}" class="js_loadingplaceholder exerciseloader" src="{{ h.url_images('icon_loading.gif') }}" width="43" height="11" />
+			</div>
+						{% if c.next_artifact and c.url_next_artifact %}
+							<div id="js_next_artifact_info"
+				data-url="{{ c.url_next_artifact }}"
+								data-type="{{ c.next_artifact.artifactType }}"
+								data-title="{{ c.next_artifact.title|escape}}"></div>
+			{% endif %}
+		</div>
+	</section>
+	</div>
+	{% endif %} -->
+	<!-- END EXERCISE VIEW -->
+	<!-- BEGIN RESOURCE VIEW -->
+	<section id="view_attachments" class="resourceview js_viewtab hide">
+		<!-- Resources -->
+		{% block resources %}
+		{{ ck12_resources_tab(c.artifact, c.user, loadlater='clickload', pageType='details') }}
+		{% endblock %}
+	</section>
+	<!-- END RESOURCE VIEW -->
+	</div> <!-- THIS IS THE CONTAINER FOR TABS EXCLUDING THE LIST -->
+	</div> <!-- THIS IS THE CONTAINER FOR TABS INCLUDING THE LIST -->
+	<div id="practiceWidget" class="columns large-4 hide"></div>
+</div>
+</article>
+
+<!-- Bottom Artifact Navigation -->
+{% block artifact_navigation_bottom %}
+	<div>{{ ck12_artifact_navigation(c.prev_artifact, c.url_prev_artifact, c.next_artifact, c.url_next_artifact) }}</div>
+{% endblock %}
+<!-- /Bottom Artifact Navigation -->
+
+{% block related_modalities %}
+
+{% endblock %}
+
+<!-- Bottom Artifact Review Feedback -->
+{% block artifact_review_feedback %}
+<div id="review_list_container" class="relative js_loadlater" data-native="flxweb.modality.read.initreviewlist" data-lazyload="1">
+{{ ck12_artifact_review_feedback_bottom( ) }}
+<!-- Artifact Voting -->
+	{% block voting %}
+		{{ ck12_artifact_myreview_feedback( ) }}
+	{% endblock %}
+<!-- /Artifact Voting -->
+</div>
+{% endblock %}
+<!-- /Bottom Artifact Review Feedback -->
+
+
+
+{% block comments %}
+{% endblock %}
+
+<div class="backtotop clear">{{ _('Back to the <a href="#" title="Back to top of the page">top of the page &#8593;') }}</a></div>
+<div class="divider"></div>
+
+{{ ck12_download_pdf_modal() }}
+
+{% endblock %}
+{% block pageinfobottom %}
+{% endblock %}
+
+{% block hidden_divs %}
+{{ super() }}
+{% include "jstemplates/share_groups.html" %}
+<div id="js_publish_artifact_dialog" data-url="{{ h.url('dlg-publish-artifact',qualified=True) }}"
+	data-dialogtitle="{{ _("Submit a Publish Request") }}">
+</div>
+{{ ck12_artifact_resource_row_template() }}
+<div id="js_imgdialog">
+	<div id="js_imgdialogheader">
+		<div id="js_imgdialogtitle">{{ _("Image Detail") }}</div>
+		<div id="js_imgdialogclose"><a title="close" alt="close" href="#" id="">X<!--<img src="{{ h.asset_image('images/icon_close.png') }}" />--></a></div>
+		<div class="clear"></div>
+	</div>
+	<div id="js_imgdialognav">
+		<div class="actions">
+			{{ _("Sizes:") }}
+			<a id="js_imgdialogfitsize" href="#">{{ _("Medium") }}</a> |
+			<a id="js_imgdialogfullsize" href="#">{{ _("Original") }}</a>
+		</div>
+		<div class="msg">
+			<!-- If image is already at original size -->
+			&nbsp;
+		</div>
+	</div>
+	<div id="js_imgdialogcontent"></div>
+</div>
+<div id="concept_encoding">{% if artifact.encodedID %}{{ artifact.encodedID }}{% endif %}</div>
+{{ ck12_artifact_edit_resource() }}
+<script type="text/javascript">
+	window.artifact_json_encoded = {{ c.artifact_json|ck12_json }};
+{% if c.context %}
+	window.context_json_encoded = {{ c.context_json|ck12_json }};
+{% endif %}
+window.artifact_breadcrumbs = {{ c.breadcrumbs|ck12_json }};
+</script>
+
+<!-- Standards Correlation Dialog -->
+<div id="js_view_standards_dialog" data-dialogtitle="{{ _("Standards Correlations") }}" data-dialognocache="true"></div>
+
+<!--
+	Templates for reviews
+-->
+<div id="temp_artifact_xhtml_content"></div>
+{% include "jstemplates/reviews.html" %}
+
+{% endblock %}

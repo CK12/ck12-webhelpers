@@ -1,0 +1,55 @@
+@import '../main';
+
+:local {
+
+    .menu {
+        background-color: $EARTH;
+        position: relative;
+        z-index: $z-index-pageSubMenu;
+
+        .menuRow {
+            position: relative;
+            padding: ($global-padding * 2) 0;
+            transition: padding $menu-transition;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+
+            li {
+                text-transform: uppercase;
+                font-weight: bold;
+                display: inline-block;
+
+                a { color: $TAUPE; }
+
+                &.active {
+                    a { color: $TIFFANY_BLUE; }
+                }
+            }
+        }
+    }
+
+    // Menu animations on scroll
+    @media screen and #{breakpoint(medium)} {
+        :global(#{$menu-fixed}) {
+            .menu {
+                z-index: $z-index-pageSubMenu;
+                top: $menu-control-center-height + $menu-control-center-top;
+                width: 100%;
+                position: fixed;
+
+                .menuRow {
+                    padding: rem-calc(7) 0;
+                }
+            }
+        }
+    }
+
+}
+
+
+
+
+

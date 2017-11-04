@@ -1,0 +1,251 @@
+{% extends "base/auth/1column.html" %}
+{% block title %} {{_('Student Sign Up') }} {% endblock %}
+
+{% block stylesheets %}
+{{ super() }}
+	<link rel="stylesheet" type="text/css" media="all" href="{{ config.url_media }}/auth/css/authNew.css" />
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+<script src="{{ config.url_media }}/auth/js/flx.social.signin.js"></script>
+<script>
+    //TODO: temporary improvement. Should use a common code accross the site.
+    window.returnTo = '{{c.returnTo}}';
+    window.requestor = '{{c.requestor}}';
+    require(['main'], function(){
+       require(['auth/flx.signup']);
+    });
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="row collapse signup-join-wrapper js-signup-join-wrapper">
+	<div class="row collapse show-small signup-header-small">
+		<div class="left text-center sign-up-text-small">Sign Up</div>
+		<div class="right pointer sign-up-close js-sign-up-close">
+			<i class="close-icon"></i>
+		</div>
+	</div>
+	<div class="row collapse social-login-wrapper js-social-login-wrapper">
+		<div class="large-6 columns large-offset-3">
+			<div class="row text-center collapse">
+				<span class="member-image">
+					<img src="/media/auth/images/student-signup.png">
+				</span>
+				<span class="role-header">Student Sign Up</span>
+				<div class="prompt-message">
+					<span>Are you a teacher?</span>
+					<a href="{{ '/auth/signup/teacher' if not c.returnTo else '/auth/signup/teacher?returnTo=' + h.sub('dashboard(-new)?', 'dashboard-new', h.urlQuote(c.returnTo)) }}" rel="nofollow">Sign up here</a>
+				</div>
+			</div>
+			<div class="row collapse signin-button-wrapper">
+				<div class="small-10 medium-11 large-8 column large-centered small-centered social-login-container">
+					<div class="row collapse signin-button-container">
+						<a id="js_ck12googlesignin" class="button dark-tangerine large text-left signin-button text-center google-button" onclick="signin_click('google', '{{ h.url(controller='google', action='authenticated', qualified=True) }}', 'student');" alt="{{ _('Sign up with Google') }}" title="{{ _('Sign up with Google') }}">
+							<i class="icon-google"></i>
+							<span>Sign up with Google</span>
+						</a>
+						<a id="js_ck12fbsignin" class="button midnight-blue large text-left signin-button text-center facebook-button" onclick="signin_click('facebook', '{{ h.url(controller='facebook', action='authenticated', qualified=True) }}', 'student');" alt="{{ _('Sign up with Facebook') }}" title="{{ _('Sign up with Facebook') }}">
+							<i class="icon-facebook"></i>
+							<span>Sign up with Facebook</span>
+						</a>
+						<a id="js_ck12twittersignin" class="button sky-blue large text-left left signin-button-hide hide twitter-button" onclick="signin_click('twitter', '{{ h.url(controller='twitter', action='authenticated', qualified=True) }}', 'student');" alt="{{ _('Sign up with Twitter') }}" title="{{ _('Sign up with Twitter') }}">
+							<i class="icon-twitter"></i>
+							<span>Twitter</span>
+						</a>
+						<a id="js_ck12microsoftsignin" class="button royal-blue large text-left right signin-button-hide hide microsoft-button" onclick="signin_click('azure', '{{ h.url(controller='azure', action='authenticated', qualified=True) }}', 'student');" alt="{{ _('Sign up with Microsoft') }}" title="{{ _('Sign up with Microsoft') }}">
+							<i class="icon-microsoftlive"></i>
+							<span>Microsoft</span>
+						</a>
+					</div>
+					<div id="show-more-buttons" class="row collapse text-center pointer show-more-buttons">Show More</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row collapse signup-mail-container">
+		<div class="text-center signup-separator">or</div>
+		<div class="row collapse text-center signup-mail-button-container">
+			<div class="large-6 columns large-offset-3">
+				<div class="row collapse">
+					<div class="small-12 medium-12 large-8 column large-centered small-centered">
+						<a class="button turquoise large signup-email-button js-signup-email-button">
+							<span class="icon-email"></span>
+							<span>Sign up using email</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<form id="signup_student_form" class="signup-form-wrapper js-signup-form-wrapper signup-student-form hide" method="POST" action="{{ h.url('signup_complete') }}?returnTo={{ h.urlQuote(c.returnTo) }}&role={{ c.role }}{% if c.requestor %}&requestor={{ h.urlQuote(c.requestor) }}{% endif %}">
+			<div class="row collapse show-small signup-header-small">
+				<div class="left text-center sign-up-text-small">Sign Up</div>
+				<div class="right pointer sign-up-close js-sign-up-close">
+					<i class="close-icon"></i>
+				</div>
+			</div>
+			<div class="row collapse">
+				<div class="row collapse">
+					<div class="large-6 columns large-offset-3">
+						<div class="row collapse role-header text-center show-for-small">Student Sign Up</div>
+						<div class="signup-form-container row collapse">
+							<div class="large-2 columns input-labels-ie9">Full Name</div>
+							<div class="error" data-for="name">&nbsp;</div>
+							<input type="text" placeholder="Full Name" value="{{c.form['name']}}" name="name" class="forminput name" id="name" maxlength="63">
+							<div class="birthdate-wrapper">
+								<span class="birthday-text">Birthday</span>
+								<div class="error right" data-for="birthday">&nbsp;</div>
+								<input type="text" id="birthday" class="forminput birthday-field birthday" name="birthday" value="{{c.form['birthday']}}" placeholder="mm/dd/yyyy" />
+								<div class="hide-for-small birthdate-dropdown-container">
+									<div data-dropdown="monthDropDown" class="button small split simple birthdate-dropdown month">Month<span></span></div>
+									<div data-dropdown="dayDropDown" class="button small split simple birthdate-dropdown day">Day<span></span></div>
+									<div data-dropdown="yearDropDown" class="button small split simple birthdate-dropdown year">Year<span></span></div>
+									<ul id="monthDropDown" class="f-dropdown date-drop-down tangerine-list simple text-left monthDropDown" data-param="month">
+										<li class="month-list date-list" data-date="1">Jan</li>
+										<li class="month-list date-list" data-date="2">Feb</li>
+										<li class="month-list date-list" data-date="3">Mar</li>
+										<li class="month-list date-list" data-date="4">Apr</li>
+										<li class="month-list date-list" data-date="5">May</li>
+										<li class="month-list date-list" data-date="6">Jun</li>
+										<li class="month-list date-list" data-date="7">Jul</li>
+										<li class="month-list date-list" data-date="8">Aug</li>
+										<li class="month-list date-list" data-date="9">Sep</li>
+										<li class="month-list date-list" data-date="10">Oct</li>
+										<li class="month-list date-list" data-date="11">Nov</li>
+										<li class="month-list date-list" data-date="12">Dec</li>
+									</ul>
+									<ul id="dayDropDown" class="f-dropdown date-drop-down tangerine-list simple text-left dayDropDown" data-param="day"></ul>
+									<ul id="yearDropDown" class="f-dropdown date-drop-down tangerine-list simple text-left yearDropDown" data-param="year"></ul>
+								</div>
+							</div>
+							<div class="row collapse email-password-wrapper">
+								<div class="large-2 columns input-labels-ie9">Email</div>
+								<div class="error email-error" data-for="email">&nbsp;</div>
+								<input type="email" placeholder="Email" value="{{c.form['email']}}" maxlength="128" name="email" class="forminput email" id="email"
+												data-required="{{ c.messages.ACCOUNT_EMAIL_EMPTY }}"
+												data-maxlength="{{ c.messages.ACCOUNT_EMAIL_MAXLENGTH  }}"
+												data-simple_email="{{ c.messages.ACCOUNT_EMAIL_INVALID  }}"
+												data-remote="{{ c.messages.ACCOUNT_EMAIL_TAKEN }}"/>
+								<div class="large-2 columns input-labels-ie9">Password</div>
+								<div class="error" data-for="password">&nbsp;</div>
+								<input type="password" placeholder="Password" name="password" class="forminput password" id="password"
+												data-required="{{ c.messages.ACCOUNT_PASSWORD_EMPTY }}"
+												data-minlength="{{ c.messages.ACCOUNT_PASSWORD_MINLENGTH }}"
+												data-ck12_password="{{ c.messages.ACCOUNT_PASSWORD_INVALID }}"/>
+								<span class="pointer select-option password-check-wrapper" id="password_display_toggle">
+									<span class="custom-check-box" id="password_check"></span>
+									<span class="lbl_show_password">Show password</span>
+								</span>
+							</div>
+							<div class="form-submit-wrap row collapse">
+								<input type="hidden" name="firstName" id="firstName" value="{{ c.firstName }}" />
+								<input type="hidden" name="lastName" id="lastName" value="{{ c.lastName }}" />
+								<input type="hidden" name="returnTo" id="returnTo" value="{{ h.urlQuote(c.returnTo) }}" />
+								<input type="hidden" name="role" id="role" value="{{ c.role }}" />
+								<input type="hidden" name="fromSignupForm" id="fromSignupFrom" value="true" />
+								<div class="text-center submit-btn-wrap">
+									<input type="submit" value="Sign up" id="signup_form_submit" class="signup-submit disabled button grey" >
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+		<form id="signup_underage_form" class="signup-form-wrapper js-signup-form-wrapper signup-student-form hide" method="POST" action="{{ h.url('signup_complete') }}?returnTo={{ h.urlQuote(c.returnTo) }}&role={{ c.role }}{% if c.requestor %}&requestor={{ h.urlQuote(c.requestor) }}{% endif %}">
+			<div class="row collapse show-small signup-header-small">
+				<div class="left text-center sign-up-text-small">Sign Up</div>
+				<div class="right pointer sign-up-close js-sign-up-close">
+					<i class="close-icon"></i>
+				</div>
+			</div>
+			<div class="row collapse">
+				<div class="row collapse">
+					<div class="large-6 columns large-offset-3">
+						<div class="row collapse role-header text-center show-for-small">Student Sign Up</div>
+						<div class="signup-form-container row collapse">
+							<div class="error" data-for="nameUnderage">&nbsp;</div>
+							<input type="text" placeholder="Full Name" value="{{c.form['name']}}" name="nameUnderage" class="forminput name" id="nameUnderage">
+							<div class="birthdate-wrapper">
+								<span class="birthday-text">Birthday</span>
+								<div class="error right" data-for="birthday">&nbsp;</div>
+								<input type="text" id="birthday" class="forminput birthday-field birthday" name="birthday" value="{{c.form['birthday']}}" placeholder="mm/dd/yyyy" />
+								<div class="hide-for-small birthdate-dropdown-container">
+									<div data-dropdown="monthDropDownUnderage" class="button small split simple birthdate-dropdown month">Month<span></span></div>
+									<div data-dropdown="dayDropDownUnderage" class="button small split simple birthdate-dropdown day">Day<span></span></div>
+									<div data-dropdown="yearDropDownUnderage" class="button small split simple birthdate-dropdown year">Year<span></span></div>
+									<ul id="monthDropDownUnderage" class="f-dropdown date-drop-down tangerine-list simple text-left monthDropDown" data-param="month">
+										<li class="month-list date-list" data-date="1">Jan</li>
+										<li class="month-list date-list" data-date="2">Feb</li>
+										<li class="month-list date-list" data-date="3">Mar</li>
+										<li class="month-list date-list" data-date="4">Apr</li>
+										<li class="month-list date-list" data-date="5">May</li>
+										<li class="month-list date-list" data-date="6">Jun</li>
+										<li class="month-list date-list" data-date="7">Jul</li>
+										<li class="month-list date-list" data-date="8">Aug</li>
+										<li class="month-list date-list" data-date="9">Sep</li>
+										<li class="month-list date-list" data-date="10">Oct</li>
+										<li class="month-list date-list" data-date="11">Nov</li>
+										<li class="month-list date-list" data-date="12">Dec</li>
+									</ul>
+									<ul id="dayDropDownUnderage" class="f-dropdown date-drop-down tangerine-list simple text-left dayDropDown" data-param="day">
+										
+									</ul>
+									<ul id="yearDropDownUnderage" class="f-dropdown date-drop-down tangerine-list simple text-left yearDropDown" data-param="year">
+										
+									</ul>
+								</div>
+							</div>
+							<div class="row collapse under-age-field-wrapper">
+								<div class="row collapse under-age-instructions">Almost there! Your teacher or parent will finish setting up an account for you. Enter their email address below.</div>
+								<div class="row collapse">
+									<div class="error email-error" data-for="parentEmail">&nbsp;</div>
+									<input type="email" name="parentEmail" maxlength="128" placeholder="Your Parent or Teacher's Email" value="{{c.form['email']}}" class="forminput email" id="parentEmail"
+													data-required="{{ c.messages.ACCOUNT_EMAIL_EMPTY }}"
+													data-maxlength="{{ c.messages.ACCOUNT_EMAIL_MAXLENGTH  }}"
+													data-simple_email="{{ c.messages.ACCOUNT_EMAIL_INVALID  }}"
+													data-remote="{{ c.messages.ACCOUNT_EMAIL_TAKEN }}"/>
+								</div>
+							</div>
+							<div class="form-submit-wrap row collapse">
+								<input type="hidden" name="firstName" id="firstName" value="{{ c.firstName }}" />
+								<input type="hidden" name="lastName" id="lastName" value="{{ c.firstName }}" />
+								<input type="hidden" name="returnTo" value="{{ h.urlQuote(c.returnTo) }}" />
+								<input type="hidden" name="role" value="{{ c.role }}" />
+								<input type="hidden" name="fromSignupForm" value="true" />
+								<div class="text-center submit-btn-wrap">
+									<input type="submit" value="Sign up" id="underage_form_submit" class="signup-submit disabled button grey" >
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="row collapse text-center account-exist">
+		<span>Already have an account?<a class="js-sign-in">Sign in</a></span>
+	</div>
+        <div class="signup-terms-content student-signup-terms row collapse text-center">
+        <span>By signing up, I confirm that I have read and agree to the</span>
+        <a href="https://www.ck12info.org/about/terms-of-use/" target="_blank">Terms of use</a> and
+        <a href="https://www.ck12info.org/about/technology-2/privacy-policy/" target="_blank">Privacy Policy</a>.
+    </div>
+</div>
+<div id="underageThanksModal" data-options="closeOnBackgroundClick: false;" class="reveal-modal app-reveal-modal underageThanks">
+	<div class=" right-container text-center row collapse">
+		<h2 class="thanks-heading hide-small">Thanks for being patient</h2>
+		<div class="row collapse teacher-student-image"><img src="{{ config.url_media }}/auth/images/underage-thanks.png"/></div>
+		<div class="row collapse thanks-text"><span class="signup-thanks-text">Thanks for signing up!</span><span> We've sent instructions to your teacher, parent or guardian to activate your account.</span></div>
+		<div class="row collapse">We can't wait for you to join us!</div>
+		<div class="row back-homepage collapse"><a class="button tangerine standard " href="{{ config.webroot_url}}">Back to Homepage</a></div>
+	</div>
+</div>	
+<div id ="underageThanks-mob" class="hide-important">
+	<div class="row collapse teacher-student-image"><img src="{{ config.url_media }}/auth/images/underage-thanks.png"/></div>
+	<div class="row collapse thanks-text"><span class="signup-thanks-text">Thanks for signing up!</span><span class="instructions-thanks"> We've sent instructions to your teacher, parent or guardian to activate your account.</span></div>
+	<div class="row collapse">We can't wait for you to join us!</div>
+	<div class="row back-homepage collapse"><a class="button tangerine standard " href="{{ config.webroot_url}}">Back to Homepage</a></div>
+</div>
+{% endblock %}

@@ -1,0 +1,489 @@
+2013-06-23 20:23:40.231+0000: WARNING! You are using an unsupported Java runtime. Please use Oracle(R) Java(TM) Runtime Environment 6.
+2013-06-23 20:23:40.333+0000: /opt/neo4j-backup/neostore.relationshiptypestore.db.names non clean shutdown detected
+2013-06-23 20:23:40.357+0000: [/opt/neo4j-backup/neostore.relationshiptypestore.db.names] brickCount=0 brickSize=0b mappedMem=0b (storeSize=228b)
+2013-06-23 20:23:40.360+0000: /opt/neo4j-backup/neostore.relationshiptypestore.db non clean shutdown detected
+2013-06-23 20:23:40.361+0000: [/opt/neo4j-backup/neostore.relationshiptypestore.db] brickCount=0 brickSize=0b mappedMem=0b (storeSize=25b)
+2013-06-23 20:23:40.361+0000: /opt/neo4j-backup/neostore.propertystore.db.strings non clean shutdown detected
+2013-06-23 20:23:40.361+0000: [/opt/neo4j-backup/neostore.propertystore.db.strings] brickCount=2 brickSize=553600b mappedMem=553648128b (storeSize=1107200b)
+2013-06-23 20:23:40.362+0000: /opt/neo4j-backup/neostore.propertystore.db.index.keys non clean shutdown detected
+2013-06-23 20:23:40.362+0000: [/opt/neo4j-backup/neostore.propertystore.db.index.keys] brickCount=1 brickSize=1026b mappedMem=1048576b (storeSize=1026b)
+2013-06-23 20:23:40.363+0000: /opt/neo4j-backup/neostore.propertystore.db.index non clean shutdown detected
+2013-06-23 20:23:40.363+0000: [/opt/neo4j-backup/neostore.propertystore.db.index] brickCount=10 brickSize=1044b mappedMem=1048576b (storeSize=10485b)
+2013-06-23 20:23:40.365+0000: /opt/neo4j-backup/neostore.propertystore.db.arrays non clean shutdown detected
+2013-06-23 20:23:40.365+0000: [/opt/neo4j-backup/neostore.propertystore.db.arrays] brickCount=1 brickSize=628096b mappedMem=628097024b (storeSize=628096b)
+2013-06-23 20:23:40.372+0000: /opt/neo4j-backup/neostore.propertystore.db non clean shutdown detected
+2013-06-23 20:23:40.373+0000: [/opt/neo4j-backup/neostore.propertystore.db] brickCount=10 brickSize=651162b mappedMem=651165696b (storeSize=6511620b)
+2013-06-23 20:23:40.375+0000: /opt/neo4j-backup/neostore.relationshipstore.db non clean shutdown detected
+2013-06-23 20:23:40.375+0000: [/opt/neo4j-backup/neostore.relationshipstore.db] brickCount=10 brickSize=797940b mappedMem=797966336b (storeSize=7979631b)
+2013-06-23 20:23:40.376+0000: /opt/neo4j-backup/neostore.nodestore.db non clean shutdown detected
+2013-06-23 20:23:40.376+0000: [/opt/neo4j-backup/neostore.nodestore.db] brickCount=1 brickSize=180351b mappedMem=180355072b (storeSize=180351b)
+2013-06-23 20:23:40.379+0000: /opt/neo4j-backup/neostore non clean shutdown detected
+2013-06-23 20:23:40.379+0000: [/opt/neo4j-backup/neostore] brickCount=0 brickSize=0b mappedMem=0b (storeSize=54b)
+2013-06-23 20:23:40.412+0000: Opened logical log [/opt/neo4j-backup/nioneo_logical.log.1] version=1, lastTxId=18863 (clean)
+2013-06-23 20:23:40.438+0000: /opt/neo4j-backup/neostore.relationshiptypestore.db.names rebuild id generator, highId=6 defragged count=0
+2013-06-23 20:23:40.454+0000: /opt/neo4j-backup/neostore.propertystore.db.index.keys rebuild id generator, highId=18 defragged count=0
+2013-06-23 20:23:40.497+0000: /opt/neo4j-backup/neostore.propertystore.db.index rebuild id generator, highId=17 defragged count=0
+2013-06-23 20:23:40.580+0000: /opt/neo4j-backup/neostore.propertystore.db.strings rebuild id generator, highId=5092 defragged count=0
+2013-06-23 20:23:40.639+0000: /opt/neo4j-backup/neostore.propertystore.db.arrays rebuild id generator, highId=1023 defragged count=0
+2013-06-23 20:23:41.313+0000: /opt/neo4j-backup/neostore.propertystore.db rebuild id generator, highId=21407 defragged count=0
+2013-06-23 20:23:42.077+0000: /opt/neo4j-backup/neostore.relationshipstore.db rebuild id generator, highId=11209 defragged count=0
+2013-06-23 20:23:42.119+0000: /opt/neo4j-backup/neostore.nodestore.db rebuild id generator, highId=7596 defragged count=0
+2013-06-23 20:23:42.129+0000: /opt/neo4j-backup/neostore rebuild id generator, highId=6 defragged count=0
+2013-06-23 20:23:42.137+0000: TM new log: tm_tx_log.1
+2013-06-23 20:23:42.165+0000: Opened logical log [/opt/neo4j-backup/index/lucene.log.1] version=1, lastTxId=40077 (clean)
+2013-06-23 20:23:42.185+0000: --- STARTUP diagnostics START ---
+2013-06-23 20:23:42.186+0000: Neo4j Kernel properties:
+    forced_kernel_id=
+    read_only=false
+    neo4j.ext.udc.host=udc.neo4j.org
+    logical_log=nioneo_logical.log
+    node_auto_indexing=false
+    intercept_committing_transactions=false
+    remote_shell_name=shell
+    relationship_cache_size=447873024
+    cache_type=soft
+    intercept_deserialized_transactions=false
+    lucene_searcher_cache_size=2147483647
+    neo4j.ext.udc.interval=86400000
+    use_memory_mapped_buffers=true
+    rebuild_idgenerators_fast=true
+    neostore.propertystore.db.index.keys.mapped_memory=1M
+    neostore.propertystore.db.arrays.mapped_memory=599M
+    neostore.propertystore.db.strings.mapped_memory=528M
+    log_mapped_memory_stats_filename=mapped_memory_stats.log
+    log_mapped_memory_stats_interval=1000000
+    gcr_cache_min_log_interval=60s
+    relationship_grab_size=100
+    relationship_auto_indexing=false
+    remote_shell_read_only=false
+    node_cache_array_fraction=1.0
+    allow_store_upgrade=false
+    execution_guard_enabled=false
+    relationship_cache_array_fraction=1.0
+    remote_logging_host=127.0.0.1
+    store_dir=/opt/neo4j-backup/
+    online_backup_enabled=false
+    remote_logging_port=4560
+    gc_monitor_threshold=200ms
+    array_block_size=120
+    load_kernel_extensions=true
+    neostore.relationshipstore.db.mapped_memory=761M
+    keep_logical_logs=true
+    dump_configuration=false
+    gc_monitor_wait_time=100ms
+    neostore.nodestore.db.mapped_memory=172M
+    neo4j.ext.udc.first_delay=600000
+    remote_shell_enabled=false
+    neo4j.ext.udc.reg=unreg
+    remote_shell_port=1337
+    log_mapped_memory_stats=false
+    neo_store=neostore
+    mapped_memory_page_size=1M
+    query_cache_size=100
+    logging.threshold_for_rotation=104857600
+    neostore.propertystore.db.index.mapped_memory=1M
+    backup_slave=false
+    neostore.propertystore.db.mapped_memory=621M
+    string_block_size=120
+    grab_file_lock=true
+    remote_logging_enabled=false
+    node_cache_size=447873024
+    neo4j.ext.udc.enabled=true
+    all_stores_total_mapped_memory_size=500M
+    online_backup_port=6362
+2013-06-23 20:23:42.190+0000: Diagnostics providers:
+    org.neo4j.kernel.configuration.Config
+    org.neo4j.kernel.info.DiagnosticsManager
+    SYSTEM_MEMORY
+    JAVA_MEMORY
+    OPERATING_SYSTEM
+    JAVA_VIRTUAL_MACHINE
+    CLASSPATH
+    LIBRARY_PATH
+    SYSTEM_PROPERTIES
+    LINUX_SCHEDULERS
+    NETWORK
+2013-06-23 20:23:42.191+0000: System memory information:
+    Total Physical memory: 7.50 GB
+    Free Physical memory: 44.62 MB
+    Committed virtual memory: 2.24 GB
+    Total swap space: 0.00 B
+    Free swap space: 0.00 B
+2013-06-23 20:23:42.194+0000: JVM memory information:
+    Free  memory: 86.81 MB
+    Total memory: 115.06 MB
+    Max   memory: 1.67 GB
+    Garbage Collector: PS Scavenge: [PS Eden Space, PS Survivor Space]
+    Garbage Collector: PS MarkSweep: [PS Eden Space, PS Survivor Space, PS Old Gen, PS Perm Gen]
+    Memory Pool: Code Cache (Non-heap memory): committed=2.44 MB, used=731.00 kB, max=48.00 MB, threshold=0.00 B
+    Memory Pool: PS Eden Space (Heap memory): committed=30.00 MB, used=7.50 MB, max=630.63 MB, threshold=?
+    Memory Pool: PS Survivor Space (Heap memory): committed=5.00 MB, used=768.00 kB, max=5.00 MB, threshold=?
+    Memory Pool: PS Old Gen (Heap memory): committed=80.06 MB, used=20.00 MB, max=1.25 GB, threshold=0.00 B
+    Memory Pool: PS Perm Gen (Non-heap memory): committed=20.75 MB, used=10.31 MB, max=166.00 MB, threshold=0.00 B
+2013-06-23 20:23:42.199+0000: Operating system information:
+    Operating System: Linux; version: 2.6.32-308-ec2; arch: amd64; cpus: 2
+    Max number of file descriptors: 1024
+    Number of open file descriptors: 64
+    Process id: 2838@cube
+    Byte order: LITTLE_ENDIAN
+    Local timezone: America/Los_Angeles
+2013-06-23 20:23:42.200+0000: JVM information:
+    VM Name: OpenJDK 64-Bit Server VM
+    VM Vendor: Sun Microsystems Inc.
+    VM Version: 20.0-b12
+    JIT compiler: HotSpot 64-Bit Tiered Compilers
+    VM Arguments: [-Dapp.name=neo4j-backup, -Dapp.pid=2838, -Dapp.repo=/opt/neo4j/lib, -Dbasedir=/opt/neo4j, -Dlog4j.configuration=., -Dlog4j.configuratorClass=org.neo4j.kernel.ha.backup.BackupLoggerConfigurator]
+2013-06-23 20:23:42.201+0000: Java classpath:
+     [classpath + loader.0] file:/opt/neo4j/lib/neo4j-management-1.8.2.jar
+     [bootstrap] /usr/lib/jvm/java-6-openjdk/jre/lib/rhino.jar
+     [loader.1] file:/usr/lib/jvm/java-6-openjdk/jre/lib/ext/dnsns.jar
+     [classpath + loader.0] file:/opt/neo4j/lib/neo4j-graph-matching-1.8.2.jar
+     [loader.1] file:/usr/lib/jvm/java-6-openjdk/jre/lib/ext/localedata.jar
+     [loader.1] file:/usr/lib/jvm/java-6-openjdk/jre/lib/ext/sunpkcs11.jar
+     [classpath + loader.0] file:/opt/neo4j/lib/server-api-1.8.2.jar
+     [classpath + loader.0] file:/opt/neo4j/lib/neo4j-cypher-1.8.2.jar
+     [classpath + loader.0] file:/opt/neo4j/system/coordinator/lib/log4j-1.2.16.jar
+     [loader.1] file:/usr/lib/jvm/java-6-openjdk/jre/lib/ext/pulse-java.jar
+     [bootstrap] /usr/lib/jvm/java-6-openjdk/jre/lib/sunrsasign.jar
+     [classpath + loader.0] file:/opt/neo4j/lib/concurrentlinkedhashmap-lru-1.3.1.jar
+     [bootstrap] /usr/lib/jvm/java-6-openjdk/jre/lib/resources.jar
+     [bootstrap] /usr/lib/jvm/java-6-openjdk/jre/classes
+     [bootstrap] /usr/lib/jvm/java-6-openjdk/jre/lib/jsse.jar
+     [classpath + loader.0] file:/opt/neo4j/lib/scala-library-2.9.1-1.jar
+     [bootstrap] /usr/lib/jvm/java-6-openjdk/jre/lib/netx.jar
+     [loader.1] file:/usr/lib/jvm/java-6-openjdk/jre/lib/ext/sunjce_provider.jar
+     [classpath + loader.0] file:/opt/neo4j/lib/neo4j-jmx-1.8.2.jar
+     [bootstrap] /usr/lib/jvm/java-6-openjdk/jre/lib/modules/jdk.boot.jar
+     [bootstrap] /usr/lib/jvm/java-6-openjdk/jre/lib/plugin.jar
+     [classpath + loader.0] file:/opt/neo4j/
+     [classpath + loader.0] file:/opt/neo4j/lib/slf4j-api-1.6.2.jar
+     [classpath + loader.0] file:/opt/neo4j/lib/neo4j-graph-algo-1.8.2.jar
+     [classpath + loader.0] file:/opt/neo4j/lib/neo4j-consistency-check-1.8.2.jar
+     [classpath + loader.0] file:/opt/neo4j/lib/neo4j-lucene-index-1.8.2.jar
+     [classpath + loader.0] file:/opt/neo4j/lib/neo4j-udc-1.8.2.jar
+     [classpath + loader.0] file:/opt/neo4j/lib/neo4j-ha-1.8.2.jar
+     [classpath + loader.0] file:/opt/neo4j/lib/neo4j-kernel-1.8.2.jar
+     [classpath + loader.0] file:/opt/neo4j/lib/lucene-core-3.5.0.jar
+     [classpath + loader.0] file:/opt/neo4j/lib/neo4j-backup-1.8.2.jar
+     [bootstrap] /usr/lib/jvm/java-6-openjdk/jre/lib/rt.jar
+     [classpath + loader.0] file:/opt/neo4j/lib/org.apache.servicemix.bundles.jline-0.9.94_1.jar
+     [classpath + loader.0] file:/opt/neo4j/lib/org.apache.servicemix.bundles.netty-3.2.5.Final_1.jar
+     [classpath + loader.0] file:/opt/neo4j/lib/geronimo-jta_1.1_spec-1.1.1.jar
+     [bootstrap] /usr/lib/jvm/java-6-openjdk/jre/lib/jce.jar
+     [classpath + loader.0] file:/opt/neo4j/lib/zookeeper-3.3.2.jar
+     [classpath + loader.0] file:/opt/neo4j/lib/neo4j-com-1.8.2.jar
+     [classpath + loader.0] file:/opt/neo4j/lib/neo4j-shell-1.8.2.jar
+     [bootstrap] /usr/lib/jvm/java-6-openjdk/jre/lib/charsets.jar
+2013-06-23 20:23:42.204+0000: Library path:
+    /usr/lib/jvm/java-6-openjdk/jre/lib/amd64/server
+    /usr/lib/jvm/java-6-openjdk/jre/lib/amd64
+    /usr/lib/jvm/java-6-openjdk/lib/amd64
+    /usr/java/packages/lib/amd64
+    /usr/lib/jni
+    /lib
+    /usr/lib
+2013-06-23 20:23:42.204+0000: System.properties:
+    log4j.configuratorClass = org.neo4j.kernel.ha.backup.BackupLoggerConfigurator
+    sun.boot.library.path = /usr/lib/jvm/java-6-openjdk/jre/lib/amd64
+    path.separator = :
+    file.encoding.pkg = sun.io
+    sun.java.launcher = SUN_STANDARD
+    user.country = US
+    sun.os.patch.level = unknown
+    user.dir = /opt/neo4j
+    basedir = /opt/neo4j
+    log4j.configuration = .
+    app.name = neo4j-backup
+    sun.jnu.encoding = UTF-8
+    app.repo = /opt/neo4j/lib
+    sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+    user.home = /root
+    user.timezone = America/Los_Angeles
+    file.encoding = UTF-8
+    user.name = root
+    sun.java.command = org.neo4j.backup.BackupTool -full -from single://localhost -to /opt/neo4j-backup/
+    sun.arch.data.model = 64
+    user.language = en
+    file.separator = /
+    sun.io.unicode.encoding = UnicodeLittle
+    sun.cpu.endian = little
+    app.pid = 2838
+    sun.cpu.isalist = 
+2013-06-23 20:23:42.205+0000: Linux scheduler information:
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    none
+    noop anticipatory [deadline] cfq 
+    noop anticipatory [deadline] cfq 
+2013-06-23 20:23:42.209+0000: Network information:
+    Interface eth0:
+        address: fe80:0:0:0:1031:39ff:fe04:edd2%2
+        address: 10.240.242.32
+    Interface lo:
+        address: 0:0:0:0:0:0:0:1%1
+        address: 127.0.0.1
+2013-06-23 20:23:42.211+0000: --- STARTUP diagnostics END ---
+2013-06-23 20:23:42.214+0000: Recovery completed, all transactions have been resolved to a consistent state.
+2013-06-23 20:23:42.358+0000: Extension org.neo4j.kernel.KernelExtension[kernel jmx] loaded ok
+2013-06-23 20:23:42.362+0000: Extension org.neo4j.kernel.KernelExtension[kernel udc] loaded ok
+2013-06-23 20:23:42.363+0000: Extension org.neo4j.kernel.KernelExtension[shell] loaded ok
+2013-06-23 20:23:42.363+0000: Extension org.neo4j.kernel.KernelExtension[online backup] loaded ok
+2013-06-23 20:23:42.365+0000: --- STARTUP diagnostics for KernelDiagnostics:Versions START ---
+2013-06-23 20:23:42.365+0000: Graph Database: org.neo4j.kernel.EmbeddedGraphDatabase StoreId[time:1372010650389, id:-7826362068037440899, store version: 13561656364791302]
+2013-06-23 20:23:42.365+0000: Kernel version: Neo4j - Graph Database Kernel 1.8.2
+2013-06-23 20:23:42.365+0000: Neo4j component versions:
+2013-06-23 20:23:42.366+0000:   Neo4j - Graph Database Kernel 1.8.2
+2013-06-23 20:23:42.366+0000: --- STARTUP diagnostics for KernelDiagnostics:Versions END ---
+2013-06-23 20:23:42.368+0000: --- STARTUP diagnostics for NEO_STORE_VERSIONS START ---
+2013-06-23 20:23:42.369+0000: Store versions:
+    Store versions:
+      NeoStore v0.A.0
+      NodeStore v0.A.0
+      RelationshipStore v0.A.0
+      RelationshipTypeStore v0.A.0
+      PropertyStore v0.A.0
+      PropertyIndexStore v0.A.0
+      StringPropertyStore v0.A.0
+      ArrayPropertyStore v0.A.0
+2013-06-23 20:23:42.369+0000: --- STARTUP diagnostics for NEO_STORE_VERSIONS END ---
+2013-06-23 20:23:42.369+0000: --- STARTUP diagnostics for NEO_STORE_ID_USAGE START ---
+2013-06-23 20:23:42.369+0000: Id usage:
+    Id usage:
+      NodeStore: used=7596 high=7595
+      RelationshipStore: used=11209 high=11208
+      RelationshipTypeStore: used=5 high=4
+      PropertyStore: used=21407 high=21406
+      PropertyIndexStore: used=17 high=16
+      StringPropertyStore: used=5092 high=5091
+      ArrayPropertyStore: used=1023 high=1022
+2013-06-23 20:23:42.370+0000: --- STARTUP diagnostics for NEO_STORE_ID_USAGE END ---
+2013-06-23 20:23:42.370+0000: --- STARTUP diagnostics for PERSISTENCE_WINDOW_POOL_STATS START ---
+2013-06-23 20:23:42.370+0000: --- STARTUP diagnostics for PERSISTENCE_WINDOW_POOL_STATS END ---
+2013-06-23 20:23:42.370+0000: --- STARTUP diagnostics for KernelDiagnostics:StoreFiles START ---
+2013-06-23 20:23:42.371+0000: Disk space on partition (Total / Free / Free %): 105689415680 / 88355172352 / 16
+Storage files: (filename : modification date - size)
+      neostore.propertystore.db: 2013-06-23T13:23:40-0700 - 6.21 MB
+      neostore.relationshiptypestore.db: 2013-06-23T13:23:40-0700 - 25.00 B
+      neostore.propertystore.db.strings: 2013-06-23T13:23:40-0700 - 1.06 MB
+      neostore.propertystore.db.arrays.id: 2013-06-23T13:23:40-0700 - 9.00 B
+      neostore.nodestore.db: 2013-06-23T13:23:40-0700 - 176.12 kB
+      messages.log: 2013-06-23T13:23:42-0700 - 14.79 kB
+      nioneo_logical.log.1: 2013-06-23T13:23:40-0700 - 16.00 B
+      neostore.propertystore.db.index.keys: 2013-06-23T13:23:40-0700 - 1.00 kB
+      active_tx_log: 2013-06-23T13:23:42-0700 - 11.00 B
+      neostore.propertystore.db.index.id: 2013-06-23T13:23:40-0700 - 9.00 B
+      neostore.relationshiptypestore.db.names: 2013-06-23T13:23:40-0700 - 228.00 B
+      neostore.propertystore.db.arrays: 2013-06-23T13:23:40-0700 - 613.38 kB
+      lock: 2013-06-23T13:23:40-0700 - 0.00 B
+      neostore.propertystore.db.index.keys.id: 2013-06-23T13:23:40-0700 - 9.00 B
+      neostore.relationshiptypestore.db.id: 2013-06-23T13:23:40-0700 - 9.00 B
+      index:
+        lucene.log.active: 2013-06-23T13:23:42-0700 - 4.00 B
+        lucene:
+          node:
+            nodeinstance:
+              _2.frq: 2013-06-23T13:23:39-0700 - 4.00 B
+              _5.tii: 2013-06-23T13:23:39-0700 - 35.00 B
+              _5.prx: 2013-06-23T13:23:39-0700 - 4.00 B
+              _5.tis: 2013-06-23T13:23:39-0700 - 93.00 B
+              _2.fnm: 2013-06-23T13:23:39-0700 - 38.00 B
+              _5.frq: 2013-06-23T13:23:39-0700 - 4.00 B
+              _2.nrm: 2013-06-23T13:23:39-0700 - 8.00 B
+              _5.fnm: 2013-06-23T13:23:39-0700 - 38.00 B
+              segments_1: 2013-06-23T13:23:39-0700 - 464.00 B
+              _5.fdx: 2013-06-23T13:23:39-0700 - 12.00 B
+              _5.nrm: 2013-06-23T13:23:39-0700 - 8.00 B
+              _2.fdt: 2013-06-23T13:23:39-0700 - 62.00 B
+              _2.fdx: 2013-06-23T13:23:39-0700 - 12.00 B
+              _2.tii: 2013-06-23T13:23:39-0700 - 35.00 B
+              _2.prx: 2013-06-23T13:23:39-0700 - 4.00 B
+              _2.tis: 2013-06-23T13:23:39-0700 - 93.00 B
+              _5.fdt: 2013-06-23T13:23:39-0700 - 62.00 B
+            - Total: 2013-06-23T13:23:39-0700 - 976.00 B
+            aet:
+              _1e.fdt: 2013-06-23T13:23:39-0700 - 106.00 B
+              _1m.fdt: 2013-06-23T13:23:39-0700 - 150.00 B
+              _1a.nrm: 2013-06-23T13:23:39-0700 - 114.00 B
+              _1m.tii: 2013-06-23T13:23:39-0700 - 35.00 B
+              _1a.prx: 2013-06-23T13:23:39-0700 - 102.00 B
+              _1e.tii: 2013-06-23T13:23:39-0700 - 35.00 B
+              _1a.fdt: 2013-06-23T13:23:39-0700 - 982.00 B
+              _1m.prx: 2013-06-23T13:23:39-0700 - 9.00 B
+              _1m.nrm: 2013-06-23T13:23:39-0700 - 15.00 B
+              _1e.prx: 2013-06-23T13:23:39-0700 - 11.00 B
+              _1a.tis: 2013-06-23T13:23:39-0700 - 529.00 B
+              _1m.tis: 2013-06-23T13:23:39-0700 - 138.00 B
+              _1e.fnm: 2013-06-23T13:23:39-0700 - 126.00 B
+              _1m.fnm: 2013-06-23T13:23:39-0700 - 126.00 B
+              _1e.nrm: 2013-06-23T13:23:39-0700 - 15.00 B
+              _1e.fdx: 2013-06-23T13:23:39-0700 - 12.00 B
+              _1m.frq: 2013-06-23T13:23:39-0700 - 9.00 B
+              segments_1: 2013-06-23T13:23:39-0700 - 721.00 B
+              _1a.fdx: 2013-06-23T13:23:39-0700 - 84.00 B
+              _1m.fdx: 2013-06-23T13:23:39-0700 - 12.00 B
+              _1e.tis: 2013-06-23T13:23:39-0700 - 126.00 B
+              _1a_1.del: 2013-06-23T13:23:39-0700 - 32.00 B
+              _1a.tii: 2013-06-23T13:23:39-0700 - 35.00 B
+              _1a.fnm: 2013-06-23T13:23:39-0700 - 126.00 B
+              _1e.frq: 2013-06-23T13:23:39-0700 - 11.00 B
+              _1a.frq: 2013-06-23T13:23:39-0700 - 102.00 B
+            - Total: 2013-06-23T13:23:39-0700 - 3.67 kB
+            subject:
+              _2.frq: 2013-06-23T13:23:39-0700 - 4.00 B
+              _b.prx: 2013-06-23T13:23:39-0700 - 4.00 B
+              _8.fnm: 2013-06-23T13:23:39-0700 - 39.00 B
+              _e.nrm: 2013-06-23T13:23:39-0700 - 8.00 B
+              _e.fnm: 2013-06-23T13:23:39-0700 - 39.00 B
+              _5.tii: 2013-06-23T13:23:39-0700 - 35.00 B
+              _5.prx: 2013-06-23T13:23:39-0700 - 4.00 B
+              _5.tis: 2013-06-23T13:23:39-0700 - 73.00 B
+              _8.nrm: 2013-06-23T13:23:39-0700 - 8.00 B
+              _2.fnm: 2013-06-23T13:23:39-0700 - 39.00 B
+              _5.frq: 2013-06-23T13:23:39-0700 - 4.00 B
+              _b.fdt: 2013-06-23T13:23:39-0700 - 41.00 B
+              _m.fdx: 2013-06-23T13:23:39-0700 - 12.00 B
+              _m.tis: 2013-06-23T13:23:39-0700 - 87.00 B
+              _2.nrm: 2013-06-23T13:23:39-0700 - 8.00 B
+              _8.fdt: 2013-06-23T13:23:39-0700 - 38.00 B
+              _b.tis: 2013-06-23T13:23:39-0700 - 72.00 B
+              _8.tii: 2013-06-23T13:23:39-0700 - 35.00 B
+              _m.nrm: 2013-06-23T13:23:39-0700 - 9.00 B
+              _m.fnm: 2013-06-23T13:23:39-0700 - 52.00 B
+              _m.prx: 2013-06-23T13:23:39-0700 - 5.00 B
+              _5.fnm: 2013-06-23T13:23:39-0700 - 39.00 B
+              _8.tis: 2013-06-23T13:23:39-0700 - 67.00 B
+              _e.prx: 2013-06-23T13:23:39-0700 - 4.00 B
+              _b.fdx: 2013-06-23T13:23:39-0700 - 12.00 B
+              _e.fdt: 2013-06-23T13:23:39-0700 - 45.00 B
+              _e.frq: 2013-06-23T13:23:39-0700 - 4.00 B
+              _m.frq: 2013-06-23T13:23:39-0700 - 5.00 B
+              _8.fdx: 2013-06-23T13:23:39-0700 - 12.00 B
+              _b.frq: 2013-06-23T13:23:39-0700 - 4.00 B
+              _b.tii: 2013-06-23T13:23:39-0700 - 35.00 B
+              _e.fdx: 2013-06-23T13:23:39-0700 - 12.00 B
+              segments_1: 2013-06-23T13:23:39-0700 - 1.30 kB
+              _5.fdx: 2013-06-23T13:23:39-0700 - 12.00 B
+              _b.fnm: 2013-06-23T13:23:39-0700 - 39.00 B
+              _8.prx: 2013-06-23T13:23:39-0700 - 4.00 B
+              _5.nrm: 2013-06-23T13:23:39-0700 - 8.00 B
+              _e.tii: 2013-06-23T13:23:39-0700 - 35.00 B
+              _b.nrm: 2013-06-23T13:23:39-0700 - 8.00 B
+              _2.fdt: 2013-06-23T13:23:39-0700 - 42.00 B
+              _e.tis: 2013-06-23T13:23:39-0700 - 74.00 B
+              _2.fdx: 2013-06-23T13:23:39-0700 - 12.00 B
+              _2.tii: 2013-06-23T13:23:39-0700 - 35.00 B
+              _2.prx: 2013-06-23T13:23:39-0700 - 4.00 B
+              _m.tii: 2013-06-23T13:23:39-0700 - 35.00 B
+              _8.frq: 2013-06-23T13:23:39-0700 - 4.00 B
+              _m.fdt: 2013-06-23T13:23:39-0700 - 57.00 B
+              _2.tis: 2013-06-23T13:23:39-0700 - 73.00 B
+              _5.fdt: 2013-06-23T13:23:39-0700 - 42.00 B
+            - Total: 2013-06-23T13:23:39-0700 - 2.60 kB
+            concept:
+              _fqa.prx: 2013-06-23T13:23:39-0700 - 23.13 kB
+              _fqa.fdx: 2013-06-23T13:23:39-0700 - 29.45 kB
+              _fqa.fdt: 2013-06-23T13:23:39-0700 - 412.83 kB
+              _fqa.tis: 2013-06-23T13:23:39-0700 - 235.61 kB
+              _fqj.cfs: 2013-06-23T13:23:39-0700 - 481.00 B
+              _fqa.tii: 2013-06-23T13:23:39-0700 - 3.23 kB
+              _fqa_1.del: 2013-06-23T13:23:39-0700 - 39.00 B
+              _fr2.cfs: 2013-06-23T13:23:39-0700 - 517.00 B
+              segments_1: 2013-06-23T13:23:39-0700 - 1.35 kB
+              _fqa.frq: 2013-06-23T13:23:39-0700 - 39.95 kB
+              _fqv.cfs: 2013-06-23T13:23:39-0700 - 513.00 B
+              _fqa.nrm: 2013-06-23T13:23:39-0700 - 25.77 kB
+              _fqa.fnm: 2013-06-23T13:23:39-0700 - 70.00 B
+              _fqo.cfs: 2013-06-23T13:23:39-0700 - 655.00 B
+              _fqe.cfs: 2013-06-23T13:23:39-0700 - 465.00 B
+            - Total: 2013-06-23T13:23:39-0700 - 773.99 kB
+            branch:
+              _1o.tii: 2013-06-23T13:23:39-0700 - 35.00 B
+              _1k.nrm: 2013-06-23T13:23:39-0700 - 9.00 B
+              _1h.fdx: 2013-06-23T13:23:39-0700 - 148.00 B
+              _1k.fnm: 2013-06-23T13:23:39-0700 - 52.00 B
+              _1h.prx: 2013-06-23T13:23:39-0700 - 70.00 B
+              _1o.tis: 2013-06-23T13:23:39-0700 - 84.00 B
+              _1k.frq: 2013-06-23T13:23:39-0700 - 5.00 B
+              _1o.prx: 2013-06-23T13:23:39-0700 - 5.00 B
+              _1h.nrm: 2013-06-23T13:23:39-0700 - 76.00 B
+              _1h.fdt: 2013-06-23T13:23:39-0700 - 639.00 B
+              _1k.tii: 2013-06-23T13:23:39-0700 - 35.00 B
+              _1o.fdx: 2013-06-23T13:23:39-0700 - 12.00 B
+              _1k.fdt: 2013-06-23T13:23:39-0700 - 54.00 B
+              _1h_1.del: 2013-06-23T13:23:39-0700 - 33.00 B
+              _1k.fdx: 2013-06-23T13:23:39-0700 - 12.00 B
+              _1h.fnm: 2013-06-23T13:23:39-0700 - 39.00 B
+              _1o.nrm: 2013-06-23T13:23:39-0700 - 9.00 B
+              segments_1: 2013-06-23T13:23:39-0700 - 721.00 B
+              _1o.fnm: 2013-06-23T13:23:39-0700 - 52.00 B
+              _1o.fdt: 2013-06-23T13:23:39-0700 - 54.00 B
+              _1k.tis: 2013-06-23T13:23:39-0700 - 84.00 B
+              _1h.frq: 2013-06-23T13:23:39-0700 - 73.00 B
+              _1k.prx: 2013-06-23T13:23:39-0700 - 5.00 B
+              _1h.tis: 2013-06-23T13:23:39-0700 - 596.00 B
+              _1o.frq: 2013-06-23T13:23:39-0700 - 5.00 B
+              _1h.tii: 2013-06-23T13:23:39-0700 - 35.00 B
+            - Total: 2013-06-23T13:23:39-0700 - 2.87 kB
+          - Total: 2013-06-23T13:23:39-0700 - 784.09 kB
+        - Total: 2013-06-23T13:23:39-0700 - 784.09 kB
+        lucene.log.1: 2013-06-23T13:23:42-0700 - 16.00 B
+        lucene-store.db: 2013-06-23T13:23:39-0700 - 40.00 B
+      - Total: 2013-06-23T13:23:42-0700 - 784.15 kB
+      neostore: 2013-06-23T13:23:40-0700 - 54.00 B
+      neostore.propertystore.db.strings.id: 2013-06-23T13:23:40-0700 - 9.00 B
+      index.db: 2013-06-23T13:23:40-0700 - 485.00 B
+      nioneo_logical.log.active: 2013-06-23T13:23:40-0700 - 4.00 B
+      tm_tx_log.1: 2013-06-23T13:23:42-0700 - 0.00 B
+      neostore.relationshipstore.db: 2013-06-23T13:23:40-0700 - 7.61 MB
+      neostore.relationshiptypestore.db.names.id: 2013-06-23T13:23:40-0700 - 9.00 B
+      neostore.nodestore.db.id: 2013-06-23T13:23:42-0700 - 9.00 B
+      store_lock: 2013-06-23T13:23:40-0700 - 0.00 B
+      neostore.propertystore.db.index: 2013-06-23T13:23:40-0700 - 10.24 kB
+      neostore.id: 2013-06-23T13:23:42-0700 - 9.00 B
+      neostore.relationshipstore.db.id: 2013-06-23T13:23:42-0700 - 9.00 B
+      neostore.propertystore.db.id: 2013-06-23T13:23:41-0700 - 9.00 B
+2013-06-23 20:23:42.448+0000: --- STARTUP diagnostics for KernelDiagnostics:StoreFiles END ---
+2013-06-23 20:23:42.449+0000: Started - database is now available
+2013-06-23 20:23:42.451+0000: GC Monitor started. 
+2013-06-23 20:23:42.471+0000: BackupClient communication started and bound to localhost:6362
+2013-06-23 20:23:42.477+0000: Opened a new channel to localhost/127.0.0.1:6362
+2013-06-23 20:23:42.505+0000: BackupClient[localhost/127.0.0.1:6362] shutdown
+2013-06-23 20:23:42.505+0000: Stopping - database is now unavailable
+2013-06-23 20:23:42.507+0000: TM shutting down
+2013-06-23 20:23:42.517+0000: Closed log /opt/neo4j-backup/index/lucene.log
+2013-06-23 20:23:42.578+0000: GC Monitor stopped. 
+2013-06-23 20:23:43.123+0000: Closed log /opt/neo4j-backup/nioneo_logical.log
+2013-06-23 20:23:43.124+0000: /opt/neo4j-backup/neostore.relationshiptypestore.db.names hit=0 miss=10 switches=0 ooe=0
+2013-06-23 20:23:43.127+0000: /opt/neo4j-backup/neostore.relationshiptypestore.db hit=0 miss=5 switches=0 ooe=0
+2013-06-23 20:23:43.131+0000: /opt/neo4j-backup/neostore.propertystore.db.strings hit=0 miss=0 switches=0 ooe=0
+2013-06-23 20:23:43.135+0000: /opt/neo4j-backup/neostore.propertystore.db.index.keys hit=0 miss=34 switches=0 ooe=0
+2013-06-23 20:23:43.139+0000: /opt/neo4j-backup/neostore.propertystore.db.index hit=0 miss=17 switches=0 ooe=0
+2013-06-23 20:23:43.143+0000: /opt/neo4j-backup/neostore.propertystore.db.arrays hit=0 miss=0 switches=0 ooe=0
+2013-06-23 20:23:43.147+0000: /opt/neo4j-backup/neostore.propertystore.db hit=0 miss=0 switches=0 ooe=0
+2013-06-23 20:23:43.153+0000: /opt/neo4j-backup/neostore.relationshipstore.db hit=0 miss=0 switches=0 ooe=0
+2013-06-23 20:23:43.159+0000: /opt/neo4j-backup/neostore.nodestore.db hit=0 miss=0 switches=0 ooe=0
+2013-06-23 20:23:43.181+0000: /opt/neo4j-backup/neostore hit=0 miss=17 switches=0 ooe=0
+2013-06-23 20:23:43.184+0000: NeoStore closed
+2013-06-23 20:23:43.184+0000: --- SHUTDOWN diagnostics START ---
+2013-06-23 20:23:43.185+0000: --- SHUTDOWN diagnostics END ---

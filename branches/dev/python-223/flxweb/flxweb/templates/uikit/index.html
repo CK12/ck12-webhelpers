@@ -1,0 +1,501 @@
+{% extends "common/master.html" %}
+
+{% block stylesheets %}
+{{ super() }}
+		<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_css('common/themes/%s/css/ui-kit.css' % c.theme ) }}" />
+{% endblock %}
+
+{% block content %}
+		<div class="header top-bar" id="header">
+			<div class="bg"></div>
+			<section class="top-bar-section">
+				<ul>
+					<li class="title left">UI KIT</li>
+					<li class="version left">V.02</li>
+					<li class="date right">5/31/13</li>
+			   </ul>
+		   </section>
+		</div>
+		<div class="mainContainer">
+			<div class="title">Button States and Colors</div>
+			<div class="row">
+				<div class="small-12 large-12 columns">
+					<div class="button-class">Primary</div>
+					<div class="button turquoise"><i class="icon-star"></i>turquoise</div>
+					<div class="button tangerine"><i class="icon-star"></i>tangerine</div>
+					<div class="button dusty-grey"><i class="icon-star"></i>dusty-grey</div>
+					<div class="button white"><i class="icon-star"></i>white</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="small-12 large-12 columns">
+					<div class="button-class">Disabled</div>
+					<div class="button disabled grey"><i class="icon-star"></i>.grey</div>
+				</div>
+			</div>
+			<div class="title">Button Sizes</div>
+			<div class="row">
+				<div class="small-3 columns">
+					<div class="button tangerine huge">Huge button</div>
+				</div>
+				<div class="small-3 columns">
+					<div class="button tangerine large">Large button</div>
+				</div>
+				<div class="small-3 columns">
+					<div class="button tangerine standard">Standard button</div>
+				</div>
+				<div class="small-3 columns">
+					<div class="button tangerine small">Small button</div>
+				</div>
+			</div>
+			<div class="title">Button Variants</div>
+			<div class="row">
+				<div class="small-3 columns">
+					<div class="button tangerine huge"><i class="icon-notification"></i>Huge button</div>
+				</div>
+				<div class="small-3 columns">
+					<div class="button tangerine huge">Huge button<i class="icon-arrow_down right-side"></i></div>
+				</div>
+				<div class="small-3 columns">
+					<div class="button tangerine huge">Huge button</div>
+				</div>
+				<div class="small-3 columns">
+					<div class="button tangerine huge">Huge button<span class="icon-arrow3_right right-side"></span></div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="small-3 columns">
+					<div class="button tangerine large"><i class="icon-notification"></i>Large button</div>
+				</div>
+				<div class="small-3 columns">
+					<div class="button tangerine large">Large button<i class="icon-arrow_down right-side"></i></div>
+				</div>
+				<div class="small-3 columns">
+					<div class="button tangerine large">Large button</div>
+				</div>
+				<div class="small-3 columns">
+					<div class="button tangerine large">Large button<span class="icon-arrow3_right right-side"></span></div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="small-3 columns">
+					<div class="button tangerine standard"><i class="icon-notification"></i>Standard button</div>
+				</div>
+				<div class="small-3 columns">
+					<div class="button tangerine standard">Standard button<i class="icon-arrow_down right-side"></i></div>
+				</div>
+				<div class="small-3 columns">
+					<div class="button tangerine standard">Standard button</div>
+				</div>
+				<div class="small-3 columns">
+					<div class="button tangerine standard">Standard button<span class="icon-arrow3_right right-side"></span></div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="small-3 columns">
+					<div class="button tangerine small"><i class="icon-notification"></i>Small button</div>
+				</div>
+				<div class="small-3 columns">
+					<div class="button tangerine small">Small button<i class="icon-arrow_down right-side"></i></div>
+				</div>
+				<div class="small-3 columns">
+					<div class="button tangerine small">Small button</div>
+				</div>
+				<div class="small-3 columns">
+					<div class="button tangerine small">Small button<span class="icon-arrow3_right right-side"></span></div>
+				</div>
+			</div>
+			<div class="title">Dropdowns</div>
+			<div class="row">
+				<div class="small-3 columns">
+					<div class="button small split simple"  data-dropdown="drop-simple">Sort by type<span></span></div>
+					<ul data-dropdown-content class="f-dropdown tangerine-list simple" id="drop-simple" >
+						<li><a href="#">Latest Activity</a></li>
+						<li><a href="#">Most Active</a></li>
+						<li><a href="#">Alphabetical</a></li>
+						<li><a href="#">Chronological</a></li>
+						<li><a href="#">Epistemological</a></li>
+					</ul>
+				</div>
+				<div class="small-3 columns">
+					<div class="button turquoise standard split custom"><div>Dropdown button</div><span data-dropdown="drop-custom"><i class="icon-settings_single"></i></span></div>
+					<ul data-dropdown-content class="f-dropdown tangerine-list custom" id="drop-custom" >
+						<li><a href="#">Latest Activity</a></li>
+						<li class="has-dropdown"><a href="#">Most Active</a>
+							<ul class="tangerine-list">
+								<li><a href="#">By number of posts</a></li>
+								<li><a href="#">By number of members</a></li>
+								<li><a href="#">By daily activity</a></li>
+							</ul>
+						</li>
+						<li><a href="#">Alphabetical</a></li>
+						<li><a href="#">Chronological</a></li>
+						<li><a href="#">Epistemological</a></li>
+					</ul>
+				</div>
+				<div class="small-3 columns">
+					<div class="button tangerine standard split nav" data-dropdown="drop-nav"><img src="images/nav.png"></img>Main Nav</div>
+					<ul data-dropdown-content class="f-dropdown tangerine tangerine-list nav" id="drop-nav" >
+						<li><a href="#"><i class="icon-settings"></i>Icon & Link</a></li>
+						<li><a href="#"><i class="icon-signout"></i>Icon & Link</a></li>
+					</ul>
+				</div>
+				<div class="small-3 columns">
+					<div class="button secondary purple standard">Standard button<span class="icon-arrow3_right right-side"></span></div>
+				</div>
+				
+			</div>
+			<div class="title">Inputs</div>
+			<div class="row">
+				<div class="small-3 columns">
+					<div class="input huge"><input type="text" placeholder="Rest"/></div>
+				</div>
+				<div class="small-3 columns">
+					<div class="input huge valid"><input type="text" value="Active"/><i class="icon-validated"></i></div>
+				</div>
+				<div class="small-3 columns">
+					<div class="input huge alert"><input type="text" value="Alert"/><i class="icon-notification"></i></div>
+				</div>
+				<div class="small-3 columns">
+					<div class="input huge"><input type="text" value="Disabled" disabled/></div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="small-3 columns">
+					<div class="input large"><input type="text" placeholder="Rest"/></div>
+				</div>
+				<div class="small-3 columns">
+					<div class="input large valid"><input type="text" value="Active"/><i class="icon-validated"></i></div>
+				</div>
+				<div class="small-3 columns">
+					<div class="input large alert"><input type="text" value="Alert"/><i class="icon-notification"></i></div>
+				</div>
+				<div class="small-3 columns">
+					<div class="input large"><input disabled value="Disabled" type="text"/></div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="small-3 columns">
+					<div class="input standard"><input type="text" placeholder="Rest"/></div>
+				</div>
+				<div class="small-3 columns">
+					<div class="input standard valid"><input type="text" value="Active"/><i class="icon-validated"></i></div>
+				</div>
+				<div class="small-3 columns">
+					<div class="input standard alert"><input type="text" value="Alert"/><i class="icon-notification"></i></div>
+				</div>
+				<div class="small-3 columns">
+					<div class="input standard"><input type="text" value="Disabled" disabled/></div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="small-3 columns">
+					<div class="input small"><input type="text" placeholder="Rest"/></div>
+				</div>
+				<div class="small-3 columns">
+					<div class="input small valid"><input type="text" value="Active"/><i class="icon-validated"></i></div>
+				</div>
+				<div class="small-3 columns">
+					<div class="input small alert"><input type="text" value="Alert"/><i class="icon-notification"></i></div>
+				</div>
+				<div class="small-3 columns">
+					<div class="input small"><input type="text" value="Disabled" disabled/></div>
+				</div>
+			</div>
+			
+			<div class="title">Input  Variants</div>
+			<div class="row">
+				<div class="small-3 columns">
+					<div class="input standard search"><input type="text" placeholder="Search input with button"/><i class="icon-search"></i></div>
+				</div>
+			</div>
+			<div class="title">Textarea	</div>
+			<div class="row">
+				<div class="small-5 columns">
+					<textarea class="tangerine-textarea" placeholder="Add Comment..."></textarea>
+				</div>
+			</div>
+			
+			<div class="title">Checkboxes and Radio buttons</div>
+			<div class="row">
+				<div class="small-3 columns">
+					<div class="custom-box">
+						<input type="checkbox" id="checkbox1">
+						<label for="checkbox1" class="checkbox"><span><i class="icon-validated"></i></span> Label for Checkbox</label>
+					</div>
+					<div class="custom-box">
+						<input type="checkbox" id="checkbox2" disabled>
+						<label for="checkbox2" class="checkbox"><span><i class="icon-validated"></i></span> Checkbox Disabled</label>
+					</div>
+					<div class="custom-box">
+						<input type="checkbox" id="checkbox3" checked disabled>
+						<label for="checkbox3" class="checkbox"><span><i class="icon-validated"></i></span> Checkbox Disabled</label>
+					</div>
+				</div>
+				<div class="small-3 columns">
+					
+					<div class="custom-box">
+						<input name="radio1" type="radio" id="radio1">
+						<label for="radio1" class="radio"><span></span> Radio Button 1</label>
+					</div>
+					<div class="custom-box">
+						<input name="radio1" type="radio" id="radio2">
+						<label for="radio2" class="radio"><span></span> Radio Button 2</label>
+					</div>
+					<div class="custom-box">
+						<input name="radio2" type="radio" id="radio3" disabled>
+						<label for="radio3" class="radio"><span></span> Radio Button Disabled</label>
+					</div>
+					<div class="custom-box">
+						<input name="radio2" type="radio" id="radio4" checked disabled>
+						<label for="radio4" class="radio"><span></span> Radio Button Disabled</label>
+					</div>
+				</div>
+				<div class="small-6 columns">
+					<div class="small-4 columns">
+						<div class="onoffswitch tangerine">
+							<input type="checkbox" id="myonoffswitch1" class="onoffswitch-checkbox onoffswitch-checkbox-tangerine" name="onoffswitch" checked="checked">
+							<label for="myonoffswitch1" class="onoffswitch-label onoffswitch-label-tangerine">
+								<div class="onoffswitch-inner"></div>
+								<div class="onoffswitch-switch"></div>
+							</label>
+						</div>
+					</div>
+					<div class="small-4 columns">
+						<div class="onoffswitch dark-blue">
+							<input type="checkbox" id="myonoffswitch2" class="onoffswitch-checkbox onoffswitch-checkbox-dark-blue" name="onoffswitch1" checked="checked">
+							<label for="myonoffswitch2" class="onoffswitch-label onoffswitch-label-dark-blue">
+								<div class="onoffswitch-inner"></div>
+								<div class="onoffswitch-switch"></div>
+							</label>
+						</div>
+					</div>
+					<div class="small-4 columns">
+						<div class="onoffswitch cyan">
+							<input type="checkbox" id="myonoffswitch3" class="onoffswitch-checkbox" name="onoffswitch2" checked="checked">
+							<label for="myonoffswitch3" class="onoffswitch-label">
+								<div class="onoffswitch-inner"></div>
+								<div class="onoffswitch-switch"></div>
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="title small-2 columns">Iconic Lists</div>
+				<div class="title small-5 columns">Tooltips</div>
+				<div class="title small-5 columns">Modal</div>
+			</div>
+			<div class="row">
+				<div class="small-2 columns">
+					<div>
+						<div class="icon-groups_home icon-uikit">Timeline</div><br/>
+						<div class="icon-shared_res icon-uikit">Shared Resources</div><br/>
+						<div class="icon-members icon-uikit">Members<span>14</span></div><br/>
+						<div class="icon-settings_single icon-uikit">Settings</div>
+					</div>
+				</div>
+				<div class="small-5 columns">
+					<div class="row">
+						<div class="small-6 columns">
+							<div class="tooltip-bottom">Try this quiz next</div>
+						</div>
+						<div class="small-6 columns">
+							<div class="tooltip-left">Say what!</div>
+						</div>
+					</div>
+					<br/>
+					<div class="row">
+						<div class="small-6 columns">
+							<div class="tooltip-top_header"><div class="header">Tip Header</div><div class="content">In order to complete this task finish this quiz first & return to landing page</div></div>
+						</div>
+						<div class="small-6 columns">
+							<div class="tooltip-top">Here's a longer example showing padding and line height</div>
+						</div>
+					</div>
+				</div>
+				<div class="small-5 columns">
+					<div class="modal-uikit">
+						<div class="close">+</div>
+						<div class="header">Modal Header</div>
+						<div class="content">This modal is totally awesome! So fresh and so clean! Some more copy here to show padding and line height.</div>
+						<div class="button turquoise">Here's a button!</div>
+						<div class="button dusty-grey">I don't like buttons</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="small-8 columns title">Tabbing</div>
+				<div class="small-4 columns title">Pagination</div>
+			</div>
+			<div class="row">
+				<div class="small-8 columns">
+					<div class="section-container auto uikit" data-section>
+						<section>
+							<p class="title" data-section-title><a href="#panel1">Instructions</a></p>
+							<div class="content" data-section-content>
+								<p>Content of section 1.</p>
+							</div>
+						</section>
+						<section class="active">
+							<p class="title" data-section-title><a href="#panel2">Group Link</a></p>
+							<div class="content" data-section-content>
+								<p><b>Share this link with people who <span style="color:#B8D543;">already</span> have a CK-12 account.</b></p>
+								<input type="text" class="large" value="http://www.ck12.org/join/group"/>
+								<div class="button large turquoise">Copy Link</div>
+							</div>
+						</section>
+						<section>
+							<p class="title" data-section-title><a href="#panel3">Code</a></p>
+							<div class="content" data-section-content>
+								<p>Content of section 3.</p>
+							</div>
+						</section>
+					</div>
+				</div>
+				<div class="small-4 columns title">
+					<ul class="pagination uikit">
+						<li class="current"><a href="">1</a></li>
+						<li><a href="">2</a></li>
+						<li><a href="">3</a></li>
+						<li><a href="">4</a></li>
+						<li class="unavailable"><a href="">&hellip; <span class="pointer" data-dropdown="drop-pagination"></span></a></li>
+						<li><a href="">8</a></li>
+						<li class="arrow unavailable"><a href=""><i class="icon-arrow3_left"></i></a></li>
+						<li class="arrow"><a href=""><i class="icon-arrow3_right"></i></a></li>
+					</ul>
+					<ul data-dropdown-content class="f-dropdown tangerine-list pagination-list" id="drop-pagination" >
+						<li><a href="#">Page 5</a></li>
+						<li><a href="#">Page 6</a></li>
+						<li><a href="#">Page 7</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="title">Alerts</div>
+			<div class="row">
+				<div class="small-5 columns">
+					<div class="group-code">Group Code: <span class="error_group"><input type="text" value="832sX"/><span class="error_text">That code doesn't belong to any group.<br/>Are you sure it's spelled correctly?</span></span></div>
+				</div>
+				<div class="small-7"></div>
+			</div>
+			<div class="row">
+				<div class="small-12 columns">
+					<div class="alert_big confirmation"><i class="icon-validated"></i><span>Confirmation message here</span></div>
+				</div>
+				<div class="small-12 columns">
+					<div class="alert_big notice"><i class="icon-notice"></i><span>Alert/notice message here</span></div>
+				</div>
+				<div class="small-12 columns">
+					<div class="alert_big error"><i class="icon-notification"></i><span>Error message here</span></div>
+				</div>
+			</div>
+			<div class="title">Typography</div>
+			<div class="row typography">
+				<div class="small-2 columns">
+					<div class="typo-title">Header 1</div>
+				</div>
+				<div class="small-10 columns">
+					<div class="header1">Account Settings 30px</div>
+				</div>
+			</div>
+			<div class="row typography">
+				<div class="small-2 columns">
+					<div class="typo-title">Header 2</div>
+				</div>
+				<div class="small-10 columns">
+					<div class="header2">By Nicholas 24px</div>
+				</div>
+			</div>
+			<div class="row typography">
+				<div class="small-2 columns">
+					<div class="typo-title">Header 3</div>
+				</div>
+				<div class="small-10 columns">
+					<div class="header3">An epic tale of checking and unchecking 21px</div>
+				</div>
+			</div>
+			<div class="row typography">
+				<div class="small-2 columns">
+					<div class="typo-title">Header 4</div>
+				</div>
+				<div class="small-10 columns">
+					<div class="header4">With preface by profile 18px</div>
+				</div>
+			</div>
+			<div class="row typography">
+				<div class="small-2 columns">
+					<div class="typo-title">Header 5</div>
+				</div>
+				<div class="small-10 columns">
+					<div class="header5">Dedicated to U.X. and U.I. 16px</div>
+				</div>
+			</div>
+			<div class="row typography">
+				<div class="small-2 columns">
+					<div class="typo-title">Paragragh</div>
+				</div>
+				<div class="small-10 columns">
+					<div class="paragraph">
+						16px<br/>
+						Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+					</div>
+				</div>
+			</div>
+			<div class="row typography">
+				<div class="small-2 columns">
+					<div class="typo-title">Small Font</div>
+				</div>
+				<div class="small-10 columns">
+					<div class="small-font">14px<br/>
+						Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+					</div>
+				</div>
+			</div>
+			<div class="row typography">
+				<div class="small-2 columns">
+					<div class="typo-title">Header 1 <div>regular weight</div></div>
+				</div>
+				<div class="small-10 columns">
+					<div class="header1-regular">Account Settings 30px</div>
+				</div>
+			</div>
+			<div class="row typography">
+				<div class="small-2 columns">
+					<div class="typo-title">Header 2 <div>regular weight</div></div>
+				</div>
+				<div class="small-10 columns">
+					<div class="header1-regular">By Nicholas 24px</div>
+				</div>
+			</div>
+			<div class="row typography">
+				<div class="small-2 columns">
+					<div class="typo-title">Header 3 <div>regular weight</div></div>
+				</div>
+				<div class="small-10 columns">
+					<div class="header1-regular">An epic tale of checking and unchecking 21px</div>
+				</div>
+			</div>
+			<div class="row typography">
+				<div class="small-2 columns">
+					<div class="typo-title">Header 4 <div>regular weight</div></div>
+				</div>
+				<div class="small-10 columns">
+					<div class="header1-regular">With preface by profile 18px</div>
+				</div>
+			</div>		
+		</div>
+		<h2>Icon set</h2>
+		<div class="row iconset">
+            {% for icon_class in c.icon_classes %}
+            <div class="button"><i class="{{ icon_class }}"><span>&nbsp;{{ icon_class }}</span></i></div>
+            {% endfor %}
+		</div>
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+
+{% endblock %}

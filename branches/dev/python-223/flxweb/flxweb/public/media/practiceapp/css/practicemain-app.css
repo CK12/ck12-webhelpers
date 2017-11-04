@@ -1,0 +1,1317 @@
+@-webkit-keyframes slideoutleft{
+	from {
+		margin-left : 0;
+	}
+	
+	to {
+		margin-left : -100%;
+	}
+}
+
+@keyframes slideoutleft{
+	from {
+		margin-left : 0;
+	}
+	
+	to {
+		margin-left : -100%;
+	}
+}
+
+@-webkit-keyframes slideoutright{
+	from {
+		margin-left : 0;
+	}
+	
+	to {
+		margin-left : 100%;
+	}
+}
+
+@keyframes slideoutright{
+	from {
+		margin-left : 0;
+	}
+	
+	to {
+		margin-left : 100%;
+	}
+}
+
+@-webkit-keyframes slideinleft{
+	from {
+		margin-left : 100%;
+	}
+	
+	to {
+		margin-left : 0;
+	}
+}
+
+@keyframes slideinleft{
+	from {
+		margin-left : 100%;
+	}
+	
+	to {
+		margin-left : 0;
+	}
+}
+
+@-webkit-keyframes slideinright{
+	from {
+		margin-left : -100%;
+	}
+	
+	to {
+		margin-left : 0;
+	}
+}
+
+@keyframes slideinright{
+	from {
+		margin-left : -100%;
+	}
+	
+	to {
+		margin-left : 0;
+	}
+}
+
+.practice-app-view a:active {
+	text-decoration : none;
+}
+
+.pie-container {
+  box-sizing : border-box;
+  height: 100%;
+  position: relative;
+  max-width : 36px;
+  margin : 0 auto;
+  width: 36px;
+  visibility : hidden;
+}
+
+.pie-container.limegreen .hold {
+	border-color : #B8D543;
+}
+
+.pie-container.tangerine .hold {
+	border-color : #FF6633;
+}
+
+.pie-container.gold .hold {
+	border-color : #FFCF2A;
+}
+
+
+.pie-container div {
+	box-sizing : border-box;
+	width : 100%;
+	height : 100%;
+	top : 0;
+	left : 0;
+	position : absolute; 
+}
+
+.pie-container .inner-circle {
+	border : 3px solid #efede7;
+	border-radius : 50%;
+}
+
+.pie-container .pie{
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+	border: 3px solid;
+	border-color : inherit;	
+	-webkit-transform : rotate(90deg);
+}
+
+.pie-container .pie.fill {
+	-moz-transform: rotate(180deg) !important;
+	-webkit-transform: rotate(180deg) !important;
+	-o-transform: rotate(180deg) !important;
+	-ms-transform: rotate(180deg) !important;
+	transform: rotate(180deg) !important;
+}
+
+.pie-container .hold.gt50 {
+	clip : rect(auto, auto, auto, auto) !important;
+}
+
+body.practice-app-view {
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+			tap-highlight-color:rgba(0,0,0,0);
+	overflow-x : hidden;
+	width : 100%;
+	margin-left : 0;
+	-webkit-transition : margin-left 200ms ease;
+			transition : margin-left 200ms ease; 
+}
+
+body.practice-app-view.slide-left {
+	margin-left : -249px;
+}
+
+body.practice-app-view a {
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+			tap-highlight-color:rgba(0,0,0,0);
+}
+
+/* body.practice-app-view.app-search-view {
+	background : #7F7F7F;
+	-webkit-transition : background-color 200ms ease;
+			transition : background-color 200ms ease;
+} */
+
+.app-search-view #concepts-wrapper.blurred {
+	opacity : 0.2;
+	pointer-events : none;
+	-webkit-transition : opacity 200ms ease;
+			transition : opacity 200ms ease;
+}
+
+.app-search-view #concepts-wrapper.blurred *:hover {
+	background-color  : #fff !important;
+}
+
+body.practice-app-view .concept-score {
+    margin-top: -17px;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+}
+body.practice-app-view .right-concept-btn{
+    margin-top: -17px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+}
+body.practice-app-view .two-lines .concept-score {
+	 margin-top: -25px;
+}
+body.practice-app-view .two-lines .right-concept-btn{
+    margin-top: -25px;
+}
+
+.best-score-value {
+	font-size: 10px;
+    left: 3px;
+    position: absolute;
+    top: 5px;
+    width: 30px;
+	text-align: center;
+	padding: 7px 0;
+}
+
+.best-score-container {
+    width: 36px;
+}
+
+.practice-app-header {
+	display : none;
+}
+
+body.practice-app-view .concept-row-score .concept-name {
+	width : 100%;
+	padding-right : 50px;
+	width: calc(100% - 260px);
+	display: inline-block;
+	vertical-align: middle;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	vertical-align:middle;
+}
+
+body.practice-app-view .assignments-edit-wrapper {
+	padding : 0;
+	overflow : hidden;
+}
+
+.subject-heading {
+	font-weight : bold;
+	font-size : 24px;
+	padding-left : 20px;
+}
+
+.show-all-branches .subject-heading {
+	display : block;
+}
+
+.practice-app-view .select-track-wrapper {
+	background: #fff;
+	padding-top: 17px;
+	padding-bottom : 17px;
+	border-bottom : 1px solid #EFEDE7;
+}
+
+.practice-app-view .border-bottom {
+	border-bottom : 1px solid #EFEDE7;
+}
+
+.practice-app-view #tracks-wrapper .track-name-wrapper {
+	width : 100%;
+	position:relative;
+	display : block;
+}
+
+.practice-app-view #tracks-wrapper .track-name-wrapper .concept-count {
+  margin-top: -9px;
+    padding-right: 10px;
+    padding-top: 5px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    display : none;
+}
+
+/** header **/
+.practice-app-header .welcome-menu {
+	display : none;
+	margin-right : 15px;
+}
+
+.ios .practice-app-header .welcome-menu.for-ios {
+	display : block;
+}
+
+.android .practice-app-header .welcome-menu.for-android {
+	display : block;
+}
+
+.header-title.hide{
+	display : none;
+}
+
+.subjects-select-wrapper {
+	border : 0;	
+}
+
+body.practice-app-view header.practice-app-header {
+	border : 1px solid #D8D8D8;
+    background: none repeat scroll 0 0 #FFFFFF;
+    height: 50px;
+    position: static;
+    display : table;
+    table-layout : fixed;
+}
+
+.practice-app-header .table-row {
+	display : table-row;
+	height : 100%;	
+}
+
+.practice-app-header .table-cell {
+	display : table-cell;
+	width : 15%;
+	vertical-align : middle;
+}
+
+.practice-app-header #headerText.table-cell {
+	font-size : 18px;
+	padding : 10px 0;
+	width : 70%;
+}
+
+.practice-app-header .logo-img {
+    margin : 0 !important;
+    height : 30px;
+    width : 66px;
+}
+.practice-app-header .icon-change,
+.practice-app-header .js-back-button {
+    color: #00ABA4;
+    font-size: 22px;
+}
+
+.practice-app-header .js-back-button i{
+	display : block;
+	margin-left : 15px;
+}
+
+body.practice-app-view .usermenu {
+    background: none repeat scroll 0 0 #f9f9f5;
+    box-shadow: 3px 2px 1px -2px #4e4e4b;
+    font-size: 1em;
+    height: 100%;
+    list-style: outside none none;
+    position: absolute;
+    padding-left : 15px;
+    right: -249px;
+    top: -1px;
+    -webkit-transition: all 200ms ease-in 0s;
+	-moz-transition: all 200ms ease-in 0s;
+	-ms-transition: all 200ms ease-in 0s;
+	transition: all 200ms ease-in 0s;
+    width: 249px;
+    z-index: 100;
+}
+body.practice-app-view .usermenu a:visited,
+body.practice-app-view .usermenu a:active {
+	text-decoration : none;	
+}
+
+body.practice-app-view .userdropdownitems-app {
+     border-bottom: 1px solid #EFEDE7;
+     padding: 15px 0 15px 0;
+}
+body.practice-app-view .menu-item-img-app {
+    color: #ff6633;
+    display: inline-block;
+    font-size: 20px;
+    padding-left: 9px;
+    vertical-align: middle;
+    width: 46px;
+}
+body.practice-app-view .menu-item-title-app {
+    color: #58564f;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0.025em;
+    padding-left: 4px;
+    text-transform: capitalize;
+    vertical-align: middle;
+}
+body.practice-app-view .image-user {
+    display: inline-block;
+    vertical-align: middle;
+}
+body.practice-app-view .user-name {
+	color : #8e8774;
+	display: inline-block;
+    overflow: hidden;
+    padding-left: 15px;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 170px;
+}
+
+/** header ends **/
+
+body.practice-app-view .small-12 .assignments-subjects-wrapper {
+   padding : 0;
+}
+
+body.practice-app-view .subjects-select-wrapper{
+	font-size:1em;
+	padding : 0;
+}
+body.practice-app-view  .subject-heading{
+	  padding-bottom: 10px;
+	  font-size:18px;
+	  font-weight : normal;
+}
+body.practice-app-view  .subject-icon span{
+/*	 height: 45px;*/
+	height : 42px;
+	width : 42px;
+}
+body.practice-app-view .subject-link.show-for-small{
+	 padding-bottom: 5px;
+    padding-top: 5px;
+}
+body.practice-app-view  .browse-title{
+	 vertical-align: 1em;
+}
+body.practice-app-view .assignments-subjects-wrapper .all-subjects-wrapper .subject-wrapper{
+	background : #fff;
+	margin : 0;
+    padding : 0;
+}
+body.practice-app-view .branch-image-wrapper{
+	 height: 40px;
+	 width: 40px;
+}
+body.practice-app-view .branch-image-wrapper span{
+	font-size:24px;
+	padding: 0;
+}
+ body.practice-app-view #branch-name {
+ 	  font-size: 1.2em;
+ }
+  body.practice-app-view .node-heading {
+    padding-bottom: 32px;
+    padding-left: 10px;
+    padding-top: 5px;
+    margin-top:0px;
+    display : none;
+}
+
+body.practice-app-view .concept-track-heading{
+	display : none;
+	padding-left : 10px;
+	padding-top : 5px;	
+	position : relative;
+}
+body.practice-app-view .track-name-wrapper .track-name{
+	white-space: normal;
+	font-size : 16px;
+}
+body.practice-app-view .track-name-wrapper{
+	 width: auto;
+}
+
+.no-network {
+    background: none repeat scroll 0 0 #ffffff;
+    border: 1px solid #cdcdcd;
+    height: auto;
+    left: 50%;
+    margin-left: -161px;
+    padding: 25px;
+    position: absolute;
+    text-align: center;
+    top: 100px;
+    width: 320px;
+    z-index: 101;
+}
+.icon-sym {
+    color: #FFD131;
+    font-size: 2em;
+    padding-bottom: 24px;
+}
+.message-body {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 14px;
+    padding-bottom: 10px;
+}
+.reveal-bg{
+	 background: none repeat scroll 0 0 #000000;
+    height: 100%;
+    opacity: 0.5;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 98;
+   -webkit-transition: all 200ms;
+	-moz-transition: all 200ms;
+	-ms-transition: all 200ms;
+	transition: all 200ms;
+}
+
+.profile-name{
+	display:table;
+}
+body.practice-app-view #concepts-wrapper .select-concept-wrapper{
+	box-shadow: 0 0 RGBA(0,0,0,0);
+	border-bottom : 1px solid #EFEDE7;
+	margin: 0 !important;
+	position:relative;
+}
+
+body.practice-app-view .subject-wrapper .row.subject-title-wrapper {
+        margin: 0;
+        padding : 0;
+        border-bottom : 1px solid #EFEDE7;
+}
+    
+body.practice-app-view  #concepts-container .track-name-wrapper .concept-count{
+	line-height: 14px;
+	position: absolute;
+	bottom : -16px;
+	left: 12px;
+}
+
+.assignments-edit-wrapper .columns.assignments-subjects-container {
+	padding: 0;
+}
+
+#concepts-container.js-search-view {
+	width : 100%;
+}
+
+#concepts-container .margin-top {
+	margin-top : 20px !important;
+}
+.usermenu a {
+	color: #FF6633;
+}
+.best-score-value {
+	font-weight:bold;
+}
+body.practice-app-view .assignment-subject-list .selected .row span {
+    color: #56544D;
+    font-weight: bold;
+    font-size:18px;
+}
+
+body.practice-app-view .group-assignment-nav span{
+	color : #00ABA4;
+}
+
+.group-assignment-nav {
+	display : none;
+}
+
+.assignment-search {
+	background-color : #efede7;
+	width : 100%;
+	padding: 6px 15px;
+}
+
+.search-inner {
+	padding : 6px 12px 6px 15px;
+}
+
+.assignment-search i {
+	font-size : 12px;
+	margin-right : 2px;
+	/*vertical-align : middle;*/
+}
+
+.assignment-search div.row{
+	color : #999;
+	font-size: 16px;
+	border-radius : 3px;
+	background : #fff;
+	height : auto;
+	/* border: 10px solid #8e8774;
+	border-right-width : 15px;
+	border-left-width : 15px; */
+	padding: 0;
+	line-height : 32px;
+	text-transform  : capitalize;
+}
+
+.assignment-search-container {
+	background-color : #EFEDE7;
+}
+
+.assignment-search-container.fixed-top,
+.assignment-search.fixed-top {
+	position : fixed;
+	top : 0;
+	width : 100% !important;
+	z-index : 1;
+	max-width : 63.75em;
+}
+
+.assignment-search-close {
+	padding-top : 10px;
+}
+
+.assignment-search-icon-active {
+	top : -4px;
+}
+
+.ui-front .icon-search {
+	color : #999;
+	line-height : 32px;
+	font-size : 12px;
+}
+
+.assignment-search-container .row {
+	height : 44px;
+}
+
+.assignment-search-container .assignment-search-input input {
+	border : 0;
+	font-size : 16px;
+	height : 32px;
+	padding : 0 0 0 28px;
+	 -webkit-appearance: none;
+     border-radius: 3px;
+}
+.assignment-search-container .assignment-search-input input:focus{
+	 -webkit-appearance: none;
+	 border : 0;
+}
+body.practice-app-view .restart-modal {
+    background: none repeat scroll 0 0 #fff;
+    height: 141px;
+    left: 50%;
+    margin-left: -138px;
+    padding: 15px;
+    position: fixed;
+    text-align: center;
+    top: 35%;
+    width: 279px;
+    z-index: 1000;
+}
+body.practice-app-view #restartAlert .message-body-text {
+    padding: 15px 9px 9px;
+}
+body.practice-app-view .window-page-disable {
+    background-color: #000;
+    height: 100%;
+    left: 0;
+    opacity: 0.5;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+body.practice-app-view #restartAlert .btn-cont {
+    margin-top: 13px;
+}
+
+.subject-wrapper a {
+	color : #1AABA3;
+	margin : 0;
+	font-size : 16px;
+}
+
+.ui-widget.ui-autocomplete {
+	top : 44px !important;
+	left : 0 !important;
+	border : 0;
+	padding : 0;
+	-webkit-transition : height 200ms ease;
+	overflow : hidden;
+}
+
+.practice-app-view .select-track-wrapper .track-icon {
+	display : none;	
+}
+
+.practice-app-header > .row { /* to hide the right menu */
+	overflow : hidden;
+}
+
+.ui-autocomplete .ui-menu-item i {
+	display : none;
+}
+
+.ui-front .ui-autocomplete.ui-menu .ui-menu-item a.autocomplete-link {
+	padding : 14px 0 14px 19px;
+	line-height : 19px;
+	font-size : 16px;
+	border-bottom : 1px solid #e0ddd5;
+	width : 95%;
+	white-space : nowrap;
+	text-overflow : ellipsis;
+	overflow : hidden;
+}
+
+#searchForm .hint-loader {
+	display : none;
+	position : absolute;
+	right: 5px;
+	top: 8px;
+}
+
+#searchForm .hint-loader.active {
+	display : inline;
+}
+
+.assignments-edit-wrapper {
+	min-height : 0;
+}
+
+.subject-title {
+	margin : 12px 0;
+}
+
+.subject-icon .math {
+	background : url("../images/subject-icons-svg/math.svg") no-repeat;
+}
+
+.subject-icon .science {
+	background : url("../images/subject-icons-svg/science.svg") no-repeat;
+}
+
+.subject-icon .elementary-math {
+	background : url("../images/subject-icons-svg/elementary-math-category.svg") no-repeat;
+	/* background-position : 0 10px; */
+}
+
+.subject-icon .elementary-math-grade-1 {
+	background : url("../images/subject-icons-svg/elementary-math-1.svg") no-repeat;
+}
+
+.subject-icon .elementary-math-grade-2 {
+	background : url("../images/subject-icons-svg/elementary-math-2.svg") no-repeat;
+}
+
+.subject-icon .elementary-math-grade-3 {
+	background : url("../images/subject-icons-svg/elementary-math-3.svg") no-repeat;
+}
+
+.subject-icon .elementary-math-grade-4 {
+	background : url("../images/subject-icons-svg/elementary-math-4.svg") no-repeat;
+}
+
+.subject-icon .elementary-math-grade-5 {
+	background : url("../images/subject-icons-svg/elementary-math-5.svg") no-repeat;
+}
+
+.subject-icon .arithmetic {
+	background : url("../images/subject-icons-svg/arithmetic.svg") no-repeat;
+}
+
+.subject-icon .measurement {
+	background : url("../images/subject-icons-svg/measurement.svg") no-repeat;
+}
+
+.subject-icon .algebra {
+	background : url("../images/subject-icons-svg/algebra.svg") no-repeat;
+}
+
+.subject-icon .geometry {
+	background : url("../images/subject-icons-svg/geometry.svg") no-repeat;
+}
+
+.subject-icon .probability {
+	background : url("../images/subject-icons-svg/probability.svg") no-repeat;
+}
+
+.subject-icon .statistics {
+	background : url("../images/subject-icons-svg/statistics.svg") no-repeat;
+}
+
+.subject-icon .trigonometry {
+	background : url("../images/subject-icons-svg/trigonometry.svg") no-repeat;
+}
+
+.subject-icon .analysis {
+	background : url("../images/subject-icons-svg/analysis.svg") no-repeat;
+}
+
+.subject-icon .calculus {
+	background : url("../images/subject-icons-svg/calculus.svg") no-repeat;
+}
+
+.subject-icon .earth-science {
+	background : url("../images/subject-icons-svg/earth-science.svg") no-repeat;
+}
+
+.subject-icon .life-science {
+	background : url("../images/subject-icons-svg/life-science.svg") no-repeat;
+}
+
+.subject-icon .physical-science {
+	background : url("../images/subject-icons-svg/physical-science.svg") no-repeat;
+}
+
+.subject-icon .biology {
+	background : url("../images/subject-icons-svg/biology.svg") no-repeat;
+}
+
+.subject-icon .chemistry {
+	background : url("../images/subject-icons-svg/chemistry.svg") no-repeat;
+}
+
+.subject-icon .physics {
+	background : url("../images/subject-icons-svg/physics.svg") no-repeat;
+}
+
+.progress-container {
+	display : none;
+	position : relative;
+	height : 36px;
+	width : 36px;
+}
+
+.concept-score.active .progress-container {
+	display : block;
+}
+
+.concept-score.active .progress-container + .loader {
+	display : none;
+}
+
+.progress-container .progress-label {
+	position : absolute;
+	top : 0;
+	left : 0;
+	text-align : center;
+	width : 100%;
+	height : 100%;
+	line-height : 36px;
+	font-size : 9px;
+	font-weight : bold;	
+}
+
+.progress-container svg {
+	height : 100%;
+	width : 100%;	
+}
+
+.assignment-empty-search-container {
+	margin : 20px 0;
+}
+
+/* css for spinner */
+
+.loader.three-bounce {
+  text-align: center;
+  font-size: 26px;
+  position: relative;
+  width: 100%;
+}
+
+.three-bounce > div {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  background-color: #efede7;
+  
+  -webkit-animation: bouncedelay 1s infinite ease-in-out;
+  animation: bouncedelay 1s infinite ease-in-out;
+  /* Prevent first frame from flickering when animation starts */
+   -webkit-animation-fill-mode: both;
+   animation-fill-mode: both;
+}
+
+.three-bounce .one {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.three-bounce .two {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+#conceptLoader {
+	margin-top : 20px;
+}
+
+#conceptLoader .three-bounce {
+	margin-left : 10px;
+	display : inline;
+}
+
+#conceptLoader .three-bounce > div {
+	background-color : #999;	
+}
+
+#practiceapp_container{
+	 -webkit-transition: all 200ms ease-in 0s;
+	-moz-transition: all 200ms ease-in 0s;
+	-ms-transition: all 200ms ease-in 0s;
+	transition: all 200ms ease-in 0s;
+}
+.practice-app-view .assignment-subject-list{
+	margin-bottom: 10px !important;
+	min-height : 42px;
+}
+@-webkit-keyframes bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0.0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes bouncedelay {
+  0%, 80%, 100% { 
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 40% { 
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
+/* spinner*/
+
+@media all and (max-width: 767px){
+    body.practice-app-view #practiceapp_container {
+        margin: 0;
+    }
+    body.practice-app-view .assignment-subject-list .selected .row span {
+        font-size: 16px;
+    }
+    body.practice-app-view .subjects-select-wrapper {
+        padding: 0;
+        border : 0;
+        border-radius : 0;
+    }
+    
+    body.practice-app-view .assignments-edit-wrapper {
+        padding: 0;
+    }
+    .track-name-wrapper {
+        padding-left: 0;
+    }
+    
+    body.practice-app-view .select-track-wrapper .track-name-wrapper .track-name {
+        margin-right:1%;
+    }
+    body.practice-app-view .track-name-wrapper {
+        width: 200px;
+    }
+   
+    body.practice-app-view .select-concept-wrapper .button-custom {
+        font-size: 13px;
+        padding-top: 8px;
+    }
+    body.practice-app-view #concepts-wrapper .select-concept-wrapper {
+    	border-bottom : 1px solid #EFEDE7;
+        padding: 11px 7px 11px 0px;
+        margin-top : 0 !important;
+    }
+    
+    .all-subjects-wrapper,
+    .all-subjects-wrapper div {
+    	height : 100%;
+    }
+    
+    .subject-heading {
+    	padding : 0;
+    }
+    
+    .subject-heading .subject-icon {
+    	float : left;
+    	width : 30%;
+    	position : relative;
+    }
+    
+    .subject-icon span {
+    	/* margin-left : 15px; */
+    	display : block;
+    	margin-top : 8px;
+    }
+    
+    .subject-title{
+    	margin: 0;
+		padding: 15px 0;
+		min-height: 55px;
+    }
+    
+    .subject-heading .subject-title {
+    	color : #1AABA3;
+    	float : right;
+    	width : 70%;
+    	margin : 0;
+    	position : relative;
+    }
+    
+    .subject-heading .subject-title span {
+    	position : absolute;
+    	top : 50%;
+    	margin-top : -10px;
+    }
+    
+    .subject-heading .subject-icon span {
+    	position : absolute;
+    	 top : 50%;
+    	/*left : 50%; */
+    }
+    
+    .subject-title .js-node-name {
+		display: inline-block;
+		margin-top: 8px;
+    }
+    
+    .subject-heading .subject-icon .math,
+    .subject-heading .subject-icon .science,
+    .subject-heading .subject-icon .elementary-math {
+    	/* margin-top : -25px;
+    	margin-left : -25px;
+    	width : 50px;
+    	height : 50px; */
+    	width : 100%;
+    	height : 80px;
+    	margin-top : -40px;
+    	margin-left : 0;
+    	background-position-x : -5px;
+    }
+
+    .subject-heading .subject-icon .elementary-math {
+        width: 70px;
+        left: 5px;
+        margin-top: -35px;
+    }
+    
+    
+    .assignments-subjects-container.show-heading {
+    	position : fixed !important;
+    	height : 90% !important;
+    	height : -webkit-calc(100% - 90px) !important;
+    	height : calc(100% - 90px) !important;
+    	/* margin-left : 15px; */
+    }
+    
+    .assignments-subjects-container.show-heading .assignments-subjects-wrapper {
+    	/* border-bottom : 1px solid #e0ddd5; */
+    	height : 33%;
+    }
+    
+
+	.assignments-edit-wrapper .assignments-subjects-container,
+	.assignments-edit-wrapper .assignments-subjects-container {
+    	background : #fff;	
+    }
+    
+	.assignments-subjects-container .assignments-subjects-wrapper .all-subjects-wrapper{
+    	padding : 0 0 0 15px;
+    }
+    
+    #concepts-container,
+    #tracks-container{
+    	padding : 0 0 0 15px;
+    	background : #fff;
+    }
+    
+    .practice-app-view .select-track-wrapper {
+    	margin : 0 15px;
+    }
+    
+    .assignments-subjects-container .subject-heading,
+    .assignments-subjects-container .subject-content {
+    	display : none;
+    }
+    
+    .assignments-subjects-container.show-heading .subject-heading {
+		border-bottom : 1px solid #e0ddd5;
+		display : block;
+    	width  : 100%;
+    	/* -webkit-animation-name : slideinright;
+    			animation-name : slideinright; */
+    	-webkit-animation-duration : 200ms;
+    }
+    
+    .assignments-subjects-container.show-content .subject-heading {
+    	display : none;
+    }
+    
+    .assignments-subjects-container.show-content .subject-heading.active + .subject-content {
+    	display : block;
+    	/* -webkit-animation-name : slideinleft;
+    			animation-name : slideinleft; */
+    	-webkit-animation-duration : 200ms;
+    	width  : 100%;
+    }
+    
+    .subject-title-wrapper .subject-icon {
+    	width : 45px;
+    }
+    
+    .subject-title-wrapper .subject-title {
+    	width : 82%;
+    	width : -webkit-calc(100% - 60px);
+    	width : 	-ms-calc(100% - 60px);
+    	width : calc(100% - 60px);
+    }
+    
+    .slide {
+ 		-webkit-animation-duration : 200ms;
+				animation-duration : 200ms;	
+		position : absolute !important;
+	}
+	
+	.slideinright {
+		-webkit-animation-name : slideinright;
+		animation-name : slideinright;
+	}
+	
+	.slideinleft {
+		-webkit-animation-name : slideinleft;
+		animation-name : slideinleft;
+	}
+	
+	.slideoutright {
+		-webkit-animation-name : slideoutright;
+		animation-name : slideoutright;
+	}
+	
+	.slideoutleft {
+		-webkit-animation-name : slideoutleft;
+		animation-name : slideoutleft;
+	}
+	
+	.practice-app-view .no-hover:hover {
+		background : transparent !important;
+	}
+	
+	.practice-app-view .no-hover.touch-background {
+		background-color : #d7f1e9 !important;
+	}
+	
+	.practice-app-header #headerText.table-cell {
+		padding : 5px 0;
+		line-height : 18px;
+	}
+}
+
+@media all and (max-width: 479px) {
+    .show-all-branches .assignments-subjects-container .assignments-subjects-wrapper:first-child, .show-all-branches .assignments-subjects-container .assignments-subjects-wrapper:last-child {
+        width: 100%;
+        float: none;
+        padding: 0;
+    }
+   
+}
+
+.two-lines {
+    line-height: 19px;
+    padding-bottom: 1px !important;
+    padding-top: 1px !important;
+}
+.two-lines .js-open-practice {
+    margin-top: 7px !important;
+}
+.two-lines .best-score-value.right {
+    top: 7px;
+}
+.two-lines .best-score-container.left {
+    margin-top: 6px;
+}
+#tracks-wrapper .two-lines{
+	padding-top: 5px !important;
+}
+input[type="search"] {
+	-moz-box-sizing : inherit;
+	-webkit-box-sizing : inherit;
+    box-sizing: inherit;
+}
+#searchForm{
+	margin:0;
+	position : relative;
+}
+.assignment-empty-search {
+	padding-bottom: 20px;
+}
+.assignment-empty-search span {
+	display: list-item;
+	margin-top: 2px;
+	margin-bottom: -17px;
+}
+#groups-assignment-container {
+	background-color : #fff;
+	-webkit-transition : background-color 200ms ease;
+			transition : background-color 200ms ease;
+}
+
+.app-search-view #groups-assignment-container {
+	background-color : #7F7F7F;
+} 
+
+@media all and (min-width: 768px){
+	#subjects-container {
+		padding : 0 15px;
+	}
+	
+	#groups-assignment-container[data-type=branch],
+	#groups-assignment-container[data-type=concept]{
+		background : -webkit-linear-gradient(left, #FCFAF3 0%,#FCFAF3 41.66667%,#fff 41.66667%,#fff 100%);
+		background : 		   linear-gradient(left, #FCFAF3 0%,#FCFAF3 41.66667%,#fff 41.66667%,#fff 100%);
+	}
+	
+	#groups-assignment-container[data-type=branch] #tracks-container,
+	#groups-assignment-container[data-type=branch] #concepts-container,
+	#groups-assignment-container[data-type=concept] #tracks-container,
+	#groups-assignment-container[data-type=concept] #concepts-container{
+		display : block !important;
+	}
+	
+	.practice-app-view .select-track-wrapper {
+		background : transparent;
+	}
+	
+	.row.collapse.pointer.select-track-wrapper.js-node-wrapper {
+		border: 0;
+		height: auto;
+		padding: 0 15px;
+	}
+	
+	.row.collapse.pointer.select-track-wrapper.js-node-wrapper.js-selected {
+		background-color : #fff;
+	}
+	
+	.practice-app-view #tracks-wrapper .track-name-wrapper {
+ 	   	padding: 20px 0;
+    	border-bottom : 1px solid #e0ddd5;
+	}
+	
+	.practice-app-view #tracks-wrapper .track-name-wrapper .track-name {
+		display : inline-block;
+		width : 89%;
+		vertical-align : middle;
+	}
+	
+	.practice-app-view .select-track-wrapper.js-selected .js-node-name {
+		color : #56544d;
+		font-weight : bold;	
+	}
+	
+	.practice-app-view .select-track-wrapper .track-icon {
+		color : #cec9be;
+		display : inline-block;
+		width : 9%;
+		vertical-align : middle;
+		text-align : right;
+	}
+	
+	.practice-app-view .select-track-wrapper.js-selected .track-icon {
+		color : #56544d;
+	}
+	
+	.subject-heading .subject-icon {
+		display : none;
+	}
+	
+	.assignments-subjects-wrapper {
+		margin : 66px 0 !important;
+	}
+	
+	.assignments-subjects-wrapper:first-child {
+		margin : 33px 0 !important;
+	}
+	
+	body.practice-app-view .assignments-subjects-wrapper .all-subjects-wrapper .subject-wrapper {
+		background : transparent;
+		margin-bottom : 20px;
+	}
+	
+	.row.collapse.pointer.subject-title-wrapper.js-node-wrapper {
+		border : 0;
+		padding : 0 12px;
+	}
+	
+	body.practice-app-view  #concepts-wrapper .select-concept-wrapper{
+		margin-left: 2px !important;
+		padding-left: 13px;
+	}
+	
+	body.practice-app-view.app-search-view  #concepts-wrapper .select-concept-wrapper {
+		margin-left : 0 !important;
+	}
+	
+	body.practice-app-view.app-search-view  #concepts-wrapper .concept-name {
+		padding-left : 10px;
+	}
+	
+	#concepts-wrapper {
+		background : #fff;
+	}
+	
+	.subject-heading {
+		padding-left : 0;
+	}
+	
+	.subject-heading .subject-title {
+		font-size : 21px;
+		font-weight : bold;
+		margin : 0;
+	}
+	
+	.subject-title-wrapper .subject-icon {
+		text-align : left;
+		height : 56px;
+		padding-top : 7px;
+	}
+	
+	.subject-title {
+		margin : 20px 0;
+	}
+}
+
+body.practice-app-view  #concepts-wrapper .select-concept-wrapper{
+	height:auto;
+}
+@media all and (max-height: 400px){
+	body.practice-app-view .show-heading .subject-icon span {
+	    height: 40px !important;
+	    margin-top: -20px !important;
+	    width: 40px !important;
+	}
+}
+
+.app-version {
+  font-size: 11px;
+  font-weight: normal;
+  text-align: right;
+  padding: 10px;
+}

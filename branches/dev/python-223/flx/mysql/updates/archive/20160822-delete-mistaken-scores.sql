@@ -1,0 +1,1 @@
+DELETE mst FROM MemberStudyTrackItemStatus mst JOIN Assignments asg ON mst.assignmentID = asg.assignmentID WHERE asg.groupID IS NOT NULL AND asg.assignmentType = 'assignment' AND mst.memberID NOT IN ( SELECT memberID FROM GroupHasMembers WHERE groupID = asg.groupID );

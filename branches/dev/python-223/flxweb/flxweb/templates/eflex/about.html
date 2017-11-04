@@ -1,0 +1,487 @@
+{% extends "base/1column.html" %}
+{% block title %}{{ _("eFlex Email Interface") }} {% endblock %}
+
+{% block pageinfotop %}
+<div class="contenttop"></div>
+{% endblock %}
+
+{% block content %}
+<div class="grid_12 clearfix">
+	<h1 class="toptitle">{{ _("About the eFlex") }}</h1>
+	<div class="spacetoplarge"></div>
+</div>
+
+<div id="eflex_content" class="contentarea clearfix prefix_2 grid_8 suffix_2">
+<div class="spacetopxlarge"></div>
+
+<div id="eflex_about">
+<!-- An Email Interface -->
+<h2 class="toptitle">{{ _("What is eFlex?") }}</h2>
+<div class="divider"></div>
+<p>{{ _("eFlex is an email interface to CK-12's FlexBook&#174; textbook authoring system by which one can send request and get dynamically collated book out of the sent request in various digital formats such as PDF, Mobi, EPUB.") }}</p>
+<!-- How to Use eFlex -->
+<div class="spacetopxlarge"></div>
+<h2 class="toptitle">{{ _("How to Use eFlex?") }}</h2>
+<div class="divider"></div>
+	<p>
+		{{ _("You can use this interface to:") }}
+		<ol start=1>
+			<li>{{ _("Create a new FlexBook&#174; textbook") }}</li>
+			<li>{{ _("Contribute a Lesson") }}</li>
+		</ol>
+	</p>
+<div class="spacetopxlarge"></div>
+<!-- Creating a new FlexBook -->
+<h2 class="toptitle">{{ _("Creating a New FlexBook&#174; textbook") }}</h2>
+<div class="divider"></div>
+	<p>{{ _("To create a new FlexBook&#174; textbook, please send an email to") }} <b>{{ _("eflex@ck12.org") }}</b>{{ _(", with:") }}</p>
+	<ol style="list-style:circle">
+		<li>{{ _('A subject line in the format of "Create: Book Title"') }}</li>
+		<li>{{ _('And mail body containing one or more lines in the format of 
+			"Subject: topic keywords", for the book content.') }}</li>
+		<li>{{ _("(Optional in the mail content): @Forward") }}&lt;{{ _("digital format") }} &gt;: &lt;{{ _("list of Email IDs") }}&gt;<br /> {{ _("Digital format can be pdf, epub or mobi.") }}</li>
+	</ol>
+
+	<h4>{{ _("Example:") }}</h4>
+
+	<p>
+		{{ _('The following is an email for requesting a book titled "My Small Physics Book" containing 2 concepts; the first covering gravity, and the second covering optics. Also, the EPUB version of the resulting book will be forwarded to the specified Email IDs.') }}
+	</p>
+
+	<table border=1>
+		<tr>
+		<th>
+			{{ _("Subject line:") }}
+		</th>
+		<td> 
+			{{ _("Create: My Small Physics Book") }}
+		</td>
+		</tr>
+		<tr>
+		<th>
+			{{ _("Mail body:") }}
+		</th>
+		<td>
+			{{ _("Physics: gravity") }}<br />
+			{{ _("Physics: optics") }}<br />
+			{{ _("@Forwardepub: friend1@maildomain.com, friend2@maildomain.com") }}
+		</td>
+		</tr>
+	</table>
+<div class="spacetopxlarge"></div>
+<!-- Contributing a Lesson -->
+<h2 class="toptitle">{{ _("Contributing a Lesson") }}</h2>
+<div class="divider"></div>
+	<p>
+		{{ _("To contribute a Lesson, please send an email to <b>eflex@ck12.org</b>, with:") }}
+	</p>
+	<ol style="list-style:circle">
+		<li>{{ _('A subject line in the format of "Contribute: lesson title"') }}</li>
+		<li>{{ _("Mail body containing a line in the format of") }}<br />
+			{{ _('"@Googledoc: ') }}<Google doc ID>"
+		</li>
+	</ol>
+	<p>
+		<b>{{ _("Note: Google document should be provided with public access.") }}</b>
+	</p>
+</div>
+
+<div id="eflex_usecases">
+	<div class="spacetopxlarge"></div>
+	<!-- eFlex - Various Cases -->
+	<h2 class="toptitle">{{ _("eFlex - Various Cases") }}</h2>
+	<div class="divider"></div>
+	<ol>
+		<li>
+			<a href="#usecase1">{{ _("Create book request from new user") }}</a>
+		</li>
+		<li>
+			<a href="#usecase2">{{ _("Create book request from new user for second time") }}</a>
+		</li>
+		<li>
+			<a href="#usecase3">{{ _("Create book request from registered user with forward PDF option") }}</a>
+		</li>
+		<li>
+			<a href="#usecase4">{{ _("Create book request from registered user with forward EPUB option") }}</a>
+		</li>
+		<li>
+			<a href="#usecase5">{{ _("Create book request from registered user with forward MOBI option") }}</a>
+		</li>
+		<li>
+			<a href="#usecase6">{{ _("Create book request from registered user with a title already used by him/her") }}</a>
+		</li>
+		<li>
+			<a href="#usecase7">{{ _("Create book request from new user with a title used by different new user") }}</a>
+		</li>
+		<li>
+			<a href="#usecase8">{{ _("Invalid request from new user") }}</a>
+		</li>
+		<li>
+			<a href="#usecase9">{{ _("Invalid request from new user after threshold times") }}</a>
+		</li>
+		<li>
+			<a href="#usecase10">{{ _("Contribute Lesson request") }}</a>
+		</li>
+	</ol>
+	<div id="usecase1">
+		<div class="spacetopxlarge"></div>
+		<h2 class="toptitle">{{ _("Create Book Request from New User") }}</h2>
+		<div class="divider"></div>
+		<ol style="list-style:circle">
+			<li>{{ _("Build an Email with the following:") }}</li>
+			<table border=1> 
+				<tr>
+					<th>
+						{{ _("Subject line:") }}
+					</th>
+					<td>
+						{{ _("Create: My Small Physics Book") }}
+					</td>
+				</tr>
+				<tr>
+					<th>
+						{{ _("Mail body:") }}
+					</th>
+					<td>
+						{{ _("Physics: gravity") }}<br />
+						{{ _("Physics: optics") }}<br />
+					</td>
+				</tr>
+			</table>
+			<li>
+				{{ _("Send the Email to ") }}<b>{{ _("eflex@ck12.org") }}</b>
+			</li>
+			<li>
+				{{ _("Email from eFlex is received stating the book is being processed.") }}
+			</li>
+			<li>
+				{{ _("Then, the book order email will be received which has info of the contents collated, links to PDF, reader.") }}
+			</li>
+		</ol>
+	</div>
+	<div id="usecase2">
+		<div class="spacetopxlarge"></div>
+		<h2 class="toptitle">{{ _("Create Book Request from New User for Second Time") }}</h2>
+		<div class="divider"></div>
+		<ol style="list-style:circle">
+			<li>{{ _("Build an Email with the following:") }}</li>
+			<table border=1> 
+				<tr>
+					<th>
+						{{ _("Subject line:") }}
+					</th>
+					<td>
+						{{ _("Create: My Small Physics Book") }}
+					</td>
+				</tr>
+				<tr>
+					<th>
+						{{ _("Mail body:") }}
+					</th>
+					<td>
+						{{ _("Physics: gravity") }}<br />
+						{{ _("Physics: optics") }}<br />
+					</td>
+				</tr>
+			</table>
+			<li>
+				{{ _("Send the Email to ") }}<b>{{ _("eflex@ck12.org") }}</b>
+			</li>
+			<li>
+				{{ _("Email from eFlex is received asking the user to register with our system. Registration link is also provided in the response.") }}
+			</li>
+		</ol>
+	</div>
+	<div id="usecase3">
+		<div class="spacetopxlarge"></div>
+		<h2 class="toptitle">{{ _("Create Book Request from Registered User with Forward PDF Option") }}</h2>
+		<div class="divider"></div>
+		<ol style="list-style:circle">
+			<li>{{ _("Build an Email with the following:") }}</li>
+			<table border=1> 
+				<tr>
+					<th>
+						{{ _("Subject line:") }}
+					</th>
+					<td>
+						{{ _("Create: My Small Physics Book") }}
+					</td>
+				</tr>
+				<tr>
+					<th>
+						{{ _("Mail body:") }}
+					</th>
+					<td>
+						{{ _("Physics: gravity") }}<br />
+						{{ _("Physics: optics") }}<br />
+						{{ _("@Forwardpdf: friend1@maildomain.com") }}
+					</td>
+				</tr>
+			</table>
+			<li>
+				{{ _("Send the Email to ") }}<b>{{ _("eflex@ck12.org") }}</b>
+			</li>
+			<li>
+				{{ _("Email from eFlex is received stating the book is being processed.") }}
+			</li>
+			<li>
+				{{ _("Book order email along with PDF attachment of the book, info of the contents collated, links to PDF, reader will be received by friend1@maildomain.com") }}
+			</li>
+			<li>
+				{{ _("Also, the book order email will be received by the sender, which has info of the contents collated, links to PDF, reader.") }}
+			</li>
+		</ol>
+	</div>
+	<div id="usecase4">
+		<div class="spacetopxlarge"></div>
+		<h2 class="toptitle">{{ _("Create Book Request from Registered User with Forward EPUB Option") }}</h2>
+		<div class="divider"></div>
+		<ol style="list-style:circle">
+			<li>{{ _("Build an Email with the following:") }}</li>
+			<table border=1> 
+				<tr>
+					<th>
+						{{ _("Subject line:") }}
+					</th>
+					<td>
+						{{ _("Create: My Small Physics Book") }}
+					</td>
+				</tr>
+				<tr>
+					<th>
+						{{ _("Mail body:") }}
+					</th>
+					<td>
+						{{ _("Physics: gravity") }}<br />
+						{{ _("Physics: optics") }}<br />
+						{{ _("@Forwardepub: friend1@maildomain.com") }}
+					</td>
+				</tr>
+			</table>
+			<li>
+				{{ _("Send the Email to ") }}<b>{{ _("eflex@ck12.org") }}</b>
+			</li>
+			<li>
+				{{ _("Email from eFlex is received stating the book is being processed.") }}
+			</li>
+			<li>
+				{{ _("Book order email along with EPUB attachment of the book, info of the contents collated, links to EPUB, reader will be received by friend1@maildomain.com") }}
+			</li>
+			<li>
+				{{ _("Also, the book order email will be received by the sender, which has info of the contents collated, links to EPUB, reader.") }}
+			</li>
+		</ol>
+	</div>
+	<div id="usecase5">
+		<div class="spacetopxlarge"></div>
+		<h2 class="toptitle">{{ _("Create Book Request from Registered User with Forward MOBI Option") }}</h2>
+		<div class="divider"></div>
+		<ol style="list-style:circle">
+			<li>{{ _("Build an Email with the following:") }}</li>
+			<table border=1>
+				<tr>
+					<th>
+						{{ _("Subject line:") }}
+					</th>
+					<td>
+						{{ _("Create: My Small Physics Book") }}
+					</td>
+				</tr>
+				<tr>
+					<th>
+						{{ _("Mail body:") }}
+					</th>
+					<td>
+						{{ _("Physics: gravity") }}<br />
+						{{ _("Physics: optics") }}<br />
+						{{ _("@Forwardmobi: friend1@maildomain.com") }}
+					</td>
+				</tr>
+			</table>
+			<li>
+				{{ _("Send the Email to ") }}<b>{{ _("eflex@ck12.org") }}</b>
+			</li>
+			<li>
+				{{ _("Email from eFlex is received stating the book is being processed.") }}
+			</li>
+			<li>
+				{{ _("Book order email along with MOBI attachment of the book, info of the contents collated, links to MOBI, reader will be received by friend1@maildomain.com") }}
+			</li>
+			<li>
+				{{ _("Also, the book order email will be received by the sender, which has info of the contents collated, links to MOBI, reader.") }}
+			</li>
+		</ol>
+	</div>
+	<div id="usecase6">
+		<div class="spacetopxlarge"></div>
+		<h2 class="toptitle">{{ _("Create Book Request from Registered User with a Title Already Used by Him/Her") }}</h2>
+		<div class="divider"></div>
+		<ol style="list-style:circle">
+			<li>{{ _("Build an Email with the following:") }}</li>
+			<table border=1> 
+				<tr>
+					<th>
+						{{ _("Subject line:") }}
+					</th>
+					<td>
+						{{ _("Create: My Small Physics Book") }}
+					</td>
+				</tr>
+				<tr>
+					<th>
+						{{ _("Mail body:") }}
+					</th>
+					<td>
+						{{ _("Physics: gravity") }}<br />
+						{{ _("Physics: optics") }}<br />
+					</td>
+				</tr>
+			</table>
+			<li>
+				{{ _("Send the Email to ") }}<b>{{ _("eflex@ck12.org") }}</b>
+			</li>
+			<li>
+				{{ _("Email from eFlex is received stating the book is being processed.") }}
+			</li>
+			<li>
+				{{ _('Then, the book order email will be received which has info of the contents collated, links to PDF, reader. Also, email will explain that the book title is changed to "book title ') }}&lt;{{ _('next number') }}&gt;{{ _('", as there exists a book titled "User requested title" in the library.') }}
+			</li>
+		</ol>
+	</div>
+	<div id="usecase7">
+		<div class="spacetopxlarge"></div>
+		<h2 class="toptitle">{{ _("Create Book Request from New User with a Title Used by Different New User") }}</h2>
+		<div class="divider"></div>
+		<ol style="list-style:circle">
+			<li>{{ _("Build an Email with the following:") }}</li>
+			<table border=1> 
+				<tr>
+					<th>
+						{{ _("Subject line:") }}
+					</th>
+					<td>
+						{{ _("Create: My Small Physics Book") }}
+					</td>
+				</tr>
+				<tr>
+					<th>
+						{{ _("Mail body:") }}
+					</th>
+					<td>
+						{{ _("Physics: gravity") }}<br />
+						{{ _("Physics: optics") }}<br />
+					</td>
+				</tr>
+			</table>
+			<li>
+				{{ _("Send the Email to <b>eflex@ck12.org") }}</b>
+			</li>
+			<li>
+				{{ _("Email from eFlex is received stating the book is being processed.") }}
+			</li>
+			<li>
+				{{ _('Then, the book order email will be received which has info of the contents collated, links to PDF, reader. Also, email will explain that the book title is changed to "book title ') }}&lt;{{ _('next number') }}&gt;{{ _('", as the "User requested title" is unavailable.') }}
+			</li>
+		</ol>
+	</div> 
+	<div id="usecase8">
+		<div class="spacetopxlarge"></div>
+		<h2 class="toptitle">{{ _("Invalid Request from New User") }}</h2>
+		<div class="divider"></div>
+		<ol style="list-style:circle">
+			<li>{{ _("Build an Email with the following:") }}</li>
+			<table border=1> 
+				<tr>
+					<th>
+						{{ _("Subject line:") }}
+					</th>
+					<td>
+						{{ _("Create: My Small Physics Book") }}
+					</td>
+				</tr>
+				<tr>
+					<th>
+						{{ _("Mail body:") }}
+					</th>
+					<td>
+						{{ _("Random text") }}
+					</td>
+				</tr>
+			</table>
+			<li>
+				{{ _("Send the Email to ") }}<b>{{ ("eflex@ck12.org") }}</b>
+			</li>
+			<li>
+				{{ _("Help Email from eFlex is received.") }}
+			</li>
+		</ol>
+	</div> 
+	<div id="usecase9">
+		<div class="spacetopxlarge"></div>
+		<h2 class="toptitle">{{ _("Invalid Request from New User after Threshold Times") }}</h2>
+		<div class="divider"></div>
+		<ol style="list-style:circle">
+			<li>{{ _("Build an Email with the following:") }}</li>
+			<table border=1>
+				<tr>
+					<th>
+						{{ _("Subject line:") }}
+					</th>
+					<td>
+						{{ _("Create: My Small Physics Book") }}
+					</td>
+				</tr>
+				<tr>
+					<th>
+						{{ _("Mail body:") }}
+					</th>
+					<td>
+						{{ _("Random text") }}<br />
+					</td>
+				</tr>
+			</table>
+			<li>
+				{{ _("Send the Email to ") }}<b>{{ _("eflex@ck12.org") }}</b>
+			</li>
+			<li>
+				{{ _("There won't be any response from eFlex.") }}
+			</li>
+		</ol>
+	</div> 
+	<div id="usecase10">
+		<div class="spacetopxlarge"></div>
+		<h2 class="toptitle">{{ _("Contribute Lesson Request") }}</h2>
+		<div class="divider"></div>
+		<ol style="list-style:circle">
+			<li>{{ _("Build an Email with the following:") }}</li>
+			<table border=1>
+				<tr>
+					<th>
+						{{ _("Subject line:") }}
+					</th>
+					<td>
+						{{ _("Contribute: My Physics Lesson") }}
+					</td>
+				</tr>
+				<tr>
+					<th>
+						{{ _("Mail body:") }}
+					</th>
+					<td>
+						{{ _("@Googledoc: ") }}&lt; {{ _("Public version - Google doc ID") }}&gt; <br />
+					</td>
+				</tr>
+			</table>
+			<li>
+				{{ _("Send the Email to ") }}<b>{{ _("eflex@ck12.org") }}</b>
+			</li>
+			<li>
+				{{ _("Email from eFlex is received which contains artifact viewer and reader links.") }}
+			</li>
+		</ol>
+	</div> 
+</div>
+
+<div class="spacetopxlarge"></div>
+</div>
+{% endblock %}

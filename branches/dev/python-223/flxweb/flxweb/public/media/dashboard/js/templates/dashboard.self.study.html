@@ -1,0 +1,63 @@
+   <!--Dashboard-widget(1) code:Starts--->
+   <div class="left dashboard-widget track-item @@completedTrack@@" id="@@id@@">
+       <a class="right expand-view-button"><span class="expand-open">...</span><span class="expand-close hide"></span></a>
+       <div class="widget-heading-container">
+          <span class="icon-subject @@subjectIcon@@"></span>
+         <span class="small-font widget-title" title="@@subjectName@@">@@subjectName@@</span>
+         <div class="header4 widget-main-title" title="@@assignmentName@@">@@assignmentName@@</div>
+     </div>
+     <div class="left widget-body-container">
+         <div class="bar-graph-container @@graphClass@@">
+             <div class="bar-graph-header">
+                 <span class="bar-graph-header-complete">@@completed@@</span>
+                 <span class="sub-header2">/@@total@@</span>
+                 <span class="bar-graph-header-text sub-header2">CONCEPTS COMPLETED</span>
+             </div>
+             <div class="barGraphs">
+             </div>
+        </div>
+         <div class="row collapse">
+             <span class="start-block concept sub-header3 @@hideStart@@" data-encodedid="@@recentEncodedID@@" data-handle="@@recentHandle@@">start</span>
+             <div class="left body-left-side">
+                 <div class="widget-naivation-container @@hidden@@"><span class="recent-block concept sub-header3" data-encodedid="@@recentEncodedID@@" data-handle="@@recentHandle@@" data-concept-collection-handle="@@recentConceptCollectionHandle@@" data-collection-handle="@@recentCollectionHandle@@" data-collection-creator-ID="@@recentCollectionCreatorID@@">recent</span></div>
+                 <div class="widget-instructions concept" title="@@recentConceptName@@" data-encodedid="@@recentEncodedID@@" data-handle="@@recentHandle@@" data-concept-collection-handle="@@recentConceptCollectionHandle@@" data-collection-handle="@@recentCollectionHandle@@" data-collection-creator-ID="@@recentCollectionCreatorID@@">
+                     @@recentConceptName@@
+                 </div>
+                 <div class="score-container @@hidden@@ @@hideLastScore@@">
+                     <span class="score-label sub-header3">LAST SCORE </span>
+                     <span class="score-count">@@lastScore@@</span>
+                 </div>
+                 <div class="score-container @@hideDone@@">
+                     <span class="icon-checkmark done-checkmark"></span>
+                     <span class="last-score-done">DONE</span>
+                 </div>
+             </div>
+             <div class="left body-right-side @@hideNext@@">
+                 <div class="widget-naivation-container @@hidden@@"><span class="next-block concept sub-header3" data-encodedid="@@nextEncodedID@@" data-handle="@@nextHandle@@" data-concept-collection-handle="@@nextConceptCollectionHandle@@" data-collection-handle="@@nextCollectionHandle@@" data-collection-creator-ID="@@nextCollectionCreatorID@@">next</span></div>
+                 <div class="widget-instructions concept" title="@@nextConceptName@@" data-encodedid="@@nextEncodedID@@" data-handle="@@nextHandle@@" data-concept-collection-handle="@@nextConceptCollectionHandle@@" data-collection-handle="@@nextCollectionHandle@@" data-collection-creator-ID="@@nextCollectionCreatorID@@">
+                     @@nextConceptName@@
+                 </div>
+             </div>
+             <div class="left body-right-side completed-concepts @@hideComplete@@">
+                   <div class="completed-message-container">
+                       <span class="success-ribbon"></span>
+                       <span class="paragraph completion-content">done</span>
+                       <div class="small-font concepts-completion-message">
+                           You have completed all the concepts
+                       </div>
+                   </div>
+               </div>
+         </div>
+     </div>
+     <!--widget-body-expand code:Starts-->
+     <div class="left widget-body-expands hide">
+         <span class="spindle-expand">
+             
+         </span>
+         <span class="swiped-top-button">...</span>
+         <div class="row collapse concepts-wrapper">
+             <ul class="assignment-concept-list small-font">@@conceptList@@</ul>
+         </div>                    
+         <span class="swiped-bottom-button">...</span>  
+     </div><!--widget-body-expand code:Ends-->
+   </div><!--Dashboard-widget(1) code:Ends--->

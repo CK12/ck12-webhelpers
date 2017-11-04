@@ -1,0 +1,18 @@
+@media all and (max-width: 767px) {	
+	.ph-back{
+		color: #FF6633;
+	    display: inherit;
+	    font-size: 26px;
+	    padding: 9px 15px 1px;
+	    cursor: pointer;
+	    background: #ffffff;
+	    z-index:1;
+	}
+	.hide{
+    	display: none !important;
+	}
+}
+
+.title-area .back-icon {
+    display: none !important;
+}

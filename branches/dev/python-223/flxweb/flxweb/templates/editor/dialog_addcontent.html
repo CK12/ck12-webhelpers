@@ -1,0 +1,53 @@
+<div class="searchdialog">
+	<div class="dialogcontent">
+		<form id="frm_searchdialog" name="frm_searchdialog" action="{{config.webroot_url}}oldsearch?mode={{ c.mode }}" method="GET">
+			<div class="searchbox">
+				<input class="txt_searchbox forminput" type="text" id="q" name="q" />
+				<input id="btn_search" class="button turquoise" type="submit" value="{{ _('Search') }}" />
+				<div class="clear"></div>
+			</div>
+		</form>
+		<div class="js_results addcontent_results">
+			{% if c.mode == 'workbookDialog' %}
+					{{ _("Search for exercises and add them to this Workbook.") }}
+
+			{% else %}
+				<p>
+					{{ _("Search for books or concepts and add them to this FlexBook&#174; textbook.") }}
+				</p>
+			{% endif %}
+		</div>
+	</div>
+	<div class="js_dialog_loading searchdialog_loading hide">
+		<img src="{{ h.url_images('icon_loading.gif') }}" width="43" height="11" title="loading" />
+		<div class="msg"></div>
+	</div>
+	
+	<div class="js_empty_input_message hide">
+		{% if c.mode == 'workbookDialog' %}
+			{{ _("Please enter search term to get excercises.") }}
+		{% else %}
+			{{ _("Please enter search term to get books or concepts.") }}
+		{% endif %}
+	 </div>
+	
+	<div class="hide">
+		<div class="js_dialog_loading_placeholder">
+			{{ _('Loading results...') }}<img src="{{ h.url_images('icon_loading.gif') }}" width="43" height="11" />
+		</div>
+		<div class="js_dialog_error_nothing_selected">
+			 {% if c.mode == 'workbookDialog' %}
+				{{ _('Please select a exercise to add.') }}
+			{% else %}
+				{{ _('Please select a Content to add.') }}
+			{% endif %}
+		</div>
+	</div>
+</div>
+<div class="dialogbuttons">
+		{% if c.mode == 'workbookDialog' %}
+			<span class="button turquoise" id="js_addartifact">{{ _('Add to Workbook') }}</span>
+		{% else %}
+			<span class="button turquoise" id="js_addartifact">{{ _('Add to FlexBook&#174; Textbook') }}</span>
+		{% endif %}	
+	</div>

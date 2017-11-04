@@ -1,0 +1,8 @@
+    WSGIScriptAlias /taxonomy /opt/2.0/taxonomy/pylons/sts/sts.wsgi
+    <Directory /opt/2.0/taxonomy/pylons/sts/>
+        Require all granted
+    </Directory>
+    <Location /taxonomy>
+        WSGIProcessGroup taxonomy_wsgi
+    </Location>
+

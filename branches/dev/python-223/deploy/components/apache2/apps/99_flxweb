@@ -1,0 +1,38 @@
+    WSGIScriptAlias / /opt/2.0/flxweb/flxweb.wsgi
+    <Directory /opt/2.0/flxweb/>
+        Order allow,deny
+        Allow from all
+        #Require all granted
+    </Directory>
+
+    RewriteEngine On
+    RewriteCond %{REQUEST_URI} !^/media/build-.*
+    ## Keep this line commented out - the build will uncomment it.
+    ## RewriteRule ^/media/(build-\d+\/)?(.*) /media/build-000/$2 [L,PT]
+
+
+    RedirectMatch 301 ^/arithmetic/?$ /c/arithmetic/
+    RedirectMatch 301 ^/measurement/?$ /c/measurement/
+    RedirectMatch 301 ^/algebra/?$ /c/algebra/
+    RedirectMatch 301 ^/geometry/?$ /c/geometry/
+    RedirectMatch 301 ^/probability/?$ /c/probability/
+    RedirectMatch 301 ^/statistics/?$ /c/statistics/
+    RedirectMatch 301 ^/trigonometry/?$ /c/trigonometry/
+    RedirectMatch 301 ^/analysis/?$ /c/analysis/
+    RedirectMatch 301 ^/calculus/?$ /c/calculus/
+
+    RedirectMatch 301 ^/earth-?$science/ /c/earth-science/
+    RedirectMatch 301 ^/life-?$science/ /c/life-science/
+    RedirectMatch 301 ^/physical-?$science/ /c/physical-science/
+    RedirectMatch 301 ^/biology/?$ /c/biology/
+    RedirectMatch 301 ^/chemistry/?$ /c/chemistry/
+    RedirectMatch 301 ^/physics/?$ /c/physics/
+
+    RedirectMatch 301 ^/writing/?$ /c/writing/
+    RedirectMatch 301 ^/spelling/?$ /c/spelling/
+
+    RedirectMatch 301 ^/engineering/?$ /c/engineering/
+    RedirectMatch 301 ^/technology/?$ /c/technology/
+    RedirectMatch 301 ^/astronomy/?$ /c/astronomy/
+    RedirectMatch 301 ^/history/?$ /c/history/
+    RedirectMatch 301 ^/health/?$ /c/health/

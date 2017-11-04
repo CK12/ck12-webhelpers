@@ -1,0 +1,241 @@
+{% extends "details.html" %}  
+{% from "macros/form_errors.html" import form_errors with context %}  
+
+{% block admincontent %} 
+<style>
+.leftaligned .td{
+    border-color: #ccc;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    display: table-cell;
+}
+#mainform .td.short{
+    width:80px;
+}
+#mainform .td._short{
+    width:200px;
+}
+#mainform .td.med{
+    width:300px;
+}
+div.inline.table{
+    width:600px;
+}
+div.td:first-child {
+    border-left: 1px solid #ccc;
+}
+</style>
+<div class="sectionhead sectiontitle">{{c.pagetitle}}</div>
+<div class="section withfloatedsubmit">
+  <form id="mainform" method="post">
+    <div>
+      <strong>Select an app</strong>
+      <select id="appName" name="appName" onchange="getAppInfo()">
+        <option value="ck12practice">CK-12 Practice</option>
+        <option value="ck12reader">CK-12 Reader</option>
+        <option value="ck12sims">CK-12 Simulations</option>
+      </select>
+      <br/><br/>
+    </div>
+    <div class="clear"></div>
+    <div class="leftaligned">
+    <b>ANDROID</b>
+    {% for field in c.form.ordered_fields_android %}
+      {{ field }}
+    {% endfor %}
+    
+    <div class="clear"></div>
+    <b>iOS</b>
+    {% for field in c.form.ordered_fields_ios %}
+      {{ field }}
+    {% endfor %}
+    
+    <div class="clear"></div>
+    <br><br>
+    <strong>BRANCH DATA UPDATES</strong>
+    <div id = "search_entries" class="elong">
+    <div class="inline table">
+        <div class="thead sectionhead">
+            <div class="tr">
+                <div class="td _short">
+                    Branch ID<br>
+                    (eg: MAT.GEO)
+                </div>
+
+                <div class="td med">
+                    Updated At<br>
+                    (eg: 2015-30-01T00:59)
+                </div>
+                <div class="td short">
+                    Action
+                </div>
+            </div>
+        </div>
+        
+        <div class="tbody">
+            {% if c.branches %}
+                {{ h.app_verion_branch_widget(c.branches, input_type='text')}}
+           {% endif %}
+        </div>
+    </div>
+    <br/>
+    &nbsp;&nbsp;<span id = 'add_branch' class='linklike'>[Add Branch]</span>
+    <br/>
+    <br/>
+    <br/>
+    <div class="clear">
+        <strong>POPUP MESSAGE</strong>
+            {% for field in c.form.ordered_fields_popup %}
+                {{ field }}
+            {% endfor %}
+    </div>
+    </div>
+    <div>
+        
+    </div>
+      {{ h.submitbutton(c.createOrSave, 'short')}}
+      {{ h.cancelbutton(c.cancel)}}
+<br><br>
+<span class='ajaxError' id='ajaxError'></span>
+<span class='ajaxSuccess' id='ajaxSuccess'></span>
+<br>
+</div>
+  </form>
+</div>
+<div class="sectionhead sectiontitle">Push Notifications</div>
+<div class="section withfloatedsubmit">
+  <form id="push_notification_form" action="/assessment/api/push_a_notification" method="POST" >
+     <div class="label">
+       <label class="label" for="login_or_email">
+         Login OR E-mail&nbsp;&nbsp;
+       </label>
+     </div>
+     <input class="xmed" id="login_or_email" name="to" type="text" value="" required>
+     <div class="label">
+       <label class="label" for="payload">
+         Payload&nbsp;&nbsp;&nbsp;
+       </label>
+     </div>
+     <input class="xmed" id="payload" name="payload" placeholder="{&quot;here&quot;:&quot;put&quot;,&quot;a&quot;:[&quot;well-formatted&quot;,&quot;json&quot;]}" type="text" value="">     
+     <div class="label">
+         APNs use sandbox?:<br/>
+     </div>
+     <input type="radio" name="apn_sandbox" value="True">Yes<br/><input type="radio" name="apn_sandbox" value="">No
+     <input class="short btn primaryaction floatright" id="send_notifications" name="" type="submit" value="Send">
+  </form>
+</div>
+
+{% endblock %}
+
+{% block js_scripts %}
+<script type='text/javascript'>
+{{ form_errors('after') }}
+$(document).ready(function(){
+  
+    getAppInfo = function() {
+      var appName = $("#appName").val();
+      window.location = window.location.pathname + "?appName=" + appName;
+    }
+  deleteBranch = function(){
+      $(this).parent().parent().remove();
+      return false;
+  }
+
+  var entryIndex = $("input[id^=branch]").length;
+  addBranch = function(e){
+      entryIndex++;
+      html = '<div class="tr"> <div class="td _short"> <input type="text" id="branch'+ entryIndex +  '" class="med branchid_field" type="text" value="" placeholder="" name="branch' + entryIndex + '" > </div>\
+             <div class="td med"> <input type="text" class="xmed" id="update'+ entryIndex +  '" class="xlong" type="text" value="" placeholder="" name="update' + entryIndex + '" > </div>\
+             <div class="td short"><span class="linklike delete_branch" data-entry_id="' + entryIndex + '">[Delete]</span></div></div>';
+      $(".inline .tbody").append(html);
+  }
+  
+  $(".delete_branch").live('click', deleteBranch);
+  $("#add_branch").off('click').on('click', addBranch);
+  $("#appName").val("{{ c.appName }}");
+
+  validateData = function(event){
+      var hasError = false;
+      var msg = '';
+      if(!($.trim($('#current_version_android').val())) || !($.trim($('#minimum_version_android').val())) || !($.trim($('#current_version_ios').val())) || !($.trim($('#minimum_version_ios').val()))){
+        msg += ' All Android and iOS versions are required.'
+      }
+      if( ($.trim($('#popup_action_label').val())) || ($.trim($('#popup_action').val())) ){
+          if(!($.trim($('#popup_action_label').val())))
+              msg += ' Action Label is mandatory if Action is specified'
+          if(!($.trim($('#popup_action').val())))
+              msg += 'Action is mandatory if Action Label is specified'
+      }
+      
+      //if ($('.inline .tbody .td input').length == 0){
+      //  msg = 'Atleast one branch must be specified.'
+      //}
+      $('.inline .tbody .td input').each(function( index ) {
+          var text = $.trim($(this).val())
+          /*if(!text){
+              msg += ' All Fields are required.'
+              return false;
+          }*/
+          var alphanumericexp = /^[0-9a-z\.]+$/i
+          if (text && (index%2 ===0) && !text.match(alphanumericexp)){
+              msg += ' Invalid format:'+text;
+          }
+      });
+      if (msg){
+          alert(msg);
+          return false;
+      }
+      return true;
+  }
+  function onFormSubmit(event){
+      event.preventDefault();
+      $('#ajaxSuccess').html('')
+      if(validateData()){
+          postData = {}
+          postData['appName'] = $("#appName").val();
+          postData['android_min_version'] = $.trim($('#minimum_version_android').val());
+          postData['android_current_version'] = $.trim($('#current_version_android').val());
+          postData['ios_min_version'] = $.trim($('#minimum_version_ios').val());
+          postData['ios_current_version'] = $.trim($('#current_version_ios').val());
+          postData['branch_updates']={};
+          $('.branchid_field').each(function(index){
+              var branchIdText = $.trim($(this).val())
+              var updateTime = $.trim($('#'+( $(this).attr('id').replace('branch','update') )).val())
+              if(branchIdText && branchIdText !== '')
+                  postData['branch_updates'][branchIdText]=updateTime;
+          });
+          
+          postData['popup_message'] = {}
+          postData['popup_message']['title'] = $.trim($('#popup_title').val());
+          postData['popup_message']['body'] = $.trim($('#popup_body').val());
+          postData['popup_message']['action_label'] = $.trim($('#popup_action_label').val());
+          postData['popup_message']['action'] = $.trim($('#popup_action').val());
+          postData['popup_message']['dismiss_label'] = $.trim($('#popup_dismiss_label').val());
+          postData['popup_message']['update_time'] = $.trim($('#popup_update_time').val())
+          
+          $.ajax({
+              url:'/assessment/api/app/update/version'
+              ,data:JSON.stringify(postData)
+              ,success:function(data,success,jqXHR){
+                  console.log(data);
+                  if(data && data.responseHeader.status === 0){
+		      $('#ajaxSuccess').html('Success! new data:<br>'+JSON.stringify(data));
+                  }else{
+                      $('#ajaxSuccess').html('ERROR! <br>'+JSON.stringify(data));                      
+                  }
+              }
+              ,error:function(jqXHR,status,err){
+                  $('#ajaxError').html('ERROR! <br>'+status+'<br>'+'err');                  
+              }
+              ,contentType: "application/json"
+              ,type: 'POST'
+              ,dataType:'json'
+          });
+      }
+      return false;
+  }
+  $('#mainform').submit(onFormSubmit)
+  //$('input[type=submit]').off('click').on('click', validateData);
+});
+</script>
+{% endblock %}

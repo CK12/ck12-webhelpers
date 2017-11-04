@@ -1,0 +1,165 @@
+{% extends "listings.html" %}
+
+{% block filters %}
+  <div class="col tiny">
+    {{ h.labelselect('Page Size', 'type_filter', c.form.pagesize_sel, 'filter')}}
+  </div>
+{% endblock %}
+
+{% block admincontent %}
+    <div class="clear"><a id="newUrlmapping">New Urlmapping</a></div>
+    {{ super() }}
+    <div class="update-all-controls" style="display:block;">
+	    <div id='boxes'>
+		<div id='dialog' class='overlay_form' style="height:180px;">
+          <table style="width:100%" border="0" cellspacing="5" cellpadding="5">
+            <tr>
+              <td>
+                <label>Old Url: </label>
+              </td>
+              <td><input type="text" id="old_url"/></td>
+              </tr>
+              <tr>
+              <td>
+                <label>New Url: </label>
+              </td>
+              <td><input type="text" id="new_url"/></td>
+              </tr>
+              
+          </table>
+          <br/>
+          <span id="totalQuestions"></span>
+          <p>
+            <input type="button" class=" btn primaryaction floatright" id="mapurl" value="Create" />
+            <input type="button" class="btn cancelbtn primaryaction close floatright" id="cancelmapurl" value="Cancel" />
+          </p>
+		</div>
+	  	<div id="mask"></div>
+      </div>
+</div>
+    
+{% endblock %}
+
+{% block searches %}
+    <div class="col topalign">
+        {{ h.labelinput('Old Url', 'oldUrl', 'med searchby')}}
+        <img id="admin_search_icon" src="{{h.url_images('icon_magnifier2.png')}}"/>
+    </div>
+    <div class="col topalign">
+        {{ h.labelinput('New Url', 'newUrl', 'med searchby')}}
+        <img id="admin_search_icon" src="{{h.url_images('icon_magnifier2.png')}}"/>
+    </div>
+{% endblock %}
+
+{% block aftersearches %}
+  {{ super() }}
+  <div style="display:block">
+    <input id='disableListOnEmptySearch' type='checkbox' checked='true'>
+    <label>Disable Listing on Empty Searches</label>
+  </div>
+{% endblock %}
+
+{% block js_scripts %}
+{{ super() }}
+<script type='text/javascript'>
+  Listings({
+    sort: 'updated,desc',
+    ajaxRoot: CK12.admUrl('urlmaps_list'),
+    formAjax: CK12.admUrl('urlmap/'),
+    viewmode: '{{c.viewmode}}',
+  });
+  
+  
+  // Open modal popup 
+  $("#newUrlmapping").click(function(event){
+      event.stopPropagation();
+      // Open modal 
+      showDialog();
+      
+  });
+  
+  
+  // Open modal popup 
+  $("#mapurl").click(function(event){
+      event.stopPropagation();
+      // Open modal 
+      data = {}
+      data['oldUrl'] = $("#old_url").val();
+      data['newUrl'] = $("#new_url").val();
+
+      if(data['newUrl'].length<=0 || data['oldUrl'].length<=0 ) {
+    	  alert("please provide url");
+    	  return false;
+    	}
+      createUrl(data);
+      $("#mapurl").hide()
+  });
+  
+  
+  // Hide popup 
+  hideOverlayPopup = function(){
+		$('#mask').hide();
+		$('.overlay_form').hide();
+	}
+  
+  
+  // Hide popup 
+  $("#cancelmapurl").click(function(event){
+      event.stopPropagation();
+      hideOverlayPopup();
+      window.location.href = CK12.admUrl('urlmaps');
+         
+  });
+  
+  /* Open modal pop-up and Update 'Difficulty level' and 'EncodedId' of multiple questions */
+  // Show dialog(open popup) 
+  showDialog = function(){
+  	var maskHeight = $(document).height();
+		var maskWidth = $(window).width();
+	
+		//Set heigth and width to mask to fill up the whole screen
+		$('#mask').css({'width':maskWidth,'height':maskHeight});
+		
+		//transition effect		
+		$('#mask').fadeIn(1000);	
+		$('#mask').fadeTo("slow",0.8);	
+	
+		//Get the window height and width
+		var winH = $(window).height();
+		var winW = $(window).width();
+            
+		//Set the popup window to center
+		$('#dialog').css('top',  winH/2-$('#dialog').height()/2);
+		$('#dialog').css('left', winW/2-$('#dialog').width()/2);
+	
+		//transition effect
+		$('#dialog').fadeIn(2000); 
+  }
+  
+  
+  // create url
+  function createUrl(data){
+  	// Ajax call to create, return 1 in case of success and 0 in case of failure 
+  	$.ajax({
+          "url" : "/flx/create/urlmap",
+          "type" : "POST",
+          "dataType" : "json",
+          "data" : data,
+          "success" : function(response){
+          	if(response.responseHeader.status === 0){
+                  var cnt = parseInt($('#updatedQuestions').val(), 10);
+                  $('#updatedQuestions').val(cnt+1);
+		    		$("#totalQuestions").html('URL mapping created successfully')
+         			return true;
+              }else{
+                  return false;
+              }
+          },
+          "error" : function(){
+              return false;
+          }
+      });
+  }
+    
+</script>
+{% endblock %}

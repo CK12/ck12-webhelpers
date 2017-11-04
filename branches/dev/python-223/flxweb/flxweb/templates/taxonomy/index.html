@@ -1,0 +1,98 @@
+{% extends "base/1column.html" %}
+{% block title %}{{ _("Taxonomy") }} {% endblock %}
+
+{% block pageinfotop %}
+<div class="contenttop"></div>
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+<script language="JavaScript" type="text/javascript">
+    require(['main'], function(){
+       require(['flxweb.taxonomy']); 
+       require(['jquery.ui.position']); 
+    });
+</script>
+{% endblock %}
+
+{% block stylesheets %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" media="screen" href="{{ h.url_css('taxonomy.css') }}" />
+<link rel="stylesheet" type="text/css" media="screen" href="{{ h.url_css('modalities.css') }}" />
+
+{% endblock %}
+
+{% block content %}
+
+<h1>{{ _('Concepts') }}</h1>
+<div class="taxonomyContainer">
+	<div style="height:45px;">
+		
+		<div style="float: left;">
+			Subject:&nbsp;<span id="subject">&nbsp;</span>
+		</div>
+		<div style="float: left;">
+			&nbsp;&nbsp;&nbsp;
+		</div>
+		<div style="float: left;">
+			Branch:&nbsp;<span id="branch">
+				<select id="branchSel">
+					<option value="">-- Select a Branch --</option>
+				</select>&nbsp;</span>
+		</div>
+		<div style="float: right;">
+			<input type="button" class="btn" id="btnViewConcept"value="View Concept Map" />
+		</div>
+		<div style="float: right;">
+			&nbsp;&nbsp;&nbsp;
+		</div>
+		<div style="float: right;">
+			<input type="button" class="btn" id="btnTopConcepts" value="Get Top-level Concepts" />
+		</div>
+	</div>
+	
+	<div style="width: 100%; overflow: hidden;">
+		<form id="formSearchConcepts">
+			<div style="float: left;">
+				<span>Search:&nbsp;</span>
+				<input type="text" id="searchConcepts" value="" />
+			</div>
+			<div style="float: left;">
+				&nbsp;&nbsp;&nbsp;
+			</div>
+			<div style="float: left;">
+				<input id="btnSearchConcepts" class="btn" type="submit" value="Search" />
+			</div>
+		</form>
+	</div>
+
+	<div class="spacetoplarge"></div>
+	<div class="contentarea">
+		<div id="standards_books">
+			<div id="conceptResult">
+				&#187; {{ _('Select a <strong>subject</strong> & <strong>branch &#8593;</strong> to get started.') }}
+			</div>
+			<div id="pagination" align="center"></div>
+		</div>
+	</div>
+	<!--- RIGHT HERE ADD --> 
+	<div id="taxonomyConceptDetailContainer" style = "display:none"></div>
+	<div class="backtotop clear">
+		{{ _('Back to the <a href="#" title="Back to top of the page">top of the page &#8593;') }}</a>
+	</div>
+
+
+	<div class="row collapse desktop_view modalities_top_container">
+		<ul id="modality_filters_list" class="filters_list hide">				
+			
+		</ul>
+		<ul id="modality_filters_list_tmpl" class="filters_list hide">				
+			<table id ="conceptDetailTable" border="1" style = "margin-bottom: 30px"><tr><td width="30%"><strong>Encoded&nbsp;ID</strong></td><td>@@conceptID@@</td></tr><tr><td width="30%"><strong>Name</strong></td><td>@@conceptName@@</td></tr><tr><td width="30%"><strong>Subject</strong></td><td><span id="subjectSpan">@@conceptSubject@@</span></td></tr><tr><td width="30%"><strong>Branch</strong></td><td><a href="javascript:void(0);" id="branchLink" data-encodedID=@@concept.encodedID@@>@@concept.branch.name@@</a></td></tr><tr><td width="30%"><strong>Children</strong></td><td>@@concept.childCount@@</td></tr></table>
+			<a style = "text-decoration: none; margin-left: 100px; margin-top: 20px; display: block; font-size: 20px" href = "/@@branch@@/@@concept@@/" target="_blank"><strong>VISIT</strong></a>
+		</ul>
+	</div>
+
+	
+
+</div>
+{% endblock %}

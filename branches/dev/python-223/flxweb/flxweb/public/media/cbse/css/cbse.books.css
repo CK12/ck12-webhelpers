@@ -1,0 +1,210 @@
+body {
+    background-color: #fff;
+}
+.book-container {
+    margin-bottom: 20px;
+    perspective: 800px;
+    -webkit-perspective: 800px;
+    -moz-perspective: 800px;
+    -o-perspective: 800px;
+    -ms-perspective: 800px;
+}
+.bookTitle {
+    font-size: 14px;
+    height: 95px;
+    padding-top: 16px;
+    word-wrap: break-word;
+    width: 180px;
+}
+.content-wrap {
+    padding-top: 30px
+}
+.cbse-subject-title {
+    color: #56544D;
+    margin-bottom: 34px !important;
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 1px solid #e0ddd5;
+}
+.cbse-banner {
+    background-image: url('../images/cbse_bg.png');
+    background-position: -267px 90px;
+    height: 90px;
+}
+.flag-wrapper {
+    padding-top: 20px;
+}
+.cbse-banner-text {
+    color: #56544D;
+    display: inline-block;
+    font-size: 28px;
+    margin-left: 12px;
+    vertical-align: middle;
+}
+.bold {
+    font-weight: bold;
+}
+.disable {
+    color: #56544D;
+    opacity: 0.5;
+}
+.cbse-dropdown-wrapper {
+    font-size: 16px;
+    margin-bottom: 50px;
+}
+.cbse-dropdown-parent {
+    display: inline-block;
+}
+.subject-header {
+    color: #FF6633;
+    font-size: 24px;
+    margin-bottom: 9px;
+    padding-left: 14px;
+}
+.cbse-dropdowm {
+    text-align: left;
+    width: 132px;
+}
+.standards-dropdown {
+    cursor: initial;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding-left: 15px !important;
+}
+.country-dropdown {
+    cursor: initial;
+    margin-left: 3px;
+    margin-right: 5px;
+    padding-left: 15px !important;
+}
+.country-dropdown i {
+    color: #00aba4;
+    margin-right: 2px;
+}
+#selectSubjects.subjects-dropdown {
+    margin-left: 11px;
+    margin-right: 9px;
+    width: 132px;
+    padding-right: 35px !important;
+    padding-left: 15px !important;
+}
+.grades-dropdown {
+    padding-left: 8px !important;
+}
+.Math-header {
+    margin-top: 50px;
+}
+.book {
+    height: 193px;
+    width: 139px;
+}
+.front .cover img {
+    height: 191px;
+}
+.bookTitle a {
+    font-size: 18px;
+}
+#dropSubjects {
+    width: 132px !important;
+    z-index: 50;
+}
+#dropGrades {
+    width: 132px !important;
+}
+.tangerine-list.simple:before {
+    left: 54px;
+}
+.tangerine-list.simple:after {
+    left: 52px;
+}
+.tangerine-list li:hover {
+    background: none repeat scroll 0 0 #D5F4F9;
+}
+.thin.page1 {
+    -webkit-transform: rotateY(-23deg) translateZ(-1px);
+}
+.thin.page2 {
+    -webkit-transform: rotateY(-18deg) translateZ(-2px);
+}
+.thin.page3 {
+    -webkit-transform: rotateY(-13deg) translateZ(-3px);
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px){
+    .medium-4 {
+        width: 33.3333%;
+    }
+    .bookTitle {
+        height: auto;
+    }
+    .show-more-small {
+        display: none;
+    }
+    .show-more-large{
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 767px){
+    .bookTitle {
+        height: auto;
+    }
+    .show-more-small, .show-more-large{
+        display: block;
+    }
+    .book-container .books {
+        float: left;
+        width: 165px;
+    }
+    .book-container .bookTitle {
+        float: left;
+        width: 120px;
+        margin-left: 5px;
+        text-align: left !important;
+    }
+    .cbse-subject-title {
+        margin-bottom: 26px !important;
+    }
+    .book-container {
+        margin-bottom: 40px;
+    }
+    .cbse-banner {
+        height: 150px;
+    }
+    .cbse-banner-text {
+        margin-left: 0px;
+    }
+    .flag-wrapper {
+        padding-top: 30px;
+        text-align: center;
+    }
+    .flag-wrapper img {
+        margin-bottom: 14px;
+    }
+    .cbse-dropdown-parent {
+        text-align: center;
+        width: 100%;
+    }
+    .cbse-dropdown-parent span {
+        display: inline-block;
+    }
+    .dropdown-view {
+        margin-bottom: 12px;
+        width: 100%;
+    }
+    #selectSubjects.subjects-dropdown {
+        margin-left: 0px;
+    }
+    .content-wrap {
+        padding-top: 20px;
+    }
+    .Math-header {
+        margin-top: 7px;
+    }
+    .cbse-dropdown-parent .f-dropdown a {
+        text-align: left;
+    }
+    .cbse-banner {
+        background-position: 570px 90px;
+    }
+}

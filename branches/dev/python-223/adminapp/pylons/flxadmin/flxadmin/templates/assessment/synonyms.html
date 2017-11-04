@@ -1,0 +1,71 @@
+{% extends "listings.html" %}  
+
+{% block searches %}
+    <div class="col topalign" style="margin-top:-18px;">
+        {{ h.labelinput('Word', 'synonyms', 'med searchby')}}
+        <img id="admin_search_icon" src="{{h.url_images('icon_magnifier2.png')}}"/>
+    </div>
+{% endblock %}
+
+{% block admincontent %}
+    <div class="clear"><a id="newSynonym">New Synonym</a></div>
+    {{ super() }}
+{% endblock %}
+
+{% block js_scripts %}
+{{ super() }}
+<script type='text/javascript'>
+  Listings({
+    sort: 'synonyms,asc',
+    postLoad: function(){
+        $('.tiptrigger').tooltip({
+            bodyHandler: function(){ return $(this).next('.tipdiv').html(); }
+        });
+    }, 
+    ajaxRoot: CK12.admUrl('/assessment/synonyms_list'),
+    formAjax: CK12.admUrl('/assessment/synonym/'),
+  });
+  
+  // New synonym 
+  var show_empty_validation_message = false;
+  $('#newSynonym').click(function(event, synonyms){
+	  if (! show_empty_validation_message){
+		  synonyms = prompt("Synonyms(Separated by comma)", '');
+      } else{
+    	  synonyms = prompt("Atleast two synonyms(words) must be specified (Separated by comma)", '');
+      }
+	  if(synonyms){
+		  data = {}
+		  data['synonyms'] = synonyms
+		  // AJAX call to create synonyms 
+		  $.ajax({
+	          "url" : "/assessment/api/create/answerSynonym",
+	          "type" : "POST",
+	          "dataType" : "json",
+	          "data" : data,
+	          "success" : function(response){
+	              if(response.responseHeader.status === 0){
+	                  alert("Synonyms created successfully");
+	                  window.location.href = CK12.admUrl('/assessment/synonyms');
+	              }else{
+	                  alert(response.response.message);
+	              }
+	          },
+	          "error" : function(){
+	              alert("There is some problem while creating the synonym");
+	          }
+	      });
+	  } else{
+		  // If cancel is clicked 
+		  if (synonyms === null){
+              show_empty_validation_message = false;
+              return false;
+          }
+          show_empty_validation_message = true;
+          $(this).trigger('click');
+          return false;
+	  }
+  });
+</script>
+{% endblock %}
+

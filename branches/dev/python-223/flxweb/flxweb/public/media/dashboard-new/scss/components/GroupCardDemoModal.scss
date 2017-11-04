@@ -1,0 +1,39 @@
+@import '../main';
+
+:local {
+
+    .modal {
+        @include breakpoint(medium up) {
+            width: 100%;
+            max-width: map-get($breakpoints, large);
+        }
+
+        @include breakpoint(small only) {
+            width: 100%;
+            max-width: none;
+        }
+    }
+
+    .alert {
+        padding: $global-padding;
+        background-color: $LIGHT_BLUE;
+        margin-bottom: $global-padding;
+
+        .icon {
+            font-size: rem-calc(54);
+        }
+
+        h5, p {
+            margin-bottom: 0;
+        }
+    }
+
+    .closeButton {
+        cursor: pointer;
+        color: $black;
+        position: absolute;
+        top: $global-padding;
+        right: $global-padding;
+        font-size: 0.9em;
+    }
+}

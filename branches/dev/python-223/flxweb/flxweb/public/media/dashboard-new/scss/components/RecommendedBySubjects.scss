@@ -1,0 +1,42 @@
+@import '../main';
+
+.recommendedBysubjectsContent{
+	margin-top:rem-calc(18);
+}
+.modalityRowTitleContainer {
+	display: table;
+	
+	img{
+		width:50px;
+		height:50px;
+	}
+	div{
+		display:table-cell;
+	    font-weight: bold;
+        font-size: rem-calc(20);
+        color: $EARTH;
+        vertical-align: middle;
+        width:100%;
+        padding-left:15px;
+        text-transform: uppercase;
+	}
+	span{
+		display: table-cell;
+    	vertical-align: middle;
+    	font-size:35px;
+    	color:#fece40;
+    	
+    	i{
+    	    vertical-align: middle;
+    	    width: 35px;
+    		display: inline-block;
+    	}
+	}
+}
+.subTag{
+	 font-size: rem-calc(14);
+	 padding-left: 50px;
+   	 margin-bottom:rem-calc(16)
+}
+
+

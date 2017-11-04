@@ -1,0 +1,50 @@
+{% set vocabularies = c.vocabularies_list %}
+{% set languages = c.languages_list %}
+{% if vocabularies and languages %}
+<div class="vocabulary_wrap spacetoplarge">
+	<div class="columnwrap spacetop">
+		<div class="vocabularyheader">
+			<h3>{{ _("Vocabulary") }}
+			<div class="select_language">
+					<span class="title">Language:</span>
+					<div class="dropmenuwrap">
+						<a id="vocab_select_language" class="btn"><span id="selected_language">&nbsp;{{ c.language_name }}&nbsp;</span><span class="tip">▼</span><span class="arrowdown"></span></a>
+						<div data-menu-link="#vocab_select_language" class="drop-menu" id="language_select_menu">
+							<ul class="create-dropdown">
+								{% for language in languages %}
+								<li data-language-code="{{ language['languageCode'] }}" data-language-name="{{ language['languageName'] }}" class="item_language{% if language['languageCode'] == c.language_code %} selected{% endif %}{% if loop.last %} last{% endif %}"><a title="Show vocabulary in {{ language['languageName'] }}">{{ language['languageName'] }}</a></li>
+								{% endfor %}
+							</ul>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</h3>
+		</div>
+		<div class="clear"></div>
+		<div id="vocabularygrid" class="vocabularygrid spacetop">
+            <table>
+              <thead>
+                <tr><th style="width:23%;">Term</th><th>Definition</th></tr>
+              </thead>
+              <tbody>
+              {% for vocab in vocabularies %}
+              <tr>
+                <td><span class="vterm vtitle"><strong>{{ vocab['term'] }}</strong></span></td>
+                <td><span class="vdefinition">{{ vocab['definition'] }}</span></td>
+              </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>	
+<script type="text/javascript">
+    window.vocab_data = {{ c.vocabularies_list|ck12_json }};
+</script>
+{% else%}
+<script type="text/javascript">
+    window.vocab_data = [];
+</script>
+{% endif %}

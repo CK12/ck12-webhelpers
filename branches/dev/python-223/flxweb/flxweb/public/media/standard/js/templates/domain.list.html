@@ -1,0 +1,21 @@
+<% var children, index;%>
+<li id="<%= data.model.sid.replace(/\./g, '_') %>_<%= data.view %>" <% if (data.isCurrentNode) {%> class="selected-node-wrapper"<%}%>>
+	<div class="list-item <% if (data.isCurrentNode) {%>selected-node<%}%> js_domain_list" data-id="<%= data.model.sid.replace(/\./g, '_') %>">
+		<a href="<%=data.url + encodeURIComponent($.trim(data.model.description).replace(/\s/g, '-')).toLowerCase()%>"><%= data.model.description %></a>
+	</div>
+	<% if (data.model.hasOwnProperty('children')) { %>
+		<% children = data.model.children;%>
+		<% if ('Cluster' === children[0].sourceLevel) { %>
+			<% children = children[0].children;%>
+		<% } %>
+		<ul>
+			<% for (index = 0; index < children.length; index++) { %>
+				<li id="<%= children[index].sid.replace(/\./g, '_') %>_<%= data.view %>" class="js_node_nav">
+					<div class="list-item" data-id="<%= children[index].sid.replace(/\./g, '_') %>">
+						<a><%= children[index].label %></a>
+					</div>
+				</li>
+			<% } %>
+		</ul>
+	<% } %>
+</li>

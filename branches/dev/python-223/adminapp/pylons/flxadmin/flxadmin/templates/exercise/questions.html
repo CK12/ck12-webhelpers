@@ -1,0 +1,97 @@
+{% extends "listings.html" %}  
+
+{% block header %}{% if not c.asOverlay %} {{super()}} {% endif %}{% endblock %}
+{% block crumbs %}{% if not c.asOverlay %} {{super()}} {% else %}
+  <span id="pagetitle">{{_(c.pagetitle)}}</span> {% endif %}
+{% endblock %}
+{% block footer %}{% if not c.asOverlay %} {{super()}} {% endif %}{% endblock %}
+
+{% block filters %} 
+  <div class="col tiny">Filter by:</div>
+  <div class="col sml">
+    {{ h.labelselect('Type', 'type_filter', c.form.type_sel, 'filter')}}
+  </div>
+  <div class="col xsml">
+    {{ h.labelselect('Level', 'level_filter', c.form.level_sel, 'filter')}}
+  </div>
+  <div class="col xsml">
+    {{ h.labelselect('Is Valid', 'status_filter', c.form.status_sel, 'filter')}}
+  </div>
+  <div class="col xsml">
+    {{ h.labelselect('Is Draft', 'draft_filter', c.form.draft_sel, 'filter')}}
+  </div>
+  <div class="col xsml">
+    {{ h.labelselect('Contributed', 'status_filter', c.form.status_approval_sel, 'filter')}}
+  </div>
+{% endblock %}
+ 
+{% block js_scripts %}
+{{ super() }}
+<script type='text/javascript'>
+  var idsStrSep = ',';
+
+{% if c.asOverlay %}
+  Defaults.blockOverlay = true;
+  var 
+    ADD = '[Add]',
+    DEL = '[Remove]',
+    inputname = 'edit box',
+    Qclass = '{{c.Qclass}}',
+    $input = $('#'+Qclass+'_questions'),
+    input = $input.val().trim(),
+    _ids = _.filter(input.split(/,\s*/), function(i){return i}),
+    ids = _.map(_ids, Number),
+    idsStrSepPP = ', ';
+{% endif %}
+
+  Listings({
+    sort: 'updateTime,desc',
+    enableMultipleIdsFilter: true,
+    idsStrSep: idsStrSep,
+    params: '{{c.query}}',
+
+    postLoad: function(){
+      $('.tiptrigger').tooltip({
+        bodyHandler: function(){ return $(this).siblings('.tipdiv').html(); }
+      });
+  {% if c.asOverlay %}
+      $('#cboxContent .tbody .tr').each(function(){
+        var 
+          $this = $(this),
+          id = Number($this.children('.id').text()),
+          actiontext = ids.indexOf(id) == -1? ADD : DEL;
+        $this.find('.actionitem').text(actiontext);
+      });
+      $('#cboxContent .actionitem').click(function(){
+        var 
+          $this = $(this),
+          actiontxt = $this.text(),
+          actionmsg = actiontxt==ADD? 'Added to '+inputname : 'Removed from '+inputname,
+          id = Number($this.parent().siblings('.id').text()),
+          idx = _.sortedIndex(ids, id);
+
+        if (actiontxt==ADD){
+          ids.splice(idx, 0, id);
+        }else{
+          ids.splice(idx, 1);
+        }
+        $input.val(_.map(ids, String).join(idsStrSepPP));
+        $this.text(actiontxt==ADD? DEL : ADD);
+        Fns.setActionMsg($this.siblings('.actionmsg'), 'success', actionmsg);
+      });
+    },
+    updateHeaders: function(){
+      $('#cboxContent .thead .tr').append('<div class="td">Association</div>');
+      $('#approvedBy').parent().remove();
+    },
+    isOverlay: true,
+    ajaxRoot: CK12.admUrl('questions_list/{{c.Qclass}}/{{c.Eid}}')
+  {% else %}
+    },
+    viewmode: '{{c.viewmode}}',
+    formAjax: CK12.admUrl('question/{{c.Qclass}}/'),
+    ajaxRoot: CK12.admUrl('questions_list/{{c.Qclass}}')
+  {% endif %}
+  });
+</script>
+{% endblock %}

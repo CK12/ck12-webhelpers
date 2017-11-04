@@ -1,0 +1,17 @@
+{
+	"superscript" : {
+		"data" : "{}^{}",
+		"pos" : [0,1,4,5],
+		"length" : 5
+	},
+	"subscript" : {
+		"data" : "{}_{}",
+		"pos" : [0,1,4,5],
+		"length" : 5
+	},
+	"superscriptSquare" : {
+		"data" : "{}^{}",
+		"pos" : [0,1,4,5],
+		"length" : 5
+	}
+}

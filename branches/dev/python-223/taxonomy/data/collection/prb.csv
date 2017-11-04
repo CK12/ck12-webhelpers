@@ -1,0 +1,69 @@
+Level 1,Level 2,Level 3,Level 4,Level 5,Level 6,EncodedID,Original EncodedIDs,Description
+Counting Sets (Combinatorics),,,,,,MAT.PRB.100,,
+,Counting Techniques,,,,,MAT.PRB.101.0,MAT.PRB.300,Number of ways to choose (and potentially arrange) k objects from a group of n objects. 
+,,Basic Counting Rules,,,,MAT.PRB.101.020,MAT.PRB.310,Basic Counting Rules
+,,Counting Rule to Calculate Probabilities,,,,MAT.PRB.101.040,MAT.PRB.316,Counting Rule to Calculate Probabilities
+,,Fundamental Counting Principle,,,,MAT.PRB.101.060,MAT.PRB.318,Calculating Outcomes
+,Permutation,,,,,MAT.PRB.102.0,,
+,,Factorials,,,,MAT.PRB.102.010,MAT.ALY.750,Choosing one or more objects from a set when order doesn't matter. 
+,,Permutations,,,,MAT.PRB.102.030,MAT.PRB.321,Recognizing Permutations
+,,Permutations and Combinations Compared,,,,MAT.PRB.102.040,MAT.PRB.322,Selecting 'r' items at a time from a group of 'n' items when order is or is not important
+,,Permutation Problems,,,,MAT.PRB.102.050,MAT.PRB.324,Evaluate Permutations using Permutation Notation
+,,Permutations with Repetition,,,,MAT.PRB.102.060,"MAT.PRB.326, MAT.PRB.328",Avoiding duplicate permutations
+,Combination,,,,,MAT.PRB.103.0,,
+,,Combinations,,,,MAT.PRB.103.010,MAT.PRB.332,"Select r items at one time from a group of n, where order does not matter: nCr = n!/ r!(n-r)!"
+,,Combination Problems,,,,MAT.PRB.103.030,MAT.PRB.334,Evaluate Combinations using Combination Notation
+,,Pascal's Triangle & Binomial Expansion,,,,MAT.PRB.103.040,"MAT.PRB.370, MAT.ALY.752, MAT.PRB.360",Explore and apply Pascal's Triangle and use a theorem to determine binomial expansions
+Theoretical and Experimental Probability,,,,,,MAT.PRB.200,,
+,Simple Events,,,,,MAT.PRB.201.0,,
+,,Definition of Probability,,,,MAT.PRB.201.020,MAT.PRB.101,Probability = # of Favorable Outcomes/# of Possible Outcomes
+,,Measurement of Probability,,,,MAT.PRB.201.040,MAT.PRB.110,Measurement of Probability
+,,Complement Rule for Probability,,,,MAT.PRB.201.060,MAT.PRB.423,"Identify Overlapping, Disjoint, and Complementary Events"
+,,Geometric Probability,,,,MAT.PRB.201.080,MAT.PRB.460,Understanding Geometric Probability
+,Dependent and Independent Events,,,,,MAT.PRB.203.0,,
+,,Independence versus Dependence,,,,MAT.PRB.203.005,MAT.STA.422,Events that do or do not affect the probability of other events
+,,Independent Events and Sample Spaces,,,,MAT.PRB.203.010,MAT.STA.422.1,"Determine the probability that A and B will both occur, given that A and B are independent events"
+,,Dependent Events and Sample Spaces,,,,MAT.PRB.203.015,MAT.STA.422.2,Probability of an event is affected by the probability of the previous event.
+,,Recognizing Independent and Dependent Events,,,,MAT.PRB.203.025,MAT.PRB.560,Recognize Independent and Dependent Events
+,,Probability of Independent Events,,,,MAT.PRB.203.030,MAT.PRB.561,Probability of Independent Events
+,,Probability of Dependent Events,,,,MAT.PRB.203.040,MAT.PRB.570,Dependent Events
+,,Sets,,,,MAT.PRB.203.050,MAT.PRB.210,Use set notation to state set relationships
+,,Venn Diagrams,,,,MAT.PRB.203.055,MAT.PRB.220,Graphic organizer showing outcomes of an experiment
+,,Sample Spaces and Events,,,,MAT.PRB.203.060,MAT.PRB.240,Sample Spaces and Events
+,,Operations with Sets,,,,MAT.PRB.203.070,MAT.PRB.260,Relating the union and intersection of events to probability
+,,Tree Diagrams,,,,MAT.PRB.203.080,MAT.PRB.420,Probability tree diagrams - multiply probabilities along the branches and add probabilities in columns
+,,Counting Events,,,,MAT.PRB.203.085,MAT.PRB.421,Counting Events
+,Calculating Compound Events,,,,,MAT.PRB.205.0,,
+,,Probability of Compound Events,,,,MAT.PRB.205.010,MAT.PRB.400,Determine theoretical probability of successive events
+,,Numerical Computations,,,,MAT.PRB.205.020,MAT.PRB.410,"Write and Compare Probabilities as Fractions, Decimals and Percents"
+,,Additive and Multiplicative Rules for Probability,,,,MAT.PRB.205.030,MAT.PRB.422,Additive and Multiplicative Rules for Probability
+,,Addition Rule,,,,MAT.PRB.205.040,MAT.PRB.422.1,Chance that either or both events occur using the Addition Rule.
+,,Multiplication Rule,,,,MAT.PRB.205.050,MAT.PRB.422.2,Chance that two events both occur using the Multiplication Rule.
+,,Mutually Exclusive Events,,,,MAT.PRB.205.060,MAT.PRB.424,Mutually Exclusive Events
+,,Mutually Inclusive Events,,,,MAT.PRB.205.070,MAT.PRB.425,Mutually Inclusive Events
+,,Probability and Permutations,,,,MAT.PRB.205.080,MAT.PRB.320,Determine the probabilities of events when arrangement order matters
+,,Probability and Combinations,,,,MAT.PRB.205.090,MAT.PRB.330,Determine the probabilities of events when arrangement order does not matter
+,Conditional Probability,,,,,MAT.PRB.207.0,"MAT.PRB.500, MAT.PRB.510","Understanding Conditional Probability, and explore formulas to determine probability of combined events"
+,Empirical Probability,,,,,MAT.PRB.209.0,,
+,,Theoretical and Empirical Probability,,,,MAT.PRB.209.010,MAT.PRB.100,"The calculated probability of an occurrence, compared to the tested probability. "
+,,Experimental Probability,,,,MAT.PRB.209.020,MAT.PRB.120,Experimental Probability
+,,Applications of Probability,,,,MAT.PRB.209.030,MAT.PRB.150,Calculate Odds using Outcomes or Probability
+,,Expected Value,,,,MAT.PRB.209.070,MAT.PRB.800,Product of each outcome and its probability.
+Probability and Statistics,,,,,,MAT.PRB.300,,"Ways of choosing, with or without arranging, a number of objects from a set."
+,Distribution,,,,,MAT.PRB.301.0,,
+,,Probability Distribution,,,,MAT.PRB.301.010,MAT.PRB.614,Conditions necessary to display the probability distribution of a discrete random variable
+,,Binomial Distributions and Probability with TI Calculators,,,,MAT.PRB.301.020,"MAT.PRB.622.1, MAT.PRB.622.2, MAT.PRB.622.3",Use a TI calculator to evaluate binomial distributions and probability
+,,Computing Probabilities for the Standard Normal Distribution,,,,MAT.PRB.301.030,MAT.PRB.720,How to ensure the sample matches the topic in question for which data is being obtained. Gathering information about the spread of the data from the bell curve
+,,Empirical Rule,,,,MAT.PRB.301.040,MAT.PRB.730,Using 68-95-99.7 rule 
+,,Normal Approximation of the Binomial Distribution,,,,MAT.PRB.301.050,MAT.PRB.740,When the Normal Distribution may be used to approximate a binomial distribution.
+,,Poisson Probability Distributions,,,,MAT.PRB.301.060,MAT.PRB.623,"Calculating the probability, mean and variance of a distribution used to model the number of events occurring within a given interval of time."
+,,Geometric Probability Distributions,,,,MAT.PRB.301.070,MAT.PRB.624,"Calculations of an experiment, with or without technology, conducted until the first defined success occurs"
+,,Multinomial Distributions,,,,MAT.PRB.301.080,MAT.PRB.627,Probability distributions for experiments with more than 2 outcomes
+,,Exponential Distributions,,,,MAT.PRB.301.090,MAT.PRB.646,Distributing data based on an exponential rate of change.
+,Random Variables,,,,,MAT.PRB.303.0,,
+,,Discrete and Continuous Random Variables,,,,MAT.PRB.303.010,"MAT.PRB.600, MAT.PRB.610",Variables that take on a finite number of distinct values and those that take on an infinite number of values
+,,Discrete Random Variables,,,,MAT.PRB.303.030,MAT.PRB.612,A variable having a countable number of values
+,,Mean and Standard Deviation of Discrete Random Variables,,,,MAT.PRB.303.050,"MAT.PRB.618, MAT.PRB.620",Calculations for finding mu and sigma of a discrete random variable
+,,Continuous Random Variables,,,,MAT.PRB.303.070,MAT.PRB.630,Counting numbers and values in-between
+,,Sums and Differences of Independent Random Variables,,,,MAT.PRB.303.090,MAT.PRB.621,Using TI calculator to find mu and sigma for sums and differences of  independent random variables.
+Content to be sorted,,,,,,MAT.PRB.999.999999,MAT.ALG.750,

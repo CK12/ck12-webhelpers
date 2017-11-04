@@ -1,0 +1,49 @@
+<li class="modality type_<%= data.artifactType %><% if ('interactive' === data.modality_group.group_classname || 'simulations' === data.modality_group.group_classname) { %> hide-small<% } %>" data-domaineid="<%= data.domain.encodedID %>" data-artifactid="<%= data.artifactID %>">
+    <div class="modality_inner">
+        <div class="modalitywrap">
+            <div class="modality_info_wrapper">
+                <div class='resource_meta'>
+                    <a class="modality_name_link label has_link_url" href="<%= data.embed_url %>" class="label">
+                    	<i class="<%= data.modality_group.modalityIcon %>"></i>
+                    	<span><%= data.modality_display_label %></span>
+                    </a>
+                </div>
+                <% if (data.thumbnail_img) { %>
+                    <div class="thumbnail_wrapper">
+                        <a href="<%= data.embed_url %>" class="thumbnaillink link_change has_link_url" title="<%= data.title %>"><img src="<%= data.thumbnail_img %> " alt="<%= data.title %>" /></a>
+                    </div>
+                <% } else { %>
+                    <div class="thumbnail_wrapper">
+                        <a href="<%= data.embed_url %>" class="thumbnaillink link_change has_link_url" title="<%= data.title %>"><img src="/media/images/modality_generic_icons/<%= data.modality_group.group_classname %>_ic.png" alt="<%= data.title %>" /></a>
+                    </div>
+                <% } %>
+                <div class="data_wrapper">
+                    <div class="modalitybody">
+                        <h2><a class="embed_view_url has_link_url" href="<%= data.embed_url %>"><%= data.title %></a></h2>
+                        <div class="modality-info">
+							<% if (data.creator !== 'CK-12') {%>
+							<div class="image-block"><img class="creator-image" src='<%= webroot_url %>/auth/member/image/<%= data.creatorAuthID %>'/></div>
+							<%} else{ %>
+							<div class="image-block"><img class="creator-image" src='/media/common/images/logo_ck12_small.png'/></div>
+							<% } %>
+							<div class="creator-level">
+								<span class="creator-name">by <%= data.creator %></span>
+								<span class="difficulty-level"><span>//</span><%= data.level %></span>
+							</div>
+						</div>
+                        <!-- Contributed By -->
+                        <% if (data.contributed_by){ %>
+                        <p class="contributiondesc"><%= data.contributed_by %></p>
+                        <% } %>
+                        <p class="resource_desc"><%= _.escape(data.summary) %></p>
+                        <!-- Difficulty Level -->
+                        <% if (data.level && data.artifactType=='lesson' && window.modality_data && window.modality_data.read_modality_count > 1  && !window.modality_data.difficulty) { %>
+                        <p class="difficulty">Difficulty Level:&nbsp; <span class="level"><%= data.level %></span></p>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="launcher_overlay" href="<%= data.embed_url %>" target="_blank"> </a>
+</li>

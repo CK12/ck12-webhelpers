@@ -1,0 +1,1 @@
+db.EventTypes.insert({ "clientID" : 24839961, "eventType" : "FBS_GROUP_JOIN", "parameters" : [ { "mandatory" : true, "name" : "memberID" }, { "mandatory" : true, "name" : "groupID" }, { "mandatory" : true, "name" : "referrer" } ] })

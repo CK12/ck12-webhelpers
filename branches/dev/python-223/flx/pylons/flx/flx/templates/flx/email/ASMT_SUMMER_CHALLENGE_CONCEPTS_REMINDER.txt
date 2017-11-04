@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>CK-12 BrainFlex</title>
+</head>
+
+<body>
+
+	<!-- papa HTML container -->
+<div  style="width:auto;display:box;font-family:'Helvetica Neue','Helvetica',Helvetica,Arial,sans-serif;" >
+		<div class="width-restrictor" style="width:auto;max-width:600px;text-align:center;min-height:auto;background-color:#f9f9f5;padding-bottom:30px;padding-left:15px;padding-right:15px;min-width:320px"> 
+		
+		<!-- top ck-12 logo and text -->
+		<div class="logo-header">
+			<div class="logo-holder" style="height: 70px;text-align: center;margin-bottom: 14px;">
+				<div class="ck12-logo-text-container " style="min-width: 229px;width:15%;margin:auto;padding-top:20px">
+				<img src="{{ site }}/assessment/ui/public/lib/summer/logo-2x.png" height="33" width="94" alt="Brain flex" class="CToWUd a6T" tabindex="0">
+					<div class="ck12-logo-caption" style="display: inline-block;padding-left: 15px;vertical-align: 9px;">
+						<span class="brainflex-text" style="font-weight: bold;font-size: 20px;color: rgba(0, 0, 0, 0.62);">BrainFlex</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="">		
+			<div class="no-right-padding" style="padding-right: 0 !important;">
+				
+			</div>		
+		</div>
+		
+		<div class="">
+		<div class="brain-muscle" style="margin: auto;">
+			
+			<div class="wendy-text" style="background-color:white;padding-top: 25px;font-size:18px;font-weight:normal;line-height:24px;text-align:left;padding-left:30px;padding-right:30px;padding-bottom:50px;">
+			<div style="width: 100%; height: auto; text-align: center;">
+				<img src="{{ site }}/assessment/ui/public/lib/summer/nag-email-graphic.png" height="174" width="174" alt="Brainflex" class="CToWUd a6T" tabindex="0">
+			
+			</div>
+			
+			
+			<p class="we-miss-u" style= "width: 100%;font-size:24px;font-weight:bold;margin-top:24px;margin-bottom:30px;text-align: center;">{{ events[0].eventData['user'] }}, we miss you!</p>
+			{% if events[0].eventData['noOfDaysPracticed'] >0 %}
+            <p>So far you have completed {{events[0].eventData['noOfDaysPracticed']}} day{% if events[0].eventData['noOfDaysPracticed'] > 1 %}s{% endif %} of practice. Exercise your brain to keep it active and happy. Remember that a little practice every day goes a long way. Log in and get back on track.</p>
+			{% else %}
+			<p>Exercise your brain to keep it active and happy. Remember that a little practice every day goes a long way. Log in and get back on track.</p>
+			{% endif %}
+            <a class="start-practicing" href="{{ site }}/summer/dashboard/" style="font-weight:bold;border:medium none;border-radius:3px 3px 3px 3px;font-size:1em;padding:10px 16px 9px;background:#ff6633;color:white;text-decoration:none;margin: auto;display: block;width: 205px;margin-top: 36px;text-align:center">Go to CK-12 BrainFlex</a>
+            <p style="font-size:8pt; margin-top:50px; line-height:normal;">If you don't want to receive these emails, you can turn them off in your <a style="color: #00aba4" href="{{ site }}/account/settings/">account settings</a> page under the CK-12 App section.</p>
+			</div> 		
+			
+		</div>
+		
+	</div>
+</div>
+
+
+
+</div>
+</body>
+
+</html>

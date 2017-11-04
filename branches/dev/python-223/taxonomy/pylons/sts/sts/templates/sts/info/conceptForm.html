@@ -1,0 +1,429 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                      "http://www.w3.org/TR/html4/loose.dtd"> 
+<html>
+    <head>
+        <title>Simple Taxonomy Service</title>
+        <link type="text/css" href="/taxonomy/media/css/smoothness/jquery-ui-1.8.14.custom.css" rel="stylesheet" />
+
+        <script language="javascript" type="text/javascript" src="/taxonomy/media/js/hash.js"></script>
+        <script language="javascript" type="text/javascript" src="/taxonomy/media/js/jquery.js"></script>
+        <script language="javascript" type="text/javascript" src="/taxonomy/media/js/jquery-ui-1.8.14.custom.min.js"></script>
+        <script type="text/javascript">
+            var flxweb_host = window.location.hostname;
+            // 'astro.ck12.org';
+            var taxonomyPrefix = '/taxonomy';
+            var flxPrefix = '/flx';
+            var h = new Hash();
+            var artifactHash = new Hash();
+
+            var init = function() {
+                $('#conceptDetail').dialog({autoOpen: false, width: 600});
+                $('#subjectResult').dialog({autoOpen: false, width: 600, title: 'Subject'});
+                $('#branchResult').dialog({autoOpen: false, width: 600, title: 'Branch'});
+                $.ajax({
+                    url: taxonomyPrefix + '/get/info/subjects',
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        if (data.responseHeader.status != 0) {
+                            alert("Error get subjects info: " + data.response.message);
+                        }
+                        var selectHtml = '<select id="subjectSel" onchange="getBranches()">';
+                        selectHtml += '<option value="">-- Select One --</option>';
+                        for (var i = 0; i < data.response.subjects.length; i++) {
+                            selectHtml += '<option value="' + data.response.subjects[i].shortname + '">' + data.response.subjects[i].name + '</option>';
+                        }
+                        selectHtml += '</select>';
+                        $('#subject').html(selectHtml);
+                    }
+                });
+
+            }
+
+            var getBranches = function() {
+                var subject = $('#subjectSel').val();
+
+                $.ajax({
+                    url: taxonomyPrefix + '/get/info/branches/' + subject,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        if (data.responseHeader.status != 0) {
+                            alert("Error get branches info: " + data.response.message);
+                        }
+                        var selectHtml = '<select id="branchSel">';
+                        selectHtml += '<option value="">-- Select One --</option>';
+                        for (var i = 0; i < data.response.branches.length; i++) {
+                            selectHtml += '<option value="' + data.response.branches[i].shortname + '">' + data.response.branches[i].name + '</option>';
+                        }
+                        selectHtml += '</select>';
+                        $('#branch').html(selectHtml);
+                    }
+                });
+
+            }
+
+            var getTopLevelConcepts = function() {
+                var subject = $('#subjectSel').val();
+                var branch = $('#branchSel').val();
+
+                if (subject == '' || branch == '') {
+                    alert("Please select a subject and branch.");
+                    return false;
+                }
+                $.ajax({
+                    url: taxonomyPrefix + '/get/info/concepts/' + subject + '/' + branch + '/top?pageSize=20',
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        if (data.responseHeader.status != 0) {
+                            alert("Error get top-level concepts info: " + data.response.message);
+                        }
+                        insertConceptTable();
+                        for (var i = 0; i < data.response.conceptNodes.length; i++) {
+                            h.set(data.response.conceptNodes[i].encodedID, data.response.conceptNodes[i]);
+                            addConceptRow(data.response.conceptNodes[i]);
+                            getArtifactForConcept(data.response.conceptNodes[i].encodedID, data.response.conceptNodes[i].name);
+                        }
+                    }
+                });
+
+            }
+
+            var downloadMap = function() {
+                var subject = $('#subjectSel').val();
+                var branch = $('#branchSel').val();
+                if (subject == '' || branch == '') {
+                    alert("Please select a subject and branch.");
+                    return false;
+                }
+                var url = '/taxonomy/media/concept/map/' + branch.toLowerCase() + '.pdf';
+                window.open(url);
+            }
+
+            var viewMap = function() {
+                var subject = $('#subjectSel').val();
+                var branch = $('#branchSel').val();
+                if (subject == '' || branch == '') {
+                    alert("Please select a subject and branch.");
+                    return false;
+                }
+                var url = '/taxonomy/media/concept/map/' + branch.toLowerCase() + '.html';
+                window.open(url);
+            }
+
+            var getNextConcept = function(encodedID) {
+                getAdjacentConcept(encodedID, 'next');
+            }
+
+            var getPreviousConcept = function(encodedID) {
+                getAdjacentConcept(encodedID, 'previous');
+            }
+
+            var getAdjacentConcept = function(conceptId, dir) {
+                $.ajax({
+                    url: taxonomyPrefix + '/get/info/' + dir + '/concepts/' + conceptId + '?pageSize=1',
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        if (data.responseHeader.status != 0) {
+                            alert("Error get " + dir + " concept info: " + data.response.message);
+                        }
+                        if (data.response.conceptNodes.length == 0) {
+                            alert('No ' + dir + ' concept for this node.');
+                            return;
+                        }
+                        h.set(data.response.conceptNodes[0].encodedID, data.response.conceptNodes[0]);
+                        showConceptDetail(data.response.conceptNodes[0].encodedID, data.response.conceptNodes[0].name);
+                    }
+                });
+            }
+
+            var cleanString = function(s) {
+                if (s == null) {
+                    return '-';
+                }
+                if (s.toLowerCase() == 'null' || s.toLowerCase() == 'none') {
+                    s = '-';
+                }
+                return s;
+            }
+
+            var getConcept = function(conceptId, append, msg) {
+                $('#conceptDetail').dialog('close');
+                $.ajax({
+                    url: taxonomyPrefix + '/get/info/concept/' + conceptId,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        if (data.responseHeader.status != 0) {
+                            alert("Error get concept info: " + data.response.message);
+                        }
+                        if (!append) {
+                            insertConceptTable();
+                        }
+                        if (msg != '') {
+                            addConceptRow(msg, 'sep');
+                        }
+                        h.set(data.response.encodedID, data.response);
+                        addConceptRow(data.response);
+                        getArtifactForConcept(data.response.encodedID, data.response.name);
+                        // closeConceptTable();
+                    }
+                });
+            }
+
+            var createArtifactLink = function(conceptId, conceptName, perma) {
+                if (perma != '') {
+                    var link = '<a href="http://' + flxweb_host + '/' + perma + '" target="_flxweb" title="Read Concept"><img src="' + taxonomyPrefix + '/media/images/exturl.png" style="border:0;"/></a>';
+                    var id = '.concept_' + conceptId.replace(/\./g, '-');
+                    if ($(id).length > 0) {
+                        $(id).html(link);
+                    }
+                    id = id.replace('concept_', 'conceptD_');
+                    if ($(id).length > 0) {
+                        $(id).html(link);
+                    }
+                }
+            }
+
+            var getArtifactForConcept = function(conceptId, conceptName) {
+                if (artifactHash.hasKey(conceptId)) {
+                    createArtifactLink(conceptId, conceptName, artifactHash.get(conceptId));
+                } else {
+                    $.ajax({
+                        url: flxPrefix + '/browse/concept/' + conceptId + '?pageSize=1',
+                        type: 'GET',
+                        dataType: 'json',
+                        success: function(data) {
+                            if (data.responseHeader.status != 0) {
+                                alert("Error getting artifacts for concept: " + data.response.message);
+                            }
+                            var perma = '';
+                            if (conceptId in data.response && data.response.total > 0) {
+                                var artifacts = data.response[conceptId];
+                                artifact = artifacts[0];
+                                perma = artifact.artifactType + '/' + artifact.handle;
+                                if (artifact.realm != null) {
+                                    perma += '/' + artifact.realm;
+                                }
+                                perma += '/#' + escape(conceptName);
+                            }
+                            artifactHash.set(conceptId, perma);
+                            createArtifactLink(conceptId, conceptName, artifactHash.get(conceptId));
+                        }
+                    });
+                }
+            }
+
+            var searchConcepts = function() {
+                $('#conceptDetail').dialog('close');
+                var term = $('#search').val();
+                if (term == '') {
+                    alert("Please enter a search term");
+                }
+                $.ajax({
+                    url: taxonomyPrefix + '/search/concept/' + term,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        if (data.responseHeader.status != 0) {
+                            alert('Error searching for concepts: ' + data.response.message);
+                        }
+                        insertConceptTable();
+                        addConceptRow('Search results for <strong>\'' + term + '\'</strong>', 'sep');
+
+                        for (var i = 0; i < data.response.conceptNodes.length; i++) {
+                            h.set(data.response.conceptNodes[i].encodedID, data.response.conceptNodes[i]);
+                            addConceptRow(data.response.conceptNodes[i]);
+                            getArtifactForConcept(data.response.conceptNodes[i].encodedID, data.response.conceptNodes[i].name);
+                        }
+                    }
+                });
+            }
+
+            var getDescendants = function(conceptId) {
+                $('#conceptDetail').dialog('close');
+                $.ajax({
+                    url: taxonomyPrefix + '/get/info/descendants/concepts/' + conceptId,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        if (data.responseHeader.status != 0) {
+                            alert("Error get concept children info: " + data.response.message);
+                        }
+                        if (data.response.conceptNode.children.length > 0) {
+                            addConceptRow('Children of <a href="javascript:void(0);" onclick="getConcept(\'' + conceptId + '\', false, \'\');">' + conceptId + '</a>', 'sep');
+                        }
+                        for (var i = 0; i < data.response.conceptNode.children.length; i++) {
+                            h.set(data.response.conceptNode.children[i].encodedID, data.response.conceptNode.children[i]);
+                            addConceptRow(data.response.conceptNode.children[i]);
+                            getArtifactForConcept(data.response.conceptNode.children[i].encodedID, data.response.conceptNode.children[i].name);
+                        }
+                    }
+                });
+            }
+
+            var getSubject = function(shortname) {
+                //$('#conceptDetail').dialog('close');
+                $.ajax({
+                    url: taxonomyPrefix + '/get/info/subject/' + shortname,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        if (data.responseHeader.status != 0) {
+                            alert("Error get subject info: " + data.response.message);
+                        }
+                        var subject = data.response;
+                        var html = '<table border="1"><tr><td>Name</td><td>' + subject.name + '</td></tr>'
+                            + '<tr><td>Shortname</td><td>' + subject.shortname + '</td></tr>'
+                            + '<tr><td>Description</td><td>' + cleanString(subject.description) + '</td></tr>'
+                            //+ '<tr><td>Created</td><td>' + subject.created + '</td></tr>'
+                            //+ '<tr><td>Updated</td><td>' + subject.updated + '</td></tr>'
+                            + '</table>';
+
+                        $('#subjectResult').html(html);
+                        $('#subjectResult').dialog('open');
+                    }
+                });
+            }
+
+            var getBranch = function(shortname) {
+                // $('#conceptDetail').dialog('close');
+                $.ajax({
+                    url: taxonomyPrefix + '/get/info/branch/' + shortname,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        if (data.responseHeader.status != 0) {
+                            alert("Error get branch info: " + data.response.message);
+                        }
+                        var branch = data.response;
+                        var html = '<table border="1"><tr><td>Name</td><td>' + branch.name + '</td></tr>'
+                            + '<tr><td>Shortname</td><td>' + branch.shortname + '</td></tr>'
+                            + '<tr><td>Description</td><td>' + cleanString(branch.description) + '</td></tr>'
+                            + '<tr><td>Subject</td><td><a href="javascript:void(0);" onclick="getSubject(\'' + branch.subject.shortname + '\');">' + branch.subject.name + '</a></td></tr>'
+                            //+ '<tr><td>Created</td><td>' + branch.created + '</td></tr>'
+                            //+ '<tr><td>Updated</td><td>' + branch.updated + '</td></tr>'
+                            + '</table>';
+
+                        $('#branchResult').html(html);
+                        $('#branchResult').dialog('open');
+                    }
+                });
+            }
+
+            var showConceptDetail = function(encodedID, conceptName) {
+                var concept = null;
+                if (h.hasKey(encodedID)) {
+                    concept = h.get(encodedID);
+                } else {
+                    alert('No data for concept detail: ' + encodedID);
+                    return;
+                }
+                var parent = null;
+                if ('parent' in concept && concept.parent != null) {
+                    parent = concept.parent;
+                    if (typeof concept.parent == 'object' && 'encodedID' in concept.parent) {
+                        parent = concept.parent.encodedID;
+                    }
+                }
+                var html = '';
+                html += '<table cellpadding="5"><tr><td>Encoded&nbsp;ID</td><td>' + concept.encodedID + '</td></tr>';
+                html += '<tr><td>Name</td><td>' + concept.name + '&nbsp;<span class="conceptD_' + concept.encodedID.replace(/\./g, '-') + '">&nbsp;</span>' 
+                    + '</td></tr>';
+                html += '<tr><td>Description</td><td>' + cleanString(concept.description) + '</td></tr>';
+                html += '<tr><td>Subject</td><td>' + '<a href="javascript:void(0);" onclick="getSubject(\'' + concept.subject.shortname + '\');">' + concept.subject.name + '</a></td></tr>';
+                html += '<tr><td>Branch</td><td>' + '<a href="javascript:void(0);" onclick="getBranch(\'' + concept.branch.shortname + '\');">' + concept.branch.name + '</a></td></tr>';
+                html += '<tr><td>Parent</td><td>' 
+                    + (parent != null ? '<a href="javascript:void(0);" onclick="getConcept(\'' + parent + '\', true, \'Parent of ' + concept.encodedID + '\');">' + parent + '</a>' : '') + '</td></tr>';
+                html += '<tr><td>Children</td>';
+                html += '<td>' + (concept.childCount > 0 ? '<a href="javascript:void(0);" onclick="$(\'#conceptDetail\').dialog(\'close\'); getDescendants(\'' + concept.encodedID + '\');">' + concept.childCount + '</a>' : concept.childCount) + '</td></tr>';
+                // html += '<tr><td>Created</td><td>' + concept.created + '</td></tr>';
+                // html += '<tr><td>Updated</td><td>' + concept.updated + '</td></tr>';
+                html += '</table><br/><br/>';
+                html += '<div style="float:left;"><input type="button" value="&lArr; Previous" onclick="getPreviousConcept(\'' + concept.encodedID + '\');" /></div>';
+                html += '<div style="float:right;"><input type="button" value="Next &rArr;" onclick="getNextConcept(\'' + concept.encodedID + '\');" /></div>';
+
+                $('#conceptDetail').html(html);
+                $('#conceptDetail').dialog('option', 'title', concept.name + ' (' + concept.encodedID + ')');
+                $('#conceptDetail').dialog('open');
+                getArtifactForConcept(concept.encodedID, concept.name);    
+            }
+
+            var insertConceptTable = function() {
+                var thtml = '<table cellpadding="2" cellspacing="0" border="1">';
+                thtml += '<thead><tr> <th>Name</th> <th>Encoded ID</th> <th>Description</th> <th>Subject</th> <th>Branch</th>'; // <th>Created</th> <th>Updated</th>';
+                thtml += '<th>Children</th> <th>Parent</th> </tr> </thead> <tbody>';
+                $('#conceptResult').html(thtml);
+            }
+
+            var addConceptRow = function(concept, type) {
+                var row = '';
+                if (type == 'sep') {
+                    row = '<tr><td colspan="9" style="background-color:#aaaaaa;"><em>' + concept + '</em></td></tr>';
+                } else {
+                    var parent = null;
+                    if ('parent' in concept && concept.parent != null) {
+                        parent = concept.parent;
+                        if (typeof concept.parent == 'object' && 'encodedID' in concept.parent) {
+                            parent = concept.parent.encodedID;
+                        }
+                    }
+                    row = '<tr><td><a href="javascript:void(0);" onclick="showConceptDetail(\'' + concept.encodedID + '\', \'' + concept.name + '\');">' + concept.name + '</a>'
+                        + '&nbsp;<span class="concept_' + concept.encodedID.replace(/\./g, '-') + '"></span></td><td>'
+                        + concept.encodedID + '</td> <td>' 
+                        + cleanString(concept.description) + '</td> <td>' 
+                        + '<a href="javascript:void(0);" onclick="getSubject(\'' + concept.subject.shortname + '\');">' + concept.subject.name + '</a></td> <td>' 
+                        + '<a href="javascript:void(0);" onclick="getBranch(\'' + concept.branch.shortname + '\');">' + concept.branch.name + '</a></td> <td>' 
+                        // + concept.created + '</td> <td>' 
+                        // + concept.updated + '</td> <td>'
+                        + (concept.childCount > 0 ? '<a href="javascript:void(0);" onclick="getDescendants(\'' + concept.encodedID + '\');">' + concept.childCount + '</a>' : concept.childCount) + '</td> <td>'
+                        + (parent != null ? '<a href="javascript:void(0);" onclick="getConcept(\'' + parent + '\', true, \'Parent of ' + concept.encodedID + '\');">' + parent + '</a>' : '') + '</td></tr>';
+                }
+                origHtml = $('#conceptResult').html();
+                origHtml = origHtml.substring(0, origHtml.indexOf('</tbody></table>'));
+                $('#conceptResult').html(origHtml + row + '</tbody></table>');
+            }
+
+            var closeConceptTable = function() {
+                var thtml = '</tbody> </table>';
+                $('#conceptResult').html($('#conceptResult').html() + thtml);
+            }
+            
+            $(document).ready(function() { init(); });
+        </script>
+    </head>
+    <body>
+        <h1><img src="/taxonomy/media/images/logo_sm.png" title="CK-12 Foundation" style="padding-right:10px;">Simple Taxonomy Service</h1>
+        Concept Encode: <input type="text" name="id" id="id" value="" /> <input type="button" value="Get Info" onclick="getConcept($('#id').val(), false, '');" />
+        <br/><br/>
+        Subject: <span style="margin-right:20px;" id="subject"></span> 
+        Branch: <span id="branch" style="margin-right:40px;"><select><option value="">-- Select a Subject --</option></select></span> 
+        <input type="button" value="Get Top-level Concepts" onclick="getTopLevelConcepts();" />
+        <input type="button" value="View Concept Map" onclick="viewMap();" />
+        <input type="button" value="Download Concept Map (PDF)" onclick="downloadMap();" />
+        <div style="float:right; border:1px solid green; padding:5px;">
+            Create New: 
+            <a href="/taxonomy/create/conceptForm" title="Create a new concept node">Concept</a>&nbsp;&nbsp;
+            <a href="/taxonomy/create/subjectForm" title="Create a new subject">Subject</a>&nbsp;&nbsp;
+            <a href="/taxonomy/create/branchForm" title="Create a new branch">Branch</a>&nbsp;&nbsp;
+            <a href="/taxonomy/create/artifactextensiontypeForm" title="Register new Artifact Extension Type">Artifact Extension Type</a>
+        </div>
+        <br/><br/>
+        Search: <input type="text" name="search" id="search" value="" /> <input type="button" value="Search" onclick="searchConcepts();" />
+        <h3>Concepts</h3>
+        <div id="conceptResult" style="border: 1px blue solid; min-height: 50px;">
+        </div>
+        <br/><br/>
+            <div id="subjectResult" style="display:none;">
+            </div>
+            <div id="branchResult" style="display:none;">
+            </div>
+        <div id="conceptDetail" style="display:none;">
+        </div>
+    </body>
+</html>
+
+
+

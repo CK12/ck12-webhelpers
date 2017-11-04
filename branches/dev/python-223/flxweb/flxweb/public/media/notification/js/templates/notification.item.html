@@ -1,0 +1,38 @@
+<div class="notification-item row collapse">
+    <div class="notification-new<% if(!data.is_new){ %> hide <% } %>">New</div>
+    <div class="notification-thumb-wrapper columns small-2">
+        <% if (data.profile_notification){ %>
+        	 <canvas id="progress-ring-<%= data.notificationID %>" height="62px" width="62px;" data-percent_complete="<%= data.percent_complete %>" ></canvas>
+       	<% } else if (data.user_notification){ %>
+        	<i class="icon-email user-unverified-icon"></i>
+        <% } else if (data.initiator_thumb){ %>
+       		 <img width="35" class="notification-nitiator-thumb" src="<%= data.initiator_thumb %>" />
+        <% } else { %>
+        	<i class="icon-user"></i>
+        <% } %>
+    </div>
+    <div class="notification-content-wrapper columns small-8">
+    	<% if (!(data.user_notification)){ %>
+	        <div>
+	        	<% if (data.profile_notification){ %>
+	            	<span class="notification-initiator navigate-to-profile"><%- data.initiator %></span>
+	            <% } else { %>
+	            	<span class="notification-initiator"><%- data.initiator %></span>
+	            <% } %>
+	           	<span class="notification-verb"> <%- data.verb %> </span>
+	        </div>
+		<% } %>
+        <div class="notification-content">
+        	<% if (data.user_notification){ %>
+            	<span class="user-text"><%= data.content %></span><a class="user-text js-resend-email-notify inapp-resendverification-link">Resend verification email to <%= data.email %></a>
+            	<b class="hide">Sent</b>
+            <% } else {%>
+            	<%= data.content %>
+            <% } %>
+        </div>
+        <div class="notification-timestamp"><%= data.timestamp %></div>
+    </div>
+    <div class="notification-dismiss-wrapper columns small-2">
+        <a class="lnk-notifications-dismiss"><i class="icon-close"></i></a>
+    </div>
+</div>

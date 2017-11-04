@@ -1,0 +1,10 @@
+/var/log/celery/*.log {
+        hourly
+        missingok
+        rotate 10
+        compress
+        delaycompress
+        notifempty
+        copytruncate
+}
+

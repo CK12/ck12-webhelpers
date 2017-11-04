@@ -1,0 +1,11 @@
+There are two DLL files in this directory. Both are necessary for mathtypelib.py to work 
+correctly.
+
+MT6.dll - This file is shipped with MathType installer and contains all the core 
+          functionality provided by MathType
+
+MTSDKDN.dll - A .Net managed code wrapper for the MT6.dll. This file is built from
+              compiling the MTSDKDN sample project from MathType SDK samples. The 
+              code for this sample is checked into the src/csharp/MTSDKDN directory.
+
+              To rebuild this DLL, open the solution in Visual Studio 2010 C#.

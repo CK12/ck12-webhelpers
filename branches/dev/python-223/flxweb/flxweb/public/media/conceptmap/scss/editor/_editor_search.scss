@@ -1,0 +1,17 @@
+#editor-search-widget {
+    background: white;
+    padding: 15px;
+    position: absolute;
+    width: 400px;
+    z-index: 101;
+    border: 2px solid #efede7;
+
+    .concept__search-icon {
+        background-color: $search-icon-active-bg;
+        color: white;
+    }
+
+    .concept__search-loading-icon {
+        top: 8px;
+    }
+}

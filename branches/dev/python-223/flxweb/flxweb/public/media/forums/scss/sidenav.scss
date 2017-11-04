@@ -1,0 +1,64 @@
+.icon-guidline{
+    mask-image: url("../images/guidelines.png");
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    background-color: #00aba4;
+}
+.go-back-nav{
+    margin: 25px 0 18px 0;
+    height: 20px;
+    font-size: 12px;
+    i{
+        font-size: 7px;
+        color: #ccc;
+        margin-right: 6px;
+        vertical-align: 1px;
+    }
+    span{
+        
+    }
+}
+.side-nav-container{
+    background-color: #ffffff;
+    margin-right:18%;  
+    .side-nav{
+        padding: 12px 12px 0 12px !important;    
+    }
+    .nav-link-wrapper{
+        border-bottom: 1px solid #eaf5fa;
+        .nav-link{
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        i{
+            color: $green;
+            font-size: 15px;
+            vertical-align: middle;
+        }
+        span{
+            font-size: 14px;
+            color: #56544D;
+        }
+    }
+    .nav-clickable{
+        height: 44px;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+    .followers-image-wrapper{
+        img{
+            width: 30px;
+            height: 30px;
+        }
+    }
+    .load-more{
+        padding: 15px;
+        text-align: center;
+        a{
+            font-size: 14px;
+        }
+    }
+}

@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>Get Artifact</title>
+    </head>
+    <body>
+        <table>
+            <input type="hidden" name="id" value="{{ c.id }}" />
+            {% for key in c.keys %}
+            <tr>
+                <td>
+                    {{ key }}:
+                </td>
+                <td>
+                    {{ c.metaDict[key] }}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>

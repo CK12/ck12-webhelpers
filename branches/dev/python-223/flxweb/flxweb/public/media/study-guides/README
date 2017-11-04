@@ -1,0 +1,7 @@
+This file tells building Study Gudies  -
+Prerequisite - 1.    Install NodeJS.
+               2.    Install Grunt JS using command "npm install -g grunt-cli".
+                
+Run command - "grunt"
+
+It will create a app directory with all js and css.  

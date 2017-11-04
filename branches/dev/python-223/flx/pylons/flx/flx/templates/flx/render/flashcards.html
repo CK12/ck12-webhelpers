@@ -1,0 +1,120 @@
+<html>
+    <head>
+        <title>Play Flash Cards</title>
+        <script type="text/javascript" src="{{ c.prefix }}/media/js/prototype.js"></script>
+        <script type="text/javascript">
+          var current = 0;
+          var result = null;
+
+          Event.observe(window, 'load', function() { 
+            $("topic").options[0].selected = true;
+            getFlashCards();
+          });
+          function getFlashCards() {
+            var id = $F('topic');
+            //alert("id: " + id);
+            new Ajax.Request("{{ c.prefix }}/get/definitions/chapter/" + id, {
+                method: "GET",
+                onSuccess: function(t) {
+                    result = t.responseText.evalJSON();
+                    current = -1;
+                    populateNext(1);
+                  }
+                });
+          }
+            
+          function populateNext(increment) {
+            current += increment;
+            if (result['response']['definitions'] != undefined && current < result['response']['definitions'].length) {
+                var term = result['response']['definitions'][current]['term'];
+                var def = result['response']['definitions'][current]['definition'];
+                $("term").innerHTML = '<strong>' + term + '<strong>';
+                $("explain").innerHTML = def;
+                $("explain").hide();
+                $("term").show();
+                $("counter").innerHTML = 'Flash card ' + (current+1) + ' of ' + result['response']['definitions'].length;
+                if (current + 1 < result['response']['definitions'].length) {
+                  $("next").disabled = false;
+                } else {
+                  $("next").disabled = true;
+                }
+                if (current <= 0) {
+                  $('prev').disabled = true;
+                } else {
+                  $('prev').disabled = false;
+                }
+            }
+          }
+
+          function flipCard() {
+            if ($("term").visible()) {
+              $("term").hide();
+              $("explain").show();
+            } else {
+              $("explain").hide();
+              $("term").show();
+            }
+          }
+
+        </script>
+        <style>
+          .flashcard {
+            -moz-border-radius: 15px;
+            border-radius: 15px;
+            height:150px;
+            width:300px;
+            border:solid 1px blue; 
+            text-align:center; 
+            vertical-align:middle;
+            font-size: 10pt;
+            padding:5px;
+            padding-top: 30px;
+            margin: 10px;
+            overflow-y: auto;
+          }
+
+          .term {
+            background-color: lightblue; 
+          }
+          .definition {
+            background-color: lightgreen; 
+          }
+        </style>
+    </head>
+    <body>
+      <h2>Test your knowledge with Flash Cards</h2>
+      Select a study topic: 
+      <select id="topic" onchange="getFlashCards()">
+        <optgroup label="-- Mathematics --">-- Mathematics --</optgroup>
+        <option value="Triangles and Vectors">Triangles and Vectors</option>
+        <option value="Polar Equations and Complex Numbers.">Polar Equations and Complex Numbers</option>
+        <option value="Reasoning and Proof">Reasoning and Proof</option>
+        <optgroup label="-- Physics --">-- Physics --</optgroup>
+        <option value="Newton's Laws">Newton's Laws</option>
+        <option value="The Standard Model and Beyond">Particle Physics</option>
+        <optgroup label="-- Biology --"></optgroup>
+        <option value="Environmental Problems">Environmental Problems</option>
+        <option value="Ecosystem Dynamics">Ecosystem Dynamics</option>
+        <option value="Reproductive Systems and Life Stages">Reproductive Systems and Life Stages</option>
+        <option value="Cardiovascular System">Cardiovascular System</option>
+        <option value="The Human Body">The Human Body</option>
+        <option value="Evolution">Evolution</option>
+        <optgroup label="-- Chemistry --"></optgroup>
+        <option value="The Chemistry of Carbon">The Chemistry of Carbon</option>
+        <option value="Acids and Bases">Acids and Bases</option>
+        <option value="Chemical Kinetics">Chemical Kinetics</option>
+      </select>
+
+      <input type="button" value="Get Flashcards" onclick="getFlashCards()" />
+      <br/><br/>
+      <span style="font-size:8pt;" id="counter"></span><br/>
+      <div id="term" class="flashcard term" onclick="flipCard();">
+        No flash cards!
+      </div>
+      <div id="explain" class="flashcard definition" style="display:none;" onclick="flipCard();">
+      </div>
+      <span style="font-size:8pt;">Click on the flash card to flip!</span>  <br/>
+      <input type="button" value="Previous" id="prev" disabled="disabled" style="margin-left:200px;" onclick="populateNext(-1);" />
+      <input type="button" value="Next" id="next" disabled="disabled" style="margin-left:5px;" onclick="populateNext(1);" />
+    </body>
+</html>

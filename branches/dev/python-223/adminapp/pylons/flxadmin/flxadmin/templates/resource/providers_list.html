@@ -1,0 +1,28 @@
+{% from "macros/pagination.html" import paginate with context %}  
+
+{% if c.paginator.item_count > 0 %}
+  {% for i in c.paginator.items %}
+    <div class="tr paneview {{ h.hide_if_full(c.viewmode)}}">
+      <div class="td id">{{i.id}}</div>
+      <div class="td viewtrigger word-break xmed" data-id="{{i.id}}">{{h.idlink2('provider', i, 'name')}}<br>
+      {{i.domain|escape}}</div>
+      <div class="td">{{i.needsApi|boolstr('Yes No')}}</div>
+      <div class="td">{{i.blacklisted|boolstr('Yes No')}}</div>
+      <div class="td nowrap">{{i.updated|compact}}</div>
+    </div>
+    <div class="tr fullview {{ h.hide_if_pane(c.viewmode)}}">
+      <div class="td id">{{i.id}}</div>
+      <div class="td viewtrigger word-break xmed" data-id="{{i.id}}">{{h.idlink2('provider', i, 'name')}}</div>
+      <div class="td word-break xmed">{{i.domain|escape}}</div>
+      <div class="td">{{i.needsApi|boolstr('Yes No')}}</div>
+      <div class="td actionitemwrap">
+        <div class="actionstat floatleft">{{i.blacklisted|boolstr('Yes No')}}</div>
+        <div class='actionitem'></div>
+        <div class='actionmsg hide'></div>
+      </div>
+      <div class="td nowrap">{{i.created|compact}}</div>
+      <div class="td nowrap">{{i.updated|compact}}</div>
+    </div>
+  {% endfor %}
+  {{ paginate(c.paginator) }}
+{% endif %}

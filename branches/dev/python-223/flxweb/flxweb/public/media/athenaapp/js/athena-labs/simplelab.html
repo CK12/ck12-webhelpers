@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Simple Lab</title>
+</head>
+<body>
+    <h1>Hello, World</h1>
+    <p>Basic shell to show the use of the various labs.js methods.</p>
+
+    <p>Currently mode: <span id="currentMode"></span></p>
+    
+    
+    <div>
+        <button id="submitAttempt">Submit Attempt</button>
+        <button id="doneButton">Done</button>
+    </div>
+
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.js"></script>
+    <script src="labs.js"></script>
+    <script>
+        $(document).ready(function () {            
+            var labHost = new Labs.LabHost();
+            Labs.initialize(labHost, function (err, initialState) {
+                $("#currentMode").text(initialState.mode);
+
+                Labs.getState(function (err, state) {
+                    if (state == null) {
+                        // Set an initial state if none is set
+                        Labs.setState({ data: "Hello, Data!" }, function (err, data) {                            
+                        });
+                    }
+                });
+
+                Labs.getConfiguration(function (err, configuration) {
+                    if (configuration == null) {
+                        var choices = [
+                            { id: "0", text: "True" },
+                            { id: "1", text: "False" }];                                                    
+                        var hints = [{ text: "This is a hint" }];                        
+                        var problem = new Labs.Configuration.ChoiceProblem(
+                            "Is this a simple question?",
+                            choices,
+                            hints,
+                            ["0"],
+                            1,
+                            0,
+                            0,
+                            null);
+                        configuration = { name: "simplelab", data: null, components: [problem] };
+                        
+                        Labs.setConfiguration(configuration, function (err, data) {
+                        });
+                    }
+                });
+
+                Labs.getResults(function(err, results) {
+                    if (results == null) {                        
+                        var problem = new Labs.Results.ChoiceProblemResult([]);
+                        results = { componentResults: [problem] };
+                        Labs.setResults(results, function (err, data) {                
+                        });
+                    }
+                    
+                    $("#submitAttempt").click(function () {                       
+                        var attempt = new Labs.Results.ChoiceProblemAttempt(
+                            [],
+                            [{ score: 1, submitTime: new Date().getTime(), value: ["0"] }],
+                            new Date().getTime(),
+                            Labs.Results.ProblemState.Completed);
+                        results.componentResults[0].attempts.push(attempt);
+                        Labs.setResults(results, function (err, data) {                            
+                        });
+                    });
+                });
+
+                // Link up event handlers
+                Labs.on(Labs.EventTypes.ModeChanged, function (modeChangedEvent) {
+                    $("#currentMode").text(modeChangedEvent.mode);                    
+                });
+                
+                $("#doneButton").click(function () {
+                    Labs.done(function (err, data) {
+                    });
+                });
+            });            
+        });
+    </script>
+</body>
+</html>

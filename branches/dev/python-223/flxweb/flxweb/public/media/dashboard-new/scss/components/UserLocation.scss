@@ -1,0 +1,38 @@
+@import '../main';
+
+$location-icon-size: rem-calc(7.5);
+
+:local {
+    .userLocation{
+        color: $GREY_BROWN;
+        font-size: rem-calc(14);
+
+        i {
+            padding-right: $location-icon-size;
+        }
+
+        &.hoverShow {
+            span {
+                display: inline-block;
+                transition: all 0.25s;
+               // opacity: 0;
+               // transform: translateX(-100%);
+                color: $link-color;
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+            /**&:hover span {
+                opacity: 1;
+                transform: translateX(0);
+            }**/
+        }
+    }
+
+    .toggleLocation {
+        font-size: rem-calc(12);
+        padding-left: rem-calc(10);
+        cursor: pointer;
+		color: $link-color;
+    }
+}

@@ -1,0 +1,25 @@
+{% if c.books %}
+	<div class="row collapse">
+		{% if c.message %}
+			<div id="js_old_fb_notification" class="nostandardsmatch">
+			{{c.message}}	
+			</div>
+		{% else %}
+			<div id="js_old_fb_notification" class="nostandardsmatch hide">
+			</div>
+		{% endif %}
+		<ul id="standardBoardLinks" class="standardBoardLinksWrapper row collapse">
+			{% for book in c.books %}
+			<li class="large-6 columns" style="list-style: none outside none;">
+				<a href="{{ config.webroot_url }}{{ book.getPermaHandle(include_version=False) }}"><img class="image-standardBoardLinks" src="{{ book|ck12_thumbnail }}" alt="{{ book.title|escape }}" title="{{ book.title|escape }}" /></a>
+				<h2 class="heading-standardBoardLinks">{{ book.title }}</h2>
+				<a class="std_links" href="#" title="{{c.state_name}}" data-std_brd_id="{{c.state_id}}" data-std_corr_href="{{config.webroot_url}}ajax/boards/standards/correlated/{{ c.state_id }}/{{ book.id }}"><span class="imgwrap"></span> <span class="text">{{c.state_name}}</span></a>
+            </li>
+            {% endfor %}
+		</ul>
+	</div>
+{% else %}
+	<div class="row collapse text-center">
+		{{ _('There are no books for the selected subject, grade and state. Please try a different selection') }}
+	</div>
+{% endif %}

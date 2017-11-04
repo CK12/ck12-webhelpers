@@ -1,0 +1,941 @@
+{% extends "common/master.html" %}
+{% block title %}{{ c.branch.name }}{% endblock %}
+
+{% set keywords = [] %}
+{#
+{% for group in c.browse_groups %}
+{% if keywords.append(group.name) %}{%endif%}
+{% endfor %}
+#}
+
+{% block schema_itemscope %} itemscope itemtype="http://schema.org/CollectionPage" {% endblock %}
+
+{% block meta_extra %}
+{{ super() }}
+<meta name="title" content="{{ c.branch.name }}">
+<meta property="og:title" content="{{ c.branch.name }}" />
+<meta name="description" content="Browse {{ c.branch.name }} concepts covering {{ keywords|join(', ') }} and many more with videos, exercises and flashcards">
+{% endblock %}
+
+
+{% block stylesheets %}
+<link media="screen" type="text/css" href="{{ h.asset_css('lib/jquery-ui/css/smoothness/jquery-ui-1.8.17.custom.css') }}" rel="stylesheet"/>
+{{ super() }}
+<link media="screen" type="text/css" href="{{ h.url_css('browse.css') }}" rel="stylesheet"/>
+<link media="screen" type="text/css" href="{{ h.url_css('browse-toggle.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+{% block extra_head %}
+{{ super() }}
+<script type="text/javascript">
+var pageType = "Browse";
+var pageSubType = "{{ c.branch.name }}";
+</script>
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+<script type="text/javascript">
+require(['main'],function() {
+    require(['js/flxweb.browse'], function(Browse){
+        Browse.init();
+        var payload = {};
+        {% if c.branch.parent and c.branch.parent.level > 0 %}
+            window.adsSubject = '{{c.branch.parent.name}}';
+            window.adsBranch = '{{c.branch.name}}';
+            payload.subject = '{{ c.branch.parent.name }}';
+            payload.branch = '{{ c.branch.name }}';
+        {% elif c.branch.level == 1 %}
+            window.adsBranch = '{{c.branch.name}}';
+            payload.branch = '{{ c.branch.name }}';
+        {% endif %}
+        window.adsPage = 'browse';
+        payload.page = 'browse';
+        payload.page_view = 'list';
+        _ck12.logEvent('fbs_view', payload);
+
+        (function () {
+
+          // TODO: analysis
+          var browseMetadata = {
+            // MATH
+            'arithmetic' : {
+              'title' : 'Arithmetic - Learning Online | CK-12 Foundation',
+              'description' : 'Visit CK-12 for online resources for learning arithmetic. Whether you\'re an expert in integers or need to review ratios, CK-12 can help you learn!',
+              'keywords' : 'learning arithmetic, arithmetic learning'
+            },
+            'algebra' : {
+              'title' : 'Algebra Online Textbook & Tutor | Learning Algebra | CK-12 Foundation',
+              'description' : 'CK-12 offers online resources to help students and schools alike learn algebra online. Visit us for algebra textbooks to help you effectively master math.',
+              'keywords' : 'algebra online textbook, online algebra tutor, learning algebra online'
+            },
+            'measurement' : {
+              'title' : 'How to Learn Measurement in Math | Lessons at CK-12 Foundation',
+              'description' : 'CK-12 offers a host of resources for learning measurement in math, including lessons in volume, weight, mass, and more. Visit today for online resources!',
+              'keywords' : 'measurement lessons, measurement in math, how to learn measurement'
+            },
+            "geometry" : {
+              "title" : "Geometry Online Textbook & Tutor | Lessons at CK-12 Foundation",
+              "description" : "Our textbooks and flexbooks to learn geometry online. CK-12 offers online textbooks and comprehensive lessons to learn geometry. Visit us today.",
+              "keywords" : "geometry online textbook, online geometry tutor, geometry lessons"
+            },
+            "trigonometry" : {
+              "title" : "Trigonometry Online Textbook | Trigonometry Lessons at CK-12 Foundation",
+              "description" : "CK-12 offers a host of resources, flashcards, and onlne textbooks to help you learn trigonometry. For help on how to learn trigonometry, visit us today.",
+              "keywords" : "trigonometry lessons, trigonometry online textbook"
+            },
+            "calculus" : {
+              "title" : "Calculus Online Textbook and Lessons at CK-12 Foundation",
+              "description" : "CK-12 transforms the learning experience with online calculus textbooks and lessons. From derivatives to differentials, go beyond the limit. Visit us today!",
+              "keywords" : "calculus lessons, calculus online textbook"
+            },
+            'probability' : {
+              'title' : 'Probability - Online Lessons and Learning | CK-12 Foundation',
+              'description' : 'CK-12 offers resources to help students learn probability online. From lessons to textbooks covering every topic, visit CK-12 today.',
+              'keywords' : 'probability lessons, how to learn probability, learning probability online'
+            },
+            'statistics' : {
+              'title' : 'Statistics Online Textbook | Learning Statistics at CK-12 Foundation',
+              'description' : 'CK-12 offers online textbooks for learning statistics. From learning about data collection to presentation, and probability, we are your online resource.',
+              'keywords' : 'learning statistics online, statistics online textbook'
+            },
+            'analysis' : {
+              'title' : 'Math Analysis Online | CK-12 Foundation',
+              'description' : 'CK-12 offers learners the opportunity to get extra help with math analysis online. Visit us today to learn about analyzing functions.',
+              'keywords' : 'math analysis online'
+            },
+            // SCIENCE
+            'chemistry' : {
+              'title' : 'Chemistry Textbook Online & Free Resources | CK-12 Foundation',
+              'description' : 'CK-12 helps students and teachers learn with free resources and online textbooks. Use our Chemistry textbooks to help learn different areas of chemistry.',
+              'keywords' : 'Online Chemistry Textbook, Free Online Chemistry Textbook'
+            },
+            'biology' : {
+              'title' : 'Biology Textbooks Online | CK-12 Foundation',
+              'description' : 'CK-12 Foundation offers a host of different biology resources for you to learn biology online. From cell biology to evolution, learn online with CK12.',
+              'keywords' : 'Learning cell biology, biology, biology textbook online, online biology textbook'
+            },
+            'physics' : {
+              'title' : 'Physics Textbook Online - Learning Physics | CK-12 Foundation',
+              'description' : 'Browse lessons covering popular concepts in physics by viewing textbooks online at CK-12. From introductions to advanced concepts, we are your resource!',
+              'keywords' : 'Physics textbook online, online physics textbook, online physics lessons, physics resources'
+            },
+            'physical-science' : {
+              'title' : 'Physical Science Textbook Online | CK-12 Foundation',
+              'description' : 'CK-12 offers online resources and textbooks covering the concepts of physical science. From matter to chemistry, power, and energy, CK-12 helps you learn.',
+              'keywords' : 'Physical Science Textbook Online, Online Physical Science Textbook'
+            },
+            'life-science' : {
+              'title' : 'Life Science Resources and Learning Online | CK-12 Foundation',
+              'description' : 'Visit CK-12 for comprehensive online resources for learning the concepts of life science. From evolution to plants and animals, CK-12 helps you learn.',
+              'keywords' : 'Life science resources, learning life science'
+            },
+            'earth-science' : {
+              'title' : 'Earth Science Resources and Learning Online | CK-12 Foundation',
+              'description' : 'Visit CK-12 for online resources for learning earth science. From weather systems to the history of life, CK-12 helps you learn the science of earth.',
+              'keywords' : 'earth science resources, learning earth science'
+            }
+          };
+
+          _setMetadata(); // SET THE METADATA ON THE PAGE
+
+          /**
+           * Set the title, keywords, and description metadata elements on the DOM.
+           * @this Browse
+           */
+          function _setMetadata () {
+            var metadata, el,
+                head = document.querySelector('head'),
+                json = browseMetadata;
+
+            if (window.adsBranch) {
+                metadata = json[window.adsBranch.toLowerCase()];
+            }
+            // if we don't have browse metadata in the JSON file, then just return.
+            if ( ! metadata ) {
+              return 1;
+            }
+
+            // set description
+            if ( metadata.description ) {
+              el = head.querySelector('meta[name="description"]');
+              if ( ! el ) {
+                el = document.createElement('metadata');
+                el.setAttribute('name', 'description');
+                head.appendChild(el);
+              }
+              el.setAttribute('content', metadata.description);
+            }
+
+            // set keywords
+            if ( metadata.keywords ) {
+              el = head.querySelector('meta[name="keywords"]');
+              if ( ! el ) {
+                el = document.createElement('meta');
+                el.setAttribute('name', 'keywords');
+                head.appendChild(el);
+              }
+              el.setAttribute('content', metadata.keywords);
+            }
+
+            // set title tag
+            if ( metadata.title ) {
+              el = document.querySelector('title');
+              if ( ! el ) {
+                el = document.createElement('title');
+                head.appendChild(el);
+              }
+              while ( el.lastChild ) {
+                el.removeChild(el.lastChild); // clean it out
+              }
+              el.appendChild(document.createTextNode(metadata.title)); // set new title
+
+              // set title metadata
+              el = head.querySelector('meta[name="title"]');
+              if ( ! el ) {
+                el = document.createElement('meta');
+                el.setAttribute('name', 'title');
+                head.appendChild(el);
+              }
+              el.setAttribute('content', metadata.title);
+            }
+
+            return 0;
+          }
+
+        })();
+
+        var sample_text = $('.sample_text').text();
+        setInterval(function () {
+          if (sample_text != $('.sample_text').text()) {
+                $('.js_browse_section').isotope('reLayout');
+                sample_text = $('.sample_text').text();
+            }
+        }, 5000);
+    });
+});
+</script>
+
+{% endblock %}
+
+{% block pageinfotop %}
+<div class="contenttop container_12">
+    <nav id="pageinfotop grid_12"></nav>
+    <div class="gclear"></div>
+</div>
+{% endblock %}
+
+{% block content %}
+<meta itemprop="name" content="{{ c.branch.name }}">
+<meta itemprop="description" content="Browse {{ c.branch.name }} concepts covering {{ keywords|join(', ') }} and many more with videos, exercises and flashcards">
+<div class="small-12 columns">
+    <div class="browseheader row collapse relative desktop_view">
+        <h1>
+            <a href="{{ h.url('subjects') }}">{{ _('Browse') }}</a>
+            {% if c.branch.parent.name == 'More' or c.branch.name.lower() == 'health' %}
+                <span>More</span>
+            {% else %}
+                <span> / </span>
+                <a href="/{{ c.branch.parent.name.lower() }}">{{ c.branch.parent.name }}</a>
+            {% endif %}
+            <span class="branch-name" data-branch = "{{ c.branch.name }}" data-title= "{% if c.branch.parent %}{{ c.branch.parent.name }} / {{ c.branch.name }}{% elif c.branch.level == 1 %}{{_('Misc. ')}}{{ c.branch.name }}{% endif %}">
+                {% if c.branch.parent or c.branch.name.lower() == 'health' %}
+                    / {{ c.branch.name }}
+                {% elif c.branch.level == 1 %}
+                    {{_('Misc. ')}}{{ c.branch.name }}
+                {% endif %}
+            </span>
+        </h1>
+        {% if c.branch.parent.name != 'More' and c.branch.parent.name != None and c.branch.name|lower != "spelling" and c.branch.name|lower != "writing" %}
+            {% include "browse/_browse_buttons.html" with context %}
+        {% endif %}
+    </div>
+    {% if c.ui=='toggle' or c.ui=='toggle2' or c.ui=='number' or c.ui=='bullet' %}
+        {% set toggleCss = 'toggle-css' %}
+    {% endif %}
+    <div class="row collapse" id="details_contentwrap">
+        <div class="spacetoplarge"></div>
+        <div id="browse_tabs" class="js_detailstabs clear">
+            <div class="tabs-browse">
+                <ul class="hide desktop_view">
+                    {% if c.show_concepts and (((c.ui!='toggle' and c.ui!='toggle2') or (c.ui=='toggle' or c.ui=='toggle2')) and c.concepts_count>1) %}
+                    <li class="tabs-concept js-browse-tab">
+                        <a data-count="{{ c.concepts_count }}" class = "concepts-tab" data-name="concepts" href="#view_list">{{ _("Concepts") }}</a>
+                    </li>
+                    {% endif %}
+                    <li class="last tabs-flexbook js-browse-tab">
+                        <a data-count="{{ c.books_count }}" class = "flexbook-tab" data-name="books" href="#view_books">
+                            <span>{{ _("FlexBook&#174; Textbooks") }}</span>
+                            {% if c.branch.name == 'Physics' or c.branch.name == 'Chemistry' or c.branch.name == 'Biology' or c.branch.name == 'Algebra' or c.branch.name == 'Geometry' or c.branch.name == 'Trigonometry' or c.branch.name == 'Calculus' %}
+                            <span class="cbse-notification-wrapper show-for-india hide-important">
+                                <img src="/media/common/images/new_orng_ribbon.png" class="new-label" />
+                                <span class="cbse-heading"> CBSE </span>
+                                <span> FlexBooks&reg; </span>
+                            </span>
+                            {% endif %}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="contentarea hide browse_contentarea">
+                <div id="view_books">
+                    {% if c.branch.parent.name == 'Math' and c.books %}
+                    {% if c.branch.name == 'Algebra' or c.branch.name == 'Geometry' or c.branch.name == 'Trigonometry' or c.branch.name == 'Calculus' %}
+                    <div class="browse-cbse-banner show-for-india hide-important browse-cbse-banner-small left show-for-small">
+                        <a href="/cbse?subject=Maths">
+                            <img src="/media/cbse/images/flag.png" class="left">
+                        </a>
+                        <a class="left browse-cbse-text-wrapper text-left bold" href="/cbse?subject=Maths">
+                            <div>
+                                <span class="cbse-heading"> CBSE </span>
+                                <span> FlexBooks&reg; </span>
+                            </div>
+                            <div> from Class 9 to 12 </div>
+                        </a>
+                    </div>
+                    {% endif %}
+                    <div class="math-flexbook-tabs">
+                        <div class="row collapse desktop_view math-tabs-grade-list">
+                            <div class="text-center hide-small mshs-tabs-container">
+                                <div class="active js_mshs_tab left mshs-button button tangerine large" data-hide = "hs" data-show = 'ms'>{{ c.branch.name }} FlexBook&reg; for Middle School</div>
+                                <div class="js_mshs_tab left mshs-button button tangerine large" data-hide = "ms" data-show = 'hs'>{{ c.branch.name }} FlexBook&reg; for High School</div>
+                            </div>
+                            <div class="text-center show-small mshs-tabs-container">
+                                <div class="active js_mshs_tab left mshs-button button tangerine large" data-hide = "hs" data-show = 'ms'>For Middle School</div>
+                                <div class="js_mshs_tab left mshs-button button tangerine large" data-hide = "ms" data-show = 'hs'>For High School</div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% if c.branch.parent.name == 'Science' %}
+                    <div class="crossover-link-container">
+                        <div class="row collapse">
+                            {% if c.branch.name == 'Physics' or c.branch.name == 'Chemistry' or c.branch.name == 'Biology' %}
+                            <div class="browse-cbse-banner show-for-india hide-important left hide-for-small">
+                                <a href="/cbse?subject={{c.branch.name}}">
+                                    <img src="/media/cbse/images/flag.png" class="left">
+                                </a>
+                                <a class="left browse-cbse-text-wrapper text-left" href="/cbse?subject={{c.branch.name}}">
+                                    <div>
+                                        <span class="cbse-heading"> CBSE </span>
+                                        <span> FlexBooks&reg; </span>
+                                    </div>
+                                    <div> from Class 9 to 12 </div>
+                                </a>
+                            </div>
+                            <div class="browse-cbse-banner show-for-india hide-important browse-cbse-banner-small left show-for-small">
+                                <a href="/cbse?subject={{c.branch.name}}">
+                                    <img src="/media/cbse/images/flag.png" class="left">
+                                </a>
+                                <a class="left browse-cbse-text-wrapper text-left" href="/cbse?subject={{c.branch.name}}">
+                                    <div>
+                                        <span class="cbse-heading"> CBSE </span>
+                                        <span> FlexBooks&reg; </span>
+                                    </div>
+                                    <div> from Class 9 to 12 </div>
+                                </a>
+                            </div>
+                            {% endif %}
+                            {% if c.middle_high_school.hasMiddleHighSchool(c.branch.name) != "false" and c.middle_high_school.hasMiddleHighSchool(c.branch.name)[0] %}
+                                <div>
+                                    <span>
+                                        <span>Browse our</span>
+                                        {% for x in c.middle_high_school.hasMiddleHighSchool(c.branch.name)[1] %}
+                                        {% if loop.index == 1 %}
+                                        <a href="/{{x|replace(' ', '-')|lower}}/#view_books"> {{ x }}</a>
+                                        {% else %}
+                                        <span> and</span><a href="/{{x|replace(' ', '-')|lower}}/#view_books"> {{ x }}</a>
+                                        {% endif %}
+                                        {% endfor %}
+                                        <span>books</span>
+                                    </span>
+                                    <span> for {% if c.middle_high_school.hasMiddleHighSchool(c.branch.name)[0] == 'ms' %}Middle School{% else %}High School{% endif %}</span>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endif %}
+                    <div class="desktop_view">
+                        {% if c.books %}
+                        <div {% if c.branch.name == 'Algebra' or c.branch.name == 'Geometry' or c.branch.name == 'Trigonometry' or c.branch.name == 'Calculus' %}class="row collapse grades-drop-container math-grades-drop-container"{% else %}class="row collapse grades-drop-container"{% endif %}>
+                            {% if c.branch.name == 'Algebra' or c.branch.name == 'Geometry' or c.branch.name == 'Trigonometry' or c.branch.name == 'Calculus' %}
+                            <div class="browse-cbse-banner show-for-india hide-important left hide-for-small">
+                                <a href="/cbse?subject=Maths">
+                                    <img src="/media/cbse/images/flag.png" class="left">
+                                </a>
+                                <a class="left browse-cbse-text-wrapper text-left bold" href="/cbse?subject=Maths">
+                                    <div>
+                                        <span class="cbse-heading"> CBSE </span>
+                                        <span> FlexBooks&reg; </span>
+                                    </div>
+                                    <div> from Class 9 to 12 </div>
+                                </a>
+                            </div>
+                            {% endif %}
+
+                            {% if c.branch.parent.name == 'Math' %}
+                            <div class="ms-drop relative right">
+                                <div id="level-help-ms" class="right text-center pointer level-help">
+                                    <i class="icon-help2"></i>
+                                </div>
+                                <div class="button small split simple grade-filter-container right" data-dropdown="grade-filter-dropdown-ms"><a class= "grade-filter-label" data-level="All Levels">All Levels</a><span class="js-close-drop-down"></span>
+                                </div>
+                                <ul style="position: absolute; top: 111px; left: -99999px;" data-dropdown-content="" class="f-dropdown tangerine-list simple grade-filter-dropdown" id="grade-filter-dropdown-ms">
+                                    <li class="js-grade-filter-level hide" data-difficulty = "all levels"><a data-title="All Levels">All Levels</a></li>
+                                    <li class="js-grade-filter-level" data-difficulty = "basic"><a data-title="Basic">Basic</a></li>
+                                    <li class="js-grade-filter-level" data-difficulty = "at grade"><a data-title="At Grade">At Grade</a></li>
+                                    <li class="js-grade-filter-level" data-difficulty = "advanced"><a data-title="Advanced">Advanced</a></li>
+                                </ul>
+                            </div>
+                            <div class="hs-drop hide relative right">
+                                <div id="level-help-hs" class="right text-center pointer level-help">
+                                    <i class="icon-help2"></i>
+                                </div>
+                                <div class="button small split simple grade-filter-container right" data-dropdown="grade-filter-dropdown-hs"><a class= "grade-filter-label" data-level="All Levels">All Levels</a><span class="js-close-drop-down"></span>
+                                </div>
+                                <ul style="position: absolute; top: 111px; left: -99999px;" data-dropdown-content="" class="f-dropdown tangerine-list simple grade-filter-dropdown" id="grade-filter-dropdown-hs">
+                                    <li class="js-grade-filter-level hide" data-difficulty = "all levels"><a data-title="All Levels">All Levels</a></li>
+                                    <li class="js-grade-filter-level" data-difficulty = "basic"><a data-title="Basic">Basic</a></li>
+                                    <li class="js-grade-filter-level" data-difficulty = "at grade"><a data-title="At Grade">At Grade</a></li>
+                                    <li class="js-grade-filter-level" data-difficulty = "advanced"><a data-title="Advanced">Advanced</a></li>
+                                </ul>
+                            </div>
+                            <div id="level-tooltip-container" class="level-tooltip-container hide">
+                                <div class="level-tooltip-header">
+                                    <span>Levels are CK-12's student achievement levels.</span>
+                                </div>
+                                <div class="level-tooltip-grade">
+                                    <span class="level-tooltip-grade-title">Basic</span>
+                                    <span>Students matched to this level have a partial mastery of prerequisite knowledge and skills fundamental for proficient work.</span>
+                                </div>
+                                <div class="level-tooltip-grade">
+                                    <span class="level-tooltip-grade-title">At Grade (Proficient)</span>
+                                    <span>Students matched to this level have demonstrated competency over challenging subject matter, including subject matter knowledge, application of such knowledge to real-world situations, and analytical skills appropriate to subject matter.</span>
+                                </div>
+                                <div class="level-tooltip-grade">
+                                    <span class="level-tooltip-grade-title">Advanced</span>
+                                    <span>Students matched to this level are ready for material that requires superior performance and mastery.</span>
+                                </div>
+                                <div class="pointer level-tooltip-close js-level-tooltip-close">
+                                    <i class="icon-close"></i>
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% set exist = [] %}
+                            {% for book in c.books %}
+                                {% if book.encodedID %}
+                                    {% set language = h.get_substring(book.encodedID,7,10) %}
+                                    {% if language == 'ESP' or language == 'SPA' %}
+                                        {% if exist.append(1) %}
+                                        {% endif %}
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+
+                            {% if exist %}
+                            <div class="language-drop right">
+                                <div class="button small split simple language-filter-container right" data-dropdown="language-filter-dropdown">
+                                    <a class="language-filter-label">All Languages</a>
+                                    <span class="js-close-drop-down close-drop-down"></span>
+                                </div>
+                                <ul style="position: absolute; top: 111px; left: -99999px;" data-dropdown-content="" class="f-dropdown tangerine-list simple language-filter-dropdown" id="language-filter-dropdown">
+                                    <li class="js-language-filter-level hide" data-lang="all language"><a>All Languages</a></li>
+                                    <li class="js-language-filter-level" data-lang="english"><a>English</a></li>
+                                    <li class="js-language-filter-level" data-lang="spanish"><a>Spanish</a></li>
+                                </ul>
+                            </div>
+                            {% endif %}
+                        </div>
+                        {% endif %}
+                        <div id="view_browse">
+                            {% if c.books %}
+                            <div id = "no-flexbooks" class = "hide text-center">Sorry, there are no FlexBook&reg; Textbooks for this selection.</div>
+                            <div class="row collapse mshs-browse non-spanish-books-wrapper">
+                                {% for book in c.books %}
+                                    {% if book.encodedID %}
+                                        {% set language = h.get_substring(book.encodedID,7,10) %}
+                                        {# Bug #46487: health-and-wellness books have weird eid. but they are indeed in English #}
+                                        {% if language == 'LSC' %}
+                                            {% set language = 'ENG' %}
+                                        {% endif %}
+                                    {% else %}
+                                        {% set language = 'ENG' %}
+                                    {% endif %}
+                                    {% if c.branch.parent.name == 'Math' %}
+                                        {% set ms = [] %}
+                                        {% set hs = [] %}
+                                        {% if not book.level %}
+                                            {% set level = 'at grade' %}
+                                        {% else %}
+                                            {% set level = book.level %}
+                                        {% endif %}
+                                        {% if book.gradeGrid %}
+                                            {% for x in book.gradeGrid %}
+                                                {% if x[1]|int == 1 or x[1]|int == 2 or x[1]|int == 3 or x[1]|int == 4 or x[1]|int == 5  or x[1]|int == 6  or x[1]|int == 7 or x[1]|int == 8 %}
+                                                    {% if ms.append(1) %}{% endif %}
+                                                {% elif x[1]|int == 9 or x[1]|int == 10 or x[1]|int == 11 or x[1]|int == 12 %}
+                                                    {% if hs.append(1) %}{% endif %}
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endif %}
+                                        {% if ms and hs %}
+                                            {% set mshs = 'both' %}
+                                        {% elif ms %}
+                                            {% set mshs = 'ms' %}
+                                        {% elif hs %}
+                                            {% set mshs = 'hs' %}
+                                        {% else %}
+                                            {% set mshs = 'none' %}
+                                        {% endif %}
+                                        {% set mshsHTML = ' data-mshs="' + mshs + '" data-level="' + level + '" data-language="' + language + '"' %}
+                                    {% else %}
+                                        {% set mshsHTML = ' data-language="' + language + '"' %}
+                                    {% endif %}
+                                    {% if 'ENG' == language %}
+                                <div class="small-12 large-6 columns left browsetitles"{{mshsHTML}}>
+                                    <div class="books-wrapper">
+                                        <div class="left books">
+                                            <figure class="book">
+                                                <a href="{{ config.webroot_url }}{{ book.getPermaHandle(include_version=False) }}" title="{{ book.title|escape }}">
+                                                    <ul>
+                                                        <li class="front">
+                                                            <div class="cover">
+                                                                <img src="{{ book|ck12_artifact_cover_thumbnail_large }}" title="{{ book.title|escape }}" alt="{{ book.title|escape }}">
+                                                            </div>
+                                                            <span class="shadow"></span>
+                                                        </li>
+                                                        <li class="pages">
+                                                            <div class="thin page1"></div>
+                                                            <div class="thin page2"></div>
+                                                            <div class="thin page3"></div>
+                                                        </li>
+                                                        <li class="back"></li>
+                                                        <span class="shadow"></span>
+                                                    </ul>
+                                                </a>
+                                            </figure>
+                                        </div>
+                                        <div class="left browse-title">
+                                            <h2>
+                                                <a href="{{ config.webroot_url }}{{ book.getPermaHandle(include_version=False) }}" title="{{ book.title|escape }}" class="book-title">{{ book.title|escape }}</a>
+                                            </h2>
+                                            {% set extended_artifacts = book.get_extended_artifacts() %}
+                                            {% if extended_artifacts %}
+                                            <div class="extendedartifacts">
+                                                {# display the extended books in this order, requested by Juli #}
+                                                {% for etype in ('tebook','workbook','quizbook') %}
+                                                {% if etype in extended_artifacts %}
+                                                {% for item in extended_artifacts[etype] %}
+                                                {% if item.artifactType == 'quizbook' %}
+                                                {% if c.is_teacher %}
+                                                <span>
+                                                    <a href="{{ config.webroot_url }}{{ item.getPermaHandle(include_version=False) }}" title="{{ item.display_label() }} for {{ book.title }}" class="book-title">{{ item.display_label() }}</a>
+                                                </span>
+                                                {% endif %}
+                                                {% else %}
+                                                <span>
+                                                    <a href="{{ config.webroot_url }}{{ item.getPermaHandle(include_version=False) }}" title="{{ item.display_label() }} for {{ book.title }}" class="book-title">{{ item.display_label() }}</a>
+                                                </span>
+                                                {% endif %}
+                                                {% endfor %}
+                                                {% endif %}
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                            {% if exist %}
+                            <div id="spanish_books" class="row collapse spanish-books-wrapper">
+                                <div class="js-spanish-heading-wrapper">
+                                    <div class="spanish-heading">Spanish Books</div>
+                                </div>
+                                <div class="mshs-browse row collapse">
+                                    {% for book in c.books %}
+                                        {% if book.encodedID %}
+                                            {% set language = h.get_substring(book.encodedID,7,10) %}
+                                        {% else %}
+                                            {% set language = 'ENG' %}
+                                        {% endif %}
+                                        {% if c.branch.parent.name == 'Math' %}
+                                            {% set ms = [] %}
+                                            {% set hs = [] %}
+                                            {% if not book.level %}
+                                                {% set level = 'at grade' %}
+                                            {% else %}
+                                                {% set level = book.level %}
+                                            {% endif %}
+                                            {% if book.gradeGrid %}
+                                                {% for x in book.gradeGrid %}
+                                                    {% if x[1]|int == 1 or x[1]|int == 2 or x[1]|int == 3 or x[1]|int == 4 or x[1]|int == 5  or x[1]|int == 6  or x[1]|int == 7 or x[1]|int == 8 %}
+                                                        {% if ms.append(1) %}{% endif %}
+                                                    {% elif x[1]|int == 9 or x[1]|int == 10 or x[1]|int == 11 or x[1]|int == 12 %}
+                                                        {% if hs.append(1) %}{% endif %}
+                                                    {% endif %}
+                                                {% endfor %}
+                                            {% endif %}
+                                            {% if ms and hs %}
+                                                {% set mshs = 'both' %}
+                                            {% elif ms %}
+                                                {% set mshs = 'ms' %}
+                                            {% elif hs %}
+                                                {% set mshs = 'hs' %}
+                                            {% else %}
+                                                {% set mshs = 'none' %}
+                                            {% endif %}
+                                            {% set mshsHTML = ' data-mshs="' + mshs + '" data-level="' + level + '" data-language="' + language + '"' %}
+                                        {% else %}
+                                            {% set mshsHTML = ' data-language="' + language + '"' %}
+                                        {% endif %}
+                                        {% if 'SPA' == language or 'ESP' == language %}
+                                    <div class="small-12 large-6 columns left browsetitles"{{mshsHTML}}>
+                                        <div class="books-wrapper">
+                                            <div class="left books">
+                                                <figure class="book">
+                                                    <a href="{{ config.webroot_url }}{{ book.getPermaHandle(include_version=False) }}" title="{{ book.title|escape }}">
+                                                        <ul>
+                                                            <li class="front">
+                                                                <div class="cover">
+                                                                    <img src="{{ book|ck12_artifact_cover_thumbnail_large }}" title="{{ book.title|escape }}" alt="{{ book.title|escape }}">
+                                                                </div>
+                                                                <span class="shadow"></span>
+                                                            </li>
+                                                            <li class="pages">
+                                                                <div class="thin page1"></div>
+                                                                <div class="thin page2"></div>
+                                                                <div class="thin page3"></div>
+                                                            </li>
+                                                            <li class="back"></li>
+                                                            <span class="shadow"></span>
+                                                        </ul>
+                                                    </a>
+                                                </figure>
+                                            </div>
+                                            <div class="left browse-title">
+                                                <a href="{{ config.webroot_url }}{{ book.getPermaHandle(include_version=False) }}" title="{{ book.title|escape }}" class="book-title">{{ book.title|escape }}</a>
+                                                {% set extended_artifacts = book.get_extended_artifacts() %}
+                                                {% if extended_artifacts %}
+                                                <div class="extendedartifacts">
+                                                    {# display the extended books in this order, requested by Juli #}
+                                                    {% for etype in ('tebook','workbook','quizbook') %}
+                                                    {% if etype in extended_artifacts %}
+                                                    {% for item in extended_artifacts[etype] %}
+                                                    {% if item.artifactType == 'quizbook' %}
+                                                    {% if c.is_teacher %}
+                                                    <span>
+                                                        <a href="{{ config.webroot_url }}{{ item.getPermaHandle(include_version=False) }}" title="{{ item.display_label() }} for {{ book.title }}" class="book-title">{{ item.display_label() }}</a>
+                                                    </span>
+                                                    {% endif %}
+                                                    {% else %}
+                                                    <span>
+                                                        <a href="{{ config.webroot_url }}{{ item.getPermaHandle(include_version=False) }}" title="{{ item.display_label() }} for {{ book.title }}" class="book-title">{{ item.display_label() }}</a>
+                                                    </span>
+                                                    {% endif %}
+                                                    {% endfor %}
+                                                    {% endif %}
+                                                    {% endfor %}
+                                                </div>
+                                                    {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                                {% endif %}
+                            </div>
+                            {% else %}
+                            <a class = "help_add_flexbook" href='mailto:info@ck12.org'>{{ _("Help us add FlexBook&#174; Textbooks for %(name)s" %{'name':c.branch.name}) }}</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                {% if c.show_concepts and ((c.ui!='toggle' and c.ui!='toggle2') or ((c.ui=='toggle' or c.ui=='toggle2' or c.ui=='new') and c.concepts_count>1)) %}
+                <div id="view_list">
+                    <div class="desktop_view">
+                        {% if c.ui == 'new'%}
+                        <div id="view_browse" class="view-browse toggle-css">
+                        {% else %}
+                        <div id="view_browse" class="view-browse no-toggle-css">
+                        {% endif %}
+                            {% if c.branch.name == 'Physics' or c.branch.parent.name != 'More' %}
+                            <div id="announce" class="row announce hide-small {{ toggleCss }}">
+                                {% if c.branch.name in ('Physics','Chemistry') %}
+                                <div class="small-6 large-6 columns pointer js-announce hide-for-lti-context" data-target="{{config.interactives_url}}/simulations/{{c.branch.name|lower}}.html?referrer=browse&backUrl=https://{{config.hosts}}/{{c.subject}}/">
+                                    <div class="left announce-img"><img src="{{ h.asset_image('common/images/sim-' ~ c.branch.name|lower ~ '.png') }}"></div>
+                                    <div class="left announce-text">
+                                        <b>Simulations</b>
+                                        <span> - Discover a new way of learning {{ c.branch.name }} using Real World Simulations.</span>
+                                    </div>
+                                </div>
+                                <div class="small-6 large-6 columns pointer browse-announce show-for-lti-context left js-announce js-mtype-simulation" href="#" data-target="{{config.interactives_url}}/simulations/{{c.branch.name|lower}}.html?referrer=browse">
+                                    <div class="left announce-img"><img src="{{ h.asset_image('common/images/sim-' ~ c.branch.name|lower ~ '.png') }}"></div>
+                                    <div class="left announce-text">
+                                        <b>Simulations</b>
+                                        <span> - Discover a new way of learning {{ c.branch.name }} using Real World Simulations.</span>
+                                    </div>
+				</div>
+                                {% endif %}
+                                {% if c.branch.handle and c.branch.handle.lower() not in ['spelling'] %}
+                                    <div class="small-6 large-6 columns pointer js-announce browse-announce hide-for-lti-context" data-target="{{config.interactives_url}}/plix/index.html?subject={{c.branch.encodedID}}&referrer=browse&backUrl=https://{{config.hosts}}/{{c.subject}}/">
+                                        <div class="left announce-img">
+                                            <img src="{{ h.asset_image('common/images/start_browse_plix.png') }}">
+                                        </div>
+                                        <div class="left announce-text">
+                                            <b>PLIX</b>
+                                            <span> - Play, Learn, Interact and Xplore a concept with PLIX.</span>
+                                        </div>
+                                    </div>
+                                    <a class="small-6 large-6 columns pointer browse-announce show-for-lti-context left js-announce js-mtype-plix" href="#" data-target='{{config.interactives_url}}/plix/index.html?subject={{c.branch.encodedID}}&referrer=browse'>
+                                        <div class="left announce-img">
+                                            <img src="{{ h.asset_image('common/images/start_browse_plix.png') }}">
+                                        </div>
+                                        <div class="left announce-text">
+                                            <b>PLIX</b>
+                                            <span> - Play, Learn, Interact and Xplore a concept with PLIX.</span>
+                                        </div>
+                                    </a>
+                                {% endif %}
+                                {% if c.branch.name in ['Algebra', 'Geometry', 'Earth Science', 'Biology', 'Physics'] %}
+                                <div class="small-12 large-6 columns pointer js-announce left announcement" data-target="{{ config.webroot_url }}study-guides/{{c.subject}}/?referrer=browse&backUrl=https://{{config.hosts}}/{{c.subject}}/">
+                                    <div class="left announce-img">
+                                        <img src="{{ h.asset_image('common/images/study_guides1.png') }}">
+                                    </div>
+                                    <div class="left announce-text">
+                                        <b>Study Guides</b>
+                                        <span> - A quick way to review concepts.</span>
+                                    </div>
+                                </div>
+                                {% endif %}
+                            </div>
+                            {% endif %}
+                            {% if c.show_concepts %}
+                            {% if c.ui == "number" %}
+                            <div class="js_browse_section clearfix row">
+                                {# CONCEPT HEADINGS - AKA BLACK HEADERS #}
+                                <ol>
+                                    {% for group in c.concepts %}
+                                    <li class="small-12 large-6 columns left browsetitles">
+                                        <h2 class="normal-text">{{group.name}}</h2>
+                                        {# LEVEL 1 Concepts #}
+                                        {% set level1 = group.get('children') %}
+                                        {% if level1 %}
+                                        <ol class="level1-concepts">
+                                            {% for concept in level1 %}
+                                            <li class="concepts">
+                                                <h3>
+                                                    <a href="{{ config.webroot_url }}{{ c.subject }}/{{ concept.handle }}/" title="{{ concept.name }}">{{ concept.name|e }}</a>
+                                                </h3>
+                                                {% set level2 = concept.get('children') %}
+                                                {% if level2 %}
+                                                <ol class="level2-concepts">
+                                                    {% for cl2 in level2 %}
+                                                    <li class="concepts">
+                                                        <h4>
+                                                            <a href="{{ config.webroot_url }}{{ c.subject }}/{{ cl2.handle }}/" title="{{ cl2.name }}">{{ cl2.name|e }}</a>
+                                                        </h4>
+                                                    </li>
+                                                    {% endfor %}
+                                                </ol>
+                                                {% endif %}
+                                            </li>
+                                            {% endfor %}
+                                        </ol>
+                                        {% endif %}
+                                    </li>
+                                    {% endfor %}
+                                </ol>
+                            </div>
+                            {% elif c.ui == 'bullet'%}
+                            <div class="js_browse_section clearfix row">
+                                {# CONCEPT HEADINGS - AKA BLACK HEADERS #}
+                                {% for group in c.concepts %}
+                                <div class="small-12 large-6 columns left browsetitles">
+                                    <h2 class="normal-text">{{group.name}}</h2>
+                                    {# LEVEL 1 Concepts #}
+                                    {% set level1 = group.get('children') %}
+                                    {% if level1 %}
+                                    <ul class="level1-concepts" style="list-style-type:disc">
+                                        {% for concept in level1 %}
+                                        <h3>
+                                            <li class="concepts">
+                                                <a href="{{ config.webroot_url }}{{ c.subject }}/{{ concept.handle }}/" title="{{ concept.name }}">{{ concept.name|e }}</a>
+                                                {% set level2 = concept.get('children') %}
+                                                {% if level2 %}
+                                                <ul class="level2-concepts" style="list-style-type:circle">
+                                                    {% for cl2 in level2 %}
+                                                    <h4>
+                                                        <li class="concepts">
+                                                            <a href="{{ config.webroot_url }}{{ c.subject }}/{{ cl2.handle }}/" title="{{ cl2.name }}">{{ cl2.name|e }}</a>
+                                                        </li>
+                                                    </h4>
+                                                    {% endfor %}
+                                                </ul>
+                                                {% endif %}
+                                            </li>
+                                        </h3>
+                                        {% endfor %}
+                                    </ul>
+                                    {% endif %}
+                                </div>
+                                {% endfor %}
+                            </div>
+
+                            {% elif c.ui == 'new' and c.concepts_count > 0 %}
+                            <!-- start toggle -->
+                            <div id="expand-all-container">
+                                <a id="expand-all-concepts" class="expand-all"><i class="icon-plus expand-icon"></i>Expand All</a>
+                            </div>
+                            <div id="concept-list-outer-container">
+                                {# column-1 concepts #}
+                                <div id="concept-list-container">
+                                    {% for group in c.concepts %}
+                                        {% set level1 = group.get('children') %}
+                                        {% set level1_loop = loop %}
+                                        {% if level1 %}
+                                            <!-- start of first level -->
+                                                <div class="concept-container">
+                                                    {# LEVEL 1 Concepts #}
+                                                    <a class="level-1-concept hide-child-concepts">
+                                                        <i class="concept-arrow-image"></i>
+                                                        <span class="concept-name" title="{{ group.name|escape }}">{{group.name|escape }}</span>
+                                                    </a>
+                                                    <div class="hide-l2-concepts show-lists level1-inner-container">
+                                                        {% if group.modalityCount != 0 %}
+                                                            <div class="concept-group-name">
+                                                                <a class="group-name-link-l2" href="{{ config.webroot_url }}{{ c.subject }}/{{ group.handle }}/" title="{{ group.name|escape }}">{{ group.name|escape }}</a>
+                                                            </div>
+                                                        {% endif %}
+                                                        {% for concept in level1 %}
+                                                            {% set level2_loop = loop %}
+                                                            {% set level2 = concept.get('children') %}
+                                                            {% if level2 %}
+                                                                {% set child_concept_class = "hide-child-concepts" %}
+                                                                {% set l2_parent = "level2_parent" %}
+                                                                {% set l2_href = "javascript:void(0)" %}
+                                                            {% else %}
+                                                                {% set child_concept_class = "" %}
+                                                                {% set l2_parent = "" %}
+                                                                {% set l2_href = config.webroot_url + c.subject + "/" + concept.handle + "/" %}
+                                                            {% endif %}
+                                                            {% if l2_parent != "" or concept.modalityCount != 0 %}
+                                                                <div class="level-2-concept-container {{ l2_parent }}">
+                                                                    <a class="level-2-concept-name {{ child_concept_class }}" href="{{ l2_href }}">
+                                                                        {% if level2 %}
+                                                                            <i class="concept-arrow-image"></i>
+                                                                            {% set sublevels = "" %}
+                                                                        {% else %}
+                                                                            {% set sublevels = "noSubLevels" %}
+                                                                        {% endif %}
+                                                                        <span class="concept-name" title="{{ concept.name|escape }}">{{ concept.name|escape }}</span>
+                                                                    </a>
+                                                                    {% if level2 %}
+                                                                        <div class="level2-list sublist row collapse hide-concepts">
+                                                                            {% if concept.modalityCount != 0 %}
+                                                                                <div class="level-one-concept-title">
+                                                                                    <a class="level1-title-1" href="{{ config.webroot_url }}{{ c.subject }}/{{ concept.handle }}/" title="{{ concept.name|escape }}">{{ concept.name|escape }}</a>
+                                                                                </div>
+                                                                            {% endif %}
+                                                                            <!-- third level -->
+                                                                            {% for cl2 in level2 %}
+                                                                                {% set level3_loop = loop %}
+                                                                                {% set level3 = cl2.get('children') %}
+                                                                                {% if level3 %}
+                                                                                    {% set child_concept_class = "hide-child-concepts" %}
+                                                                                    {% set level2HasChild = "l3hasChild" %}
+                                                                                    {% set l3_href = "javascript:void(0)" %}
+                                                                                {% else %}
+                                                                                    {% set child_concept_class = "" %}
+                                                                                    {% set level2HasChild = "" %}
+                                                                                    {% set l3_href = config.webroot_url + c.subject + "/" + cl2.handle + "/" %}
+                                                                                {% endif %}
+                                                                                {% if level2HasChild != "" or cl2.modalityCount != 0 %}
+                                                                                    <div class="level-3-concept-container {{level2HasChild}}">
+                                                                                        <a class="level-two-title {{ child_concept_class }} {{sublevels2}}" href="{{ l3_href }}">
+                                                                                            {% if level3 %}
+                                                                                                <i class="concept-arrow-image"></i>
+                                                                                                {% set sublevels2 = "" %}
+                                                                                            {% else %}
+                                                                                                {% set sublevels2 = "noSubLevels2" %}
+                                                                                            {% endif %}
+                                                                                            <span class="level2-title sublist-title" title="{{ cl2.name|escape }}">{{ cl2.name|escape }}</span>
+                                                                                        </a>
+                                                                                        {% if level3 %}
+                                                                                            <div class="level3-list sublist row collapse hide-concepts">
+                                                                                                {% if cl2.modalityCount != 0 %}
+                                                                                                    <div class="level-two-title-1">
+                                                                                                        <a class="level2-title-1" href="{{ config.webroot_url }}{{ c.subject }}/{{ cl2.handle }}/" title="{{ cl2.name|escape }}">{{ cl2.name|escape }}</a>
+                                                                                                    </div>
+                                                                                                {% endif %}
+                                                                                                {% for cl3 in level3 %}
+                                                                                                    {% if cl3.modalityCount != 0 %}
+                                                                                                        <div class="concepts">
+                                                                                                            <a class="level3-title sublist-title" href="{{ config.webroot_url }}{{ c.subject }}/{{ cl3.handle }}/" title="{{ cl3.name|escape }}">{{ cl3.name|escape }}</a>
+                                                                                                        </div>
+                                                                                                    {% endif %}
+                                                                                                {% endfor %}
+                                                                                            </div>
+                                                                                        {% endif %}
+                                                                                    </div>
+                                                                                {% endif %}
+                                                                            {% endfor %}
+                                                                            <!--  end third level -->
+                                                                        </div>
+                                                                    {% endif %}
+                                                                </div>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            <!-- end of first level -->
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <!-- end toggle -->
+                            {% else %}
+                                {% if c.browse_groups %}
+                                    <div class="js_browse_section clearfix row">
+                                        {% for group in c.browse_groups %}
+                                            {% set children = group.get('children') %}
+                                            {% if children %}
+                                                <div class="small-12 large-6 columns left browsetitles">
+                                                    <h2 class="normal-text">{{group.name}}</h2>
+                                                    <ul>
+                                                        {% for concept in children %}
+                                                            {% if concept.ck12ModalityCount %}
+                                                                <h3>
+                                                                    <li class="concepts">
+                                                                        <a href="{{ config.webroot_url }}{{ c.subject }}/{{ concept.handle }}/" title="{{ concept.name }}">{{ concept.name|e }}</a>
+                                                                        <!-- Related Artifacts for Concepts -->
+                                                                    </li>
+                                                                </h3>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </ul>
+                                                </div>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            {% endif %}
+                            {% else %}
+                                <a href='mailto:info@ck12.org'>{{ _("Help us add concepts for %(name)s" %{'name':c.branch.name}) }}</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div class="small-12 columns">
+        <div class="backtotop clear">{{ _('Back to the <a href="#" title="Back to top of the page">top of the page &#8593;') }}</a></div>
+    </div>
+</div>
+{% endblock %}

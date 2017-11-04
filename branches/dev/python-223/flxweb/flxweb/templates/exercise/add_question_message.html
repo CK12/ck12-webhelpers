@@ -1,0 +1,21 @@
+<div class="addquestionmessage">
+	{% if c.rulesError !=None and c.rulesError !='' %}
+        {{ _('We encounter following error while adding your question. Please check the variables that you have added and then try again.') }}
+        <div class="errorbox"><strong>{{ c.rulesError }}</strong></div>
+    {% elif c.questionID !=None %} 
+		{% if c.exerciseID != None %}    
+			{{ _("Your question has been successfully added to this exercise, you can preview of your question here") }}
+			<div id="questionid" class="hide">{{ c.questionID }}</div>
+		{% else %}
+			{{ _('We encounter errors while adding your question. Please try again later.') }}  
+		{% endif %} 
+	{% else %}
+		{{ _('We encounter errors while adding your question. Please make sure you are creating the question in correct format. Additional quidelines are available in the help box <span style="position:relative;top:3px;" class="ex-help-icon"></span> on each input field.') }}
+	{% endif %} 
+</div>
+{% if c.questionID !=None %} 
+	{% if c.exerciseID != None %}    
+			<div class="thanks-message hide">{{ _("Thank you for your contribution! We will quickly review your question before using them in our exercise bank. Feel free to add more questions for this exercise.") }}</div>
+			<div class="keep-this-error-message hide">{{ _("We encounter error while keeping this question. Please try again later.") }}</div> 
+	{% endif %} 
+{% endif %} 

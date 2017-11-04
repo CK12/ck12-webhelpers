@@ -1,0 +1,382 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width" > 
+		<meta charset = "utf-8"> 
+		<title>CK12 - Tangerine UI Kit</title>
+		<link rel="stylesheet" href="/media/common/vendor/foundation/css/normalize.css" />
+		<link rel="stylesheet" href="/media/common/vendor/foundation/css/foundation.min.css" />
+		<link type="text/css" href="css/ui-kit.css" rel="stylesheet" />
+		<link type="text/css" href="/media/common/vendor/fonts/font-ck12/font-ck12.css" rel="stylesheet" />
+	  
+	</head>
+	<body>
+		<div class="header top-bar" id="header">
+			<div class="bg"></div>
+			<section class="top-bar-section">
+				<ul>
+					<li class="title left">UI KIT</li>
+					<li class="version left">V.02</li>
+					<li class="date right">5/31/13</li>
+			   </ul>
+		   </section>
+		</div>
+		<div class="mainContainer">
+			<div class="title">Button States and Colors</div>
+			<div class="row">
+				<div class="small-12 large-12 columns">
+					<div class="button-class">Primary</div>
+					<div class="button turquoise"><i class="icon-star"></i>turquoise</div>
+					<div class="button tangerine"><i class="icon-star"></i>tangerine</div>
+					<div class="button dusty-grey"><i class="icon-star"></i>dusty-grey</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="small-12 large-12 columns">
+					<div class="button-class">Disabled</div>
+					<div class="button disabled grey"><i class="icon-star"></i>.grey</div>
+				</div>
+			</div>
+			<div class="title">Button Sizes</div>
+			<div class="row">
+				<div class="small-3 columns">
+					<div class="button tangerine huge">Huge button</div>
+				</div>
+				<div class="small-3 columns">
+					<div class="button tangerine large">Large button</div>
+				</div>
+				<div class="small-3 columns">
+					<div class="button tangerine standard">Standard button</div>
+				</div>
+				<div class="small-3 columns">
+					<div class="button tangerine small">Small button</div>
+				</div>
+			</div>
+			<div class="title">Button Variants</div>
+			<div class="row">
+				<div class="small-3 columns">
+					<div class="button tangerine huge"><i class="icon-notification"></i>Huge button</div>
+				</div>
+				<div class="small-3 columns">
+					<div class="button tangerine huge">Huge button<i class="icon-arrow_down right-side"></i></div>
+				</div>
+				<div class="small-3 columns">
+					<div class="button tangerine huge">Huge button</div>
+				</div>
+				<div class="small-3 columns">
+					<div class="button tangerine huge">Huge button<span class="icon-arrow_right right-side"></span></div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="small-3 columns">
+					<div class="button tangerine large"><i class="icon-notification"></i>Large button</div>
+				</div>
+				<div class="small-3 columns">
+					<div class="button tangerine large">Large button<i class="icon-arrow_down right-side"></i></div>
+				</div>
+				<div class="small-3 columns">
+					<div class="button tangerine large">Large button</div>
+				</div>
+				<div class="small-3 columns">
+					<div class="button tangerine large">Large button<span class="icon-arrow_right right-side"></span></div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="small-3 columns">
+					<div class="button tangerine standard"><i class="icon-notification"></i>Standard button</div>
+				</div>
+				<div class="small-3 columns">
+					<div class="button tangerine standard">Standard button<i class="icon-arrow_down right-side"></i></div>
+				</div>
+				<div class="small-3 columns">
+					<div class="button tangerine standard">Standard button</div>
+				</div>
+				<div class="small-3 columns">
+					<div class="button tangerine standard">Standard button<span class="icon-arrow_right right-side"></span></div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="small-3 columns">
+					<div class="button tangerine small"><i class="icon-notification"></i>Small button</div>
+				</div>
+				<div class="small-3 columns">
+					<div class="button tangerine small">Small button<i class="icon-arrow_down right-side"></i></div>
+				</div>
+				<div class="small-3 columns">
+					<div class="button tangerine small">Small button</div>
+				</div>
+				<div class="small-3 columns">
+					<div class="button tangerine small">Small button<span class="icon-arrow_right right-side"></span></div>
+				</div>
+			</div>
+			<div class="title">Dropdowns</div>
+			<div class="row">
+				<div class="small-3 columns">
+					<div class="button standard split simple"  data-dropdown="drop-simple">Sort by type<span></span></div>
+					<ul data-dropdown-content class="f-dropdown tangerine-list simple" id="drop-simple" >
+						<li><a href="#">Latest Activity</a></li>
+						<li><a href="#">Most Active</a></li>
+						<li><a href="#">Alphabetical</a></li>
+						<li><a href="#">Chronological</a></li>
+						<li><a href="#">Epistemological</a></li>
+					</ul>
+				</div>
+				<div class="small-3 columns">
+					<div class="button turquoise standard split custom"><div>Dropdown button</div><span data-dropdown="drop-custom"><i class="icon-settings_single"></i></span></div>
+					<ul data-dropdown-content class="f-dropdown tangerine-list" id="drop-custom" >
+						<li><a href="#">Latest Activity</a></li>
+						<li><a href="#">Most Active</a></li>
+						<li><a href="#">Alphabetical</a></li>
+						<li><a href="#">Chronological</a></li>
+						<li><a href="#">Epistemological</a></li>
+					</ul>
+				</div>
+				<div class="small-3 columns">
+					<div class="button tangerine standard split nav" data-dropdown="drop-nav"><img src="images/nav.png"></img>Main Nav</div>
+					<ul data-dropdown-content class="f-dropdown tangerine tangerine-list nav" id="drop-nav" >
+						<li><a href="#"><i class="icon-settings"></i>Icon & Link</a></li>
+						<li><a href="#"><i class="icon-signout"></i>Icon & Link</a></li>
+					</ul>
+				</div>
+				<div class="small-3 columns">
+					<div class="button secondary purple standard">Standard button<span class="icon-arrow_right right-side"></span></div>
+				</div>
+				
+			</div>
+			<div class="title">Inputs</div>
+			<div class="row">
+				<div class="small-3 columns">
+					<div class="input huge"><input type="text" placeholder="Rest"/></div>
+				</div>
+				<div class="small-3 columns">
+					<div class="input huge valid"><input type="text" value="Active"/><i class="icon-validated"></i></div>
+				</div>
+				<div class="small-3 columns">
+					<div class="input huge alert"><input type="text" value="Alert"/><i class="icon-notification"></i></div>
+				</div>
+				<div class="small-3 columns">
+					<div class="input huge"><input type="text" value="Disabled" disabled/></div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="small-3 columns">
+					<div class="input large"><input type="text" placeholder="Rest"/></div>
+				</div>
+				<div class="small-3 columns">
+					<div class="input large valid"><input type="text" value="Active"/><i class="icon-validated"></i></div>
+				</div>
+				<div class="small-3 columns">
+					<div class="input large alert"><input type="text" value="Alert"/><i class="icon-notification"></i></div>
+				</div>
+				<div class="small-3 columns">
+					<div class="input large"><input disabled value="Disabled" type="text"/></div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="small-3 columns">
+					<div class="input standard"><input type="text" placeholder="Rest"/></div>
+				</div>
+				<div class="small-3 columns">
+					<div class="input standard valid"><input type="text" value="Active"/><i class="icon-validated"></i></div>
+				</div>
+				<div class="small-3 columns">
+					<div class="input standard alert"><input type="text" value="Alert"/><i class="icon-notification"></i></div>
+				</div>
+				<div class="small-3 columns">
+					<div class="input standard"><input type="text" value="Disabled" disabled/></div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="small-3 columns">
+					<div class="input small"><input type="text" placeholder="Rest"/></div>
+				</div>
+				<div class="small-3 columns">
+					<div class="input small valid"><input type="text" value="Active"/><i class="icon-validated"></i></div>
+				</div>
+				<div class="small-3 columns">
+					<div class="input small alert"><input type="text" value="Alert"/><i class="icon-notification"></i></div>
+				</div>
+				<div class="small-3 columns">
+					<div class="input small"><input type="text" value="Disabled" disabled/></div>
+				</div>
+			</div>
+			
+			<div class="title">Input  Varients</div>
+			<div class="row">
+				<div class="small-3 columns">
+					<div class="input standard search"><input type="text" placeholder="Search input with button"/><i class="icon-search"></i></div>
+				</div>
+			</div>
+			<div class="title">Textarea	</div>
+			<div class="row">
+				<div class="small-5 columns">
+					<textarea class="tangerine-textarea" placeholder="Add Comment..."></textarea>
+				</div>
+			</div>
+			
+			<div class="title">Checkboxes and Radio buttons</div>
+			<div class="row">
+				<div class="small-3 columns">
+					<form class="custom">
+						<label for="checkbox1"><input type="checkbox" id="checkbox1" style="display: none;"><span class="custom checkbox"><i class="icon-validated"></i></span> Label for Checkbox</label>
+					</form>
+				</div>
+				<div class="small-3 columns">
+					<form class="custom">
+						<label for="radio1"><input name="radio1" type="radio" id="radio1" style="display:none;" CHECKED><span class="custom radio"></span> Radio Button 1</label>
+						<label for="radio2"><input name="radio1" type="radio" id="radio2" style="display:none;" CHECKED><span class="custom radio"></span> Radio Button 2</label>
+					</form>
+				</div>
+				<div class="small-6 columns">
+					<div class="small-4 columns">
+						<div class="onoffswitch tangerine">
+							<input type="checkbox" id="myonoffswitch" class="onoffswitch-checkbox" name="onoffswitch" checked="checked">
+							<label for="myonoffswitch" class="onoffswitch-label">
+								<div class="onoffswitch-inner"></div>
+								<div class="onoffswitch-switch"></div>
+							</label>
+						</div>
+					</div>
+					<div class="small-4 columns">
+						<div class="onoffswitch dark-blue">
+							<input type="checkbox" id="myonoffswitch1" class="onoffswitch-checkbox" name="onoffswitch1" checked="checked">
+							<label for="myonoffswitch" class="onoffswitch-label">
+								<div class="onoffswitch-inner"></div>
+								<div class="onoffswitch-switch"></div>
+							</label>
+						</div>
+					</div>
+					<div class="small-4 columns">
+						<div class="onoffswitch cyan">
+							<input type="checkbox" id="myonoffswitch2" class="onoffswitch-checkbox" name="onoffswitch2" checked="checked">
+							<label for="myonoffswitch" class="onoffswitch-label">
+								<div class="onoffswitch-inner"></div>
+								<div class="onoffswitch-switch"></div>
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="title">Icon set</div>
+			<div class="row iconset">
+				<div class="button"><i class="icon-activity"></i>icon-activity</div>
+				<div class="button"><i class="icon-arrow"></i>icon-arrow</div>
+				<div class="button"><i class="icon-arrow-down"></i>icon-arrow-down</div>
+				<div class="button"><i class="icon-arrow-left"></i>icon-arrow-left</div>
+				<div class="button"><i class="icon-arrow-right"></i>icon-arrow-right</div>
+				<div class="button"><i class="icon-arrow-up"></i>icon-arrow-up</div>
+				<div class="button"><i class="icon-arrow2_left"></i>icon-arrow2_left</div>
+				<div class="button"><i class="icon-arrow2_right"></i>icon-arrow2_right</div>
+				<div class="button"><i class="icon-arrow3_left"></i>icon-arrow3_left</div>
+				<div class="button"><i class="icon-arrow3_right"></i>icon-arrow3_right</div>
+				<div class="button"><i class="icon-arrow_down"></i>icon-arrow_down</div>
+				<div class="button"><i class="icon-arrow_left"></i>icon-arrow_left</div>
+				<div class="button"><i class="icon-arrow_right"></i>icon-arrow_right</div>
+				<div class="button"><i class="icon-backpack"></i>icon-backpack</div>
+				<div class="button"><i class="icon-bell"></i>icon-bell</div>
+				<div class="button"><i class="icon-book"></i>icon-book</div>
+				<div class="button"><i class="icon-bookmark"></i>icon-bookmark</div>
+				<div class="button"><i class="icon-c_algebra"></i>icon-c_algebra</div>
+				<div class="button"><i class="icon-c_analysis"></i>icon-c_analysis</div>
+				<div class="button"><i class="icon-c_arithmetic"></i>icon-c_arithmetic</div>
+				<div class="button"><i class="icon-c_biology"></i>icon-c_biology</div>
+				<div class="button"><i class="icon-c_chemistry"></i>icon-c_chemistry</div>
+				<div class="button"><i class="icon-c_earthsci"></i>icon-c_earthsci</div>
+				<div class="button"><i class="icon-c_lifesci"></i>icon-c_lifesci</div>
+				<div class="button"><i class="icon-c_measurement"></i>icon-c_measurement</div>
+				<div class="button"><i class="icon-c_physicalsci"></i>icon-c_physicalsci</div>
+				<div class="button"><i class="icon-c_physics"></i>icon-c_physics</div>
+				<div class="button"><i class="icon-c_probability"></i>icon-c_probability</div>
+				<div class="button"><i class="icon-c_statistics"></i>icon-c_statistics</div>
+				<div class="button"><i class="icon-c_trigonometry"></i>icon-c_trigonometry</div>
+				<div class="button"><i class="icon-calendar"></i>icon-calendar</div>
+				<div class="button"><i class="icon-camera"></i>icon-camera</div>
+				<div class="button"><i class="icon-checkmark"></i>icon-checkmark</div>
+				<div class="button"><i class="icon-clock"></i>icon-clock</div>
+				<div class="button"><i class="icon-close"></i>icon-close</div>
+				<div class="button"><i class="icon-dash"></i>icon-dash</div>
+				<div class="button"><i class="icon-dashboard"></i>icon-dashboard</div>
+				<div class="button"><i class="icon-edit"></i>icon-edit</div>
+				<div class="button"><i class="icon-ellipsis"></i>icon-ellipsis</div>
+				<div class="button"><i class="icon-exercise"></i>icon-exercise</div>
+				<div class="button"><i class="icon-expand"></i>icon-expand</div>
+				<div class="button"><i class="icon-facebook"></i>icon-facebook</div>
+				<div class="button"><i class="icon-facebook-2"></i>icon-facebook-2</div>
+				<div class="button"><i class="icon-facebook-3"></i>icon-facebook-3</div>
+				<div class="button"><i class="icon-google"></i>icon-google</div>
+				<div class="button"><i class="icon-google2"></i>icon-google2</div>
+				<div class="button"><i class="icon-grid"></i>icon-grid</div>
+				<div class="button"><i class="icon-groups"></i>icon-groups</div>
+				<div class="button"><i class="icon-groups_home"></i>icon-groups_home</div>
+				<div class="button"><i class="icon-grps_assgnmts"></i>icon-grps_assgnmts</div>
+				<div class="button"><i class="icon-grps_report"></i>icon-grps_report</div>
+				<div class="button"><i class="icon-grps_share"></i>icon-grps_share</div>
+				<div class="button"><i class="icon-grps_timeline"></i>icon-grps_timelin</div>
+				<div class="button"><i class="icon-help2"></i>icon-help2</div>
+				<div class="button"><i class="icon-images"></i>icon-images</div>
+				<div class="button"><i class="icon-infinity"></i>icon-infinity</div>
+				<div class="button"><i class="icon-lessonplans"></i>icon-lessonplans</div>
+				<div class="button"><i class="icon-lightbulb"></i>icon-lightbulb</div>
+				<div class="button"><i class="icon-links"></i>icon-links</div>
+				<div class="button"><i class="icon-list"></i>icon-list</div>
+				<div class="button"><i class="icon-lock"></i>icon-lock</div>
+				<div class="button"><i class="icon-loop"></i>icon-loop</div>
+				<div class="button"><i class="icon-loop-2"></i>icon-loop-2</div>
+				<div class="button"><i class="icon-members"></i>icon-members</div>
+				<div class="button"><i class="icon-message"></i>icon-message</div>
+				<div class="button"><i class="icon-mindmap"></i>icon-mindmap</div>
+				<div class="button"><i class="icon-minus"></i>icon-minus</div>
+				<div class="button"><i class="icon-more"></i>icon-more</div>
+				<div class="button"><i class="icon-notice"></i>icon-notice</div>
+				<div class="button"><i class="icon-notification"></i>icon-notification</div>
+				<div class="button"><i class="icon-open_new_window"></i>icon-open_new_window</div>
+				<div class="button"><i class="icon-other_file"></i>icon-other_file</div>
+				<div class="button"><i class="icon-pinterest"></i>icon-pinterest</div>
+				<div class="button"><i class="icon-pinterest-2"></i>icon-pinterest-2</div>
+				<div class="button"><i class="icon-play"></i>icon-play</div>
+				<div class="button"><i class="icon-plus"></i>icon-plus</div>
+				<div class="button"><i class="icon-progress"></i>icon-progress</div>
+				<div class="button"><i class="icon-read"></i>icon-read</div>
+				<div class="button"><i class="icon-remove"></i>icon-remove</div>
+				<div class="button"><i class="icon-running"></i>icon-runnin</div>
+				<div class="button"><i class="icon-rwa"></i>icon-rwa</div>
+				<div class="button"><i class="icon-search"></i>icon-search</div>
+				<div class="button"><i class="icon-settings"></i>icon-settings</div>
+				<div class="button"><i class="icon-settings_single"></i>icon-settings_single</div>
+				<div class="button"><i class="icon-share"></i>icon-share</div>
+				<div class="button"><i class="icon-shared_res"></i>icon-shared_res</div>
+				<div class="button"><i class="icon-signout"></i>icon-signout</div>
+				<div class="button"><i class="icon-simulations"></i>icon-simulations</div>
+				<div class="button"><i class="icon-star"></i>icon-star</div>
+				<div class="button"><i class="icon-star-2"></i>icon-star-2</div>
+				<div class="button"><i class="icon-studyaid"></i>icon-studyaid</div>
+				<div class="button"><i class="icon-support"></i>icon-support</div>
+				<div class="button"><i class="icon-twitter"></i>icon-twitter</div>
+				<div class="button"><i class="icon-twitter-2"></i>icon-twitter-2</div>
+				<div class="button"><i class="icon-twitter-3"></i>icon-twitter-3</div>
+				<div class="button"><i class="icon-uikit"></i>icon-twitter-3</div>
+				<div class="button"><i class="icon-unlocked"></i>icon-unlocked</div>
+				<div class="button"><i class="icon-user"></i>icon-user</div>
+				<div class="button"><i class="icon-user_join"></i>icon-user_join</div>
+				<div class="button"><i class="icon-userimg"></i>icon-userimg</div>
+				<div class="button"><i class="icon-validated"></i>icon-validated</div>
+				<div class="button"><i class="icon-video"></i>icon-video</div>
+				<div class="button"><i class="icon-you"></i>icon-you</div>
+				<div class="button"><i class="icon-"></i>icon-</div>
+				<div class="button"><i class="icon-"></i>icon-</div>
+				<div class="button"><i class="icon-"></i>icon-</div>
+				<div class="button"><i class="icon-"></i>icon-</div>
+				<div class="button"><i class="icon-"></i>icon-</div>
+			</div>
+		</div>
+		<script src="/media/common/vendor/foundation/js/vendor/custom.modernizr.js"></script>
+		<script type="text/javascript" src="/media/common/vendor/jquery/jquery-1.9.1.min.js"> </script>
+		<script src="/media/common/vendor/foundation/js/foundation.min.js"></script>
+		<script>$(function(){$(document).foundation(); });
+		$('.onoffswitch').off('click').on('click',function(){var checkbox =  $(this).find('input');
+		if(checkbox.attr('checked')){checkbox.attr('checked',false);}else{checkbox.attr('checked',true);}});</script>
+	</body>
+</html>

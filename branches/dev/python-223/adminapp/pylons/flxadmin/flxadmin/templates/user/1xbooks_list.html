@@ -1,0 +1,35 @@
+<div id='resultmsgs'>
+  <p id='resultmsg' class='nofloat'>
+    {{c.result_msg}}
+  </p>
+</div>
+<div class="sectionhead sectiontitle">User's Imported 1.x Books</div>
+<div class="section ">
+  <div class="leftaligned">
+  {% if c.fmtd_books_list %}
+    {{ h.labeldiv("User", c.fmtd_user)}}
+    {{ h.labeldiv("Total Imported Books", c.nBooks)}}
+    {{ h.labeldiv("1.x : 2.x Book IDs", c.fmtd_books_list, 'td')}}
+  {% else %}
+    <br/>
+  {% endif %}
+  </div>
+</div>
+
+
+
+
+
+{# Replace above with this if want to display in pagination listing style
+{% from "macros/pagination.html" import paginate with context %}  
+
+{% if c.paginator.item_count > 0 %}
+  {% for i in c.paginator.items %}
+  <div class="tr">
+    <div class="td">{{i.fid}}</div>
+    <div class="td">{{h.idlink('/artifact/', i, 'artifactID', 'artifactID')}}</div>
+  </div>
+  {% endfor %}
+  {{ paginate(c.paginator) }}
+{% endif %}
+#}

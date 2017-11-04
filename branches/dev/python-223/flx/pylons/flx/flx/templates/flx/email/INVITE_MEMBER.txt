@@ -1,0 +1,9 @@
+Hello {{ events.0.eventData['invitee']['name'] }},
+
+{{ events.0.eventData['inviter']['name'] }} has sent you a lifelong gift of education from CK-12.  Discover a smart new way to learn and master K - 12 subjects using some amazingly smart tools - to explore, customize, practice, assess, learn, or teach.  Click the button below to access it with your preloaded username and password.
+
+Your user name: {{ events.0.eventData['invitee']['email'] }}
+Your password:  {{ events.0.eventData['invitee']['password'] }}
+
+
+Please copy and paste the following link onto your browser's address bar:  <strong>http://www.ck12.org/student/?utm_campaign={{ events.0.eventData['campaign']['campaign'] }}&utm_medium={{ events.0.eventData['campaign']['medium'] }}&utm_source={{ events.0.eventData['campaign']['source'] }}</strong>

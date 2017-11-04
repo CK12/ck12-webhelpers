@@ -1,0 +1,12 @@
+@import '../main';
+
+.loaderContainer{
+    position: absolute;
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+    text-align: center;
+    top: 1px;
+    left: 1px;
+    background: hsla(0,0%,100%,.71);
+    margin: 0!important;
+}

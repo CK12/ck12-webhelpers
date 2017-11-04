@@ -1,0 +1,42 @@
+<div class="groups-temp">
+	<div class="small-5 columns group-n">
+		<span class="select-option left non-zero">
+				<span class="pointer custom-check-box group-select <%=selected%>"></span><span class="lbl-txt grp-lbl"><%= name %></span>
+				<%if(isDueDatePassed){%>	
+					<span class="last-assign">
+						Last Assigned
+					</span>
+				<%}%>
+				</span>
+		</div>
+	<%if(isDueDatePassed){%>
+		<div class="small-3 columns  group-assigned group-assigned-last">	
+	<%}else{%>
+		<div class="small-3 columns  group-assigned ">
+	<%}%>	
+	
+		<span class="assigned-txt">
+			<%if(isDueDatePassed){%>	
+				<span class="last-assign">
+					Last Assigned
+					<br/>
+					<%= dueDate %>
+				</span>
+			<%}else if(assigned){%>
+					Already Assigned
+			<%}%>
+		</span>
+			<%if(!isDueDatePassed && assigned){%>
+				<span class="small-due-date">
+					<%= dueDate %>
+				</span>			
+			<%}%>		
+	</div>
+	<div class="small-4 columns group-due">
+			<%if(assigned && !isDueDatePassed){%>	
+				<input type="text" placeholder="mm/dd/yyyy" value="<%= dueDate %>" class="due-date"/>
+			<%}else {%>
+				<input type="text" placeholder="mm/dd/yyyy" value="" class="due-date"/>	
+			<%}%>
+	</div>
+</div>

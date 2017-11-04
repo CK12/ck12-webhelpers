@@ -1,0 +1,11 @@
+<div id="<%= data.modalID || '' %>">
+    <div class="modal-uikit-overlay"></div>
+    <div class="modal-uikit-wrapper">
+        <div class="modal-uikit-view modal-uikit <%= data.className %>">
+            <div id="<%= data.headerID  || '' %>" class="header"><%= data.headerText  || ''%></div>
+            <div id="<%= data.closeID  || '' %>" class="close">+</div>
+            <div id="<%= data.contentID  || '' %>" class="content"><%= data.contentText  || ''%></div>
+            <div class="modal-actions"></div>
+        </div>
+    </div>
+</div>

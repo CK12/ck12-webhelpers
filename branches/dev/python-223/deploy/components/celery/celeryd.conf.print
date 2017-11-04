@@ -1,0 +1,38 @@
+## Place this file (or symlink it) under /etc/default/celeryd
+
+# Extra arguments to celeryd
+CELERYD_OPTS_GRP1="--queues celery,print -c 3"
+CELERYD_OPTS_GRP2="--queues importer -c 2"
+CELERYD_OPTS_GRP3="--queues notifier -c 2"
+re='[^0-9]+$'
+THIS_HOST="$(hostname)"
+THIS_HOST="${THIS_HOST%%.ck12.org}"
+if [ "${THIS_HOST%%1}" != "${THIS_HOST}" ] || [[ ${THIS_HOST} =~ ${re} ]]; then
+    ## Only one of the groups should run beat.
+    CELERYD_OPTS_GRP1="${CELERYD_OPTS_GRP1} -B --schedule=/var/run/celery/celerybeat-schedule"
+    #CELERYD_OPTS_GRP2="${CELERYD_OPTS_GRP2} -B --schedule=/var/run/celery/celerybeat-schedule"
+    #CELERYD_OPTS_GRP3="${CELERYD_OPTS_GRP3} -B --schedule=/var/run/celery/celerybeat-schedule"
+fi
+
+# Where to chdir at start.
+#CELERYD_CHDIR_GRP1="/opt/2.0/flx/pylons/ads"
+CELERYD_CHDIR_GRP1="/opt/2.0/flx/pylons/flx"
+CELERYD_CHDIR_GRP2="/opt/2.0/flx/pylons/flx"
+CELERYD_CHDIR_GRP3="/opt/2.0/flx/pylons/flx"
+
+CELERYD_LOG_FILE="/var/log/celery/celeryd-_n.log"
+
+CELERYD_LOG_LEVEL="INFO"
+
+# Workers should run as an unprivileged user.
+CELERYD_USER=`grep -s APACHE_RUN_USER /etc/apache2/envvars |sed 's/export APACHE_RUN_USER=//'`
+CELERYD_USER=${CELERYD_USER:-www-data}
+CELERYD_GROUP=`grep -s APACHE_RUN_GROUP /etc/apache2/envvars |sed 's/export APACHE_RUN_GROUP=//'`
+CELERYD_GROUP=${CELERYD_GROUP:-www-data}
+
+# PAth to celeryd
+#CELERYD="/usr/local/bin/paster celeryd celeryconfig.py"
+
+# Name of the celery config module.#
+#CELERY_CONFIG_MODULE="celeryconfig"
+

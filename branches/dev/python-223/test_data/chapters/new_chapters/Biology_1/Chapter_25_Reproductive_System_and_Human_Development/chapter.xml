@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns:dc="http://www.ck12.org/dc/will_create_ns"
+unique-identifier="chapterid" version="2.0">
+
+  <chapter>
+    <metadata>
+<chapterSeq>25</chapterSeq>
+
+<book>Biology I</book>
+
+      <chapterid></chapterid>
+      <title>Reproductive System and Human Development </title>
+      <description>Topics in this chapter include:Female_Reproductive_System.Male_Reproductive_System,Sexually_Transmitted_Diseases.
+     </description>
+    </metadata>
+    
+    <lessons>
+      <item id="Male_Reproductive_System" href="Male_Reproductive_System.html" sequence="1" />
+      <item id="Female_Reproductive_System" href ="Female_Reproductive_System.html" sequence="2" />
+      <item id="Fertilization_Gestation_and_Development" href ="Fertilization_Gestation_and_Development.html" sequence="3" />
+      <item id="Sexually_Transmitted_Diseases" href ="Sexually_Transmitted_Diseases.html" sequence="4" />
+   </lessons>
+  </chapter>
+
+</package>

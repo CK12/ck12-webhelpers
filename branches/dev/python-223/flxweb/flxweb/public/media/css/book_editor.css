@@ -1,0 +1,710 @@
+/****
+#
+# Copyright 2007-2013 CK-12 Foundation
+#
+# All rights reserved
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under this License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+# implied.  See the License for the specific language governing
+# permissions and limitations.
+#
+# This file originally written by Hana Zavadska
+#
+# $Id$
+****/
+/************************************************************************************
+ FlexBook Editor
+ *************************************************************************************/
+.js_book_editor .chapterlist {
+    margin: 5px 0;
+}
+.js_book_editor  .conceptlist {
+    margin: 0;
+}
+
+.js_book_editor .chapterlist li {
+    list-style-type: none;
+    margin-bottom: 0;
+    padding: 0;
+    background-color: white;
+    border-bottom: 1px solid #eee;
+}
+
+.js_book_editor .chapterlist li:first-child {
+    border-top: 1px solid #eee;
+}
+.js_book_editor .chapterlist li ul li:last-child {
+    border-bottom: none;
+}
+.js_book_editor .chapterlist li.ui-state-highlight {
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.js_book_editor .chapterlist li.artifact_type_concept,
+.js_book_editor .chapterlist li.artifact_type_lesson,
+.js_book_editor .chapterlist li.artifact_type_section {
+    padding-left: 0;
+}
+
+.js_book_editor .chapterlist li.artifact_type_chapter li,
+.js_book_editor .chapterlist li.artifact_type_chapter li,
+.js_book_editor .chapterlist li.artifact_type_chapter li {
+    padding-left: 80px;
+}
+
+.js_book_editor .chapterlist li.chapter .editor_chapterinfo {
+    margin-right: 25px;
+}
+
+.js_book_editor .chapterlist .index_label {
+    float: left;
+    min-width: 30px;
+    margin-right: 10px;
+}
+
+.js_book_editor .chapterlist .row_expand_toggle_parent {
+    float: left;
+}
+
+.js_book_editor .chapterlist .row_artifact_title {
+    float: left;
+    max-width: 65%;
+}
+
+.message-textarea {
+    padding: 5px 10px 0px 5px !important;
+}
+
+.draft-section {
+    border: 2px solid #95e3ff;
+    color: #95e3ff;
+    font-size: 12px;
+    padding: 2px 5px 1px 4px;
+}
+
+.draft-chapter-title {
+    margin-right: 8px;
+}
+
+.draft-chapter, .assignment-count {
+    color: #b5b1a8;
+    font-size: 14px;
+    font-style: italic;
+    margin-left: 10px;
+}
+
+.edit-row-item {
+    padding: 6px !important;
+}
+
+.edit-row-item:hover {
+    background: none repeat scroll 0 0 #fff9d5 !important;
+}
+
+.edit-row-item a {
+    color: #555555 !important;
+}
+
+.artifact_row {
+    padding: 10px 0;
+}
+
+.edit-dropdown.open {
+    left: -174px !important;
+    width: 185px;
+}
+
+.edit-dropdown.open + a {
+    color: #56544D !important;
+}
+
+.edit-dropdown.open:before {
+    left: 154px;
+}
+
+.edit-dropdown.open:after {
+    left: 152px;
+}
+
+.js_book_editor .chapterlist .artifact_row .index_label.grandchild {
+    margin-left: 0;
+}
+
+.js_book_editor .chapterlist .artifact_row .actions {
+    float: right;
+    position: relative;
+}
+
+.js_book_editor .chapterlist .artifact_row .actions .js_row_remove,
+.js_book_editor .chapterlist .artifact_row .actions .js_row_handle,
+.js_book_editor .chapterlist .artifact_row .actions .js_row_edit {
+    margin-left: 15px;
+}
+
+.js_book_editor .toc_label {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.js_book_editor .bookinfo {
+    border-bottom: 1px dashed #999;
+    margin-bottom: 5px;
+}
+
+.js_book_editor .bookinfo .artifacttitle {
+    border-bottom: 0 solid #FFF;
+    margin-bottom: 5px;
+}
+
+.js_book_editor .bookinfo .bookinfo_left {
+    float: left;
+    width: 170px;
+    padding-right: 10px;
+}
+
+.js_book_editor .chapterlistitem .chapterinfo {
+    display: none;
+}
+
+.js_book_editor .chapterlistitem .chapterinfo .summary {
+    padding-left: 30px;
+    margin-top: 5px;
+    font-size: 0.9em;
+    color: #666;
+}
+.contentview .js_chapter_actions a,
+.contentview .js_concept_actions a {
+    color: #b5b1a8;
+}
+.contentview .js_chapter_actions a:hover,
+.contentview .js_concept_actions a:hover {
+    text-decoration: none;
+    color: #00aba4;
+}
+
+.contentview .js_row_handle {
+    float: right;
+    cursor: move;
+    color: #b5b1a8;
+    font-size: 12px;
+}
+.contentview .js_row_handle:hover {
+    text-decoration: none;
+    color: #00aba4;
+}
+.contentview .js_row_remove {
+    float: right;
+    color: #b5b1a8;
+    font-size: 12px;
+}
+.contentview .js_row_remove:hover {
+    text-decoration: none;
+    color: #00aba4;
+}
+.contentview .js_row_edit {
+    float: right;
+    color: #b5b1a8;
+}
+.contentview .js_row_edit:hover{
+    text-decoration: none;
+    color: #00aba4;
+}
+.contentview .js_row_update {
+    float: right;
+    color: #b5b1a8;
+}
+.contentview .js_row_update:hover {
+    text-decoration: none;
+    color: #00aba4;
+}
+.js_chapter_actions {
+}
+
+.artifact_row:hover .ui-icon-triangle-1-e {
+    border-left-color: #00aba4;
+}
+
+.artifact_row:hover .ui-icon-triangle-1-s {
+    border-top-color: #00aba4;
+}
+.artifact_row:hover .js_row_update {
+    background-position: -236px 0;
+}
+
+.row-action-icon {
+    font-size: 16px;
+}
+
+#googleDocsModal {
+    margin-left: -30%;
+    width: 60%;
+}
+
+/************************************************************************************
+ CHAPTER DIALOG
+ *************************************************************************************/
+#js_dialog_chapteredit {
+    padding: 0px 0 25px 0;
+    text-shadow: none;
+}
+#js_dialog_chapteredit .chapteredit_section {
+    text-align: left;
+}
+#js_dialog_chapteredit .dialogbuttons {
+    text-align: center;
+    margin-top: 15px;
+}
+#js_dialog_chapteredit #js_savechapter {
+    display: inline-block;
+    padding: 10px 16px 9px;
+}
+#js_dialog_chapteredit .ui-tabs-nav {
+    background-color: #dedcd3;
+    padding: 0px;
+}
+#js_dialog_chapteredit #chapteredit_tab_basic .inputwrap {
+    padding: 0 6px 0 0;
+}
+#js_dialog_chapteredit .ui-tabs .ui-tabs-panel {
+    padding: 10px 25px;
+}
+#js_dialog_chapteredit .chapteredit-tab-details {
+    text-align: left;
+}
+#chapteredit_attachments {
+    text-align: left;
+    padding: 40px !important;
+}
+#chapteredit_attachments .resource_wrapper {
+    display: block;
+}
+#chapteredit_attachments .actions {
+    display: block;
+}
+
+
+
+
+.chapter-editor-wrapper.ui-dialog .ui-dialog-titlebar {
+    background-color: #dedcd3;
+    border: medium none;
+    border-radius: 10px 0 0 !important;
+    font-size: 21px;
+    font-weight: bold;
+    padding: 20px 16px;
+    text-shadow: none;
+}
+.chapter-editor-wrapper.ui-dialog .ui-dialog-titlebar .ui-dialog-title {
+    color: #56544D;
+    font-size: 21px;
+    margin: 0;
+}
+.chapter-editor-wrapper.ui-dialog .ui-tabs .ui-tabs-nav li:first-child {
+    border: 0 none !important;
+    margin-left: 0;
+}
+.chapter-editor-wrapper.ui-dialog .ui-state-default {
+    background: none repeat scroll 0 0 #eeece6;
+    border: 0 none;
+    color: #56544d;
+    font-size: 16px;
+    margin-left: 1%;
+    margin-right: 0;
+    width: 19.2%;
+}
+.chapter-editor-wrapper.ui-dialog .ui-state-active {
+    background: #FFFFFF;
+    border: 0 none;
+    font-weight: bold;
+}
+.chapter-editor-wrapper.ui-dialog .chapter_editor_dialog .ui-widget-header a {
+    padding: 14px 0;
+    width: 100%;
+}
+#txt_chapter_desc {
+    border: 2px solid #cccccc;
+    height: 100px;
+    margin-bottom: 0;
+}
+#txt_chapter_title {
+    border: 2px solid #cccccc;
+}
+.chapter-editor-wrapper.ui-dialog .formlabelwrap {
+    margin-bottom: 14px;
+    margin-top: 30px;
+}
+.bold {
+    font-weight: bold;
+}
+.chapter-editor-wrapper.ui-dialog .txt_chapter_title_wrapper {
+    margin-top: 10px;
+}
+.chapter-editor-wrapper.ui-dialog .ui-dialog-titlebar-close {
+    background-color: transparent;
+    background-image: url("../images/close-modal.png");
+    height: 32px;
+    position: absolute;
+    right: -14px;
+    top: -3px;
+    width: 32px;
+    z-index: 99;
+}
+.chapter-editor-wrapper.ui-dialog .ui-dialog-titlebar-close:hover {
+    background-color: transparent;
+    background-image: url("../images/close-modal.png");
+    height: 32px;
+    position: absolute;
+    right: -14px;
+    top: -3px;
+    width: 32px;
+}
+.chapter-editor-wrapper.ui-dialog .ui-icon.ui-icon-closethick {
+    display: none;
+}
+.chapter-editor-wrapper {
+    border-radius: 10px !important;
+    top: 200px !important;
+}
+
+
+/************************************************************************************
+ Group Editing
+ *************************************************************************************/
+#edit_content .manage-collaborators {
+    border-bottom: 0px;
+    border-radius: 5px;
+    border-top: 0px;
+    color: #FFF;
+    padding: 17px 16px;
+    position: absolute;
+    right: 14px;
+    top: 21px;
+}
+.manage-collaborators-content .button {
+    border-bottom: 0px;
+    border-radius: 5px;
+    border-top: 0px;
+    color: #FFF;
+}
+#edit_content .manage-collaborators:hover, .manage-collaborators-content .button:hover {
+    border-bottom: 0px;
+    border-top: 0px;
+}
+.manage-collaborators-dialog, .manage-collaborators-dialog *, .manage-collaborators-dialog *:before, .manage-collaborators-dialog *:after {
+    box-sizing: border-box;
+}
+.js_ck12_dialog_common.manage-collaborators-dialog .ui-dialog-titlebar-close, .js_ck12_dialog_common.manage-collaborators-dialog .ui-dialog-titlebar-close:hover {
+    background-color: transparent;
+    background-image: url("../images/close-modal.png");
+    height: 32px;
+    position: absolute;
+    right: -14px;
+    top: -3px;
+    width: 32px;
+    box-sizing: initial;
+    z-index: 99;
+    display: block;
+}
+.manage-collaborators-dialog .ui-dialog-titlebar-close span {
+    display: none !important;
+}
+.manage-collaborators-dialog.ui-dialog a {
+    box-sizing: border-box;
+}
+.manage-collaborators-dialog.ui-dialog {
+    text-align: left;
+    background-color: #F7F5F5;
+    font-size: 15px;
+    width: 580px !important;
+}
+.manage-collaborators-dialog.ui-dialog .ui-dialog-titlebar {
+    background-color: #DEDEDE;
+    color: #000;
+    padding: 12px 10px 8px;
+    font-weight: bold;
+    text-shadow: none;
+}
+.email-text {
+    font-weight: bold;
+}
+.collaborators-buttons-wrapper {
+    margin-top: 12px;
+    text-align: center;
+}
+.collaborators-buttons-wrapper .button {
+    height: 40px;
+    padding-top: 12px;
+    width: 80px;
+}
+textarea.email-list {
+    margin-top: 3px;
+    width: 100%;
+    height: 145px;
+}
+input.share-url {
+    display: inline-block;
+    height: 32px !important;
+    margin-right: 2px;
+    margin-top: 5px;
+    width: 260px;
+}
+.copy-url {
+    cursor: copy;
+    height: 31px;
+    margin-right: 20px;
+    width: 72px;
+}
+.copy-msg {
+    opacity: 0;
+}
+.save-collab, .done-collab {
+    margin-right: 20px;
+}
+.button.turquoise.save-disabled {
+    cursor: default;
+    background: #4DCCC4;
+}
+.collaborators-share-wrapper {
+    border-top: 2px solid #C2C1C1;
+    padding-top: 15px;
+    margin-left: 4px;
+}
+.collab-instructions-wrapper {
+    margin-left: 4px;
+}
+.collab-name {
+    background-color: #D8D3D3;
+    border: 2px solid #C3BFBF;
+    width: 182px;
+}
+.collab-input-wrapper {
+    display: inline-block;
+    float: right;
+    margin-right: 7px;
+}
+.assignee-email {
+    display: inline-block;
+    float: right;
+    font-size: 14px;
+    margin-right: 7px;
+    width: 182px;
+}
+.js_book_editor .chapterlist .artifact_row .actions {
+    padding-top: 5px;
+}
+.artifact_row {
+    min-height: 33px;
+    padding: 7px 0 3px;
+}
+
+.js_book_editor .chapterlist .row_artifact_title {
+    max-width: 43%;
+}
+
+.pre-mail-list {
+    background-color: #FFF;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.added-email {
+    margin-right: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 90%;
+    display: inline-block;
+    vertical-align: top;
+}
+.individual-email-wrapper {
+    margin-bottom: 5px;
+    display: inline-block;
+    width: 47%;
+    margin-right: 10px;
+}
+.more-options-dropdown-wrapper{
+    position: absolute;
+    background-color: white;
+    font-size: 14px;
+    font-weight:normal;
+    right: 50px;
+    z-index:10;
+}
+.more-options-dropdown{
+    list-style-type: none;
+    border: 2px solid #ccc;
+    border-radius: 2px;
+    margin-top: 14px;
+    width: 100% !important;
+    padding: 0;
+    z-index: 40;
+    margin:0;
+}
+.more-options-dropdown:before{
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border: inset 6px;
+    border-color: transparent transparent #fff transparent;
+    border-bottom-style: solid;
+    position: absolute;
+    top: -10px;
+    z-index: 99;
+    border-style: solid !important;
+    left: 82.5%;
+}
+.more-options-dropdown:after{
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border: inset 7px;
+    border-color: transparent transparent #ccc transparent;
+    border-bottom-style: solid;
+    position: absolute;
+    top: -14px;
+    z-index: 98;
+    border-style: solid !important;
+    left: 82%;
+}
+.more-options-dropdown li{
+     cursor: pointer;
+     min-width: 138px;
+}
+.more-options-dropdown li a{
+    color: gray;
+    width: 100%;
+    padding: 10px 10px;
+    display: inline-block !important;
+}
+.more-options-dropdown li:hover{
+     background-color: rgba(145, 210, 237, 0.3) !important;
+}
+.more-options-dropdown li a:before{
+    margin-right:5px;
+    color: #cec9be;
+}
+.more-options-dropdown .js-dropdown-element{
+    padding-left: 0px !important;
+}
+.more-options-dropdown .js-dropdown-element{
+    margin-left: 0px;
+}
+.more-options-dropdown li a.hide {
+    display: none !important;
+}
+.more-options-dropdown .js_row_edit {
+    margin-left: 0px !important;
+    float: none !important;
+}
+.more-options-dropdown-wrapper, .more-options-dropdown-wrapper *, .more-options-dropdown-wrapper *:before, .more-options-dropdown-wrapper *:after {
+    box-sizing: border-box !important;
+}
+.assigned-section {
+    background-color: #f0f0f5;
+}
+.resourceview .actions, .resourceview .resource_wrapper{
+    display: none;
+}
+.resourceview.show-edit-attachments .actions, .resourceview.show-edit-attachments .resource_wrapper{
+    display: block;
+}
+.finalize-book {
+    background-color: #FFFFFF;
+    cursor: pointer;
+    margin-top: 33px;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #95989A;
+    font-weight: bold;
+}
+.finalize-modal-header {
+    font-size: 21px;
+}
+.modal-toc-header {
+    display: inline-block;
+    font-size: 18px;
+    width: 50%;
+}
+.select-all-wrapper {
+    display: inline-block;
+    font-size: 21px;
+    width: 49%;
+    text-align: right;
+}
+.finalize-book-modal {
+    padding: 27px 0px;
+    width: 690px;
+    margin-left: -345px;
+}
+.modal-toc-header-wrapper {
+    padding: 0px 28px;
+}
+.finalize-divider {
+    border-top: 1px solid #B1B3B4;
+}
+.finalize-book-modal ul, .finalize-book-modal li {
+    list-style: none;
+    margin: 0px;
+}
+.finalize-toc-wrapper {
+    margin: 0px;
+    padding: 0px 20px;
+    height: 300px;
+    overflow: auto;
+}
+.finalize-toc-wrapper .artifact_row {
+    padding-left: 10px;
+}
+.finalize-button {
+    background-color: #FFFFFF;
+    color: #CFCFCF;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 33px;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #95989A;
+    font-weight: bold;
+}
+.finalize-button.active {
+    background-color: #FFECF0;
+    color: #5c5c5c;
+}
+.finalize-chapter-divider {
+    border-top: 1px solid #F6F6F6;
+}
+.select-all, .clear-all {
+    color: #2396CB;
+}
+.finalize-book-modal .custom-box {
+    display: inline-block;
+    float: right;
+    margin-right: 15px;
+}
+.finalize-book-modal .custom-box label.checkbox span {
+    width: 25px;
+    height: 25px;
+}
+.finalize-book-modal .js_book_editor .chapterlist {
+    margin: 0px;
+}
+.finalize-book-modal .custom-box label.checkbox span i {
+    font-size: 30px;
+    left: -4px;
+    top: -5px;
+    width: 27px;
+}
+.artifact_row.selected {
+    background-color: #F0F0F0;
+}
+.artifact_list_item.selected {
+    background-color: #F0F0F0 !important;
+}
+.page-disable, .loading-icon {
+    visibility: visible;
+    z-index: 2000;
+}

@@ -1,0 +1,1 @@
+ALTER TABLE GroupActivities MODIFY objectID VARCHAR(52);

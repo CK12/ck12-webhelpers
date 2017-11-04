@@ -1,0 +1,19 @@
+{ 
+  "globals" : {
+    "jQuery" : true,
+    "console" : true,
+    "module" : true,
+    "require": true,
+    "define": true,
+    "window": true,
+    "document" : true
+  },
+  "undef": true, // complain about undeclared variables
+  "unused": true, // complain about unused variables
+  "bitwise": true, // no bitwise operators (because & is just not same as &&)
+  "curly": true, // ifs, fors and whiles must have curly braces around them
+  "eqeqeq": true, //force triple equals
+  "immed": true, // (function(){})() instead of function(){}()
+  "latedef": true, //define variables before they are used
+  "newcap": true // Constructors must start with Capital Letter
+}

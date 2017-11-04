@@ -1,0 +1,11 @@
+epub/
+tutorials/
+test_data/
+log/*
+flx/pylons/flx/flx/data/*
+flx/pylons/flx/flx/tests/data/*
+flx/search/solr/data/*
+.svn
+*.swp
+*.pyc
+*.pyo

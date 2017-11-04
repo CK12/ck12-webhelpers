@@ -1,0 +1,64 @@
+        
+@media only screen {
+	.viewer {
+    height: 225px;
+}
+	 }
+
+@media only screen and (min-width: 30.063em) and (max-width: 40em) {
+	.viewer {
+    height: 425px;
+}      
+	 } /* min-width 481px and max-width 640px, use when mini ipad */
+
+// Small screens 
+/* @media only screen { } Define mobile styles */
+@media only screen and (max-width: 40em) {
+	.viewer {
+    height: 275px;
+}
+	 } /* max-width 640px, mobile-only styles, use when QAing mobile issues */
+
+// Medium screens 
+@media only screen and (min-width: 40.063em) {
+	.viewer {
+    height: 350px;
+}
+	 } /* min-width 641px, medium screens */
+@media only screen and (min-width: 40.063em) and (max-width: 64em) { 
+	.viewer {
+    height: 375px;
+}
+	 } /* min-width 641px and max-width 1024px, use when QAing tablet-only issues */
+
+// Large screens 
+@media only screen and (min-width: 64.063em) {
+	.viewer {
+    height: 503px;
+}
+	 } /* min-width 1025px, large screens */
+@media only screen and (min-width: 64.063em) and (max-width: 90em) {
+	.viewer {
+    height: 504px;
+}
+	 } /* min-width 1025px and max-width 1440px, use when QAing large screen-only issues */
+
+// XLarge screens 
+@media only screen and (min-width: 90.063em) { 
+	.viewer {
+    height: 505px;
+}
+	} /* min-width 1441px, xlarge screens */
+@media only screen and (min-width: 90.063em) and (max-width: 120em) {
+	.viewer {
+    height: 506px;
+}
+	 } /* min-width 1441px and max-width 1920px, use when QAing xlarge screen-only issues */
+
+// XXLarge screens 
+@media only screen and (min-width: 120.063em) {
+	.viewer {
+    height: 507px;
+}
+	 } /* min-width 1921px, xlarge screens */
+

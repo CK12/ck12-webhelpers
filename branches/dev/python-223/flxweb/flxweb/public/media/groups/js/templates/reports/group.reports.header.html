@@ -1,0 +1,110 @@
+<div id="report-header-templates">
+	<!-- Leader : non-zero-state -->
+	<div id="leader-non-zero-header">
+		<div class="row">
+			<div class="large-9 small-9 columns">
+				<!-- TO DO:  insert title edit icon per other groups pages -->
+				<div class="reports-header">Reports</div>
+				<p>Class Assignment Completion</p>
+			</div>
+			<div class="full-screen large-3 small-3 columns">
+				<!--a id="report-full-screen-link" title="View the report in full screen">Fullscreen</a-->
+			</div>
+		</div>
+	</div>
+	
+	<!-- Member : non-zero-state -->
+	<div id = "member-non-zero-header-for-leader">
+		<div class="row member-info-header">
+			<div class="columns large-7 filter-select member-list-select">
+				<div class = "large-2 columns">
+					<span class="member-image">
+						<img src="/auth/member/image/@@userAuthID@@" alt="@@username@@" >
+					</span>
+				</div>
+				<div class="columns large-10 member-header-title">
+					<div title="@@username@@" class="reports-header">@@username@@</div>
+					<p>Latest Assignment Scores</p>
+				</div>
+				
+				<span class="down-arrow member-list-drop"><i class="icon-arrow-up"></i></span>
+			</div>
+			<div class="filter-options columns large-12 member-list-options hide">
+				<header>Select another student:</header>
+				<ul class="member-list">
+				
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div id = "member-non-zero-header">
+		<div class="row">
+			<div class = "large-1 columns">
+				<span class="member-image">
+					<img src="/auth/member/image/@@userAuthID@@" alt="@@username@@" >
+				</span>
+			</div>
+			<div class="columns large-11 member-header-title">
+				<div title="@@username@@" class="reports-header">@@username@@</div>
+				<p>Latest Assignment Scores</p>
+			</div>
+		</div>
+	</div>
+	<div id="reportMemberNameTemp">
+		<div class="member-info">
+			<a class="member-link" title="@@userFullName@@">
+				<span class="member-image @@backGroundColor@@">
+					<img src="/auth/member/image/@@userAuthID@@" alt="@@username@@">
+				</span>
+				<span class="member-name">@@username@@</span>
+				<span class="hide" id = "user-id" data-userID="@@userID@@"></span>
+			</a>
+		</div>
+	</div>
+	<!-- Member: single concept report -->
+	<div id = "single-concept-view-header">
+		<div class="row collapse">
+			<div class="large-12 small-2 columns">
+				<div class="row collapse member-name-container">
+					<div class="large-1 columns @@padding-class@@">
+						<span class="member-image">
+							<img src="/auth/member/image/@@userAuthID@@" alt="@@username@@" >
+						</span>
+					</div>
+					<div class="large-11 columns">
+						<a id="member-name" class="member-name-anchor" title="@@username@@" data-member-id="@@userID@@">@@username@@</a>
+						<div id="member-name-text" class="hide member-text-name" title="@@username@@" data-member-id="@@userID@@">@@username@@</div>
+					</div>
+				</div>
+				<div class="large-12 small-10 left">
+					<div class="member-detail-container large-12 small-10">
+						<div class="text-bold heading-bold">Assignment:</div>
+						<div>
+							<a id="assignment-name" data-member-id="@@userID@@" data-assignment-id="@@assignmentID@@" title="@@assignmentName@@"></a>
+						</div>
+					</div>
+					<div class="member-detail-container concept-header-details large-12 small-10">
+						<div class="text-bold heading-bold">Concept:</div>
+						<div class="">
+							<span id="concept-name-text">
+								@@conceptName@@
+							</span>
+						</div>
+					</div>
+					<div class="large-12 small-10 quiz-header-details hide">
+						<span class="icon-quiz yellow-quiz-icon"></span>
+						<span id="quiz-name-text" class="text-bold heading-bold">
+							@@conceptName@@:
+						</span>
+					</div>
+				</div>
+			</div>
+			<!-- <div class="large-8 small-2 columns">
+				iframe id="assessmentFrame1" src="/assessment/ui/?test/graph/practice/&@@params@@" scrolling="no" style="width:100%;border:0px;height:240px"></iframe
+			</div> -->
+		</div>	
+		<p></p>	
+	</div>
+
+	
+</div>

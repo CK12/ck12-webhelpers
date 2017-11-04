@@ -1,0 +1,38 @@
+@import '../main';
+
+:local {
+
+
+    .list {
+        .listItem:after {
+            content: ', '
+        }
+
+        .listItem:last-child {
+            &:before { content: 'and '; }
+            &:after { content: ''; }
+        }
+
+        .listItem:first-child {
+            &:before { content: '' !important; }
+        }
+
+        // Remove comma before 'and' when only two items
+        .listItem:nth-last-child(2):first-child {
+            &:after {
+                content: ' ';
+            }
+        }
+    }
+
+    .listItem {
+        font-weight: bold;
+        background-color: transparent;
+    }
+
+    @include breakpoint(small only){
+        .listItem {
+            font-size: rem-calc(14);
+        }
+    }
+}

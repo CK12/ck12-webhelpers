@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FlexBook development page</title>
+  <link rel="stylesheet" type="text/css" media="all" href="/media/common/css/master.css" />
+  <link rel="stylesheet" type="text/css" media="all" href="/css/flexbooks.css" />
+  <link rel="stylesheet" type="text/css" media="all" href="/css/book_details.css" />
+  <link rel="stylesheet" type="text/css" media="all" href="/media/common/css/3d-book.css" />
+  <link rel="stylesheet" type="text/css" media="all" href="/media/annotatorjs/css/annotator.css" />
+</head>
+<body>
+  <div id="debug">
+
+  </div>
+  <div id="flexBookDetailsMain" onscroll="onScroll()"></div>
+  <div id="sharePlaneWrapper" class="row relative share-plane-container">
+
+  </div>
+  <script>
+    window._ck12cdnprefix = '' + window.location.protocol + '//' + window.location.host +  '/api/';
+    function onScroll() {
+      var sharePlane = (document.getElementsByClassName("share-plane-div") || [])[0],
+          footer = (document.getElementsByTagName('footer') || [])[0],
+          rect = footer && footer.getBoundingClientRect();
+      if(!sharePlane || !footer)
+        return;
+      if(rect.top < window.innerHeight)//footer is visible
+        sharePlane.classList.add('absolute');
+      else
+        sharePlane.classList.remove('absolute');
+    }
+  </script>
+  <script language="JavaScript" type="text/javascript" src="/media/common/vendor/requirejs/require.js" data-main="/media/main"></script>
+  <script src="/flexbook.js"></script>
+  <script>
+    var bookPath = window.location.pathname;
+    if (window.location.pathname === '/'){
+      bookPath = '/book/CK-12-Basic-Geometry-Concepts/';
+    }
+    FlexBook.init(bookPath, document.getElementById('flexBookDetailsMain'));
+  </script>
+  <script language="JavaScript" type="text/x-mathjax-config">
+  	MathJax.Hub.Config({
+  		extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+  		tex2jax: {
+  			inlineMath: [['@$','@$']],
+  			displayMath: [['@$$','@$$']],
+  			skipTags: ["script","noscript","style","textarea","code"]
+  		},
+  		showMathMenu : false,
+  		jax: ["input/TeX","output/HTML-CSS"],
+  		messageStyle: "none",
+  		TeX: {
+  			extensions: ["cancel.js", "color.js", "autoload-all.js"]
+  		}
+  	});
+  </script>
+  <script language="JavaScript" type="text/javascript" src="//d3lkjnwva6z405.cloudfront.net/mathjax-min-2.6-20160201/MathJax.js"></script>
+
+
+</body>
+</html>

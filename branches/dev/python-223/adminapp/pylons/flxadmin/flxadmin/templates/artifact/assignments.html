@@ -1,0 +1,86 @@
+{% extends "listings.html" %}  
+
+{% block filters %} 
+  <div class="col tiny">Filter by:</div>
+  <div class="hide">
+    {{ h.labelselect('Type', 'type_filter', c.form.type_sel, 'filter')}}
+  </div>
+  <div class="col tiny">
+    {{ h.labelselect('Origin', 'origin', c.form.origin_sel, 'filter')}}
+  </div>
+
+  <div class="col sml">
+    {{ h.labelselect('Status', 'due', c.form.status_sel, 'filter')}}
+  </div>
+  
+  <div class="col med">
+    <!--{{ h.labelselect('LMS Name', 'providerID', c.form.lms_filter_sel, 'filter', disabled=True )}}-->
+    <!-- Bug 57609 GK: Removing the disabled attr for the filter -->
+    {{ h.labelselect('LMS Name', 'providerID', c.form.lms_filter_sel, 'filter')}}
+  </div>
+
+  {#<div class="col sml">
+    {{ h.labelselect('LMS App Name', 'appName', [('',"Select LMS App")], 'filter', disabled=True)}}
+  </div>#}
+
+  <div class="col">
+    {{ h.labelinput('Group Id', 'groupID-filter', 'search-filter')}}
+  </div>
+  <div class="col">
+    {{ h.labelinput('Creator Id', 'creatorID-filter', 'search-filter', placeholder='CK-12 Editor is 3')}}
+  </div>
+{% endblock %}
+
+{% block aftersearches %} 
+  {{ super() }}
+  <div style="display:block">
+    <input id='disableListOnEmptySearch' type='checkbox' checked='true'>
+    <label>Disable Listing on Empty Searches</label>
+  </div>
+{% endblock %}
+
+{% block js_scripts %}
+{{ super() }}
+<script type='text/javascript'>
+  Listings({
+    sort: 'due,desc',
+    ajaxRoot: CK12.admUrl('artifacts_list'),
+    formAjax: CK12.admUrl('assignment/'),
+    viewmode: '{{c.viewmode}}',
+    searchFilters: ['creatorID', 'groupID'],
+  });
+  
+  var loadLMSApps = function(providerID){
+        if (providerID){
+            $.get(CK12.admUrl('lms/provider/apps/'+ providerID + '/raw'), function(data){
+                $.each(JSON.parse(data), function(index,each_app){
+                    $('#appName').append('<option value=appName,'+ each_app.appName +'>' + each_app.appName + '</option>');
+                });
+            });
+        }
+    }
+
+    $('#origin').off('change').on('change', function(e){
+        $('#providerID').val("providerID,");
+        if ($(this).val() == 'origin,lms'){
+            $('#providerID').removeAttr('disabled');
+        }else{
+            $('#providerID').attr({'disabled':'disabled'});
+        }
+    });
+
+    /*$('#providerID').off('change').on('change', function(e){
+        $('#appName').find('option').remove();
+        $('#appName').append('<option value="appName,">Select LMS App</option>');
+        if ($(this).val().split(',')[1]){
+            $('#appName').removeAttr('disabled');
+            $('#appName').parent().removeClass('sml');
+            loadLMSApps($(this).val().split(',')[1])
+        }else{
+            $("#leftpane .table .tbody .tr.{{c.viewmode}}view").removeClass('hide');
+            $('#appName').attr({'disabled':'disabled'});
+            $('#appName').parent().addClass('sml');
+        }
+    });*/
+</script>
+{% endblock %}

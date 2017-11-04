@@ -1,0 +1,13 @@
+{% extends "listings.html" %}  
+
+{% block js_scripts %}
+{{ super() }}
+<script type='text/javascript'>
+  Listings({
+    sort: 'updateTime,desc',
+    ajaxRoot: CK12.admUrl('concepts_list'),
+    formAjax: CK12.admUrl('concept/'),
+    viewmode: '{{c.viewmode}}',
+  });
+</script>
+{% endblock %}

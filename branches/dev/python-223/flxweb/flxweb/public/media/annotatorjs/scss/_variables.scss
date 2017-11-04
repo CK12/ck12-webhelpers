@@ -1,0 +1,20 @@
+// When modifying colors, sync with js/config.js
+$highlight-pink: #ffb0ca;
+$highlight-yellow: #ffeb6b;
+$highlight-green:  #c0ed72;
+$highlight-blue:   #add8ff;
+$highlight-purple: #d9b2ff;
+
+$c1: $highlight-purple;
+$c2: $highlight-blue;
+$c3: $highlight-green;
+$c4: $highlight-yellow;
+$c5: $highlight-pink;
+
+$highlight-colors: (
+    'c1': $c1,
+    'c2': $c2,
+    'c3': $c3,
+    'c4': $c4,
+    'c5': $c5,
+);

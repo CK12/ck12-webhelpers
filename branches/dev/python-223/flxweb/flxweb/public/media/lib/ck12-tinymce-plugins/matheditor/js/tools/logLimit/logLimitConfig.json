@@ -1,0 +1,27 @@
+{
+    "logDefaultBase": {
+        "data": "\\log{}",
+        "pos": [0,5,6],
+        "length": 6
+    },
+     "log": {
+        "data": "\\log_{}{}",
+        "pos": [0,6,8,9],
+        "length": 9
+    },
+     "naturalLog": {
+        "data": "\\ln{}",
+        "pos": [0,4,5],
+        "length": 5
+    },
+    "minimum": {
+        "data": "\\min{}",
+        "pos": [0,5,6],
+        "length": 6
+    },
+    "maximum": {
+        "data": "\\max{}",
+        "pos": [0,5,6],
+        "length": 6
+    }
+}

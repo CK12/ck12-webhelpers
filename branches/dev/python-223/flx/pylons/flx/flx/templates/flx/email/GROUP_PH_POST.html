@@ -1,0 +1,166 @@
+{% extends "MASTER_CK12_LOGO.html" %}
+{% macro get_view_on_ck12_link(group_type, group_id, group_url, postInfo) %}
+{% if group_type and group_type == 'public-forum' %}
+{{site}}{{"/forum/"}}{{group_id}}{{"/question/"}}{% if postInfo.postType == 'question' %}{{postInfo._id}}{% else%}{{postInfo.ancestorIDs[0]}}{% endif %}
+{% else %}
+{{group_url}}
+{% endif %}
+{% endmacro %}
+
+{% macro get_group_url(group_type, group_id, postInfo) %}
+{% if group_type and group_type == 'public-forum' %}
+{{site}}{{"/forum/"}}{{group_id}}{{"/question/"}}{% if postInfo.postType == 'question' %}{{postInfo._id}}{% else%}{{postInfo.ancestorIDs[0]}}{% endif %}
+{% else %}
+{{ site }}{{"/group/"}}{{group_id}}
+{% endif %}
+{% endmacro %}
+
+{% macro get_group_qa_url(group_type, group_id) %}
+{% if group_type and group_type == 'public-forum' %}
+{{site}}{{"/forum/"}}{{group_id}}{{"/home/"}}
+{% else %}
+{{ site }}{{"/group-discussions/"}}{{group_id}}
+{% endif %}
+{% endmacro %}
+
+{% macro get_group_settings_url(group_type, group_id) %}
+{% if group_type and group_type == 'public-forum' %}
+{{site}}{{"/forum/"}}{{group_id}}{{"/setting"}}
+{% else %}
+{{site}}{{"/group-settings/"}}{{group_id}}
+{% endif %}
+{% endmacro %}
+
+{% block ck12_logo %}
+    {% if events[0]['eventData']['groupType'] != 'public-forum' %}
+        {% if instant == 'true' %}
+            <div style="font-size:12px;color:#999999;padding-bottom:15px;padding-top:4px;">Write ABOVE THIS LINE to post an answer or <a href="{{get_group_qa_url(group_type=events[0]['eventData']['groupType'], group_id=events[0]['eventData']['groupID']) }}?{{ utm_email_view_on_ck12_link }}" style="text-decoration:none">view this on CK-12</a></div>
+        {% else %}
+            <div style="font-size:12px;color:#999999;padding-bottom:15px;padding-top:4px;"><a href="{{get_group_qa_url(group_type=events[0]['eventData']['groupType'], group_id=events[0]['eventData']['groupID']) }}?{{ utm_email_view_on_ck12_link }}" style="text-decoration:none">view this on CK-12</a></div>
+        {% endif %}
+    {% endif %}
+    {{ super() }}
+{% endblock %}
+
+{% block email_body %}
+    <body style="margin:0px;">
+        <table style="width:100%;text-align:center;" cellpadding="0" cellspacing="0">
+            <tr>
+                <td align="center">
+                    <table align="left" style="text-align:left; width:100%; font-family:Arial, Helvetica, sans-serif;font-size:14px;color:#333333;" cellpadding="0" cellspacing="0">
+                        {% if notificationFrequency == 'instant' %}
+                            <tr>
+                                <td valign="top" style="padding-bottom:10px;">
+                                    {% if events[0]['eventData']['groupType'] == 'public-forum' %}
+                                    <img style="border:1px solid #b5b1a7; vertical-align: middle; width:33px;" src="{{ events[0]['eventData']['ownerImg'] }}" alt="{{ events[0]['eventData']['ownerName'] }}" width="33" height="32" />
+                                    <span style="display:inline-block; vertical-align:middle; width:80%;">
+                                        <b>{{ events[0]['eventData']['ownerName'] }}</b>
+                                        <span style="color:#8e8774;"> from </span>
+                                        <b>{{ events[0]['eventData']['groupName'] | escape }}</b>
+                                        {% if events[0]['eventData']['postType'] == 'question' %}
+                                            <span style="color:#8e8774;">posted a new {{ events[0]['eventData']['postType'] }}. Check out the conversation <a href="{{get_group_url(group_type=events[0]['eventData']['groupType'],group_id=events[0]['eventData']['groupID'], postInfo=events[0]['eventData']['post']) }}?{{ utm_email_title_link }}">here.</a></span><br />
+                                        {% else %}
+                                            <span style="color:#8e8774;">posted a new {{ events[0]['eventData']['postType'] }}. Check out the conversation <a href="{{get_group_url(group_type=events[0]['eventData']['groupType'],group_id=events[0]['eventData']['groupID'], postInfo=events[0]['eventData']['post']) }}?{{ utm_email_title_link }}">here.</a></span><br />
+                                        {% endif %}
+                                    </span>
+                                    {% else %}
+                                    <span style="display:inline-block; vertical-align:middle; width:80%;">
+                                        Someone posted a new {{events[0]['eventData']['postType']}} in one of your groups. Check out the conversation <a href="{{get_group_url(group_type=events[0]['eventData']['groupType'],group_id=events[0]['eventData']['groupID']) }}?{{ utm_email_title_link }}" style="color:#32ABA1;text-decoration:none"><b>here</b></a>.
+                                    </span>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" valign="top" style="padding:40px 22px 40px 22px; color:#56544d; font-size:16px;" class="view-ck12-button">
+                                    <a href="{{ get_view_on_ck12_link(group_type=events[0]['eventData']['groupType'], group_id=events[0]['eventData']['groupID'],group_url=events[0]['eventData']['postURL'], postInfo = events[0]['eventData']['post']) }}?{{ utm_email_view_on_ck12_button }}" style="background-color:#00aba4; border-radius:4px; border-bottom:3px solid #0089a6; display:inline-block; padding:12px 12px 10px; font-weight:bold; font-size:16px; text-decoration:none; color:#fff; width:155px;">
+                                        Check It Out
+                                    </a>
+                                </td>
+                            </tr>
+                        {% else %}
+                            {% for phEvent in events %}
+                                <!--
+                                <tr>
+                                  <td valign="top" style="padding-bottom:10px;">
+                                    <img style="border:1px solid #b5b1a7; vertical-align: middle; width:33px;" src="{{ phEvent['eventData']['ownerImg'] }}" alt="{{ phEvent['eventData']['ownerName'] }}" width="33" height="32" />
+                                    <span style="display:inline-block; vertical-align:middle; width:80%;">
+                                      <b>{{ phEvent['eventData']['ownerName'] }}</b>
+                                      <span> posted a </span>
+                                      <a href="{{ get_view_on_ck12_link(group_type=phEvent['eventData']['groupType'], 
+                                      group_id=phEvent['eventData']['groupID'],
+                                      group_url=phEvent['eventData']['postURL'], 
+                                      postInfo = phEvent['eventData']['post']) }}?{{ utm_email_read_more_link }}">new {{ phEvent['eventData']['postType'] }}</a>
+                                    </span>
+                                    <br/>
+                                    <br/>
+                                  </td>
+                                </tr>
+                                -->                            
+                                <tr>
+                                    <td valign="top" style="">
+                                        <b>{{ phEvent['eventData']['ownerName'] }}</b>
+                                        <span style="color:#8e8774;"> from </span>
+                                        <a href="{{ get_group_url(group_type=phEvent['eventData']['groupType'], group_id=phEvent['eventData']['groupID'], postInfo=phEvent['eventData']['post']) }}?{{ utm_email_title_link }}"><b>{{ phEvent['eventData']['groupName'] | escape }}</b></a>
+                                        {{ phEvent['eventData']['action'] }}
+                                        {% if phEvent['eventData']['post']['postType'] != 'question' %}
+                                            <span style="color:#8e8774;">to:</span><br />
+                                            <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 400px; margin: 5px;">
+                                                <a href="{{ get_view_on_ck12_link(group_type=phEvent['eventData']['groupType'], group_id=phEvent['eventData']['groupID'], group_url=phEvent['eventData']['postURL'], postInfo=phEvent['eventData']['post']) }}?{{ utm_email_view_on_ck12_link }}">{{ phEvent['eventData']['title'] }}</a>
+                                            </p>
+                                        {% else %}
+                                            :
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td valign="top" style="padding-bottom:30px;">
+                                        <table>
+                                            <tr>
+                                                <td stype="width:40px">
+                                                    <img style="vertical-align: middle; margin-bottom:10px;"
+                                                        src="{{ phEvent['eventData']['ownerImg'] }}" alt="{{ phEvent['eventData']['ownerName'] }}"
+                                                        width="33" height="32" />
+                                                </td>
+                                                <td>
+                                                    <div style="padding:10px; background-color:#F2F2F1; margin:10px;">
+                                                        {{ phEvent['eventData']['post']['content'] }}
+                                                        <br>
+                                                        <a href="{{ get_view_on_ck12_link(group_type=phEvent['eventData']['groupType'], group_id=phEvent['eventData']['groupID'], group_url=phEvent['eventData']['postURL'], 
+                                                        postInfo=phEvent['eventData']['post']) }}?{{ utm_email_read_more_link }}">Read More</a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                
+                            {% endfor %}
+                        {% endif %}
+                    </table>
+                </td>
+            </tr>
+
+            <tr>
+                <td align="left" style="background-color:#56544d; color:#BBBBBB;font-family:Arial, Helvetica, sans-serif; font-size:12px;">
+                    <table style="width:100%; padding:0; text-align:left; font-family:Arial, Helvetica, sans-serif;font-size:12px;" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td style="padding:2.8em 1em 1.2em 2.5em">
+                                <span style="color:#FFFFFF; display:inline-block; width:100%;">
+                               		<span style="display:inline-block;">Prefer not to receive these messages?</span>
+                                	<a href="{{ get_group_settings_url(group_type=events[0]['eventData']['groupType'],group_id=events[0]['eventData']['groupID']) }}" style="color:#32ABA1;text-decoration:none;">Change your notification settings</a>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:0.1em 0 2.7em 2.5em; color:#FFFFFF;">
+                               <span style="display:inline-block; margin-right:11px;"> © CK-12 Foundation</span>
+                               <span style="display:inline-block; text-decoration:underline;">  3430 West Bayshore Road, Palo Alto, CA 94303</span>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </body>
+{% endblock %}

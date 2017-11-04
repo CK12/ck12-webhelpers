@@ -1,0 +1,145 @@
+/************************************************************************************
+taxonomy related CSS proerties
+*************************************************************************************/
+/* authored by minu */ 
+
+.ui-widget-content {
+    border: 5px solid #DDD;
+}
+
+/* end of authoring */ 
+
+.taxonomyContainer #subjectSel, .taxonomyContainer #branchSel, .taxonomyContainer #search{
+	height: 24px;
+	font-size: 15px;
+}
+
+.taxonomyContainer #searchConcepts{
+	height: 25px;
+	font-size: 15px;
+}
+
+.taxonomyContainer #btnTopConcepts, .taxonomyContainer #btnSearchConcepts, .taxonomyContainer #btnViewConcept{
+	height: 30px;
+	font-size: 15px;
+	margin: 0 0 0;
+}
+
+.taxonomyContainer #previousLink, .taxonomyContainer #nextLink{
+	font-size: 16px;
+}
+
+.taxonomyContainer .spriteIcons {
+	display:inline-block;
+	text-decoration: none;
+	background:url('/media/images/sprite_icons.png') no-repeat;
+}
+
+.taxonomyContainer .expandImage{
+	height: 15px;
+	width: 15px;
+	background-position:-72px -127px;
+	float: left;
+	cursor: pointer;
+}
+
+.taxonomyContainer .collapseImage{
+	height: 15px;
+	width: 15px;
+	float: left;
+	background-position:-90px -127px;
+	cursor: pointer;
+}
+
+.taxonomyContainer .loadingImage{
+	background:url('/media/images/loading.gif');
+	height: 15px;
+	width: 15px;
+	float: left;
+}
+
+.taxonomyContainer table, #taxonomyConceptDetailContainer table {
+    border-collapse: collapse;
+    width: 100%;
+    color: #000000; 
+    font-size:13px; 
+    font-weight: 550;
+    text-align: left;
+    text-shadow: 0 0 0 #FFFFFF;
+}
+
+.taxonomyContainer td, #taxonomyConceptDetailContainer td {
+    padding: 2px;
+}
+
+#taxonomyConceptDetailContainer #iconTable td{
+    text-align: center;
+    padding: 5px;
+}
+
+#taxonomyConceptDetailContainer .spriteIcons {
+	display:inline-block;
+	text-decoration: none;
+	background:url('/media/images/sprite_icons.png') no-repeat;
+}
+
+#taxonomyConceptDetailContainer .video {
+	width:23px;
+	height:24px;
+	background-position:-1px -24px;
+}
+
+#taxonomyConceptDetailContainer .videoDisabled {
+	width:23px;
+	height:24px;
+	background-position:-1px -79px;
+	color:#ccc;
+}
+
+#taxonomyConceptDetailContainer .interactive {
+	margin-top:1px;
+	width:23px;
+	height:24px;
+	background-position:-29px -24px;
+}
+
+#taxonomyConceptDetailContainer .interactiveDisabled {
+	margin-top:1px;
+	width:23px;
+	height:24px;
+	background-position:-29px -79px;
+	color:#ccc;
+}
+
+#taxonomyConceptDetailContainer .attachment {
+	width:11px;
+	height:24px;
+	background-position:-57px -24px;
+}
+
+#taxonomyConceptDetailContainer .attachmentDisabled {
+	width:11px;
+	height:24px;
+	background-position:-57px -79px;
+	color:#ccc;
+}
+
+#taxonomyConceptDetailContainer .contenttext {
+	width:23px;
+	height:24px;
+	background-position:-74px -24px;
+}
+
+#taxonomyConceptDetailContainer .contenttextDisabled {
+	width:23px;
+	height:24px;
+	background-position:-74px -79px;
+	color:#ccc;
+}
+
+input#btnViewConcept[type="button"]:disabled
+{
+/*background: linear-gradient(-90deg, #ACCE72, #99BB5F) repeat scroll 0% 0% transparent;*/
+background : #B2C592;
+color: #fff;
+}

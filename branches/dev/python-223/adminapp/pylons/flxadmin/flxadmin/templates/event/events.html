@@ -1,0 +1,21 @@
+{% extends "listings.html" %}  
+
+{% block filters %} 
+  <div class="col tiny">Filter by:</div>
+  <div class="col wider">
+    {{ h.labelselect('Event Type', 'type_filter', c.form.types, 'filter')}}
+  </div>
+{% endblock %}
+ 
+{% block searches %} 
+{% endblock %}
+
+{% block js_scripts %}
+{{ super() }}
+<script type='text/javascript'>
+  Listings({
+    sort: 'created,desc',
+    ajaxRoot: CK12.admUrl('events_list')
+  });
+</script>
+{% endblock %}

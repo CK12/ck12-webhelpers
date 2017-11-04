@@ -1,0 +1,121 @@
+<html>
+    <head>
+        <title>Import from user content</title>
+        <script src="{{ c.prefix }}/media/js/jquery-1.5.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){ 
+                $('#target_iframe').hide();
+                initUpload();
+            });
+            var taskID;
+            function startImport() {
+                $('#result').html('<p><img src="{{ c.prefix }}/media/images/ajax-loader.gif" /></p>');
+                checkForResponse();
+            }
+ 
+            function checkForResponse() {
+                $('#target_iframe').show();
+                content = $('#target_iframe').contents().find('body').text();
+                $('#target_iframe').hide();
+                if(content == "")
+                    setTimeout("checkForResponse()",2000)
+                else {
+                    content = $.parseJSON(content);
+                    taskID = content.response.task_id;
+                    checkStatus();
+                }
+            }
+  
+            function initUpload() {
+                document.getElementById('usercontentimport').onsubmit=function() {
+                    document.getElementById('usercontentimport').target = 'target_iframe';
+                }
+
+            }
+ 
+            function checkStatus() {
+                $.ajax({
+                    url: '{{ c.prefix }}/get/status/wikiImport/' + taskID,
+                    type: 'GET',
+                    dataType: 'json',
+                    statusCode: {
+                        404: function() {
+                            setTimeout("checkStatus()", 20000);
+                        }
+                    },
+                    success: function(data) {
+                        if (data.responseHeader.status == 2016) {
+                            setTimeout("checkStatus()", 20000);
+                            return;
+                        }
+                        if (data.responseHeader.status != 0) {
+                            alert("Error getting import task status: " + data.response.message);
+                            return;
+                        }
+
+                        var taskStatus  = data.response.status;
+                        if (taskStatus == 'PENDING' || taskStatus == 'IN PROGRESS') {
+                            setTimeout("checkStatus()", 20000);
+                        } else if (taskStatus == 'SUCCESS') {
+                            var book_id = jQuery.parseJSON(data.response.result.book_id);
+                            $.ajax({
+                                url: "{{ c.prefix }}/get/info/"+book_id,
+                                type: 'GET',
+                                dataType: 'json',
+                                success: function(data) {
+                                    var userdata = data.response.artifact;
+                                    var perma = '';
+                                    if (userdata.realm) {
+                                        perma += '/' + userdata.realm;
+                                    }
+                                    perma += '/' + userdata.artifactType + '/' + userdata.handle;
+                                    $('#result').html('<p>The book has been imported. <a href="' + perma + '" target="_blank">View</a></p>');
+
+                                }
+                            });
+                        } else {
+                            $('#result').html('<p style="color:red;">Failed to import Book. <br/>' + data.response.result + '</p>');
+                            alert("Task did not end successfully: " + JSON.stringify(data.response));
+                        }
+                    }
+                });
+
+
+            }
+        </script>
+    </head>
+    <body>
+
+        <form id="usercontentimport" method="POST" action="{{ c.prefix }}/import/userContent" enctype="multipart/form-data">
+            <table width="50%">
+                <tr>
+                    <td>
+                        Exported Zip file:
+                    </td>
+                    <td>
+                        <input type="file" name="exported_zip" size=50 />
+                    </td>
+               </tr>
+               <tr>
+                   <td>
+                       Login:
+                   </td>
+                   <td>
+                       <input type="text" name="login" value="" size=50 />
+                   </td>
+               </tr>
+               <tr>
+               </tr>
+               <tr>
+                   <td>
+                       <input type="submit" name="submit" value="Import" onclick="startImport();" />
+                   </td>
+               </tr>
+           </table>
+       </form>
+       <div id="result"></div>
+       <iframe id="target_iframe" name="target_iframe" src="" ></iframe>
+   </body>
+</html>
+
+

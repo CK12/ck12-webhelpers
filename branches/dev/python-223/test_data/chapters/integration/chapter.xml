@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns:dc="http://www.ck12.org/dc/will_create_ns"
+unique-identifier="chapterid" version="2.0">
+
+  <chapter>
+    <metadata>
+      <chapterid>12</chapterid>
+      <title>Integration</title>
+      <description>Topics in this chapter include: indefinite integrals
+      calculus, initial value problems, definite integrals, the Fundamental
+      Theorem of Calculus, integration by substitution, and numerical
+      integration.</description>
+    </metadata>
+    
+    <lessons>
+      <item id="indefinite_integrals_calculus" href="Indefinite_Integrals_Calculus.html" sequence="1" />
+      <item id="the_initial_value_problem" href ="The_Initial_Value_Problem.html" sequence="2" />
+      <item id="the_area_problem" href ="The_Area_Problem.html" sequence="3" />
+      <item id="definite_integrals" href ="Definite_Integrals.html" sequence ="4" />
+      <item id="evaluating_definite_integrals" href="Evaluating_Definite_Integrals.html" sequence="5" />
+      <item id="the_fundamental_theorem_of_calculus" href="The_Fundamental_Theorem_of_Calculus.html"  
+      sequence="6" />
+      <item id="integration_by_substitution" href="Integration_by_Substitution.html" sequence="7" />
+      <item id="numerical_integration" href ="Numerical_Integration.html"
+      sequence="8" />
+    </lessons>
+  </chapter>
+
+</package>

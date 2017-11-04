@@ -1,0 +1,25 @@
+    ProxyRequests Off  
+    SSLProxyEngine On
+  
+    <Proxy *> 
+       Require all granted	 
+    </Proxy>  
+
+    ProxyPass /taxonomy/ https://gamma.ck12.org/taxonomy/
+    ProxyPassReverse /taxonomy/ https://gamma.ck12.org/taxonomy/
+
+    #ProxyPass /flx/ https://gamma.ck12.org/flx/
+    #ProxyPassReverse /flx/ https://gamma.ck12.org/flx/
+
+    ProxyPass /dexter/ https://gamma.ck12.org/dexter/
+    ProxyPassReverse /dexter/ https://gamma.ck12.org/dexter/
+
+    #ProxyPass /auth/ https://gamma.ck12.org/auth/
+    #ProxyPassReverse /auth/ https://gamma.ck12.org/auth/
+
+    #ProxyPass /assessment/api/ https://gamma.ck12.org/assessment/api/
+    #ProxyPassReverse /assessment/api/ https://gamma.ck12.org/assessment/api/
+
+    #ProxyPass /peerhelp/api/ https://gamma.ck12.org/peerhelp/api/
+    #ProxyPassReverse /peerhelp/api/ https://gamma.ck12.org/peerhelp/api/
+

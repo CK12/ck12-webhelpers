@@ -1,0 +1,29 @@
+<div class="bold filter-heading expandable-filter expanded js-expandable-filter pointer">
+	<span>FILTER BY SOURCE</span>
+	<span class="filter-clear-wrap hide">
+		<span class="separator">|</span>
+		<a class="js-clear-individual-filters">Clear</a>
+	</span>
+	<i class="icon-arrow3_right right"></i>
+</div>
+<div id="ownership-filter" class="inidividual-filters-wrapper js-category-filter">
+
+	<div id="ownership-list-container">
+		<div class="custom-box js-ownership-filter" data-ownership="owned">
+			<input type="checkbox" name="ownership-filter" id="ownership_self">
+			<label class="checkbox" for="ownership_self"><span><i class="icon-validated"></i></span> Created by me </label>
+		</div>
+		<div class="custom-box child-ownership js-state-filter" data-state="draft">
+			<input type="checkbox" name="ownership-draft-filter" id="ownership_draft_self" class="revision-state-input">
+			<label class="checkbox" for="ownership_draft_self"><span><i class="icon-validated"></i></span>Draft</label>
+		</div>
+		<div class="custom-box child-ownership js-state-filter" data-state="final">
+			<input type="checkbox" name="ownership-finalized-filter" id="ownership_finalized_self" class="revision-state-input">
+			<label class="checkbox" for="ownership_finalized_self"><span><i class="icon-validated"></i></span>Finalized</label>
+		</div>
+		<div class="custom-box js-ownership-filter" data-ownership="bookmarks">
+			<input type="checkbox" name="ownership-filter" id="ownership_others">
+			<label class="checkbox" for="ownership_others"><span><i class="icon-validated"></i></span> Added to library </label>
+		</div>
+	</div>
+</div>

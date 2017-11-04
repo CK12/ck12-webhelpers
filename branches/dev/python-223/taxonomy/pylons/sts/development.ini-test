@@ -1,0 +1,193 @@
+#
+# sts - Pylons development environment configuration
+#
+# The %(here)s variable will be replaced with the parent directory of this file
+#
+[DEFAULT]
+debug = false
+# Uncomment and replace with the address which should receive any error reports
+#email_to = you@yourdomain.com
+smtp_server = localhost
+error_email_from = paste@localhost
+
+## DEPLOYMENT RELATED
+deployment_target = development
+hide_internal_apis = false
+
+[server:main]
+#use = egg:Paste#http
+use = egg:gunicorn#main
+workers = 5
+worker_connections = 1000
+max_requests = 0
+timeout = 180
+keepalive = 2
+host = 127.0.0.1
+port = 7000
+
+[app:main]
+use = egg:sts
+full_stack = true
+static_files = true
+
+cache_dir = /tmp/data/sts
+cache_share_dir = /opt/data/cache
+
+beaker.session.key = sts
+beaker.session.secret = stsaintsimple
+beaker.session.cookie_domain = .ck12.org
+beaker.session.data_dir = /tmp/data/sessions/taxonomy
+beaker.session.type = redis
+beaker.session.url = 127.0.0.1:6379
+
+# If you would like to fine-tune the individual locations of the cache data dirs
+# for the Cache data, or the Session saves, un-comment the desired settings
+# here:
+#beaker.cache.data_dir = %(here)s/data/cache
+
+##############################
+# Beaker cache settings                                                                                                                                                                                                                      
+# Note cache expire time is in seconds
+##############################
+beaker.cache.enabled = True
+enable_nocache_parameter = True
+# Memory (For development. Applicable to all regions) 
+beaker.cache.type = redis
+beaker.cache.url = 127.0.0.1:6379
+beaker.cache.data_dir = /tmp/data/sts/cache
+beaker.cache.regions = forever, daily, hourly
+
+## Hourly (1 hour) cache
+beaker.cache.hourly.expire = 3600
+beaker.cache.hourly.data_dir = /tmp/data/sts/hourly
+beaker.cache.hourly.url = 127.0.0.1:6379
+
+## Daily (i.e 24 hours) cache 
+beaker.cache.daily.expire = 86400
+beaker.cache.daily.data_dir = /tmp/data/sts/daily
+beaker.cache.daily.url = 127.0.0.1:6379
+
+## Forever (expires in 1 year)
+beaker.cache.forever.expire = 31536000
+beaker.cache.forever.data_dir = /tmp/data/sts/static_cache
+beaker.cache.forever.url = 127.0.0.1:6379
+
+# Graph databse URL
+graphdb.url = http://localhost:7474/db/data
+graphdb.username = dbadmin
+graphdb.password = D-coD#43
+
+
+# SQLAlchemy database URL
+#sqlalchemy.url = mysql://dbadmin:D-coD#43@localhost:3306/taxonomy?charset=utf8
+sqlalchemy.pool_recycle = 600
+sqlalchemy.pool_size = 10
+sqlalchemy.max_overflow = 15
+
+# WARNING: *THE LINE BELOW MUST BE UNCOMMENTED ON A PRODUCTION ENVIRONMENT*
+# Debug mode will enable the interactive debugging tool, allowing ANYONE to
+# execute malicious code after an exception is raised.
+#set debug = false
+
+## Application variables
+max_encode_length = 50
+
+## Remote server
+remote_server_url = https://pyramid.ck12.org/flx
+
+## Remote server request timeout (seconds)
+remote_server_timeout = 20
+
+## Flx server API Urls
+flx_create_domain_term_api = https://pyramid.ck12.org/flx/create/domainTerm
+flx_delete_domain_term_api = https://pyramid.ck12.org/flx/delete/domainTerm
+flx_delete_branch_api = https://pyramid.ck12.org/flx/delete/branch
+flx_update_domain_term_api = https://pyramid.ck12.org/flx/update/domainTerm
+flx_get_domain_term_api = https://pyramid.ck12.org/flx/exists/browseTerm
+flx_create_domain_term_neighbor_api = https://pyramid.ck12.org/flx/create/domainTermNeighbor
+flx_delete_domain_term_neighbor_api = https://pyramid.ck12.org/flx/delete/domainTermNeighbor
+## API cache expiry time (seconds)
+cache_expiry = 3600
+
+## Auth details
+ck12_login_url = https://pyramid.ck12.in/auth/federatedLogin/memberForm
+ck12_login_prefix = https://pyramid.ck12.org/auth
+ck12_login_cookie = auth-pyramid
+
+#####################################
+# CK-12 OAuth 1.0a Authentication
+#####################################
+ck12oauth_consumer_key = kwPHrnz9sEu6LtAuRshpBm66nqzdxB
+ck12oauth_secret = PyC5XvKRX904irXua9QR6GPTr0sJTZ8GdxDDuuXljHUadaRRDe
+ck12oauth_token_url = https://pyramid.ck12.org/auth/oauth/request/token
+ck12oauth_auth_url = https://pyramid.ck12.org/auth/oauth/authorize
+ck12oauth_access_url = https://pyramid.ck12.org/auth/oauth/access/token
+ck12oauth_callback_url = https://pyramid.ck12.org/taxonomy/login/verify
+
+## Internal Hookup
+internal_auth_shared_dir = /opt/data/internal_auth
+
+flx_server_url = https://pyramid.ck12.org/flx
+flx_cookie_name = flx2
+
+## Add comma separated brnaches/subjects shortname if want to hide/not use them. Eg. RDF,LAG,GTT  
+hidden_branches = RDF,LAG,GTT,LPM,REA,SAL,WRR
+hidden_subjects = 
+# Logging configuration
+[loggers]
+keys = root, routes, sts
+
+[handlers]
+#keys = console
+keys = stslog, wsgierrors
+
+[formatters]
+keys = generic
+
+## !!!!!!!!!!!!!!!! WARNING !!!!!!!!!!!!!!!!!!!!!!!!
+## Loggers must be set to INFO always to protect PII
+## Do not check-in DEBUG level for any loggers here.
+[logger_root]
+level = INFO
+handlers = stslog
+
+[logger_routes]
+level = INFO
+handlers =
+qualname = routes.middleware
+# "level = DEBUG" logs the route matched and routing variables.
+
+[logger_sts]
+level = INFO
+handlers =
+qualname = sts
+
+[logger_sqlalchemy]
+level = WARN
+handlers =
+qualname = sqlalchemy.engine
+# "level = INFO" logs SQL queries.
+# "level = DEBUG" logs SQL queries and results.
+# "level = WARN" logs neither.  (Recommended for production systems.)
+
+[handler_console]
+class = StreamHandler
+args = (sys.stderr,)
+level = NOTSET
+formatter = generic
+
+[handler_stslog]
+class = sts.lib.safeloghandler.TimedRotatingFileHandlerSafe
+args = ('/opt/2.0/log/taxonomy.log', 'h', 12, 14, 'utf-8')
+level = NOTSET
+formatter = generic
+
+[handler_wsgierrors]
+class = pylons.log.WSGIErrorsHandler
+args = ()
+level = ERROR
+formatter = generic
+
+[formatter_generic]
+format = %(asctime)s,%(msecs)03d %(levelname)-5.5s [%(name)s] [%(threadName)s] %(message)s
+datefmt = %Y-%m-%d %H:%M:%S

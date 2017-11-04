@@ -1,0 +1,43 @@
+@mixin hidden() {
+    visibility: hidden;
+    opacity: 0;
+}
+
+@mixin visible() {
+    visibility: visible;
+    opacity: 1;
+}
+
+@mixin betaIcon($fontSize: 10, $margin: 4) {
+    &:after {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        content: 'Beta';
+        color: white;
+        background-color: #B5B1A8;
+        border-radius: 3px;
+        font-weight: normal;
+        font-size: rem-calc($fontSize);
+        line-height: rem-calc($fontSize * 1.6);
+        margin-left: rem-calc($margin);
+        padding: 0 rem-calc($fontSize * 0.25);
+    }
+}
+
+@mixin topArrow(){
+    border-right: 12.5px solid transparent;
+    border-left: 12.5px solid transparent;
+    border-bottom: 15px solid #fff;
+    content: '';
+    position: absolute;
+}
+
+@mixin linkButton(){
+    background: none;
+    color: $link-color;
+    border: 0;
+    padding: 0;
+    box-shadow: none;
+    font-weight: normal;
+}

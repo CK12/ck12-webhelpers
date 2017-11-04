@@ -1,0 +1,37 @@
+[
+    {
+        "name": "Raymond",
+        "img":"/auth/member/image/736354",
+        "groupMemberRole":"groupadmin"
+    },
+    {
+        "name": "aaa",
+        "img":"/auth/member/image/736354",
+        "groupMemberRole":"groupmember"
+    },
+    {
+        "name": "bbb",
+        "img":"/auth/member/image/736354",
+        "groupMemberRole":"groupmember"
+    },
+    {
+        "name": "ccc",
+        "img":"/auth/member/image/736354",
+        "groupMemberRole":"groupmember"
+    },
+    {
+        "name": "ddd",
+        "img":"/auth/member/image/736354",
+        "groupMemberRole":"groupmember"
+    },
+    {
+        "name": "eee",
+        "img":"/auth/member/image/736354",
+        "groupMemberRole":"groupmember"
+    },
+     {
+        "name": "fff",
+        "img":"/auth/member/image/736354",
+        "groupMemberRole":"groupmember"
+    }
+]

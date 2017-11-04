@@ -1,0 +1,19 @@
+{% extends "details.html" %}  
+
+{% block admincontent %} 
+<div class="sectionhead sectiontitle">{{ c.pagetitle }}</div>
+<div class="section">
+  <div class="leftaligned">
+   
+  {% for field in c.form.ordered_fields %}
+    {{ field }}
+  {% endfor %}
+  {{ h.labelreadonly("Entity Id",'entityID')}}
+  	<div style="padding-left:150px;">{{ h.htmla('/flxadmin/assessment/%s/%s' %(c.action.entityType,c.action.entityID), c.action.entityID, 'entityId', target='_blank')}}</div> 
+  
+  {{ h.labeldiv('Referrer')}}
+  	{{ c.action.referrer }} 
+  </div>
+</div>
+
+{% endblock admincontent %}

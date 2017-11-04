@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns:dc="http://www.ck12.org/dc/will_create_ns"
+unique-identifier="chapterid" version="2.0">
+
+  <chapter>
+    <metadata>
+<chapterSeq>24</chapterSeq>
+
+<book>Biology I</book>
+
+      <chapterid></chapterid>
+      <title>Immune System and Disease</title>
+      <description>Topics in this chapter include:Nonspecific_Defenses,Immune_Response,Immune_System_Diseases,Environmental_Problems_and_Human_Health.
+     </description>
+    </metadata>
+    
+    <lessons>
+      <item id="Nonspecific_Defenses" href="Nonspecific_Defenses.html" sequence="1" />
+      <item id="Immune_Response" href ="Immune_Response.html" sequence="2" />
+      <item id="Immune_System_Diseases" href ="Immune_System_Diseases.html" sequence="3" />
+      <item id="Environmental_Problems_and_Human_Health" href ="Environmental_Problems_and_Human_Health.html" sequence="4" />
+   </lessons>
+  </chapter>
+
+</package>

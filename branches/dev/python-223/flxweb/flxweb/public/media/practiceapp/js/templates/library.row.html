@@ -1,0 +1,53 @@
+<div class="listitem js-listitem row collapse">
+    <div class="listitemimg small-3 large-2 columns">
+        <a class="listitemimglink" href="#">
+            <% if (data.artifactID) { %>
+            <img src="<%= data.thumbnail %>" alt="<%=data.title%>" title="<%=data.title%>">
+            <% } %>
+        </a>
+    </div>
+    <div class="listiteminfo small-7 small-offset-1 large-offset-1 large-8 columns left">
+        <div>
+            <a title="<%=data.title%>" class="bold" href="#"><%=data.title%></a>
+            <span>
+
+            <% if (data.artifactID) { %>
+                    -
+                </span>
+                <span class="artifacttype">
+                    <%= data.modalityTypeInfo.display_label %>
+                </span>
+            <% } %>
+        </div>
+        <div class="item_description">
+            <%= data.artifactID?data.summary:data.description %>
+        </div>
+
+        <% if (data.artifactID) { %>
+            <div class="modality_details_wrapper hide-for-small">
+                <span class="creator">Created by: <%= data.creator %></span>
+                <% if (data.subject){ %>
+                    <span class="subjects">Subject: <%= data.subject %></span>
+                <% } %>
+                <% if (data.grades){ %>
+                    <span>Grade: <%= data.grades %></span>
+                <% } %>
+            </div>
+        <% } %>
+
+        <div class="js_artifact_labels">
+            <% for (var index = 0, len = data.labels?data.labels.length:0; index < len; index++ ) { %>
+                <span class="labels" data-label="<%= data.labels[index].label %>" title="<%= data.labels[index].label %>">
+                    <%= data.labels[index].label %>
+                </span>
+            <% } %>
+        </div>
+        <div class="actions">
+            <a title="Edit" class="mylibrary_assign button tangerine" href="#"
+                data-artifactid="<%= data.artifactID %>" data-handle="<%- data.handle %>" 
+                data-realm="<%= data.realm %>" data-mtype="<%= data.artifactType %>" data-title="<%- data.title %>" >
+                Add
+            </a>
+        </div>
+    </div>
+</div>

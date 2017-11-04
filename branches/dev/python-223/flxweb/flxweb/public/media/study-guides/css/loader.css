@@ -1,0 +1,69 @@
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background: #ffffff;
+    background: -moz-radial-gradient(center, ellipse cover,  #ffffff 0%, #ffffff 30%, #cccccc 100%);
+    background: -webkit-radial-gradient(center, ellipse cover,  #ffffff 0%,#ffffff 30%,#cccccc 100%);
+    background: radial-gradient(ellipse at center,  #ffffff 0%,#ffffff 30%,#cccccc 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#cccccc',GradientType=1 );
+    width: 100%;
+    height: 100%;
+}
+#loader .ck12-logo {
+    position: absolute;
+    left: calc(50% - 6.25rem);
+    bottom: 3.125rem;
+}
+#loader .loading-gif-wrapper {
+    position: relative;
+    top: calc(50% - 10rem);
+    text-align: center;
+    padding: 0 10%;
+}
+#loader .loading-line-wrapper {
+    text-align: left;
+    white-space: nowrap;
+    margin-top: 1rem;
+}
+#loader .loading-line {
+    height: .125rem;
+    background-color: #00B3A0;
+    display: inline-block;
+    position: relative;
+    top: -.625rem;
+    transition: width .3s ease;
+}
+#loader .loading-percent {
+    display: inline-block;
+    margin-left: .5rem;
+    color: #008E7F;
+    font-size: 2rem;
+}
+#loader .loading-text {
+    font-size: 1.25rem;
+    margin-top: 1rem;
+    color: #477838;
+}
+#loader .loading-title {
+    font-size: 2rem;
+    letter-spacing: 0.5rem;
+    font-family: robotolight;
+    margin: 1rem 0;
+}
+#wait {
+    position: fixed;
+    z-index: 9;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    height: 100%;
+    right: 0;
+    text-align: center;
+}
+#wait .wait-img {
+    position: relative;
+    top: calc(50% - 128px);
+    animation: fadein .3s ease-out;
+}

@@ -1,0 +1,9 @@
+@import 'utils',
+        'mixins',
+        'variables';
+
+@import 'breakpoints';
+
+$user-photo-size: rem-calc(225);
+$user-photo-size-medium: rem-calc(150);
+$user-photo-size-small: rem-calc(125);

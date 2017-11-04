@@ -1,0 +1,17 @@
+{% for i in c.notifications %}
+    <div class="tr">
+    {% set labelMessage = 'Enable' %}
+    {% if i.id == 1 or i.id == "1" %}
+        {% set labelMessage = 'Enable For Dashboard' %}
+    {% elif i.id == 2 or i.id == "2" %}
+        {% set labelMessage = 'Enable for Landing Pages' %}
+    {% endif %}
+    <div class="td" style="vertical-align:middle;">
+        <input type="text" id = "sequence" name = "sequence" value = "{{i.id}}" class='hide'/>
+        {{ h.labelcheckbox(labelMessage ,'status', i.status) }}
+    </div>
+    <div class="td">
+        {{ h.labeltextarea('', 'message', 5, 82, val=i.message) }}
+    </div>
+    </div>
+{% endfor %}

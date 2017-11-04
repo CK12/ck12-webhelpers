@@ -1,0 +1,42 @@
+{% extends "dashboard-new/layout.html" %}
+{% block title %}{{ _("Dashboard") }}{% endblock %}
+{% block meta_extra %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% endblock %}
+
+
+{% block stylesheets %}
+
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_css('dashboard-new/dist/lib.css') }}" />
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_css('dashboard-new/dist/globals.css') }}" />
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_css('dashboard-new/dist/fonts.css') }}" />
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_css('dashboard-new/dist/dashboard.css') }}" />
+
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_css('dashboard-new/dist/ck12-master.min.css') }}" />
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('standardSelections/build/css/standardSelections.css') }}" />
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_css('duplicateUsernames/css/content.css') }}" />
+
+{% endblock %}
+
+{% block js %}
+<script type='text/javascript' src="{{ h.asset_lib('common/vendor/react-0.14.0/build/react-with-addons.min.js') }}"></script>
+<script type='text/javascript' src="{{ h.asset_lib('standardSelections/build/standardSelections.js') }}"></script>
+{{ super() }}
+<script type="text/javascript">
+    require(['main'], function(){
+        require(['duplicateUsername/resolveDuplicateName'],function(resolveDuplicateUsername){
+            resolveDuplicateUsername.resolve();
+        });
+    });
+</script>
+
+<script src="{{ h.asset_js('dashboard-new/dist/vendor.js') }}"></script>
+<script src="{{ h.asset_js('dashboard-new/dist/dashboard.js') }}"></script>
+
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+
+<div id='dashboard'></div>
+{% endblock %}

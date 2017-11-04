@@ -1,0 +1,34 @@
+#! /bin/bash
+# -----------------------------------------------------------------------------------
+# CHANGE SET [23107]
+#   1. Add new EventGroups and Events to track modality details page and ILO events
+# -----------------------------------------------------------------------------------
+
+source funcs.sh
+
+echo 'Apply change set 23107'
+
+echo 'Create Groups and Events for modalities...'
+http 'meta/register/eventgroup' 'name=modality&dimensions=artifacts,revisions,users&attributes=modality_type,context_eid,user_role&latency=1'
+http 'meta/register/event' 'name=visited&event_group=modality'
+http 'meta/register/event' 'name=shared&event_group=modality'
+http 'meta/register/event' 'name=clicked&event_group=modality'
+http 'meta/register/event' 'name=time_spent&event_group=modality'
+
+echo 'Create Groups and Events for ILO...'
+# Event Group: ilo
+#  Attributes: question_type, question_id, difficulty_level, confidence_level, resources_used
+#      Events: correct, wrong, skipped, hint, time_spent
+#
+http 'meta/register/eventgroup' 'name=ilo&dimensions=artifacts,users&attributes=question_type,question_id,difficulty_level,confidence_level,resources_used,context_eid,session_marker&latency=1'
+http 'meta/register/event' 'name=correct&event_group=ilo'
+http 'meta/register/event' 'name=wrong&event_group=ilo'
+http 'meta/register/event' 'name=skipped&event_group=ilo'
+http 'meta/register/event' 'name=hint&event_group=ilo'
+http 'meta/register/event' 'name=time_spent&event_group=ilo'
+
+# Promote `ts` to be an event
+http 'meta/register/event' 'name=ts&event_group=ilo'
+    
+
+echo 'Done'

@@ -1,0 +1,548 @@
+
+/************************************************
+ Modality contribute dialog
+************************************************/
+
+/* Get Real Competition Submission button in header */
+
+.gotocontest {
+	position:absolute; 
+	bottom:-7px; 
+	left:10px;
+}
+
+.mod_contribute_dialog_content .navButtons{
+	text-align: center;
+	padding-bottom: 10px;
+}
+
+.mod_contribute_dialog_content nav{
+	width: 90%;
+	margin: 0 auto;
+}
+
+.mod_contribute_dialog_content nav a{
+	display: block;
+	color: white;
+	text-decoration: none; 
+	text-shadow: none;
+	width: 33%;
+	text-align: center;
+	background: #c4c4c4; 
+	position: relative; 
+	display: block;
+	float: left;
+	padding: 9px 0;   
+}
+
+.mod_contribute_dialog_content nav a:after{
+	content: " "; 
+	display: block; 
+	width: 0; 
+	height: 0;
+	border-top: 20px solid transparent;           /* Go big on the size, and let overflow hide */
+	border-bottom: 20px solid transparent;
+	border-left: 20px solid #c4c4c4;
+	position: absolute;
+	top: 0%;
+	margin-top: 0; 
+	left: 100%;
+	z-index: 2; 
+}
+.mod_contribute_dialog_content nav a:before{
+	content: " "; 
+	display: block; 
+	width: 0; 
+	height: 0;
+	border-top: 20px solid transparent;           /* Go big on the size, and let overflow hide */
+	border-bottom: 20px solid transparent;
+	border-left: 20px solid white;
+	position: absolute;
+	top: 0%;
+	margin-top: 0; 
+	margin-left: 1px; 
+	left: 100%;
+	z-index: 1; 
+}
+
+.mod_contribute_dialog_content nav a.active{
+	display: block;
+	color: white;
+	text-decoration: none; 
+	text-shadow: none;
+	
+   /* fallback color */
+	background: #666666; 
+	position: relative; 
+	display: block;
+	float: left;
+}
+
+.mod_contribute_dialog_content nav a.active:after{
+	content: " "; 
+	display: block; 
+	width: 0; 
+	height: 0;
+	border-top: 20px solid transparent;           /* Go big on the size, and let overflow hide */
+	border-bottom: 20px solid transparent;
+	border-left: 20px solid #666666;
+	position: absolute;
+	top: 0%;
+	margin-top: 0; 
+	left: 100%;
+	z-index: 2; 
+}
+.mod_contribute_dialog_content nav a.active::before{
+	content: " "; 
+	display: block; 
+	width: 0; 
+	height: 0;
+	border-top: 20px solid transparent;           /* Go big on the size, and let overflow hide */
+	border-bottom: 20px solid transparent;
+	border-left: 20px solid white;
+	position: absolute;
+	top: 0%;
+	margin-top: 0; 
+	margin-left: 1px; 
+	left: 100%;
+	z-index: 1; 
+}
+
+.mod_contribute_dialog_content .navButtons .btn{
+	padding: 10px;
+}
+
+.mod_contribute_dialog_content .step1 .btn.secondary{
+	display: block;
+	width: 200px;
+	margin: 0 auto;
+}
+
+.mod_contribute_dialog.ui-dialog{
+	background: url("../images/contribute/noisebg.png");
+    padding: 0px;
+}
+
+.mod_contribute_dialog .ui-dialog-titlebar{
+	text-align: center;
+	border-bottom: solid 1px white;
+}
+
+.mod_contribute_dialog .ui-dialog-titlebar .ui-dialog-title{
+	float: none;
+	font-size: 20px;
+}
+
+.mod_contribute_dialog_content.ui-dialog-content {
+	padding: 0px;
+}
+
+.mod_contribute_dialog_content{
+	padding: 0px;
+	overflow: auto;
+}
+
+
+.mod_contribute_dialog_content .step2{
+	background: url("../images/contribute/lightBG.png") no-repeat center center;
+}
+
+.mod_contribute_dialog_content .imageContainer{
+	float: left;
+	width: 48%;
+	text-align: center;
+}
+
+.mod_contribute_dialog_content h2{
+	border-bottom: none;
+	padding: 0 10px 20px 10px;
+	font-size: 20px;
+}
+
+.mod_contribute_dialog_content .instructionContainer{
+	float: right;
+	width:52%;
+	padding-top: 10px;
+}
+
+.mod_contribute_dialog_content .instructionContainer .stepText{
+	width: 300px;
+	padding: 0 0 20px 43px;
+	
+}
+
+.mod_contribute_dialog_content .instructionContainer .number{
+	background: #fb6c33;
+	text-align: center;
+	border-radius: 100px;
+	width: 22px;
+	height: 22px;
+	float: left;
+	color: white;
+	text-shadow: none;
+	margin-left: 13px;
+}
+
+.mod_contribute_dialog_content .btn.secondary{
+	display: inline-block;
+	margin: 0 auto;
+}
+
+.mod_contribute_dialog_content .step2{
+	padding: 0;
+}
+
+.mod_contribute_dialog_content .ui-dialog.ui-widget.ui-widget-content.ui-corner-all.ui-draggable
+{
+	padding: 0;
+}
+
+.mod_contribute_dialog_content .searchContainer .btn.secondary{
+	float: right;
+	margin: 20px 0 0 0;
+	padding: 10px;
+}
+
+.searchContainer {
+	margin-top: 220px;
+	background-color: rgba(0,0,0,0.6);
+	padding: 20px;
+	padding-top: 0px;
+}
+
+.mod_contribute_dialog_content .step2 .searchContainer h2{
+	color: white;
+	text-shadow: 0px 1px 0px black;
+	padding: 20px 0 20px 0;
+	margin-bottom: 0;
+	
+}
+
+
+.searchContainer #findConcept{
+	border-radius: 1px;
+	border: 1px solid #d9d9d9;
+	box-shadow:inset 0px 1px 2px rgba(0,0,0,0.2), 0px 1px 0px rgb(250,250,250);
+	background: -webkit-linear-gradient(#fafafa 0%, #fff 100%);
+	color: #333;
+	padding: 10px;
+	width: 100%;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
+.addLinks{
+	width: 470px;
+	margin: 0 auto 20px auto;	
+}
+
+.compButton {
+	width: 140px;
+	height: 120px;
+	
+	display: block;
+	float: left;
+	
+	padding: 20px 0 0 0;
+	margin: 5px 0 0 20px;
+	
+	text-decoration: none;
+	text-align: center;
+	text-shadow: none;
+	
+	cursor: pointer;
+	color: #fff;
+	
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border: none;
+	
+	-webkit-box-shadow: inset 0px 1px 2px 2px RGBA(255,255,255, .7), 0px 1px 2px RGBA(0, 0, 0, .3);
+	-moz-box-shadow: inset 0px 1px 2px 2px RGBA(255,255,255, .7), 0px 1px 2px RGBA(0, 0, 0, .3);
+	box-shadow: inset 0px 1px 2px 2px RGBA(255,255,255, .7), 0px 1px 2px RGBA(0, 0, 0, .3);
+	
+	background: #98ba5e;
+	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#a7cd67));
+	background: -moz-linear-gradient(top, #fff,  #a7cd67);
+	background: linear-gradient(to bottom, #fff,  #a7cd67);
+	
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#a7cd67',GradientType=0 ); /* IE6-9 */
+}
+
+.compButton.compSelected {
+	width: 140px;
+	height: 120px;
+	
+	display: block;
+	float: left;
+	
+	padding: 20px 0 0 0;
+	margin: 5px 0 0 20px;
+	
+	text-decoration: none;
+	text-align: center;
+	text-shadow: none;
+	
+	cursor: pointer;
+	color: #a7cd67;
+	
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border: none;
+	
+	-webkit-box-shadow: inset 0px 1px 2px 2px RGBA(0,0,0, .2), 0px 1px 0px RGBA(255,255,255, 1);
+	-moz-box-shadow: inset 0px 1px 2px 2px RGBA(0,0,0, .2), 0px 1px 0px RGBA(255,255,255, 1);
+	box-shadow: inset 0px 1px 2px 2px RGBA(0,0,0, .2), 0px 1px 0px RGBA(255,255,255, 1);
+	
+	background: #98ba5e;
+	background: -webkit-gradient(linear, left top, left bottom, from(#a7cd67), to(#fff));
+	background: -moz-linear-gradient(top, #a7cd67,  #fff);
+	background: linear-gradient(to bottom, #a7cd67,  #fff);
+	
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a7cd67', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+}
+
+.compButton:first-child {
+	margin-left: 0;
+}
+
+.mod_contribute_dialog_content .step3 h2{
+	clear: both;
+	margin: 70px 0 0 5%;
+	padding-left: 0;
+}
+.step3 .compLinkBox p{
+	margin: 50px 5% 20px 0;
+	
+}
+.step3 p{
+	clear: both;
+	text-align: left;
+	margin: 50px 5% 20px 5%;
+}
+
+.step3 .embedCode {
+  width:100%;
+	border: 1px solid #9a9a9a;
+}
+
+.hide{
+	display:none;
+}
+
+.attachForm{
+	border: 1px solid #9a9a9a;
+	padding: 10px;
+	margin: 0 5% 20px 5%;
+}
+
+.mod_contribute_dialog_content .step3 .compLinkBox{
+	margin: 50px 5% 20px 5%;
+}
+
+.mod_contribute_dialog_content .step3 .compXHTMLBox{
+	margin: 10px;
+}
+
+.mod_contribute_dialog_content .step3 .compLinkBox input[type="text"]{
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.mod_contribute_dialog_content .step3 .btn.secondary{
+	max-width: 100px;
+	margin: 20px auto 20px auto;
+}
+
+/*STEP 4*/
+
+.step4 h2{
+	clear: both;
+	margin: 70px 0 0 5%;
+}
+
+.step4 .formContainer{
+	width: 90%;
+	margin: 0 5% 20px 5%;	
+}
+
+.step4 label{
+	margin: 0;
+}
+
+.step4 .js_original_div label{
+	color: #d25827;
+	font-style: normal;
+}
+
+.step4 input{
+	display: inline-block;
+	width: 90%;
+	margin: 10px 0 0 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.step4 textarea{
+	display: inline-block;
+	width: 90%;
+	margin: 10px 0 0 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	border-radius: 1px;
+	border: 1px solid #b7b7b7;
+	box-shadow:inset 0px 1px 2px rgba(0,0,0,0.2), 0px 1px 0px rgb(250,250,250);
+	background: -webkit-linear-gradient(#fafafa 0%, #fff 100%);
+	color: #707070;
+	padding: 10px;
+}
+
+.step4 .js_concept_name {
+	width:90%;
+}
+
+.step4 .js_concept_edit {
+	margin-left:10px;
+}
+
+.step4 form div{
+	border: 1px solid #d4d4d4;
+	padding: 20px 30px 20px 50px;
+	margin: 20px 0;
+	display: block;
+	
+}
+
+.step4 form div span:first-child{
+	background: #fb6c33;
+	text-align: center;
+	border-radius: 100px;
+	width: 22px;
+	height: 22px;
+	float: left;
+	color: white;
+	text-shadow: none;
+	margin-left: -35px;	
+}
+
+.step4 form div em{
+	color: #d25827;
+	font-style: normal;
+}
+
+.step4 form div span.compFileWrapper{
+	cursor: pointer;
+	display: inline-block;
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+	height: 150px;
+}
+
+.step4 form div span.compFileWrapper #compAttachImage{
+	cursor: pointer;
+	display: inline-block;
+	margin-left: 10px;
+}
+
+.step4 form div span.compFileWrapper input{
+	cursor: pointer;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	right: 0;
+	top: 0;
+	font-size: 100px;
+	filter: alpha(opacity=1);
+	-moz-opacity: 0.01;
+	opacity: 0.01;
+}
+.step4 form div em{
+	color: #d25827;
+	font-style: normal;
+}
+
+.file-holder{
+	display: inline-block;
+	margin: 20px 0 20px 20px;
+}
+
+.mod_contribute_dialog_content .step5 h2{
+	clear: both;
+	margin: 70px 5% 0 5%;
+	padding-left: 0;ss
+}
+
+.step5 .finalContainer div{
+	border-bottom: 1px solid #d4d4d4;
+	padding: 10px 0 20px 0;
+	margin: 20px 5% 20px 5%;
+	display: block;
+	overflow: hidden;
+}
+
+.step5 .finalContainer div img{
+	margin: 10px 5% 20px 5%;
+	display: inline-block;
+}
+
+.step5 .finalContainer .xhtmlPreview{
+	width: 100%;
+	margin-left: 0;
+	max-height: 200px;
+	overflow: auto;
+}
+
+.step5 p{
+	margin: 0 5% 20px 5%;
+}
+
+.step5 p.terms{
+	text-align: center;
+	margin: 15px 20% 20px 20%;
+} 
+
+.step5 div .previewNumber{
+	background: #fb6c33;
+	text-align: center;
+	border-radius: 100px;
+	width: 22px;
+	height: 22px;
+	float: left;
+	color: white;
+	text-shadow: none;
+}
+
+.step5 div strong{
+	margin-left: 2%;
+}
+
+.step5 .embedPreview {
+  border: 0px !important;
+  overflow:auto;
+  width: 100%;
+  max-height: 400px;
+  margin:0px !important;
+  padding:0px !important;
+  text-align: center;
+}
+
+.mod_contribute_dialog_content  .step1.step6 .instructionContainer{
+	padding: 40px 2% 0 0;
+	width:50%;
+}
+.mod_contribute_dialog_content  .step1.step0 .instructionContainer{
+	padding: 80px 2% 0 0;
+	width:50%;
+}
+
+.mod_contribute_search_suggestions {
+	max-height:100px;
+	overflow:auto;
+	border: 1px solid #d9d9d9;
+}

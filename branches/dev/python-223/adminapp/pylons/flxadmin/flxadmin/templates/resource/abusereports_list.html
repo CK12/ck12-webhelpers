@@ -1,0 +1,35 @@
+{% from "macros/pagination.html" import paginate with context %}  
+
+{% if c.paginator.item_count > 0 %}
+  {% for i in c.paginator.items %}
+  <div class="tr paneview {{ h.hide_if_full(c.viewmode)}}">
+    {% if i.resource %}
+    <div class="td">{{h.idlink('/resource/', i.resource, 'type')}}<br>
+    (id: {% if i.resource %}{{i.resource.id}}{% else %}N/A{% endif %})</div>
+    {% else %}
+    <div class="td">N/A</div>
+    {% endif %}
+    <div class="td">{{i.status}}</div>
+    <div class="td viewtrigger" data-id="{{i.id}}">{{h.idlink2('issue/', i, 'reason')}}</div>
+    <div class="td nowrap">{{i.updated|compact}}</div>
+  </div>
+  <div class="tr fullview {{ h.hide_if_pane(c.viewmode)}}">
+    <div class="td">{% if i.resource %}{{i.resource.id}}{% else %}N/A{% endif %}</div>
+    <div class="td" title="View Resource Details">{{h.idlink('/resource/', i.resource, 'type')}}</div>
+    <div class="td" title="View Artifact Details">{% if i.artifactID %}{{h.idlink('/artifact/', i, 'artifactID', 'artifactID')}}{% else %}N/A{% endif %}</div>
+    <div class="td">{% if i.artifact %}{{i.artifact.artifactType}}{% else %}N/A{% endif %}</div>
+    <div class="td" title="View Artifact Details">{% if i.artifact %}{{h.idlink('/artifact/',i.artifact, 'title', 'title')}}{% else %}N/A{% endif %}</div>
+    <div class="td" title="View Creator Details">{% if i.artifact %}{{h.userlink(i.artifact, 'creator', 'creatorID', truncate=15)}}{% else %}N/A{% endif %}</div>
+    <div class="td">{{i.status}}</div>
+    <div class="td">{{i.reasonID|mapto(c.reasonIDs)}}</div>
+
+    <div class="td viewtrigger" data-id="{{i.id}}" title="View Report Details">{{h.idlink2('issue/', i, 'reason')}}</div>
+    <div class="td" title="View Reporter Details">{{h.userlink(i.reporter, namekey='name')}}</div>
+    <div class="td">{{i.userAgent}}</div>
+    <div class="td nowrap">{{i.created|compact}}</div>
+    <div class="td nowrap">{{i.updated|compact}}</div>
+    <div class="td">{{i.remark}}</div>
+  </div>
+  {% endfor %}
+  {{ paginate(c.paginator) }}
+{% endif %}

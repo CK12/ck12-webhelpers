@@ -1,0 +1,20 @@
+<div id="<%= data.model.sid.replace(/\./g, '__') %>__<%= data.view %>" class="standards-inidividual-wrapper">
+	<div class="row collapse standards-third-level-header"><%= data.model.label %></div>
+	<div class="row collapse standards-third-level-description"><%= data.model.description %></div>
+	<% if (data.model.hasOwnProperty('concepts') && data.model.concepts instanceof Array) { %>
+		<% var index;%>
+		<div class="row collapse concepts-header">CK-12 CONCEPTS</div>
+		<div class="concepts-wrapper">
+			<% for (index = 0; index < data.model.concepts.length; index++) { %>
+				<% if (data.model.concepts[index].ck12ModalityCount) { %>
+					<a class="concepts-individual-wrapper js_concept_link" target="_blank" href="/<%= data.model.concepts[index].branch.handle || '' %>/<%= data.model.concepts[index].handle || '' %>" data-handle="<%= data.model.concepts[index].handle || '' %>" data-branchHandle="<%= data.model.concepts[index].branch.handle || '' %>">
+						<span class="concept-img js-concept-link">
+							<img src="<%= data.model.concepts[index].previewImageUrl || '/media/images/modality_generic_icons/concept_gicon.png' %>">
+						</span>
+						<span class="concept-name"><%= data.model.concepts[index].name  || '' %></span>
+					</a>
+				<% } %>
+			<% } %>
+		</div>
+	<% } %>
+</div>

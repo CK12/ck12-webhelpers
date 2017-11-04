@@ -1,0 +1,298 @@
+.slider {
+    background-repeat: repeat-x;
+}
+.carousel-slider {
+    width: 600%;
+    margin-left: -100%;
+    transition-property: margin;
+    transition-duration: 0.5s;
+}
+.carousel-slider > li {
+    width: 16.66666666666666666%;
+    text-align: center;
+}
+.carousel-viewport {
+    width: 100%;
+    overflow: hidden;
+    height: 350px;
+}
+.carousel-viewport > ul, .carousel-slider > li {
+    list-style: none;
+    height: 100%;
+}
+.slider-content {
+    display: inline-block;
+    vertical-align: middle;
+}
+.slider-image-wrapper {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 45px;
+}
+.slider-content-wrapper{
+    display: inline-block;
+    height: 100%;
+}
+.nav {
+    display: inline-block;
+    cursor: pointer;
+}
+.carousel-main-wrapper {
+    text-shadow: none;
+    height: 50px;
+    position: relative;
+    transition: all 1s;
+    overflow: hidden;
+}
+.carousel-main-wrapper.hide{
+    height: 55px;
+    background-color: inherit;
+}
+.carousel-main-wrapper .carousel-loading {
+    left: calc(50% - 24px);
+    left: -webkit-calc(50% - 24px);
+    position: absolute;
+    top: calc(50% - 24px);
+    top: -webkit-calc(50% - 24px);
+}
+.carousel-direction {
+    display: inline-block;
+    opacity: 0.7;
+}
+.carousel-direction:hover {
+    opacity: 1;
+}
+.carousel-direction.active {
+    cursor: pointer;
+}
+.nav .active-circle {
+    display: none;
+}
+.nav.active .inactive-circle {
+	display: none;
+}
+.inactive-circle {
+    width: 50px;
+    height: 50px;
+}
+.active-circle {
+    width: 54px;
+    height: 54px;
+}
+.nav.active .active-circle {
+    display: inline-block;
+}
+.content-top-header{
+    font-size: 28px;
+    line-height: 31px;
+    margin-top: 9px;
+}
+ .content-top-header * {
+    font-size: 26px;
+}
+.slider-text {
+    margin-top: 9px;
+}
+.carousel-button-wrapper {
+    margin-top: 20px;
+    position: relative;
+    z-index: 1;
+}
+.slider-text, .slider-text * {
+    font-size: 18px;
+    line-height: 21.62px;
+}
+.bold {
+    font-weight: bold;
+}
+.carousel-direction-wrapper {
+    position: absolute;
+    left: 0;
+    top: calc(50% - 45px);
+    top: -webkit-calc(50% - 45px);
+    right: 0;
+}
+.carousel-wrapper {
+    position: relative;
+}
+.carousel-nav {
+    position: relative;
+    top: -25px;
+}
+.slider-content-right {
+    height: 100%;
+    padding-top: 20px;
+}
+.slider-content-left {
+    height: 100%;
+    padding-top: 34px;
+    padding-right: 30px;
+}
+.slider-content-only {
+    height: 100%;
+    padding-top: 34px;
+    margin-left: 375px;
+}
+.slider-header2, .slider-header2 * {
+    font-size: 20px;
+}
+
+/* Concept Map css */
+.slider-conceptmap {
+    background-image: url('../images/teacher/slide1/Slide1_BG_Concept_Map.png');
+    padding: 6px 0;
+}
+.conceptmap-top-header, .conceptmap-top-header * {
+    color: #FFFFFF;
+}
+.conceptmap-text, .conceptmap-text * {
+    color: #FFFFFF;
+}
+
+/* Roaster css */
+.slider-roster {
+    background-image: url('../images/teacher/slide2/Slide_2_BG_Roster.png');
+    padding: 25px 0;
+}
+.roaster-text, .roaster-text * {
+    color: #56544D;
+}
+
+/* Claim Schools css */
+.slider-claimschool {
+    background-image: url('../images/teacher/slide3/ClaimSchool_Background.png');
+    background-position: 300px -30px;
+}
+.slider-claimschool .slider-image-wrapper img {
+    position: relative;
+    top: -30px;
+}
+
+/* Assign Content css */
+.slider-assign {
+    background-image: url('../images/teacher/slide4/Slide_4_BG_Assign_Modality.png');
+    padding: 50px 0;
+}
+.assign-text, .assign-text * {
+    color: #FFFFFF;
+}
+
+/* Assign Content css */
+.slider-dashboard {
+    background-image: url('../images/teacher/slide5/Carousel__Slide_5_Dashboard_Background_v1a.png');
+    padding: 40px 0;
+}
+.dashboard-top-header, .dashboard-top-header * {
+    color: #FFFFFF;
+}
+.dashboard-text, .dashboard-text * {
+    color: #FFFFFF;
+}
+.slider-dashboard .slider-image-wrapper img {
+    width: 340px;
+}
+
+/* Study Guide css */
+.slider-studyguide {
+    background-image: url('../images/student/slide1/Slide1_BG_Study_Guide.png');
+    padding: 38px 0;
+}
+.studyguide-text, .studyguide-text * {
+    color: #56544D;
+}
+.slider-studyguide .slider-content {
+    margin-right: 95px;
+}
+
+/* Cafe css */
+.slider-cafe {
+    background-image: url('../images/student/slide2/Slide2_BG_Cafe.png');
+    padding: 55px 0;
+}
+.cafe-text, .cafe-text * {
+    color: #FFFFFF;
+}
+
+/* ELA css */
+.slider-ela {
+    background-image: url('../images/student/slide3/Slide3_BG_ELA.png');
+    padding: 15px 0;
+}
+.ela-text, .ela-text * {
+    color: #FFFFFF;
+}
+
+/* Apps css */
+.slider-apps {
+    background-image: url('../images/student/slide4/Slide4_BG_apps.png');
+    padding: 30px 0;
+}
+.slider-apps .slider-image-wrapper img {
+    width: 220px;
+}
+.apps-text, .apps-text * {
+    color: #56544D;
+}
+.carousel-toggle-btn-container{
+    position: absolute;
+    background: url('../images/ribbon_bg.png') no-repeat center center;
+    background-size: cover;
+    color: #ffffff;
+    font-weight: bold;
+}
+.carousel-toggle-btn-container.close{
+    padding: 5px 0 0 8px;
+    top: 0;
+    left: calc((100% - 1025px)/2);
+    width: 119px;
+    height: 40px;
+}
+.carousel-toggle-btn-container.open{
+    padding: 12px 0 0 35px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 217px;
+    height: 50px;
+}
+.carousel-toggle-btn-container.open a{
+    color: #FFFFFF;
+}
+.carousel-toggle-btn-container:hover{
+    cursor: pointer;
+}
+.carousel-toggle-btn-container span{
+    font-family: "ProximaNova";
+    font-size: 14px;
+}
+.carousel-toggle-btn-container i{
+    font-size: 12px;
+}
+
+.scroll-down-container.hide{
+    display: none !important;
+}
+
+.ck-12-mission-wrapper{
+    /* height: 63px; */
+}
+.ck-12-mission-wrapper.hide{
+    display: none !important;
+}
+
+.ck-12-mission-wrapper.bottom{
+}
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    .slider-conceptmap .slider-image-wrapper {
+        margin-right: 15px;
+    }
+    .slider-conceptmap .slider-image-wrapper img {
+        width: 188px;
+    }
+    .slider-roster .slider-content > img {
+        width: 274px;
+    }
+    .carousel-toggle-btn-container.close{
+        left: 5%;
+    }
+}

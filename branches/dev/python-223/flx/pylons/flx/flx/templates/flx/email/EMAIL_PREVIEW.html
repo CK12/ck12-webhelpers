@@ -1,0 +1,315 @@
+<html>
+    <head>
+        <title>CK-12 Email Templates</title>
+        <script src="/flx/media/js/gp/fileupload/static/jquery.js" type="text/javascript">
+        </script>
+    </head>
+    <body>
+    <table>
+        <tr>
+            <td>Select Template : </td>
+            <td>
+                <select id="templates">
+                    {% for _templateName in c.emailTemplates %}
+                        <option value="{{_templateName}}">{{_templateName}}</option>
+                    {% endfor %}
+                    
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Event Data : </td>
+            <td>
+                <textarea rows=4 cols=130 id = "eventData" name = "eventData">[{"creator": "Girish Vispute", "group": "Test Group", "memberName": "Ravi Gidwani", "name": "Girish Vispute", "firstName": "Girish", "lastName": "Vispute", "email": "girish.vispute@ck12.org", "web_prefix": "http://gamma.ck12.org", "ownerName": "Girish Vispute", "ownerImg": "http://www.ck12.org/auth/media/auth/images/user_icon_2.png" ,"postType": "comment", "groupType": "public-forum", "group_type": "public-forum", "groupName": "Test Forum 1", "groupID": 58080, "post": {"content": "Comment From Girish Group Member to My Post 1", "isAnonymous": false, "memberID": 672986, "postType": "comment", "ancestorIDs":["5743913df1e361271bc32d0a"]}, "commentsBy": "Girish Vispute", "feedback_type": "comments", "member":{"givenName": "Ravi Gidwani"}, "new_member_surname" : "Vispute", "new_member_givenName": "Girish", "revisions": [{"revision":1}], "title" : "test artifact", "artifactType": "book", "noOfDaysPracticed": 1, "noOfGoalHitInWeek":12, "invitee":{"name": "Ravi Gidwani", "email": "ravi@ck12.org", "password":"******"}, "inviter":{"name": "Girish Vispute"}, "campaign" : {}, "forum": {"forumID":123, "forumName": "Forum 1"}, "artifactRevision": {"title": "test artifact", "id" : 123}, "comments" :"Artifact test comments", "question": {"displayText" : "Test Question"}}]
+                </textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>Additional Event Paramters : </td>
+            <td>
+                <textarea rows=2 cols=130 id = "additionalEventParams" name = "additionalEventParams">{"created": "12/31/2015"}
+                </textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>Additional Template Paramters : </td>
+            <td>
+                <textarea rows=2 cols=130 id = "additionalParams" name = "additionalParams">{"memberID" : 2, "site": "http://gamma.ck12.org", "flxhost": "http://gamma.ck12.org", "instant": "true"}
+                </textarea>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input type="button" id = "render" value="Render"/>
+            </td>
+        </tr>
+    </table>
+
+    <div id="send-email-container" style = "display: none;">
+        <h3>Send Sample Email</h3>
+        <table>
+            <tr>
+                <td>
+                    E-mail To
+                </td>
+                <td>
+                    <input type="text" id = "email-to" style="width:600px"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    E-mail Subject
+                </td>
+                <td>
+                    <input type="text" id = "email-subject" style="width:600px"/>
+                </td>
+            </tr>
+    
+            <tr >
+                <td colspan="2" align="center">
+                    <input type="button" id = "send-email" value="Send E-mail"/>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <h3>Template Preview</h3>
+    <div id="previewArea" style="border:1px solid black"></div>
+    
+    <h3>Raw Template</h3>
+    <input type="button" id = "render-custom-template" value="Render Custom Template" style = "display: none;" />
+    <pre style="white-space:pre-wrap;margin:0">
+        <div id="rawArea" contenteditable=true  style="border:1px solid black;">
+        </div></pre>
+    </body>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#render").click(function(e){
+                var emailTemplate = $("#templates option:selected").text();
+                var eventData = $("#eventData").val(),
+                    additionalParams = $("#additionalParams").val(),
+                    eventParams = $("#additionalEventParams").val();
+                renderTemplate(emailTemplate, eventData, eventParams, additionalParams);
+            });
+
+            $("#render-custom-template").click(function(e){
+                var eventData = $("#eventData").val(),
+                    additionalParams = $("#additionalParams").val(),
+                    eventParams = $("#additionalEventParams").val();
+                renderTemplate(null, eventData, eventParams, additionalParams);
+            });
+
+            var renderTemplate = function(emailTemplate, eventData, eventParams, additionalParams){
+                var url = "render/template/" + emailTemplate,
+                    data = {"eventData" : eventData, 'eventParams': eventParams, "additionalParams":additionalParams},
+                    ajaxOptions =   {
+                                        url: url,
+                                        data: data,
+                                        dataType: 'application/json',
+                                        success: function(data){
+                                            try{
+                                                data = JSON.parse(data);
+                                            }catch(e){
+                                            }
+                                            if (data && data.response){
+                                                $("#previewArea").html(data.response.preview);
+                                                if (data.response.html){
+                                                    $("#rawArea").text(data.response.html);
+                                                    $("#render-custom-template").show();
+                                                    $("#send-email-container").show();
+                                                    $("#email-to").val(data.response.memberEmail);
+                                                }
+                                            }else{
+                                                $("#previewArea").html(data);
+                                                $("#send-email-container").hide();
+
+                                            }
+                                        }
+                                    };
+
+                if (!emailTemplate){
+                    ajaxOptions.url = "render/custom/template";
+                    data.rawTemplate = $("<div/>").html($("#rawArea").html()).text();
+                    ajaxOptions.data = data;
+                    ajaxOptions.type = 'POST';
+                }
+                $.ajax(ajaxOptions);
+            };
+            
+            var sendSampleEmail = function(e){
+                var emailTo = $('#email-to').val(),
+                    emailSubject = $('#email-subject').val(),
+                    emailBody = $('#previewArea').html(),
+                    emailDataJSON = {
+                        'receivers': emailTo,
+                        'subject': emailSubject,
+                        'body': emailBody,
+                    },
+                    encodedData  = Base64.encode(JSON.stringify(emailDataJSON));
+                if (! emailTo || ! emailSubject || ! emailBody){
+                    alert("Either email receiver or subject or body is missing");
+                    return false;
+                }
+                
+                emailData = ('data='+encodeURIComponent( encodedData )).replace(/%20/g, '+');
+
+                $.ajax({
+                    url: '/flx/send/email/preview',
+                    data: emailData,
+                    type: 'POST',
+                    dataType: 'application/json',
+                    success: function(data){
+                        try{
+                            data = JSON.parse(data);
+                        }catch(e){
+                        }
+                        alert(data.response.message || data.response.emails)
+                    }
+                });
+            };
+
+            $("#send-email").click(sendSampleEmail);
+        });
+        
+    var Base64 = {
+ 
+        // private property
+        _keyStr : "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
+     
+        // public method for encoding
+        encode : function (input) {
+            var output = "";
+            var chr1, chr2, chr3, enc1, enc2, enc3, enc4;
+            var i = 0;
+     
+            input = Base64._utf8_encode(input);
+     
+            while (i < input.length) {
+     
+                chr1 = input.charCodeAt(i++);
+                chr2 = input.charCodeAt(i++);
+                chr3 = input.charCodeAt(i++);
+     
+                enc1 = chr1 >> 2;
+                enc2 = ((chr1 & 3) << 4) | (chr2 >> 4);
+                enc3 = ((chr2 & 15) << 2) | (chr3 >> 6);
+                enc4 = chr3 & 63;
+     
+                if (isNaN(chr2)) {
+                    enc3 = enc4 = 64;
+                } else if (isNaN(chr3)) {
+                    enc4 = 64;
+                }
+     
+                output = output +
+                this._keyStr.charAt(enc1) + this._keyStr.charAt(enc2) +
+                this._keyStr.charAt(enc3) + this._keyStr.charAt(enc4);
+     
+            }
+     
+            return output;
+        },
+     
+        // public method for decoding
+        decode : function (input) {
+            var output = "";
+            var chr1, chr2, chr3;
+            var enc1, enc2, enc3, enc4;
+            var i = 0;
+     
+            input = input.replace(/[^A-Za-z0-9\-_\.]/g, "");
+     
+            while (i < input.length) {
+     
+                enc1 = this._keyStr.indexOf(input.charAt(i++));
+                enc2 = this._keyStr.indexOf(input.charAt(i++));
+                enc3 = this._keyStr.indexOf(input.charAt(i++));
+                enc4 = this._keyStr.indexOf(input.charAt(i++));
+     
+                chr1 = (enc1 << 2) | (enc2 >> 4);
+                chr2 = ((enc2 & 15) << 4) | (enc3 >> 2);
+                chr3 = ((enc3 & 3) << 6) | enc4;
+     
+                output = output + String.fromCharCode(chr1);
+     
+                if (enc3 != 64) {
+                    output = output + String.fromCharCode(chr2);
+                }
+                if (enc4 != 64) {
+                    output = output + String.fromCharCode(chr3);
+                }
+     
+            }
+     
+            output = Base64._utf8_decode(output);
+     
+            return output;
+     
+        },
+     
+        // private method for UTF-8 encoding
+        _utf8_encode : function (string) {
+            string = string.replace(/\r\n/g,"\n");
+            var utftext = "";
+     
+            for (var n = 0; n < string.length; n++) {
+     
+                var c = string.charCodeAt(n);
+     
+                if (c < 128) {
+                    utftext += String.fromCharCode(c);
+                }
+                else if((c > 127) && (c < 2048)) {
+                    utftext += String.fromCharCode((c >> 6) | 192);
+                    utftext += String.fromCharCode((c & 63) | 128);
+                }
+                else {
+                    utftext += String.fromCharCode((c >> 12) | 224);
+                    utftext += String.fromCharCode(((c >> 6) & 63) | 128);
+                    utftext += String.fromCharCode((c & 63) | 128);
+                }
+     
+            }
+     
+            return utftext;
+        },
+     
+        // private method for UTF-8 decoding
+        _utf8_decode : function (utftext) {
+            var string = "";
+            var i = 0;
+            var c = c1 = c2 = 0;
+     
+            while ( i < utftext.length ) {
+     
+                c = utftext.charCodeAt(i);
+     
+                if (c < 128) {
+                    string += String.fromCharCode(c);
+                    i++;
+                }
+                else if((c > 191) && (c < 224)) {
+                    c2 = utftext.charCodeAt(i+1);
+                    string += String.fromCharCode(((c & 31) << 6) | (c2 & 63));
+                    i += 2;
+                }
+                else {
+                    c2 = utftext.charCodeAt(i+1);
+                    c3 = utftext.charCodeAt(i+2);
+                    string += String.fromCharCode(((c & 15) << 12) | ((c2 & 63) << 6) | (c3 & 63));
+                    i += 3;
+                }
+     
+            }
+     
+            return string;
+        },
+
+        jqSafe : function(str) {
+            str = str.replace(/\./g, '\\.');
+            return str.replace(/:/g, '\\:');
+        }
+     
+    }
+    </script>
+</html>

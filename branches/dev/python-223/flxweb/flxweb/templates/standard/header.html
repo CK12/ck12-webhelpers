@@ -1,0 +1,35 @@
+{% extends "common/header.html" %}
+
+{% block browse_item %}
+<li class="standards-link new-nav-standards-link hide-small list-box">
+	<a id="nav_standards" title="Standards" class="box-anchor">
+		<span class="menu-item-img-top icon-standards"></span>
+		<span class="menu-item-title-top">
+			<span>{{ _('Standards') }}</span>
+			<i class="icon-arrow-up menu-title-arrow"></i>
+		</span>
+	</a>
+	<ul id="standardsDropdownNew" data-dropdown-content="" class="f-dropdown standards-dropdown navigation-dropdown">
+		<li class="js-dropdown-element"><a id="nav_ccss" title="COMMON CORE MATH" href="/ccss/"><span class="menu-inside-title">{{ _('COMMON CORE MATH') }}</span></a></li>
+		<li class="js-dropdown-element"><a id="nav_ngss" title="NEXT GENERATION SCIENCE" href="/ngss/"><span class="menu-inside-title">{{ _('NEXT GENERATION SCIENCE') }}</span></a></li>
+	</ul>	
+</li>
+<li class="standards-link original-nav-standards-link hide-small">
+	<a id="nav_standards" data-dropdown="standardsDropdown" title="Standards">
+		<span class="menu-item-img icon-standards"></span>
+		<i class="menu-item-title">{{ _('Standards') }}</i>
+		<span class="small button dropdown"></span>
+	</a>
+	<ul id="standardsDropdown" data-dropdown-content="" class="f-dropdown standards-dropdown">
+		<li class="js-dropdown-element"><a id="nav_ccss" title="COMMON CORE MATH" href="/ccss/">{{ _('COMMON CORE MATH') }}</a></li>
+		<li class="js-dropdown-element"><a id="nav_ngss" title="NEXT GENERATION SCIENCE" href="/ngss/">{{ _('NEXT GENERATION SCIENCE') }}</a></li>
+	</ul>	
+</li>
+<li class="show-small">
+	<a id="side_nav_standards" title="standard" href="/standard/">
+		<span class="menu-item-img icon-standards"></span>
+		<span class="menu-item-title">{{ _('Standards') }}</span>
+	</a>
+</li>
+{{ super() }}
+{% endblock %}

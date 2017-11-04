@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><Notifications>
+	<Notification sequence="1">
+		<Param>
+			<Name>status</Name>
+			<Value>False</Value>
+		</Param>
+		<Param>
+			<Name>updateTime</Name>
+			<Value>16-09-2015 04:20:47</Value>
+		</Param>
+		<Param>
+			<Name>message</Name>
+			<Value>Due to system maintenance, CK-12 will be unavailable on Friday,9/19/2014 from 11:30a.m to 12:30p.m. PT.</Value>
+		</Param>
+	</Notification>
+	<Notification sequence="2">
+		<Param>
+			<Name>status</Name>
+			<Value>False</Value>
+		</Param>
+		<Param>
+			<Name>updateTime</Name>
+			<Value>16-09-2015 04:20:47</Value>
+		</Param>
+		<Param>
+			<Name>message</Name>
+			<Value>Due to system maintenance, CK-12 will be unavailable on Friday,9/19/2014 from 11:30a.m to 12:30p.m. PT.</Value>
+		</Param>
+	</Notification>
+</Notifications>

@@ -1,0 +1,332 @@
+
+{% extends "common/master.html" %}
+{% block title %}{{ _("Science Grade 1-5") }}{% endblock %}
+
+{% block stylesheets %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('common/css/3d-book.css') }}" />
+<style>
+body {
+    background-color: #fff;
+}
+.book-container {
+    margin-bottom: 20px;
+    perspective: 800px;
+    -webkit-perspective: 800px;
+    -moz-perspective: 800px;
+    -o-perspective: 800px;
+    -ms-perspective: 800px;
+}
+.bookTitle {
+    font-size: 14px;
+    height: 95px;
+    padding-top: 16px;
+    word-wrap: break-word;
+    width: 152px;
+}
+.content-wrap {
+    padding-top: 30px
+}
+.cbse-subject-title {
+    color: #56544D;
+    margin-bottom: 34px !important;
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 1px solid #e0ddd5;
+}
+.cbse-banner {
+    background-image: url('../images/cbse_bg.png');
+    background-position: -267px 90px;
+    height: 90px;
+}
+.flag-wrapper {
+    padding-top: 19px;
+}
+.cbse-banner-text {
+    color: #56544D;
+    display: inline-block;
+    font-size: 28px;
+    margin-left: 12px;
+    vertical-align: middle;
+}
+.bold {
+    font-weight: bold;
+}
+.disable {
+    color: #56544D;
+    opacity: 0.5;
+}
+.cbse-dropdown-wrapper {
+    font-size: 16px;
+}
+.cbse-dropdown-parent {
+    display: inline-block;
+}
+.subject-header {
+    color: #FF6633;
+    font-size: 24px;
+    margin-bottom: 9px;
+    padding-left: 14px;
+}
+.cbse-dropdowm {
+    text-align: left;
+    width: 132px;
+}
+.standards-dropdown {
+    cursor: initial;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding-left: 12px !important;
+}
+.country-dropdown {
+    cursor: initial;
+    margin-left: 3px;
+    margin-right: 5px;
+    padding-left: 5px !important;
+}
+.country-dropdown i {
+    color: #00aba4;
+    margin-right: 2px;
+}
+#selectSubjects.subjects-dropdown {
+    margin-left: 11px;
+    margin-right: 9px;
+    width: 132px;
+    padding-right: 35px !important;
+    padding-left: 8px !important;
+}
+.grades-dropdown {
+    padding-left: 8px !important;
+}
+.Math-header {
+    margin-top: 50px;
+}
+.book {
+    height: 194px;
+    width: 139px;
+}
+.front .cover img {
+    height: 191px;
+    position: absolute;
+}
+.bookTitle a {
+    font-size: 18px;
+}
+#dropSubjects {
+    margin-left: 11px;
+    width: 132px !important;
+}
+#dropGrades {
+    width: 132px !important;
+}
+.tangerine-list.simple:before {
+    left: 54px;
+}
+.tangerine-list.simple:after {
+    left: 52px;
+}
+.tangerine-list li:hover {
+    background: none repeat scroll 0 0 #D5F4F9;
+}
+h1 {
+    padding-left: 15px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px){
+    .medium-4 {
+        width: 33.3333%;
+    }
+    .show-more-small {
+        display: none;
+    }
+    .show-more-large{
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 767px){
+    h1 {
+        padding: 0 0 0 30px;
+    }
+    .bookTitle {
+        height: auto;
+    }
+    .show-more-small, .show-more-large{
+        display: block;
+    }
+    .book-container .books {
+        float: left;
+        width: 165px;
+    }
+    .book-container .bookTitle {
+        float: left;
+        width: 120px;
+        margin-left: 5px;
+        text-align: left !important;
+    }
+    .cbse-subject-title {
+        margin-bottom: 26px !important;
+    }
+    .book-container {
+        margin-bottom: 40px;
+    }
+    .cbse-banner {
+        height: 150px;
+    }
+    .cbse-banner-text {
+        margin-left: 0px;
+    }
+    .flag-wrapper {
+        padding-top: 30px;
+        text-align: center;
+    }
+    .flag-wrapper img {
+        margin-bottom: 14px;
+    }
+    .cbse-dropdown-parent {
+        text-align: center;
+        width: 100%;
+    }
+    .cbse-dropdown-parent span {
+        display: inline-block;
+    }
+    .dropdown-view {
+        margin-bottom: 12px;
+        width: 100%;
+    }
+    #selectSubjects.subjects-dropdown {
+        margin-left: 0px;
+    }
+    .content-wrap {
+        padding-top: 20px;
+    }
+    .Math-header {
+        margin-top: 7px;
+    }
+    .cbse-dropdown-parent .f-dropdown a {
+        text-align: left;
+    }
+    .cbse-banner {
+        background-position: 570px 90px;
+    }
+}
+</style>
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+<script>
+require(['main'], function(){
+    require(['jquery','underscore'],function($,_){
+        var bookIDs = ['2484693', '2484731', '2484760', '2484898', '2484988'];
+        var bookTmpl = $('#tmpl_book').html();
+        var fnTmpl = _.template(bookTmpl, null, {variable:'data'});
+
+        function renderBooks(books){
+            books.forEach(function(book, idx){
+                var elm = fnTmpl(book);
+                $('#contentwrap').append(elm);
+            });
+            $('.book-container:last-child').addClass('left');
+        }
+
+        function renderBooksSync(){
+            //use pre-generated data to render books
+            renderBooks([
+                {
+                    "artifactType":"book","handle":"CK-12-Kindergarten-Science","title":"CK-12 Kindergarten Science",
+                    "coverImage":"https://dr282zn36sxxg.cloudfront.net/datastreams/f-d%3A78341cc8e2f10feabfb217c5305d678de67e00adb5773f513651fcaa%2BCOVER_PAGE_THUMB_LARGE_TINY%2BCOVER_PAGE_THUMB_LARGE_TINY.1"
+                },
+                {
+                    "artifactType":"book","handle":"CK-12-First-Grade-Science","title":"CK-12 First Grade Science",
+                    "coverImage":"https://www.ck12.org/flx/show/THUMB_LARGE/cover%20page/user%3Ayxv0ag9ycy1kzxnay2sxmi5vcmc./3-1459204084-2-12-NGSS-g1.jpg"
+                },{
+                    "artifactType":"book","handle":"CK-12-Second-Grade-Science","title":"CK-12 Second Grade Science",
+                    "coverImage":"https://www.ck12.org/flx/show/THUMB_LARGE/cover%20page/user%3Ayxv0ag9ycy1kzxnay2sxmi5vcmc./3-1459203973-32-17-NGSS-g2.jpg"
+                },{
+                    "artifactType":"book","handle":"CK-12-Third-Grade-Science","title":"CK-12 Third Grade Science",
+                    "coverImage":"https://dr282zn36sxxg.cloudfront.net/datastreams/f-d%3A4fba599d635a20ba1d92d1885828340f51718b653b1b9249df9e0052%2BCOVER_PAGE_THUMB_LARGE_TINY%2BCOVER_PAGE_THUMB_LARGE_TINY.1"
+                },{
+                    "artifactType":"book","handle":"CK-12-Fourth-Grade-Science","title":"CK-12 Fourth Grade Science",
+                    "coverImage":"https://www.ck12.org/flx/show/THUMB_LARGE/cover%20page/user%3Ayxv0ag9ycy1kzxnay2sxmi5vcmc./3-1459198027-73-92-NGSS-g4-.jpg"
+                },{
+                    "artifactType":"book","handle":"CK-12-Fifth-Grade-Science","title":"CK-12 Fifth Grade Science",
+                    "coverImage":"https://www.ck12.org/flx/show/THUMB_LARGE/cover%20page/user%3Ayxv0ag9ycy1kzxnay2sxmi5vcmc./3-1459197145-91-56-NGSS-g5-.jpg"
+                }]);
+        }
+
+        function renderBooksAsync(){
+            //fetch the artifact info and render data (useful to generate the data for sync book rendering)
+            var deferredArray = bookIDs.map(function(id){
+                return $.ajax({
+                    url: 'https://www.ck12.org/flx/get/info/' + id,
+                    dataType: 'json'
+                });
+            });
+            $.when.apply($,deferredArray).then(function(){
+                var books = Array.prototype.slice.call(arguments)
+                    .filter(function(dfd){
+                        return dfd[1] === 'success';
+                    }).map(function(dfd){
+                        var artifact = dfd[0].response.artifact;
+                        artifact.coverImage = 'https://www.ck12.org' + artifact.coverImage.replace('/show/','/show/THUMB_LARGE/');
+                        return artifact;
+                    });
+                console.log(JSON.stringify(books.map(function(book){
+                    return _.pick(book,['artifactType','handle','title','coverImage'])
+                })));
+                renderBooks(books);
+            }, function(){
+                console.log('error');
+            });
+        }
+
+        renderBooksSync();
+    });
+
+
+});
+</script>
+{% endblock %}
+
+{% block header %}
+{{ super() }}
+{% endblock %}
+{% block content %}
+{{ super() }}
+<script type="text/template" id="tmpl_book">
+    <div class="book-container columns large-4 medium-4 small-12 ">
+        <div class="books">
+            <figure class="book">
+                <a href="https://www.ck12.org/<%- data.artifactType %>/<%- data.handle %>/" class="listitemimglink">
+                    <ul>
+                        <li class="front">
+                        <div class="cover">
+                        <img src="<%- data.coverImage %>"
+                            title="<%- data.title %>"
+                            alt="<%- data.title %>">
+                        </div>
+                        <span class="shadow"></span>
+                        </li>
+                        <li class="pages">
+                            <div class="thin page1"></div>
+                            <div class="thin page2"></div>
+                            <div class="thin page3"></div>
+                        </li>
+                        <li class="back"></li>
+                        <span class="shadow"></span>
+                    </ul>
+                </a>
+            </figure>
+        </div>
+        <div class="bookTitle text-center">
+            <a id="" class="bookLink" href="https://www.ck12.org/<%- data.artifactType %>/<%- data.handle %>/"><%- data.title %></a>
+        </div>
+
+    </div>
+</script>
+<h1> <a href="/browse/">Browse</a> Grade K&ndash;5 Science FlexBooks<sup>&reg;</sup></h1>
+<div id="contentwrap">
+
+</div>
+{% endblock %}

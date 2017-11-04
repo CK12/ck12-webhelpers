@@ -1,0 +1,19 @@
+.abuse-popup:before {
+    border-bottom: 12px solid #ccc;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    content: "";
+    position: absolute;
+    right: 7px;
+    top: -12px;
+}
+
+.abuse-popup:after {
+    border-bottom: 10px solid #fff;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    content: "";
+    position: absolute;
+    right: 9px;
+    top: -9px;
+}

@@ -1,0 +1,52 @@
+{
+  "handle": "subtraction-of-integers",
+  "title": "Subtraction of Integers",
+  "description": "A very quick collection for learning the subtraction of basic integers for grade 1,2 and 3",
+  "country": "US",
+  "isPublished": true,
+  "canonicalID": "MAT.ALG",
+  "parentSubjectID": "MAT",
+  "contains": [
+    {
+      "title": "Basic Integers",
+      "encodedID": "MAT.ALG.100",
+      "sequence": 1
+    },
+    {
+      "title": "Medium Integers",
+      "description": "Subtraction of Basic Integers for 2nd grade",
+      "country": "US",
+      "encodedID": "MAT.ALG.200",
+      "sequence": 2
+    },
+    {
+      "title": "Advanced Integers",
+      "sequence": 3,
+      "contains": [
+        {
+          "title": "Advanced Integers For Class1",
+          "sequence": 1,
+          "encodedID": "MAT.ALG.300"
+        },
+        {
+          "title": "Advanced Integers For Class2",
+          "sequence": 2,
+          "contains": [
+            {
+              "title": "Advanced Integers For Class 2 in First Semester",
+              "sequence": 1,
+              "encodedID": "MAT.ALG.310",
+              "previewEID": "MAT.ALG.320"
+            },
+            {
+              "title": "Advanced Integers For Class 2 in Second Semester",
+              "sequence": 2,
+              "encodedID": "MAT.ALG.320",
+              "previewEID": "MAT.ALG.330"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

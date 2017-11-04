@@ -1,0 +1,107 @@
+@mixin no-outline(){
+    outline: unset;
+}
+
+@mixin checkbox($checkbox-size: rem-calc(18), $checkmark-size: rem-calc(16)){
+    padding-left: $checkbox-size + rem-calc(5);
+    position: relative;
+    color: $EARTH;
+    line-height: $checkbox-size;
+    font-size: rem-calc(14);
+    display: inline-block;
+    cursor: pointer;
+
+    &:before {
+        position: absolute;
+        left: 0;
+        width: $checkbox-size;
+        height: $checkbox-size;
+        background-color: $white;
+        border: 1px solid rgba(0,0,0,0.3);
+        color: $GREY_BROWN;
+        content: '';
+        font-size: $checkmark-size;
+        line-height: 1.25;
+        text-align: center;
+        border-radius: $global-radius;
+    }
+}
+
+@mixin checkedCheckbox(){
+    &:before {
+        background-color: $SKY;
+        color: $white;
+        content: '\2713';
+        border-color: transparent;
+    }
+}
+
+
+@mixin top-arrow(
+    $size: rem-calc(10),
+    $bg-color: $white,
+    $border-width: rem-calc(1),
+    $border-color: $transparent-black,
+    $pos: left,
+    $x: 50%
+){
+	position: relative;
+
+    &:after, &:before {
+        bottom: 100%;
+        #{$pos}: $x;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+    }
+
+    &:after {
+        border-color: rgba($bg-color, 0);
+        border-bottom-color: $bg-color;
+        border-width: $size;
+        margin-#{$pos}: -($size);
+    }
+    &:before {
+        border-color: rgba($black, 0);
+        border-bottom-color: $border-color;
+        border-width: $size + $border-width + rem-calc(1);
+        margin-#{$pos}: -($size + $border-width + rem-calc(1));
+    }
+}
+
+@mixin shrink(){
+    flex: 0 0 auto;
+    max-width: 100%;
+}
+
+@mixin selectBox(){
+    border-radius: $global-radius;
+    border: 2px solid $SMOKE_GREY;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' viewBox='0 0 32 24'><polygon points='0,0 32,0 16,24' style='fill: #{encodecolor($TIFFANY_BLUE)}'></polygon></svg>")
+}
+
+@mixin truncateText(){
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+@mixin mockSelectBox(){
+    height: 2.4375rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+    font-family: inherit;
+    line-height: normal;
+    color: #0a0a0a;
+    background-color: #fefefe;
+    background-size: 9px 6px;
+    background-position: right -1rem center;
+    background-origin: content-box;
+    background-repeat: no-repeat;
+    padding-right: 1.5rem;
+    @include selectBox();
+}

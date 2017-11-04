@@ -1,0 +1,75 @@
+<html><head>
+	<title>CK-12 BrainFlex</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<style type="text/css"></style></head>
+		
+<body style="font-family: sans-serif;">
+<!-- Header section -->
+	<div style="height: 100%;">
+		<div style="width: 100%;max-width: 600px;text-align: center;height: auto;position: relative;margin: auto;background-color: #F9F9F5;padding-bottom: 30px;min-width: 300px;">
+			<div class="logo-holder" style="background-color: white;height: 70px;text-align: center;margin-bottom: 14px;">
+				<div class="ck12-logo-text-container " style="min-width: 229px;width:100%;margin:auto;padding-top:20px">
+				<img src="{{ site }}/assessment/ui/public/lib/summer/logo-2x.png" height="33" width="94" alt="Brain flex" class="CToWUd a6T" tabindex="0">
+					<div class="ck12-logo-caption" style="display: inline-block;padding-left: 15px;vertical-align: 9px;">
+						<span class="brainflex-text" style="font-weight: bold;font-size: 24px;color: rgba(0, 0, 0, 0.62);font-family: sans-serif;">BrainFlex</span>
+					</div>
+				</div>
+			</div>
+			<!--Header section ends -->	
+		    <!--Weekly report Header starts-->
+			<div class="center-aligned-parent1" style="padding-left: 0px;padding-right: 0px;/* padding-top: 20px; */">		
+				<div class=" no-right-padding" style="padding-right: 15px;padding-left: 15px;">
+					<div class="weightlifter-container" style="min-height:47px;padding-top: 1px;padding-bottom:26px;width:100%; clear:both ">
+						<!-- <div class="weightlifter-logo " style="background-image: url({{ site }}/assessment/ui/public/lib/summer/brain-2x.png);width: 77px;height: 70px;background-position: 50%; background-size:100%; background-repeat: no-repeat; display: inline-block;float: left;margin-top: -2px;"></div> -->
+						<div style="position: absolute"><img src="{{ site }}/assessment/ui/public/lib/summer/brain-2x.png" style="width: 49px;margin-top: 26px;float:left; clear:both; ">
+							</div>
+							<img src="{{ site }}/assessment/ui/public/lib/summer/coach.png" style="width: 88px;float:left;position:relative;left:-30px;">
+						<div class="weightlifter-report" style="float: right;display: inline-block;color:#56544d;padding-top: 13px;">
+							<div class="weekly-report-caption" style="font-size: 18px;font-weight: bold;text-align: right;">Weekly Report</div>
+	                        <div class="weekly-report-desc" style="font-size: 14px;float:right;display:inline-block;color:#56544d;padding-top: 3px;"> {{ events[0].eventData['weekString']}}  </div>
+						</div>
+					</div>
+				</div>		
+		    </div>
+		<!--Weekly report Header ends-->
+		
+		<!--Weekly Student report template, for n number of students for coach it has to be repeated -->
+		<div style="background:#fff;margin-left: 20px;margin-right: 20px;height: auto;padding-top:10px;padding-bottom:30px">
+		<div>
+			<div style="color:  rgba(0, 0, 0, 0.62);padding-top:35px;padding-bottom:20px;">
+              <p style="padding-bottom:20px;margin: 0;text-align:left; padding-left:35px;padding-right:35px">Hi <span>{{ events[0].eventData['coachName']|capitalize }},</span></p>
+				<p style="padding-left:35px;padding-right:35px;text-align: left; margin: 0;">Here's a snapshot of your students' performance this week:  </p>
+                {% for progress in events[0].eventData["studentProgress"] %}
+				<div style="width:250px;margin:auto;margin-bottom:20px;color:rgba(0,0,0,0.62)">
+                  <p style="margin: 0;padding-top: 30px;font-size: 20px;padding-bottom: 10px;border-bottom: 1px solid #d5d5d4;margin-bottom: 25px">{{ progress['firstName'] }} {{ progress['lastName'] }}</p>
+							<div class="week-header">
+                                    {% for result in progress['weeklyResult'] %}
+                                    
+    									<span style="display: inline-block;width: 26px;margin-left: 3px;margin-bottom: 14px;color: #E1DED8;text-align:center;font-size: 14px;font-weight: bold;margin-right: 3px;">{{ result['weekText'] }}</span>
+                                    {% endfor %}
+							</div>
+							<div>
+							<!-- There are two image tags here, based on goal achived need to hide one image tag, if goal is achieved goal-reach image has to be shown, if not goal-not reached has to be shown -->
+							    {% for result in progress['weeklyResult'] %} 
+                                <div style="display:inline-block">
+                                    {% if result['goalReached'] %}  
+                                    <img src="{{ site }}/assessment/ui/public/lib/summer/yellow-star.png"  class="goal-reached week-result-{{ result['weekDay'] }}" style="width: 22px; height: 22px;background: #CCCCCC;border-radius: 50%;margin-left: 5px;margin-right: 5px;cursor: pointer;">
+                                    {% else %}
+                                    <img src="{{ site }}/assessment/ui/public/lib/summer/blue-star.png"  class="goal-not-reached week-result-{{ result['weekDay'] }}" style="width: 22px; height: 22px;background: #CCCCCC;border-radius: 50%;margin-left: 5px;margin-right: 5px;cursor: pointer;">
+                                    {% endif %}
+								</div>
+                                {% endfor %}
+							</div>
+                            <p style="margin: 0;padding-top: 20px;font-size: 16px;">Achieved daily goal <span style="font-size: 20px;">{{ progress['goalReaches'] }}</span> Times this week</p>
+				</div>
+			</div>
+            {% endfor %}
+			<!--Weekly Student report template ends-->
+		<p>
+            <a class="start-practicing" href="{{ site }}/summer/coach" style="padding-left:0.9375em;padding-right:0.9375em;width:auto;margin-top:0;margin-bottom:0;max-width:none;border:medium none;border-radius:3px 3px 3px 3px;font-size:1.1em;padding:10px 30px 9px;background:#ff6633;color:white;font-family:inherit;font-weight:bold;margin-top:33px;display: block;width:200px;margin:46px auto;text-decoration: none;text-align: center;">See full details on dashboard</a>
+		</p>
+		</div>
+	</div>
+</div>
+</div>
+</body></html>

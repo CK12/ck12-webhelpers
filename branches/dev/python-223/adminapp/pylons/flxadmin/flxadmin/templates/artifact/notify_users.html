@@ -1,0 +1,59 @@
+{% extends "details.html" %}  
+{% from "macros/form_errors.html" import form_errors with context %}
+
+{% block admincontent %}
+{% if c.revision %}
+<div class="sectionhead sectiontitle">{{c.pagetitle}}</div>
+<div class="section withfloatedsubmit">
+	<form id="mainform" method="post">
+		<div class="leftaligned">
+			{{ h.labelinput('', 'artifactID', class_='hide', wrapClass=None, val=c.artifactID) }}
+			{{ h.labelinput('', 'artifact_url', class_='hide', wrapClass=None, val=c.newModalityURL) }}
+			{{ h.labelinput('', 'isBook', class_='hide', wrapClass=None, val=c.isBook) }}
+	        {{ h.labelcheckbox('Enable Notification For Users' ,'notify_users_flag', True) }}
+    		{{ h.labelcheckbox('Send Email Notification' ,'email_notification', True) }}
+	        {{ h.labeltextarea('', 'messageToUsers', 15, 120, val=c.messageToUsers) }}
+		</div>
+    		{{ h.submitbutton('Update', 'short', 'notify_users')}}
+    		{{ h.cancelbutton(c.cancel)}}
+	</form>
+</div>
+{% endif %}
+{% endblock admincontent %}
+
+
+{% block js_scripts %}
+<script type="text/javascript" src="{{ h.url_js('inlineList.js') }}"></script>
+<script type='text/javascript'>
+$(document).ready(function(){
+	$('#notify_users_flag').off('click').on('click', function(){
+		if (! $(this).is( ':checked' )){
+			$('#email_notification').removeAttr('checked');
+		}else{
+			$('#email_notification').attr('checked', 'checked');
+		}
+	});
+	
+	$('#email_notification').off('click').on('click', function(){
+		if ($(this).is( ':checked' )){
+			$('#notify_users_flag').attr('checked', 'checked');
+		}
+	});
+	
+	$('#messageToUsers')
+		.attr('placeholder', 'Brief description for changes made to the content. Limit to 1024 max characters.');
+	
+	var notification_users_count = "{{c.notification_users_count}}";
+	$('#notify_users').off('click').on('click', function(event){
+		if ($('#notify_users_flag').is(':checked')){
+			var continue_action = confirm(notification_users_count + " User(s) Will be notified. Do you want to Continue");
+			if (! continue_action){
+				event.stopPropagation();
+				event.preventDefault();
+				return false;
+			}
+		}
+	})
+});
+</script>
+{% endblock %}

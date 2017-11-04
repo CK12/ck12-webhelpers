@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services>
+    <service name="MySQL">
+        <api>/flx/get/info/100</api>
+        <params>
+            <param/>
+        </params>
+        <hosts>
+            <host>lilyserver.ck12.org</host>
+        </hosts>
+    </service>
+   <service name="Search">
+        <api>/flx/search/concept/mathematics</api>
+        <params>
+            <param name="filters" value="false"/>
+            <param name="pageSize" value="1"/>
+        </params>
+        <hosts>
+            <host>lilyserver.ck12.org</host>
+            <host>astro.ck12.org</host>
+        </hosts>
+    </service>
+    <service name="Taxonomy">
+        <api>/taxonomy/get/info/concept/mat.ari.100</api>
+        <params>
+            <param/>
+        </params>
+        <hosts>
+            <host>lilyserver.ck12.org</host>
+            <host>astro.ck12.org</host>
+        </hosts>
+    </service>
+    <service name="Auth">
+        <api>/auth/get/info/my</api>
+        <params>
+            <param/>
+        </params>
+        <hosts>
+            <host>lilyserver.ck12.org</host>
+        </hosts>
+    </service>
+    <service name="Excercises">
+        <api>/hwp/get/info/exercise/encodedid/SCI.PHY.140.C.1</api>
+        <params>
+            <param/>
+        </params>
+        <hosts>
+            <host>astro.ck12.org</host>
+        </hosts>
+    </service>
+    <service name="ADS-Event">
+        <api>/ads/event</api>
+        <params>
+            <param name="g" value="g"/>
+            <param name="e" value="e"/>
+            <param name="v" value="1"/>
+            <param name="json" value="true"/>
+        </params>
+        <hosts>
+            <host>astro.ck12.org</host>
+        </hosts>
+    </service>
+    <service name="ADS-Query">
+        <api>/ads/query</api>
+        <params>
+            <param name="eg" value="fbs_visit"/>
+            <param name="ml" value="visited:sum"/>
+            <param name="ft" value="users:0"/>
+        </params>
+        <hosts>
+            <host>lilyserver.ck12.org</host>
+        </hosts>
+    </service>
+</services>

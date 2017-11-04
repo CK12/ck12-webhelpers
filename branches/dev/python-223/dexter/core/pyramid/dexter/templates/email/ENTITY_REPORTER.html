@@ -1,0 +1,25 @@
+<html>
+    <head></head>
+    <body>
+    <p>Here is the list of Invalid Events for the date <b>{{currentDate}}</b></p>
+
+    <table cellpadding="10" border="1">
+    <tr align="center">
+	<th>Sr No.</th>
+	<th>EventType</th>
+	<th>InvalidCount</th>
+    </tr> 
+    {% for event in  events %}
+    <tr>
+	<td>{{ loop.index }}</td>
+	<td>{{ event['eventType'] }}</td>	
+    <td>{{ event['total'] }}</td>	
+    </tr> 
+    {% endfor %}  
+    <tr><td colspan="3"><b>Total Invalid Events : {{ totalCount }}<b/></td></tr>
+
+    </table>
+        
+    </body>
+</html>
+

@@ -1,0 +1,80 @@
+{% extends "details.html" %}  
+{% block admincontent %} 
+<div class="sectionhead sectiontitle">{{c.pagetitle}}</div>
+<div class="section withfloatedsubmit">
+  <form id="mainform" method="post" class="clickonly">
+    <div class="leftaligned">
+     {% for field in c.form.ordered_fields %}
+     {{ field }}
+     {% endfor %}
+	{{ h.labelinput("newUrl",'newUrl','info xmed')}}
+    {{ h.labelreadonly("created",'created','info xmed')}}
+    {{ h.labelreadonly("Updated",'updated','info xmed')}}
+    </div>
+    {{ h.deletebutton('Delete')}}
+    {{ h.submitbutton(c.save_prefix, name='update')}}
+    {{ h.cancelbutton(c.cancel)}}
+    
+  </form>
+</div>
+{% endblock %}
+
+{% block js_scripts %}
+<script type="text/javascript" src="{{ h.url_js('colorbox_popup_resize.js') }}"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  // Delete urlmap 
+  var deleteUrlmap = {
+      confirmMsg : 'Are you sure to delete the Urlmap?',
+      successMsg : 'Urlmap deleted successfully',
+      this : null,
+              
+      deleteUrlmapTask : function(){
+          if (confirm(deleteUrlmap.confirmMsg)){
+        	  deleteUrlmap.this = $(this)  
+            $(this).hide();
+            $.ajax({url: '/flx/delete/urlmap', 
+              type: 'POST', 
+              data:{'error_response_format':'JSON','oldUrl':'{{c.urlmap.oldUrl}}'},
+              success: function(data, status, xhr){
+                  $(deleteUrlmap.this).show();
+                  try{
+                      data = $.parseJSON(data);
+                  }catch (e){
+                  }
+                  if (data && data.status == 'error'){
+                      var message = '';
+                      if(data.api_status_code){
+                          message += data.api_status_code;
+                      }
+                      if (data.response){
+                          message += ' - ' + data.response;
+                      }else{
+                          message += 'Unknow Reason'
+                      }
+                      alert('API Error: ' + message);
+                  }else{
+                      alert(deleteUrlmap.successMsg);
+                      window.action = 'delete';
+                      reloadUrlmapListingPage();
+                  }
+              },
+              error: function(xhr, textStatus, errorThrown){
+                  alert('API Error: '+ Fns.formatResponseError(
+                  xhr, textStatus, errorThrown));
+              }
+           });
+         }
+      }
+    };
+    $("#delete").click(deleteUrlmap.deleteUrlmapTask);
+  });
+
+function  reloadUrlmapListingPage(options){
+    if (window.action == 'delete'){
+        window.action = '';
+        window.location.href = CK12.admUrl('urlmaps');
+    }
+}
+</script>
+{% endblock %}

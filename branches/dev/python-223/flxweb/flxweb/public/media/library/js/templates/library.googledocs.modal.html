@@ -1,0 +1,78 @@
+<div id="googleDocsModal" class="reveal-modal modal-uikit app-reveal-modal tiny google-docs-modal">
+	<a class="close-reveal-modal close">+</a>
+	<div class="text-center bold google-docs-header">Import from Google Docs</div>
+	<div class="js_dialog_loading text-center gdoc_dialog_loading hide">
+		<img width="43" height="11" title="loading" src="/media/images/icon_loading.gif">
+		<div class="msg">
+		</div>
+	</div>
+	<div class="js_dialog_content gdoc_dialog_content">
+		<div class="js_gdoc_login_container gdoc_container text-center hide">
+
+			<a href="" target="new" class="js_gdoc_auth_link">Login to Google</a>
+
+		</div>
+		<div class="js_gdoc_list_container gdoc_list_container hide">
+			<div>
+				
+				<div class="gdoc_list_type_container">
+					Show:
+					<a class="gdoc_list_type_select js_list_type js_list_type_docs selected">Documents</a> | 
+					<a class="gdoc_list_type_select js_list_type js_list_type_cols">Collections</a>
+				</div>
+				
+				<div>
+					<div class="spacetop">
+						<strong>
+							<span class="js_help_text js_help_text_docs">Select a document to import.</span>
+							<span class="js_help_text js_help_text_cols hide">Select a collection to import.</span>
+						</strong>
+					</div>
+					<div class="js_gdoc_list gdoc_list spacetop">
+						<div class="gdoc_listinfo">
+							<div id="google-docs-paginator" class="paginator">
+								
+							</div>
+						</div>
+						<div class="spacetop gdoc_item_list">
+							
+						</div>
+					</div>
+				<div class="spacetop">
+					<div>
+						<strong>
+							<span class="">Provide a title for import.</span>
+						</strong>
+					</div>
+					<input type="text" maxlength="100" name="txt_gdoc_title" id="txt_gdoc_title" class="txt_title forminput">
+				
+					<div id="modality_type_select" class="dropdown-wrapper">
+						<div>
+							<strong>
+								<span class="">Select a Modality Type.</span>
+							</strong>
+						</div>
+						<a id="dropdown-modality" data-val="lesson" class="library-dropdown-secondary small button dropdown library-dropdown select-modality-dropdown js-dropdown-modality" data-dropdown="modality-types-dropdown">Read</a>
+						<ul class="f-dropdown" id="modality-types-dropdown">
+							<li class="js-dropdown-element" data-val="lesson"><a>Read</a></li>
+							<li class="js-dropdown-element" data-val="rwa"><a>Real World Application</a></li>
+							<li class="js-dropdown-element" data-val="preread"><a>Pre Read</a></li>
+							<li class="js-dropdown-element" data-val="postread"><a>Post Read</a></li>
+							<li class="js-dropdown-element" data-val="whileread"><a>While Read</a></li>
+							<li class="js-dropdown-element" data-val="prepostread"><a>Pre And Post Read</a></li>
+							<li class="js-dropdown-element" data-val="studyguide"><a>Study Guide</a></li>
+							<li class="js-dropdown-element" data-val="flashcard"><a>Flashcards</a></li>
+							<li class="js-dropdown-element" data-val="lecture"><a>Video</a></li>
+							<li class="js-dropdown-element" data-val="web"><a>Link</a></li>
+						</ul>
+					 </div>
+				</div>
+			</div>
+			<div class="buttonwrap text-center">
+				<a id="js_addfromgdocs_confirm" class="button standard turquoise addfromgdocs_confirm">Import</a>
+			</div>
+
+		</div>
+	</div>
+</div>
+</div>

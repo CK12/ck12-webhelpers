@@ -1,0 +1,50 @@
+<div class="row school-banner-top-layer school-name-container">
+    <div class="column large-5 small-12 school-banner-header">
+			<table class="row collapse school-name">
+				<tbody>
+				<tr>
+					<td class="school-name-text">
+					    <i class="school-embed-icon icon-links" style="font-size:19px" title="Copy Embed Code"></i>
+						<%- schoolName %>
+					</td>
+					<% if( editMode ) { %>
+
+					<td class="edit-school-name" title="Edit School Name">
+						<i class="icon-edit"></i>
+					</td>
+
+					<% } %>
+				</tr>
+				</tbody>
+			</table>
+
+    </div>
+
+	<img class="right school-individual-image" src="/media/schools/images/individual-school.png"/>
+	<div class="column large-4 small-12">
+		<% if(claimStatus == 'NOT_CLAIMED'){ %>
+		<div class="claim-school-btn-container text-center">
+		
+			<span class='claim-your-school-txt'>Is this your School?
+			 	<i class="icon-help_icon claim-school-help-icon"></i>
+			 </span>
+			 <div>
+				<button class="claim-you-school button tangerine large">Claim Your School</button>
+			 </div>	
+			 
+			 
+		</div>
+		<% } %>
+		
+		<% if(claimStatus == 'CLAIMED' && claimedByCurrentUser && !editMode ){ %>
+				<div class="text-center">
+					<button class="edit-you-school button tangerine large">Edit Page</button>
+				</div>
+			<% } %>
+		
+		
+
+		
+	</div>
+
+</div>

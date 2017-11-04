@@ -1,0 +1,25 @@
+<li class="ui-corner-all js_artifact_list_item artifact_list_item"
+    data-artifactId="<%= data.artifactID %>"
+    data-artifactType="<%= data.artifactType %>"
+    data-artifactRevisionID = "<%= data.artifactRevisionID %>"
+    data-draft="<%= data.hasDraft %>"
+    >
+    <div>
+        <div class="artifact_row js_artifact_row">
+            <div class="index_label js_index_label grandchild"><%= data.tocnumber %></div>
+            <div class="row_artifact_title js_artifact_title">
+                <span class="draft-chapter-title"><%= data.title %></span>
+                <% if (data.hasDraft) { %>
+                    <span class="draft-section">DRAFT</span>
+                <% } %>
+            </div>
+            <% if (data.hasDraft) { %>
+                <div class="custom-box">
+                    <input type="checkbox" id="checkbox<%= data.artifactRevisionID %>">
+                    <label for="checkbox<%= data.artifactRevisionID %>" class="checkbox"><span><i class="icon-validated"></i></span></label>
+                </div>
+            <% } %>
+            <div class="clear"></div>
+        </div>
+    </div>
+</li>

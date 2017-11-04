@@ -1,0 +1,21 @@
+{% extends "base/master.html" %}
+<!-- RIGHT SIDE as MAIN CONTENT -->
+{% block content %}
+	{% block content_left %}
+	<aside id="leftsecondary" class="grid_2 {% if (('/editor/' in request.path) and (('/section/' in request.path) or ('/lesson/' in request.path))) %} hide {% endif %}">
+		{% block content_left_inner %}
+			left content
+		{% endblock %}
+	</aside>
+	{% endblock %}
+	{% block content_right %}
+		{% block rightinfotop %}{% endblock %}
+		<div id="content" class="clearfix grid_10 {% if (('/editor/' in request.path) and (('/section/' in request.path) or ('/lesson/' in request.path))) %} hide {% endif %}">
+			{% block content_right_inner %}
+				right content
+			{% endblock %}
+			{% block rightinfobottom %}{% endblock %}
+		</div>
+	{% endblock %}
+	<div class="gclear {% if (('/editor/' in request.path) and ('/section/' in request.path)) %} hide {% endif %}"></div>
+{% endblock %}

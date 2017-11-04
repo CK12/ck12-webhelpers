@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ContentApp">
+  <!--Change the GUID when the version changes-->
+  <Id>12345678-1234-1234-1234-123456789ABC</Id>
+  <Version>1.0.0</Version>
+  <ProviderName>CK-12 Foundation</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="CK-12 Math Resources">
+  </DisplayName>
+  <Description DefaultValue="Find Videos, Real World examples, and text for math concepts to embed in your PPT or Word Doc.">
+  </Description>
+  <IconUrl DefaultValue="http://mirugai.ck12.org/athenaapp/images/resources_math_app_32x32.png">
+  </IconUrl>
+  <HighResolutionIconUrl DefaultValue="http://mirugai.ck12.org/athenaapp/images/resources_math_app_96x96.png">
+  </HighResolutionIconUrl>
+  <Hosts>
+    <Host Name="Presentation"/>
+  </Hosts>  
+  <DefaultSettings>
+    <SourceLocation DefaultValue="http://mirugai.ck12.org/athenaapp"></SourceLocation>
+    <!--Only Incontent MOE can have both width and height-->
+    <RequestedWidth>1024</RequestedWidth> 
+    <RequestedHeight>768</RequestedHeight>
+  </DefaultSettings>
+  <Permissions>ReadWriteDocument</Permissions>
+  <!--Allowed snapshot can be true or false for InContent Agaves only-->
+  <AllowSnapshot>true</AllowSnapshot>
+</OfficeApp>

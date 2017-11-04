@@ -1,0 +1,6 @@
+    WSGIScriptAlias /hwp /opt/2.0/hwpserver/hwp.wsgi
+    <Directory /opt/2.0/hwpserver/>
+        Order allow,deny
+        Allow from all
+    </Directory>
+

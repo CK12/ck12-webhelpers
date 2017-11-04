@@ -1,0 +1,15 @@
+Hi there,
+    {{ events[0]['eventData']['firstName'] }} {{ events[0]['eventData']['lastName'] }} ({{ events[0]['eventData']['email'] }}) wanted an account to be created at CK-12.org and listed you as their parent or guardian.
+
+    Since {{ events[0]['eventData']['firstName'] }} is under 13, we need you to confirm whether we should create an account.
+
+    You can click on the following link to help create the account for them:
+    <a href="{{ events[0]['eventData']['rurl'] }}" target="_blank">Click here</a>
+
+    If clicking on the link does not work, you can copy and paste into your browsers' address bar.
+
+    For more information on CK-12 Foundation and our policy please read our <a href="http://www.ck12.org/about/technology-2/privacy-policy/" target="_blank">Privacy Policy</a> and <a href="http://www.ck12.org/about/terms-of-use/" target="_blank">Terms of Use</a>
+
+Sincerely,
+
+The CK-12 Team

@@ -1,0 +1,29 @@
+{
+  "name": "ck12-dashboard",
+  "version": "0.0.1",
+  "description": "CK12 Dashboard with React",
+  "main": "webpack.config.js",
+  "scripts": {
+    "server": "NODE_ENV=development ck12devsrv -c ./webpack.config.js",
+    "minify-css": "cleancss -o ./dist/ck12-master.min.css ./css/ck12-master.css --skip-import-from 'hello.myfonts.net'",
+    "prebuild": "npm install && npm run minify-css",
+    "build": "webpack --config ./webpack.config.js"
+  },
+  "author": "",
+  "license": "Private",
+  "dependencies": {
+    "ck12-ajax": "^1.5",
+    "foundation-sites": "^6.2.3",
+    "moment": "^2.13.0",
+    "react-onclickoutside": "^5.3.2",
+    "redux-form": "^5.2.5",
+    "webpack": "1"
+  },
+  "devDependencies": {
+    "babel-plugin-lodash": "^3.2.0",
+    "babel-runtime": "^6.9.2",
+    "ck12devsrv": "0.0.9",
+    "clean-css": "^3.4.19",
+    "eslint-config-ck12": "0.0.6"
+  }
+}

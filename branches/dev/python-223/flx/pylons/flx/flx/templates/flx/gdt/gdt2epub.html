@@ -1,0 +1,107 @@
+<html>
+    <head>
+        <title>Convert a list of Google Docs to an ePub</title>
+        <script src="{{ c.prefix }}/media/js/jquery-1.5.min.js"></script>
+        <script type="text/javascript">
+            var taskID;
+            function startImport() {
+                $('#result').html('<p><img src="{{ c.prefix }}/media/images/ajax-loader.gif" /></p>');
+                $('#elapsed_time').html('');
+                $.ajax({
+                    url: '{{ c.prefix }}/gdt2epub/gdt/artifact',
+                    type: 'POST',
+                    data: $('#gdt').serialize(),
+                    dataType: 'json',
+                    success: function(data) {
+                        if (data.responseHeader.status != 0) {
+                            alert("Error converting Google Docs to ePub: " + data.response.message);
+                            return;
+                        }
+                        taskID = data.response.taskID;
+                        if (taskID) {
+                            setTimeout("checkStatus()", 2000);
+                        } else {
+                            alert("Could not get the task ID in response");
+                        }
+                    }
+                });
+            }
+
+            function checkStatus() {
+                $.ajax({
+                    url: '{{ c.prefix }}/get/status/task/' + taskID,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        if (data.responseHeader.status != 0) {
+                            alert("Error getting GDT to ePub conversion task status: " + data.response.message);
+                            return;
+                        }
+
+			var taskStatus  = data.response.status;
+                        if (taskStatus == 'PENDING' || taskStatus == 'IN PROGRESS') {
+                            setTimeout("checkStatus()", 2000);
+                        } else if (taskStatus == 'SUCCESS') {
+                            var userdata = jQuery.parseJSON(data.response.userdata);
+                            var perma = '';
+                            if (userdata.downloadUri) {
+                                perma = userdata.downloadUri;
+			        var timeElapsed = userdata.elapsedTime;
+                            }
+			    $('#result').html('<p>The ePub is ready to be downloaded. <a href="' + perma + '" target="_blank">Take it for a spin</a></p>');
+			    $('#elapsed_time').html('<p>Time Taken: ' + timeElapsed + '</p>');
+                        } else {
+                            $('#result').html('<p style="color:red;">Failed to generate the ePub. <br/>' + data.response.result + '</p>');
+                        }
+                    }
+                });
+
+
+            }
+        </script>
+    </head>
+    <body>
+        <h2>Convert a list of Google Docs to an ePub</h2>
+        <div id="result"></div>
+	<div id="elapsed_time"></div>
+        <form name="gdt" id="gdt" method="POST" 
+            enctype="multipart/form-data"
+            action="{{ c.prefix }}/gdt2epub/gdt/artifact'">
+        <table>
+            <tr>
+                <td>Google Login</td>
+                {% if not c.googleAuthToken %}
+                    <td><a href="{{ c.googleAuth }}">Login to Google</a><br/><span style="font-size:9pt;">(if the document is not readable by everyone)</span></td>
+                {% else %}
+                    <td style="font-size:9pt;">User has logged in to Google</td>
+                {% endif %}
+            </tr>
+            <tr>
+                <td>
+                    Book Title:
+                </td>
+                <td>
+                    <input type="text" name="bookTitle" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Google Doc IDs:
+                </td>
+                <td>
+                    <input type="text" name="docIDs" size="100" />
+                </td>
+            </tr>
+            <tr>
+                <td>User: </td>
+                <td>{{ c.member.login }}</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:right;">
+                    <input type="button" name="submit" value="Convert" onclick="startImport();" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

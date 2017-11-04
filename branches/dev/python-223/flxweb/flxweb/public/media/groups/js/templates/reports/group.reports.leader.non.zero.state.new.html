@@ -1,0 +1,256 @@
+<div id = "leader-templates">
+
+	<div id = "leader-non-zero-body-container-template">
+		<div class="row collapse ie8text">
+			<div class="large-12 columns" id ="report-view-container-normal-view">
+				<div id = "group-report-container" class="left">
+					<!--
+					<div id="download-csv-report" class="left">
+						<a><i class="icon-download app-icons"></i>Download CSV</a>
+					</div>
+					-->
+					<div style="clear:both"></div>
+					<div id = "report-view-wrapper" class="left"></div>
+					<div id ="assignment-report-wrapper" class="left hide">
+						<table id="assignment-concepts-details">
+							<thead></thead>
+							<tbody></tbody>
+						</table>
+					</div>
+					<div id="closeConcept" class="left hide"><span>...</span></div>
+					<div id = "concept-navigation-wrapper" class="right hide">
+						<div id="next-concept" class="pointer-container">
+							<img alt="next" title="next" src="/media/groups/assets/images/icon_arrow_right.png" width="16" height="30">
+						</div>
+
+						<div id="previous-concept" class="pointer-container">
+							<img alt="previous" title="previous" src="/media/groups/assets/images/icon_arrow_left.png" width="16" height="30">
+						</div>
+					</div>
+					<div id = "pagination-link-wrapper" class="right">
+						<div id="next-pointer" class="pointer-container">
+							<img alt="next" title="next" src="/media/groups/assets/images/icon_arrow_right.png" width="16" height="30">
+						</div>
+
+						<div id="previous-pointer" class="pointer-container">
+							<img alt="previous" title="previous" src="/media/groups/assets/images/icon_arrow_left.png" width="16" height="30">
+						</div>
+					</div>
+					<div id="loadMore"><span>Show more</span></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="report-template">
+		<table id="header-fixed"></table>
+		<table id="reportLeftMemberList">
+			<thead>
+				<tr class="report-header">
+					<th class="sortBy-cta">
+						<div class="report-filter hide">
+							<div>Sort <b>Report</b> by<div>
+							<div class="filter-select"><span class="selected-filter">Alphabetical Order</span><span class="down-arrow"><i class="icon-arrow-up"></i></span></div>
+							<ul class="filter-options hide">
+								<li>Alphabetical Order</li>
+							</ul>
+						</div>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="dummy-tr"></tr>
+			</tbody>
+		</table>
+		<table id= "group-report-details">
+			<thead>
+			</thead>
+			<tbody>
+				<tr class="dummy-tr"></tr>
+			</tbody>
+		</table>
+	</div>
+	<div id="conceptsReportTemp">
+		<div class="concept-status-wrapper">
+			<div class="color-temp @@color@@">
+			</div>
+			<span class="score-text">@@score@@%</span>
+			<div class="late-submission @@hide@@">
+			</div>
+		</div>
+	</div>
+	<div id="lateSubmissionToolTipTemp">
+		<div class="late-submission-toolTip">
+			<div class="row">
+				<div class="columns small-3 late-submit-white-icon"></div>
+				<div class="columns small-9">
+					<div class="row late-duration-text"></div>
+					<div class="row turned-in-text">Turned in <span class="turned-in-date"></span></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="reportHeaderAssignmentListsTemp">
+		<div>
+			<span><b>@@assignmentName@@</b></span><span> (</span><span>@@conceptCount@@</span><span>)</span>
+		</div>
+	</div>
+	<div id="reportMemberNameTemp">
+		<div class="member-info">
+			<a class="member-link" title="@@userFullName@@">
+				<span class="member-image @@backGroundColor@@">
+					<img src="/auth/member/image/@@userAuthID@@" alt="@@username@@">
+				</span>
+				<span class="member-name">@@username@@</span>
+				<span class="hide" id = "user-id" data-userID="@@userID@@"></span>
+			</a>
+		</div>
+	</div>
+	<div id="assignmentIncompleteStateTemp">
+		<div class="assignment-status-wrapper">
+			<div style="width:@@width@@" class="assignment-incomplete-state">
+			</div>
+			<span class="score-text">@@completeCount@@/@@totleCount@@<span>
+		</div>
+	</div>
+	<div id="assignmentCompleteStateTemp" >
+			<div class="assignment-status-wrapper">
+				<div width="100%" class="assignment-complete-state">
+				</div>
+			</div>
+	</div>
+	<div id="assignmentZeroStateTemp" >
+			<div class="assignment-status-wrapper">
+				<div class="assignment-zero-state">
+					__
+				</div>
+			</div>
+	</div>
+	<div id = "member-top-template">
+		<div class="member-top">
+			<a class="member-link" title="@@userFullName@@">
+				<span class="hide" id = "user-id" data-userID="@@userID@@"></span>
+				<span class="member-name">@@username@@</span>
+				<span class="member-image @@backGroundColor@@">
+					<img src="/auth/member/image/@@userAuthID@@" alt="@@username@@">
+				</span>
+			</a>
+		</div>
+	</div>
+
+	<div id = "member-top-average-template">
+		<span class = "average-score">
+			@@member-average-score@@
+		</span>
+	</div>
+
+	<table id = "concept-detailed-view-row-template">
+		<tr class = 'concept-details-view hide leader-concept-name-view' data-concept-id="@@conceptID@@" data-concept-eid="@@conceptEID@@" data-concept-type="@@conceptType@@" data-concept-handle="@@conceptHandle@@" data-realm="@@conceptRealm@@">
+			<td>
+				<span class="icon-quiz yellow-quiz-icon @@quizIconState@@"></span>
+				<span id = "concept-name">@@conceptName@@</span><br/>
+				<span class="practice-unavailable @@show-practice-unavailable-text@@">Practice unavailable</span>
+				<span>@@quiz-concept-list@@</span>
+			</td>
+			<td>@@CONCEPT-SCORE-HOLDER@@</td>
+		</tr>
+	</table>
+
+	<table id = "assignment-detail-view-row-template">
+		<tr class = "assignment-text-info hide" data-assignment-id="@@assignmentID@@">
+			<td>
+				<span id = "assignment-name" class="assignment-text js-assignment-name" title="@@assignmentName@@">
+
+				</span>
+			</td>
+			<td class="assignment-date-information-holder" colspan="@@span-column-count@@">@@ASSIGNMENT-DATE-INFORMATION-HOLDER@@</td>
+		</tr>
+	</table>
+
+	<table id = "compact-view-row-template">
+		<tr class = "compact-view @@background-color-class@@">
+			<td>
+				<span class="assignment-link">
+					<a id="@@assignmentID@@" class="js-assignment-name" title="@@assignmentName@@"></a>
+				</span>
+				<span class="js-assignment-name assignment-text hide" title="@@assignmentName@@">
+				</span>
+			</td>
+			<td>@@ASSIGNMENT-AVERAGE-SCORE-HOLDER@@</td>
+		</tr>
+	</table>
+
+	<div id = "assignment-score-template">
+		<div class="js-assignmemt-score">
+			<div id="assignment-completion-text" class="@@hide-on-completed@@">
+				@@assignment-completed-count@@/@@assignment-total-count@@
+			</div>
+			<div id = "assignment-progress-bar-container">
+				<div id="assignment-score-progress-bar" class="progress-bar-horizontal progress-color-@@progress-bar-background-color@@" data-width="@@assigmentProgressPercentage@@%" style="width:@@assigmentProgressPercentage@@%;">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id = "concept-score-template">
+		<div class="@@js-score@@" data-member-id="@@memberID@@" data-last-access-date="@@lastAccessDate@@">
+			<div id ="score-progress-bar" class="progress-bar-vertical left score-progress-bar progress-color-@@progress-bar-background-color@@" data-height="@@js-progress-bar-height@@" style="height: @@js-progress-bar-height@@">
+			</div>
+			<div class="member-score-text">
+				<a class = "@@show-on-practice@@">@@member-concept-score@@</a>
+				<span class = "@@show-on-no-practice@@">@@member-concept-score@@</span>
+			</div>
+		</div>
+	</div>
+
+	<div id = "concept-completion-template">
+		<div id="completed-tick-icon">
+			<span class="icon-checkmark app-icons"></span>
+		</div>
+	</div>
+
+	<div id = "assignment-date-information-template">
+		<div class="date-information">
+			<span class="left">
+			<span>Latest practice and quiz scores</span><br/>
+			<span class="@@assignment-due-date@@">Due: @@assignmentDueDate@@</span>
+			</span>
+			<span class="right expand-view-button active pointer"><span class="expand-close"></span></span>
+		</div>
+	</div>
+
+	<div id = "assignment-date-information-icon-template">
+		<div class="date-information-wrapper">
+			<div class="date-information-icon">
+				<img src="/media/groups/assets/images/icon_info.png" width="16" height="16">
+			</div>
+			<span class="right expand-view-button active pointer"><span class="expand-close"></span></span>
+			<div class="hide date-information-container">
+				<div class="date-information tooltip-bottom">
+					<span class="assignment-title-tooltip-title">Latest practice and quiz scores</span><br/>
+					<span class="@@assignment-due-date@@">Due: @@assignmentDueDate@@</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id = "fullscreen-container-template">
+		<div id="fullscreen-container" class="reveal-modal app-reveal-modal xlarge" style="height:70%"></div>
+	</div>
+
+	<div id = "report-full-page-template">
+		<div id="report-full-page" class="row collapse subject-select-wrapper">
+			<div class="small-12 large-12 columns">
+				<div class="row collapse assignment-top-wrapper">
+					<div class="small-12 large-12 columns">
+						<div class="row collapse right">
+							<a id="report-exit-fullscreen-link">Back</a>
+						</div>
+						<div class="row collapse" id ="report-view-container-fullscreen-view">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

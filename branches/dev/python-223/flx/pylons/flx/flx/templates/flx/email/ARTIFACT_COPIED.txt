@@ -1,0 +1,12 @@
+Dear {{ member.name }},
+
+Greetings from CK-12 Foundation!
+
+Requested {{ events[0]['objectDict']['artifactType'] }} has been copied successfully.
+Status note: {{ events[0]['eventData'] }}
+Title: {{ events[0]['objectDict']['title'] }}
+
+Do you have questions or feedback? Do not hesitate to email support@ck12.org.
+
+Sincerely,
+The CK-12 Team

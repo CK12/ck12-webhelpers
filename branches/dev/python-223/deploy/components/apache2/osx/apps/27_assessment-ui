@@ -1,0 +1,5 @@
+    #Alias /assessment/ui/build-000 /opt/2.0/assessment/ui
+    Alias /assessment/ui /opt/2.0/assessment/ui
+    <Directory /opt/2.0/assessment/ui/>
+        Require all granted
+    </Directory>

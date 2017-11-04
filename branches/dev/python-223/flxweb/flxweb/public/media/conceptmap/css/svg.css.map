@@ -1,0 +1,9 @@
+{
+	"version": 3,
+	"file": "svg.css",
+	"sources": [
+		"../scss/svg-shared.scss"
+	],
+	"mappings": "AAAA,OAAO,CAAC,kCAAI;AAEZ,AAAA,IAAI,EAAE,AAAA,KAAK,CAAC;EACR,WAAW,EAAE,aAAc,GAC9B",
+	"names": []
+}

@@ -1,0 +1,8 @@
+from celeryconfig_queues import *
+
+CELERYD_CONCURRENCY = 3
+CELERYD_LOG_FILE = "c:/2.0/flx/pylons/flx/celeryd.log"
+
+CELERY_IMPORTS = ("flx.controllers.celerytasks.xdt", )
+
+CELERY_DEFAULT_QUEUE = "xdt"

@@ -1,0 +1,14 @@
+<p style="margin:0px">{{ _("We got your request to signup for CK-12. However your parent or guardian hasn't yet approved your request.")}} <img src="/auth/media/images/smiley-frown.gif"/></p>
+<p style="margin:0px">{{_("If you want to remind them again,")}}
+{% if c.hasParentEmail %}
+<a href="{{h.url('underage_approval_resend',qualified=True)}}?t={{ c.token }}">{{ _("click here") }}</a>
+{% else %}
+<a href="{{h.url('member_underage_signup',qualified=True)}}?underageinfo={{c.encodedData}}">{{ _("click here") }}</a>
+{% endif %}
+ {{_("and we will send them an email.") }}
+ {% if c.hasParentEmail %}
+ {{ _("If you want to re-enter your parents")}} <br/> {{ _("email address") }}
+ <a href="{{h.url('member_underage_signup',qualified=True)}}?underageinfo={{c.encodedData}}">{{ _("click here.") }}</a>
+ {% endif %}
+ </p>
+<p style="margin:0px"> {{ _("Hope to see you learning soon!") }}</p>

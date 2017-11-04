@@ -1,0 +1,29 @@
+var urls = [
+    'https://www.ck12.org/taxonomy/get/info/branches/MAT?_=1479413224190',
+    'https://www.ck12.org/taxonomy/get/info/branches/SCI?_=1479413585927',
+    'https://www.ck12.org/taxonomy/get/info/branches/ENG?_=1479413695641',
+    'https://www.ck12.org/taxonomy/get/info/branches/TEC?_=1479418277997',
+    'https://www.ck12.org/taxonomy/get/info/branches/SOC?_=1479418300026',
+    'https://www.ck12.org/taxonomy/get/info/branches/ELA?_=1479418313625'
+];
+var defers = []
+urls.forEach(function (url) {
+    defers.push($.ajax({
+        url: url,
+        method: 'get'
+    }));
+});
+var result = {}
+$.when.apply(null, defers).done(function () {
+    for (var i = 0; i < arguments.length; i++) {
+        var branches;
+        try {
+            branches = JSON.parse(arguments[i][0]).response.branches;
+        } catch (ex) {
+            branches = arguments[i][0].response.branches;
+        }
+        branches.forEach(function (branch) {
+            result[branch.subjectID + '.' + branch.shortname] = branch.name;
+        });
+    }
+});

@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns:dc="http://www.ck12.org/dc/will_create_ns"
+unique-identifier="chapterid" version="2.0">
+
+  <chapter>
+    <metadata>
+      <chapterid>13</chapterid>
+      <title>Electricity</title>
+      <description>Topics in this chapter include: the big idea,electric forces and fields,the coulomb force law,fields due to several charges,electric potential,electric field of a parallel plate capacitor,summary of relationships,key concepts,key applications,electricity problem set.
+    
+     </description>
+    </metadata>
+    
+    <lessons>
+      <item id="the_big_idea" href="the_big_idea.html" sequence="1" />
+      <item id="electric_forces_and_fields" href ="electric_forces_and_fields.html" sequence="2" />
+      <item id="the_coulomb_force_law" href ="the_coulomb_force_law.html" sequence="3" />
+      <item id="fields_due_to_several_charges" href ="fields_due_to_several_charges.html" sequence="4" />
+      <item id="electric_potential" href ="electric_potential.html" sequence ="5" />
+      <item id="electric_field_of_a_parallel_plate_capacitor" href="electric_field_of_a_parallel_plate_capacitor.html" sequence="6" />
+      <item id="summary_of_relationships" href="summary_of_relationships.html"  
+      sequence="7" />
+      <item id="key_concepts" href="key_concepts.html" sequence="8" />
+      <item id="key_applications" href ="key_applications.html"
+      sequence="9" />
+      <item id="electricity_problem_set" href ="electricity_problem_set.html"
+      sequence="10" />
+    </lessons>
+  </chapter>
+
+</package>

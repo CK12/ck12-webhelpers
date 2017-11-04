@@ -1,0 +1,62 @@
+#showGuidelines{
+    z-index: 200;
+}
+.guide-background{
+    background: url(../images/community_bck.svg) no-repeat;
+    background-size: cover;
+    .content{
+        font-size: 16px;
+        line-height: 18px;
+        color: #56544D !important;
+    }
+    .term{
+        font-family: 'Pacifico', cursive;
+        // font-style: normal;
+        font-size: 21px;
+        color: #56544D;
+        line-height: 30px;
+        margin-bottom: 35px;
+    }
+}
+#showGuidelines{
+    padding:0;
+}
+.guideline-title{
+    margin-top: 50px;
+    margin-bottom: 7px;
+    font-size: 30px;
+    color: #56544D;
+    font-family: "ProximaNova";
+    font-weight: bold;
+}
+.sub-title{
+    font-size: 20px;
+    color: #3399cc;
+    font-weight: bold;
+    line-height: 21px;
+    margin-top: 28px;
+}
+.content{
+    font-size: 14px;
+    color: #56544D;
+    ul{
+        padding-left: 16px;
+    }
+}
+.modal-uikit .content {
+    line-height: 1.5em;
+    padding: 0;
+    word-wrap: break-word;
+}
+
+.full-screen{
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff;
+    z-index: 99;
+    position: absolute;
+    top: 0;
+}
+.close-reveal-modal{
+    z-index: 99;
+}

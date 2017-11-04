@@ -1,0 +1,58 @@
+@import '../main';
+
+:local {
+
+    .modal {
+        padding: ($global-padding * 2) 0;
+        color: $white;
+
+        svg {
+            height: rem-calc(125);
+            margin-bottom: rem-calc(16);
+        }
+
+        h5, p {
+            color: $white;
+        }
+
+        h5 {
+            font-weight: normal;
+        }
+
+        p {
+            font-size: rem-calc(32);
+            font-weight: bold;
+            margin-bottom: $global-padding;
+            line-height: 1.2;
+        }
+
+        :global(.button) {
+            margin: 0 auto $global-padding;
+            width: 80%;
+            display: block;
+        }
+
+        span {
+            color: $SMOKE_GREY;
+            cursor: pointer;
+        }
+    }
+
+    @include breakpoint(small only){
+        .modal {
+            svg {
+                height: rem-calc(75);
+            }
+
+            p { font-size: rem-calc(20); }
+
+            :global(.button){
+                margin: 0 auto rem-calc(10);
+            }
+
+            span {
+                font-size: rem-calc(13);
+            }
+        }
+    }
+}

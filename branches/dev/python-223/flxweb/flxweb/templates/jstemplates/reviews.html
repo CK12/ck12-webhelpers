@@ -1,0 +1,283 @@
+<!-- 
+    Template used for 1 review in the reviews list 
+-->
+<script type="text/x-template" id="reviewTemplate">
+    <div class="feedbacksection" id="<%= memberID %>">
+            <div class="feedbackauth">
+                <span class="membername"> <%= memberName %> </span>
+                <span class="date">  <%= creationTime %></span>
+                <span>
+                <% if (score == -1) { %>
+                    <a class="dislikeicon" title="{{ _("Not helpful") }}"><span class="imgwrap"></span></a> 
+                <% } else { %> 
+                     <a class="likeicon" title="{{ _("Helpful") }}"><span class="imgwrap"></span></a> 
+                <% } %>
+                </span>
+            </div>
+            <div class="feedbackcomment break-word">
+                <%= _.escape(comments) %>  
+            </div>
+            
+            <div class="reply_action"> 
+                <span class="feedbackbtn"><span class="inlineblock wait_js block-for-small"></span> <a class="listreply collapsereply" data-memberid="<%= memberID %>" data-totalreviews="<%= totalReviews %>" href="javascript:void(0);" > <%= totalReviews %> <% if (totalReviews > 1 || totalReviews === 0){ %> Comments <%}else{ %> Comment <% } %>  </a> </span>
+                <a class="addreply" data-memberid="<%= memberID %>" href="javascript:void(0);"  >&nbsp;&nbsp;Reply&nbsp;&nbsp;</a></span>
+                <span class="spaceleft"> Was this helpful? <a class="spaceleft helpfulyes" href="javascript:void(0);" data-helpfulyes="<%= isHelpful %>" > Yes ( <%= isHelpful %> ) </a> <a class="spaceleft helpfulno" href="javascript:void(0);" data-helpfulno="<%= isNotHelpful %>" > No ( <%= isNotHelpful %> ) </a></span>
+                <span class="formrightcolumn feedbackbtn">
+	                <span class="inlineblock wait_js block-for-small"></span>
+	                <span class="action-item-container">
+					<% if (isArtifactOwner || isAdminUser || isReviewer) { %>
+                		<a class="hide js_feedbackbtn_remove"></a>
+						<span class="action-item icon-remove remove_feedback_confirm js_feedback">
+                			<span class="tooltip-bottom text-tips">
+                				Delete
+                			</span>
+                		</span>
+                	<% } %>
+                	</span>
+                	<span class="action-item-container">
+	                <% if ((!notAbuse && !hasReportedAbuse) && (memberID != ads_userid)){ %>
+                		<span class="action-item icon-flag report_abuse js_feedback_abuse">
+                			<span class="tooltip-bottom text-tips">
+                				Report Abuse
+                			</span>
+                		</span>
+	                <% } %>
+	                </span>
+            </div>
+            
+            <div class="divider spacetop"></div>
+            
+            <div class="addreplybox hide">
+                <div class="formleftcolumn spacetop">
+                    <span class="feedbacktitle"> {{ _('Post a Comment') }}</span>
+                </div>
+                <div class="clear replytextareawrap">
+                    <textarea maxlength="1000" class="replytextarea" placeholder="{{ _('Give reply about this review. Why was it helpful or not? Limit to 1000 max characters.') }}" rows="4"></textarea>
+                </div>
+                <div class="error profanereply" ></div>
+                <div class="feedbackbtn formrightcolumn inlineblock">
+                    <span class="inlineblock wait_js block-for-small"></span>
+                    <span class="inlineblock"><a data-memberid="<%= memberID %>" class="button turquoise postreply_js " href="javascript:void(0);" >{{ _('Post') }}</a></span>
+                    <span class="spacer"></span>
+                    <span class="inlineblock"><a class="button dusty-grey supplementary cancelreply_js"   href="javascript:void(0);">{{ _('Cancel') }}</a></span>
+                </div>
+                <div class="clear"></div>
+            </div>
+    </div>
+             
+    
+</script>
+
+
+
+<!-- 
+    Template used for disply 1 reply for review 
+-->
+<script type="text/x-template" id="replyTemplate">
+   <div class="replycomment" id="<%= id %>">
+			<div class="spacetop"></div>
+            <div class="feedbackauth">
+                <span class="membername"> <%= reviewersMemberName %> </span>
+                <span class="date">  <%= creationTime %></span>
+                <span class="reply_action"> 
+	                 <% if ( "{{ c.user.id }}" == reviewersMemberID) { %> <span class="spaceleft"><a class="editreply_js" href="javascript:void(0);"> Edit </a></span> 
+	                 <% }%> 
+	                 <% /*if ( "{{ c.user.id }}" == reviewersMemberID) { %> <span class=""><a class="deletereply_js" href="javascript:void(0);"> Delete </a></span> 
+	                 <% }*/%> 
+	                 <span class="formrightcolumn feedbackbtn">
+	                 	 <span class="inlineblock wait_js block-for-small"></span>
+	                 	 <span class="action-item-container">
+		                 <% if (isArtifactOwner || isAdminUser || isReviewer || isReplier) { %>
+	                		<a class="deletereply_js hide">X</a>
+	                		<span class="action-item icon-remove remove_feedback_confirm">
+	                			<span class="tooltip-bottom text-tips">
+	                				Delete
+	                			</span>
+	                		</span>
+	                	 <% } %>
+	                	 </span>
+	                	 <span class="action-item-container">
+	                	<% if (!notAbuse && !hasReportedAbuse){ %>
+	                		<span class="action-item icon-flag report_abuse">
+	                			<span class="tooltip-bottom text-tips">
+	                				Report Abuse
+	                			</span>
+	                		</span>
+	                	<% } %>
+	                	</span>
+                	</span>
+                </span>    
+            </div>
+            
+            
+            <div class="feedbackcomment break-word" data-reviewid="<%= id %>" data-reviewersmemberid="<%= reviewersMemberID %>" data-memberid="<%= memberID %>" >
+                <%= _.escape(reviewComment) %>  
+            </div>
+            
+            <div class="divider spacetop"></div>
+    </div>
+</script>
+
+<!-- 
+    Template used edit box of 1 reply for review 
+-->
+<script type="text/x-template" id="updateReplyTemplate">
+        <div class="editreplybox">
+                <div class="formleftcolumn spacetop">
+                    <span class="feedbacktitle"> {{ _('Edit a Comment') }}</span>
+                </div>
+                <div class="clear replytextareawrap">
+                    <textarea maxlength="1000" class="replytextarea" placeholder="{{ _('Give reply about this review. Why was it helpful or not? Limit to 1000 max characters.') }}" rows="4"> <%= reviewComment %></textarea> 
+                </div>
+                <div class="error profanereply" ></div>
+                <div class="feedbackbtn formrightcolumn inlineblock">
+                   <span class="inlineblock wait_js block-for-small"></span>
+                   <span class="inlineblock"><a class="btn updatereply_js " href="javascript:void(0);" >Update</a></span>
+                   <span class="spacer">
+                   </span> <span class="inlineblock"><a class="btn supplementary canceleditreply cancelreply_js" href="javascript:void(0);" >Cancel</a></span>
+                </div>
+                <div class="clear"></div>
+        </div>
+</script>
+
+
+<!-- 
+    Template used for showing the Load more button
+-->
+<script type="text/x-template" id="loadmoreBtnTemplate">
+	<div id = 'load-more-container'>
+	<div class="spacetop"></div>
+        
+        <div id="reviewfeedback_loading_div" class="hide">
+        Loading reviews...
+        <img class="x-ck12-img-nopopup" src="{{ h.asset_image('images/icon_loading.gif') }}" width="43" height="11" />
+        </div>
+      
+    <% if(showLoadmore) { %>
+        <span class="inlineblock formleftcolumn"> <a id="loadMorebtn" class="loadmorereviewfeedback_js" >
+        	{{ _("Load More (") }}<span id = 'remaing-reviews'><%= reviewsRemaining %></span>{{_(")")}}
+        	<span class="icon-arrow3-down"></span>
+        	</a></span>
+    <% } %>
+    </div>
+</script>
+
+
+<!-- 
+    Template used for showing the summary of the reviews 
+-->
+<script type="text/x-template" id="reviewsSummaryTemplate">
+    <div class="reviewfeedbackhead spacetop">
+        <div class="formrightcolumn">  
+            <% if (score == -1 || score == 1) { %>
+            <a id="editMyReview" class="btn editreviewfeedback_js " href="javascript:void(0);" > {{ _("Edit Your Review") }}</a>
+            <% } %>
+        </div>
+        <div class="feedbackpercentage" >
+            <% if (total > 0) { %>
+            <div class="formleftcolumn hide-for-small">
+                <span class="feedbacktitle">
+                <%= percentage %> {{ _('% of people thought this content was helpful.') }}
+                </span>
+            </div>
+            <span class="feedbacktitle">
+                <span class="icon-like voting-icon like" title="{{ _('Helpful') }}"></span>
+                <span class="vote like"><%= like %></span>
+                <span class="icon-unlike voting-icon dislike" title="{{ _('Not helpful') }}"></span>
+                <span class="vote dislike"><%= dislike %></span> 
+            </span>
+            <div class="clear spacetop"></div>
+            <% if (reviewsRemaining > 0) { %>
+            <div class="inlineblock formleftcolumn show-hide-feedback-reviews reviews-collapsed">
+                 <a id="show-reviews-btn" class="showreviews_js">{{ _('Show reviews (') }}<%= reviewsRemaining %>{{ _(')') }}
+                 	<span class="icon-arrow3-down"></span>
+                 </a>
+            </div>
+            <div class="clear"></div>
+            <% } %>
+            <% } else { %>
+            Help us create better content by rating and reviewing this modality.
+            <% } %>
+        </div>
+         <div class="divider spacetop"></div>
+         <% if(reviewsRemaining > 0) { %>
+         <div class="formleftcolumn">
+                <span class="feedback-helpfull-heading feedbacktitle reviews-expanded hide">
+                {{ _('Most Helpful Reviews:') }}
+                </span>
+        </div>
+		 <div class="inlineblock formrightcolumn show-hide-feedback-reviews spacetop reviews-expanded hide">
+                 <a id="hide-reviews-btn" class="hidereviews_js">{{ _('Close') }}
+                 </a>
+        </div> 
+        <% } %>
+    </div>
+</script>
+
+
+<!-- 
+Template used for showing the current user's review
+for a specified artifact
+-->
+<script type="text/x-template" id="myReviewTemplate">
+    <div class="formrightcolumn artifactvotingfeedback">
+        <div id="myreview_vote">
+           
+            <a href="javascript:void(0);" id="top_edit_review" class="editfeedback_link <% if (score == 1 || score == -1) { %> show <% } else{ %> hide <% } %>" >{{ _("Edit Review") }}</a>
+           
+            <span class="washelpful_js <% if (score == 1 || score == -1) { %> hide <% } else{ %> show <% } %>"><span>{{ _("Was this helpful?") }}</span></span> 
+           
+            
+            <a id="review_up" class="artifactfeedbackaction artifactfeedbackaction_js" title="{{ _('Helpful') }}"  >
+                <span class="icon-like voting-icon <% if (score == 1) { %> like <% } else{ %> yes <% } %> artifactfeedbackaction"></span>
+                <span> Yes </span>
+            </a>
+            <a id="review_down" class="artifactfeedbackaction artifactfeedbackaction_js" title="{{ _('Not helpful') }}" >
+                <span class="icon-unlike voting-icon <% if (score == -1) { %> dislike <% } else{ %> no <% } %>  artifactfeedbackaction"></span>
+                <span> No </span>
+            </a>
+       </div>
+ 		<div id="review_popup" class="feedbackpopup hide">
+            <div class="divfeedback">
+                <textarea maxlength="1000" id="review_comments" class="feedbacktextarea" placeholder="{{ _('Give feedback about this resource. Why was it helpful or not? Limit to 1000 max characters.') }}" rows="4"><%= comments %></textarea>
+            </div>
+            <div class="error profane" id="profane_message"></div>
+        	<div class="divider"></div>
+        	<div class="feedbackbtn">
+            <!-- <span class="hint_edittitle">(Comment) <span class="var_comment">    0 / 1000</span></span> -->
+            <span class="inlineblock wait_js block-for-small"></span>
+            <span class="spacer"></span>
+            <span class="inlineblock"><a id="review_submit"   class="button turquoise feedbackbtn_js " href="javascript:void(0);" >{{ _('Submit Review') }}</a></span>
+            <span class="spacer"></span>
+            <span class="inlineblock"><a id="review_skip"  class="button dusty-grey feedbackbtn_skip" href="javascript:void(0);">{{ _('Skip Review') }}</a></span>
+             <% if (score == 1 || score == -1) { %>
+            <span class="inlineblock"><a class="feedbackbtn_remove"   href="javascript:void(0);">{{ _('Remove') }}</a></span>
+            <% } else{ %>
+            <span class="inlineblock"><a class="feedbackbtn_cancel"   href="javascript:void(0);">{{ _('Cancel') }}</a></span>
+            <% } %>
+        </div>
+   	 </div>
+    </div>
+</script>
+
+<!-- 
+Template used for showing the inappropriate comment popup
+-->
+<script type="text/x-template" id="commentInappropriateTemplate">
+	<div class="flag-comment-container" id="flag-comment-container">
+	    <div class="flag-comment-options">
+	        <span>Does this post seem offensive or disrespectful?</span>
+	        <div class="flag-diff"></div>
+	        <a class="flag-link" id="inappropriate">Flag it as inappropriate</a>
+	        <div class="flag-diff"></div>
+	    </div>
+	
+	    <!--<div class="flag-comment-as-inappropriate hidden">
+	        You flagged this comments as <b>inappropriate</b>
+	        <br>
+	        <br>
+	        Thanks for bringing this to our attention.
+	    </div>-->
+	</div>
+</script>
+

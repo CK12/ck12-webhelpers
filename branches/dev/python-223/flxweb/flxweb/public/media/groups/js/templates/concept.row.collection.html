@@ -1,0 +1,14 @@
+<div class="row collapse select-concept-wrapper <%= data.isPracticeConcept %> <%= data.conceptLevel > 1? "level-" + data.conceptLevel + "-concept" :"" %> <%= data.encodedID?"pointer my-class js-select-concept-wrapper js-concept-select concept":"concept-parent" %>" style="<%= data.conceptLevel > 1? "padding-left:" + (data.conceptLevel * 20 - 10) + "px": "" %>" data-encodedID="<%= data.encodedID %>" data-handle="<%= data.handle %>" data-parent-handle="<%= data.parentHandle %>" data-collection-handle="<%= data.collectionHandle %>" data-concept-collection-handle="<%= data.conceptCollectionHandle %>" data-concept-collection-absolute-handle="<%= data.conceptCollectionAbsoluteHandle %>" data-realm="<%= data.realm %>" data-collection-creator-ID="<%= data.collectionCreatorID %>">
+	<span class="concept-name">
+		<span class="js-concept-name"><%= data.conceptName %></span>
+		<% if(data.encodedID) { %>
+			<i class="icon-Info <%= data.assignmentConceptIcon %> js-concept-newspaper"></i>
+		<% } %>
+	</span>
+	<% if(data.encodedID) { %>
+		<div class="custom-box right">
+			<input type="checkbox" id="<%= data.artifactID %>" class="js-concept-check" <%= data.isChecked %>>
+			<label class="checkbox" for="<%= data.artifactID %>"><span><i class="icon-validated"></i></span></label>
+		</div>
+	<% } %>
+</div>

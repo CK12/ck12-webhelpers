@@ -1,0 +1,34 @@
+{% extends "details.html" %}  
+{% from "macros/form_errors.html" import form_errors with context %}  
+
+{% block admincontent %} 
+<div class="sectionhead sectiontitle">{{c.pagetitle}}</div>
+<div class="section withfloatedsubmit">
+  <form id="mainform" method="post" class="clickonly">
+    <div class="leftaligned">
+    {{ h.labelreadonly('Id', 'id', 'info xmed')}}
+    {{ h.labeldiv('Question',
+       (h.idlink('/question/'+c.hwerror.questionClass, c.hwerror, 'questionID', 'questionID'),
+        '&nbsp; ',h.htmla_proxy('flxweb/get/preview/question/%s/%s?embed=%s'%(c.hwerror.questionClass, c.hwerror.questionID, false), '[Preview]', 'view'))) }}
+  {% for field in c.form.ordered_fields %}
+    {{ field }}
+  {% endfor %}
+    {{ h.labeldiv('Updated By', h.userlink(c.hwerror, 'reviewer', 'reviewedBy'))}}
+    {{ h.labeltextarea('Variable Value Map', 'variableValueMap', 5, 82)}} 
+    {{ h.labeltextarea('Response', 'response', 5, 82)}} 
+    </div>
+    {{ h.submitbutton(c.save_prefix+'NEW', name='newstatus')}}
+    {{ h.submitbutton(c.save_prefix+'FIXED', name='newstatus')}}
+    {{ h.submitbutton(c.save_prefix+'INVALID', name='newstatus')}}
+    {{ h.cancelbutton(c.cancel)}}
+  </form>
+</div>
+{% endblock %}
+{% block js_scripts %}
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#view').colorbox(Defaults.overlay('flxweb'));
+});
+</script>
+{% endblock %}
+

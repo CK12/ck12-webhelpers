@@ -1,0 +1,51 @@
+<div>
+
+<div class="error-page-padding"></div>
+
+<div id="error-msg-container" >
+    <div class="row">
+        <div class="columns large-12 small-8 text-center">
+            <div><img id="show-debug" src="//www.ck12.org/media/common/images/sad_flexbook.svg" alt="Sad flexbook image" style="height:200px"></div>
+	</div>
+    </div>
+    <div class="row">
+        <div class="columns large-12 small-8 large-centered text-center">
+	    <h4><%= data.banner_text %><% if (!data.banner_text) { %> Sorry...there was an issue loading the app. <% } %> </h4>
+	</div>
+    </div>
+    <div class="row">
+        <div class="columns large-8 small-8 text-center large-centered">
+	    <% if (!data.hideSupportButton) { %>
+	        <div id="contact-support" class="button tangerine">Contact Support</div>
+	    <% } %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="columns large-8 small-8 text-center large-centered">
+	    <% if (data.errorMsg) { %>
+                <% if (data.noCookies) { %>
+                   <a href="https://ck12support.zendesk.com/hc/en-us/articles/211660477" target="_blank"> Visit our help center article to get started.</a>
+                <% } %>
+	        <div class="error_msg_text hide">Error: <%= data.errorMsg %></div>
+	    <% } %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="columns large-centered text-justify" style="width:560px;">
+	    <% if (data.ltiAuthFailure && data._isAdmin) { %>
+	        <% if (data._isAdmin){ %>
+		    <div style="background-color:#56544D;color:white;padding:5px 0 0 12px;">
+		        <p><b>Here are a few things that your System Administrator can check:</b></p>
+		          <p>1 )&nbsp;&nbsp; Make sure the key and secret match what was given by CK-12.</p>
+			  <p>2 )&nbsp;&nbsp; Review the app installation <a href="https://ck12support.zendesk.com/hc/en-us/sections/201340878-Third-Party-Integration" target="_new">instructions </a> in our help center.</p>
+		          <p>3 )&nbsp;&nbsp; If you need a key and secret send us a <a href="https://docs.google.com/a/ck12.org/forms/d/1MA1mDUknJiMtAUgmGtjPvAaUnaJPGMZ5UHEIs1ibRoU/viewform?c=0&w=1" target="_new">request!</a></p>
+			<p><b>Still need help? Contact <a id="contact-support"> support@ck12.org </a> about this error.</b></p>
+			<% if (data.errorMsg) { %> <small>Error: <%= data.errorMsg %></small> <% } %>
+		    </div>
+	        <% } %>
+	    <% } %>
+        </div>
+    </div>
+</div>
+
+</div>

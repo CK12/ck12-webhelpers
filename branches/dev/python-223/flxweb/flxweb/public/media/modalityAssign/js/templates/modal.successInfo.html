@@ -1,0 +1,30 @@
+<div class="assign-class-modal reveal-modal" data-reveal id="successModal">
+	<div class="row text-left modal-title">
+		<div class="columns small-12 text-center">
+				<div class="green">Success!</div>
+				 <div class="ckeck-mark green"><i class="icon icon-checkmark"></i></div>
+		</div>
+		<div class="columns small-12 text-center text-succes">
+			You have successfully assigned <span class="assign-n">'<%=assignmentName%>' </span>to your classes: 
+			<% _.each(groupList,function(group, index){ %>
+				<a class="lin-to-group" href="<%=serverURL%>/group-assignments/<%= group.groupID%>"><%= group.groupName%> 
+				<%if(index < groupList.length-1){%>
+				,
+				<%}%>
+				</a>
+			<%})%>
+			<% _.each(classroomList,function(course, index){ %>
+				<a class="lin-to-group" href="<%=course.url%>"><%= course.name%> 
+				<%if(index < classroomList.length-1){%>
+				,
+				<%}%>
+				</a>
+			<%})%>
+		</div>				
+		<div class="columns small-12 text-center">
+		<div class="button standard turquoise success-btn btn">
+			OK
+		</div>			
+		</div>		
+	</div>
+</div>

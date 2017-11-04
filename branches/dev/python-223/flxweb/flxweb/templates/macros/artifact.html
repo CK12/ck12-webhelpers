@@ -1,0 +1,901 @@
+c.comb_concept_collection_handle<!--
+***************************************************************************
+Macro: ck12_grid_artifact
+Macro to display the artifacts in a grid view. Note this macro only displays
+one item within the grid view.
+***************************************************************************
+-->
+{% macro ck12_grid_artifact (artifact) %}
+<div class="griditem">
+	<div class="griditemallwrap">
+		<div class="griditemouterwrap ui-corner-all">
+			<div class="griditeminnerwrap ui-corner-all">
+				<div class="griditemimgwrap ui-corner-all">
+					<a href="{{ config.webroot_url }}{{ artifact.getPermaHandle() }}"><img src="{{ artifact|ck12_artifact_cover_thumbnail_large }}" alt="{{ artifact.title|escape }}" title="{{ artifact.title|escape }}"/></a>
+					<div class="griditemimgoverlap"></div>
+					<div class="griditemreview{% if artifact.isFavorite() %} reviewed{% endif %}"></div>
+					<div class="griditemview"></div>
+				</div>
+				<div class="griditemtitle">
+					{{ artifact.title|truncate(40)|escape }}
+				</div>
+				<div class="griditemsummary">
+					{{ artifact.summary|truncate(80)|escape }}
+				</div>
+			</div>
+		</div>
+		<div class="griditemshadow"></div>
+	</div>
+</div>
+
+{% endmacro %}
+
+<!--
+***************************************************************************
+Macro: ck12_list_artifact
+Macro to display the artifacts in a list view. Note this macro only displays
+one item within the list view.
+***************************************************************************
+-->
+{% macro ck12_list_artifact (artifact) %}
+<div class="listitem clearfix">
+
+	{% if artifact.get('isModality') == 1 or artifact.get('isModality') == 0 %}
+		{% set handle = h.artifact_url(artifact) %}
+		{% set group_classname = 'artifact' %}
+		{% set modality_icon_alt = artifact.display_label() %}
+		{% if artifact['modality_group'] %}
+			{% set group_classname = artifact['modality_group']['group_classname'] %}
+		{% endif %}
+		{% if artifact['modality'] %}
+			{% set modality_icon_alt = artifact['modality']['display_label'] %}
+		{% endif %}
+		<div class="listitemimg {% if artifact.is_flexbook() %}book{% endif %}">
+			<a class="listitemimglink" href="{{handle}}"><img src="{{ artifact|ck12_thumbnail }}" alt="{{ artifact.title|escape }}" title="{{ artifact.title|escape }}" /></a>
+		</div>
+		<div class="listiteminfo {% if artifact.is_flexbook() %}book{% endif %}">
+			<h2 class="listitemtitle"><a href="{{handle}}" title="{{ artifact.title|escape }}" class="group_{{group_classname}}">{{ artifact.title|escape }}</a></h2>
+
+			<!-- Summary -->
+			<div class="summary">{{ (artifact.summary or '')|truncate(150)|escape }}</div>
+			<!-- Created By -->
+			{% if artifact.creator %}
+			<div class="creator">{{ _("Created by:") }}&nbsp;{{ artifact.creator }}</div>
+			{% endif %}
+			<!-- Difficulty Level -->
+			{% if artifact.level %}
+			<div class="difficulty">{{ _("Difficulty level:") }}&nbsp;<span class="level">{{ artifact.level|title }}</span></div>
+			{% endif %}
+
+			{% set like_image_class = 'noratings'%}
+			{% set like_count = ''%}
+			{% if artifact.get('voting') and artifact.get('voting').get('like') > 0 %}
+				{% set like_image_class='ratings'%}
+				{% set like_count = artifact.get('voting').get('like') %}
+			{% endif %}
+			<!-- Voting commented out
+			<div class="voting {{like_image_class}}"></div>
+			{% if like_count %}
+				<div class="rating_count">{{like_count}}</div>
+			{% endif %}
+			-->
+			<div class="group_{{group_classname}} imgwrap modality_icon" alt="{{modality_icon_alt}}" title="{{modality_icon_alt}}"></div>
+		</div>
+	{% elif artifact.type == 'domain' %}
+		{% set branch = artifact.get_branch() %}
+		{% set handle = h.url('concept',branch=branch.slug(),artifact_title=artifact.handle,by='all') %}
+		{% set handle_all = h.url('concept',branch=branch.slug(),artifact_title=artifact.handle, by='all') %}
+		<div class="listitemimg">
+			<a href="{{ handle }}"><img src="{{ artifact|ck12_thumbnail  }}" alt="{{ artifact.name|escape }}" title="{{ artifact.name|escape }}" /></a>
+		</div>
+		<div class="listiteminfo ">
+			<h2 class="listitemtitle"><a href="{{handle}}" title="{{ artifact.name|escape }}">{{ artifact.name|escape }}</a> </h2>
+			{% if artifact.modality_groups %}
+			<ul id="modality_group_list">
+			{% for group in artifact.modality_groups %}
+				<li class="modality_groups group_{{group.group_classname}}">
+					<a href="{% if group.group_classname == 'all' %}{{ handle }}{% else %}{{ handle_all }}{% endif %}#{{group.group_classname}}#{{group.group_classname}}" >
+						<span class="imgwrap"></span>
+						{# {% if group['total_modality_count'] %}({{group['total_modality_count']}}){% endif %} #}
+						<span class="text">{{ group.display_text.lower() }}</span>
+					</a>
+				</li>
+			{% endfor %}
+			</ul>
+			{% endif %}
+			<div class="group_node imgwrap modality_icon" alt="{{ _('Concept')}}" title="{{ _('Concept')}}"></div>
+		</div>
+	{% endif %}
+		<div class="clear"></div>
+</div>
+{% endmacro %}
+
+<!--
+***************************************************************************
+Macro: ck12_list_artifact_simple
+Macro to display the artifacts in a simpler list view.
+Only shows artifact title in a div
+***************************************************************************
+-->
+{% macro ck12_list_artifact_simple (artifact) %}
+<div class="listitem clearfix">
+	<div class="listitemtitle"
+		data-artifactid="{{ artifact.artifactID }}"
+		data-artifactrevisionid="{{ artifact.artifactRevisionID }}"
+		data-artifacttype="{{ artifact.display_label() }}">
+		{{ artifact.title|escape }} - ( {{ artifact.display_label() }} )
+	</div>
+</div>
+{% endmacro %}
+
+
+
+
+<!--
+***************************************************************************
+Macro: ck12_artifact_review_feedback_bottom
+Macro to display the review feedback list.
+summary and reviews list are filled from reviews.html templates
+***************************************************************************
+-->
+{% macro ck12_artifact_review_feedback_bottom () %}
+<div class="reviewswrap">
+	<a id="feedback"></a>
+	<div class="alternate-h1 reviewstitle spacetopxxlarge">{{ _("Reviews") }}</div>
+	<div class="reviewsdivider hide-for-small"></div>
+	<div>
+		<div id="reviews" class="listitem clearfix reviewslist">
+			<div id="reviewsSummary">
+				<!-- the artifact reviews summary goes here -->
+			</div>
+			<div id="reviewsList">
+				<!-- all the reviews show up here -->
+			</div>
+		</div>
+	</div>
+</div>
+{% endmacro %}
+
+
+
+
+<!--
+***************************************************************************
+Macro: ck12_artifact_navigation
+a macro to display prev/next navigation on artifact detail pages.
+Parameters:
+<prev_artifact>
+Previous artifact
+
+<prev_artifact_url>
+URLto the previous artifact
+
+<next_artifact_title>
+Next artifact
+
+<next_artifact_url>
+URLto the next artifact
+***************************************************************************
+-->
+{% macro ck12_artifact_navigation (prev_artifact, prev_artifact_url, next_artifact, next_artifact_url) %}
+
+	{% if prev_artifact and prev_artifact_url or next_artifact and next_artifact_url %}
+	<nav id="nav_artifact" class="clearfix">
+	<div class="divider"></div>
+	<div class="spacetoplarge"></div>
+	{% endif %}
+
+	{% if prev_artifact and prev_artifact_url %}
+	<div class="prior rightinsidewidth">
+		<a href="{{ prev_artifact_url }}">
+			<span class="navartifactlinkwrap block">
+				<span class="icon-arrow3_left"></span>
+				<span class="nolink block">{{ _("Previous") }}</span>
+				<span class="link">{{ prev_artifact.title|escape }}</span>
+			</span>
+		</a>
+	</div>
+	{% endif %}
+	{% if next_artifact and next_artifact_url %}
+	<div class="next rightinsidewidth">
+		<a href="{{ next_artifact_url }}">
+			<span class="navartifactlinkwrap block">
+				<span class="icon-arrow3_right"></span>
+				<span class="nolink block">{{ _("Next") }}</span>
+				<span class="link">{{ next_artifact.title|escape }}</span>
+			</span>
+		</a>
+	</div>
+	{% endif %}
+
+	{% if prev_artifact and prev_artifact_url or next_artifact and next_artifact_url %}
+	<div class="clear"></div>
+	<div class="divider spacetoplarge"></div>
+	</nav>
+	{% endif %}
+
+{% endmacro %}
+
+<!--
+***************************************************************************
+Macro: ck12_artifact_navigation_top_small
+a macro to display top small prev/next navigation on artifact detail pages.
+Parameters:
+<prev_artifact>
+Previous artifact
+
+<prev_artifact_url>
+URLto the previous artifact
+
+<next_artifact_title>
+Next artifact
+
+<next_artifact_url>
+URLto the next artifact
+***************************************************************************
+-->
+{% macro ck12_artifact_navigation_top_small (prev_artifact, prev_artifact_url, next_artifact, next_artifact_url) %}
+
+	<nav id="navartifacttopsmall" class="{% if ( prev_artifact and prev_artifact_url ) or ( next_artifact and next_artifact_url )%}row collapse{% else %}hide{% endif %} hide-small">
+		<div class="nextPrevArrow">
+		{% if prev_artifact and prev_artifact_url %}
+			<a href="{{ prev_artifact_url }}">
+				<span class="left prev-next-link prev-link" title="Previous: {{ prev_artifact.title }}">
+					<i class="icon-arrow3_left"></i>
+				</span>
+			</a>
+		{% else %}
+		<a>
+			<span class="left prev-next-link prev-link disabled" title="Previous not available">
+				<i class="icon-arrow3_left"></i>
+			</span>
+		</a>
+		{% endif %}
+		</div><!--MeowMix-->
+		<div class="nextPrevArrow">
+		{% if next_artifact and next_artifact_url %}
+			<a href="{{ next_artifact_url }}">
+				<span class="left prev-next-link" title="Next: {{ next_artifact.title }}">
+					<i class="icon-arrow3_right"></i>
+				</span>
+			</a>
+		{% else %}
+		<a>
+			<span class="left prev-next-link disabled" title="Next not available">
+				<i class="icon-arrow3_right"></i>
+			</span>
+		</a>
+		{% endif %}
+		</div><!--MeowMix-->
+	</nav>
+
+{% endmacro %}
+
+<!--
+***************************************************************************
+Macro: ck12_metadata_keywords_list
+displays comma separated list of metadata keywords.
+@param metadata_type : (type of metadata displayed. example (Tags, Subjects etc.))
+@param metadata_list :  list of metadata dicts (usually in the form { id:<id>, name:<name> })
+@param labelfield    : name of the field which contains display label, default field is 'name'
+@param valuefield    : name of the field which contains actual value to be used
+                      (ex: for states, 'CA' is value and 'California' is label)
+
+***************************************************************************
+-->
+{% macro ck12_metadata_keywords_list(metadata_type, metadata_list, labelfield='name', valuefield='name',separator='') %}
+<section>
+	{% if metadata_list  %}
+		{% set searchParameter = ''%}
+		{% if metadata_type == 'Tags:'%}
+			{% set searchParameter = 'tag'%}
+		{% endif %}
+		{% if metadata_type == 'Categories:'%}
+			{% set searchParameter = 'subject'%}
+		{% endif %}
+		{% if metadata_type == 'Search Keywords:'%}
+			{% set searchParameter = 'searchTerm'%}
+		{% endif %}
+		{% set keywordcount = metadata_list.__len__() %}
+		{% if keywordcount %}
+		<div class="alternate-h2 toptitle"> {{ _(metadata_type.title()) }} </div>
+		<div class="keywordlist">
+		{% if searchParameter == 'searchTerm' %}
+			{% for keyword in metadata_list %}
+				{% if loop.index <= 3 %}
+				<a class="keyworditem" href="{{ h.url('search') }}?q={{ metadata_list[loop.index-1]|urlencode }}" title="{{ metadata_list[loop.index-1] }}"><span itemprop="keywords">{{ metadata_list[loop.index-1] }}</span></a>
+				{% endif %}
+				{% if loop.index == 3 and keywordcount > 3 %}
+					<a href="#" class="keyworditem js_lnk_show_meta">({{ keywordcount - 3 }} more)</a>
+				{% endif %}
+				{% if loop.index > 3 %}
+				<span class="js_more_keywords hide">
+					<a class="keyworditem" href="{{ h.url('search') }}?q={{ metadata_list[loop.index-1]|urlencode }}" title="{{ metadata_list[loop.index-1] }}"><span itemprop="keywords">{{ metadata_list[loop.index-1] }}</span></a>
+				</span>
+				{% endif %}
+			{% endfor%}
+		{% else %}
+			{% for keyword in metadata_list %}
+				{% if metadata_type == 'Subjects:' %}
+					{% set href = h.url('search') + '?q=&subject=' + h.slugify(keyword[valuefield]) %}
+				{% else %}
+					{% set href = h.url('search') + '?q=' + searchParameter + ':' + keyword[valuefield]|urlencode %}
+				{% endif %}
+				{% if loop.index <= 3 %}
+				<a class="keyworditem" href="{{href}}" title="{{ keyword[labelfield] }}"><span itemprop="keywords">{% if keyword[labelfield] is lower %} {{ keyword[labelfield] }} {% else %} {{ keyword[labelfield] }} {% endif %}</span></a>
+				{% endif %}
+				{% if loop.index == 3 and keywordcount > 3 %}
+					<a href="#" class="js_lnk_show_meta">({{ keywordcount - 3 }} more)</a>
+				{% endif %}
+				{% if loop.index > 3 %}
+				<span class="js_more_keywords hide">
+					<a class="keyworditem" href="{{href}}" title="{{ keyword[labelfield] }}"><span itemprop="keywords">{% if keyword[labelfield] is lower %} {{ keyword[labelfield] }} {% else %} {{ keyword[labelfield] }} {% endif %}</span></a>
+				</span>
+				{% endif %}
+			{% endfor%}
+		{% endif %}
+			<div class="clear"></div>
+		</div>
+		{% endif %}
+	{% endif %}
+</section>
+{% endmacro %}
+
+<!--
+***************************************************************************
+Macro: ck12_metadata_list_for_standards
+@param metadata_type : (type of metadata displayed. example (Tags, Subjects etc.))
+@param metadata_list :  list of metadata dicts (usually in the form { id:<id>, name:<name> })
+@param labelfield    : name of the field which contains display label, default field is 'name'
+@param valuefield    : name of the field which contains actual value to be used
+                      (ex: for states, 'CA' is value and 'California' is label)
+@param artifactId	: Artifact Id
+***************************************************************************
+-->
+{% macro ck12_metadata_list_for_standards(metadata_type, metadata_list, labelfield='name', valuefield='name', artifactId=None) %}
+<section>
+	{% if metadata_list  %}
+		{% set keywordcount = metadata_list.__len__() %}
+        {% set max_items = 7 %}
+		{% if keywordcount %}
+		<div class="alternate-h2 toptitle"> {{ _(metadata_type.title()) }} </div>
+		<div class="" id="standardBoardLinks">
+		{% for keyword in metadata_list %}
+			{% if loop.index <= max_items %}
+			<a class="std_links" data-std_brd_id="{{ keyword[valuefield] }}" href="#" data-std_corr_href="{{config.webroot_url}}ajax/standards/correlated/{{ keyword[valuefield] }}/{{ artifactId }}" title="{{ keyword[labelfield] }}"><span class="imgwrap"></span> <span class="text" itemprop="keywords">{{ keyword[labelfield] }}</span></a>{% if not loop.last %},{% endif %}
+			{% endif %}
+			{% if loop.index == max_items and keywordcount > max_items %}
+				<a href="#" class="js_lnk_show_meta">({{ keywordcount - max_items }} more)</a>
+			{% endif %}
+			{% if loop.index > max_items %}
+			<span class="js_more_keywords hide">
+              <a class="std_links" data-std_brd_id="{{ keyword[valuefield] }}" href="#" data-std_corr_href="{{config.webroot_url}}ajax/standards/correlated/{{ keyword[valuefield] }}/{{ artifactId }}" title="{{ keyword[labelfield] }}"><span class="imgwrap"></span> <span class="text" itemprop="keywords">{{ keyword[labelfield] }}</span></a>{% if not loop.last %},{% endif %}
+			</span>
+			{% endif %}
+		{% endfor%}
+		{% endif %}
+		</div>
+	{% endif %}
+</section>
+{% endmacro %}
+
+<!--
+***************************************************************************
+Macro: ck12_metadata_attributions_list
+@param attribution_label (label for attribution type [_("Authors:"), _("Contributors") etc...])
+@param attribution_list (list of attributions for a give type [ c.artifact.get_authors_by_role().get('author') ])
+
+***************************************************************************
+-->
+{% macro ck12_metadata_attributions_list (attribution_label, attribution_list) %}
+	{% for author in attribution_list %}
+		{% if loop.first %}<div class="alternate-h2 toptitle">{{ attribution_label }}</div>{% endif %}
+		<div>
+			<a itemprop="author" href="{{ h.url('search') }}?q=author:{{ author|urlencode }}">{{ author }}</a>
+		</div>
+	{% endfor %}
+{% endmacro %}
+
+
+<!--
+***************************************************************************
+Macro: ck12_metadata_attributions_list
+@param attribution_type (type of attribution [author, contributor, source etc... ])
+@param attribution_label (label for attribution type [_("Authors:"), _("Contributors") etc...])
+@param attribution_list (list of attributions for a give type [ c.artifact.get_authors_by_role().get('author') ])
+
+***************************************************************************
+-->
+{% macro ck12_metadata_attributions_list_editable (attribution_type, attribution_label, attribution_list, collaborator=True) %}
+	<div class="{% if not attribution_list %}hide{% endif %}" id="attribution_{{ attribution_type }}">
+		<span class="attribution_title">{{ attribution_label }}</span>
+		<span class="js_attributionlist_container" data-attribrole="{{ attribution_type }}" >
+			{% if attribution_list %}
+			{% for item in attribution_list %}
+			<span class="js_attribution break-word">
+				<span>{{ item }}</span>
+				<a class="js_removeattribution js_attribution_remove removeimg" data-attribname="{{ item|e }}" data-attribrole="{{ attribution_type }}">
+					<!-- Don't show for collaborator -->
+					<span class="icon-close hide-for-collaborator hide"></span>
+				</a>
+			</span>
+			{% endfor %}
+			{% endif %}
+		</span>
+	</div>
+{% endmacro %}
+
+
+
+
+<!--
+***************************************************************************
+Macro: ck12_artifact_edit
+@param artifact: current artifact
+@param context: flexbook context, if any
+@param user: current user
+@param editable: flag, whether editable or not depends upon latestness of book+chapter
+
+***************************************************************************
+-->
+{% macro ck12_artifact_edit(artifact, context, position, user, editable) %}
+
+	{% set owned = artifact.is_owner(user) %}
+	{% set context_owned = context and context.is_owner(user) %}
+	{% set latest = artifact.is_latest() %}
+
+	{% set link_text = _('Edit') %}
+	{% set link_id = 'personalize_link' %}
+	{% set link_class = 'js_edit_link' %}
+
+	{% if context %}
+		{% if editable %}
+			{% if context_owned %}
+				{% if owned %}
+					{% if latest %}
+						{{ _ck12_artifact_contextual_edit_link(artifact, context, position, user)  }}
+					{% endif %}
+				{% else %}
+					{{ _ck12_artifact_contextual_edit_link(artifact, context, position, user)  }}
+				{% endif %}
+			{% else %}
+				{% if owned and latest %}
+						{{ _ck12_artifact_contextual_edit_link(artifact, context, position, user)  }}
+				{% else %}
+					{{ _ck12_artifact_contextual_make_a_copy_link(artifact, context, position, user) }}
+				{% endif %}
+			{% endif %}
+		{% else %}
+		{% endif %}
+
+	{% else %}
+		{% if owned %}
+			{% if latest %}
+				{{ _ck12_artifact_edit_link(artifact, context, position, user)  }}
+			{% else %}
+				{{ _ck12_artifact_view_latest_link(artifact, context, position, user) }}
+			{% endif %}
+		{% else %}
+			{{ _ck12_artifact_make_a_copy_link(artifact, context, position, user) }}
+		{% endif %}
+
+	{% endif %}
+
+
+
+{% endmacro %}
+
+{% macro _ck12_artifact_edit_link(artifact, context, position, user) %}
+{% if artifact.is_flexbook() %}
+    {% set artifact_type = artifact.display_label() %}
+{% elif artifact.artifactType in ['lesson','concept', 'section']  %}
+ {% set artifact_type = 'Modality' %}
+{% else %}
+    {% set artifact_type = artifact.modality_display_label %}
+{% endif %}
+
+{% if (c.comb_concept_collection_handle and c.collection_creator_id)  %}
+	{% set customize_url = artifact.getPermaHandle(include_version=True, concept_collection_handle=None, collection_creator_id=None) %}
+{% else %}
+ 	{% set customize_url = artifact.getPermaHandle(include_version=True, concept_collection_handle=None, collection_creator_id=None) %}
+{% endif %}
+
+        <a id="lms_personalize_link" class="js_editable show-for-lti-context" href="{{ _('/editor/%(url)s' % {'url':customize_url} ) }}" title="{{ _('Edit This %(type)s' % {'type': artifact_type} ) }}" target="lms-context-override">
+		{% if (artifact.hasDraft == True) %}
+			{% if (artifact.artifactType == 'section' ) %}
+	 		    <span  class="old-icon-view" title="{{_('Edit Draft' )}}">{{_('Edit Draft' )}}</span>
+	 		    <i class="icon-edit2 iconcolor left-padding icon-for-tp new-icon-view" ></i>
+	 		    <span class="tooltip-sec">{{_('Edit Draft' )}}</span>
+	 		{% else %}
+	 		    <span>{{_('Edit Draft' )}}</span>
+	 		{% endif %}
+		{% else %}
+		        {% if (artifact.artifactType == 'section' ) %}
+	 		    <span  class="old-icon-view" title="{{_('Edit' )}}">{{_('Edit' )}}</span>
+	 		    <i class="icon-edit2 iconcolor left-padding icon-for-tp new-icon-view" ></i>
+	 		    <span class="tooltip-sec">{{_('Edit' )}}</span>
+	 		{% else %}
+	 		    <span>{{_('Edit' )}}</span>
+	 		{% endif %}
+		{% endif %}
+
+	</a>
+	<a id="personalize_link" class="js_editable hide-for-lti-context" href="{{ _('/editor/%(url)s' % {'url':customize_url} ) }}"  title="{{ _('Edit This %(type)s' % {'type': artifact_type} ) }}">
+		{% if (artifact.hasDraft == True) %}
+			{% if (artifact.artifactType == 'section' ) %}
+	 		    <span  class="old-icon-view" title="{{_('Edit Draft' )}}">{{_('Edit Draft' )}}</span>
+	 		    <i class="icon-edit2 iconcolor left-padding icon-for-tp new-icon-view" ></i>
+	 		    <span class="tooltip-sec library-st">{{_('Edit Draft' )}}</span>
+	 		{% else %}
+	 		    <span class="library-st">{{_('Edit Draft' )}}</span>
+	 		{% endif %}
+		{% else %}
+		        {% if (artifact.artifactType == 'section' ) %}
+	 		    <span  class="old-icon-view" title="{{_('Edit' )}}">{{_('Edit' )}}</span>
+	 		    <i class="icon-edit2 iconcolor left-padding icon-for-tp new-icon-view" ></i>
+	 		    <span class="tooltip-sec library-st">{{_('Edit' )}}</span>
+	 		{% else %}
+	 		    <span class="library-st">{{_('Edit' )}}</span>
+	 		{% endif %}
+		{% endif %}
+
+	</a>
+{% endmacro %}
+
+{% macro _ck12_artifact_contextual_edit_link(artifact, context, position, user) %}
+{% if artifact.is_flexbook() %}
+    {% set artifact_type = artifact.display_label() %}
+{% elif artifact.artifactType in ['lesson','concept', 'section']  %}
+ {% set artifact_type = 'Modality' %}
+{% else %}
+    {% set artifact_type = artifact.modality_display_label %}
+{% endif %}
+
+{% if (c.comb_concept_collection_handle and c.collection_creator_id)  %}
+	{% set customize_url = artifact.getPermaHandle(include_version=True, concept_collection_handle=c.comb_concept_collection_handle, collection_creator_id=c.collection_creator_id) %}
+{% else %}
+	{% set customize_url = artifact.getPermaHandle(include_version=True, concept_collection_handle=None, collection_creator_id=None) %}
+{% endif %}
+
+	<a id="lms_personalize_link" href="{{ h.url(controller='editor',
+		action='artifact_editor_context_book',
+		realm=context.realm,
+		booktype=context.artifactType,
+		book_handle=context.handle,
+		version=context.getVersionNumber(),
+		position=position) }}" title="{{ _('Edit This %(type)s' %
+		{'type': artifact_type} ) }}" class="show-for-lti-context" target="lms-context-override">
+		{% if artifact.hasDraft == True %}
+			{% if (artifact.artifactType == 'section' ) %}
+	 		    <span  class="old-icon-view" title="{{_('Edit Draft' )}}">{{_('Edit Draft' )}}</span>
+	 		    <i class="icon-edit2 iconcolor left-padding icon-for-tp new-icon-view" ></i>
+	 		    <span class="tooltip-sec library-st">{{_('Edit Draft' )}}</span>
+	 		{% else %}
+	 		    <span class="library-st">{{_('Edit Draft' )}}</span>
+	 		{% endif %}
+		{% else %}
+		        {% if (artifact.artifactType == 'section' ) %}
+	 		    <span  class="old-icon-view" title="{{_('Edit' )}}">{{_('Edit' )}}</span>
+	 		    <i class="icon-edit2 iconcolor left-padding icon-for-tp new-icon-view" ></i>
+	 		    <span class="tooltip-sec library-st">{{_('Edit' )}}</span>
+	 		{% else %}
+	 		    <span class="library-st">{{_('Edit' )}}</span>
+	 		{% endif %}
+		{% endif %}
+	</a>
+	<a id="personalize_link" href="{{ h.url(controller='editor',
+		action='artifact_editor_context_book',
+		realm=context.realm,
+		booktype=context.artifactType,
+		book_handle=context.handle,
+		version=context.getVersionNumber(),
+		position=position) }}" title="{{ _('Edit This %(type)s' %
+		{'type':artifact_type} ) }}" class="hide-for-lti-context">
+		{% if artifact.hasDraft == True %}
+			{% if (artifact.artifactType == 'section' ) %}
+	 		    <span  class="old-icon-view" title="{{_('Edit Draft' )}}">{{_('Edit Draft' )}}</span>
+	 		    <i class="icon-edit2 iconcolor left-padding icon-for-tp new-icon-view" ></i>
+	 		    <span class="tooltip-sec">{{_('Edit Draft' )}}</span>
+	 		{% else %}
+	 		    <span>{{_('Edit Draft' )}}</span>
+	 		{% endif %}
+		{% else %}
+		        {% if (artifact.artifactType == 'section' ) %}
+	 		    <span  class="old-icon-view" title="{{_('Edit' )}}">{{_('Edit' )}}</span>
+	 		    <i class="icon-edit2 iconcolor left-padding icon-for-tp new-icon-view" ></i>
+	 		    <span class="tooltip-sec">{{_('Edit' )}}</span>
+	 		{% else %}
+	 		    <span>{{_('Edit' )}}</span>
+	 		{% endif %}
+		{% endif %}
+	</a>
+{% endmacro %}
+
+{% macro _ck12_artifact_make_a_copy_link(artifact, context, position, user) %}
+{% if artifact.is_flexbook() %}
+    {% set artifact_type = artifact.display_label() %}
+{% elif artifact.artifactType in ['lesson','concept', 'section']  %}
+ {% set artifact_type = 'Modality' %}
+{% else %}
+    {% set artifact_type = artifact.modality_display_label %}
+{% endif %}
+
+{% if (c.comb_concept_collection_handle and c.collection_creator_id)  %}
+	{% set customize_url = artifact.getPermaHandle(include_version=True, concept_collection_handle=c.comb_concept_collection_handle, collection_creator_id=c.collection_creator_id) %}
+{% else %}
+ 	{% set customize_url = artifact.getPermaHandle(include_version=True, concept_collection_handle=None, collection_creator_id=None) %}
+{% endif %}
+
+	<div>
+		<a id="lms_personalize_link" class="{% if not user %}js_signinrequired{% endif %} js_editable show-for-lti-context" href="{{ _('/editor/%(url)s' % {'url':customize_url} ) }}"  title="{{ _('Customize this %(type)s' % {'type':artifact_type} ) }}" target="lms-context-override"> {{ _("Customize") }}</a>
+		<a id="personalize_link" class="{% if not user %}js_signinrequired{% endif %} js_editable hide-for-lti-context" href="{{ _('/editor/%(url)s' % {'url':customize_url} ) }}"  title="{{ _('Customize this %(type)s' % {'type':artifact_type} ) }}">
+		{% if ((artifact.artifactType == 'section') or (artifact.artifactType == 'lesson' and not (c.breadcrumbs[0].realm) and c.assessmentArtifact and c.assessmentArtifact.domain and c.assessmentArtifact.domain.encodedID)) %}
+			<span  class="old-icon-view" title="{{ _('Make a copy of this %(type)s' % {'type':artifact_type} ) }}">{{ _("Customize") }}</span>
+			<i class="icon-settings_single iconcolor left-padding icon-for-tp new-icon-view" ></i>
+			<span class="tooltip-sec">{{_('Customize' )}}</span>
+		{% else %}
+			{{ _("Customize") }}
+		{% endif %}
+		 </a>
+		<span class="customize-help-wrapper old-icon-view">
+			<a id="customizeHelp" class="icon-help2 customize-help old-icon-view" target= "_blank" href="https://ck12support.zendesk.com/hc/en-us/articles/200448244"></a>
+		</span>
+	</div>
+{% endmacro %}
+
+{% macro _ck12_artifact_contextual_make_a_copy_link(artifact, context, position, user) %}
+{% if artifact.is_flexbook() %}
+    {% set artifact_type = artifact.display_label() %}
+{% elif artifact.artifactType in ['lesson','concept', 'section']  %}
+ {% set artifact_type = 'Modality' %}
+{% else %}
+    {% set artifact_type = artifact.modality_display_label %}
+{% endif %}
+
+{% if (c.comb_concept_collection_handle and c.collection_creator_id)  %}
+	{% set customize_url = artifact.getPermaHandle(include_version=True, concept_collection_handle=c.comb_concept_collection_handle, collection_creator_id=c.collection_creator_id) %}
+{% else %}
+ 	{% set customize_url = artifact.getPermaHandle(include_version=True, concept_collection_handle=None, collection_creator_id=None) %}
+{% endif %}
+
+	{% if ((artifact.artifactType == 'section') or (artifact.artifactType == 'lesson' and not (c.breadcrumbs[0].realm) and c.assessmentArtifact and c.assessmentArtifact.domain and c.assessmentArtifact.domain.encodedID)) %}
+        <!-- Show practice widget -->
+        <a id="personalize_link" class="{% if not user %}js_signinrequired{% endif %} hide-for-lti-context" href="{{ _('/editor/%(url)s' % {'url':customize_url} ) }}"  title="{{ _('Make a copy of this %(type)s' % {'type':artifact_type} ) }}" hrefColl="{{ h.url(controller='editor',
+            action='artifact_editor_context_book',
+            realm=context.realm,
+            booktype=context.artifactType,
+            book_handle=context.handle,
+            version=context.getVersionNumber(),
+            position=position) }}">
+		<span  class="old-icon-view" title="{{ _('Make a copy of this %(type)s' % {'type':artifact_type} ) }}">{{ _("Customize") }}</span>
+		<i class="icon-settings_single iconcolor left-padding icon-for-tp new-icon-view" ></i>
+		<span class="tooltip-sec">{{_('Customize' )}}</span>
+	</a>
+        <a id="lms_personalize_link" class="{% if not user %}js_signinrequired{% endif %} show-for-lti-context" href="{{ _('/editor/%(url)s' % {'url':customize_url} ) }}"  title="{{ _('Make a copy of this %(type)s' % {'type':artifact_type} ) }}" hrefColl="{{ h.url(controller='editor',
+            action='artifact_editor_context_book',
+            realm=context.realm,
+            booktype=context.artifactType,
+            book_handle=context.handle,
+            version=context.getVersionNumber(),
+            position=position) }}" target="lms-context-override">
+		<span  class="old-icon-view" title="{{ _('Make a copy of this %(type)s' % {'type':artifact_type} ) }}">{{ _("Customize") }}</span>
+		<i class="icon-settings_single iconcolor left-padding icon-for-tp new-icon-view" ></i>
+		<span class="tooltip-sec library-st">{{_('Customize' )}}</span>
+	</a>
+        <span class="customize-help-wrapper old-icon-view">
+            <a id="customizeHelp" class="icon-help2 customize-help old-icon-view" target= "_blank" href="https://ck12support.zendesk.com/hc/en-us/articles/200448244"></a>
+        </span>
+						<span class="tooltip-sec">{{ ("Customize" ) }}</span>
+
+    {% else %}
+        <!-- No practice widget -->
+        <a id="lms_personalize_link" class="show-for-lti-context {% if not user %}js_signinrequired{% endif %}" href="{{ _('/editor/%(url)s' % {'url':customize_url} ) }}"  title="{{ _('Make a copy of this %(type)s' % {'type':artifact_type} ) }}" hrefColl="{{ h.url(controller='editor',
+            action='artifact_editor_context_book',
+            realm=context.realm,
+            booktype=context.artifactType,
+            book_handle=context.handle,
+            version=context.getVersionNumber(),
+            position=position) }}" target="lms-context-override">	{{ _("Customize") }}</a>
+        <a id="personalize_link" class="hide-for-lti-context {% if not user %}js_signinrequired{% endif %}" href="{{ _('/editor/%(url)s' % {'url':customize_url} ) }}"  title="{{ _('Make a copy of this %(type)s' % {'type':artifact_type} ) }}" hrefColl="{{ h.url(controller='editor',
+            action='artifact_editor_context_book',
+            realm=context.realm,
+            booktype=context.artifactType,
+            book_handle=context.handle,
+            version=context.getVersionNumber(),
+            position=position) }}">	{{ _("Customize") }}</a>
+        <span class="customize-help-wrapper">
+            <a id="customizeHelp" class="icon-help2 customize-help" target= "_blank" href="https://ck12support.zendesk.com/hc/en-us/articles/200448244"></a>
+        </span>
+	{% endif %}
+{% endmacro %}
+
+{% macro _ck12_artifact_view_latest_link(artifact, context, position, user) %}
+	<a id="latest_link" href="{{ h.artifact_url(artifact) }}"
+    						 title="{{ _('You are viewing an older version of this %(type)s. Click here to view the latest.' % {'type':artifact.display_label()} ) }}"> {{ _("View Latest") }} </a>
+{% endmacro %}
+
+{% macro _ck12_artifact_update_link(artifact, context, position, user) %}
+	<a class="js_update_link" href="#" title=" {{ 'Update this Concept to its latest version in FlexBook&#174; textbook %(bookname)s'  % { 'bookname':c.context.title|escape }  }} "> {{ _('Update')  }} </a>
+{% endmacro %}
+
+
+<!--
+***************************************************************************
+Macro: ck12_artifact_myreview_feedback
+Macro to display the my feedback (vote up/down) widget.
+widget filled from reviews.html templates
+***************************************************************************
+-->
+{% macro ck12_artifact_myreview_feedback () %}
+	<!-- Artifact Voting -->
+	<div id="myreview" ></div>
+{% endmacro %}
+
+<!--
+***************************************************************************
+Macro: ck12_flexbook_deeplink
+creates a flexbook deep link
+widget filled from reviews.html templates
+***************************************************************************
+-->
+{% macro ck12_flexbook_deeplink (artifact) %}
+	<!-- Artifact Voting -->
+	<a class="dxtrack-user-action" data-dx-desc="FB_READER_DEEP_LINK_CLICK" data-dx-artifactid="{{artifact.artifactID}}" data-dx-artifactrevisionid="{{artifact.artifactRevisionID}}" href="{{config.fbdl_prefix}}{{ ('book/%s' % artifact.artifactRevisionID) |urlencode}}" >Open in App</a>
+{% endmacro %}
+
+
+<!--
+***************************************************************************
+Macro: ck12_download_pdf_modal
+***************************************************************************
+-->
+{% macro ck12_download_pdf_modal () %}
+	<!-- Artifact Voting -->
+	<div id="downloadPDFModal" class="reveal-modal">
+	  <h2>Download FlexBook&reg;</h2>
+	  <h5>Help make CK-12 a better product by answering a few questions below:</h5>
+	  <div>
+		<div class="row collapse">
+			<div class="large-3 columns row-label">
+				Grade(s) used for:
+			</div>
+			<div class="large-9 columns row-content grade-checkbox">
+				<div class="row collapse">
+					<div class="large-2 columns">
+						<div class="custom-box">
+							<input type="checkbox" id="checkbox1" class="download-form-field" value="1">
+							<label for="checkbox1" class="checkbox"><span><i class="icon-validated"></i></span>1</label>
+						</div>
+					</div>
+					<div class="large-2 columns">
+						<div class="custom-box">
+							<input type="checkbox" id="checkbox2" class="download-form-field" value="2">
+							<label for="checkbox2" class="checkbox"><span><i class="icon-validated"></i></span>2</label>
+						</div>
+					</div>
+					<div class="large-2 columns">
+						<div class="custom-box">
+							<input type="checkbox" id="checkbox3" class="download-form-field" value="3">
+							<label for="checkbox3" class="checkbox"><span><i class="icon-validated"></i></span>3</label>
+						</div>
+					</div>
+					<div class="large-2 columns">
+						<div class="custom-box">
+							<input type="checkbox" id="checkbox4" class="download-form-field" value="4">
+							<label for="checkbox4" class="checkbox"><span><i class="icon-validated"></i></span>4</label>
+						</div>
+					</div>
+					<div class="large-2 columns">
+						<div class="custom-box">
+							<input type="checkbox" id="checkbox5" class="download-form-field" value="5">
+							<label for="checkbox5" class="checkbox"><span><i class="icon-validated"></i></span>5</label>
+						</div>
+					</div>
+					<div class="large-2 columns">
+						<div class="custom-box">
+							<input type="checkbox" id="checkbox6" class="download-form-field" value="6">
+							<label for="checkbox6" class="checkbox"><span><i class="icon-validated"></i></span>6</label>
+						</div>
+					</div>
+				</div>
+				<div class="row collapse">
+					<div class="large-2 columns">
+						<div class="custom-box">
+							<input type="checkbox" id="checkbox7" class="download-form-field" value="7">
+							<label for="checkbox7" class="checkbox"><span><i class="icon-validated"></i></span>7</label>
+						</div>
+					</div>
+					<div class="large-2 columns">
+						<div class="custom-box">
+							<input type="checkbox" id="checkbox8" class="download-form-field" value="8">
+							<label for="checkbox8" class="checkbox"><span><i class="icon-validated"></i></span>8</label>
+						</div>
+					</div>
+					<div class="large-2 columns">
+						<div class="custom-box">
+							<input type="checkbox" id="checkbox9" class="download-form-field" value="9">
+							<label for="checkbox9" class="checkbox"><span><i class="icon-validated"></i></span>9</label>
+						</div>
+					</div>
+					<div class="large-2 columns">
+						<div class="custom-box">
+							<input type="checkbox" id="checkbox10" class="download-form-field" value="10">
+							<label for="checkbox10" class="checkbox"><span><i class="icon-validated"></i></span>10</label>
+						</div>
+					</div>
+					<div class="large-2 columns">
+						<div class="custom-box">
+							<input type="checkbox" id="checkbox11" class="download-form-field" value="11">
+							<label for="checkbox11" class="checkbox"><span><i class="icon-validated"></i></span>11</label>
+						</div>
+					</div>
+					<div class="large-2 columns">
+						<div class="custom-box">
+							<input type="checkbox" id="checkbox12" class="download-form-field" value="12">
+							<label for="checkbox12" class="checkbox"><span><i class="icon-validated"></i></span>12</label>
+						</div>
+					</div>
+				</div>
+				<div class="row collapse">
+					<div class="large-4 columns">
+						<div class="custom-box">
+							<input type="checkbox" id="checkbox13" class="download-form-field" value="College">
+							<label for="checkbox13" class="checkbox"><span><i class="icon-validated"></i></span>College</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row collapse subject-container">
+			<div class="large-3 columns row-label">
+				Subject(s) used for:
+			</div>
+			<div class="large-9 columns row-content ">
+				<div class="input standard"><input type="text" placeholder="Add Subjects" class="download-form-field subject-filed"></div>
+			</div>
+		</div>
+		<div class="row collapse">
+			<div class="large-3 columns row-label">
+				School:
+			</div>
+			<div class="large-9 columns row-content">
+				<!-- <div class="input standard"><input type="text" placeholder="Add School"></div> -->
+				<div id="school-container" class="">
+					<div class="custom-box school-option">
+						<input name="radio1" type="radio" id="radio1" checked class="download-form-field school-name-radio">
+						<label for="radio1" class="radio"><span></span>Enter the name of your school</label>
+					</div>
+					<input class="input standard download-form-field school-name-field" type="text" id="schoolInfo" maxlength="50" placeholder="Enter your school name or zip code">
+					<hr class="show-for-small">
+					<ul id="schoolAutosuggest" class="hidden">
+
+					</ul>
+					<div class="custom-box school-option">
+						<input name="radio1" type="radio" id="radio2" class="download-form-field home-school-radio">
+						<label for="radio2" class="radio"><span></span>I attend a homeschool.</label>
+					</div>
+					<div class="custom-box school-option college-option">
+						<input name="radio1" type="radio" id="radio3" class="download-form-field college-name-radio">
+						<label for="radio3" class="radio"><span></span>College</label>
+					</div>
+					<input for="radio3" class="input standard download-form-field college-name-field" type="text" id="collegeInfo" maxlength="50" placeholder="Enter your college name">
+				</div>
+			</div>
+		</div>
+		<div class="row collapse">
+			<div class="large-3 columns row-label">
+				# of Students sharing with:
+			</div>
+			<div class="large-9 columns row-content">
+				<div class="input standard number-of-students"><input type="text" placeholder="i.e 15" class="download-form-field"></div>
+			</div>
+		</div>
+		<div class="row collapse">
+
+			<a class="button turquoise large download-btn disabled grey" href="">Download</a>
+		</div>
+
+	  </div>
+	  <a class="close-reveal-modal dxtrack-user-action" data-dx-desc="download_pdf_dialog_close_button" data-dx-referrer="download_pdf_dialog">&#215;</a>
+	</div>
+{% endmacro %}

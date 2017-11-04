@@ -1,0 +1,46 @@
+Collection Name,Collection Handle,Collection Description,Collection Canonical ID,Collection Parent Subject ID,Level 1,Level 2,Level 3,Level 4,EncodedID,Original EncodedIDs,ModalityIDs,Preview EID
+Elementary Math Grade 1,elementary-math-grade-1,Elementary Math for Grade 1,MAT.EM1,MAT,,,,,,,,
+,,,,,Addition and Subtraction to 20,,,,,,,MAT.EM1.205
+,,,,,,Addition and Subtraction facts to 20,,,,,,MAT.EM1.206
+,,,,,,,Add to 10 with Images,,MAT.ARI.103.0101,"MAT.EM1.203.01, MAT.EM1.203.02, MAT.EM1.203.03, MAT.EM1.203.04","2356216, 1867153, 1879584, 1867154, 1880108, 1867155, 1880533, 1867156",
+,,,,,,,Subtracting by Crossing Out with Pictures,,MAT.ARI.103.0403,"MAT.EM1.206.1, MAT.EM1.203.06, MAT.EM1.206.08","1879898, 1867174, 1867158, 1867172",
+,,,,,,,Subtract to 20 with Images Word Problems,,MAT.ARI.103.0405,"MAT.EM1.206.11, MAT.EM1.206.12, MAT.EM1.206.13","1879897, 1867175, 1879420, 1867176, 1879896, 1867177",
+,,,,,,Addition and Subtraction to 20: Knowledge-Based Questions,,,,,,MAT.EM1.209
+,,,,,,,Higher Order Addition Statements to 20,,MAT.ARI.103.0107,"MAT.EM1.209.02, MAT.EM1.209.06, MAT.EM1.206.01, 
+MAT.EM1.209.01","1879823, 1867179, 1879894, 1867183, 1867165,
+1867178",
+,,,,,,,Identify Equal Sums to 20,,MAT.ARI.103.0109,"MAT.EM1.209.03, MAT.EM1.209.04, MAT.EM1.209.05","1879485, 1867180, 1879483, 1867181, 1879481, 1867182",
+,,,,,,,Fluency in Subtraction (Numbers up to 20),,MAT.ARI.103.0403,MAT.EM1.209.07,1867184,
+,,,,,,,Higher Order Subtraction Statements to 20,,MAT.ARI.103.0407,"MAT.EM1.209.08, MAT.EM1.209.1","1879892, 1867185, 1880451, 1867187",
+,,,,,,,Identify Equal Differences to 20,,MAT.ARI.103.0408,"MAT.EM1.209.09, MAT.EM1.209.11, MAT.EM1.209.12","1879479, 1867186, 1879890, 1867188, 1879477, 1867189",
+,,,,,,,Subtraction Word Problems (Numbers up to 20),,MAT.ARI.103.0406,MAT.EM1.209.13,"1879888, 1867190",
+,,,,,,,Add and Subtract Numbers to 100 - Word Problems,,MAT.ARI.103.0705,"MAT.EM1.209.14, MAT.EM1.209.15","1879886, 1867191, 2225251, 1879821",
+,,,,,Addition and Subtraction to 100,,,,,,,MAT.EM1.210
+,,,,,,Addition and Subtraction to 100: Mixed Operations and Word Problems,,,,,,MAT.EM1.212
+,,,,,,,Subtraction to 100 Word Problems,,MAT.ARI.103.0509,"MAT.EM1.212.04, MAT.EM1.212.05, MAT.EM1.212.06","1867195, 1879885, 1867196, 1879884, 1867197",
+,,,,,,,Add and Subtract Numbers to 100,,MAT.ARI.103.0703,"MAT.EM1.212.07, MAT.EM1.212.08, MAT.EM1.212.1, MAT.EM1.212.01","1867198, 1880382, 1867199, 1867201, 1867192",
+,,,,,,,Completing the Subtraction Sentence (Numbers to 100),,MAT.ARI.103.0506,MAT.EM1.212.09,"1879883, 1867200",
+,,,,,,Addition and Subtraction (up to 100),,,,,,MAT.EM1.215
+,,,,,,,Add Numbers to 100,,MAT.ARI.103.0203,"MAT.EM1.215.01, MAT.EM1.215.02, MAT.EM1.215.03, MAT.EM1.215.04","1867420, 1880100, 1867421, 1880098, 1867422, 1880096, 1867423",
+,,,,,,,Higher Order Addition Statements to 100,,MAT.ARI.103.0206,"MAT.EM1.215.05, MAT.EM1.215.06, MAT.EM1.215.07","1879581, 1867424, 1879579, 1867425, 1880094, 1867426",
+,,,,,,,Subtract Numbers to 100,,MAT.ARI.103.0503,"MAT.EM1.215.08, MAT.EM1.215.09, MAT.EM1.215.1","1867427, 1880092, 1867428, 1880090, 1867429",
+,,,,,,,Higher Order Subtraction Statements to 100,,MAT.ARI.103.0506,"MAT.EM1.215.11, MAT.EM1.215.12, MAT.EM1.215.13","1879577, 1867430, 1879575, 1867431, 1880088, 1867432",
+,,,,,Time,,,,,,,MAT.EM1.500
+,,,,,,Time to Quarter and Hour,,,,,,MAT.EM1.506
+,,,,,,,"Time to Quarter, Half-Past and Hour",,MAT.MEA.204.0203,"MAT.EM1.506.1, MAT.EM1.506.2","1867645, 1879381, 1867646",
+,,,,,,,Time Conversion between Words and Numbers,,MAT.MEA.204.02090,"MAT.EM1.506.4, MAT.EM1.506.3","1867648, 1880284, 1867647",
+,,,,,Measurement,,,,,,,MAT.EM1.600
+,,,,,,Length (English): Introduction,,,,,,MAT.EM1.602
+,,,,,,,Length in Inches,,MAT.MEA.501.01,"MAT.EM1.602.1, MAT.EM1.602.4","1879398, 1867615, 1880417, 1867618",
+,,,,,,,Compare Length in Inches,,MAT.MEA.501.02,"MAT.EM1.602.2, MAT.EM1.602.3","1880419, 1867616, 1879417, 1867617",
+,,,,,,Length (Metric): Introduction,,,,,,MAT.EM1.604
+,,,,,,,Meters,,MAT.MEA.504.02,"MAT.EM1.604.1, MAT.EM1.604.2, MAT.EM1.604.3","1880300, 1867629, 1879743, 1867630, 1880412, 1867631",
+,,,,,Geometry,,,,,,,MAT.EM1.800
+,,,,,,2D Shapes I,,,,,,MAT.EM1.805
+,,,,,,,Identify Basic Shapes,,MAT.GEO.101.01,"MAT.EM1.805.1, MAT.EM1.805.2, MAT.EM1.805.3, MAT.EM1.805.4","1868090, 1868091, 1879393, 1879390, 1868092, 1880243, 1868093",
+,,,,,,,"Counting Rectangles, Squares, and Triangles in Composite Figures",,MAT.GEO.101.05,MAT.EM1.805.5,"1879383, 1868094",
+,,,,,,2D Shapes II,,,,,,MAT.EM1.810
+,,,,,,,Identifying Semicircles and Quarter Circles,,MAT.GEO.600.5,"MAT.EM1.810.1, MAT.EM1.810.2, MAT.EM1.810.3","1868095, 1879387, 1868096, 1880414, 1868097",
+,,,,,,What is a Fraction?,,,,,,MAT.EM1.815
+,,,,,,,Fraction of a Whole,,MAT.ARI.401.02,MAT.EM1.815.01,"1868109, 1879609",
+,,,,,,,Evaluating Fractions - Word Problems,,MAT.ARI.401.06,MAT.EM1.815.02,"1880188, 1868110",

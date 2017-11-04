@@ -1,0 +1,62 @@
+{% extends "base/1column.html" %}
+{% block title %} {{_('Cookies are disabled on you browser') }} {% endblock %}
+
+{% block meta_extra %} {{ super() }} <meta name="robots" content="noindex" /> {% endblock %}
+
+{% block pageinfotop %}
+<div class="contenttop"></div>
+{% endblock %}
+
+{% block content %}
+<div class="contentarea prefix_2 grid_8 suffix_2">
+	<div class="spacetopxlarge"></div>
+	<div class="contentwrap">
+		<h2> {{_('Our site requires browser cookies to be enabled.') }} </h2>
+		<div class="divider"></div>
+		<div class="spacetop" style="padding-right:15px;">
+		 	{{_("In order to use the CK-12 FlexBook&#174; textbook system, you will need to have browser cookies enabled in your browser.") }} </br>
+            {{_("To do so, please follow the instructions below:") }} </br>
+           <p><h2 class="toptitle"> {{_("Internet Explorer (6.0 & 7.0)") }} </h2></p>
+			<div class="divider"></div>
+			<ol>
+                <li> {{_("Select 'Tools' from the top menu.") }} </li>
+                <li> {{_("Choose 'Internet Options.'") }} </li>
+                <li> {{_("Click the 'Privacy' tab.") }} </li>
+                <li> {{_("Move the slider to Medium or Low.") }} </li>
+                <li> {{_("Click 'OK'.") }} </li>
+            </ol>
+            <p><h2 class="toptitle"> {{_("Mozilla Firefox (1.5+ & Up)") }} </h2></p>
+            <div class="divider"></div>
+            <ol>
+                <li> {{_("Select 'Tools' from the top menu.") }} </li>
+                <li> {{_("Choose 'Options'.") }} </li>
+                <li> {{_("Click the 'Privacy' tab.") }} </li>
+                <li> {{_("Check the boxes labeled 'Accept cookies from sites' and 'Accept third-party cookies'.") }} </li>
+                <li> {{_("Select 'they expire' under the 'Keep until' drop-down menu'.") }} </li>
+                <li> {{_("Click 'OK'.") }} </li>
+            </ol>
+            <p><h2 class="toptitle"> {{_("Google Chrome") }} </h2></p>
+            <div class="divider"></div>
+            <ol>
+                <li> {{_("Click the wrench at upper right and click 'Options' from the drop-down menu.") }} </li>
+                <li> {{_("Click the 'Under the Hood' tab.") }} </li>
+                <li> {{_("Click 'Content Settings' button under 'Privacy' section.") }} </li>
+                <li> {{_("Select 'Allow all cookies' under the 'Cookie settings' drop-down menu.") }} </li>
+                <li> {{_("Click 'Close'.") }} </li>
+            </ol>
+            <p><h2 class="toptitle"> {{_("Apple Safari") }} </h2></p>
+            <div class="divider"></div>
+            <ol>
+            	<li> {{_("Select 'Safari'/'Edit' from the top menu.") }} </li>
+                <li> {{_("Choose 'Preferences'.") }} </li>
+                <li> {{_("Click the 'Security' tab.") }} </li>
+                <li> {{_("Select 'Always' under the 'Accept Cookies' section.") }} </li>
+                <li> {{_("Close 'Preferences' by clicking the 'X' at the upper-right corner of the Preferences box.") }} </li>
+            </ol>
+            <div class="divider"></div>
+            <p> {{_("Please keep in mind that upgrading your browser or installing new security software or security patches may affect your cookies settings. It is a good idea to double-check browser cookies setting is still enabled if you notice problems when using the CK-12 FlexBook&#174; textbook System.") }} </p>
+        </div>
+	</div>
+	<div class="spacetopxlarge"></div>
+</div>
+{% endblock%}

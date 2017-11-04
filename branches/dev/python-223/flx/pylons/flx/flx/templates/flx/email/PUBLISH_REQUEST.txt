@@ -1,0 +1,11 @@
+Request to Publish:
+
+Full Name: {{ member.name }}
+Email: {{ member.email }}
+Host URL: {{ events.0.eventData['website'] }}
+Feedback Type: Publish Flexbook Request
+
+Username: {{ member.login }}
+Title: {{ events.0.eventData['artifactRevision']['title'] }}
+Artifact Revision ID: {{ events.0.eventData['artifactRevision']['id'] }}
+Comments:</td> {{ events.0.eventData['comments'] }}

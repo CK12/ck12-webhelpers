@@ -1,0 +1,38 @@
+<div id="embedbackstage">
+</div>
+<div id="embedendpractice" class="">
+	<div id="centerboxwrap">
+		<a href="{{ config.webroot_url }}exercise/embed/{{ c.artifact['handle'] }}">
+		<div id="ex-banner">
+			<img class="ex-cover"src="{{ h.asset_image('images/icon_exercise_large.png') }}"/>
+			<div class="ex-title">
+				<p>{{ _('Exercise on') }} {{ c.artifact['title']|truncate(60) }}</p>
+			</div>
+			<div class="reloadbtnwrap">
+				<span class="trymessage">{{ _('Try Again') }}</span>
+				<img class="reloadbtn" src="{{ h.asset_image('images/icon_reloadexercise.png') }}"/>
+			</div>
+		</div>
+		</a>
+	</div>
+	 {% if c.related_exercises|length > 0 %}
+	<div id="bottomboxwrap">
+		{% if c.related_exercises|length == 1 %}
+		<h2>{{ _('Related Exercise') }}</h2>
+		{% else %}
+		<h2>{{ _('Related Exercises') }}</h2>
+		{% endif %}
+		<div id="relexerciseswrap">
+			{% for item in c.related_exercises %}
+			<div class="ex-row">
+				<img class="ex-cover"src="{{ h.asset_image('images/icon_exercise_small.png') }}"/>
+				<div class="ex-title">
+					<a href="{{ config.webroot_url }}exercise/embed/{{ item['perma'] }}">{{ item['title']|truncate(35) }}</a>
+				</div>
+				<div class="clear"></div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+	{% endif %}
+</div>

@@ -1,0 +1,5 @@
+    WSGIScriptAlias /hwp /opt/2.0/hwpserver/hwp.wsgi
+    <Directory /opt/2.0/hwpserver/>
+        Require all granted
+    </Directory>
+

@@ -1,0 +1,179 @@
+
+# /
+/node_modules
+/www-data
+/.vagrant
+
+# /AthenaApp/
+/AthenaApp/build
+/AthenaApp/node_modules
+
+# /AthenaApp/public/
+
+# /adminapp/pylons/flxadmin/flxadmin/public/media/js/
+adminapp/pylons/flxadmin/data
+
+# /assessment/
+/assessment/.project
+
+# /assessment/app/www/
+/assessment/app/www/data
+
+# /assessment/engine/pyramid/
+/assessment/engine/pyramid/assessment.egg-info
+
+# /assessment/tools/geometry-tool/
+/assessment/tools/geometry-tool/build-*
+
+# /assessment/tools/geometry-tool/deploy/scripts/
+/assessment/tools/geometry-tool/deploy/scripts/node_modules
+
+# /assessment/tools/geometry-tool/js/plix/
+
+# /assessment/tools/geometry-tool/vendor/
+
+# /assessment/ui/
+/assessment/ui/node_modules
+/assessment/ui/build-*
+
+# /assessment/ui/public/lib/
+
+# /assessment/ui/public/lib/jquery/
+
+# /assessment/ui/public/themes/honeydew/
+
+# /assessment/ui/public/themes/honeydew/external-css/
+
+# /dexter/web/public/media/dexterjs/
+/dexter/web/public/media/dexterjs/node_modules
+/dexter/web/public/media/dexterjs/docs
+
+# /flx/f2pdf/drivers/lib_external/
+/flx/f2pdf/*.log
+
+# /flx/pylons/auth/flx/public/
+
+# /flx/pylons/flx/flx/lib/
+
+# /flxweb/
+/flxweb/.project
+/flxweb/flxweb.wsgi
+/flxweb/production.ini
+/flxweb/.pydevproject
+/flxweb/www-data
+/flxweb/data
+/flxweb/flxweb.egg-info
+
+# /flxweb/flxweb/public/media/
+/flxweb/flxweb/public/media/build-*
+/flxweb/flxweb/public/media/dexter/node_modules  
+/flxweb/flxweb/public/media/dexter/dist
+
+# /flxweb/flxweb/public/media/dexterjs/
+
+# /flxweb/flxweb/public/media/scratchpad/
+/flxweb/flxweb/public/media/scratchpad/node_modules
+/flxweb/flxweb/public/media/scratchpad/scratchpad_docs
+/flxweb/flxweb/public/media/scratchpad/dist
+/flxweb/flxweb/public/media/scratchpad/www-data
+
+# Dashboard
+/flxweb/flxweb/public/media/dashboard-new/dist
+/flxweb/flxweb/public/media/dashboard-new/node_modules
+
+# /lmspractice/
+/lmspractice/node_modules
+/lmspractice/build
+
+# /lmspractice/ui/
+
+# /log/
+/log/*
+
+# /peerhelp/ui/
+/peerhelp/ui/node_modules
+/peerhelp/ui/build-*
+/peerhelp/ui/www-data
+
+/content_api/node_modules
+/content_api/bower_components
+/content_api/src/js/endpoint.config.json
+/content_api/src/styles/sprites.png
+/content_api/src/styles/_sprites-config.scss
+/content_api/builds
+
+## Externals
+AthenaApp/public/media
+#adminapp/pylons/flxadmin/.eggs/
+adminapp/pylons/flxadmin/flxadmin/public/media/js/lib
+assessment/tools/geometry-tool/js/plix/share.via.email.view.js
+assessment/tools/geometry-tool/vendor/ck12-tinymce4-plugins
+assessment/tools/geometry-tool/vendor/dexterjs
+assessment/tools/geometry-tool/vendor/tinymce4
+assessment/ui/practiceapp/media/account
+assessment/ui/practiceapp/media/common
+assessment/ui/practiceapp/media/css
+assessment/ui/practiceapp/media/scratchpad
+assessment/ui/public/lib/cache
+assessment/ui/public/lib/ck12-tinymce3-plugins
+assessment/ui/public/lib/ck12-tinymce4-plugins
+assessment/ui/public/lib/dexterjs
+assessment/ui/public/lib/jquery/jquery-1.7.1.js
+assessment/ui/public/lib/tinymce3
+assessment/ui/public/lib/tinymce4
+assessment/ui/public/themes/honeydew/external-css/
+assessment/ui/public/themes/honeydew/font
+flx/f2pdf/drivers/lib_external/headrequest.py
+flx/pylons/auth/auth/model/mongocry
+flx/pylons/auth/auth/public/media
+flx/pylons/flx/flx/lib/ims_lti_py
+flx/search/solr/data
+flx/search/solr/conf/spellings.txt
+flxweb/flxweb/public/media/dexterjs/
+lmspractice/ui/media
+peerhelp/ui/common
+peerhelp/ui/widgets
+assessment/tools/geometry-tool/vendor/ck12-tinymce-plugins
+assessment/tools/geometry-tool/vendor/tinymce-3.4.6-jquery
+assessment/ui/browse/json/
+assessment/ui/public/lib/ck12-tinymce-plugins
+assessment/ui/public/lib/tinymce-3.4.6-jquery
+assessment/app/config.xml
+assessment/app/node_modules/
+assessment/app/platforms/
+assessment/app/plugins/ios.json
+assessment/app/plugins/android.json
+assessment/app/www/ui/
+assessment/engine/pyramid/assessment/static/files/
+deploy/components/beaker/mongodb_beaker/mongodb_beaker.egg-info/
+git-branch-list
+old-branch-list
+remove-old-branches
+svn-branch-list
+symlinks4externals.sh
+
+## Symlinks
+adminapp/pylons/flxadmin/production.ini
+peerhelp/core/pyramid/production.ini
+flx/pylons/flx/production.ini
+flx/pylons/auth/production.ini
+assessment/engine/pyramid/production.ini
+flx/pylons/flx/celeryconfig.py
+
+adminapp/pylons/flxadmin/flxadmin.wsgi
+peerhelp/core/pyramid/peer_help.wsgi
+flx/pylons/flx/flx.wsgi
+flx/pylons/auth/auth.wsgi
+assessment/engine/pyramid/assessment.wsgi
+
+*.pyc
+**/my-development.ini
+*.swp
+**/.eggs
+**/PKG-INFO
+**/SOURCES.txt
+**/requires.txt
+**/production.ini
+.DS_Store
+deploy/components/apache2/apps_1404/
+deploy/components/apache2/apps/

@@ -1,0 +1,31 @@
+{% from "macros/pagination.html" import paginate with context %}
+
+{% if c.paginator.item_count > 0 %}
+  {% for i in c.paginator.items %}
+    <div class="tr paneview {{ h.hide_if_full(c.viewmode)}}">
+      <div class="td">{{i.memberID}}</div>
+      <div class="td">{{i.objectType}}</div>
+      <div class="td">{{i.subObjectType}}</div>
+      <div class="td">{{i.objectID}}</div>
+      <div class="td">{{i.blockedBy}}</div>
+      <div class="td">{{i.reason}}</div>
+      <div class="td">{{i.creationTime|parseISODate|compact}}</div>
+      <div class="td">
+        <span class="blockMember linklike" data-id="{{i.memberID}}" data-objectid="{% if i.objectID %}{{i.objectID}}{%endif%}" data-objecttype="{{i.objectType}}" data-subobjecttype="{{i.subObjectType}}">[Un-Block Member]</span>
+      </div>
+    </div>    
+    <div class="tr fullview {{ h.hide_if_pane(c.viewmode)}}">
+      <div class="td">{{i.memberID}}</div>
+      <div class="td">{{i.objectType}}</div>
+      <div class="td">{{i.subObjectType}}</div>
+      <div class="td">{{i.objectID}}</div>
+      <div class="td">{{i.blockedBy}}</div>
+      <div class="td">{{i.reason}}</div>
+      <div class="td">{{i.creationTime|parseISODate|compact}}</div>
+      <div class="td">
+        <span class="unblockMember linklike" data-id="{{i.memberID}}" data-objectid="{% if i.objectID %}{{i.objectID}}{%endif%}" data-objecttype="{{i.objectType}}" data-subobjecttype="{{i.subObjectType}}">[Un-Block Member]</span>
+      </div>
+    </div>    
+  {% endfor %}
+  {{ paginate(c.paginator) }}
+{% endif %}

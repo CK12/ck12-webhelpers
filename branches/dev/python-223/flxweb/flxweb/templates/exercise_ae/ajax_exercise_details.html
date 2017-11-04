@@ -1,0 +1,23 @@
+{% set artifact = c.artifact %}
+{% set exercise = c.exercise %}
+{% set scorecards = c.scorecards %}
+{% set exercise_mode = c.exercise_mode %}
+{% from "exercise/exercise_macros.html" import ck12_display_exercise with context %}
+{% from "exercise/exercise_macros.html" import ck12_display_add_exercise with context %}
+{% from "exercise/exercise_macros.html" import ck12_display_error_exercise with context %}
+<div id="exercisewrapper" class="active">
+{% if artifact.encodedID %}
+	{% if c.exercise_exist %}
+	
+	{% set perma = c.assessmentType +'/'+ c.title %}
+	{% if artifact['realm'] %}
+	{% set perma = perma + '/' + artifact['realm'] %}
+	{% endif %}
+	<!-- TODO: URL needs to be updated  -->
+	<iframe src="{{ h.url_assessment("#test/detail/") }}{{ perma }}" style="height:675px;width:100%;border:0px;"></iframe>
+	{% endif %}
+{% else %}
+	{{ ck12_display_error_exercise(c.artifact.title) }}
+{% endif %}
+<div id="exercise_mode" data-mode={{ exercise_mode }}></div>
+</div>

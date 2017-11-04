@@ -1,0 +1,52 @@
+<div class="columns large-12 small-12 standards-parent-container hide-for-small">
+	<div class="row collapse">
+		<div class="columns large-3 standrads-left-nav">
+			<div class="row collapse standards-header-wrapper js-standards-header-wrapper">
+				<% if ('CCSS' === data.type) { %>
+					<img class="left" alt="math" src="/media/standard/images/math-icon.png">
+				<% } else { %>
+					<img class="left" alt="math" src="/media/standard/images/science-icon.png">
+				<% } %>	
+				<div class="left standards-header">
+					<% if ('CCSS' === data.type) { %>
+						<div class="standards-first-header"> Common Core </div>
+						<div class="standards-second-header"> Math </div>
+					<% } else { %>
+						<div class="standards-first-header"> Next Generation </div>
+						<div class="standards-second-header"> Science </div>
+					<% } %>
+					<div class="standards-third-header"> Standards Browser </div>
+				</div>
+			</div>
+			<ul id="sets" class="sets-wrapper js-sets"></ul>
+		</div>
+		<div class="columns large-8 large-offset-4 standrds-details">
+			<div id="standard-details" class="standards-main-wrapper row collapse"></div>
+		</div>
+	</div>
+</div>
+
+<div class="columns small-12 mobile-view show-for-small">
+	<div class="row collapse mobile-sets-container js-mobile-sets-container">
+		<div class="row collapse mobile-standards-header">
+			<% if ('CCSS' === data.type) { %>
+				<img class="left" alt="math" src="/media/standard/images/math-icon.png">
+			<% } else { %>
+				<img class="left" alt="math" src="/media/standard/images/science-icon.png">
+			<% } %>	
+			<div class="left standards-header">
+				<% if ('CCSS' === data.type) { %>
+					<div>Common Core Math</div>
+				<% } else { %>
+					<div>Next Generation Science</div>
+				<% } %>	
+				<div>Standards Browser</div>
+			</div>
+		</div>
+		<ul id="setsForMobile" class="sets-wrapper js-sets"></ul>
+	</div>
+	
+	<div class="columns small-12 mobile-standards-details js-mobile-standards-details hide-important">
+		<div id="mobile-standard-details" class="standards-main-wrapper row collapse"></div>
+	</div>
+</div>

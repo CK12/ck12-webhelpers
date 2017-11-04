@@ -1,0 +1,501 @@
+{% extends 'details/modalities/modality_common.html' %}
+
+{% from "macros/artifact.html" import ck12_metadata_keywords_list with context %}
+{% from "macros/artifact.html" import ck12_metadata_list_for_standards with context %}
+{% from "macros/artifact.html" import ck12_metadata_attributions_list with context %}
+
+{% from "macros/modality_actions.html" import ck12_modality_add_to_fb with context %}
+{% from "macros/modality_actions.html" import ck12_modality_edit with context %}
+{% from "macros/modality_actions.html" import ck12_modality_print_download with context %}
+{% from "macros/modality_actions.html" import ck12_modality_report_error with context %}
+{% from "macros/modality_actions.html" import ck12_modality_publish with context %}
+{% from "macros/modality_actions.html" import ck12_modality_details with context %}
+{% from "macros/modality_actions.html" import ck12_modality_resources with context %}
+{% from "macros/attachments.html" import ck12_artifact_resource_row_template with context %}
+{% from "macros/attachments.html" import ck12_artifact_edit_resource with context %}
+
+{% block stylesheets %}
+{{ super() }}
+<link type="text/css" rel="stylesheet" href="{{ h.url_css('details.css') }}" />
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('common/css/concept_coversheet.css') }}" />
+<link rel="stylesheet" href="{{ h.url_css('boxstyle.css') }}" type="text/css" media="screen">
+{% endblock %}
+
+{% block extra_head %}
+<script type="text/javascript">
+var pageType = "Modality Details";
+var pageSubType = "{{c.modality_data.artifact.modality.get('display_label')|escape}}";
+</script>
+{% endblock %}
+
+{% block modalities_navbar %}
+{{ super() }}
+<div class="modalities_top_container">
+	<div class="modalities-common">
+		<ul id="modality_filters_list" class="hide-for-small">
+			<li class="mdoalityfilterdropmenuwrap hide">
+				<a class="lnk_modality_filter">
+					<i class="icon-arrow3_right"></i>
+					<span class="group_label">
+						<span>More</span>
+	   					<br class="show-small"/>
+	   					<span>(</span><span id="more-concept-count"></span><span>)</span>
+					</span>
+				</a>
+				<ul id="modality_extra_filter_list" class="drop-menu hide"></ul>
+			</li>
+		</ul>
+		<ul class="modality-actions-mobile show-for-small row">
+			<li class="column small-5 modality-actions-all-mod-link"><a href="{{ c.concept_url }}#all"><i class="icon-arrow"></i> {{ _('All Modalities') }}</a></li>
+			{% if c.previewdraft != True %}
+				<li class="column small-5 hide-for-lti-context"><a class="js-shareGroupLink right" data-sharetype="group" data-artifactID="{{c.modality_data.artifact.get_artifact_id()}}" title="{{ _('Share via Groups') }}">Share to Groups</a>
+			{% endif %}
+		</ul>
+	</div>
+</div>
+{% endblock %}
+
+
+
+{% block js %}
+{{ super() }}
+
+	{% block modality_js %}
+	<script language="JavaScript" type="text/javascript">
+		var artifactID = '{{c.modality_data.artifact.get_artifact_id()}}';
+		var artifactRevisionID = '{{c.modality_data.artifact.get_revision_id()}}';
+		require(['main'],function(){
+			require(['flxweb.details.modality']);
+		});
+	</script>
+	{% endblock %}
+
+	{% block ads_js %}
+	<script language="JavaScript" type="text/javascript">
+			var modality_type = "{{c.modality_data.artifact.get('artifactType')}}"
+			require(['main'],function(){
+					require(['flxweb.modalities.common']);
+			});
+	</script>
+	{% endblock %}
+	
+	<script language="JavaScript" type="text/javascript">
+		require(['main'],function(){
+			require(['jquery','common/utils/practice_badge'],function($, badge){
+				$(document).ready(function() {
+					$('.modalitysidebar li a.dropdowntop').click(function() {
+						var $dropdown = $(this).next('.dropdown');
+						if ($dropdown.is(':hidden')) {
+							$dropdown.slideDown('slow');
+						}
+						else {
+							$dropdown.hide('slow');
+						}
+					});
+					
+					function checkForcedSignIn(){
+						var selectedUrlconfig = $.cookie('assessmentFrameUrlConfig'),
+							$menuElement = null;
+						
+						if(selectedUrlconfig && window.ck12_signed_in){
+							$.removeCookie("assessmentFrameUrlConfig");
+							window.location.href = selectedUrlconfig;
+						}
+				 	}
+					
+					checkForcedSignIn();
+					if ('js_collection_data' in window)
+					{
+						var jsCollectionData = window.js_collection_data
+					
+						//init practice badge if practice available for concept
+						 badge && badge.init({
+								"encodedId": window.js_modality_data.domain.encodedID,
+								"handle": window.js_modality_data.domain.handle,
+								"conceptCollectionHandle": jsCollectionData.collection.descendantCollection.handle,
+								"collectionCreatorID": jsCollectionData.collection.creatorID
+						 });
+					}
+					else
+					{
+						 badge && badge.init({
+								"encodedId": window.js_modality_data.domain.encodedID,
+								"handle": window.js_modality_data.domain.handle,
+						 });
+					}
+				});
+			});
+		});
+	</script>
+{% endblock %}
+
+{% block meta_extra %}
+{{ super () }}
+{% if c.page_url %}
+  {% for term in ['user:','user%3a','user-generated-content']%}
+      {% if (c.page_url.lower().find(term) !=-1) %}
+          <meta name="robots" content="noindex" />
+      {% endif %}
+  {% endfor %}
+{% endif %}
+{% endblock %}
+
+{% block schema_itemscope %} itemscope itemtype="http://schema.org/WebPage" {% endblock %}
+
+{% block modality_content %}
+<!-- Schema.org properties -->
+<meta itemprop="description" content="{{ c.modality_data.artifact.summary }}">
+<meta itemprop="interactivityType" content="mixed">
+<meta itemprop="provider" content="CK-12 Foundation"/>
+<meta itemprop="url" content="{{ h.url(c.page_url, qualified=True) }}"/>
+<meta itemprop="dateCreated" content="{{ c.modality_data.artifact.created }}" />
+<meta itemprop="dateModified" content="{{ c.modality_data.artifact.modified }}" />
+<meta itemprop="datePublished" content="{{ c.modality_data.artifact.get_published_date() }}" />
+<meta itemprop="version" content="{{ c.modality_data.artifact.getVersionNumber() }}" />
+<meta itemprop="useRightsURL" content="http://creativecommons.org/licenses/by-nc/3.0/" />
+<meta itemprop="learningResourceType" content="{{ c.modality_data.artifact.modality.get('display_label')|escape }}" />
+
+{% if c.modality_data.artifact.is_concept() %}
+	<meta itemprop="timeRequired" content="P20M" />
+{% endif %}
+
+{% for age in c.modality_data.artifact.get_age_ranges() %}
+	<meta itemprop="typicalAgeRange" content="{{ age }}" />
+{% endfor %}
+<meta itemprop="intendedEndUserRole" content="student" />
+
+{% if c.modality_data.artifact.is_published() %}
+{% endif %}
+
+<div class="row collapse">
+	<div class="hide-for-small modalitysidebar-wrapper large-2 columns {% if c.modality_data.artifact.get('artifactType') == 'simulationint' or c.modality_data.artifact.get('artifactType') == 'simulation' %}hide-important{% endif %}">
+		<div class="modalitysidebar">
+			<div class="dividerwrap start hide">
+				<div class="divider">
+					<div class="top"></div>
+				</div>
+			</div>
+			{% block modality_actions %}
+			<ul>
+				{% if c.previewdraft != True %}
+                    {% if c.modality_data.artifact.artifactType in ('lesson', 'lecture', 'enrichment', 'rwa') %}
+                        <li class="modality-info assign-to-class hide"><a title="Assign to Class" class="assign_to_class">Assign to Class</a><span class="assign-info-img icon-Info"></span><div id="reveal-overlay" class="reveal-modal-bg"></div></li>	<!-- This change is for videos -->
+                    {% endif %}
+					{% if c.modality_data_json.artifact.revisionInLibrary == None %}
+						<li> <a id="add_to_library" title="Add to Library"> Add to Library </a> </li>
+					{% else %}
+						<li> <a class="already_in_library" title="Already in Library"> Add to Library </a> </li>
+					{% endif %}
+					<li> <a class="js-shareGroupLink" data-sharetype="group" data-artifactID="{{ c.modality_data.artifact.id }}" title="{{ _('Share via Groups') }}">Share to Groups</a> </li>
+				{% endif %}
+{# commented out report an error
+				<li> {{ ck12_modality_report_error( c.modality_data.artifact ) }} </li>
+#}
+				{% if c.show_details %}<li> {{ ck12_modality_details( c.modality_data.artifact ) }} </li>{% endif %}
+			</ul>
+			{% endblock %}
+			<div class="dividerwrap end">
+				<div class="divider">
+					<div class="top"></div>
+				</div>
+				<div class="divider">
+					<div class="bottom"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="small-12 {% if c.modality_data.artifact.get('artifactType') == 'simulationint' or c.modality_data.artifact.get('artifactType') == 'simulation' %}large-12{% else %}large-10{% endif %} columns">
+		<div class="row collapse modalitycontentwrap modality-details-row">
+		<div class="modalitycontentouterwrap">
+			<div class="modalitycontentinnerwrap">
+				<div class="row collapse">
+					<div class="modalitylabel group_{{c.modality_group['group_classname']}}">
+						<div class="title break-word {% if not c.modality_data.artifact.contributor %}titleonly{% endif %}">
+							{{ c.modality_data.artifact.get('title')|escape }}
+							{# c.modality_data.artifact.modality.get('display_label')|escape #}
+						</div>
+						{% if c.modality_data.artifact.contributor %}
+							<div class="contributedby">
+								{{ c.modality_data.artifact.contributor|capitalize }} {{ _(" Contributed ") }} 
+							</div>
+						{% endif %}
+					</div>
+				</div>
+				<div class="modalitycontent clearfix">
+				{% block before_modality_content_main %}{% endblock %}
+				{% block modality_content_main %}
+					{% if c.modality_data.artifact.is_resource() %}
+						{% set resource = c.modality_data.artifact.get_modality_resource() %}
+						{% if resource.thumbnail %}
+						<div class="thumb_imgwrap">
+						<a href="/flx/show{{ resource.permaUri }}"><img class="modality_resource_thumb" src="{{ resource.thumbnail }}" title="{{ resource.name }}" alt="{{ resource.name }}" /></a> 
+						</div>
+						{% endif %}
+						<div class="modality_resource_desc">
+							{{ resource.description|escape|replace("None", "") }}
+						</div> 
+						<div>
+							{% if c.modality_data.boxviewer_session_id %}
+								<div class="divider spacetop"></div>
+								<iframe class="viewer" allowfullscreen="" seamless=""
+								style="width: 100%; border: none;"
+								src="{{ config.box_iframe_url }}{{c.modality_data.boxviewer_session_id}}/view?theme=light" 
+								></iframe>
+							{% elif resource.permaUri %}
+								<div class="divider spacetop"></div>
+								<a class="button turquoise download" href="/flx/show{{ resource.permaUri }}">{{ _('Download') }}</a>  
+							{% endif %} 
+						</div>
+						<div class="divider"></div>
+					{% else %}
+						{{ c.modality_xhtml }}
+					{% endif %}
+				{% endblock %}
+				{% block after_modality_content_main %}{% endblock %}
+				</div>
+				    {% block guided_practice %}
+					 {% endblock %}			
+				<div class="detailswrap" data-details="{{ c.show_details }}">
+					<!-- START METADATA VIEW -->
+					{% block modality_metadata %}
+					
+					{# hide modality details for student users #}
+					{% if c.show_details %}
+					<h3 class="js_block_toggle js_metadata_toggle" data-toggle=".js_metadata_toggle" data-container=".js_metadata_container">
+						<span class="show">{{ _('Show') }}</span><span class="noshow hide">{{ _('Hide') }}</span> {{ _('Details') }} <span class="tip"></span>
+					</h3>
+					<div class="divider"></div>
+					<div class="js_metadata_container annotation-content-container" id="js_metadata_container_mjax" style="display:none;">
+						<div class="metadataview">
+							<div class="left">
+								{% block before_metadata %}
+								{% endblock %}
+								<section>
+									{% set _attributions = c.modality_data.artifact.get_authors_by_role() %}
+									<!-- Authors List -->
+									{% if 'author' in _attributions %}
+									<div class="spacetopmedium break-word">
+										{{ ck12_metadata_attributions_list( _("Authors:"), _attributions.get('author') ) }}
+									</div>
+									{% endif %}
+									
+									<!-- Contributors List -->
+									{% if 'contributor' in _attributions %}
+									<div class="spacetopmedium break-word">
+										{{ ck12_metadata_attributions_list( _("Contributors:"), _attributions.get('contributor') ) }}
+									</div>
+									{% endif %}
+							
+									<!-- Editors List -->
+									{% if 'editor' in _attributions %}
+									<div class="spacetopmedium break-word">
+										{{ ck12_metadata_attributions_list( _("Editors:"), _attributions.get('editor') ) }}
+									</div>
+									{% endif %}
+							
+									<!-- Translators List -->
+									{% if 'translator' in _attributions %}
+									<div class="spacetopmedium break-word">
+										{{ ck12_metadata_attributions_list( _("Translators:"), _attributions.get('translator') ) }}
+									</div>
+									{% endif %}
+									
+									<!-- Reviewer List -->
+									{% if 'reviewer' in _attributions %}
+									<div class="spacetopmedium break-word">
+										{{ ck12_metadata_attributions_list( _("Reviewer:"), _attributions.get('reviewer') ) }}
+									</div>
+									{% endif %}
+									
+									<!-- Technical Reviewer List -->
+									{% if 'technicalreviewer' in _attributions %}
+									<div class="spacetopmedium break-word">
+										{{ ck12_metadata_attributions_list( _("Technical Reviewer:"), _attributions.get('technicalreviewer') ) }}
+									</div>
+									{% endif %}
+								</section>
+								<section>
+									<!-- Objectives -->
+									{% block metadata_objectives %}
+									{% endblock %}
+								</section>
+								<section>
+									<!-- Source List -->
+									{% if 'source' in _attributions %}
+									<div class="spacetopmedium break-word">
+										{{ ck12_metadata_attributions_list( _("Sources:"), _attributions.get('source') ) }}
+									</div>
+									<div class="divider spacetopmedium"></div>
+									{% endif %}
+								</section>
+								<!-- Related Materials -->
+								{% block related %}
+								<section id="related" class="relatedmaterials" >
+									{% if c.related_list %}
+										<h2 class="toptitle">{{ _("%(relation)s Materials"  % {'relation':c.relation_type.title()}) }}</h2>
+										<ul>
+										{% for artifact in c.related_list %}
+										<li>
+											<a href="{{ config.webroot_url }}{{ artifact.perma }}" title="{{ artifact.title|escape }}">
+												{{ artifact.title }}
+											</a>
+										</li>
+										{% endfor %}
+										</ul>
+									{% endif %}
+								</section>
+								{% endblock %}
+								<section>
+									{% if c.modality_data.artifact.level %}
+									<div class="spacetopmedium">
+										<h2 class="toptitle">{{ _("Difficulty Level") }}</h2> {{ c.modality_data.artifact.get_level()|title }}
+									</div>
+									{% endif %}
+									
+									<!-- Grades -->
+									<div id="modality_grades_wrapper">
+                                        {% if c.modality_data.artifact.get_grades() %}
+                                        <div class="columnwrap spacetopmedium">
+                                            <h2 class="toptitle"> {{  _("Grades") }} </h2>
+                                            <div id="modality_grades">
+                                                {% for grade in c.modality_data.artifact.get_grades() %}
+                                                <a href="{{ url('search') }}?q=grade:{{ grade['name'] }}" title="{{ grade['name'] }}">{{ grade['name'] }} </a>
+                                                {% if not loop.last %},{% endif %}
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        {% endif %}
+                                    </div>
+								</section>
+							</div>
+							
+							<div class="right">
+								<section>
+									<div class="spacetopmedium">
+										<h2 class="toptitle infoitemname">{{ _("Date Created:") }}</h2>
+										<span class="js_local_date" data-date="{{ c.modality_data.artifact.created }}"></span>
+									</div>
+									<div>
+										<h2 class="toptitle infoitemname">{{ _("Last Modified:") }}</h2>
+										<span class="js_local_date" data-date="{{ c.modality_data.artifact.modified }}"></span>
+									</div>
+								</section>
+								<section>
+                                    <!-- Subjects -->
+                                    <div id="modality_subjects_wrapper">
+                                        {% if c.modality_data.artifact.get_subjects() %}
+                                        <div class="spacetopmedium">
+                                            {{ ck12_metadata_keywords_list( _("Subjects:"), c.modality_data.artifact.get_subjects() ) }}
+                                        </div>
+                                        <div class="clear"></div>
+                                        {% endif %}
+                                    </div>
+                                </section>
+								<section>
+                                    <!-- Tags -->
+                                    <div id="modality_search_wrapper">
+                                        {% set search_grid = c.modality_data.artifact.get_search_keywords() %}
+                                        {% if search_grid %}
+                                        <div class="spacetopmedium">
+                                            {{ ck12_metadata_keywords_list( _("Search Keywords:"), search_grid, separator=";" ) }}
+                                        </div>
+                                        <div class="clear"></div>
+                                        {% endif %}
+                                    </div>
+								</section>
+								<section>
+									<!-- Tags -->
+                                    <div id="modality_tags_wrapper">
+                                        {% if c.modality_data.artifact.get_tags() %}
+                                        <div class="spacetopmedium">
+                                            {{ ck12_metadata_keywords_list( _("Tags:"), c.modality_data.artifact.get_tags() ) }}
+                                        </div>
+                                        {% endif %}
+                                    </div>
+								</section>
+								<!-- Other Details -->
+								<section>
+									<!-- Standards Correlations (Replaced States - SLING) -->
+									{% block standard_correlations %}
+										<div class="spacetopmedium js_standardboards_container hide" 
+											data-loadurl="{{ h.url( controller='standards', action='ajaxStandardBoardsByArtifactID', artifact_id=c.modality_data.artifact.get_artifact_id() ) }}">
+										</div>
+										<div class="clear"></div>
+									{% endblock %}
+		
+									<!--<h2>{{ _("Other Details") }}</h2>-->
+                                    <!-- Concept Nodes -->
+                                    <div id="modality_concept_node_wrapper">
+                                        {% block metadata_concept_node %}
+                                            {% if c.modality_data.artifact.get_domains() %}
+                                            <section class="spacetopmedium">
+                                                <h2 class="toptitle"> {{_("Concept Nodes:")}} </h2>
+                                                <div class="articleinfowrap">
+                                                    {% for domain in c.modality_data.artifact.get_domains() %}
+                                                    <a title="{{ domain.title }} " href="/search/?q={{ domain.name }}&type=concept" itemprop="keywords" data-encodedid="{{ domain.encodedid }}">{{ domain.title|e }}</a>
+                                                    {% endfor %}
+                                                </div>
+                                            </section>
+                                            <div class="clear"></div>
+                                            {% endif %}
+                                        {% endblock %}
+                                    </div>
+									{% block extra_metadata %}
+									{% endblock %}
+								</section>
+							</div>
+							<div class="clear"></div>
+						</div>
+						<div class="spacetop"></div>
+						<div class="divider"></div>
+					</div>
+					{% endif %}
+					{# --end hide modality details for student users #}
+					<div class="after_metadata">
+						{% block after_metadata %}
+						{% endblock %}
+					</div>
+					{% endblock %}
+					<!-- /END METADATA VIEW -->
+				</div>
+			</div><!-- /END modalitycontentinnerwrap -->
+		</div><!-- /END modalitycontentouterwrap -->
+	</div>
+	</div>
+		
+</div>
+{% endblock %}
+
+{% block artifact_review_feedback %}
+	<div class="column large-12 review-list-wrapper">
+		<div id="review_list_container" class="relative js_loadlater" data-native="flxweb.modality.read.initreviewlist" data-lazyload="1">
+			<!-- Bottom Artifact Review Feedback -->
+			{{ ck12_artifact_review_feedback_bottom( ) }}
+			<!-- /Bottom Artifact Review Feedback -->
+			<!-- Artifact Voting -->
+			{{ ck12_artifact_myreview_feedback( ) }}
+			<!-- /Artifact Voting -->
+		</div>
+	</div>
+{% endblock %}
+
+{% block hidden_divs %}
+{{ super() }}
+{{ ck12_artifact_resource_row_template() }}
+{{ ck12_artifact_edit_resource() }}
+<!--
+	Templates for groups sharing 
+-->
+{% include "jstemplates/share_groups.html" %}
+<div id="js_publish_artifact_dialog" data-url="{{ h.url('dlg-publish-artifact',qualified=True) }}"
+	data-dialogtitle="{{ _('Publish Modality') }}">
+</div>
+<div id = "js_modality_published_dialog" data-dialogtitle = "{{_('Modality Published')}}">
+</div>
+
+<!-- Standards correlation dialog -->
+<div id="js_view_standards_dialog" data-dialogtitle="{{ _("Standards Correlations") }}" data-dialognocache="true"> 
+
+{% endblock %}
+
+{% block no_modalities %}{% endblock %}

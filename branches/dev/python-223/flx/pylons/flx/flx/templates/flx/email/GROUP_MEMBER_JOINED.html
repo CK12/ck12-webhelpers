@@ -1,0 +1,81 @@
+{% extends "MASTER_CK12_LOGO.html" %}
+{% macro get_name_for_group_type(group_type) %}
+    {% if group_type and group_type == 'public-forum' %}
+        {{ "discussion" }}
+    {% else %}
+        {{"group"}}
+    {% endif %}
+{% endmacro %}
+
+{% macro get_group_settings_page_url_for_group_type(group_type, group_id) %}
+    {% if group_type and group_type == 'public-forum' %}
+        {{site}}{{"/forum/"}}{{group_id}}{{"/setting"}}
+    {% else %}
+        {{site}}{{"/group-settings/"}}{{group_id}}
+    {% endif %}
+{% endmacro %}
+
+{% macro get_group_details_page_url_for_group_type(group_type, group_id) %}
+    {% if group_type and group_type == 'public-forum' %}
+        {{site}}{{"/forum/"}}{{group_id}}{{"/home?"}}{{ utm_new_memebr_title_link }}
+    {% else %}
+        {{site}}{{"/group/"}}{{group_id}}{{"?"}}{{ utm_new_memebr_title_link }}
+    {% endif %}
+{% endmacro %}
+
+{% macro get_group_members_page_url_for_group_type(group_type, group_id) %}
+    {% if group_type and group_type == 'public-forum' %}
+        {{site}}{{"/forum/"}}{{group_id}}{{"/member?"}}{{ utm_new_member_see_who_joined_link }}
+    {% else %}
+        {{site}}{{"/group-members/"}}{{group_id}}{{"?"}}{{ utm_new_member_see_who_joined_link }}
+    {% endif %}
+{% endmacro %}
+
+{% block email_body %}
+<html>
+    <body>
+        <p>Hello {{ events[0]['eventData']['member']['givenName'] }} ,</p>
+        <p></p>
+
+        <p>{{ events[0]['eventData']['new_member_givenName'] }} {{ events[0]['eventData']['new_member_surname']}} has joined your CK-12 
+            {{ get_name_for_group_type( group_type=events[0]['eventData']['group_type']) }}
+            <a style="text-decoration:none;" href="{{ get_group_details_page_url_for_group_type(group_type=events[0]['eventData']['group_type'], group_id=events[0]['eventData']['groupID']) }}" target="_blank">
+                {{ events[0]['eventData']['groupName'] | escape }}
+            </a>
+        </p>
+        <p></p>
+
+        <p>Your {{ get_name_for_group_type( group_type=events[0]['eventData']['group_type']) }} now has {{ events[0]['eventData']['group_member_count'] }} members.
+            <a style="text-decoration:none;" href="{{ get_group_members_page_url_for_group_type(group_type=events[0]['eventData']['group_type'], group_id=events[0]['eventData']['groupID']) }}" target="_blank">
+                See who else has joined
+            </a>
+        </p>
+        <p></p>
+
+        <p>Cheers,<br/>
+        The CK-12 Team</p>
+        <br/>
+		<table style="width:100%; padding:0px 30px; text-align:left; font-family:Arial, Helvetica, sans-serif; font-size:12px; background-color:#56544d; color:#BBBBBB;" cellpadding="0" cellspacing="0">
+			<tr>
+				<td style="padding: 10px;">
+                    <span>Please do not reply to this email.</span>
+                </td>
+			</tr>
+			 <tr>
+                <td style="padding: 10px;">
+                	<span>Prefer not to receive these emails? 
+                        <a  href="{{ get_group_settings_page_url_for_group_type(group_type=events[0]['eventData']['group_type'], group_id=events[0]['eventData']['groupID']) }}" style="color:#FFFFFF;text-decoration:none;">
+                            Change your email settings for this {{ get_name_for_group_type(group_type=events[0]['eventData']['group_type']) }}
+                        </a>
+                    </span>
+                </td>
+             </tr>
+             <tr>
+                <td style="padding: 10px;">
+                    © CK-12 Foundation | 3430 West Bayshore Road, Palo Alto, CA 94303
+                </td>
+            </tr>
+		</table>
+    </body>
+</html>
+{% endblock %}

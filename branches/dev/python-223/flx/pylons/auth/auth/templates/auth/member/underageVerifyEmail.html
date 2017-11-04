@@ -1,0 +1,45 @@
+{% extends "base/auth/1column.html" %}
+{% block title %} {{ _('Underage Email Verified') }} {% endblock %}
+
+{% block content %}
+<div class="signup">
+	<div class="large-8 large-centered columns">
+		<h1 class="toptitle">{{ _("Email Verification") }}</h1>
+		<div class="spacetoplarge"></div>
+	</div>
+	<div id="signup" class="contentarea large-8 large-centered columns">
+		<div class="signup-area">
+		<div class="spacetopxlarge"></div>
+	
+		{% if c.form_errors %}
+			<div id="signin_errors">
+				<ul class="messaging error">
+					{% for error in c.form_errors %}
+					<span class="icon-close"></span>
+					<li>{{error}}
+						{% if c.form_errors[error] %}
+						- {{ c.form_errors[error] }}
+						{% endif %}
+					</li>
+					{% endfor %}
+				</ul>
+			</div>
+		{% elif c.resendApprovalEmail %}
+			<div class="divider"></div>
+			<p>Hi {% if c.underageMemberParent.parentEmail %}{{ c.underageMemberParent.parentEmail }}{% else %}{{ _("there")}}{% endif %},</p>
+			<div class="divider spacetop"></div>
+			<p>{{ _("The request to activate %(memberFirstName)s %(memberLastName)s has expired. Please ask %(memberFirstName)s to resend a request. Or you can" % {'memberFirstName': c.member.givenName, 'memberLastName': c.member.surname}) }}
+			 <a href="{{h.url('underage_approval_resend',qualified=True)}}?t={{ c.token }}">{{ _("Click here") }} </a> {{_("to create an account for your child.") }}</p>
+		{% elif c.accountAlreadyActivated %}
+			<div class="divider"></div>
+			<p>Hi {% if c.underageMemberParent.parentEmail %}{{ c.underageMemberParent.parentEmail }}{% else %}{{ _("there")}}{% endif %},</p>
+			<div class="divider spacetop"></div>
+			<p>{{ _("It looks like you have already activated this %(memberFirstName)s %(memberLastName)s account, if you don't remember activating an account for them, please contact us for at <a target='_blank' href='mailto:support@ck12.org'>support@ck12.org</a>" % {'memberFirstName': c.member.givenName, 'memberLastName': c.member.surname}) }}</p>
+		{% else %}
+			<div class="divider"></div>
+			<p>{{ _("Congratulations! We have activated %(memberFirstName)s %(memberLastName)s account. They can now start learning their favorite subjects!" % {'memberFirstName': c.member.givenName, 'memberLastName': c.member.surname} ) }}</p> 
+		{% endif %}
+		</div>
+	</div>
+</div>
+{% endblock %}

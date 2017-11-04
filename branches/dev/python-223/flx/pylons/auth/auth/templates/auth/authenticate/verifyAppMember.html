@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <script>
+    function triggerDeepLink() {
+         window.location.assign("{{c.appCode}}://login?data={{ c.cookies }}");
+    } 
+    triggerDeepLink();
+    </script>
+    </head>
+    <body>
+    <br><br>
+    <center>
+    <h3>Please wait while we sign you in.</h3>
+    </center>
+    </body>
+</html>

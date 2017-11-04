@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Embed Object</title>
+		<link href="/media/common/css/webfont.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="/media/lib/tinymce4/js/tinymce/skins/ck12lightgray/skin.min.css" type="text/css" />
+		<link type="text/css" rel="stylesheet" href="css/embed.css" />
+		<script type="text/javascript" src="/media/lib/jquery/jquery-1.7.1.js"></script>
+		<script type="text/javascript" src="/media/lib/jquery-plugins/jquery.form.js"></script>
+		<script type="text/javascript" src="js/embed.js"></script>
+		<script type="text/javascript" src="/media/lib/ck12-tinymce4-plugins/ck12image/js/base64.js"></script>
+	</head>
+	<body class="mce-window-iframe">
+		<form class="x-ck12-embed-object mce-container-body mce-abs-layout" onsubmit="EmbedDialog.insert();return false;" action="#">
+			<fieldset>
+				<legend class="mce-widget mce-label">Embed Code:</legend>
+				<textarea class="embed_input" id="embed_input" name="embed_input" class="mce-textbox" ></textarea>
+				<div class="mce-container-body mce-abs-layout">
+					<div class="mce-widget mce-btn mce-secondary mce-first mce-last">
+						<button type="button" id="preview" class="button" name="preview" onclick="EmbedDialog.preview();">Preview</button>
+					</div>
+				</div>
+			</fieldset>
+
+			<fieldset>
+				<legend class="mce-widget mce-label">Preview Box</legend>
+				<div id="embed_preview" class="embed_preview mce-textbox"></div>
+				<div class="mceActionPanel mce-container-body mce-abs-layout">
+					<div class="mce-container right">
+						<div class="mce-widget mce-btn mce-first">
+							<button type="button" id="cancel" name="cancel" onclick="top.tinymce.activeEditor.windowManager.close();">Cancel</button>
+						</div>
+						<div class="mce-widget mce-btn mce-primary mce-last">
+							<button type="button" id="insert" name="insert" onclick="EmbedDialog.insert();" />Insert</button>
+						</div>
+					</div>
+				</div>
+			</fieldset>
+
+		</form>
+	</body>
+</html>

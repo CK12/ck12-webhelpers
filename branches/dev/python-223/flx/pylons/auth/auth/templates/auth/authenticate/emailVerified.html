@@ -1,0 +1,37 @@
+{% extends "base/auth/1column.html" %}
+{% block title %} {{ _('Email Verified') }} {% endblock %}
+
+{% block content %}
+<div id="content" class="prefix_3 grid_6 suffix_3">
+    {% if c.form_errors %}
+        <div id="signin_errors">
+            <ul class="messaging error">
+                {% for error in c.form_errors %}
+                <span class="imgwrap"></span>
+                <li>{{error}}
+                    {% if c.form_errors[error] %}
+                    - {{ c.form_errors[error] }}
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% else %}
+        <h4>Please wait, while we redirect you ...</h4>
+        <form id="verified" method="POST" action="{{ c.redirect }}">
+        </form>
+        {% block js %}
+            {{ super() }}
+            <script>
+            require(['main'], function(){
+                require(['jquery'], function($) {
+                    $(document).ready(function(){
+                        $('#verified').submit();
+                    });
+                });
+            });
+            </script>
+        {% endblock %} 
+    {% endif %}
+</div>
+{% endblock %}

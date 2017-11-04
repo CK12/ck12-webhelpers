@@ -1,0 +1,8 @@
+<!-- <a class="category-item<% if (data.selected && -1 !== data.selected.indexOf('all')) { %> selected<% } %>" data-value="all">All</a> -->
+<% var index; %>
+<% for (index = 0; index < data.filters.label.length; index++) { %>
+	<div class="custom-box show-small">
+		<input type="checkbox" id="category<%= data.filters.value[index] %>_small" name="category-filter" <% if (data.selected && -1 !== data.selected.indexOf(data.filters.value[index])) { %> checked <% } if (!data.filters.count || !data.filters.count[index]) { %> disabled <% } %> >
+		<label for="category<%= data.filters.value[index] %>_small" class="checkbox"><%= data.filters.label[index] %><span class="right"><i class="icon-validated"></i></span><% if (data.filters.count && data.filters.count[index]) {%> (<%= data.filters.count[index] %>)<%} %></label>
+	</div>
+<% } %>

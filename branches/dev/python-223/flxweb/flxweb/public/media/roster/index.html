@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start a Newe Project</title>
+    <link rel="stylesheet" href="../common/css/master.css">
+    <link rel="stylesheet" type="text/css" href="build/css/roster.css">
+  <style>
+    #myModal{
+        max-width: 750px;
+        margin-left: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="myModal" class="reveal-modal large">
+      <div id="rosterApp"></div>
+      <a class="close-reveal-modal close">+</a>
+  </div>
+
+  <p><a href="#" data-reveal-id="myModal" id='myLink'>Click Me For A Modal</a></p>
+    <script src="./node_modules/react/dist/react-with-addons.js"></script>
+    <script type="text/javascript" src="build/roster.js"></script>
+    <script src="../common/vendor/jquery/jquery-1.9.1.min.js"></script>
+    <script src="../common/vendor/foundation/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+    <script>
+        $('#myLink').click(function(){
+            var group = {
+                id:'112359',
+                accessCode:'vgkum',
+                name: 'aaa'
+            };
+            Roster.init({
+                elm: document.getElementById('rosterApp'),
+                group: group,
+                initView:'menu'
+            });
+        })
+    </script>
+</body>
+</html>

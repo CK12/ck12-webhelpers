@@ -1,0 +1,33 @@
+@import '../main';
+
+$checkbox-size: rem-calc(18);
+$checkmark-size: rem-calc(16);
+
+:local {
+    .label {
+        font-weight: bold;
+        line-height: $checkbox-size;
+    }
+
+    .filter {
+        @include checkbox()
+    }
+
+    .filter.checked {
+        @include checkedCheckbox();
+    }
+
+    @include breakpoint(small only){
+        .label {
+            margin-bottom: rem-calc(10);
+        }
+
+        .filterContainer {
+            margin-left: rem-calc(10);
+        }
+
+        .filter {
+            margin-bottom: rem-calc(10);
+        }
+    }
+}

@@ -1,0 +1,34 @@
+{% extends "listings.html" %}  
+
+{% block filters %} 
+    {{ h.htmla_('/specialsearchentry/new/entry', 'New Special Search Entry', 'newSearchEntry')}}
+{% endblock %}
+
+{% block searches %}
+    <div class="col wider padleft">
+        {{ h.labelinput('Term', 'termLike', 'med searchby')}}
+        <img id="admin_search_icon" src="{{h.url_images('icon_magnifier2.png')}}"/>
+    </div>
+{% endblock %}
+
+{% block aftersearches %} 
+{{ super() }}
+{{h.htmla_('/tryspecialsearch', 'Try Special Search')}}
+{% endblock %}
+
+{% block js_scripts %}
+{{ super() }}
+<script type='text/javascript'>
+
+  Listings({
+    sort: '',
+    postLoad: function(){
+      $('.tiptrigger').tooltip({
+        bodyHandler: function(){ return $(this).siblings('.tipdiv').html(); }
+      });
+    },
+    ajaxRoot: CK12.admUrl('specialsearchentries_list'),
+    formAjax: CK12.admUrl('specialsearchentry/'),
+  });
+</script>
+{% endblock %}

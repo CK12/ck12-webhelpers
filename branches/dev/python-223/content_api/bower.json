@@ -1,0 +1,24 @@
+{
+  "name": "Content_API",
+  "version": "0.0.1",
+  "authors": [
+    "nealfennimore <hi@neal.codes>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "oboe": "~2.1.2",
+    "classie": "~1.0.1"
+  },
+  "devDependencies": {
+    "modularized-normalize-scss": "~3.0.3",
+    "nifty-modal-sass": "~1.1.1",
+    "animate.css-scss": "~3.1.0"
+  }
+}

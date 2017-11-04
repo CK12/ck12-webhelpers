@@ -1,0 +1,25 @@
+{% extends "master.html" %}  
+{% from "macros/form_errors.html" import form_errors with context %}  
+
+{% block admincontent %} 
+<div class="sectionhead sectiontitle">{{c.sectiontitle}}</div>
+<div class="section withfloatedsubmit">
+  <form method="post" enctype="multipart/form-data">
+    <div class="leftaligned">
+      {{ h.labelinput('New Cover URL', 'resourceUri', 'elong')}}
+      {{ h.labelfile('OR Upload New Cover', 'resourcePath', 'xmed')}}
+      <span>&nbsp;(Upload takes precedence over URL input)</span>
+      {{ h.labelinput('Authors', 'authors', 'xmed')}}
+      {{ h.labelinput('License', 'license', 'xmed')}}
+    </div>
+      {{ h.submitbutton('Replace', 'short')}}
+      {{ h.cancelbutton(c.cancel)}}
+  </form>
+</div>
+{% endblock %}
+
+{% block js_scripts %}
+<script type='text/javascript'>
+  {{ form_errors('after') }}
+</script>
+{% endblock %}

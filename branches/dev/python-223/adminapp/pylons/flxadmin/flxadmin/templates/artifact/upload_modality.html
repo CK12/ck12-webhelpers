@@ -1,0 +1,73 @@
+{% extends "master.html" %}  
+{% from "macros/form_errors.html" import form_errors with context %}  
+
+{% block admincontent %} 
+<div class="sectionhead sectiontitle">{{c.pagetitle}}</div>
+<div class="section withfloatedsubmit">
+  <form method="post" enctype="multipart/form-data">
+    <div class="leftaligned">
+      {{ h.labelinput('Google Spreadsheet Name', 'googleDocumentName', 'xmed', labelWrapClass='medx')}}
+      {{ h.labelinput('Google Worksheet Name (optional)', 'googleWorksheetName', 'xmed', labelWrapClass='medx')}}
+      <p> &nbsp; (Google Docs User is gdt@ck12.org)</p>
+      {{ h.labelfile('OR Upload CSV File', 'file', 'xmed', labelWrapClass='medx')}}
+    </div>
+    <div class="leftaligned">
+    {{ h.labelcheckbox('Publish on Import', 'publishOnImport', False, 'true')}}
+    </div>
+    {{ h.submitbutton('Upload', 'short')}}
+  </form>
+</div>
+
+<span class='ajaxError'></span>
+<div class="prethead">Most Recent Upload (see all in
+  {{h.htmla_('/tasks?filters=name,ModalityLoaderTask', 'Tasks')}} page):
+</div>
+<div class="thead sectionhead">
+  <div class="tr">
+    <div class="td">Row</div>
+    <div class="td">Message</div>
+  </div>
+</div>
+<div class="tbody" id='result'></div>
+{% endblock admincontent %}
+
+{% block js_scripts %}
+<script type="text/javascript" src="{{ h.url_js('task_result_formatter.js') }}"></script>
+<script type="text/javascript">
+{{ form_errors('after') }}
+$(document).ready(function(){
+  var 
+  updateInterval = Defaults.interval.med, 
+  tasksUrl = CK12.flxUrl('get/info/tasks?filters=name,ModalityLoaderTask&pageSize=1&sort=updated,desc'),
+  taskUrlRoot = CK12.flxUrl('get/status/task/'),
+
+  updateResult = function(s){
+    $('#result').html(TaskResultFormatter.formatTask(s));
+    Fns.colorStatus();
+  };
+
+  // update previous upload on page load
+  $.get(tasksUrl, function(data){
+    var tasks = data.response.tasks || [];
+    if (tasks.length){
+      updateResult(tasks[0]);
+    }else{
+      $('#result').html('No Recent Modality Uploads found');
+    }
+  });
+
+  // update status if still in progress
+  Fns.pollStatus = function(){
+    if (Fns.inProgress($('.status').text().trim())){
+      var id = $('#id').text();
+      if (id){
+        $.get(taskUrlRoot+id, function(data) {
+          updateResult(data.response);
+        });
+      }
+    }
+  };
+  Poll = setInterval("Fns.pollStatus()", updateInterval); 
+});
+</script>
+{% endblock %}

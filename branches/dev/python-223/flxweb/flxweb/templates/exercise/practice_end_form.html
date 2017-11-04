@@ -1,0 +1,27 @@
+<div>
+	<div id="endpracticetopbanner"><span class="imgwrap"></span>{{ _('You have reached the maximum practice questions.') }}</div>
+	<div id="endpracticeleftsection">
+		<div class="end_pract_sec_heading">{{ _('Would you like to test your understanding in this concept?') }}</div>
+		<div class="end_pract_sec_links">
+			<div class="spacetoplarge"></div>
+			{% if c.user %}
+				<a id="take_quiz_btn" class="btn take_quiz_btn" title="Take Quiz">Take Quiz</a>
+			{% else %}
+				<a class="btn" href="#" onClick="javascript:$.flxweb.alertToSignin();return false;" title="{{ _('Take Quiz') }}">{{ _('Take Quiz') }}</a>
+			{% endif %}
+		</div>
+	</div>
+	<div id="endpracticemiddlesection">
+		<div class="vertical_spacer top"></div>
+		<div id="orseperator">{{ _('OR') }}</div>
+		<div class="vertical_spacer bottom"></div>
+	</div>
+	<div id="endpracticerightsection">
+		<div class="end_pract_sec_heading">{{ _('Would you like to learn the next concept?') }}</div>
+		<div class="end_pract_sec_links">
+			<a id="js_next_art_link" href=""></a>
+		</div>
+	</div>
+	<div class="clear"></div>
+</div>
+

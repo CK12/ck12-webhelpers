@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                      "http://www.w3.org/TR/html4/loose.dtd"> 
+<html>
+    <head>
+        <title>Search</title>
+        <style>
+            body { background-color: #fff; color: #333; }
+            body, p {
+            font-family: verdana, arial, helvetica, sans-serif;
+            font-size:   12px;
+            line-height: 18px;
+            }
+            em { color: #cc33ff; }
+        </style> 
+        <script type="text/javascript" src="{{ c.prefix }}/media/js/prototype.js"></script>
+        <script type="text/javascript">
+            function getCoverImage(id, type) {
+                new Ajax.Request("{{ c.prefix }}/get/info/" + type + "/" + id, {
+                    method: "GET",
+                    onSuccess: function(t) {
+                        var result = t.responseText.evalJSON();
+                        if (result['response'][type]['revisions'][0]['coverImage'] != undefined) {
+                            coverImage = result['response'][type]['revisions'][0]['coverImage'];
+                            $(id + "_coverimg").innerHTML = '<img src="' + coverImage + '" style="width:64px; border:0px;" />';
+                        }
+                    }
+                });
+            }
+
+          function getResults() {
+              $('results').innerHTML = 'Loading ...';
+            new Ajax.Request("{{ c.prefix }}/search/visual/" + $F("query"), {
+              method: 'GET',
+              onSuccess: function(t) {
+                var result = t.responseText.evalJSON();
+                //alert(result['response']['numHits']);
+                var html = '';
+                var hits = result['response']['hits'];
+                var hitsByType = {
+                  'book': [],
+                  'chapter': [],
+                  'lesson': []
+                };
+                var hitsByScore = [];
+                var numHits = 0;
+                for (var i = 0; i < result['response']['numHits']; i++) {
+                  var hitHtml = '';
+                  var hit = hits[i];
+                  if (hit['score'] < 0.001 && result['response']['numHits'] > 3) {
+                    continue;
+                  }
+                  numHits ++;
+                  hitHtml += '<p>';
+                  var title = hit['title'];
+                  var hl = hit['__hl__'];
+                  if (typeof(hl['title']) != 'undefined') {
+                    title = hl['title'];
+                  }
+                  hitHtml += '<strong>';
+                  hitHtml += '<a href="{{ c.prefix }}/get/detail/' + hit['id'] + '" title="View"><span id="' + hit['id'] + '_coverimg"></span>&nbsp;' + title + '</a></strong> (' + hit['type'].capitalize() + ')&nbsp;&nbsp;&nbsp;Score: ' + roundNumber(hit['score'], 5) + '<br/>';
+                  getCoverImage(hit['id'], hit['type']);
+                  
+                  var summary = hit['summary'];
+                  if (typeof(hl['summary']) != 'undefined') {
+                    summary = hl['summary'];
+                  }
+                  hitHtml += summary;
+
+                  var keywords = '';
+                  var keywordTypes = ['domains', 'subjects', 'gradeLevels', 'standards', 'descendents.domains', 'descendents.subjects', 'descendents.gradeLevels', 'descendents.standards'];
+                  for(var j = 0; j < keywordTypes.length; j++) {
+                    var type = keywordTypes[j];
+                    if (typeof(hl[type]) != 'undefined') {
+                        if (keywords != '') {
+                            keywords += ', ';
+                        }
+                      keywords += hl[type].join(", ");
+                    }
+                  }
+                  if (keywords != '') {
+                    hitHtml += '<br/><strong>Keywords:</strong> ' + keywords + '<br/>';
+                  }
+
+                  hitHtml += '</p>';
+                  hitsByType[hit['type']].push(hitHtml);
+                  hitsByScore.push(hitHtml);
+                }
+
+                html += '<strong>' + numHits + '</strong> results found for your query.<br/><br/>';
+                if ($F("sortBy") == 'type') {
+                    var artifactTypes = ['lesson', 'chapter', 'book'];
+                    for (var k = 0; k < artifactTypes.length; k++) {
+                        var artifactType = artifactTypes[k];
+                        if (hitsByType[artifactType].length > 0) {
+                            html += '<h1>' + artifactType.capitalize() + 's</h1>' + hitsByType[artifactType].join("");
+                        }
+                    }
+                } else {
+                    html += hitsByScore.join("");
+                }
+                $('results').innerHTML = html;
+              }
+            });
+            return false;
+          }
+
+          function roundNumber(num, dec) {
+            var result = Math.round(num*Math.pow(10,dec))/Math.pow(10,dec);
+            return result;
+          }
+        </script> 
+    </head>
+    <body onload="$('query').focus();">
+        <form onsubmit="return getResults();" method="GET">
+            <table>
+                <tr>
+                    <td><strong>Query</strong>:</td> 
+                    <td><input id="query" type="text" name="q" /></td>
+                </tr>
+                <tr>
+                    <td><strong>Sort by</strong>: </td>
+                    <td>
+                        <select id="sortBy" onchange="getResults();">
+                            <option value="type" selected="selected">Artifact Type</option>
+                            <option value="score">Score</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                     <td style="text-align:right;"><input type="submit" value="Search" /></td>
+                </tr>
+            </table>
+        </form>
+        <br/><br/>
+        <div style="border: 1px solid gray; min-height:500px;" id="results"></div>
+
+        <!--
+        <h3>Upload</h3>
+        <div id="sample"></div>
+
+        <div>&nbsp;</div>
+        -->
+    </body>
+</html>
+

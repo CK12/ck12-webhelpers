@@ -1,0 +1,33 @@
+{% extends "listings.html" %}  
+
+{% block filters %} 
+    {{ h.htmla_('/lti_app/new/app', 'New LTI App', 'newltiapp')}}
+{% endblock %}
+
+{% block searches %}
+    <div class="col wider padleft">
+        {{ h.labelinput('Domain', 'termLike', 'med searchby')}}
+        <img id="admin_search_icon" src="{{h.url_images('icon_magnifier2.png')}}"/>
+    </div>
+{% endblock %}
+
+{% block aftersearches %} 
+{{ super() }}
+{% endblock %}
+
+{% block js_scripts %}
+{{ super() }}
+<script type='text/javascript'>
+
+  Listings({
+    sort: '',
+    postLoad: function(){
+      $('.tiptrigger').tooltip({
+        bodyHandler: function(){ return $(this).siblings('.tipdiv').html(); }
+      });
+    },
+    ajaxRoot: CK12.admUrl('lti_apps_list'),
+    formAjax: CK12.admUrl('lti_app/'),
+  });
+</script>
+{% endblock %}

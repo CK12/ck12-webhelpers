@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Edit Start of the List</title>
+	<link href="css/list.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="/media/lib/tinymce4/js/tinymce/skins/ck12lightgray/skin.min.css" type="text/css" />
+	<script type="text/javascript" src="js/list.js"></script>
+
+</head>
+
+<body id="list" class="mce-window-iframe">
+
+	<form name="startList" onsubmit="ListDialog.update();return false;" action="#">
+		<div id="general_panel" class="panel current">
+			<fieldset>
+
+				<label class="mce-label mce-widget" id="startlabel" for="start">Start of list</label>
+				<input id="start" name="start" type="number" class="mce-textbox" min="1"/>
+
+			</fieldset>
+		</div>
+
+		<div class="mceActionPanel mce-container-body mce-abs-layout">
+			<div class="mce-container right">
+				<div class="mce-widget mce-btn mce-first">
+					<button type="button" id="cancel" name="cancel" onclick="top.tinymce.activeEditor.windowManager.close();">Cancel</button>
+				</div>
+				<div class="mce-widget mce-btn mce-primary mce-last">
+					<button type="submit" id="insert" name="insert">Insert</button>
+				</div>
+			</div>
+		</div>
+	</form>
+</body>
+</html>

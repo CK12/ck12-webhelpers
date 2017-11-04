@@ -1,0 +1,342 @@
+<div id="assignment-full-page" class="row collapse subject-select-wrapper assignment-full-wrapper">
+	<div class="small-12 large-12 columns hide-for-small">
+		<div class="row collapse assignment-top-wrapper">
+			<div class="row collapse relative assignment-top-nav">
+				<div id="close-assignment-modal" class="pointer back-button"><i class="icon-arrow"></i></div>
+				<div id="add-quizes" class="pointer add-quizes">
+					<span class="join-group-plus"></span>
+					<a>Add a quiz to this assignment</a>
+				</div>
+				<a id="save-assignment" class="large button turquoise right disabled js-disabled">Save</a>
+				<!-- <a id="done-assignment" class="large button dusty-grey right disabled js-disabled">Done</a> -->
+			</div>
+				<div id="new-assignment" class="row collapse assignment-name-container">
+					<h1>Create Assignment</h1>
+						<div class="walktrough-link-cont">
+								<span>We made some important changes to Practice on CK-12</span>
+								<span class="pointer help-cont ">
+			        				<a class="icon-help2 link-nav" href="/practice" target="_blank"></a>
+        						</span>
+                 				 <br>
+   								<a class="walkthrough-link">Learn more.</a>
+						</div>
+
+		        </div>
+		        <div id="saved-assignment" class="row collapse assignment-name-container hide">
+		        	<div class="assignment-name-wrapper">
+		        		<h1 id="assignment-name"></h1>
+		        		<a id="assignment-name-edit-icon" class="icon-edit"></a>
+		        	</div>
+		        	<div class="assignment-name-edit-wrapper hide">
+		        		<div class="create-error-msg-wrapper">
+							<span class="hide js-edit-assignment-error" id="assignment-edit-wrong-date-error"></span>
+		        			<span class="hide js-edit-assignment-error" id="assignment-edit-empty-error">Enter an assignment name.</span>
+							<span class="hide js-edit-assignment-error" id="assignment-edit-wrong-error">You've already created an assignment with that name. Enter a unique name so you can tell them apart.</span>
+						</div>
+						<div class="small-8 large-8 columns">
+	        				<input type="text" id="assignment-name-edit" maxlength="200">
+	        			</div>
+		    			<div class="small-4 large-4 columns">
+		        			<a id="assignment-name-edit-save" class="button standard turquoise">Update</a>
+		        			<a id="assignment-name-edit-cancel" class="link-green">Cancel</a>
+		    			</div>
+		        	</div>
+		        </div>
+        </div>
+        <div class="row collapse assignment-subject-list">
+        	<div class="pointer left selected group-assignment-nav js-group-assignment-nav" data-target="subjects-container">
+        		<div class="row collapse text-center">
+        			<span>Home</span>
+        		</div>
+        	</div>
+			<div class="pointer left group-assignment-nav js-group-assignment-nav hide-important" data-target="tracks-container">
+				<div class="row collapse text-center">
+        			<span id="branch-name-header">Topics</span>
+        		</div>
+        	</div>
+			<div class="pointer left last group-assignment-nav js-group-assignment-nav hide-important" data-target="concepts-container">
+        		<div class="row collapse text-center">
+        			<span>Concepts</span>
+        		</div>
+        	</div>
+        	<div class="pointer left last group-assignment-nav js-group-assignment-nav hide-important" data-target="quizzes-container">
+        		<div class="row collapse text-center">
+        			<span>Quizzes</span>
+        		</div>
+        	</div>
+        	<div class="pointer right assignment-search js-search-open">
+        		<div class="row collapse text-center">
+        			<i class="icon-search"></i>
+        		</div>
+        	</div>
+        </div>
+        <div class="row collapse hide assignment-search-container">
+        	<div class="left assignment-search-input">
+        		<div class="row collapse text-center relative">
+        			<input id="assignment-search-input" type="text" placeholder="Find Concepts. For example: Photosynthesis" data-autocompleteclass="create-assignment-search">
+        			<span class="loading-search-assignment js-loading-icon hide" id="assignment-loading-search">
+						<img src="/media/common/images/loading.gif" alt="loading">
+					</span>
+        		</div>
+        	</div>
+        	<div class="pointer right assignment-search-close js-search-close">
+        		<div class="row collapse text-center">
+        			<i class="close-icon"></i>
+        		</div>
+        	</div>
+			<div class="pointer assignment-search-icon-active js-search-content">
+				<i class="icon-search"></i>
+			</div>
+        </div>
+        <div id="groups-assignment-container" class="row collapse assignments-edit-wrapper">
+        	<div id="subjects-container" class="small-8 large-8 columns">
+        		<div class="row collapse">
+		        	<div class="small-12 large-12 columns assignments-subjects-container js-list-left">
+		        		<div class="row collapse assignments-subjects-wrapper">
+		        			<div class="small-12 large-12 columns subject-space">
+		        				<div class="row collapse subject-header">
+		        					<span>Math</span>
+		        				</div>
+		        				<div id="groups-assignments-subject-mat" class="row collapse"></div>
+		        			</div>
+		        		</div>
+		        		<div class="row collapse assignments-subjects-wrapper">
+		        			<div class="small-12 large-12 columns subject-space">
+		        				<div class="row collapse subject-header">
+		        					<span>Science</span>
+		        				</div>
+		        				<div id="groups-assignments-subject-sci" class="row collapse"></div>
+		        			</div>
+		        		</div>
+		        		<div class="row collapse assignments-subjects-wrapper">
+		        			<div class="small-12 large-12 columns">
+		        				<div class="row collapse subject-header">
+		        					<span>English</span>
+		        				</div>
+		        				<div id="groups-assignments-subject-ela" class="row collapse"></div>
+		        			</div>
+		        		</div>
+		        	</div>
+		        </div>
+	        </div>
+        	<div id="tracks-container" class="small-8 large-8 columns hide">
+        		<div class="row collapse">
+        			<div class="small-12 large-12 columns assignments-tracks-wrapper js-list-left">
+        				<div class="row collapse node-heading">
+        					<span id="branch-name"></span>
+        				</div>
+        				<div class="row collapse">
+        					<div id="tracks-wrapper" class="small-12 large-12 columns js-concept-child-wrapper"></div>
+        				</div>
+        			</div>
+        		</div>
+        	</div>
+        	<div id="concepts-container" class="small-8 large-8 columns assignments-concepts-wrapper hide">
+        		<div class="row collapse">
+        			<div class="small-12 large-12 columns assignment-concept-container js-list-left">
+						<div id="concept-heading" class="row collapse concept-track-heading js-concept-child-wrapper"></div>
+						<div class="row collapse concept-heading-wrapper js-search-heading">
+							<i class="custom-box left practice-radio-wrapper">
+								<input type="radio" id="practice-radio" name="radio1" class="js-concept-radio">
+								<label class="radio" for="practice-radio"><span></span> Concepts with practice <i class="icon-Info practice-concept-icon"></i></label>
+							</i>
+							<i class="custom-box left all-radio-wrapper">
+								<input type="radio" id="all-radio" name="radio1" class="js-concept-radio">
+								<label class="radio" for="all-radio"><span></span> All concepts <i class="icon-Info all-concept-icon"></i></label>
+							</i>
+       						<a id="toggle-select-concepts" class="standard button turquoise right no-margin js-toggle-select-concepts">Select All</a>
+       					</div>
+       					<div class="row collapse">
+       						<div id="concepts-wrapper" class="small-12 large-12 columns js-concept-child-wrapper"></div>
+       						<div class="small-12 large-12 columns text-center search-pagination js-search-pagination hide">
+       							<a alt="Previous page" title="Previous page" class="search_pagination_arrow disabled">
+									<i class="icon-arrow3_left"></i>
+								</a>
+								<a alt="Next page" title="Next page" class="search_pagination_arrow disabled">
+									<i class="icon-arrow3_right"></i>
+								</a>
+       						</div>
+       					</div>
+       					<div id="no-practice-concept" class="row collapse hide no-practice-concept-container">
+       						<p>There are no concepts with practice for</p>
+       						<p>
+       							<span class="js-no-concept-title"></span>
+       							<span> at the moment.</span>
+       						</p>
+       						<br>
+       						<p>
+       							<span>Show </span>
+       							<a id="no-concept-link" class="link-green">all concepts and quizzes</a>
+       							<span> for </span>
+       							<span class="js-no-concept-title-dot"></span>
+       						</p>
+       					</div>
+        			</div>
+        		</div>
+        	</div>
+        	<div id="quizzes-container" class="small-8 large-8 columns hide assignments-concepts-wrapper">
+        		<div class="row collapse">
+        			<div class="small-12 large-12 columns assignment-concept-container">
+        				<div id="quizzes-wrapper" class="row collapse hide">
+        					<div class="row collapse quiz-heading">
+        						<i class="icon-quiz"></i>
+        						<span class="abc">Quizzes</span>
+        					</div>
+        					<div class="row collapse create-quiz-wrap hide" id="QuizWrap">
+        						<span class="pointer">
+	        						<i class="icon-create-quiz"></i>
+	        						<span class="js_create_quiz create-quiz">Create a new quiz</span>
+        						</span>
+        					</div>
+        					<div class="row collapse relative quiz-sort-wrapper">
+        						<div class="row collapse">
+        							<span id="quiz-sort" class="pointer js_sort">Most recently edited</span>
+        							<i class="icon-arrow_down pointer relative js_sort"><span></span></i>
+        							<a id="toggle-select-quiz" class="standard button turquoise right no-margin js-toggle-select-concepts">Select All</a>
+        						</div>
+        						<ul id="quiz-sort-list" class="row collapse hide quiz-sort-list">
+        							<li><span>Sort By</span></li>
+        							<li class="active js_sort_option" data-sort="added,desc"><a>Most recently edited</a></li>
+        							<li class="js_sort_option"  data-sort="name,asc"><a>A-Z</a></li>
+        							<li class="js_sort_option"  data-sort="name,desc"><a>Z-A</a></
+        						</ul>
+        					</div>
+        					<div id="quiz-list-wrapper" class="row collapse"></div>
+        				</div>
+        				<div id="no-quizzes-wrapper" class="row collapse hide">
+        					<div class="row collapse text-center relative no-quizzes-wrapper">
+        						<div class="no-quiz-line"></div>
+        						<div class="small-4 large-4 columns">
+        							<div class="no-quiz-number"><span>1</span></div>
+        							<img alt="Select concepts" src="/media/groups/assets/images/addconcepts.png">
+        							<div class="no-quizzes-text">Select concepts.</div>
+        						</div>
+        						<div class="small-4 large-4 columns">
+        							<div class="no-quiz-number"><span>2</span></div>
+        							<img alt="add questions" src="/media/groups/assets/images/addquestions.png">
+        							<div class="no-quizzes-text">Add CK-12 questions and add your own.</div>
+        						</div>
+        						<div class="small-4 large-4 columns">
+        							<div class="no-quiz-number"><span>3</span></div>
+        							<img alt="Select concepts" src="/media/groups/assets/images/shuffle.png">
+        							<div class="no-quizzes-text">Add a time limit and shuffle.</div>
+        						</div>
+        					</div>
+        					<div class="row collapse text-center">
+        						<a class="button standard turquoise js_create_quiz"><i class="icon-create-quiz"></i><span>Create a Quiz for your Class</span></a>
+        					</div>
+        				</div>
+        			</div>
+        		</div>
+        	</div>
+        	<div id="add-concept-container" class="small-4 large-4 columns add-concept-container hide">
+   				<div class="row collapse concept-save-wrapper">
+   					<span class="concept-save-count">Concepts and Quizzes <b>(<span class="js-concept-count">0</span>)</b></span>
+   				</div>
+   				<div class="row collapse">
+   					<div class="small-12 large-12 columns js-add-concepts-wrapper"></div>
+   				</div>
+   			</div>
+   			<div id="no-concept-container" class="small-4 large-4 columns add-concept-container hide">
+   				<div class="row collapse concept-save-wrapper">
+   					<span class="concept-save-count">Concepts and Quizzes <b>(<span class="js-concept-count">0</span>)</b></span>
+   				</div>
+   				<div class="row collapse">
+   					<br>
+   					<p>Please add at least one concept or quiz from your left to save your assignment, or you can delete this assignment all together.</p>
+   					<p>Deleting an assignment can't be undone.</p>
+   					<a class="standard button tangerine right js-delete-created-assignment">Delete Assignment</a>
+   				</div>
+   			</div>
+        </div>
+	</div>
+	<a id="close-assignment-modal-hidden" class="hide" data-reveal-id="closeAssignmentModal"></a>
+	<div id="closeAssignmentModal" class="reveal-modal medium modal-uikit app-reveal-modal hide-small">
+		<a class="close-reveal-modal close dxtrack-user-action" data-dx-desc="save_assignment_modal_close">+</a>
+		<div class="row collapse">
+			<span class="assignment-modal-text-header">Name Assignment</span>
+			<span id="save-assignment-modal-text">You're about to save your list of concepts. Create a unique name so you can access them in the future.</span>
+			<span id="close-assignment-modal-text">You haven't saved your changes to this assignment.<br>Create a name and save it before closing?</span>
+		</div>
+		<div class="row collapse close-assignment-modal-name-wrapper">
+			<div class="create-error-msg-wrapper">
+				<span class="hide js-edit-assignment-error" id="assignment-create-wrong-date-error"></span>
+				<span class="hide js-create-assignment-error" id="assignment-create-empty-error">Enter an assignment name.</span>
+				<span class="hide js-create-assignment-error" id="assignment-create-wrong-error">You've already created an assignment with that name.<br>Enter a unique name so you can tell them apart.</span>
+			</div>
+			<div class="row collapse">
+				<div class="assignment-name-text">
+					<span>Assignment Name:</span>
+				</div>
+				<div class="right assignment-name-input-wrapper">
+					<input type="text" id="assignment-name-input" maxlength="200"></input>
+				</div>
+			</div>
+			<div class="row collapse">
+				<div class="assignment-name-text">
+					<span id="assignment-assign-to-class-text">Assign to group {group_name}:</span>
+				</div>
+				<div id='close-assignment-assign-to-class-wrapper' class="right assignment-name-input-wrapper">
+					<input type="checkbox" id="close-assignment-assign-to-class"></input>
+				</div>
+			</div>
+			<div id="close-assignment-due-date-wrapper" class="row collapse">
+				<div class="assignment-name-text">
+					<span>Due Date:</span>
+				</div>
+				<div class="right assignment-name-input-wrapper">
+					<input type="text" id="close-assignment-due-date" class="due-date hasDatepicker" maxlength="10" placeholder="mm/dd/yyyy"></input>
+				</div>
+			</div>
+		</div>
+		<div class="row collapse close-assignment-modal-button-wrapper">
+			<a id="close-assignment-modal-save" class="button standard turquoise right">Save</a>
+			<a id="close-assignment-modal-back" class="right link-green close-assignment-modal-yes">No, Don't Save</a>
+		</div>
+	</div>
+	<a id="assignment-recommendation-modal-hidden" class="hide" data-reveal-id="assignmentRecommendationModal"></a>
+	<div id="assignmentRecommendationModal" class="reveal-modal medium modal-uikit app-reveal-modal hide-small">
+		<a class="close-reveal-modal close dxtrack-user-action" data-dx-desc="assignment_recommendation_modal_close">+</a>
+		<div class="row collapse">
+			<span id="assignment-recommendation-modal-text" class="assignment-modal-text-header">Frequently Assigned Together with your selections:</span>
+		</div>
+		<div class="row collapse assignment-recommendation-modal-wrapper">
+     <!-- recommendation modal body -->
+			<div class="recommended-concept-container">
+				<ul id="recommended-concept-list" class="row">
+					<li></li>
+				</ul>
+			</div>
+			<!-- end recommendation modal body -->
+			<div id="assignment-recommendation-more-wrapper" class="pointer">
+				<div id="assignment-recommendation-more-text">See More</div>
+				<div id="assignment-recommendation-more-arrow">
+					<i id="assignment-recommendation-more-arrow-icon" class="icon-arrow3-down"></i>
+				</div>
+			</div>
+		</div>
+		<div class="divider"></div>
+		<div class="row collapse assignment-recommendation-modal-button-wrapper">
+			<a id="assignment-recommendation-modal-next" class="button standard turquoise right">Next</a>
+		</div>
+	</div>
+	<a id="close-confirm-modal-hidden" class="hide" data-reveal-id="closeConfirmModal"></a>
+	<div id="closeConfirmModal" class="reveal-modal modal-uikit app-reveal-modal hide-small">
+		<a class="close-reveal-modal close">+</a>
+		<div class="row collapse">
+			<p>Do you want to save your changes to:</p>
+			<b id="close-confirm-assignment"></b>
+		</div>
+		<div class="row collapse close-assignment-modal-button-wrapper">
+			<a id="close-confirm-modal-save" class="button standard turquoise right">Save</a>
+			<a id="close-confirm-modal-back" class="right link-green close-assignment-modal-yes">No, Don't Save</a>
+		</div>
+	</div>
+	<div id="edit-assignment-message" class="assigment-edit-message text-center">
+		<span>To continue working on your assignment,</span></br>
+		<span>Please switch to Landscape mode.</span></br>
+		<span>OR</span></br>
+		<a id="assignment-flow-close" class="link-green">go back</a><br/>
+		<span>Note : Your changes will not be saved.</span>
+	</div>
+</div>

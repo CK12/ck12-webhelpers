@@ -1,0 +1,1 @@
+select g.id, g.name from flexmath.Groups g

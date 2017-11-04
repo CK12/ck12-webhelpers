@@ -1,0 +1,78 @@
+## Migration specific settings
+## Note: For query_dict, use "" for the keys and values.
+
+[event_details_1]
+event_name = FBS_DOWNLOAD
+ads_table_name = F_fbs_download
+pick_fields = ["artifactID","userID", "modality"]
+condition = artifactID > 0 and userID > 0 and DATE_FORMAT(ts, "%m%y") = "1212"
+
+
+[event_details_2]
+event_name = FBS_DOWNLOAD
+ads_table_name = F_fbs_download
+pick_fields = ["artifactID","userID", "modality"]
+condition = artifactID > 0 and userID > 0 and DATE_FORMAT(ts, "%m%y") = "1112"
+
+
+[event_details_3]
+event_name = FBS_DOWNLOAD
+ads_table_name = F_fbs_download
+pick_fields = ["artifactID","userID","modality"]
+condition = artifactID > 0 and userID > 0 and DATE_FORMAT(ts, "%m%y") = "1012"
+
+
+[event_details_4]
+event_name = FBS_DOWNLOAD
+ads_table_name = F_fbs_download
+pick_fields = ["artifactID","userID","modality"]
+condition = artifactID > 0 and userID > 0 and DATE_FORMAT(ts, "%m%y") = "0912"
+
+
+[event_details_5]
+event_name = FBS_DOWNLOAD
+ads_table_name = F_fbs_download
+pick_fields = ["artifactID","userID","modality"]
+condition = artifactID > 0 and userID > 0 and DATE_FORMAT(ts, "%m%y") = "0812"
+
+[event_details_6]
+event_name = FBS_DOWNLOAD
+ads_table_name = F_fbs_download
+pick_fields = ["artifactID","userID","modality"]
+condition = artifactID > 0 and userID > 0 and DATE_FORMAT(ts, "%m%y") = "0712"
+
+[event_details_7]
+event_name = FBS_DOWNLOAD
+ads_table_name = F_fbs_download
+pick_fields = ["artifactID","userID","modality"]
+condition = artifactID > 0 and userID > 0 and DATE_FORMAT(ts, "%m%y") = "0612"
+
+[event_details_8]
+event_name = FBS_DOWNLOAD
+ads_table_name = F_fbs_download
+pick_fields = ["artifactID","userID","modality"]
+condition = artifactID > 0 and userID > 0 and DATE_FORMAT(ts, "%m%y") = "0112"
+
+[event_details_9]
+event_name = FBS_DOWNLOAD
+ads_table_name = F_fbs_download
+pick_fields = ["artifactID","userID","modality"]
+condition = artifactID > 0 and userID > 0 and DATE_FORMAT(ts, "%m%y") = "0512"
+
+[event_details_10]
+event_name = FBS_DOWNLOAD
+ads_table_name = F_fbs_download
+pick_fields = ["artifactID","userID","modality"]
+condition = artifactID > 0 and userID > 0 and DATE_FORMAT(ts, "%m%y") = "0412"
+
+[event_details_11]
+event_name = FBS_DOWNLOAD
+ads_table_name = F_fbs_download
+pick_fields = ["artifactID","userID","modality"]
+condition = artifactID > 0 and userID > 0 and DATE_FORMAT(ts, "%m%y") = "0312"
+
+[event_details_12]
+event_name = FBS_DOWNLOAD
+ads_table_name = F_fbs_download
+pick_fields = ["artifactID","userID","modality"]
+condition = artifactID > 0 and userID > 0 and DATE_FORMAT(ts, "%m%y") = "0212"

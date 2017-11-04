@@ -1,0 +1,7 @@
+    WSGIPythonPath /opt/2.0/flxweb:/opt/env/flxweb/lib/python2.7/site-packages
+    WSGIScriptAlias / /opt/2.0/flxweb/flxweb.wsgi
+    <Directory /opt/2.0/flxweb/>
+        Require all granted
+    </Directory>
+
+

@@ -1,0 +1,257 @@
+{% extends "listings.html" %}  
+
+{% block filters %} 
+    <div id="zeroSearchAlertMsg" class="error hide">
+      <span></span>
+    </div>
+    <div id="message" class="messaging hide">
+      <span></span>
+    </div>
+	<div class="col med">
+		{{ h.labelselect('Helpful : ', 'isHelpful', c.form.type_sel, 'filter')}}
+	</div>
+
+    <div class="col med">
+        {{ h.labelselect('Approved : ', 'isApproved', c.form.approved_type_sel, 'filter')}}
+    </div>
+
+	<div class="col wider padleft">
+		{{ h.labelinput('Count > or = : ', 'count-filter', 'search-filter', val='10' )}}
+		<img id="admin_search_icon" src="{{h.url_images('icon_magnifier2.png')}}"/> 
+	</div>
+    
+    <div class="col wider padleft">
+        {{ h.labelinput('Member ID', 'memberID', 'med searchby')}}
+        <img id="admin_search_icon" src="{{h.url_images('icon_magnifier2.png')}}"/> 
+    </div>
+
+{% endblock %}
+
+{% block admincontent %}
+    {{ h.submitbutton('Update', 'short', 'update_feedbacks')}}
+    {{ super() }}
+{% endblock %}
+
+{% block searches %}  
+{% endblock %}
+
+{% block aftersearches %} 
+{% endblock %} 
+
+{% block js_scripts %}
+{{ super() }}
+<script type='text/javascript'>
+
+  Listings({
+    sort: 'artifactID,desc',
+    sort: 'artifactID,desc',
+    ajaxRoot: CK12.admUrl('artifactfeedbackreview_list'),
+    formAjax: CK12.admUrl('artifactfeedbackreview/'),
+    viewmode: '{{c.viewmode}}',
+    searchFilters: ['count'],
+    postLoad: function(){
+      $('.tiptrigger').tooltip({
+        bodyHandler: function(){ return $(this).siblings('.tipdiv').html();}
+        })
+     }
+  });
+  var approveCount=0, deleteCount=0, approveSuccess=0, approveError=0, 
+        deleteSuccess=0, deleteError=0, approveErrorArtifactIDs= [], 
+        deleteErrorArtifactIDs = [], msg = '';
+
+  deleteFeedback = function(ele, index){
+	  /*if(!confirm("Do you want to delete this feedback ?")) {
+		  return;
+      }*/
+      var artifactID = $(ele).data('artifactid-id'),
+          successMsg = 'Feedback deleted successfully',
+          data = {'artifactID' : artifactID,
+                  'memberID' : $(ele).data('member-id'),
+                  'type' : 'vote'
+                 },
+          url = '/json/feedback/delete';
+      $.ajax({url: CK12.admUrl(url), 
+            type: 'POST', 
+            data: data,
+            success: function(data, status, xhr){
+                var tmpMsg = ''
+                if (data.response[artifactID]['feedback_delete_status']){
+                    deleteSuccess = deleteSuccess + 1;
+                    tmpMsg = msg + '<br/>Deleted Feedback ' + index + ' of '+ deleteCount + '. Success: ' + deleteSuccess + ', Error: ' + deleteError + ', ArtifactID: ' + deleteErrorArtifactIDs;
+                    showMessage($("#message"), tmpMsg ,"success");
+                }else{
+                    deleteError = deleteError + 1;
+                    deleteErrorArtifactIDs.push(artifactID);
+                    tmpMsg = msg + '<br/>Deleted Feedback ' + index + ' of '+ deleteCount + '. Success: ' + deleteSuccess + ', Error: ' + deleteError + ', ArtifactID: ' + deleteErrorArtifactIDs;
+                    showMessage($("#message"), tmpMsg ,"success");
+                }
+                deletedCount = deletedCount + 1;
+                if (deletedCount == deleteCount){
+                     window.updateListingsResult();
+                     tmpMsg = msg + '<br/>Deleted ' + deleteCount + ' Feedback(s). Success: ' + deleteSuccess + ', Error: ' + deleteError + ', ArtifactID: ' + deleteErrorArtifactIDs
+                     showMessage($("#message"), tmpMsg, "success", 1000*30);
+                }
+
+            },
+            error: function(xhr, textStatus, errorThrown){
+                deleteError = deleteError + 1;
+                deleteErrorArtifactIDs.push(artifactID);
+                tmpMsg = msg + '<br/>Deleted Feedback ' + index + ' of '+ deleteCount + '. Success: ' + deleteSuccess + ', Error: ' + deleteError + ', ArtifactID: ' + deleteErrorArtifactIDs;
+                showMessage($("#message"), tmpMsg,"error");
+                deletedCount = deletedCount + 1;
+                if (deletedCount == deleteCount){
+                    window.updateListingsResult();
+                    tmpMsg = msg + '<br/>Deleted ' + deleteCount + ' Feedback(s). Success: ' + deleteSuccess + ', Error: ' + deleteError + ', ArtifactID: ' + deleteErrorArtifactIDs
+                    showMessage($("#message"), tmpMsg,"error", 1000*30);
+               }
+            }
+      });
+  }
+  
+  function showMessage(element, message, classToAdd, timeout){
+      element.removeClass("success error hide").addClass(classToAdd).find("span").html(message);
+      if (timeout){
+        element.fadeIn("slow", function(){
+            element.removeClass("success error hide").addClass(classToAdd).find("span").html(message);
+            window.setTimeout(function(){
+                clearMessage(element);
+            },timeout);
+        });
+      }else{
+        element.fadeIn("slow", function(){
+            window.setTimeout(function(){
+                clearMessage(element);
+            },3000);
+        });
+      }
+  }
+  function clearMessage(element){
+      element.fadeOut("slow",function(){
+          element.removeClass().addClass("messaging hide");
+      });
+  }
+
+  approveFeedback = function(ele, index){
+      var artifactID = $(ele).data('artifactid-id'),
+          data = {'artifactID' : artifactID,
+                  'impersonateMemberID' : $(ele).data('member-id'),
+                  'type' : 'vote',
+                  'isApproved' : ($(ele).data('approved').toLowerCase() == 'false') ,
+                 },
+          action = data.isApproved ? 'approved': 'unapproved'
+          successMsg = 'Comment ' + action + ' successfully',
+          url = '/json/feedback/update';
+      $.ajax({url: CK12.admUrl(url), 
+            type: 'POST', 
+            data: data,
+            success: function(data, status, xhr){
+                if (data.success){
+                    approveSuccess = approveSuccess + 1;
+                    msg = 'Updated Feedback ' + index + ' of '+ approveCount + '. Success: ' + approveSuccess + ', Error: ' + approveError + ', ArtifactID: ' + approveErrorArtifactIDs;
+                    showMessage($("#message"), msg ,"success");
+                }else{
+                    approveError = approveError + 1;
+                    approveErrorArtifactIDs.push(artifactID);
+                    msg = 'Updated Feedback ' + index + ' of '+ approveCount + '. Success: ' + approveSuccess + ', Error: ' + approveError + ', ArtifactID: ' + approveErrorArtifactIDs;
+                    showMessage($("#message"), msg, "error");
+                }
+                approvedCount = approvedCount  + 1;
+                if (approvedCount == approveCount){
+                    window.updateListingsResult();
+                    msg = 'Updated ' + approveCount + ' Feedback(s). Success: ' + approveSuccess + ', Error: ' + approveError + ', ArtifactID: ' + approveErrorArtifactIDs
+                    if (deleteCount >= 1){
+                        showMessage($("#message"), msg,"success")
+                    }else{
+                        showMessage($("#message"), msg, "success", 1000*30);
+                    }
+                    deleteFeedbacks();
+                }
+
+            },
+            error: function(xhr, textStatus, errorThrown){
+                approveError = approveError + 1;
+                approveErrorArtifactIDs.push(artifactID);
+                msg = 'Updated Feedback ' + index + ' of '+ approveCount + '. Success: ' + approveSuccess + ', Error: ' + approveError + ', ArtifactID: ' + approveErrorArtifactIDs;
+                showMessage($("#message"), msg,"error");
+                approvedCount = approvedCount + 1;
+                if (approvedCount == approveCount){
+                    msg = 'Updated ' + approveCount + ' Feedback(s). Success: ' + approveSuccess + ', Error: ' + approveError + ', ArtifactID: ' + approveErrorArtifactIDs
+                    if (deleteCount >= 1){
+                        showMessage($("#message"), msg,"error")
+                    }else{
+                        showMessage($("#message"), msg,"error", 1000*30);
+                    }
+                    window.updateListingsResult();
+                    deleteFeedbacks();
+               }
+            }
+      });
+  }
+
+  deleteFeedbacks = function(){
+        feedbacksToDelete = $("#leftpane .table .tbody").find("input[name='delete']:checkbox:checked");
+        $.each(feedbacksToDelete, function(index){
+            deleteFeedback(this, index + 1);
+        });
+  }
+
+  updateFeedbacks = function(event){
+        event.preventDefault();
+        event.stopPropagation();
+        feedbacksToDelete = $("#leftpane .table .tbody").find("input[name='delete']:checkbox:checked");
+        feedbacksToApprove = $("#leftpane .table .tbody").find("input[name='approve']:checkbox:checked");
+        deleteCount = feedbacksToDelete.length;
+        deletedCount = 0;
+        approveCount = feedbacksToApprove.length;
+        approvedCount = 0;
+        deletedCount = 0;
+        approveSuccess=0;
+        approveError=0;
+        deleteSuccess=0;
+        deleteError=0;
+        approveErrorArtifactIDs= [];
+        deleteErrorArtifactIDs = [];
+        msg = '';
+
+        $.each(feedbacksToApprove, function(index){
+            approveFeedback(this, index + 1);
+        });
+        if (!approveCount){
+            $.each(feedbacksToDelete, function(index){
+                deleteFeedback(this, index + 1);
+            });
+        }
+  }
+  //$(".feedback_delete").live('click', deleteFeedback);
+  //$(".feedback_approve").live('click', approveFeedback);
+  $("#update_feedbacks").off('click').on('click', updateFeedbacks)
+  
+  validateSearchInput = function(){
+    if (! $("#count-filter").val()){
+        $("#count-filter").val('0');
+    }
+    if($("#count-filter").val() == 0){
+        $('#zeroSearchAlertMsg').html('>= 0 count search includes feedbacks which don\'t have any helpful flag +  \
+                                       feedbacks which are ' + ($("#isHelpful").val() == 'isHelpful,True' ? '' : 'not') + ' helpful');
+        $('#zeroSearchAlertMsg').removeClass("hide");
+    }else{
+        $('#zeroSearchAlertMsg').addClass("hide");
+    }
+  }
+  
+  $(".filter").change(function(event){
+        validateSearchInput();
+  });
+
+  // Search enter handlers
+  $(".search-filter, .searchby").keyup(function(e){
+        if (Fns.isEnterKey(e)) 
+            validateSearchInput();
+  }); 
+
+  $("#admin_search_icon").click(function(){
+        validateSearchInput({page: 1});
+  });
+
+</script>
+{% endblock %}

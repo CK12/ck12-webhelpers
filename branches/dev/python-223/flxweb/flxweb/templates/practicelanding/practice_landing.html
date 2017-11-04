@@ -1,0 +1,161 @@
+{% extends "common/master.html" %}
+{% block title %}{{ _("Practice") }}{% endblock %}
+
+{% block stylesheets %}
+{{ super() }}
+	<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('common/css/landing_practice.css') }}" />
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+	<!-- <div id="page-disable" class="page-disable hide"></div> -->
+ 	<!-- <div id="loading-icon" class="loading-icon js-loading-icon">
+        <img alt="loading" src="{{ h.asset_image('common/images/icon_loading.gif') }}">
+	</div> -->
+	<div class ="adaptive_landing row collapse">
+		<div class="row collapse feature-container-1">
+			<div class="center-content">
+				<div class="small-12 large-6 columns feature-name-container content-inner-wrapper">
+					<div>
+						<div class ="feature-name hide-small">Adaptive Practice</div>
+						<div class ="feature-name-small show-small">Adaptive Practice</div>
+						<div class="feature-description hide-small">Improving your knowledge one question at a time.</div>
+						<a  target="_blank" href="/assessment/ui/?test/detail/practice/arithmetic/add-whole-numbers-practice&collectionHandle=arithmetic&collectionCreatorID=3&conceptCollectionHandle=arithmetic-::-add-whole-numbers&mode=tunnel&testType=practice&referrer=practice_landing&isPageView=true&ep=/practice/" class="button tangerine large try-now hide-small">Try it now</a>
+						<a href="/assessment/ui/browse/practice/?referrer=practice_landing&ep=/practice/" style="margin-left:20px;" class="button turquoise large try-now hide-small">View all practice</a>
+                        <div class="practice-advantage hide-small">
+                      		<img alt="practice" class="head-img" width = "27px" src="{{ h.asset_image('common/images/head.svg') }}">
+                            <a target="_blank" href="http://www.ck12.org/about/practice-comparison" title="See how CK-12 Practice compares with others">How Does CK-12 Compare?</a>
+                        </div>
+					</div>
+				</div>
+				<div class="small-12 large-6 columns">
+					<img alt="practice" src="{{ h.asset_image('common/images/adaptive_practice_1024.gif') }}">
+				</div>
+				<!-- <div class="small-12 large-6 columns adaptive_image_container_768">
+					<img alt="practice" src="{{ h.asset_image('common/images/adaptive_practice_768.gif') }}">
+				</div>
+				<div class="small-12 large-6 columns show_image_320 content-inner-wrapper">
+					<img alt="practice" src="{{ h.asset_image('common/images/adaptive_practice_320.gif') }}">
+				</div> -->
+				<div class="small-12 large-6 columns feature-name-container-small text-center">
+					<div class="feature-description-small show-small">Improving your knowledge one question at a time.</div>
+					<a target="_blank" href="/assessment/ui/?test/detail/practice/arithmetic/add-whole-numbers-practice&collectionHandle=arithmetic&collectionCreatorID=3&conceptCollectionHandle=arithmetic-::-add-whole-numbers&mode=tunnel&testType=practice&referrer=practice_landing&isPageView=true&ep=/practice/" class="button tangerine large try-now show-small">Try it now</a>
+                    <div class="practice-advantage show-small">
+                    <img alt="practice" class="head-img" width = "27px" src="{{ h.asset_image('common/images/head.svg') }}">
+                        <a target="_blank" href="http://www.ck12.org/about/practice-comparison" title="See how CK-12 Adaptive Practice compares with others">How Does CK-12 Compare?</a>
+                    </div>
+				</div>
+			</div>
+		</div>
+		<div class="row collapse feature-container adaptive-correct">
+			<div class="center-content">
+				<div class="small-12 large-6 columns answer-correct content-inner-wrapper">
+					<div class="answer-adaptive">
+						<div class="feature-info">Start by getting 10 correct</div>
+						<div class="feature-info-explained">Adaptive Practice is all about helping each student improve gradually. Your first step for each concept is to answer 10 questions correctly.</div>
+					</div>
+				</div>
+				<div class="small-12 large-6 columns show_image_1024">
+					<img  alt="practice" src="{{ h.asset_image('common/images/practice_goals_1024.png') }}">
+				</div>
+				<div class="small-12 large-6 columns show_image_320 content-inner-wrapper">
+					<img class="image_resize" alt="practice" src="{{ h.asset_image('common/images/practice_goals_320.png') }}">
+				</div>
+			</div>
+		</div>
+		<div class="row collapse feature-container-1 difficulty-level">
+			<div class="center-content">
+				<div class="small-12 large-6 columns show_image_1024">
+					<img alt="practice" src="{{ h.asset_image('common/images/practice_levels_1024.png') }}">
+				</div>
+				<div class="small-12 large-6 columns show_image_320 content-inner-wrapper">
+					<img class="image_resize" alt="practice" src="{{ h.asset_image('common/images/practice_levels_320.png') }}">
+				</div>
+				<div class="small-12 large-6 columns content-inner-wrapper">
+					<div class="level-container">
+						<div class="feature-info">Meets you where you are</div>
+						<div class="feature-info-explained">Problems on CK-12 will match your level and difficulty will gradually increase or decrease depending on your performance.</div>				
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row collapse feature-container feature-sims">
+			<div class="center-content">
+				<div class="small-12 large-6 columns feature-sims-content content-inner-wrapper">
+					<div class="recommendation-container">
+						<div class="feature-info">Thoughtful recommendations</div>
+						<div class="feature-info-explained">If you struggle with a particular concept, we'll recommend helpful resources like readings and videos.</div>
+					</div>
+				</div>
+				<div class="small-12 large-6 columns show_image_1024">
+					<img alt="practice" src="{{ h.asset_image('common/images/practice_sims_1024.png') }}">
+				</div>	
+				<div class="small-12 large-6 columns show_image_320 content-inner-wrapper">
+					<img alt="practice" src="{{ h.asset_image('common/images/practice_sims_320.png') }}">
+				</div>			
+			</div>
+		</div>
+		<div class="row collapse feature-container-1 existing-users">
+			<div class="center-content">
+				<div class="push-4 columns existing-user-wrapper columns">
+					<div class="small-12 large-12 columns text-center">
+						<a href="/assessment/ui/browse/practice/?referrer=practice_landing&backUrl=/practice/" class="button tangerine large try-now-btn">View all practice</a>
+					</div>
+                    <!--
+					<div class="small-12 large-12 columns text-center using-practice">
+						Already using CK-12 practice?
+					</div>
+					<div class="small-12 large-12 columns text-center using-practice-info">
+						All your activities and classes will be carried over to our new and improved practice.
+					</div>		
+                    -->
+				</div>
+				<div class="small-12 large-12 columns">
+					<div class="row collapse faq-help-container">
+						<div class="small-4 faq-help-wrapper columns faq-help">
+							<div class="row collapse faq-image-wrapper">
+								<span>
+								<img alt="faq" src="{{ h.asset_image('common/images/FAQ.png') }}">
+								</span>
+								<span class="faq-help-title">FAQs</span>
+							</div>
+							<div class="teacher-faq">
+								<span class="role">Teachers</span>
+								<div class="faqs">
+									<a target="_blank" href= "https://ck12support.zendesk.com/hc/en-us/articles/203476104" class="faq-help-topics">How does this affect existing scoring and reports in CK-12?</a>
+									<a target="_blank" href= "https://ck12support.zendesk.com/hc/en-us/articles/203701070" class="faq-help-topics">Can I still assign the older version of Practice? </a>
+								</div>
+							</div>
+							<div>
+								<span class="role">Students</span>
+								<div class="faqs">
+									<a target="_blank" href= "https://ck12support.zendesk.com/hc/en-us/articles/203701100" class="faq-help-topics">How do I complete a concept?</a>
+									<a target="_blank" href= "https://ck12support.zendesk.com/hc/en-us/articles/203701120" class= "faq-help-topics">Why do the new reports look different?</a>
+								</div>
+							</div>
+							<div class="text-center more-link"><a href="https://ck12support.zendesk.com/hc/en-us/sections/200676890">More</a></div>
+						</div>
+						<div class="small-4 faq-help-wrapper columns faq-help help-section">
+							<div class="row collapse faq-image-wrapper">
+								<span>
+									<img alt="help" src="{{ h.asset_image('common/images/Help.png') }}">
+								</span>
+								<span class="faq-help-title">Help</span>
+							</div>
+							<ul>
+								<li class="faq-help-topics"><a target="_blank" href="https://ck12support.zendesk.com/hc/en-us/articles/201024624">Practice Overview</a></li>
+								<li class="faq-help-topics"><a target="_blank" href="https://ck12support.zendesk.com/hc/en-us/articles/203699980">Practice Reports</a></li>
+								<li class="faq-help-topics"><a target="_blank" href="https://ck12support.zendesk.com/hc/en-us/articles/203532204">Editing/Adding Questions to Quizzes</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

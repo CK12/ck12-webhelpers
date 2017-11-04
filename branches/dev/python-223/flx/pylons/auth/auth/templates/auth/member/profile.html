@@ -1,0 +1,547 @@
+{% extends "base/auth/1column.html" %}
+{% block title %} {{ _('Profile Settings') }} {% endblock %}
+
+{% block no_cache %}
+{{ macros.noCache() }}
+{% endblock %}
+
+{% block stylesheets %}
+   {{super()}}
+   <link rel="stylesheet" type="text/css" media="all" href="/media/duplicateUsernames/css/content.css" />
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key={{config.google_places_api_key}}"></script>
+<script>
+	var userLocation = {{ c.form.userAddress|ck12_json }};
+	var default_values = new Array();
+	default_values['editName'] = "{{ c.form.firstName|e }} {{ c.form.lastName|e }}";
+	default_values['editWebsite'] = "{{ c.form.website }}";
+	default_values['editLocation'] = userLocation;
+	default_values['editGrades'] = '{{c.form.memberGradesName}}'.replace(/and/g, ',').replace(/ /g, '');
+	{% if c.form.userSchool %}
+		var userSchool = {{ c.form.userSchool|ck12_json }};
+		{% if c.form.userSchool.name %}
+			default_values['editSchool'] = decodeURI("{{ c.form.userSchool.name }}");
+		{% else %}
+			default_values['editSchool'] = '{{ _("a homeschool") }}';
+		{% endif %}
+	{% else %}
+		var userSchool = {};
+	{% endif %}
+	default_values['editSubjects'] = '{{c.form.memberSubjectsName}}'.replace(/ and /g, ',').replace(/, /g, ',');
+	default_values['editImageURL'] = '{{ c.form.imageURL|ck12_image_thumbnail_size("large") }}';
+
+    var gradesMap = new Object();
+    {% for grade in c.form.allGrades %}
+    gradesMap["{{ grade.id }}"] = "{% if grade.name == 'k' %}Kindergarten{% else %}{{ grade.name |trim }}{% endif %}";
+    {% endfor %}
+
+	require(['main'], function(){
+		require(['auth/flx.edit.profile', '../../media/duplicateUsernames/js/resolveDuplicateName'], function(editProfile, resolveDuplicateUsername){
+			resolveDuplicateUsername.resolve();
+		});
+	});
+
+	var loggedInUserID = "{{ c.form.id }}";
+	document.getElementsByClassName('page-title')[0].innerHTML = 'Profile';
+	document.getElementsByClassName('back-icon')[0].classList.remove('hide-one', 'hidden');
+	document.getElementsByClassName('name')[0].classList.add('hide-small');
+
+</script>
+{% endblock %}
+
+{% block pageinfotop %}
+<div class="contenttop"></div>
+{% endblock %}
+
+{% block content %}
+<!--<div style="width:100%;height:100%;position:absolute;top:0px;left:0px;z-index:98;opacity:0.7;background:none repeat scroll 0 0 rgba(0, 0, 0, 0.45);"></div>-->
+<div id="loading-icon" class="loading-icon js-loading-icon">
+	<img alt="loading" src="/media/common/images/icon_loading.gif">
+</div>
+<div class="row collapse">
+	<div class="small-12 columns large-8 large-offset-2 profile-edit-wrapper">
+		<div class="row collapse hide-for-small">
+			<div class="profile-breadcrumbs">
+				<a href="/account/settings/">Account Settings</a>
+				<span>/ Profile</span>
+			</div>
+		</div>
+		<div class="row card-wrap collapse">
+			<div class="profile-img-wrap">
+				<div class="profile-img-frame">
+					<img id="profileImage" class="profile-img" src="
+						{%if c.form.imageURL %}
+							{{ c.form.imageURL|ck12_image_thumbnail_size('large') }}
+						{% else %}
+							media/profilebuilder/assets/images/profile_photo_default.png
+						{% endif %}
+					"/>
+					<img id="ajaxLoadingWait" class="hide" style="margin:52px" src="/auth/media/images/loader.gif"/>
+					<a>
+						<span class="change-handle edit-photo">Edit photo</span>
+					</a>
+					<div id="uploadimage_form_container">
+						<form id="frm_imageupload" name="frm_imageupload" action="/auth/save/profile/image">
+							<input id="resourcePath" type="file" class="uploadimage_input" name="resourcePath" />
+							<input type = "text" id = "resourceType" class="hide" name = "resourceType" value="image"/>
+							<input type = "text" id = "updateMember" class="hide" name = "updateMember" value="true"/>
+							<input type = "text" id = "invalidate_client" class="hide" name = "invalidate_client" value="true"/>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="profile-item member-profile-item">
+				<div class="error" data-for="member-name-error">
+					<label id="member-name-error"></label>
+				</div>
+				<div class="member-name-wrap">
+					<div class="member-name title ellipsis" data-name="{{ c.form.firstName|e }}&nbsp;{{ c.form.lastName|e }}"></div>
+					<input type="text" id="member-name" class="hidden" value="{{ c.form.firstName|e }} {{ c.form.lastName|e }}" maxlength="63"/>
+					<a id="editName" class="edit"><span class="change-handle icon-edit"></span></a>
+					<a id="saveName" class="js_save_container hidden hide-important"><span class="inactive-handle icon-checkmark"></span></a>
+				</div>
+			</div>
+			<div class="profile-item">
+				<span class="role-name" data-roleid = "{{ c.form.roleID }}">
+				{% for roleID in c.form.roleKeys %}
+					{% if roleID == c.form.roleID %}
+						{{ c.form.roleDict[roleID]|title }}
+					{% endif %}
+				{% endfor %}
+				</span>
+				<ul id="roleList" class="hidden user-role-dropdown">
+					<li id="5" class="roleOption">Teacher</li>
+					<li id="7" class="roleOption">Student</li>
+				</ul>
+				{% if (not c.isUnderage) and (not c.isRosterUser) %}
+				<a id="editRole" class="edit"><span class="change-handle icon-edit"></span></a>
+				{% endif %}
+				<a id="saveRole" class="js_save_container hidden hide-important"><span class="inactive-handle icon-checkmark"></span></a>
+			</div>
+			<div class="profile-item">
+				in
+				<span id="lblUserLocation" class="place-name">somewhere, some state</span>
+				<div id="location-container" class="formDropdownContainer hidden">
+					<div id="usLocationContainer" class = "formDropdown">
+						<input type="text" id="usLocation" placeholder="enter zip code"></input>
+						<a class="js_international_location_select_link" href="#">I live outside the U.S.</a>
+					</div>
+					<div id="internationalLocationContainer" class = "formDropdown hidden">
+						<input type="text" id="internationalLocation" placeholder="enter city, country"></input>
+						<a class="js_us_location_select_link" href="#">I live in the U.S.</a>
+					</div>
+				</div>
+				<a id="editLocation" class="edit"><span class="change-handle icon-edit"></span></a>
+				<a id="saveLocation" class="js_save_container hidden hide-important"><span class="inactive-handle icon-checkmark"></span></a>
+			</div>
+			<div class="profile-item" data-roleid="{{ c.form.roleID }}">
+				{% for roleID in c.form.roleKeys %}
+					{% if roleID == c.form.roleID %}
+						{% if 'student' == c.form.roleDict[roleID] %}
+							<a id="add-grade" class="add-user-detail {% if c.form.memberGradesId|count > 0 %}hidden{% endif %}">+ add a grade</a>
+							{% if c.form.memberGradesName %}
+								<span class="grade-text">in </span>
+								{% if c.form.memberGradesName ==  'Kindergarten'%}
+									<span id="memberGrades" class="grade-text">{{ c.form.memberGradesName }}</span>
+								{% elif c.form.memberGradesName ==  '1'%}
+									<span id="memberGrades" class="grade-text">1st grade</span>
+								{% elif c.form.memberGradesName ==  '2'%}
+									<span id="memberGrades" class="grade-text">2nd grade</span>
+								{% elif c.form.memberGradesName ==  '3'%}
+									<span id="memberGrades" class="grade-text">3rd grade</span>
+								{% else %}
+									<span id="memberGrades" class="grade-text">{{ c.form.memberGradesName }}th grade</span>
+								{% endif %}
+							{% endif %}
+						{% endif %}
+						{% if 'teacher' == c.form.roleDict[roleID] %}
+						<a id="add-grade" class="add-user-detail hidden">+ add a grade</a>
+						<span class="grade-text">who teaches grade</span><span id="grade_plural" class="grade-text">{% if c.form.memberGradesId|count == 1 %}{% else %}s{% endif %}</span> <span id="memberGrades" class="grade-text">
+							{% if c.form.memberGradesName %}
+								{{ c.form.memberGradesName }}
+							{% endif %}
+							</span>
+						{% endif %}
+						<ul id = "grades-container" class="hidden">
+							<!-- <li class="default-text" >Choose Grades</li> -->
+							{% for grade in c.form.allGrades %}
+								{% if grade.id == 1 %}
+									{% if grade.id in c.form.memberGradesId %}
+										<li id="{{ grade.id }}" data-id="{{ grade }}" class= "grade selectedGrade" style="width: 100%;">
+									{% else %}
+										<li id="{{ grade.id }}" class= "grade" style="width: 100%;">
+									{% endif %}
+									{{ 'Kindergarten' }}
+									</li>
+								{% else %}
+									{% if grade.id in c.form.memberGradesId %}
+										<li id="{{ grade.id }}" data-id="{{ grade }}" class= "grade selectedGrade">
+									{% else %}
+										<li id="{{ grade.id }}" class= "grade">
+									{% endif %}
+									{{ grade.name |trim }}
+									</li>
+								{% endif %}
+							{% endfor %}
+						</ul>
+						{% if 'teacher' == c.form.roleDict[roleID] %}
+							<a id="editGrades" class="edit"><span class="change-handle icon-edit"></span></a>
+						{% else %}
+							<a id="editGrades" class="{% if '' == c.form.memberGradesName %}hidden{% endif %} edit"><span class="change-handle icon-edit"></span></a>
+						{% endif %}
+						<a id="saveGrades" class="js_save_container hidden hide-important"><span class="inactive-handle icon-checkmark"></span></a>
+						{% if 'parent' == c.form.roleDict[roleID] %}
+						parent pane (TBD)
+						{% endif %}
+					{% endif %}
+				{% endfor %}
+			</div>
+			<div class="profile-item">
+
+				{% if c.form.userSchool %}
+					{% if c.form.userSchool.schoolType == 'home' %}
+						<a id='add-school' class="add-user-detail hidden">+ add your school</a>
+						<span id="add-school-at">at </span>
+						<span id="memberSchool">a homeschool</span>
+					{% else %}
+						{% if c.form.userSchool.name == '' %}
+							<a id='add-school' class="add-user-detail">+ add your school</a>
+						{% else %}
+							<a id='add-school' class="add-user-detail hidden">+ add your school</a>
+							<span id="add-school-at">at </span>
+							<span id="memberSchool"></span>
+						{% endif %}
+					{% endif %}
+				{% else %}
+					<a id='add-school' class="add-user-detail">+ add your school</a>
+				{% endif %}
+
+				<div id="school-container" class="hidden">
+					<div class="custom-box">
+						<input type="radio" id="masterSchool" name="radio1" checked="checked">
+						<label class="radio" for="radio1"><span></span> Enter the name of your school</label>
+					</div>
+					<input type="text" id="schoolInfo" maxlength="50" placeholder="Enter your school name or zip code"></input>
+					<hr class="show-for-small"/>
+					<ul id="schoolAutosuggest" class="hidden">
+
+					</ul>
+					<div class="custom-box">
+						<input type="radio" id="homeSchool" name="radio1">
+						<label class="radio" for="radio2"><span></span> I attend a homeschool.</label>
+					</div>
+				</div>
+
+				{% if c.form.userSchool %}
+					{% if c.form.userSchool.schoolType == 'home' %}
+						<a id="editSchool" class="edit"><span class="change-handle icon-edit"></span></a>
+					{% else %}
+						{% if c.form.userSchool.name == '' %}
+							<a id="editSchool" class="hidden edit"><span class="change-handle icon-edit"></span></a>
+						{% else %}
+							<a id="editSchool" class="edit"><span class="change-handle icon-edit"></span></a>
+						{% endif %}
+					{% endif %}
+				{% else %}
+					<a id="editSchool" class="hidden edit"><span class="change-handle icon-edit"></span></a>
+				{% endif %}
+
+				<a id="saveSchool" class="js_save_container hidden hide-important"><span class="inactive-handle icon-checkmark"></span></a>
+			</div>
+			<div class="profile-item" data-subject="{{ c.form.memberSubjectsName }}">
+
+				<a id='add-subjects' class="add-user-detail {% if '' != c.form.memberSubjectsName %}hidden{% endif %}">+ add subjects</a>
+				{% if c.form.memberSubjectsName %}
+					<span>interested in </span>
+					<span id="memberSubjects">{{ c.form.memberSubjectsName }}</span>
+				{% endif %}
+				<a id="editSubjects" class="{% if '' == c.form.memberSubjectsName %}hidden{% endif %} edit"><span class="change-handle icon-edit"></span></a>
+				<a id="saveSubjects" class="js_save_container hidden hide-important"><span class="inactive-handle icon-checkmark"></span></a>
+			</div>
+			<div class="profile-item">
+
+				<a id='add-website' class="add-user-detail website-item {% if '' != c.form.website %}hidden{% endif %}">+ add a website</a>
+				<a class="website website-item {% if '' == c.form.website %}hidden{% endif %}" href="{{ c.form.website }}" target="_blank">{{ c.form.website }}</a>
+				<input type="text" id="website" class="hidden" value="{{ c.form.website }}" placeholder="+ add a website"/>
+				<a id="editWebsite" class="{% if '' == c.form.website %}hidden{% endif %} edit"><span class="change-handle icon-edit"></span></a>
+				<a id="saveWebsite" class="js_save_container hidden hide-important"><span class="inactive-handle icon-checkmark"></span></a>
+			</div>
+			<div class="progress-hint-container">
+				<div class="progress-hint-wrap">
+					<div class="row collapse">
+						<div class="small-4 columns large-3 progress-wrapper">
+							<canvas id="progress-ring-profile" height="74px" width="74px;"></canvas>
+							<!--
+							<div class="progress-ring">
+								<span class="progress-wrap">
+									80%
+								</span>
+							</div>
+							-->
+						</div>
+						<div class="small-8 columns large-9 progress-wrapper">
+							<div id="profileIncomplete" class="hide">
+								<div class="hint profile-message">Complete your Profile!</div>
+								<div id="hintImageURL" class="hint hint-link hide-small"><a>Add an image</a></div>
+								<div id="hintRole" class="hint hint-link hide-small"><a>Add a role</a></div>
+								<div id="hintLocation" class="hint hint-link hide-small"><a>Add a location</a></div>
+								<div id="hintGrades" class="hint hint-link hide-small"><a>Add grades</a></div>
+								<div id="hintSubjects" class="hint hint-link hide-small"><a>Add subjects</a></div>
+								<div id="hintSchool" class="hint hint-link hide-small"><a>Add your school</a></div>
+							</div>
+							<div id="profileComplete" class="hide">
+								<div class="hint">Your profile is complete!</div>
+							</div>
+						</div>
+					</div>
+					<a id="hintClose"><span class="close-icon"></span></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Old code
+<div class="large-6 large-centered columns">
+<h1 class="toptitle">{{ _("Profile") }}</h1>
+<div class="spacetoplarge"></div>
+</div>
+<div class="gclear"></div>
+<div id="profilesettings" class="contentarea large-6 large-centered columns">
+	<div class="spacetopxlarge"></div>
+
+	<!-- Error Messages
+	Note: these will not be shown, since we have inline validation --
+	{% if c.form_errors %}
+	<ul class="messaging error">
+		{% for error in c.form_errors %}
+		<span class="icon-close"></span>
+		<li><!--{{error}} - --{{ c.form_errors[error] }}</li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+
+	<!-- Success Message --
+	{% if c.form_success %}
+	<ul class="success">
+		<li>{{ c.form_success }}</li>
+	</ul>
+	{% endif %}
+
+	<!-- Basic Details --
+	<h2 class="toptitle sectiontitle">{{ _("Basic Details") }}</h2>
+	<div class="divider"></div>
+	<form id="profile_form" method="POST" action="{{ h.url("profile") }}?returnTo={{ c.returnTo }}">
+		<div class="section">
+			<div class="formlabelwrap">
+				<label class="formlabel" for="roleID">{{ _("Role") }}</label>
+			</div>
+			<div class="inputwrap">
+				<select id="roleID" name="roleID" value="{{ c.form.roleID }}">
+					{% for roleID in c.form.roleKeys %}
+						{% if roleID == c.form.roleID %}
+							<option selected value="{{ roleID }}">{{ c.form.roleDict[roleID] }}</option>
+						{% else %}
+							<option value="{{ roleID }}">{{ c.form.roleDict[roleID] }}</option>
+						{% endif %}
+					{% endfor %}
+				</select>
+			</div>
+		</div>
+
+		<div class="section">
+			<div class="formlabelwrap">
+				<label class="required formlabel" for="firstName">{{ _("First Name") }}</label>
+			</div>
+			<div class="inputwrap">
+				<input type="text" id="firstName" class="forminput" name="firstName" value="{{ c.form.firstName }}"
+						data-required="{{ c.messages.ACCOUNT_FIRSTNAME_EMPTY }}"/>
+				<div class="error hide" data-for="firstName"></div>
+			</div>
+		</div>
+
+		<div class="section">
+			<div class="formlabelwrap">
+				<label class="required formlabel" for="lastName">{{ _("Last Name") }}</label>
+			</div>
+			<div class="inputwrap">
+				<input type="text" id="lastName" class="forminput" name="lastName" value="{{ c.form.lastName }}"
+						data-required="{{ c.messages.ACCOUNT_LASTNAME_EMPTY }}" />
+				<div class="error hide" data-for="lastName"></div>
+			</div>
+		</div>
+
+		<div class="section">
+			<div class="formlabelwrap">
+				<label class="formlabel" for="login">{{ _("Username") }}</label>
+			</div>
+			<div class="inputwrap">
+								<input {% if c.form.roLogin %} readonly="readonly" {% endif %} type="text" id="login" class="forminput" name="login" value="{{ c.form.login.replace('"', "'")|safe }}"
+						data-required="{{ c.messages.ACCOUNT_USERNAME_EMPTY }}"
+						data-ck12_username="{{ c.messages.ACCOUNT_USERNAME_INVALID }}"
+						data-minlength="{{ c.messages.ACCOUNT_USERNAME_MINLENGTH}}"
+						data-maxlength="{{ c.messages.ACCOUNT_USERNAME_MAXLENGTH }}"
+						data-remote="{{ c.messages.ACCOUNT_USERNAME_TAKEN }}" />
+				<div class="error hide" data-for="login"></div>
+			</div>
+		</div>
+
+		<div class="section">
+			<div class="formlabelwrap">
+				<label class="formlabel" for="email">{{ _("Email") }}</label>
+			</div>
+			<div class="inputwrap">
+				<input id="email" class="forminput" type="text" name="email" value="{{ c.form.email }}"
+						data-required="{{ c.messages.ACCOUNT_EMAIL_EMPTY }}"
+						data-simple_email="{{ c.messages.ACCOUNT_EMAIL_INVALID }}"
+						data-remote="{{ c.messages.ACCOUNT_EMAIL_TAKEN }}"/>
+				<div class="error hide" data-for="email"></div>
+			</div>
+		</div>
+
+		<div class="section">
+			<div class="formlabelwrap">
+				<label class="formlabel" for="website">{{ _("Website") }}</label>
+			</div>
+			<div class="inputwrap">
+				<input type="text" id="website" class="forminput" name="website" value="{{ c.form.website }}"/>
+				<div class="error hide" data-for="website"></div>
+			</div>
+		</div>
+
+		<div class="section">
+			<div class="formlabelwrap">
+				<label class="formlabel" for="birthday">{{ _("Date of Birth (mm/dd/yyyy)") }}</label>
+			</div>
+			<div class="inputwrap">
+				<input type="text" id="birthday" class="forminput" name="birthday" value="{{ c.form.birthday }}"/>
+				<div class="error hide" data-for="birthday"></div>
+			</div>
+		</div>
+
+		<!-- Location Details --
+		<h2 class="toptitle sectiontitle">{{ _("Location Details") }}</h2>
+		<div class="divider"></div>
+
+		<div class="section">
+			<div class="formlabelwrap">
+				<label class="formlabel" for="city">{{ _("City") }}</label>
+			</div>
+			<div class="inputwrap">
+				<input type="text" id="city" class="forminput" name="city" value="{{ c.form.city }}"
+						data-maxlength="{{ c.messages.ACCOUNT_CITY_MAXLENGTH }}" />
+				<div class="error hide" data-for="city"></div>
+			</div>
+		</div>
+
+		<div id="stateDiv" class="section" style="display: {{ 'block' if c.form.countryID == c.form.countryNameDict['US'] else 'none' }}">
+			<div class="formlabelwrap">
+				<label class="formlabel" for="state">{{ _("State") }}</label>
+			</div>
+			<div class="inputwrap">
+				<select id="state" class="forminput" name="state" value="{{ c.form.state }}">
+					<option value="">Select One</option>
+					{% for state in c.form.stateKeys %}
+						{% if state == c.form.state %}
+						<option selected value="{{ state }}">{{ c.form.stateDict[state] }}</option>
+						{% else %}
+						<option value="{{ state }}">{{ c.form.stateDict[state] }}</option>
+						{% endif %}
+					{% endfor %}
+				</select>
+			</div>
+		</div>
+
+		<div id="provinceDiv" class="section" style="display: {{ 'none' if c.form.countryID == c.form.countryNameDict['US' ] else 'block' }}">
+			<div id="proviceLabel" class="formlabelwrap">
+				<label class="formlabel" for="province">{{ _("Province") }}</label>
+			</div>
+			<div class="inputwrap">
+				<input type="text" id="province" class="forminput" name="province" value="{{ c.form.province }}"
+						data-maxlength="{{ c.messages.ACCOUNT_PROVINCE_MAXLENGTH }}" />
+				<div class="error hide" data-for="province"></div>
+			</div>
+		</div>
+
+		<div class="section">
+			<div class="formlabelwrap">
+				<label class="formlabel" for="countryID">{{ _("Country") }}</label>
+			</div>
+			<div class="inputwrap">
+				<select id="countryID" name="countryID" value="{{ c.form.countryID }}">
+					{% for countryID in c.form.countryKeys %}
+						{% if countryID == c.form.countryID %}
+						<option selected value="{{ countryID }}">{{ c.form.countryDict[countryID] }}</option>
+						{% else %}
+						<option value="{{ countryID }}">{{ c.form.countryDict[countryID] }}</option>
+						{% endif %}
+					{% endfor %}
+				</select>
+			</div>
+		</div>
+
+		<div id="zipDiv" class="section" style="display: {{ 'block' if c.form.countryID == c.form.countryNameDict['US' ] else 'none' }}">
+			<div class="formlabelwrap">
+				<label class="formlabel" for="zip">{{ _("Zip Code") }}</label>
+			</div>
+			<div class="inputwrap">
+				<input type="text" id="zip" class="forminput" name="zip" value="{{ c.form.zip }}"
+						data-maxlength="{{ c.messages.ACCOUNT_ZIP_MAXLENGTH }}" />
+				<div class="error hide" data-for="zip"></div>
+			</div>
+		</div>
+
+		<div id="postalCodeDiv" class="section" style="display: {{ 'none' if c.form.countryID == c.form.countryNameDict['US' ] else 'block' }}">
+			<div class="formlabelwrap">
+				<label class="formlabel" for="postalCode">{{ _("Postal Code") }}</label>
+			</div>
+			<div class="inputwrap">
+				<input type="text" id="postalCode" class="forminput" name="postalCode" value="{{ c.form.postalCode }}"
+						data-maxlength="{{ c.messages.ACCOUNT_POSTALCODE_MAXLENGTH }}" />
+				<div class="error hide" data-for="postalCode"></div>
+			</div>
+		</div>
+
+		<!-- Contact Details --
+		<h2 class="toptitle sectiontitle">{{ _("Contact Details") }}</h2>
+		<div class="divider"></div>
+		<div class="section">
+			<div class="formlabelwrap">
+				<label class="formlabel" for="phone">{{ _("Phone") }}</label>
+			</div>
+			<div class="inputwrap">
+				<input type="text" id="phone" class="forminput" name="phone" value="{{ c.form.phone }}"
+												placeholder="{{ c.messages.ACCOUNT_PHONE_INFO }}"
+						data-maxlength="{{ c.messages.ACCOUNT_PHONE_MAXLENGTH }}" />
+				<div class="error hide" data-for="phone"></div>
+			</div>
+		</div>
+
+		<div class="section">
+			<div class="formlabelwrap">
+				<label class="formlabel" for="fax">{{ _("Fax") }}</label>
+			</div>
+			<div class="inputwrap">
+				<input type="text" id="fax" class="forminput" name="fax" value="{{ c.form.fax }}"
+												placeholder="{{ c.messages.ACCOUNT_PHONE_INFO }}"
+						data-maxlength="{{ c.messages.ACCOUNT_PHONE_MAXLENGTH }}" />
+				<div class="error hide" data-for="fax"></div>
+			</div>
+		</div>
+
+		<div class="profileactionwrap">
+			<input type="hidden" id="id" name="id" value="{{ c.form.id }}"/>
+			<input type="hidden" id="returnTo" name="returnTo" value="{{ c.returnTo }}"/>
+			<a href="{{ c.returnTo }}" title="{{ _('Cancel Profile Change') }}">{{ _("Cancel") }}</a>
+			<input type="submit" id="profileformsubmit" class="button turquoise" value="{{ _('Save Changes') }}" />
+			<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+	</form>
+	<div class="spacetopxlarge"></div>
+</div>
+<div class="clear"></div>
+--><!--end of old code -->
+{% endblock %}

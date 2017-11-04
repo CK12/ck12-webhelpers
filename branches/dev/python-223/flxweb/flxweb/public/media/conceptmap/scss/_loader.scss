@@ -1,0 +1,56 @@
+$spinner-width: 40px;
+$spinner-height: $spinner-width;
+
+$red-dot-color: #FF5B3F;
+$green-dot-color: #B8D543;
+
+$animation-duration: 2.0s;
+$red-dot-animation-delay: -($animation-duration / 2);
+
+.spinner {
+    z-index: 999;
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    width: $spinner-width;
+    height: $spinner-height;
+    animation: sk-rotate $animation-duration infinite linear;
+
+    // Green and Red dots
+    &:before, &:after {
+        content: '';
+        width: 60%;
+        height: 60%;
+        position: absolute;
+        border-radius: 100%;
+
+        animation: sk-bounce $animation-duration infinite ease-in-out;
+    }
+
+    // Green dot
+    &:before {
+        top: 0;
+        background-color: $green-dot-color;
+    }
+
+    // Red dot
+    &:after {
+        bottom: 0;
+        animation-delay: $red-dot-animation-delay;
+        background-color: $red-dot-color;
+    }
+}
+
+@keyframes sk-rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes sk-bounce {
+  0%, 100% {
+    transform: scale(0.0);
+  } 50% {
+    transform: scale(1.0);
+  }
+}

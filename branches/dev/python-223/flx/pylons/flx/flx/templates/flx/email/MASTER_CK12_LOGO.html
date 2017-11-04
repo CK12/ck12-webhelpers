@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	{% block email_header %}
+        <head>
+        	{% block meta_tags %}
+        		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        	{% endblock %}
+        	{% block title %}
+				  <title>CK12 - Email Template</title>
+			{% endblock %}
+			
+			{% block ck12_logo %}
+				<div style="width: 100%; text-align: left; padding-bottom: 25px;">
+	        		<img src="{{ site }}/media/common/images/logo_ck12.png" height="33" width="94" alt="ck-12 Logo">
+	        	</div>
+        	{% endblock %}
+        </head>
+	{% endblock %}
+	
+	{% block email_body %}
+	{% endblock %}
+</html>

@@ -1,0 +1,33 @@
+#! /bin/bash
+# -----------------------------------------------------------------------------------
+# CHANGE SET [18655]
+#   1. Added e_raw_score and m_raw_score
+# -----------------------------------------------------------------------------------
+
+source funcs.sh
+
+echo 'Apply change set 18655 (FlexMath-specific changes)'
+
+echo '... Register e_raw_score and m_raw_score'
+
+mysql -h ${db_host} -u ${db_user} -p${db_password} ${db} <<EOF
+delete from Events where name = 'e_raw_score';
+alter table F_fm_scores drop column e_raw_score;
+delete from Measures where name = 'm_raw_score';
+EOF
+
+register_metrics() {
+    # m_raw_score: wrapper metric for e_raw_score
+    http 'meta/register/metric' "name=m_raw_score&dimensions=students,groups:studentID|memberID@flexmath.GroupHasMembers,subjects&source_column=e_raw_score&source_table=F_fm_scores&source_db_db=${db}&source_db_host=${db_host}&source_db_user=${db_user}&source_db_password=D-coD%2343"
+}
+
+register_events() {
+    # raw score
+    http 'meta/register/event' 'name=e_raw_score&event_group=fm_scores'
+}
+
+register_events
+register_metrics
+
+echo 'Done'
+

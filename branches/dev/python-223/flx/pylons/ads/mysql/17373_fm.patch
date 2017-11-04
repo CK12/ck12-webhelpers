@@ -1,0 +1,41 @@
+#! /bin/bash
+# -----------------------------------------------------------------------------------
+# CHANGE SET [17373]
+#   1. Substitute db name when registering FlexMath composite metrics
+# -----------------------------------------------------------------------------------
+
+source funcs.sh
+
+echo 'Apply change set 17373 (FlexMath-specific changes)'
+
+echo '... Re-register composite metrics'
+
+mysql -h ${db_host} -u ${db_user} -p${db_password} ${db} <<EOF
+delete from Measures where name like 'm_%';
+EOF
+
+register_metrics() {
+    # m_right: wrapper metric for e_right
+    http 'meta/register/metric' "name=m_right&dimensions=students,groups:studentID|memberID@flexmath.GroupHasMembers,subjects&source_column=e_right&source_table=F_fm_scores&source_db_db=${db}&source_db_host=${db_host}&source_db_user=${db_user}&source_db_password=D-coD%2343"
+
+    # m_wrong: wrapper metric for e_wrong
+    http 'meta/register/metric' "name=m_wrong&dimensions=students,groups:studentID|memberID@flexmath.GroupHasMembers,subjects&source_column=e_wrong&source_table=F_fm_scores&source_db_db=${db}&source_db_host=${db_host}&source_db_user=${db_user}&source_db_password=D-coD%2343"
+
+    # m_skip: wrapper metric for e_skip
+    http 'meta/register/metric' "name=m_skip&dimensions=students,groups:studentID|memberID@flexmath.GroupHasMembers,subjects&source_column=e_skip&source_table=F_fm_scores&source_db_db=${db}&source_db_host=${db_host}&source_db_user=${db_user}&source_db_password=D-coD%2343"
+
+    # m_hint: wrapper metric for e_hint
+    http 'meta/register/metric' "name=m_hint&dimensions=students,groups:studentID|memberID@flexmath.GroupHasMembers,subjects&source_column=e_hint&source_table=F_fm_scores&source_db_db=${db}&source_db_host=${db_host}&source_db_user=${db_user}&source_db_password=D-coD%2343"
+
+    # m_elapsed_time: wrapper metric for e_elapsed_time
+    http 'meta/register/metric' "name=m_elapsed_time&dimensions=students,groups:studentID|memberID@flexmath.GroupHasMembers,subjects&source_column=e_elapsed_time&source_table=F_fm_scores&source_db_db=${db}&source_db_host=${db_host}&source_db_user=${db_user}&source_db_password=D-coD%2343"
+
+    # m_time_spent: wrapper metric for e_time_spent
+    http 'meta/register/metric' "name=m_time_spent&dimensions=students,groups:studentID|memberID@flexmath.GroupHasMembers,subjects&source_column=e_time_spent&source_table=F_fm_scores&source_db_db=${db}&source_db_host=${db_host}&source_db_user=${db_user}&source_db_password=D-coD%2343"
+
+    # m_points: wrapper metric for e_points
+    http 'meta/register/metric' "name=m_points&dimensions=students,groups:studentID|memberID@flexmath.GroupHasMembers,subjects&source_column=e_points&source_table=F_fm_scores&source_db_db=${db}&source_db_host=${db_host}&source_db_user=${db_user}&source_db_password=D-coD%2343"
+}
+
+echo 'Done'
+

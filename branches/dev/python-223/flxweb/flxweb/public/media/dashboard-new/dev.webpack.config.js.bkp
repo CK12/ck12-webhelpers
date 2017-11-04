@@ -1,0 +1,66 @@
+var config = {
+    // Plugins
+    plugins: [],
+
+    // Modules used for compiling code on the fly
+    module: {
+        loaders: [
+            {
+                test: /\.js[x]?$/,
+                exclude: /node_modules/,
+                loaders: [
+                    'react-hot',
+                    'babel-loader' +
+                        '?presets[]=es2015,presets[]=react' +
+                        ',plugins[]=transform-decorators-legacy' +
+                        ',plugins[]=transform-object-rest-spread' +
+                        ',plugins[]=lodash'
+                ]
+            },
+
+            // For stylesheets ---
+            // 1. Load in sass file with sourcemaps
+            // 2. Resolve relative paths in url() statements
+            // 3. Run it through PostCSS (See postcss method for plugins used)
+            // 4. Run through CSS loader with module support
+            // 5. Use style loader to put in DOM
+            {
+                test: /\.scss$/,
+                exclude: /(\.lib|globals|font)\.scss$/, // Exclude lib, globals, and font files
+                loaders: [
+                    'style',
+                    'css?modules&importLoaders=1&sourceMap&localIdentName=[path][name]__[local]___[hash:base64:5]', // modules to use as CSS modules - importLoaders is for postcss
+                    'postcss',
+                    'resolve-url',
+                    'sass?sourceMap'
+                ]
+            },
+            {
+                 // For importing libraries we do not want to use CSS modules
+                 // as they will be locally scoped by default
+                test: /(\.lib|globals|font)\.scss$/,
+                loaders: [
+                    'style',
+                    'css',
+                    'postcss',
+                    'resolve-url',
+                    'sass'
+                ]
+            },
+            {
+                test: /.*\.(gif|png|jpe?g|svg)$/i,
+                loaders: [
+                    'file?hash=sha512&digest=hex&name=[hash].[ext]',
+                    'image-webpack'
+                ]
+            },
+            // Font Definition
+            {
+                test: /dashboard\.(eot|svg|ttf|woff|woff2)\?.*$/,
+                loader: 'file?name=fonts/[name].[ext]'
+            }
+        ]
+    }
+};
+
+module.exports = config;

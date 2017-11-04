@@ -1,0 +1,10 @@
+    WSGIPythonPath /opt/2.0/adminapp/pylons/flxadmin:/opt/env/flxadmin/lib/python2.7/site-packages
+    WSGIDaemonProcess flxadmin_wsgi processes=5 threads=25 maximum-requests=10000 home=/opt/ python-path=/opt/env/flxadmin/lib/python2.7/site-packages display-name=%{GROUP}
+    WSGIScriptAlias /flxadmin /opt/2.0/adminapp/pylons/flxadmin/flxadmin.wsgi
+    <Directory /opt/2.0/adminapp/pylons/flxadmin/>
+        Require all granted
+    </Directory>
+    <Location /flxadmin>
+        WSGIProcessGroup flxadmin_wsgi
+    </Location>
+

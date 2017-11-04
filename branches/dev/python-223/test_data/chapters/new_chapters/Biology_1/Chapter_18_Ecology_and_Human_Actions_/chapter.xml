@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns:dc="http://www.ck12.org/dc/will_create_ns"
+unique-identifier="chapterid" version="2.0">
+
+  <chapter>
+    <metadata>
+<chapterSeq>18</chapterSeq>
+
+<book>Biology I</book>
+
+      <chapterid></chapterid>
+      <title>Ecology and Human Actions</title>
+      <description>Topics in this chapter include:Natural_Resources,Natural_Resources II,Climate_Change.
+     </description>
+    </metadata>
+    
+    <lessons>
+      <item id="The Biodiversity_Crisis" href="The Biodiversity_Crisis.html" sequence="1" />
+      <item id="Natural_Resources" href ="Natural_Resources.html" sequence="2" />
+      <item id="Natural_Resources II" href ="Natural_Resources_II.html" sequence="3" />
+      <item id="Climate_Change" href ="Climate_Change.html" sequence="4" />
+    </lessons>
+  </chapter>
+
+</package>

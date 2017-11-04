@@ -1,0 +1,48 @@
+.forum-member-wrapper{
+    background-color: #ffffff;
+    margin-top: 30px;
+    padding: 20px !important;
+}
+.member-details{
+    margin-bottom: 15px;
+    i{
+        font-size: 16px;
+    }
+}
+.members-header{
+    font-size: 12px;
+    color: #8E8774;
+}
+.member-image{
+    img{
+        width: 45px;
+        height: 45px;
+    }
+    margin-right: 10px;
+}
+.invite-follwer-wrapper{
+    padding: 11px 4px;
+}
+.new-member{
+    padding: 2px 4px;
+    input{
+        margin-left: 10px;
+        width: 36% !important;
+    }
+}
+.add-new-member{
+    width: 80% !important;
+    margin-bottom: 0 !important;
+}
+#btn-add-member{
+    margin-bottom: 0;
+    margin-left: 5px !important;
+}
+.forum-info{
+    a{
+        font-weight: bold;
+    }
+}
+#levelTwo{
+    margin-bottom: 50px;
+}

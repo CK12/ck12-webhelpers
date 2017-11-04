@@ -1,0 +1,223 @@
+	<form class="createquestionform generativequestionform">
+		<h4>{{ _('Write down your question text (enclose variable names between $$, e.g. $variables$)') }} <span class="helppanel" id="gen-question-help" ><span class="ex-help-icon"></span></span></h4>
+		<div class="input_question">
+			<textarea class="ui-corner-all questiontext exerciseinput forminput" name="generativeQuestion" value="" ></textarea>
+			<div class="clear">
+			</div>
+			<span class="errorspan" id="er_invalid_question"></span>
+		</div>
+		<h4>{{ _('Write down the answer expression') }} <span class="helppanel" id="gen-algebraictext-help" ><span class="ex-help-icon"></span></span></h4>
+		<div class="input_algebraictext">
+			<textarea class="ui-corner-all algebraictext forminput" name="algebraicText" value="" placeholder="{{ _('Python code') }}"></textarea>
+			<div class="clear">
+			</div>
+		</div>
+		<h4>{{ _('Write down the answer associated text (Optional)') }} <span class="helppanel" id="gen-answerdisplaytext-help" ><span class="ex-help-icon"></span></span></h4>
+		<div class="input_answerdisplaytext">
+			<textarea class="ui-corner-all answerdisplaytext forminput" name="answerDisplayText" value="" placeholder="{{ _('Text with $variables$') }}"></textarea>
+			<div class="clear">
+			</div>
+		</div>
+		<h4>{{ _("Write down the variable rules") }} <span class="helppanel" id="gen-inputrules-help" ><span class="ex-help-icon"></span></span></h4>
+		<div class="ui-corner-all input_rules exerciseinput">
+			<div class="addrulesblock">
+				<div class="field-title">
+					{{ _('Enter variable rules') }}
+				</div>
+				<div class="rulebox">
+					<div class="question_rule">
+						<input type="text" class="forminput ruletext" name="instanceRules_1" placeholder="{{ _('Python code') }}"></>
+						<span class="addremoverule removerulebox" title="{{ _('remove this rule box') }}">-</span>
+						<span class="addremoverule addrulebox" title="{{ _('add new rule box') }}">+</span>
+					</div>
+				</div>
+				<div class="rulebox">
+					<div class="question_rule">
+						<input type="text" class="forminput ruletext" name="instanceRules_2" placeholder="{{ _('Python code') }}"></>
+						<span class="addremoverule removerulebox" title="{{ _('remove this rule box') }}">-</span>
+						<span class="addremoverule addrulebox" title="{{ _('add new rule box') }}">+</span>
+					</div>
+				</div>
+				<span class="errorspan er_rules"></span>
+			</div>
+		</div>
+		<h4>{{ _('Choose a question format') }} <span class="helppanel" id="gen-distractors-help" ><span class="ex-help-icon"></span></span></h4>
+		<div class="input_questiontype">
+			<div class="questiontypebox selected" id="shortanswertype">
+				<div class="qtype_choosebtn" title="{{ _('Choose Short Answer') }}">
+				</div>
+				<div class="qtype_display">
+					<label>{{ _('Short-Answer Question') }}</label>
+				</div>
+			</div>
+			<div class="questiontypebox" id="multichoicetype">
+				<div class="qtype_choosebtn" title="{{ _('Choose Multichoice Answer') }}">
+				</div>
+				<div class="qtype_display">
+					<label>{{ _('Multiple-Choice Question') }}</label>
+				</div>
+			</div>
+			<div class="questiontypebox" id="truefalsetype">
+				<div class="qtype_choosebtn" title="{{ _('Choose True/False Answer') }}">
+				</div>
+				<div class="qtype_display">
+					<label>{{ _('True/False Question') }}</label>
+				</div>
+			</div>
+		</div>
+		<div class="clear">
+		</div>
+		<div class="ui-corner-all input_distractors exerciseinput nodistractorinput">
+			<div class="multiplechoicedistractors distractorsblock">
+				<div class="field-title">
+					{{ _('Enter the false options') }}
+				</div>
+				<table>
+					<thead>
+						<td class="optionlabel"></td>
+						<td>Answer Expression</td>
+						<td>Option Associated Text (Optional)</td>
+					</thead>
+					<tr id="distractor1">
+						<td class="optionlabel">
+							Option 1
+						</td>
+						<td class="optionfields">
+							<input type="text" class="forminput distractor_eq" name="distractorAlgebraicText_multiple_1" placeholder="{{ _('Python code') }}"></>
+						</td>
+						<td class="optionfields">
+							<input type="text" class="forminput distractor_text" name="distractorDisplayText_multiple_1" placeholder="{{ _('Text with $variables$') }}"></>
+						</td>
+					</tr>
+					</tr>	<td></td> <td></td> <td></td> </tr>
+					<tr id="distractor2">
+						<td class="optionlabel">
+							Option 2
+						</td>
+						<td class="optionfields">
+							<input type="text" class="forminput distractor_eq" name="distractorAlgebraicText_multiple_2" placeholder="{{ _('Python code') }}"></>
+						</td>
+						<td class="optionfields">
+							<input type="text" class="forminput distractor_text" name="distractorDisplayText_multiple_2" placeholder="{{ _('Text with $variables$') }}"></>
+						</td>
+					</tr>
+					</tr>	<td></td> <td></td> <td></td> </tr>
+					<tr id="distractor3">
+						<td class="optionlabel">
+							Option 3
+						</td>
+						<td class="optionfields">
+							<input type="text" class="forminput distractor_eq" name="distractorAlgebraicText_multiple_3" placeholder="{{ _('Python code') }}"></>
+						</td>
+						<td class="optionfields">
+							<input type="text" class="forminput distractor_text" name="distractorDisplayText_multiple_3" placeholder="{{ _('Text with $variables$') }}"></>
+						</td>
+					</tr>
+					</tr>	<td></td> <td></td> <td></td> </tr>
+				</table>
+				<!-- 
+
+				<ul class="distractorbox" id="field_titles">
+					<li>
+					<span class="disttitle">{{ _('Answer Expression') }}</span>
+					</li>
+					<li>
+					<span class="disttitle">{{ _('Option Associated Text (Optional)') }}</span>
+					</li>
+				</ul>
+				<ul class="distractorbox" id="distractor1">
+					<li>
+					<span class="distrowno">{{ _('Option 1') }}</span>
+					</li>
+					<li>
+					<div class="question_dist_eq">
+						<input type="text" class="forminput" name="distractorAlgebraicText_multiple_1" placeholder="{{ _('Python code') }}"></>
+					</div>
+					</li>
+					<li>
+					<div class="question_dist_text">
+						<input type="text" class="forminput" name="distractorDisplayText_multiple_1" placeholder="{{ _('text with $variables$') }}"></>
+					</div>
+					</li>
+				</ul>
+				<ul class="distractorbox" id="distractor2">
+					<li>
+					<span class="distrowno">{{ _('Option 2') }}</span>
+					</li>
+					<li>
+					<div class="question_dist_eq">
+						<input type="text" class="forminput" name="distractorAlgebraicText_multiple_2" placeholder="{{ _('Python code') }}"></>
+					</div>
+					</li>
+					<li>
+					<div class="question_dist_text">
+						<input type="text" class="forminput" name="distractorDisplayText_multiple_2" placeholder="{{ _('text with $variables$') }}"></>
+					</div>
+					</li>
+				</ul>
+				<ul class="distractorbox" id="distractor3">
+					<li>
+					<span class="distrowno">{{ _('Option 3') }}</span>
+					</li>
+					<li>
+					<div class="question_dist_eq">
+						<input type="text" class="forminput" name="distractorAlgebraicText_multiple_3" placeholder="{{ _('Python code') }}"></>
+					</div>
+					</li>
+					<li>
+					<div class="question_dist_text">
+						<input type="text" class="forminput" name="distractorDisplayText_multiple_3" placeholder="{{ _('text with $variables$') }}"></>
+					</div>
+					</li>
+				</ul>
+				-->
+			</div>
+			<div class="truefalsedistractors distractorsblock">
+				<div class="field-title">
+					{{ _('Enter answer expression/value to make the question evaluate to False') }}
+				</div>
+				<table>
+					<tr id="distractor1">
+						<td class="optionfields">
+							<input type="text" class="forminput distractor_eq" name="distractorAlgebraicText_tf" placeholder="{{ _('Python code') }}"></>
+						</td>
+					</tr>
+					</tr>	<td></td> <td></td> <td></td> </tr>
+                                </table> 
+				<!--
+				<div class="distractorbox" id="distractor1">
+					<div class="question_dist_eq">
+						<input type="text" class="forminput" name="distractorAlgebraicText_short" placeholder="{{ _('Python code') }}"></>
+					</div>
+					<span class="errorbox er_distractortext_1"></span>
+				</div>
+				-->
+			</div>
+		</div>
+		<h4>{{ _('Choose difficulty level') }}</h4>
+		<div class="input_difficultylevel">
+			<div class="difficultylevelbox" id="easy">
+				<div class="difficulty_choosebtn" title="{{ _('Easier than typical') }}">
+				</div>
+				<div class="difficulty_display">
+					<label>{{ _('Easy') }}</label>
+				</div>
+			</div>
+			<div class="difficultylevelbox selected" id="normal">
+				<div class="difficulty_choosebtn" title="{{ _('Normal difficulty level') }}">
+				</div>
+				<div class="difficulty_display">
+					<label>{{ _('Normal') }}</label>
+				</div>
+			</div>
+			<div class="difficultylevelbox" id="hard">
+				<div class="difficulty_choosebtn" title="{{ _('Harder than typical') }}">
+				</div>
+				<div class="difficulty_display">
+					<label>{{ _('Hard') }}</label>
+				</div>
+			</div>
+		</div>
+		<div class="clear">
+		</div>
+	</form>

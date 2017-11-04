@@ -1,0 +1,376 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>CK-12 Analytics Demo</title>
+
+		<!-- This demo uses JQuery, Highcharts, and a JQuery drill down menu plugin called dcDrilldown -->		
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+		<script type="text/javascript" src="media/lib/highcharts.js"></script>
+		<script type='text/javascript' src='media/lib/jquery.cookie.js'></script>		
+		<script type='text/javascript' src='media/lib/jquery.dcdrilldown.1.2.min.js'></script>
+		<script type='text/javascript' src='media/js/quizlog.js'></script>
+		<link rel="stylesheet" type="text/css" href="media/css/dcdrilldown.css"/>
+		<link rel="stylesheet" type="text/css" href="media/css/skins/graphite.css"/>
+				
+		<!-- Highcharts 1a) Optional: add a theme file -->
+		<!--
+			<script type="text/javascript" src="../js/themes/gray.js"></script>
+		-->
+		
+		<!-- Highcharts 1b) Optional: the exporting module -->
+		<!--
+			<script type="text/javascript" src="Highcharts-2.1.9/js/modules/exporting.js"></script>
+		-->
+		
+		
+		<!-- Highcharts 2. Add the JavaScript to initialize the chart on document ready -->
+		<script type="text/javascript">
+			var ADS_URL = 'query';
+			var ADS_EVENT_URL = 'event';
+			var studentDim = 't_students:.';
+			var teacherDim = 't_teachers:.';
+			var subjectDim = 't_subjects:.';
+			var chart, pieChart;
+			var showPoints = false;
+
+			$(document).ready(function() {
+				$('#drilldown-students').dcDrilldown();
+				$('#drilldown-teachers').dcDrilldown();
+				$('#drilldown-subjects').dcDrilldown();
+				refreshChart();
+			});
+			
+			function toggleShowPoints() {
+				showPoints = ! showPoints;
+				if (showPoints)
+					$('#show_points').val('Hide Points');
+				else
+					$('#show_points').val('Show Points');
+				refreshChart();
+			}
+			
+			function refreshChart(q) {
+				if (q) {
+					query = q;
+				} else {
+					ml = 'ml=t_wrong:avg,t_right:sum' + (showPoints ? ',t_points:sum' : '');
+					query = ml + '&dl=t_students:t_student&gb=t_students:t_student';
+					query += '&ft=' + studentDim + ' ' + teacherDim + ' ' + subjectDim;
+				}
+				$('#query').val(query);
+				$.ajax({
+					url: ADS_URL,
+					data: query,
+					success: function(data) {
+						console.debug(data.response.result);
+						displayChart(data);
+					},
+					error: function(jqXHR, textStatus, errorThrown) {
+						console.error(textStatus);
+					},
+					dataType: 'json',
+					async: false
+				});
+			}
+			
+			function displayChart(data) {
+				var options = {
+					chart: {
+						renderTo: 'container',
+						defaultSeriesType: 'column'
+					},
+					credits: {
+						text: 'CK-12 Foundation',
+						href: 'http://www.ck12.org'
+					},
+					title: {
+						text: 'Student Test Results'
+					},
+					subtitle: {
+						text: 'A sample column chart report'
+					},
+					xAxis: {
+						categories: ['Avg. Wrong', 'Total Right', 'Total Points']
+					},
+					yAxis: {
+						min: 0,
+						title: {
+							//text: '# of Questions/Points'
+							text: '# of Questions'
+						}
+					},
+					legend: {
+						layout: 'vertical',
+						backgroundColor: '#FFFFFF',
+						align: 'left',
+						verticalAlign: 'top',
+						x: 100,
+						y: 70,
+						floating: true,
+						shadow: true
+					},
+					tooltip: {
+						formatter: function() {
+							return '' + this.y + (this.x == 'Points' ? ' points' : ' questions');
+						}
+					},
+					plotOptions: {
+						column: {
+							pointPadding: 0.2,
+							borderWidth: 0
+						}
+					},
+					series: []
+				};
+
+				// Iterate over the result set
+				$.each(data.response.result, function(i, row) {
+					var series = { data: [] };
+					$.each(row, function(j, value) {
+						if (j == row.length-2) // last two fields are student and studentID
+							series.name = value;
+						else
+							series.data.push(value);
+					})
+					options.series.push(series);
+				});
+				
+				chart = new Highcharts.Chart(options);
+			}
+
+			function refreshPieChart(q) {
+				if (q) {
+					query = q;
+				} else {
+					query = 'eg=t_effort&ml=t_time_spent:sum&dl=t_subjects:t_component&gb=t_subjects:t_component';
+					query += '&ft=' + studentDim + ' t_subjects:.';
+				}
+				$.ajax({
+					url: ADS_URL,
+					data: query,
+					success: function(data) {
+						console.debug(data.response.result);
+						displayPieChart(data);
+					},
+					error: function(jqXHR, textStatus, errorThrown) {
+						console.error(textStatus);
+					},
+					dataType: 'json',
+					async: false
+				});
+			}
+
+			function displayPieChart(data) {
+				var options = {
+					chart: {
+						renderTo: 'piechart_container',
+						plotBackgroundColor: null,
+						plotBorderWidth: null,
+						plotShadow: false
+					},
+					credits: {
+						text: 'CK-12 Foundation',
+						href: 'http://www.ck12.org'
+					},
+					title: {
+						text: 'Time Spent'
+					},
+					subtitle: {
+						text: 'A sample pie chart report'
+					},
+					tooltip: {
+						formatter: function() {
+							return '<b>'+ this.point.name +'</b>: '+ Math.round(this.percentage) + '%' + ' (' + this.y + ' secs)';
+						}
+					},
+					plotOptions: {
+						pie: {
+							allowPointSelect: true,
+							cursor: 'pointer',
+							dataLabels: {
+								enabled: true,
+								color: '#000000',
+								connectorColor: '#000000',
+								formatter: function() {
+									return '<b>'+ this.point.name +'</b>: '+ Math.round(this.percentage) +'%';
+								}
+							}
+						}
+					},
+				    series: [{
+						type: 'pie',
+						name: 'Time spent',
+						data: []
+					}]
+				};
+				
+				// Iterate over the result set
+				var pieChartData = [];
+				$.each(data.response.result, function(i, row) {
+					console.debug([row[1]]);
+					console.debug([row[0]]);
+					var reversed_data = [row[1], row[0]];
+					pieChartData.push(reversed_data);
+				});
+				options.series[0].data = pieChartData;
+				pieChart = new Highcharts.Chart(options);
+			}
+
+			function changeStudent(student) {
+				studentDim = $(student).attr('id');
+				refreshChart();
+			}
+
+			function changeTeacher(teacher) {
+				teacherDim = $(teacher).attr('id');
+				refreshChart();
+			}
+			
+			function changeSubject(subject) {
+				subjectDim = $(subject).attr('id');
+				refreshChart();
+			}
+			
+			var c = 0;
+			var t;
+			
+			function startTimer() {
+				c = 0;
+				counter();
+			}
+			
+			function counter() {
+				$('#timer').val(c);
+				c += 1;
+				t = setTimeout('counter()', 1000);
+			}
+			
+			function stopTimer() {
+				clearTimeout(t);
+				var studentPath = studentDim.split(':')[1]
+				var studentID = studentPath.substr(studentPath.lastIndexOf('.')+1);
+				var componentPath = subjectDim.substr(subjectDim.split('.')[1].lastIndexOf('.')+1);
+				var componentID = componentPath.substr(componentPath.lastIndexOf('.')+1);
+				console.debug('Student ID: ' + studentID + ', Component ID: ' + componentID);
+				sendEvent(studentID, componentID);
+				setTimeout('refreshPieChart()', 500);
+			}
+
+			function sendEvent(studentID, componentID) {
+				qs = 'g=t_effort&e=t_time_spent&d=' + studentID + '&d=' + componentID + '&v=' + $('#timer').val();
+				$('#event_qs').val(qs);
+				_ck12.logEvent('t_effort', 't_time_spent', $('#timer').val(), [studentID, componentID], ['browser','os']);
+			}
+
+		</script>
+		
+		<style type="text/css">
+			table tr th { text-align: left; font-size: 20px; }
+			table tr td { text-align: left; border-left: 1px solid; }
+		</style>		
+	</head>
+	<body>
+		<!-- dcDrilldown menus -->
+		<table>
+			<tr>
+				<th>Student Dimension:</th>
+				<th>Teacher Dimension:</th>
+				<th>Subject Dimension:</th>
+			</tr>
+			<tr>
+				<td>
+					<div class="graphite demo-container">
+						<ul id="drilldown-students">
+					  		<li><a href="#" id="t_students:." onclick="changeStudent(this);">Students</a>
+					  			<ul>
+					  				{% for student in c.students %}
+					  				<li><a href="#" id="t_students:{{ student.0 }}" onclick="changeStudent(this);">{{ student.1 }}</a></li>
+					  				{% endfor %}
+					    		</ul>
+					    	</li>
+					    </ul>
+					</div>
+				</td>
+				<td>
+					<div class="graphite demo-container">
+						<ul id="drilldown-teachers">
+					  		<li><a href="#" id="t_teachers:." onclick="changeTeacher(this);">Teachers</a>
+					  			<ul>
+					  				{% for teacher in c.teachers %}
+					  				<li><a href="#" id="t_teachers:{{ teacher.0 }}" onclick="changeTeacher(this);">{{ teacher.1 }}</a>
+						  				<ul>
+					  						{% for group in teacher.2 %}
+							  				<li><a href="#" id="t_teachers:{{ teacher.0}}.{{ group.0 }}" onclick="changeTeacher(this);">{{ group.1 }}</a></li>
+					  						{% endfor %}
+					  					</ul>
+					  				</li>
+					  				{% endfor %}
+					    		</ul>
+					    	</li>
+					    </ul>
+					</div>
+				</td>
+				<td>
+					<div class="graphite demo-container">
+						<ul id="drilldown-subjects">
+							<li><a href="#" id="t_subjects:." onclick="changeSubject(this);">Subjects</a>
+					  			<ul>
+					  				{% for subject in c.subjects %}
+					  				<li><a href="#" id="t_subjects:{{ subject.0 }}" onclick="changeSubject(this);">{{ subject.1}}</a>
+				  						{% if subject.2 %}
+					  					<ul>
+					  						{% for unit in subject.2 %}
+							  				<li><a href="#" id="t_subjects:{{ subject.0 }}.{{ unit.0 }}" onclick="changeSubject(this);">{{ unit.1 }}</a>
+						  						{% if unit.2 %}
+							  					<ul>
+								  					{% for lesson in unit.2 %}
+									  				<li><a href="#" id="t_subjects:{{ subject.0 }}.{{ unit.0 }}.{{ lesson.0 }}" onclick="changeSubject(this);">{{ lesson.1 }}</a>
+									  					{% if lesson.2 %}
+									  					<ul>
+									  					{% for component in lesson.2 %}
+										  				<li><a href="#" id="t_subjects:{{ subject.0 }}.{{ unit.0 }}.{{ lesson.0 }}.{{ component.0 }}" onclick="changeSubject(this);">{{ component.1 }}</a></li>
+									  					{% endfor %}
+									  					</ul>
+									  					{% endif %}
+								  					</li>
+							  						{% endfor %}
+							  					</ul>
+						  						{% endif %}
+							  				</li>
+					  						{% endfor %}
+					  					</ul>
+				  						{% endif %}
+					  				</li>
+					  				{% endfor %}
+					    		</ul>
+					    	</li>
+					    </ul>
+					</div>
+				</td>
+			</tr>
+		</table>
+		
+		<div>
+			<div style="width:800px;height:400px;margin:0 2px;float:left">
+				<div style="width:100%;font-weight:bold;font-size:15px;display:{% if show_query %}inline{% else %}none{% endif %}">
+					Query:<span style="padding-left:20px"><input type="submit" onclick="refreshChart($('#query').val());"></input></span>
+					<textarea id="query" style="width:100%;resize:none;border:1px solid;font-style:italic"></textarea>
+				</div>
+				<!-- Highcharts 3. Add the container -->
+				<div id="container"></div>
+				<input id="show_points" type="submit" value="Show Points" onclick="toggleShowPoints();"></input>		
+			</div>
+
+			<div id="event" style="width:600px;float:right;margin:10px;padding:10px;border:1px dotted">
+				<div style="display:{% if show_query %}inline{% else %}none{% endif %}">
+					Query:<textarea id="event_qs" style="width:100%;resize:none;border:1px solid;margin-bottom:5px;font-style:italic"></textarea>
+				</div>
+				<input type="submit" value="Start Timer" onclick="startTimer();"></input>		
+				<input type="submit" value="Stop Timer" onclick="stopTimer();"></input>
+				<input type="text" id="timer" readonly value="0" style="width:20px;padding-left:20px">&nbsp;seconds</input>
+				<div id="piechart_container" style="width:100%;height:400px"></div>
+			</div>
+		</div>
+	</body>
+</html>

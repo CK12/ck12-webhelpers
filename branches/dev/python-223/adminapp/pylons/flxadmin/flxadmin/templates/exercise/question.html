@@ -1,0 +1,177 @@
+{% extends "details.html" %}
+{% from "macros/form_errors.html" import form_errors with context %}
+
+{% block admincontent %}
+{% if c.question %}
+<div class="sectionhead sectiontitle">{{c.pagetitle}}</div>
+<div class="section withfloatedsubmit">
+  <form id="mainform" method="post" onKeyPress="return disableEnterKey(event)" >
+    <div class="leftaligned">
+      {{ h.labelreadonly('Id', 'id', 'info med')}}
+      {{ h.labelreadonly('Is Valid', 'isValid', 'info med')}}
+      {{ h.labelreadonly('Is Draft', 'draft', 'info med')}}
+      {{ h.labeldiv('Created By')}}<div>
+        {{h.userlink(c.question, 'creator', 'createdBy')}}
+        {{h.id_in_parens(c.question, 'createdBy')}}
+      </div>
+      {{ h.labelreadonly('Created On', 'creationTime', 'info med')}}
+      {{ h.labeldiv('Approved By')}}<div>
+        {{h.userlink(c.question, 'approver', 'approvedBy')}}
+        {{h.id_in_parens(c.question, 'approvedBy')}}
+      </div>
+      {{ h.labelreadonly('Approved On', 'approvedDate', 'info med')}}
+      {{ h.labelreadonly('Last Updated', 'updateTime', 'info med')}}
+
+      {{ h.labeldiv('In Exercises', c.fmtd.exercises, 'td')}}
+      {{ h.htmldiv(c.fmtd.exercise_ids, 'exercise_ids', 'hide')}}
+
+      {{ h.labelradio('Question Type', 'questionTypeID', c.form.question_type_choices)}}
+      {{ h.labelradio('Difficulty', 'difficultyLevel', c.form.question_levels)}}
+
+      <br>
+      <div class='formDataColTopPadded'>
+        <span id='editInRaw' class='linklike'>Edit in plain text</span>&nbsp; |
+        <span id='editInTMCE' class='linklike'>Edit with tinyMCE</span>&nbsp; |
+        <span id='switchTMCE' class='linklike'>Switch Editor</span>&nbsp;
+        {{ h.htmla_proxy('flxweb/get/preview/question/%s/%s?embed=%s'%(c.Qclass, c.Qid, false), 'Render (before editings)', 'view')}}
+      </div>
+      {{ h.labeltextarea('Question', 'displayText', 6, 82)}}
+
+    {% if c.isGenerative %}
+      {{ h.labeltextarea('Instance Rules', 'instanceRules', 5, 82)}}
+    {% endif %}
+      {{ h.answer_widget(c.question, c.isGenerative)}}
+      {{ h.htmlinput('question_options', 'hide')}}
+
+    {% if c.fmtd.errors %}
+      {{ h.labeldiv('Error Reports', c.fmtd.errors, 'td')}}
+    {% endif %}
+    </div>
+
+    {% if c.question.draft=='T' %}
+      <p class="disabled-note">(Draft question forms are disabled)</p>
+    {% endif %}
+      {{ h.deletebutton('Delete')}}
+      {{ h.submitbutton(c.invalid_text, name='saveas')}}
+      {{ h.submitbutton(c.valid_text, name='saveas')}}
+      {{ h.cancelbutton(c.cancel)}}
+  </form>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block js_scripts %}
+<script type="text/javascript" src="{{ h.url_js('tinymce.loader.js')}}"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  if("{{ c.question['draft'] }}" == 'T'){
+    $("#mainform :input").attr("disabled", true);
+    $('.btn').addClass('disabled');
+  }
+  var
+  deletable = '{{c.deletable}}',
+  is_pane = '{{c.is_pane}}',
+  class_id = '{{c.Qclass}}/{{c.Qid}}',
+  $form = $('#mainform'),
+
+  editInTMCE = function(){
+    var $this = $('#editInTMCE');
+    if ($this.hasClass('linklike') && CK12Config.doneLoading){
+      $this.removeClass('linklike');
+      $('#editInRaw').addClass('linklike');
+      Fns.initTMCE('#displayText', 'question');
+    } else {
+      alert('Please wait for TinyMCE to load.');
+    }
+  },
+  editInRaw = function(){
+    var $this = $('#editInRaw');
+    if ($this.hasClass('linklike')){
+      if (tinymce.editors.length > 0){
+        var editorId = tinymce.editors[0].editorId;
+        tinymce.execCommand('mceRemoveControl',true, editorId);
+      }
+      $this.removeClass('linklike');
+      $('#editInTMCE').addClass('linklike');
+    }
+  };
+  editInRaw();
+
+  $('#editInTMCE').click(editInTMCE);
+  $('#editInRaw').click(editInRaw);
+  $('[name="questionTypeID"]').prop('disabled', true);
+  $('.wiz').colorbox(Defaults.overlay('listing'));
+  $('#view').colorbox(Defaults.overlay('flxweb'));
+
+  Fns.set_question_options = function(){ //define for use in listings.js
+    var
+      opts = [],
+      typeID = '{{c.question.questionTypeID}}',
+      isGenerative = '{{c.isGenerative}}'=='True',
+      isShortAnswer = typeID=='1',
+      isTrueFalse   = typeID=='2',
+      isMultiChoice = typeID=='3';
+
+    if (isGenerative){
+      if (isTrueFalse){
+        opts.push({
+          displayText: 'False',
+          algebraicText: $('input[name="distractor"]').val()
+        });
+      }else if (isMultiChoice){
+        $('input[name^="distractor"][name$="_text"]').each(function(i, elm){
+          var
+            $elm = $(elm),
+            algebraicTextId = $elm.attr('name').replace('_text', ''),
+            $algebraicText = $elm.siblings().filter(function(){
+              return this.id.match(algebraicTextId);
+            });
+          opts.push({
+            algebraicText: $algebraicText.val(),
+            displayText: $elm.val()
+          });
+        });
+      }
+    }
+    else { // Declarative
+      $('input[name="answer"]').each(function(i, elm){
+        var $elm = $(elm);
+        opts.push({
+          isCorrect: $elm.is(':checked') || isShortAnswer? 'T' : 'F',
+          displayText: isMultiChoice? $elm.next().val() : $elm.val(),
+          displayOrder: i+1
+        });
+      });
+    }
+    $('#question_options').val(JSON.stringify(opts));
+  }
+
+  if (is_pane!='True'){
+    $form.submit(Fns.set_question_options);
+  }
+
+  if (deletable=='True'){
+    Fns.confirm('question',
+      CK12.hwpUrl('delete/question/'+class_id), '{{c.cancel}}');
+  }else{
+    $('#delete').click(function(){
+      alert('To delete this question, all association to exercises must be removed first -- click [Show/Deassociate] above and click [Remove] on all associations.  Please retry when all associations are removed.');
+    });
+  }
+});
+
+function disableEnterKey(e)
+{
+     var key;
+     if(window.event)
+          key = window.event.keyCode;     //IE
+     else
+          key = e.which;     //firefox
+
+     if(key == 13)
+          return false;
+     else
+          return true;
+}
+</script>
+{% endblock %}

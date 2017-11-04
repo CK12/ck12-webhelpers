@@ -1,0 +1,23 @@
+@import "../main";
+:local{
+	.messageTextRoot{
+	    position: fixed;
+	    top: -20%;
+	    z-index: 100;
+	    background: #0cc;
+	    color: #fff;
+	    padding: 0.5em 1em;
+	    border-radius: 20px;
+	    font-weight: 700;
+	    transition: all .5s ease;
+	    
+	    &.error{
+	    	background: $error-color;
+	    }
+	}
+	.translateRoot{
+		top:115px;
+	}
+
+
+}

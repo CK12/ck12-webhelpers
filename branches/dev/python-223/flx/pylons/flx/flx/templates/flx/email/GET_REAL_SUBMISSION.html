@@ -1,0 +1,26 @@
+{% extends "MASTER_CK12_LOGO.html" %}
+{% block email_body %}
+<html>
+    <body>
+    <p>Dear {{ member.name }},</p>
+    <!--<p>Greetings from CK-12 Foundation!</p>-->
+    <p style="font-size:medium;"><em><strong>Woohoo! You're in!</strong></em><p>
+    <p>Thanks - we've received your submission below for the GET REAL competition. We will be submitting it for the judging process shortly. We will notify you if your submission makes it to the next round. </p>
+    <p>Please find the details of your submission below.</p>
+    <ul>
+    <br>
+    <li>Title: {{ events[0]['objectDict']['title'] }}
+    </li>
+    <li>
+    Submitted On: {{ events[0]['created'] }}
+    </li>
+    <li>
+    Submission Number: {{ events[0].eventData['hashedArtifactID'] }}
+    </li>
+    </ul>
+    <p>Do you have questions or feedback? Do not hesitate to email <a href="mailto:support@ck12.org">support@ck12.org</a>.</p>
+    <p>Sincerely,</p>
+    <p>The CK-12 Team</p>
+    </body>
+</html>
+{% endblock %}

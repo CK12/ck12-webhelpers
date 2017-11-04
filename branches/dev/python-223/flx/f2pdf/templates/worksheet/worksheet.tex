@@ -1,0 +1,103 @@
+\documentclass[11pt,twoside,openany]{article}
+
+
+%%%% Include the standard packages/macros/definitions
+\include{ck12_common}
+
+
+%%%% Template specific definitions here
+\newenvironment{tablehere}
+  {table}
+  {}
+
+\newenvironment{figurehere}
+  {figure}
+  {}
+
+\newenvironment{imagehere}
+  {figure*}
+  {}
+
+
+
+\newdimen\ckfigwidth     % Set the width of ckfig
+\ckfigwidth=5in          %  = width
+
+\newdimen\ckfigwidthW    % Set the width of ckfigw
+\ckfigwidthW=5in         %  = width
+
+\newcommand{\ckfigWpre}{ % Pre-amble in ckfigW
+\clearpage
+}
+
+\newcommand{\ckfigWpost}{% Post-amble in ckfigW
+}
+
+\newcommand{\cktabWpre}{
+}
+
+\newcommand{\cktabWpost}{
+}
+
+\newcommand{\cktabWWpre}{
+\clearpage
+}
+
+\newcommand{\cktabWWpost}{
+\clearpage
+}
+
+%% Ebox width 
+\newdimen\Eboxwidth
+\Eboxwidth=6in
+
+
+
+
+
+%%%%  Actual Document is here %%%%
+\begin{document}
+
+
+\begin{titlepage}
+\begin{center}
+\pagenumbering{roman}
+
+
+
+
+%%BJO
+\textbf{Worksheet}
+
+ 
+% Bottom of the page
+ 
+\end{center}
+ 
+
+
+~\vfill
+\thispagestyle{empty}
+{
+  \setlength{\parindent}{0pt}
+  \setlength{\parskip}{\baselineskip}
+  Printed: \today
+
+  \includegraphics[width=1in]{flexbooks.jpg}\\
+  \includegraphics[width=1in]{ccbync.png}
+}
+\end{titlepage}
+
+
+\pagestyle{plain}
+\mainmatter{}
+%% Bug 2564
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\clearpage
+
+\include{concept1}
+
+
+\end{document}

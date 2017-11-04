@@ -1,0 +1,10 @@
+{% extends "MASTER_CK12_LOGO.html" %}
+{% block email_header %}
+{% endblock %}
+{% block email_body %}
+    <body>
+    <br/>
+    <br/>
+    {{ events[0].eventData['body'] }}
+    </body>
+{% endblock %}

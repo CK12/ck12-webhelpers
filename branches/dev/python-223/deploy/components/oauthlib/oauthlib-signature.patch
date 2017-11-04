@@ -1,0 +1,25 @@
+*** /usr/local/lib/python2.7/dist-packages/oauthlib-0.3.0-py2.7.egg/oauthlib/oauth1/rfc5849/signature.py	2012-10-14 12:58:13.000000000 -0700
+--- /usr/local/lib/python2.7/dist-packages/oauthlib-0.3.0-py2.7.egg/oauthlib/oauth1/rfc5849/signature.py	2012-10-22 13:20:12.948011653 -0700
+***************
+*** 514,520 ****
+      base_string = construct_base_string(request.http_method, uri, norm_params)
+      signature = sign_hmac_sha1(base_string, client_secret,
+          resource_owner_secret)
+!     return safe_string_equals(signature, request.signature)
+  
+  
+  def verify_rsa_sha1(request, rsa_public_key):
+--- 513,525 ----
+      base_string = construct_base_string(request.http_method, uri, norm_params)
+      signature = sign_hmac_sha1(base_string, client_secret,
+          resource_owner_secret)
+!     eq = safe_string_equals(signature, request.signature)
+!     if eq:
+!         return eq
+!     if ' ' in request.signature:
+!         s = request.signature.replace(' ', '+')
+!         eq = safe_string_equals(signature, s)
+!     return eq
+  
+  
+  def verify_rsa_sha1(request, rsa_public_key):

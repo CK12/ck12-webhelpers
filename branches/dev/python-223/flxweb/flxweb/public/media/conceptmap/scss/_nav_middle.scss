@@ -1,0 +1,10 @@
+$search-icon-height: $nav-icon-line-height;
+$title-font-size: rem-calc(38);
+$subtitle-font-size: rem-calc(21);
+
+$base-middle-nav-bar-pos: 5vh;
+
+@import "nav_middle-search",
+        "nav_middle-titles",
+        "editor/editor-nav-middle";
+

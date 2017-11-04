@@ -1,0 +1,12 @@
+#notification_container {
+    z-index: 1;
+}
+
+.f-dropdown.usermenu {
+    position: absolute;
+    display: none;
+}
+
+.f-dropdown.usermenu.open {
+    display: block;
+}

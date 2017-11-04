@@ -1,0 +1,7 @@
+/** Override spectrum css */
+.sp-container {
+  border: initial;
+}
+.sp-palette-container button.sp-palette-toggle {
+  display: none;
+}

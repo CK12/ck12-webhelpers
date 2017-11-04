@@ -1,0 +1,23 @@
+<div class="assign-class-modal reveal-modal" data-reveal id="share-successModal">
+	<div class="row text-left modal-title">
+		<div class="columns small-12 text-center">
+				<div class="green">Success!</div>
+				 <div class="ckeck-mark green"><i class="icon icon-checkmark"></i></div>
+		</div>
+		<div class="columns small-12 text-center text-succes">
+			You have successfully shared <span class="assign-n">'<%=assignmentName%>' </span>to your groups: 
+			<% _.each(groupList,function(group, index){ %>
+				<a class="lin-to-group" href="/group-resources/<%= group.groupID%>"><%= group.groupName%> 
+				<%if(index < groupList.length-1){%>
+				,
+				<%}%>
+				</a>
+			<%})%>
+		</div>				
+		<div class="columns small-12 text-center">
+		<div id="success-btn" class="button standard turquoise success-btn btn">
+			Ok
+		</div>			
+		</div>		
+	</div>
+</d

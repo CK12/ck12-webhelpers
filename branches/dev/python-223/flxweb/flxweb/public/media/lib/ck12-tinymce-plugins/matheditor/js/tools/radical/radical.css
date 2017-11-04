@@ -1,0 +1,132 @@
+.rootContainer .sqrt-prefix{
+	position: relative;
+    top: 1px;
+       /* vertical-align: bottom;
+ 	font-size: 1.35815em; */
+ 	 font-family:Symbola,"Times New Roman",serif;
+}
+.rootContainer.radical.highlightTool {
+    background: url("themes/tangerine/images/sprite_icon.png") no-repeat scroll -64px -1px transparent;
+    border-bottom: 1px solid #4DCCC4;
+}
+.rootContainer .tool-tip {
+    padding: 0px;
+}
+.rootContainer .inner-container {
+	padding: 0px;
+}
+.rootContainer .root {
+    background: url("themes/tangerine/images/sprite_icon.png") no-repeat scroll -1px -58px transparent;
+}
+.rootContainer .rootdegree {
+    background: url("themes/tangerine/images/sprite_icon.png") no-repeat scroll -77px -58px transparent;
+}
+.rootContainer .root, .rootContainer .rootdegree {
+	height:60px;
+    width: 65px;
+}
+/*.rootContainer .root {
+    border-left: 1px solid #FAF5F7;
+    color: #FFFFFF;
+    cursor: pointer;
+    float: left;
+    height: 100%;
+    width: 50px;
+}
+
+.rootContainer .rootdegree {
+    border-left: 1px solid #FAF5F7;
+    border-right: 1px solid #FAF5F7;
+    color: #FFFFFF;
+    cursor: pointer;
+    float: left;
+    height: 100%;
+    width: 50px;
+    position:relative;
+    font-size:20px;
+}*/
+.rootContainer .tooltip-tools-inner .rootdegreetext {
+   left: 17px;
+    top: 8px;
+}
+.rootContainer .rootspan {
+    margin-left: -6px;
+    padding-left: 3px;
+    vertical-align: sub;
+}
+.rootContainer .rootsign {
+    display: inline-block;
+    height: 80%;
+     transform: scale(1, 1);
+    -ms-transform:scale(1, 1); /* IE 9 */
+	-webkit-transform:scale(1, 1);/* Safari and Chrome */
+    white-space: nowrap;
+    vertical-align: sub;
+    font-family: Symbola,"Times New Roman",serif;
+}
+.rootContainer .roottop {
+    border-top: 1px solid black;
+    display: inline-block;
+}
+.rootContainer .sqrt-prefix.hasroot {
+    position: relative;
+    top: 0;
+    vertical-align: bottom;
+}
+.root-cont-inner{
+	display:inline-table;
+}
+.rootContainer .sqrTrans{
+	-ms-transform-origin-x :center;
+	-ms-transform-origin-y :bottom;
+	transform-origin: right bottom 0;
+	-webkit-transform-origin: right bottom 0;
+	 -moz-transform-origin:right bottom 0;
+    vertical-align: bottom;
+    display:table-cell;
+    font-size: 18px !important;
+}
+.rootContainer .nthroot {
+    font-size: 70%;
+    margin-left: 0.2em;
+    min-width: 0.5em;
+    vertical-align: top;
+}
+.rootContainer .roottop input {
+    margin: 1px 0;
+}
+.rootsign:after {
+    background: none repeat scroll 0 0 #FFFFFF;
+    content: "";
+    height: 1px;
+    left: 12px;
+    position: absolute;
+    top: -3px;
+    width: 15px;
+}
+.tool-tip-container .rootsign:after {
+	 background: none repeat scroll 0 0 #00ABA4;
+	 left: 10px;
+    top: 0px;
+}
+.tooltip-tools-inner .rootsign:after {
+    background: none repeat scroll 0 0 #00ABA4;
+    left: 10px;
+    top: 0px;
+}
+.rootdegreetext {
+    font-size: 66%;
+}
+.root-cont {
+    position: relative;
+    top: -2px;
+}
+.sqrt-prefix{
+	font-style:normal !important;
+}
+ /* .roottop input{
+	font-size:75% !important;
+}  */
+.rootContainer .close-cont{
+    height:96%\9;
+}

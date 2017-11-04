@@ -1,0 +1,61 @@
+<!-- Begin edit member modal -->
+<div class="reveal-modal modal-uikit xlarge" id="editMemberModal">
+    <a class="js-close-edit-member close">+</a>
+    <div class="row collapse loading-groups-header-wrapper">
+        <h3> Edit Account</h3>
+    </div>
+    <div class="row collapse" >
+        <div class="column large-3">
+            <div>First Name</div>
+	</div>
+	<div class="column large-3">
+	  <div>Last Name</div>
+	</div>
+	<div class="column large-3">
+	  <div>Username</div>
+	</div>
+	<div class="column large-3">
+	  <div>Password</div>
+	</div>
+    </div>
+    <div class="hr-div"/>
+    <div class="row collapse" >
+        <div class="column large-3">
+	    <input id="update-firstname" type="text" value="First Name" class="input-clear-bottom" maxLength="63" name="first-name" />
+	    <span class="helper-discard-changes edit-firstname-helper edit-discard-changes hide"> Discard changes</span>
+	</div>
+	<div class="column large-3">
+	    <input id="update-lastname" type="text" value="Last Name" class="input-clear-bottom" maxLength="63" name="last-name"  />
+	    <span class="helper-discard-changes edit-lastname-helper edit-discard-changes hide"> Discard changes</span>
+	</div>
+	<div class="column large-3">
+	    <div class="edit-username-text">
+                <span id="username-field">Username </span>
+		<div class="icon-Info edit-username-icon relative inline absolute">
+		    <div class="tooltip-left anonymous-info edit-username-tooltip hide">Username cannot be changed. <i class="icon-close"></i></div>
+		</div>
+	    </div>
+	</div>
+	<div class="column large-3">
+	    <div class="button hidden-password-button">
+		<div class="icon-Info relative inline">
+		    <div class="tooltip-bottom edit-password-tooltip hide">Student passwords are hidden. You can <a id="show-reset-password">reset the password.</a></div>
+		</div>Hidden
+	    </div>
+	    <div class="js-update-password-container hide">
+		<input id="update-password" type="password" value="" placeholder="New Password" class="input-clear-bottom" data-default-value="" maxLength=16" />
+		<span class="helper-discard-changes edit-discard-changes">Discard changes</span> | <span id="toggle-password-text" class="helper-discard-password">Show password</span>
+	    </div>
+	</div>
+    </div>
+    <div class="row collapse ie8text">
+	<div class="large-12 columns">
+	    <div class="edit-member-button-wrapper ie8text text-center">
+		<a class="standard" id="cancel-edit-member-modal">Cancel</a>
+		<a class="button tangerine standard dxtrack-user-action" id="update-group-member" data-dx-desc="roster_edit_member_save_changes_button">Save</a>
+		<span><label id="edit-modal-error" generated="true" class="error hide"></label></span>
+	    </div>
+	</div>
+    </div>
+</div>
+<!-- End edit member modal -->

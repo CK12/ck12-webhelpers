@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns:dc="http://www.ck12.org/dc/will_create_ns"
+unique-identifier="chapterid" version="2.0">
+
+  <chapter>
+    <metadata>
+<chapterSeq>11</chapterSeq>
+
+<book>Algebra I</book>
+
+      <chapterid></chapterid>
+      <title>Algebra and Geometry Connections; Working with Data</title>
+      <description>Topics in this chapter:Radical_equations,Distance_and_Midpoint_Formulas,Stem-and-Leaf_Plots_and_Histograms,Box-and-Whisker_Plots.
+     </description>
+    </metadata>
+    
+    <lessons>
+      <item id="Graphs_of_Square_Root_Functions" href="Graphs_of_Square_Root_Functions.html" sequence="1" />
+      <item id="RadicalExpressions" href ="RadicalExpressions.html" sequence="2" />
+      <item id="Radical_quations" href ="Radical_quations.html" sequence="3" />      
+      <item id="The_Pythagorean_Theorem_and_Its_Converse" href ="The_Pythagorean_Theorem_and_Its_Converse.html" sequence="4" />
+      <item id="Distance_and_Midpoint_Formulas" href ="Distance_and_Midpoint_Formulas.html" sequence="5" />
+      <item id="Measures_of_Central_Tendency_and_Dispersion" href ="Measures_of_Central_Tendency_and_Dispersion.html" sequence="6" />
+      <item id="Stem-and-Leaf_Plots_and_Histograms" href ="Stem-and-Leaf_Plots_and_Histograms.html" sequence="7" />
+      <item id="Box-and-Whisker_Plots" href ="Box-and-Whisker_Plots.html" sequence="8" />
+    </lessons>
+  </chapter>
+
+</package>

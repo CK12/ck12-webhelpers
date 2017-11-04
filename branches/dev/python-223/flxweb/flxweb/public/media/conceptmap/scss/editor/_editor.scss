@@ -1,0 +1,250 @@
+
+$ns-module: 'editor-widget';
+
+$widget-trasition-duration: 0.25s;
+$widget-transition: $widget-trasition-duration ease-in-out;
+$widget-padding: rem-calc(15);
+
+$slide-max-width: rem-calc(400);
+
+$slide-1-width: rem-calc(225);
+$slide-1-top-section-height: rem-calc(50);
+$slide-2-width: $slide-1-width;
+$slide-3-width: $slide-max-width;
+$slide-4-width: $slide-3-width;
+
+.#{$ns-module} {
+    .slide {
+        @include hidden();
+        transition: all $widget-transition;
+
+        &.is-active {
+            @include visible();
+            transition-delay: $widget-trasition-duration;
+        }
+    }
+}
+
+
+.#{$ns-module}{
+    position: fixed;
+    bottom: $widget-padding * 1.5;
+    right: $widget-padding * 1.5;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: $overlay-z-index - 1;
+
+    button {
+        font-weight: bold;
+        margin-bottom: 0;
+    }
+
+    &__base {
+        position: relative;
+        width: $slide-max-width;
+        height: $slide-max-width;
+        pointer-events: none;
+    }
+
+    .slide {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        pointer-events: all;
+        background: white;
+        border: 2px solid $light-gray;
+        padding: $widget-padding;
+    }
+
+    .slide-1 {
+        max-width: $slide-1-width;
+
+        font-weight: bold;
+        font-size: rem-calc(16);
+
+        p {
+            font-weight: normal;
+            font-size: rem-calc(14);
+            margin-bottom: 0;
+        }
+
+        &.is-expanded {
+            transform: translateY(0);
+
+            .slide-1__top-row i.icon-arrow3-down {
+                transform: rotate(0);
+            }
+
+            .slide-1__bottom-row__column {
+                max-height: 100px;
+                transform: translateY(0%);
+                padding-bottom: $widget-padding;
+            }
+        }
+
+        &.is-active {
+            transition-delay: unset;
+        }
+    }
+
+    .slide-1__top-row{
+        height: $slide-1-top-section-height;
+        position: relative;
+        cursor: pointer;
+
+        i.icon-arrow3-down {
+            transform: rotate(180deg);
+            display: block;
+            transform-origin: 8px center; // Half of the icon is about 8px
+            color: $medium-gray;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+        }
+    }
+
+    .slide-1__bottom {
+        background: url('/media/conceptmap/images/editor/suggest-edit-bg.png') no-repeat bottom right;
+        background-size: contain;
+        width: calc(100% + #{$widget-padding});
+        transform: translateY($widget-padding);
+    }
+
+    .slide-1__bottom-row {
+        p {
+            font-size: rem-calc(14);
+            margin-bottom: rem-calc(6);
+        }
+    }
+
+    .slide-1__bottom-row__column {
+        transition: all $widget-transition;
+        max-height: 0;
+        transform: translateY(50%);
+    }
+
+    .slide-2 {
+        max-width: $slide-2-width;
+
+        form { margin-bottom: 0; }
+
+        button.tangerine {
+            font-size: 16px;
+        }
+
+        button.tangerine[disabled]:hover {
+            background: #DDDDDD;
+            border-bottom: 3px solid #CCCCCC;
+            border-top: 3px solid #DDDDDD;
+            box-shadow: none;
+            color: #B5B1A8;
+        }
+
+        a#cancelEditor {
+            position: relative;
+            top: 8px;
+        }
+    }
+
+    .slide-3 {
+        max-width: $slide-3-width;
+        margin: 0 1rem; // Margin is needed to show close button
+
+        form {
+            margin-bottom: 0;
+        }
+
+        button.link-button {
+            @include linkButton();
+        }
+
+
+        textarea {
+            margin-bottom: rem-calc(15);
+            border-color: rgba(0, 171, 164, 0.4);
+            box-shadow: 0 0 5px rgba(0, 171, 164, 0.8);
+
+            &:focus {
+                background: white;
+                border-color: rgba(0, 171, 164, 0.4);
+                box-shadow: 0 0 5px rgba(0, 171, 164, 0.8);
+            }
+        }
+
+        .user--anon{
+            display: none;
+        }
+
+        &.is--anon {
+            padding-bottom: rem-calc(46);
+
+            .user--anon {
+                display: block;
+
+                .button {
+                    margin: 0 0 rem-calc(15);
+                }
+
+                .link-button {
+                    margin: 0 0 rem-calc(15);
+                }
+
+
+                &:last-child {
+                    background: $light-gray;
+                    position: absolute;
+                    left: 0;
+
+                    .link-button {
+                        font-size: 14px;
+                        color: $ui-dark;
+                        margin: 0;
+                        padding: rem-calc(15) 0;
+                    }
+                }
+            }
+
+            .user--logged-in {
+                display: none;
+            }
+
+        }
+    }
+
+    .slide-4 {
+        max-width: $slide-4-width;
+
+        i.icon-checkmark {
+            color: $ui-green;
+        }
+
+        i.icon-close2 {
+            cursor: pointer;
+            font-size: 0.75rem;
+            margin-left: 1rem;
+        }
+
+
+    }
+}
+
+@import 'editor_search',
+        'editor-undo-list',
+        'editor-modal';
+
+
+#{$editor-state}{
+    .side-nav-left, .side-nav-right {
+        transition: all 0.25s;
+        @include hidden();
+
+        pointer-events: none;
+        cursor: default;
+    }
+
+    .conceptmap-nav__left__link:hover .conceptmap-nav__left__link__title {
+        color: transparent;
+        transform: translateX(-100%);
+        transition: unset;
+    }
+}

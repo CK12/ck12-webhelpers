@@ -1,0 +1,51 @@
+/* Customized appearance for google translate dropdown */
+iframe.goog-te-banner-frame { 
+	display:none !important; 
+}
+.goog-te-gadget-simple {
+	display: block !important;
+	font-size:inherit !important;
+	float:right;
+}
+.goog-te-gadget-icon{
+	margin-left:5px !important;
+}
+/*
+img.goog-te-gadget-icon {
+	filter: grayscale(100%) !important;
+	-webkit-filter: grayscale(100%) !important;
+	-moz-filter: grayscale(100%) !important;
+	-ms-filter: grayscale(100%) !important;
+	-o-filter: grayscale(100%) !important;
+	border:none !important;
+}
+*/
+.goog-te-menu-value span {
+	border:none !important;
+}
+#google_translate_element .goog-te-menu-value span:last-child{
+	color:#00ABA2 !important;
+	transform:rotate(180deg)!important;
+	-ms-transform:rotate(180deg)!important;
+	-moz-transform:rotate(180deg)!important;
+	-webkit-transform:rotate(180deg)!important;
+	font-size:17px !important;
+	display:inline-block;
+	vertical-align:middle;
+	
+}
+#google_translate_element.translate-open .goog-te-menu-value span:last-child{
+	transform:rotate(0deg)!important;
+	-ms-transform:rotate(0deg)!important;
+	-moz-transform:rotate(0deg)!important;
+	-webkit-transform:rotate(0deg)!important;
+}
+#google_translate_element .goog-te-menu-value span:first-child{
+	font-size:14px !important;
+	color:#82807B;
+}
+.goog-te-gadget-icon {
+	/* margin-right: -12px !important; */
+}
+
+.language-list-open {display: block !important}

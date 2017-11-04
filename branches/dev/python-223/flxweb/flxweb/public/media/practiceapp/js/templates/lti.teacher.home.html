@@ -1,0 +1,165 @@
+<div class="row teacher-view-container">
+	<div class="small-12 large-12" id="subjects_container">
+		<div class="row">
+			<!-- Schoology changes -->
+			<div id="new-app-flow" class="alert_big notice large-7 column hide">
+				<i class="icon-notice"></i><span>We've got a new experience for you on CK-12</span>					
+   								<a class="new-flow-link" style="top:-7px;position:relative;">Preview</a>
+			</div>
+			<!-- Schoology changes -->
+			<!--<div class="walktrough-link-cont large-7 column">
+								<span>We made some important changes to Practice on CK-12</span>					
+								<span class="pointer help-cont ">
+			        				<a class="icon-help2 link-nav" href="/practice" target="_blank"></a>
+        						</span>
+                 				 <br>
+   								<a class="walkthrough-link">Learn more.</a>
+							</div>-->
+			<div class="hide-for-small large-1 column">&nbsp;</div>
+			<div id="library_btn" class="small-12 large-3 column text-right">
+				<a class="button tangerine standard" href="#" id="library-show"><i class="icon-backpack"></i>
+					My Library
+				</a>
+			</div>
+		</div>
+
+
+		<div id="library_back_container" class="small-12 large-12 column hide">
+			<span id="library-back" class="text-center">
+				<i class="icon-arrow"></i>
+			</span> 
+		</div>
+
+		<div id="loading-icon" class="loading-icon js-loading-icon hide">
+			<img alt="loading" src="/lmspractice/media/common/images/orangeload.gif">
+		</div>
+		<div class="small-12 large-12 columns">
+			<div class="row collapse assignment-subject-list">
+				<div class="pointer left selected group-assignment-nav js-group-assignment-nav selected tab-home" id="subject-list-button" data-target="subjects-container">
+					<div class="row collapse text-center">
+						<span>Home</span>
+					</div>
+				</div>
+				<div class="pointer left group-assignment-nav js-group-assignment-nav hide-important tab-topics" data-target="tracks-container">
+					<div class="row collapse text-center">
+						<span id="branch-name-header">Topics</span>
+					</div>
+				</div>
+				<div class="pointer left last group-assignment-nav js-group-assignment-nav hide-important tab-concepts" data-target="concepts-container">
+					<div class="row collapse text-center">
+						<span>Concepts</span>
+					</div>
+				</div>
+				<div class="pointer left last group-assignment-nav js-group-assignment-nav hide-important tab-library" data-target="library-container">
+					<div class="row collapse text-center">
+						<span>Library</span>
+					</div>
+				</div>
+				<div class="pointer right assignment-search js-search-open">
+					<div class="row collapse text-center">
+						<i class="icon-search"></i>
+					</div>
+
+				</div>
+			</div>
+			<div class="row collapse hide assignment-search-container">
+				<div class="small-11 columns">
+					<div class="right assignment-search-input">
+						<div class="row collapse text-center">
+							<input id="assignment-search-input" type="text" placeholder="Find Concepts. For example: Photosynthesis">
+						</div>
+					</div>
+				</div>
+				<div class="small-1 columns">
+					<div class="pointer right assignment-search-close js-search-close">
+						<div class="row collapse text-center">
+							Cancel
+						</div>
+					</div>
+				</div>
+				<div class="pointer assignment-search-icon-active js-search">
+					<i class="icon-search"></i>
+				</div>
+			</div>
+			<div id="groups-assignment-container" class="row collapse assignments-edit-wrapper">
+				<div id="subjects-container" class="small-12 large-12 columns">
+					<div id="library-link-container" class="small-12 hide">
+						<div class="left">
+							<span class="icon-backpack library-link-icon"></span>
+						</div>
+						<div class="library-link-title">
+							Library
+						</div>
+						<div class="library-link-description">
+							Add resources from your library
+						</div>
+					</div>
+					<div class="row collapse">
+						<div class="large-12 columns assignments-subjects-container js-list-left">
+							<div class="row collapse assignments-subjects-wrapper">
+								<div class="small-12 large-10 columns subject-math-wrapper all-subjects-wrapper">
+									<div class="subject-heading">
+										Math
+									</div>
+									<div id="groups-assignments-subject-mat" class="row collapse"></div>
+								</div>
+							</div>
+							<div class="row collapse assignments-subjects-wrapper">
+								<div class="small-12 large-10 columns all-subjects-wrapper">
+									<div class="subject-heading">
+										Science
+									</div>
+									<div id="groups-assignments-subject-sci" class="row collapse"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="tracks-container" class="small-12 large-12 columns large-centered small-centered hide">
+					<div class="row collapse">
+						<div class="large-12 columns assignments-tracks-wrapper js-list-left">
+							<div class="row collapse node-heading">
+								<div id="branch-image">
+									<div class="left branch-image-wrapper">
+										<span class=""></span>
+									</div>
+								</div>
+								<span id="branch-name"></span>
+							</div>
+							<div class="row collapse">
+								<div id="tracks-wrapper" class="small-12 large-12 columns js-concept-child-wrapper"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="concepts-container" class="small-12 large-12 columns large-centered small-centered assignments-concepts-wrapper hide">
+					<div class="row collapse">
+						<div class="small-12 large-12 columns assignment-concept-container js-list-left">
+							<div id="concept-heading" class="row collapse concept-track-heading js-concept-child-wrapper"></div>
+							<div class="row collapse">
+								<div id="concepts-wrapper" class="small-12 large-12 columns js-concept-child-wrapper"></div>
+							</div>
+						</div>
+							
+					</div>
+				</div>
+				<div id="library-container" class="small-12 large-12 columns large-centered small-centered assignments-modalities-wrapper hide">
+					<div class="row collapse">
+						<div class="small-12 large-12 columns assignment-concept-container js-list-left">
+							<div id="concept-heading" class="row collapse concept-track-heading js-concept-child-wrapper"></div>
+							<div class="row collapse">
+								<div id="concepts-wrapper" class="small-12 large-12 columns js-concept-child-wrapper"></div>
+							</div>
+							<div class="lms-assignment-name-wrapper">
+								<div id="assignment-name" class="concept-header-text"></div>
+								<a class="icon-edit js-edit-assignment-name assignment-name-edit"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="assignConceptViewContainer"></div>
+</div>
+

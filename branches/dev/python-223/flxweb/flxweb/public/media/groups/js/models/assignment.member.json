@@ -1,0 +1,82 @@
+{
+    "response": {
+        "assignmentCompletedCount": 0,
+        "assignments": [
+            {
+                "assignmentID": 34904,
+                "assignmentType": "assignment",
+                "completedCount": 0,
+                "concepts": [
+                    {
+                        "encodedID": "MAT.ALG.210",
+                        "handle": "Equations-that-Describe-Patterns",
+                        "lastAccess": "",
+                        "name": "Equations that Describe Patterns",
+                        "score": "",
+                        "status": "incomplete"
+                    },
+                    {
+                        "encodedID": "MAT.ALG.220",
+                        "handle": "One-Step-Equations-and-Inverse-Operations",
+                        "lastAccess": "",
+                        "name": "One-Step Equations and Inverse Operations",
+                        "score": "",
+                        "status": "incomplete"
+                    },
+                    {
+                        "encodedID": "MAT.ALG.230",
+                        "handle": "One-Step-Equations-Transformed-by-MultiplicationDivision",
+                        "lastAccess": "",
+                        "name": "One-Step Equations Transformed by Multiplication/Division",
+                        "score": "",
+                        "status": "incomplete"
+                    },
+                    {
+                        "encodedID": "MAT.ALG.240",
+                        "handle": "Multi-Step-Equations",
+                        "lastAccess": "",
+                        "name": "Multi-Step Equations",
+                        "score": "",
+                        "status": "incomplete"
+                    },
+                    {
+                        "encodedID": "MAT.ALG.250",
+                        "handle": "Equations-with-Variables-on-Both-Sides",
+                        "lastAccess": "",
+                        "name": "Equations with Variables on Both Sides",
+                        "score": "",
+                        "status": "incomplete"
+                    },
+                    {
+                        "encodedID": "MAT.ALG.260",
+                        "handle": "Applications-of-One-Step-Equations",
+                        "lastAccess": "",
+                        "name": "Applications of One-Step Equations",
+                        "score": "",
+                        "status": "incomplete"
+                    }
+                ],
+                "description": "Math Study Track I created on 08/19",
+                "due": "None",
+                "group": {
+                    "id": 797,
+                    "imageUri": "/flx/show/group%20system%20image/indigo_image.png",
+                    "name": "Math Assignments"
+                },
+                "groupID": 797,
+                "incompleteCount": 6,
+                "isPastDue": 0,
+                "name": "Math Study Track I",
+                "totalCount": 6
+            }
+        ],
+        "limit": 1,
+        "offset": 0,
+        "total": 1
+    },
+    "responseHeader": {
+        "QTime": "0:00:00.123409",
+        "source": "yvylfreire",
+        "status": 0
+    }
+}

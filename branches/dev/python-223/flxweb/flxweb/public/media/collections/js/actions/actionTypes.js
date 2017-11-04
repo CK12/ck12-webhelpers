@@ -1,0 +1,2 @@
+export const COURSE_INIT = 'COURSE_INIT';
+export const COURSE_FETCH_SUCCESS = 'COURSE_FETCH_SUCCESS';

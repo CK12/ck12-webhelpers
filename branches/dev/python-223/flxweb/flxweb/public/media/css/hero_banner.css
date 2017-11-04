@@ -1,0 +1,991 @@
+/* Hero common css starts */
+.slick-slide {
+    float: none;
+}
+.desktop_view {
+    width:100%;
+    padding: 46px 0 49px;
+    position:relative;
+}
+#hero-banner-container {
+    margin-bottom:0px;
+    z-index: 1;
+}
+.hero-banner.clickable:hover{
+    cursor:pointer;
+}
+.slick-arrow-container {
+    position:relative;
+    max-width:1024px;
+    margin: 0 auto !important;
+}
+.slick-dots li button:before{
+    color: #dfdfdf;
+    font-size: 10px;
+    opacity: 1;
+}
+.slick-dots{
+    bottom: auto;
+}
+.slick-dots li.slick-active button:before{
+    color: #56544d;
+    opacity: 1;
+}
+.slick-dots li {
+    height: 22px;
+    margin: 0 4px -11px;
+    position: initial;
+}
+/* Header css starts */
+.header span {
+    display: inline-block;
+    position: relative;
+    font-weight: normal;
+    line-height: normal;
+    width: auto;
+    margin:5.5% 0 3.5%;
+    color:#ddd;
+    width:64%;
+    text-shadow:0px 0px 0px white;
+    font-size:2em;
+}
+.header .tag-line {
+    font-size:40px;
+    display:block;
+    width:100%;
+    position:relative;
+    margin:0 0 5%;
+}
+
+.next-arrow {
+    cursor: pointer;
+    display: inline;
+    height: 50px;
+    line-height: normal;
+    position: relative;
+    width: 50px;
+    box-sizing: border-box;
+}
+
+.hero-banner-wrapper {
+    background:#FFFFFF;
+}
+
+.hero-banner-wrapper .slick-list:first-child {
+    overflow: visible;
+}
+.hero-banner-wrapper .slick-dots button {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.hero-banner-wrapper .slick-next {
+    right: 395px;
+}
+.hero-banner-wrapper .slick-prev {
+    left: 395px;
+}
+.slick-prev:before, .slick-next:before{
+    color:#bfbfbf;
+}
+.hero-banner-wrapper .slick-next:before, .hero-banner-wrapper .slick-prev:before {
+    font-size: 30px;
+    opacity: 0.5;
+}
+.hero-banner-wrapper .slick-next, .hero-banner-wrapper .slick-prev {
+    height: 36px;
+    width: 36px;
+    font-weight: normal;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    top: -20px;
+}
+
+/* Elementary Math Banner CSS starts */
+.elementary-math-hero-banner {
+    height: 365px;
+    background: url("/media/images/landing/paper.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+.elementary-math-hero-banner img {
+    margin: 8px 0 0 15px;
+}
+.elementary-announce-head {
+    color: #e84c3d;
+    font-family: mclaren;
+    font-size: 35px;
+    left: -18px;
+    line-height: 48px;
+    padding: 41px 150px 0 0;
+}
+.elementary-announce-text {
+    font-size: 18px;
+    font-family: mclaren;
+    left: -16px;
+    line-height: 25px;
+    padding: 2px 130px 15px 0;
+}
+.elementary-announce-button {
+    left: -14px;
+}
+.elementary-announce-button a {
+    width: 180px;
+}
+/* Elementary Math Banner CSS ends */
+@media only screen and (min-width: 768px) and (max-width: 1023px){
+    .elementary-math-hero-banner img {
+        margin: 22px 0 0 24px;
+    }
+    .elementary-announce-head {
+        font-size: 30px;
+        left: auto;
+        line-height: 36px;
+        padding: 51px 0 0 45px;
+    }
+    .elementary-announce-text {
+        left: auto;
+        line-height: 27px;
+        padding: 0 10px 24px 47px;
+    }
+    .elementary-announce-button {
+        left: auto;
+        padding-left: 48px;
+    }
+    .hero-banner-wrapper .slick-next {
+        right: 280px;
+    }
+    .hero-banner-wrapper .slick-prev {
+        left: 280px;
+    }
+}
+
+@media only screen and (max-width: 1200px){
+    .hero-banner-wrapper .slick-next {
+        right: 400px;
+    }
+    .hero-banner-wrapper .slick-prev {
+        left: 400px;
+    }
+}
+@media all and (min-width: 768px) and (max-width: 1023px) {
+    .hero-banner-wrapper .slick-prev {
+        left: 275px;
+    }
+    .hero-banner-wrapper .slick-next {
+        right: 275px;
+    }
+}
+@media only screen and (max-width: 767px){
+    .elementary-math-hero-banner img {
+        margin: 13px 0 0 -webkit-calc(50% - 88px);
+        margin: 13px 0 0 calc(50% - 88px);
+    }
+    .elementary-announce-head {
+        font-size: 24px;
+        left: auto;
+        line-height: 33px;
+        padding: 0 18px;
+        text-align: center;
+    }
+    .elementary-announce-text {
+        font-size: 14px;
+        left: auto;
+        line-height: 18px;
+        padding: 0 27px 12px;
+        text-align: center;
+    }
+    .elementary-announce-button {
+        left: auto;
+        text-align: center;
+    }
+    .elementary-announce-button a {
+        width: 140px;
+    }
+    .hero-banner-wrapper .slick-next {
+        right: 60px;
+    }
+    .hero-banner-wrapper .slick-prev {
+        left: 60px;
+    }
+    .teacher-hero-banner .edmodo-app-list li {
+        padding: 8px 6px 8px 11px;
+    }
+    .teacher-hero-banner .edmodo-app-list.open {
+        margin-left: calc(50% - 60px);
+        left: 0 !important;
+    }
+}
+
+@media only screen and (min-width: 600px) and (max-width:767px){
+    .hero-banner-wrapper .slick-next {
+        right: 200px;
+    }
+    .hero-banner-wrapper .slick-prev {
+        left: 200px;
+    }
+}
+@media only screen and (min-width: 480px) and (max-width:599px){
+    .hero-banner-wrapper .slick-next {
+        right: 135px;
+    }
+    .hero-banner-wrapper .slick-prev {
+        left: 135px;
+    }
+    
+}
+
+/* Google Maps (users) banner starts */
+#map-canvas {
+    width: 100%;
+    height: 100%;
+    background-image: url("/media/common/images/map-bg.png");
+    background-repeat: repeat-x;
+}
+
+#map-canvas img {
+    max-width:inherit;
+}
+
+.map-desktop-view {
+    max-width: 100% !important;
+}
+
+.map-holder {
+    height: 365px;
+    width:100%;
+    background: #D7DCD7;
+}
+
+.map-title {
+    background-color: rgba(255, 255, 255, 0.7);
+    margin-top: 0px;
+    padding: 5px;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}
+
+.map-join-button {
+    margin:0px;
+}
+
+.map-message {
+    font-size:20px;
+    color:#56544d;
+    display:inline;
+}
+.map-join-dropdown {
+    display:inline;
+    position:relative;
+}
+.static-map-image {
+    background:  url("/media/common/images/map.png") no-repeat scroll center top;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+}
+.map-link-wrapper {
+    font-size: 20px;
+    margin: 6px 0;
+}
+.mini-banner {
+    background-color: #8e8774;
+    border: 0 none;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 22px;
+    line-height: normal;
+    margin: 9px 0 0 10px;
+    padding: 4px;
+    position: absolute;
+    right: 12px;
+    top: 0;
+    z-index: 7;
+}
+.contract-image-wrapper {
+    background-color:rgba(255,255,255,1);
+    padding-top:5px;
+    cursor: default;
+    height: 50px;
+    position: absolute;
+    top: -41px;
+    width: 100%;
+}
+.back-icon-wrapper {
+    background: none repeat scroll 0 0 transparent !important;
+}
+.max-banner {
+    background-color: #8e8774;
+    color: white;
+    display: inline-block;
+    float: right;
+    font-size: 22px;
+    padding: 4px;
+    position: relative;
+    top: 4px;
+}
+.max-banner:hover, .mini-banner:hover {
+    color: white;
+}
+.map-wrapper-enlarge {
+    background: none repeat scroll 0 0 #161616;
+    height: 100%;
+    position: fixed;
+    top: 82px;
+    left: 0px;
+    width: 100%;
+    z-index: 52;
+}
+.map-container-large {
+    height: 100%;
+}
+.back-from-map {
+    color: white;
+    font-size: 33px;
+    height: 38px;
+    margin-left: 15px;
+    text-shadow: none;
+}
+.map-container-large img {
+    max-width:inherit;
+}
+.map-options-wrapper {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-width: 63.75em !important;
+    position: relative;
+}
+.interactive-map-link-wrapper-small .max-banner {
+    float: none;
+    right: -5px;
+}
+.hide-scroll {
+    overflow: hidden;
+}
+@media (max-width: 767px) {
+    .map-wrapper-enlarge {
+        top: 41px;
+    }
+}
+/* Google Maps (users) banner ends */
+
+/* District Banner CSS starts */
+.sd-btn {
+    background: none repeat scroll 0 0 #fc6965;
+    border-bottom: 2px solid #d35955 !important;
+    border-top: 1px solid #fc6965;
+    padding: 8px 50px 12px;
+    color: #fff;
+    text-shadow: none;
+    border-radius: 3px;
+}
+.sd-btn:hover, .sd-btn:active, .sd-btn:focus {
+    background: none repeat scroll 0 0 #d35955;
+    border-bottom-color: #d35955!important;
+    border-top-color: #d35955;
+    padding: 8px 50px 12px;
+    color: #fff;
+}
+.sd-holder > div {
+    display: inline-block;
+    float: none !important;
+    text-align: left !important;
+}
+.sd-holder img {
+    display:inline-block;
+}
+.sd-holder {
+    position: relative;
+    text-align: left;
+    top: 20px;
+    width: 100%;
+}
+.sd-holder h2 {
+    color: #56544d;
+    font-size: 36px;
+    line-height: 1;
+    margin-bottom: 0;
+    text-shadow: none;
+}
+.sd-holder h3 {
+    color: #56544d;
+    font-size: 24px;
+    font-weight: lighter;
+    line-height: 28px;
+    margin-bottom: 26px;
+    margin-top: 2px;
+    text-shadow: none;
+}
+.hero-container {
+    background: #fff;
+}
+.sd-holder .school-list li {
+    height: 153px;
+    list-style: outside none none;
+    padding: 0;
+    width:20%;
+}
+.district-school-item {
+    background: none repeat scroll 0 0 #fff;
+    border-radius: 3px;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+    float: left;
+    margin-right: 7px;
+    padding: 6px 18px;
+}
+.district-school-title {
+    float: left;
+    height: 50px;
+    width: 100%;
+    line-height:18px;
+}
+.sd-holder .school-list li h3 {
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.2;
+    margin-bottom: 0;
+}
+.sd-holder .school-list li h4 {
+    color: #b5b0a8;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.2;
+}
+.book-list {
+    float: left;
+    width: 100%;
+}
+.b-list {
+    float: left;
+}
+.book-list .b-list > img {
+    border: 1px solid #cbcaca;
+    float: left;
+    margin-right: 6px;
+}
+.school-list .explore-btn {
+    font-size: 14px;
+    font-weight: bold;
+}
+.sd-holder h1 {
+    font-size: 28px;
+    line-height: 1;
+    margin: 0;
+    text-shadow: none;
+    margin-top: -20px;
+}
+.sd-button {
+    float: right;
+    font-weight: bold;
+    margin-right: 8px;
+    margin-top: -12px;
+}
+.sd-holder .district-img {
+    margin-top: -18px;
+}
+ @media (max-width:767px) {
+#banner_detail {
+    margin-top: -40px;
+    text-align: center !important;
+}
+.sd-holder .district-img {
+    left: 0;
+    position: absolute;
+    top: 241px;
+}
+.sd-button {
+    float: none;
+    margin-top: 11px;
+}
+.sd-holder {
+    position: relative;
+    text-align: center;
+    display: inline-block;
+    top: 60px;
+    width: 100%;
+}
+#image_item {
+    max-width: 300px;
+}
+.sd-holder h2 {
+    font-size: 29px;
+    line-height: 1;
+    margin-bottom: 0;
+    text-shadow: none;
+}
+.sd-holder h3 strong {
+    clear: both;
+    float: left;
+    width: 100%;
+}
+.sd-holder h1 {
+    font-size: 19px;
+}
+.sd-holder h3 {
+    font-size: 18px;
+    line-height: 1.3;
+    margin-bottom: 32px;
+    margin-top: 5px;
+    text-shadow: none;
+}
+.practice-banner-mini {
+    padding-left: 26px;
+    padding-right: 26px;
+}
+}
+/* District Banner CSS ends */
+
+
+/* Elementary Math Banner CSS starts */
+.sd-btn {
+    background: none repeat scroll 0 0 #fc6965;
+    border-bottom: 2px solid #d35955 !important;
+    border-top: 1px solid #fc6965;
+    padding: 8px 50px 12px;
+    color: #fff;
+    text-shadow: none;
+    border-radius: 3px;
+}
+.emath-holder > div {
+    display: inline-block;
+    float: none !important;
+    text-align: left !important;
+}
+.emath-holder {
+    position: relative;
+    text-align: center;
+    top: 20px;
+    width: 100%;
+}
+.emath-holder h2 {
+    color: #56544d;
+    font-size: 26px;
+    line-height: 1;
+    margin-bottom: 0;
+    text-shadow: none;
+}
+.emath-holder h3 {
+    color: #56544d;
+    font-size: 22px;
+    font-weight: lighter;
+    line-height: 25px;
+    margin-bottom: 26px;
+    margin-top: 13px;
+    text-shadow: none;
+}
+.hero-container {
+    background: #fff;
+}
+
+
+.emath-holder #image_item {
+    max-width: 300px;
+    position: relative;
+    top: -60px;
+}
+.emath-holder #banner_detail {
+    position: relative;
+    top: 15px;
+}
+
+.emath-holder #image_item img {
+    display:inline-block;
+}
+
+ @media (max-width:1024px) {
+     .emath-holder {
+    position: relative;
+    text-align: center;
+    top: -50px;
+    width: 100%;
+}
+.emath-holder h2{
+    font-size:24px;    
+}
+.emath-holder h3{
+    font-size:19px;
+}
+ }
+
+ @media (max-width:767px) {
+#banner_detail {
+    margin-top: -40px;
+    text-align: center !important;
+}
+
+.emath-holder {
+    position: relative;
+    text-align: center;
+    display: inline-block;
+    top: 60px;
+    width: 100%;
+}
+.emath-holder #image_item {
+    max-width: 150px;
+    position: relative;
+    top: -40px;
+}
+.emath-holder #banner_detail {
+    position: relative;
+    top: 15px;
+}
+.emath-holder h2 {
+    font-size: 18px;
+    line-height: 1;
+    margin-bottom: 0;
+    text-shadow: none;
+}
+.emath-holder h3 {
+    font-size: 16px;
+    line-height: 1.3;
+    margin-bottom: 8px;
+    margin-top: 5px;
+    text-shadow: none;
+}
+}
+/* Elementary Math Banner CSS ends */
+
+/* District Hero Banner CSS starts */
+.district-hero-banner {
+    height:365px;
+    background-size: cover;
+    background-color: #a7cff7;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+
+.district-banner {
+    padding: 0 15px;
+}
+
+.hero-district-header {
+    text-shadow: none;
+    line-height: 26px;
+    margin-top: 97px !important;
+    font-size: 35px;
+    color: #56544d;
+    font-weight: bold;
+}
+
+.district-top-layer {
+    height: 305px;
+}
+
+.district-bottom-layer {
+    background: -webkit-linear-gradient(#81db87, #67ad51);
+    background: -o-linear-gradient(#81db87, #67ad51);
+    background: -moz-linear-gradient(#81db87, #67ad51);
+    background: linear-gradient(#81db87, #67ad51);
+    height: 70px;
+}
+
+.explore-wrapper {
+    margin-top: 17px !important;
+}
+
+.home-image {
+    bottom: -70px;
+    position: absolute;
+    right: 0;
+    margin-right: 16px;
+}
+
+.home-image-wrapper {
+    position: relative;
+}
+
+.heart-image {
+    display: inline-block !important;
+    margin: 0 9px !important;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px){
+    .home-image {
+        bottom: -65px;
+        height: 265px;
+    }
+    
+    .district-top-layer {
+        height: 310px;
+    }
+    
+    .district-bottom-layer {
+        height: 65px;
+    }
+}
+
+@media only screen and (max-width: 767px){
+    .hero-district-header {
+        font-size: 30px;
+        margin-top: 60px !important;
+    }
+    
+    .heart-image {
+        margin: 0 6px !important;
+    }
+    
+    .home-image {
+        bottom: -48px;
+        height: 195px;
+    }
+    
+    .district-top-layer {
+        height: 327px;
+    }
+    
+    .district-bottom-layer {
+        height: 48px;
+    }
+    
+    .explore-wrapper .explore-schools {
+        font-size: 16px;
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+        max-width: 290px;
+        width: 100%;
+    }
+    
+    .district-banner {
+        text-align: center;
+    }
+}
+
+/* District Hero Banner CSS ends */
+
+/* App Store Banner CSS Starts */
+.apps-hero-banner {
+    background: url("/media/common/images/app_bck.gif") repeat scroll center top;
+    text-shadow: none;
+}
+.apps-hero-banner .app-store-icon-container {
+    margin: 0 auto !important;
+    width: 83.3%;
+}
+.teacher-hero-banner .apps-hero-banner .app-store-icon-container {
+    width: 100%;
+}
+.app-store-icon-container > div {
+    float: left;
+}
+.app-store-heading {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 27px;
+}
+.app-store-learn-more {
+    padding-top: 35px;
+}
+.app-store-icon-container img {
+    height: 98px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.teacher-hero-banner .app-store-icon-container img {
+    height: 75px;
+}
+.edmodo-app-list {
+    width: 160px;
+    margin: 5px 0 0 0;
+    list-style: none;
+    padding: 0px;
+    top: -999999px;
+    position: absolute;
+}
+.edmodo-app-list:before {
+    left: 69px;
+}
+.edmodo-app-list:after {
+    left: 67px;
+}
+.edmodo-app-list  li {
+    padding: 11px 6px 11px 15px;
+    text-align: left;
+}
+.edmodo-app-list  li a {
+    padding: 0px;
+}
+.app-sub-heading {
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 10px;
+    margin: 3px 0 15px 0;
+}
+.new-label-android {
+    left: 35px;
+}
+.new-label-apple {
+    left: 21px;
+}
+.new-label-apple, .new-label-android {
+    top: 109px;
+}
+.edmodo-app-list.open ~ .edmodo-app-link {
+    color: #56544D;
+}
+.app-link-wrapper > a {
+    display: inline-block;
+    width: 169px;
+}
+.teacher-hero-banner .app-link-wrapper > a {
+    width: 145px;
+}
+.edmodo-app-link .icon-arrow-up {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg); 
+   -moz-transform: rotate(180deg);
+   -o-transform: rotate(180deg);
+   -ms-transform: rotate(180deg);
+   display: inline-block;
+   vertical-align: -2px;
+   margin-left: -4px;
+}
+.edmodo-app-link .app-store-name {
+    margin-left: 3px;
+}
+@media only screen and (min-width: 768px) and (max-width: 1023px){
+    .teacher-hero-banner .desktop_view {
+        padding: 31px 0 34px;
+    }
+    .app-store-icon-container > div {
+        width: 25%;
+    }
+    .teacher-hero-banner .app-store-icon-container > div {
+        text-align: center;
+    }
+    .edmodo-link-wrapper {
+        margin-left: 12.5%;
+        margin-top: 50px;
+    }
+    .google-classroom-link-wrapper, .canvas-link-wrapper {
+        margin-top: 50px;
+    }
+    .teacher-hero-banner .app-link-wrapper > a {
+        width: 169px;
+    }
+    .apps-hero-banner .app-store-icon-container {
+        margin: 0 auto !important;
+        width: 686px;
+    }
+    .new-label-android {
+        left: 16px;
+    }
+    .new-label-apple {
+        left: 2px;
+    }
+    .teacher-hero-banner .app-store-icon-container img {
+        height: 78px;
+        width: auto;
+    }
+    .app-link-wrapper img {
+        margin-bottom: 5px;
+    }
+    .new-label-apple, .new-label-android {
+        top: 84px;
+    }
+    .edmodo-app-list.open {
+        margin: 5px 0 0 -17px;
+        left: 46px !important;
+    }
+    .edmodo-app-list:after {
+        left: 69px;
+    }
+    .edmodo-app-list:before {
+        left: 71px;
+    }
+}
+@media only screen and (max-width: 767px){
+    .desktop_view {
+        padding: 23px 0 0px;
+    }
+    .teacher-hero-banner .desktop_view {
+        padding: 23px 0 6px;
+    }
+    .apps-hero-banner .app-store-icon-container {
+        margin: 0 auto !important;
+        width: 290px;
+    }
+    .teacher-hero-banner .app-store-icon-container img {
+        display: inline-block;
+        height: 40px;
+        margin-left: unset;
+        margin-right: unset;
+    }
+    .teacher-hero-banner .app-store-name {
+        display: inline-block;
+        max-width: 80px;
+        padding-left: 5px;
+        text-align: left;
+        vertical-align: middle;
+    }
+    .teacher-hero-banner .app-link-wrapper > a {
+        padding-left: 10px;
+        text-align: left !important;
+        width: 145px;
+    }
+    .edmodo-link-wrapper {
+        margin-left: 15.3%;
+    }
+    .app-store-icon-container img {
+        height: 54px;
+        width: auto;
+        margin-bottom: 0px;
+    }
+    .app-store-icon-container .app-link-wrapper {
+        margin: 0 0 19px 0px;
+    }
+    .teacher-hero-banner .app-store-icon-container .app-link-wrapper {
+        margin: 0 0 19px;
+    }
+    .app-store-name {
+        font-size: 12px;
+    }
+    .new-label-apple, .new-label-android {
+        top: 61px;
+        background-size: 22px 12px;
+    }
+    .new-label-android {
+        left: 7px;
+    }
+    .new-label-apple {
+        left: -6px;
+    }
+    .app-store-heading {
+        font-size: 24px;
+        margin-bottom: 33px;
+        line-height: 23px;
+        padding: 0 20px;
+    }
+    .app-sub-heading {
+        font-size: 16px;
+        margin: 6px 0 22px;
+    }
+    .edmodo-app-list {
+        width: 120px;
+        font-size: 12px;
+        width: 120px !important;
+        margin: 0 0 0 -13px;
+    }
+    .edmodo-app-list.open {
+        left: 25px !important;
+        top: 40px !important;
+    }
+    .app-store-icon-container > div {
+        text-align: center;
+        width: 50%;
+    }
+    .edmodo-app-list:before {
+        left: 51px;
+    }
+    .edmodo-app-list:after {
+        left: 49px;
+    }
+    .android-link-wrapper {
+        margin-left: 23px;
+    }
+    .edmodo-app-link .icon-arrow-up {
+        vertical-align: -4px;
+    }
+}
+
+/* App Store Banner CSS Ends */

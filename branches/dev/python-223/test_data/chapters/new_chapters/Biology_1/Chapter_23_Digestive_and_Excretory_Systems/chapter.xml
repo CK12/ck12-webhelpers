@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns:dc="http://www.ck12.org/dc/will_create_ns"
+unique-identifier="chapterid" version="2.0">
+
+  <chapter>
+    <metadata>
+<chapterSeq>23</chapterSeq>
+
+<book>Biology I</book>
+
+      <chapterid></chapterid>
+      <title>Digestive and Excretory Systems</title>
+      <description>Topics in this chapter include:Food_and_Nutrients,Digestive_System,Excretory_System.
+     </description>
+    </metadata>
+    
+    <lessons>
+      <item id="Food_and_Nutrients" href="Food_and_Nutrients.html" sequence="1" />
+      <item id="Digestive_System" href ="Digestive_System.html" sequence="2" />
+      <item id="Excretory_System" href ="Excretory_System.html" sequence="3" />
+   </lessons>
+  </chapter>
+
+</package>

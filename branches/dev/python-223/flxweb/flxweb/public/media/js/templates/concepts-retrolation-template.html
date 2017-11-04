@@ -1,0 +1,13 @@
+<div class="retrolation-widget">
+    <div class="readit">Read the FlexBook&reg; Textbook</div>
+    <div class="left">
+        <a href="<%= data.books[0].sectionHref %>">
+            <img id="rw-book-img" src="<%= data.books[0].bookImageURL %>" />
+        </a>
+    </div>
+    <div class="right">
+        <div id="rw-title"><a href="<%= data.books[0].sectionHref %>"><%= data.books[0].title %></a></div>
+        <div id="rw-section"><a href="<%= data.books[0].sectionHref %>"><%= data.books[0].sectionTitle %></a></div>
+        <div id="rw-description"><%= data.books[0].description %></div>
+    </div>
+</div>

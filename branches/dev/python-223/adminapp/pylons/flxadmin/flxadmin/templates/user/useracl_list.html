@@ -1,0 +1,30 @@
+{% set index = 1 %}
+{% set aclIndex = -1 %}
+{% for i in c.acl['allRoutes'] %}
+  <div class="tr">
+    <div class='td' style="width:10px;">
+        {% if c.acl['useracl'] and i in c.acl['useracl']['paths'] %}
+            {% set aclIndex = c.acl['useracl']['paths'].index(i) %}
+            {{ h.labelcheckbox('',index, True) }}
+        {% else %}
+            {{ h.labelcheckbox('',index, False) }}
+            {% set aclIndex = -1 %}
+        {% endif %}
+    </div>
+    <div class="td js_path_name">{{i}}</div>
+    
+    <div class="td">
+        <select class="js_permissoinselect">
+            {% for permission in c.permissions %}
+                {% if aclIndex >= 0 and c.acl['useracl']['acl'][aclIndex][i] == permission.0%}
+                    <option value={{permission.0}} selected>{{permission.1}}</option>
+                {% else %} 
+                    <option value={{permission.0}}>{{permission.1}}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+
+  </div>
+  {% set index = index + 1 %}
+{% endfor %}

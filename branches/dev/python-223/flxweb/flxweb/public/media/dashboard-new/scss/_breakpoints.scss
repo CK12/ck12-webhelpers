@@ -1,0 +1,11 @@
+$breakpoints: (
+  small: 0,
+  medium: 767px,
+  large: 1024px,
+  xlarge: 1200px,
+  xxlarge: 1440px,
+);
+$breakpoint-classes: (small medium large);
+
+$small-height-breakpoint: "(max-height: 640px)";
+$small-only-landscape: "screen and #{breakpoint(landscape)} and #{breakpoint(small only)}";

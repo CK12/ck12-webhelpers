@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>List Clients</title>
+    </head>
+    <body>
+        <form name="Test Data" method="POST" action="/assessment/create/test">
+            <table>
+                <tr>
+                    <th><label>Client Name</label> </th>
+                    <th><label>Client ID</label></th>
+                    <th><label>Created</label></th>
+                    <th><label>Updated</label></th>
+                 </tr>
+                 {% for eachClient in clients %}
+                 <tr>
+                   <td><label>{{eachClient.name}}</label></td>
+                   <td><label>{{eachClient.clientID}}</label></td>
+                   <td><label>{{eachClient.created.strftime('%Y-%m-%d')}}</label></td>
+                   <td><label>{{eachClient.updated.strftime('%Y-%m-%d')}}</label></td>
+                </tr>
+                {% endfor %}
+                 <tr>
+                    <td>
+                        <input type="submit" name="submit" value="OK" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

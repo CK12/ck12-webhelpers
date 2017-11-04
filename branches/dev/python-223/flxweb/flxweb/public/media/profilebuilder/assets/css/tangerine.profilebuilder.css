@@ -1,0 +1,343 @@
+/************************************************************************************
+ PROFILE BUILDER
+ *************************************************************************************/
+#profileBuilderModal {
+	width: 600px;
+	margin-left: -300px;
+	left: 50%;
+	padding:25px 25px 30px 25px;
+	background:url(../images/bg_paper_line.png) #fff;
+}
+#profilebuilder-content {
+	position: initial;
+}
+
+#profileBuilderModal .left-container{
+	border-right: 1px solid #E5E5E5;
+}
+#profileBuilderModal .right-container{
+}
+
+#profileBuilderModal #userInformationContainer{
+	font-size: 1.5em;
+	color:#666;
+	line-height: 2.1;
+}
+#profileBuilderModal #selectUserRole{
+	cursor: pointer;
+}
+
+#profileBuilderModal .right-btn-wrap{
+	margin-top:1em;
+	float: right;
+}
+#profileBuilderModal .button{
+	margin-bottom: 0;
+}
+
+#shareNotificationModal {
+	width: 600px;
+	margin-left: -300px;
+	left: 50%;
+	padding:25px;
+	background:url(../images/bg_paper_line.png) #fff;
+}
+#shareNotificationModal .message {
+	font-size: 1.4em;
+	color:#555;
+	margin-top:51px;
+}
+#shareNotificationModal .social {
+	margin-top:20px;
+	margin-bottom:40px;
+}
+.share-icon {
+	margin: 15px;
+}
+.social a {
+	display: inline-block;
+}
+.sprite-new{
+	width: 45px;
+	height: 45px;
+	margin: 15px;
+}
+.sprite-new.email{
+	background-position: -90px 0;
+}
+.sprite-new.facebook{
+	background-position: 0 0;
+}
+.sprite-new.twitter{
+	background-position: -45px 0;
+}
+
+.bg-pink-semitransparent{
+	padding: 2px 10px;
+	background: #ffedf1;
+	background: rgba(255, 153, 153, 0.2);
+	/* IE 5.5 - 7*/
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#33FF9999, endColorstr=#33FF9999);
+	/* IE 8*/
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#33FF9999, endColorstr=#33FF9999)";
+}
+
+.space-top{
+	margin-top: 1em;
+}
+
+#profileBuilderModal .roleOption{
+	text-align: center;
+}
+#roleOptions > li:hover,
+#roleOptions .selectedRole{
+	background :#fff9d5;
+}
+
+.role_container{
+	position: relative;
+	display: inline-block;
+}
+ 
+.role_container .defaultShow{
+	display:inline  !important;
+}
+
+.role_container #roleOptions{
+	background: none repeat scroll 0 0 white;
+	border: 2px solid #ccc;
+	-webkit-box-shadow: 1px 1px 2px #ccc;
+	-moz-box-shadow: 1px 1px 2px #ccc;
+	box-shadow: 1px 1px 2px #ccc;
+	display:none;
+	position: absolute;
+	left: 0;
+	top: 3px;
+	z-index: 10;
+	width:100%;
+	cursor:pointer;
+	list-style: none;
+}
+
+.bg-pink-semitransparent{
+	padding: 2px 10px;
+	cursor: pointer;
+	background: #ffedf1;
+	background: rgba(255, 153, 153, 0.2);
+	/* IE 5.5 - 7*/
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#33FF9999, endColorstr=#33FF9999);
+	/* IE 8*/
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#33FF9999, endColorstr=#33FF9999)";
+}
+
+.optional-text {
+	color: #CEC9BE;
+	font-size: 14px;
+	position: absolute;
+	right: 2px;
+	top: 36px;
+}
+
+.profile-item-wrapper {
+	display: inline-block;
+	position: relative;
+}
+
+.profile-builder-header {
+	color: #3399cc;
+	font-size: 26px;
+	font-weight: bold;
+	line-height: 30px;
+	margin-bottom: 23px;
+}
+
+/*USER LOCATION RELATED*/
+#profileBuilderModal #userLocation{
+	width: 300px;
+	height: 38px;
+	border-width:2px;
+	margin-bottom:1em;
+}
+.grade_container{
+    display: inline;
+}
+
+#locationSelectionForm {
+	top: 5px;
+}
+
+#gradeSelector,
+#locationSelectionFormContainer {
+	position: relative;
+}
+#locationSelectionFormContainer {
+	display: none;
+}
+
+#gradeSelector .formDropdownContainer,
+#locationSelectionFormContainer .formDropdownContainer{
+	display: none;
+	position: absolute;
+	top: -17px;
+	left: 59px;
+}
+
+#gradeSelector .formDropdownContainer.open,
+#locationSelectionFormContainer .formDropdownContainer.open{
+	display: block;
+}
+
+#gradeSelector .formDropdown,
+#locationSelectionFormContainer .formDropdown{
+	font-size: 16px;
+	position: absolute;
+	top: 26px;
+	left: 0;
+	width: 203px;
+	background: white;
+	z-index: 500;
+	padding: 0;
+	border-radius: 2px;
+	border: 1px solid #ccc;
+	-webkit-box-shadow: 1px 1px 2px #ccc;
+	-moz-box-shadow: 1px 1px 2px #ccc;
+	box-shadow: 1px 1px 2px #ccc;
+}
+#locationSelectionFormContainer .formDropdown{
+	top: -39px;
+	width: 100%;
+}
+
+#gradeSelector .formDropdown:before,
+#gradeSelector .formDropdown:after,
+#locationSelectionFormContainer .formDropdown:before,
+#locationSelectionFormContainer .formDropdown:after,
+#profileBuilderModal .formDropdown:before,
+#profileBuilderModal .formDropdown:after {
+	display: none;
+}
+
+#gradeSelector .grades{
+	height: 50px;
+	line-height: 50px;
+	text-align:center;
+	border:1px solid #ccc;
+	cursor: pointer;
+}
+
+#gradeSelector .selectdGrade{
+	color: #fff;
+	background: #00aba4;
+}
+
+#gradeSelector .inlineGrades{
+	width: 50px;
+	display:inline-block;
+}
+#locationSelectionFormContainer input{
+	margin: 0;
+	padding: 0 10px !important;
+	font-size:1.5em;
+	line-height:1.5em;
+	height:1.5em;
+}
+#locationSelectionFormContainer a{
+	padding:0 10px;
+	font-size:1em;
+	line-height:1.5em;
+	height:1.5em;
+}
+#locationSelectionFormContainer input,
+#locationSelectionFormContainer input:focus{
+	border: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+#locationSelectionFormContainer hr{
+	margin: 0;
+	padding: 0 10px;
+	border: 0;
+	border-bottom: 1px dotted #ccc;
+}
+#locationSelectionFormContainer #locationSelectionForm {
+	display: block;
+}
+
+
+/*****************************************************************************************
+ * Change Profile Image Dialog
+ ****************************************************************************************/
+.image_upload_holder{
+	display: inline-block;
+	width:165px;
+	border: 1px dashed #aaa;
+	margin-bottom: 20px;
+	margin-right: 15px;
+	background:#fff;
+}
+.profile-img-wrap {
+	text-align: center;
+	height:155px;
+	overflow:hidden;
+}
+#profileImage {
+	margin:10px 0;
+}
+#uploadimage_form_container{
+    overflow:hidden;
+    width: 110px;
+    top:155px;
+    position: absolute;
+    right: 30px;
+    height: 19px;
+}
+#frm_imageupload{
+    position:absolute;
+    top:-1px;
+    right:-1px;
+    width:100px;
+}
+#frm_imageupload .uploadimage_input {
+    opacity: 0;
+    -moz-opacity: 0;
+    filter: alpha(opacity=0);
+    font-size: 20px;
+    position:absolute;
+    z-index:100;
+    right:0px;
+    top:0px;
+    cursor:pointer;
+}
+@-moz-document url-prefix() {
+    #frm_imageupload .uploadimage_input {
+}
+}
+
+.hide_within_PB {
+	display:none!important;
+	visibility:hidden;
+}
+
+@media all and (max-width: 767px) {
+	#profileBuilderModal, #shareNotificationModal {
+		width: 92%;
+		margin-left: 0px;
+		left: 4%;
+		padding: 15px;
+	}
+	#profileBuilderModal #userInformationContainer {
+		font-size: 1.325em;
+	}
+	#profileBuilderModal .right-btn-wrap {
+		float: none;
+	    text-align: center;
+	}
+	.image_upload_holder {
+		margin-right: 0;
+	}
+	.optional-text {
+		top: 31px;
+	}
+	
+}

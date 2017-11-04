@@ -1,0 +1,56 @@
+{% extends "master.html" %}  
+{% from "macros/form_errors.html" import form_errors with context %}  
+
+{% block admincontent %} 
+<div class="sectionhead sectiontitle">{{c.pagetitle}}</div>
+<div class="section withfloatedsubmit">
+<form id="upload_students_form" name="upload_students_form" method="POST" enctype="multipart/form-data" action="{{ h.url('flxadmin/upload/students', qualified=True) }} ">
+    <div class="leftaligned">
+      {{ h.labelinput('Upload Prefix', 'prefix', 'xmed', labelWrapClass='medx')}}
+      <p>(Upload Prefix. Eg: Domain Name)</p>
+      {{ h.labelfile('Upload CSV File',c.input_id, 'xmed', labelWrapClass='medx')}}
+    </div>
+    {{ h.submitbutton('Upload', 'short','upload')}}
+  </form>
+  <div>{{ c.response }} </div>
+</div>
+
+<span class='ajaxError'></span>
+
+<!-- <div class="prethead">Most Recent Upload (see all in
+  {{h.htmla_('/tasks?filters=name,%(task_name)s'% {'task_name':c.task_name}, 'Tasks')}} page):
+</div> -->
+<div class="thead sectionhead">
+  <div class="tr">
+    <div class="td">Id</div>
+    <div class="td">Message</div>
+    <div class="td">Status</div>
+  </div>
+</div>
+<div class="tbody" id='result'></div>
+{% endblock admincontent %}
+
+{% block js_scripts %}
+<script type="text/javascript">
+{{ form_errors('after') }}
+$(document).ready(function(){
+	{% if c.upload_result %}
+		$('#prefix').val('');
+		$('#students').val('');
+		var result = $.parseJSON('{{ c.upload_result }}');
+		if (! result.status){
+			htmlResult = '';
+			(result.log).forEach(function(record,index){
+				rec = ('' + record + '').split(',')
+				var message = rec[1];
+				for (var i = 2; i < rec.length - 1; i++){
+					message = message + ', ' + rec[i];
+				}
+				htmlResult += '<div class="tr"><div class="td">' + rec[0] + '</div><div class="td">' + message + '</div><div class="td">' + (rec[rec.length-1] || "Added") + '</div></div>'; 
+			});
+			$('#result').html(htmlResult);
+		}
+	{% endif %}
+});
+</script>
+{% endblock %}

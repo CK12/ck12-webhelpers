@@ -1,0 +1,131 @@
+{% if c.items %}
+
+<div class="row">
+<div class="question_list_header question">
+    <div class="question_stem">Stem</div>
+    {% if c.test['testType']['name']=='interactive practice' %}
+    	<div class="question_type">
+	    PLIX ID
+	    </div>
+    {% endif %}
+    <div class="question_type">
+        Type
+    </div>
+    {% if c.test['testType']['name']=='interactive practice' %}
+        <div class="question_type">
+	        Difficulty
+	    </div>
+	    <div class="question_type">
+	        Sequence No
+	    </div>
+	    <div class="question_type">
+	        Publish Time
+	    </div>
+	{% endif %}
+    <div class="buttons">
+	        Preview
+	</div>
+    <div class="buttons">
+        Action &nbsp;
+    </div>
+</div>
+<ul class="question_list">
+{% for item in c.items %}
+    {% if item['object'] %}
+        {% set i = item['object'] %}
+        <li id = "{{i._id}}" class="question question_item">
+            <input type="hidden" class="question_id" itemtype="question" questionid="{{i._id}}">
+            {% if i.questionType.name == 'geometry-interactive' or i.questionType.name == 'ilo-component' or i.questionType.name == 'sim-interactive' %}
+              <div class="question_stem"><strong>{{i._id}}</strong><br/> {{'Detail'|escape}}</div>
+            {% else %}
+              <div class="question_stem"><strong>{{i._id}}</strong><br/> {{i.questionData.stem.displayText|escape}}</div>
+            {% endif %}
+            {% if c.test['testType']['name']=='interactive practice' %}
+            <div class="question_type">{{i.tags.iloIDs }} </div>
+            {% endif %}
+            <div class="question_type">{{i.questionType.name}}</div>
+            {% if c.test['testType']['name']=='interactive practice' %}
+            	<div class="question_type">{{i.tags.level}}</div>
+	            <div class="question_type "><input class="question_sequence" type="text" value="{{item.sequence}}"></input></div>
+	            <div class="question_type">{{i.publishTime|parseISODate}}</div>
+	            <div class="buttons">
+	            	{{ h.htmla('/assessment/ui/views/question.preview.new.html?%s'%(i._id), 'Preview', 'preview', target='_blank')}}
+	            </div>
+	        {% else %}
+	        	<div class="buttons">
+	            	<a href="/assessment/ui/?question/preview/{{ i._id }}" class="previewQuestion">Preview</a>
+	            </div>
+	        {% endif %}
+            <div class="buttons">
+                <span class="delete_button" container="{{i._id}}">Remove</span>
+            </div>
+        </li>
+    {% elif item['items'] %}
+        <li class="question_pool  question_item">
+            <div class="question_pool_content">
+                <div class="question_stem">Question Pool</div>
+                <div class="question_type">Pool</div>
+                {% if c.test['testType']['name']=='interactive practice' %}
+                	<div class="question_type "><input class="question_sequence" type="text" value="{{item.sequence}}"></input></div>
+                {% endif %}
+                <div class="buttons"></div>
+                <div class="buttons">
+                    <span class="delete_button" container="pool">Remove</span>
+                </div>
+            </div>
+            <ul class="pool_question_list">
+            {% set poolIds = [] %}
+            {% for qitem in item['items']%}
+            {% set i = qitem['object'] %}
+                <li id="{{i._id}}" class="question">
+                	<span style="display:none">{{ poolIds.append(i._id) }} </span>
+                    {% if i.questionType.name == 'geometry-interactive' or i.questionType.name == 'ilo-component' %}
+                        <div class="question_stem">{{'Detail'|escape}}</div>
+                    {% else %}
+                    	<div class="question_stem">{{i.questionData.stem.displayText|escape}}</div>
+                    {% endif %}
+                    <div class="question_type">{{i.questionType.name}}</div>
+                    {% if c.test['testType']['name']=='interactive practice' %}
+	                    <div class="buttons">
+			            	{{ h.htmla('/assessment/ui/views/question.preview.new.html?%s'%(i._id), 'Preview', 'preview', target='_blank')}}
+			            </div>
+			        {% endif %}
+                    <div class="buttons">
+                        <span class="delete_button" container="{{i._id}}">Remove</span>
+                    </div>
+                </li>
+            {% endfor %}
+            </ul>
+            <input type="hidden" class="question_id" itemtype="questionpool" questionid="{{ poolIds|join(',') }}">
+        </li>
+    {% endif %}
+{% endfor %}
+</ul>
+</div>
+{% if c.test['testType']['name']=='interactive practice' %}
+	<button id ="update_sequence" class="btn primaryaction" type="button">Update</button>
+{% endif %}
+<script type="text/javascript">
+     // Do not show questions list by default
+    document.getElementById('disableListOnEmptySearch').checked = true;
+    window.testQuestions = [];
+    window.testID = "{{ c.test._id }}";
+{% for item in c.items %}
+    {% if item['object'] %}
+        {% set i = item['object'] %}
+        window.testQuestions.push("{{i._id}}");
+    {% elif item['items'] %}
+        var question = []
+        {% for qitem in item['items']%}
+        {% set i = qitem['object'] %}
+            question.push("{{i._id}}")
+        {% endfor %}
+        window.testQuestions.push(question);
+    {% endif %}
+{% endfor %}
+
+{% if c.objectIDsString %}
+    $('#questions').html('{{c.objectIDsString}}');
+{% endif %}
+</script>
+{% endif %}

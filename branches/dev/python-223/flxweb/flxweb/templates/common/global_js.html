@@ -1,0 +1,200 @@
+<script language="javascript" type="text/javascript">
+
+    function getCookie(c_name){
+        var i,x,y,ARRcookies=document.cookie.split(";");
+        for (i=0;i<ARRcookies.length;i++){
+          x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+          y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
+          x=x.replace(/^\s+|\s+$/g,"");
+          if (x==c_name) {
+            return unescape(y);
+          }
+        }
+    }
+
+    function getRandomString(length) {
+        var chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', value = '';
+        for (var i = length; i > 0; --i) {
+            value += chars[Math.round(Math.random() * (chars.length - 1))];
+        }
+        return value;
+    }
+
+    // login user role is c.user.role for guest role is in cookies.
+    var flxweb_role;
+    var flxweb_roles = [];
+    var isEditAllowed = false;
+    var webroot_url = '{{ h.url('/', qualified=True) }}';
+    var editprofile_url = '{{ h.url("auth-profile",returnTo=h.url("settings",qualified=True), appHome=h.url("home",qualified=True)) }}';
+    var adaptive_practice_launch_date = '{{config.adaptive_practice_launch_date}}';
+
+    {% if c.user %}
+        var ads_userid = '{{ c.user.id }}';
+        flxweb_role = '{{ c.user.role.name }}';
+        {% if c.user.isEditAllowed() %}
+          isEditAllowed = true;
+        {% endif %}
+        {% for r in c.user.getRoles() %}
+          flxweb_roles.push('{{ r }}');
+        {% endfor %}
+        window.ck12_signed_in = true;
+    {% else %}
+        var ads_userid = '2';
+        flxweb_role = getCookie('flxweb_role');
+        flxweb_roles.push(flxweb_role);
+        window.ck12_signed_in = false;
+    {% endif %}
+
+    dexterjs.set("config", {
+        memberID: ads_userid,
+        clientID: {{config.fbs_client_id}},
+        trackPageTime: false
+    });
+
+    if (window.lmsContext === 'lti-app'){
+        // Add in appID and provider for ADS
+        // when in lti context
+        try {
+            appInfo = JSON.parse(sessionStorage.getItem('ltiAppInfo'));
+	    var mixins = { appID: appInfo.appID,
+	          lmsProvider: appInfo.provider,
+		  appContext: appInfo.lms_name
+	    }
+            dexterjs.set('config', {mixins:mixins});	
+       } catch(e) {
+            console.log("Error adding ADS mixins for lti: "+ String(e));
+       }
+    }
+    _ck12 = dexterjs;
+
+    function startPageTimer() {
+        window.adsPageStartTime = new Date().getTime();
+    }
+
+    function adsLogPageTime() {
+        var endTime = new Date().getTime();
+        var timeOnPage = Math.round((endTime - window.adsPageStartTime)/1000);
+        //pageType, URL, duration (in seconds)
+        var payload = {
+            'URL' : document.location.href,
+            'duration': timeOnPage
+        };
+        if(window.adsPage) {
+            payload['pageType'] = window.adsPage;
+        } else if (window.pageType) {
+            payload['pageType'] = window.pageType;
+        }
+
+        if (window.adsSubject) {
+            payload['subject'] = window.adsSubject;
+        }
+        if (window.adsBranch) {
+            payload['branch'] = window.adsBranch;
+        }
+        if (window.adsContextEid) {
+            payload['context_eid'] = window.adsContextEid;
+        }
+        if (window.artifactID) {
+            payload['artifactID'] = window.artifactID;
+        }
+
+        _ck12.logEvent('FBS_TIMESPENT', payload);
+     }
+
+    function adsOnload() {
+        if (window.ck12_signed_in) {
+            createCookieActiveUser();
+        }
+        startPageTimer();
+    }
+
+    function adsOnBeforeUnload() {
+        adsLogPageTime();
+    }
+
+    function createCookieActiveUser(){
+        var value;
+        var now = new Date();
+        var time = now.getTime();
+        var expireTime = time + 1000*3600;
+        now.setTime(expireTime);
+        var activeCookie = getCookie('flxweb_user_active');
+        if(activeCookie){
+            value = activeCookie;
+        }else{
+            value = getRandomString(25);
+            payload = {
+                'sessionID': value
+            };
+            _ck12.logEvent('FBS_ACTIVE_USER', payload);
+        }
+        document.cookie =
+            'flxweb_user_active=' + value +
+            '; expires=' + now.toUTCString() +
+            '; path=/';
+    }
+
+    function addEvent(obj, evt,fn,useCapture){
+        if(obj.addEventListener){
+            obj.addEventListener(evt,fn,useCapture);
+            return true;
+        }else if(obj.attachEvent){
+            var r=obj.attachEvent('on'+evt,fn);
+            return r;
+        }else this['on'+evt]=fn;
+    }
+
+    addEvent(window, "load", adsOnload);
+    addEvent(window, "beforeunload", adsOnBeforeUnload);
+
+<!--Browser Cookie detection start -->
+var cookieEnabled = (navigator.cookieEnabled) ? true : false;
+if (typeof navigator.cookieEnabled == "undefined" && !cookieEnabled)
+{
+    var cookieName = "CK12-Cookie-Test";
+    document.cookie= cookieName;
+    cookieEnabled = (document.cookie.indexOf(cookieName) != -1) ? true : false;
+    if (cookieEnabled){
+        document.cookie = cookieName + "=; expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+    }
+}
+if (!cookieEnabled){
+    cookieBar('block');
+}
+
+function cookieBar(displayValue){
+    var cookies_msg_container = document.getElementById("nocookies");
+    if (cookies_msg_container != null){
+        cookies_msg_container.style.display = displayValue;
+    }
+}
+
+/* Checks for lms 
+ *
+ * lmsContext is set in common/lms.html
+ */
+if ( window.lmsContext && window.lmsContext === 'lti-app') {
+    try{
+        document.getElementById('nav_logo').setAttribute('href','/browse/');
+    } catch (e){
+        console.log("Error setting logo to browse for lti-context: " + e);
+    }
+}else {
+    try {
+        var garbage = document.getElementsByClassName('show-for-lti-context');
+        console.log("LMS context cleanup:"+ garbage.length);
+        while (garbage.length > 0){
+            if(garbage[0].remove){
+            	garbage[0].remove();
+            }else{
+            	//this condition works for IE 
+            	garbage[0].parentNode.removeChild(garbage[0]);
+            }
+        }
+    } catch(e) {
+        console.log("Error on lms context cleanup:"+String(e));
+    }
+}
+/* End checks for lms */
+</script>
+<!--Browser Cookie detection end -->

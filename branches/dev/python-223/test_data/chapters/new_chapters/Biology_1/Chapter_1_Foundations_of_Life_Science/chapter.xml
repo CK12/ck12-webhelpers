@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns:dc="http://www.ck12.org/dc/will_create_ns"
+unique-identifier="chapterid" version="2.0">
+
+  <chapter>
+    <metadata>
+<chapterSeq>1</chapterSeq>
+
+<book>Biology I</book>
+
+      <chapterid></chapterid>
+      <title>Foundations of Life Science </title>
+      <description>Topics in this chapter include:Nature_of_Science,Communicating_Ideas,Tools_and_Techniques,Principles_of_Biology.   
+     </description>
+    </metadata>
+    
+    <lessons>
+      <item id="Nature_of_Science" href="Nature_of_Science.html" sequence="1" />
+      <item id="Communicating_Ideas" href ="Communicating_Ideas.html" sequence="2" />
+      <item id="Tools_and_Techniques" href ="Tools_and_Techniques.html" sequence="3" />
+      <item id="Principles_of_Biology" href ="Principles_of_Biology.html" sequence="4" />
+   </lessons>
+  </chapter>
+
+</package>

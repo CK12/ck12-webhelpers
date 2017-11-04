@@ -1,0 +1,1 @@
+UPDATE `DomainUrls` SET `url` = REPLACE(`url`, 'http://concepts.ck12.org/', 'https://s3.amazonaws.com/concepts.ck12.org/'), `iconUrl` = REPLACE(`iconUrl`, 'http://concepts.ck12.org/', 'https://s3.amazonaws.com/concepts.ck12.org/');

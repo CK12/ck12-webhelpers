@@ -1,0 +1,84 @@
+{% extends "base/auth/1column.html" %}
+{% block title %}{{ _("Twitter Email") }}{% endblock %}
+
+{% block js %}
+{{ super() }}
+<script language="javascript" type="text/javascript" src="{{ h.url_lib('jquery-plugins/jquery.validate.js') }}"></script>
+<script language="javascript" type="text/javascript" src="{{ config.url_media }}/common/js/utils/ck12.smartform.js"></script>
+<script language="javascript" type="text/javascript" src="{{ h.url_js('flx.member.js') }}"></script>
+{% endblock %}
+
+{% block search_box %}
+<div class="searchboxposition middlecolumn">
+	<!-- Wizard steps bar -->
+	<div class="wizardbar">
+		<div class="barwrap">
+			<div class="left"></div>
+			<div class="right"></div>
+		</div>
+		<img class="start current" src="{{ h.url_images('icon_signup_details.png') }}" />
+		<img class="middle notdone" src="{{ h.url_images('icon_signup_done.png') }}" />
+		<img class="end notdone" src="{{ h.url_images('icon_signup_done.png') }}" />
+		<div class="clear">
+			<span class="textleft">{{ _("Start") }}</span>
+			<span class="">{{ _("Reset Password") }}</span>
+			<span class="textright">{{ _("Done!") }}</span>
+		</div>
+	</div>
+	<!-- /Wizard steps bar -->
+</div>
+{% endblock %}
+
+{% block infotop %}
+{% endblock %}
+
+{% block content %}
+<div id="content" class="prefix_3 grid_6 suffix_6">
+        {% if c.form_errors %}
+                <ul class="messaging error hide">
+                        {% for error in c.form_errors %}
+						<span class="icon-close"></span>
+                        <li>{{error}}
+                                {% if c.form_errors[error] %}
+                                - {{ c.form_errors[error] }}
+                                {% endif %}
+                        </li>
+                {% endfor %}
+                </ul>
+	{% endif %}
+
+	<h1>{{ _("Welcome,") }} {{ c.screenName }}</h1>
+	<div class="divider"></div>
+	<p>
+		{{ _("Please enter your email address so that we can identify if you have signed in before.") }}
+	</p>
+	<div class="divider spacetop"></div>
+	<div class="spacetoplarge">
+		<form id="twitter_email_form" method="POST" action="{{ h.url(controller='twitter', action='getEmail', userID=c.userID, screenName=c.screenName, token=c.token, ttoken=c.ttoken) }}">
+			<div class="formlabelwrap">
+				<label class="required formlabel" for="email" title="{{ _('Email Address') }}">
+					{{ _("Email Address") }}
+				</label>
+			</div>
+			<div>
+				<input type="text" id="email" class="forminput" name="email" 
+						data-required="{{ c.messages.ACCOUNT_EMAIL_EMPTY }}"
+						data-maxlength="{{ c.messages.ACCOUNT_EMAIL_MAXLENGTH  }}"
+						data-simple_email="{{ c.messages.ACCOUNT_EMAIL_INVALID  }}"/>
+			</div>
+			<div class="inputhint" data-for="email">
+						{{ c.messages.ACCOUNT_EMAIL_HINT }}
+			</div>
+			<div class="error hide" data-for="email"></div>
+			<div class="divider spacetoplarge"></div>
+			<div class="formsubmitwrap">
+								<input type="hidden" name="userID" value="{{ c.userID }}" />
+								<input type="hidden" name="screenName" value="{{ c.screenName }}" />
+				<input type="submit" id="twitteremailformsubmit" class="button turquoise formrightcolumn" value="{{ _('Continue Sign In') }}" />
+				<div class="clear"></div>
+			</div>
+			<div class="divider"></div>
+		</form>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,265 @@
+{% extends "details.html" %}  
+{% from "macros/form_errors.html" import form_errors with context %}  
+
+{% block admincontent %} 
+{% if c.isNewEntry or c.entry %} 
+<style>
+.leftaligned .td{
+    border-color: #ccc;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    display: table-cell;
+}
+#mainform .td.short{
+    width:80px;
+}
+#mainform .td._short{
+    width:200px;
+}
+#mainform .td.med{
+    width:300px;
+}
+div.inline.table{
+    width:600px;
+}
+div.td:first-child {
+    border-left: 1px solid #ccc;
+}
+</style>
+<div class="sectionhead sectiontitle">{{c.pagetitle}}</div>
+<div class="section withfloatedsubmit">
+  <form id="mainform" method="post">
+    <div class="leftaligned">
+    {% for field in c.form.ordered_fields %}
+      {{ field }}
+    {% endfor %}
+    <div class="clear"></div>
+    <div>{{ h.labelselect('Entry Type', 'entryType', c.entryTypes, '', selected=c.entry.entryType if c.entry else None) }}</div>
+    <strong>Entry</strong>
+    <div id = "search_entries" class="elong">
+    <div class="inline table">
+        <div class="thead sectionhead">
+            <div class="tr">
+                <div class="td _short">
+                    Key
+                </div>
+
+                <div class="td med">
+                    Value
+                </div>
+                <div class="td short">
+                    Action
+                </div>
+            </div>
+        </div>
+        
+        <div class="tbody">
+            {% if c.entry %}
+                {{ h.special_search_entry_widget(c.entry.entry, input_type='text', entryType=c.entry.entryType)}}
+            {% endif %}
+        </div>
+    </div>
+
+    <br/>
+    <div class="clear"></div>
+    &nbsp;&nbsp;<span id = 'add_entry' class='linklike'>[Add Entry]</span>
+    </div>
+      {% if not c.isNewEntry %}
+      {{ h.deletebutton('Delete')}}
+      {% endif %}
+      {{ h.submitbutton(c.createOrSave, 'short')}}
+      {{ h.cancelbutton(c.cancel)}}
+<span class='ajaxError'></span>
+</div>
+  </form>
+</div>
+{% endif %} 
+{% endblock %}
+
+{% block js_scripts %}
+<script type='text/javascript'>
+{{ form_errors('after') }}
+$(document).ready(function(){
+    var entryOptions = {{ c.entryOptions }};
+    var defaultEntryType = "{{ c.entry.entryType if c.entry }}";
+    deleteSpecialSearch = function(){
+      if(!confirm("Do you want to delete this special search term ?")) {
+          return;
+      }
+      var term = "{{ c.term }}",
+          successMsg = 'Search Term deleted successfully',
+          data = {'term' : term
+                 },
+          url = '/specialsearchentry/delete/entry';
+      $.ajax({url: CK12.admUrl(url), 
+            type: 'POST', 
+            data: data,
+            success: function(data, status, xhr){
+               if (data && JSON.parse(data).success){
+                   alert(successMsg);
+                   window.location.href = CK12.admUrl("/specialsearchentries")
+               }else{
+                   alert("Unable to delete special search term : " + term);
+               }
+
+            },
+            error: function(xhr, textStatus, errorThrown){
+                alert('API Error: '+ Fns.formatResponseError(
+                xhr, textStatus, errorThrown));
+            }
+      });
+  }
+  
+  deleteEntry = function(){
+      $(this).parent().parent().remove();
+      return false;
+  }
+
+  changeEntryOptions = function(e){
+        var entryType = $(this).val();
+        if (!entryType){
+            return false;
+        }
+
+        if (defaultEntryType){
+            for (eachType in entryOptions){
+                if (eachType != defaultEntryType){
+                    $.each(entryOptions[eachType], function(index, option){
+                        $(".inline .tbody").find('.tr.' + option + '.' + eachType).remove();
+                    });
+                }
+            }
+        }else{
+            $(".inline .tbody").find('.tr').remove();
+        }
+
+        $.each(entryOptions[entryType], function(index, option){
+            addEntry(e, option, entryType);
+        });
+  }
+  var entryIndex = $("input[id^=key]").length;
+  addEntry = function(e, key, entryType){
+      if (key && $(".inline .tbody").find('.tr.' + key).length){
+        return false;
+      }
+      entryIndex++;
+      html = '<div class="tr @@entry_key@@ @@entry_type@@"> <div class="td _short"> <input type="text" class="med" id="key'+ entryIndex +  '" class="xlong" type="text" value= "@@entry_key@@" placeholder="" name="key' + entryIndex + '" > </div>\
+             <div class="td med"> <input type="text" class="xmed" id="value'+ entryIndex +  '" class="xlong" type="text" value="" placeholder="" name="value' + entryIndex + '"  />'
+             + (key== 'thumbnailURL' ? '<br/>OR Upload Image \
+                    <input type="file" name="cover-image" data-input-box-id="value'+ entryIndex +  '"/>' : '')
+             + '</div>'
+             + '<div class="td short"><span class="linklike delete_entry" data-entry_id="' + entryIndex + '">[Delete]</span></div></div>';
+      html = key? html.replace(/@@entry_key@@/g, key) : html.replace(/@@entry_key@@/g, "");
+      html = entryType? html.replace(/@@entry_type@@/g, entryType) : html.replace(/@@entry_type@@/g, "");
+      $(".inline .tbody").append(html);
+  }
+  $("#delete").off('click').on('click', deleteSpecialSearch);
+  $(".delete_entry").live('click', deleteEntry);
+  $("#add_entry").off('click').on('click', addEntry);
+  $("#entryType").off('change').on('change', changeEntryOptions);
+  {% if c.isNewEntry %}
+      //$("#add_entry").click();
+  {% endif %}
+  
+  validateData = function(event){
+      var hasError = false;
+      var msg = '';
+      if (!$.trim($('#entryType').val())) {
+        msg = 'Please select an entry type.';
+      }
+      if(!$.trim($('#term').val())){
+        msg = 'All Fields are required.'
+      }
+      if ($('.inline .tbody .td input').length == 0){
+        msg = 'Atleast one entry must be specified.'
+      }
+      $('.inline .tbody .td input[type=text]').each(function( index ) {
+          var text = $.trim($(this).val())
+          if(!text){
+              msg = 'All Fields are required.'
+              return false;
+          }
+          
+          if (text && (index % 2 == 0) && text.indexOf(' ') != -1){
+              msg = 'Invalid format for entry key.'
+              return false;
+          }
+      });
+      if (msg){
+          alert(msg);
+          event.preventDefault();
+          return false;
+      }
+  }
+  $('input[type=submit]').off('click').on('click', validateData);
+  
+    var file;
+    
+    // Add events
+    $('.inline.table').on('change', 'input[type=file]', prepareUpload);
+    
+    // Grab the files and set them to our variable
+    function prepareUpload(event)
+    {
+        var files = event.target.files,
+            allowedMIMETypes    = ["image/png", "image/jpg", "image/jpeg", "image/gif"];
+        
+        if (files !== undefined) {
+            file = files[files.length-1];
+        }
+
+        if (!file){
+            alert("Please select file to upload");
+            return false;
+        }
+
+        if (allowedMIMETypes.indexOf(file.type) == -1){
+            alert("Sorry, you can only upload GIF, JPEG, or PNG images.");
+            return false;
+        }
+        
+        var data = new FormData(),
+            that = this,
+            timeStamp = new Date().getTime(),
+            params = {
+                resourceType: "image",
+                resourceName: file.name,
+                resourceDesc: "",
+                isAttachment: false,
+                isPublic: false
+            };
+
+        data.append("resourcePath", file, timeStamp+"_"+file.name);
+        for (var i in params) {
+            if (params.hasOwnProperty(i)) {
+                data.append(i, params[i]);
+            }
+        }
+        
+        $.ajax({
+            url: "/flx/create/resource",
+            type: "POST",
+            data: data,
+            dataType: "text",
+            success: function(data, status, jqXHR) {
+                var data = JSON.parse(data),
+                    url = data.response.uri;
+                if (data.responseHeader.status == 0){
+                    $($(that).siblings('input[type=text]')[0]).val(window.location.origin + url);
+                    file = null;
+                }else{
+                    alert(data.response.message);
+                }
+            },
+            error: function(e) {
+                alert("submit image failed!");
+            },
+            contentType: false,
+            processData: false
+        });
+  }
+
+  //$('.inline.table').on('click', '.upload-image', uploadImage);
+});
+</script>
+{% endblock %}

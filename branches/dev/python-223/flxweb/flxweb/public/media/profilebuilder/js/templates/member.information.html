@@ -1,0 +1,39 @@
+    <div id ="nameHeader">
+        <span class="break-word ">My name is @@userName@@</span><span>.</span>
+    </div>
+
+    <div id="role">
+        I'm a <div class="role_container"><span id="selectUserRole" class="bg-pink-semitransparent">select role</span>
+        <span class="arrow-down-custom"></span>
+        <ul id="roleOptions"><ul></div> located in
+    </div>
+
+    <div id="location" class="profile-item-wrapper">
+        <span class="js_location_select_link bg-pink-semitransparent" href="#">somewhere, some state</span><span>.</span>
+        <span class="optional-text">(optional)</span>
+        <div id="locationSelectionFormContainer" class="formDropdownContainer">
+            <div id="locationSelectionForm" class = "formDropdown">
+                <div id="usLocationContainer">
+                    <input type="text" id="usLocation" placeholder="enter zip code"></input>
+                    <a class="js_international_location_select_link" href="#">I live outside the U.S.</a>
+                </div>
+                <div id="internationalLocationContainer" style="display:none;">
+                    <a class="js_us_location_select_link" href="#">I live in the U.S.</a>
+                    <input type="text" id="internationalLocation" placeholder="enter city, country"></input>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/>
+
+    <div id="gradeSelector" class="hide_within_PB profile-item-wrapper">
+        <span class="message"><!-- @@gradesMessageText@@ --></span>
+        
+        <div class="grade_container">
+            <span class="bg-pink-semitransparent js_grade_select_link">this grade</span><span>.</span>
+            <span class="optional-text">(optional)</span>
+            <div id="gradeSelectionFormContainer" class="formDropdownContainer close">
+                <div id="gradeSelectionForm" class = "formDropdown"></div>
+            </div>
+        </div>
+    </div>

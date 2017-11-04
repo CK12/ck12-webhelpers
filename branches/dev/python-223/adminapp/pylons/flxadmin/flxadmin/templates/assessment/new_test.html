@@ -1,0 +1,56 @@
+{% extends "/assessment/manage_test_questions.html" %}  
+
+{% block crumbs %}
+    {% for link in c.crumbs %} {{link}} &gt;{% endfor %}
+    {% if c.pagetitle %}
+      <span id="pagetitle">{{_(c.pagetitle)}}</span>
+    {% endif %}
+  </div>
+{% endblock %}
+
+{% block content %}
+<div class="sectionhead sectiontitle">Test Details</div>
+<div class="section withfloatedsubmit">
+    <div class="leftaligned">
+    {{ h.labelinput('Title', 'testTitle', 'xmed', labelWrapClass='med')}}
+    {{ h.labelinput('encodedIDs', 'testEncodedIDs', 'xmed', labelWrapClass='med')}}
+    {{ h.labelselect('Test Type', 'testTypeID', c.testTypes, selected='quiz', labelWrapClass='med')}}
+    </div>
+<div class="sectionhead sectiontitle">Question Selection</div>
+    <div id="top_navigation" class="hide">
+        <div id ="link_1">
+            <span class = "all_questions">Select Questions</span> |
+            <a class = "manage_test" href="javascript:void(0);">Manage Test</a>
+        </div>
+
+        <div id ="link_2" class="hide">
+            <a class = "all_questions" href="javascript:void(0);">Select Questions</a> |
+            <span class = "manage_test">Manage Test</span>
+        </div>
+        <div id="message">
+                <span></span>
+        </div>
+    </div>
+{% block admintop %}
+	{{ super() }}
+{% endblock %}
+
+{% block admincontent %}
+	{{ super() }}
+{% endblock %}
+
+</div>
+{% endblock %}
+
+{% block js_scripts %}
+{{ super() }}
+<script type='text/javascript'>
+  $(document).ready(function() {
+	//Show questions list by default 
+	$('#disableListOnEmptySearch').prop('checked', true);
+	window.isNewTest = true;
+    $('#testTypeID option:contains(Quiz)').attr('selected', true);
+    $(".all_questions_pane").removeClass("hide");
+  });
+</script>
+{% endblock %}

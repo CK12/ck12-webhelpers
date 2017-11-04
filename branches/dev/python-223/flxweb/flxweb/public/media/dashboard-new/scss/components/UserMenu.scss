@@ -1,0 +1,93 @@
+@import '../main';
+
+$shadow: rgba(0, 0, 0, 0.1);
+
+:local {
+    .userMenu {
+        background: white;
+        border-top: 1px solid $shadow;
+        border-bottom: 1px solid $shadow;
+        min-height: $user-photo-size / 2;
+        max-height: $user-photo-size / 2;
+        position: relative;
+        z-index: $z-index-userMenu;
+    }
+
+    .userPhotoContainer {
+        position: relative;
+        z-index: 50;
+        width: $user-photo-size;
+    }
+
+    .conceptmapButton {
+        background: $white;
+        color: $EARTH;
+        padding: rem-calc(10) rem-calc(15) rem-calc(10) rem-calc(45);
+        text-align: left;
+        position: relative;
+        border-radius: $global-radius;
+        border: $global-border;
+        display: inline-block;
+        letter-spacing: 0.5px;
+        max-width: 100%;
+
+        &:before {
+            transform: translateY(-50%)rotate(0deg);
+            position: absolute;
+            top: 50%;
+            left: rem-calc(11.25);
+            width: rem-calc(22.5);
+            height: rem-calc(22.5);
+            content: '';
+
+            display: block;
+            background: url(media/conceptmap/images/logo-plain.svg) no-repeat;
+            transition: transform 1s;
+        }
+
+        &:hover {
+            color: $EARTH;
+
+            &:before {
+                transform: translateY(-50%)rotate(360deg);
+            }
+        }
+    }
+
+    .tutorialInfo {
+        margin-left: rem-calc(10);
+        cursor: pointer;
+        color: $LIGHT_GREY;
+    }
+
+    .userNameLocationColumn {
+        padding-left: rem-calc(20);
+    }
+
+    @include breakpoint(medium down){
+        .userPhotoContainer {
+            width: $user-photo-size-medium;
+        }
+
+        .conceptmapButton {
+            font-size: rem-calc(12);
+        }
+    }
+
+    @include breakpoint(small only){
+        .userPhotoContainer {
+            width: $user-photo-size-small;
+        }
+
+        .userNameLocationColumn {
+            max-width: 70%;
+        }
+    }
+
+    :global(#{$ie11}) {
+        .userMenuInnerRow {
+            height: $user-photo-size / 2;
+        }
+    }
+
+}

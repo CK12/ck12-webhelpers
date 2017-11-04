@@ -1,0 +1,5 @@
+@import 'sprites-config';
+
+.icon-ck12-logo {
+  @include sprite($ck12-logo);
+}

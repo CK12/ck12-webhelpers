@@ -1,0 +1,178 @@
+STANDARD ID,TITLE,DESCRIPTION
+MAT.CC.9-12.ALG.N-RN.1,,"Explain how the definition of the meaning of rational exponents follows from extending the properties of integer exponents to those values, allowing for a notation for radicals in terms of rational exponents. "
+MAT.CC.9-12.ALG.N-RN.2,,Rewrite expressions involving radicals and rational exponents using the properties of exponents.
+MAT.CC.9-12.ALG.N-RN.3,,Explain why the sum or product of two rational numbers is rational; that the sum of a rational number and an irrational number is irrational; and that the product of a nonzero rational number and an irrational number is irrational.
+MAT.CC.9-12.ALG.N-Q.1,,Use units as a way to understand problems and to guide the solution of multi-step problems; choose and interpret units consistently in formulas; choose and interpret the scale and the origin in graphs and data displays.
+MAT.CC.9-12.ALG.N-Q.2,,Define appropriate quantities for the purpose of descriptive modeling.
+MAT.CC.9-12.ALG.N-Q.3,,Choose a level of accuracy appropriate to limitations on measurement when reporting quantities.
+MAT.CC.9-12.ALG.N-CN.1,,
+MAT.CC.9-12.ALG.N-CN.2,,
+MAT.CC.9-12.ALG.N-CN.3,,
+MAT.CC.9-12.ALG.N-CN.4,,
+MAT.CC.9-12.ALG.N-CN.5,,
+MAT.CC.9-12.ALG.N-CN.6,,
+MAT.CC.9-12.ALG.N-CN.7,,
+MAT.CC.9-12.ALG.N-CN.8,,
+MAT.CC.9-12.ALG.N-CN.9,,
+MAT.CC.9-12.ALG.N-VM.1,,
+MAT.CC.9-12.ALG.N-VM.2,,
+MAT.CC.9-12.ALG.N-VM.3,,
+MAT.CC.9-12.ALG.N-VM.4,,
+MAT.CC.9-12.ALG.N-VM.5,,
+MAT.CC.9-12.ALG.N-VM.6,,
+MAT.CC.9-12.ALG.N-VM.7,,
+MAT.CC.9-12.ALG.N-VM.8,,
+MAT.CC.9-12.ALG.N-VM.9,,
+MAT.CC.9-12.ALG.N-VM.10,,
+MAT.CC.9-12.ALG.N-VM.11,,
+MAT.CC.9-12.ALG.N-VM.12,,
+MAT.CC.9-12.ALG.A-SSE.1,,Interpret expressions that represent a quantity in terms of its context.
+MAT.CC.9-12.ALG.A-SSE.2,,Use the structure of an expression to identify ways to rewrite it.
+MAT.CC.9-12.ALG.A-SSE.3,,Choose and produce an equivalent form of an expression to reveal and explain properties of the quantity represented by the expression.
+MAT.CC.9-12.ALG.A-SSE.3.a,,Factor a quadratic expression to reveal the zeros of the function it defines.
+MAT.CC.9-12.ALG.A-SSE.3.b,,Complete the square in a quadratic expression to reveal the maximum or minimum value of the function it defines.
+MAT.CC.9-12.ALG.A-SSE.3.c,,Use the properties of exponents to transform expressions for exponential functions.
+MAT.CC.9-12.ALG.A-SSE.4,,"Derive the formula for the sum of a finite geometric series (when the common ratio is not 1), and use the formula to solve problems."
+MAT.CC.9-12.ALG.A-APR.1,,"Understand that polynomials form a system analogous to the integers, namely, they are closed under the operations of addition, subtraction, and multiplication; add, subtract, and multiply polynomials."
+MAT.CC.9-12.ALG.A-APR.2,,"Know and apply the Remainder Theorem: For a polynomial p(x) and a number a, the remainder on division by x – a is p(a), so p(a) = 0 if and only if (x – a) is a factor of p(x)."
+MAT.CC.9-12.ALG.A-APR.3,,"Identify zeros of polynomials when suitable factorizations are available, and use the zeros to construct a rough graph of the function defined by the polynomial."
+MAT.CC.9-12.ALG.A-APR.4,,Prove polynomial identities and use them to describe numerical relationships.
+MAT.CC.9-12.ALG.A-APR.5,,"(+) Know and apply the Binomial Theorem for the expansion of (x + y)n in powers of x and y for a positive integer n, where x and y are any numbers, with coefficients determined for example by Pascal’s Triangle."
+MAT.CC.9-12.ALG.A-APR.6,,"Rewrite simple rational expressions in different forms; write a(x)/b(x) in the form q(x) + r(x)/b(x), where a(x), b(x), q(x), and r(x) are polynomials with the degree of r(x) less than the degree of b(x), using inspection, long division, or, for the more complicated examples, a computer algebra system."
+MAT.CC.9-12.ALG.A-APR.7,,"(+) Understand that rational expressions form a system analogous to the rational numbers, closed under addition, subtraction, multiplication, and division by a nonzero rational expression; add, subtract, multiply, and divide rational expressions."
+MAT.CC.9-12.ALG.A-CED.1,,Create equations and inequalities in one variable and use them to solve problems.
+MAT.CC.9-12.ALG.A-CED.2,,Create equations in two or more variables to represent relationships between quantities; graph equations on coordinate axes with labels and scales.
+MAT.CC.9-12.ALG.A-CED.3,,"Represent constraints by equations or inequalities, and by systems of equations and/or inequalities, and interpret solutions as viable or nonviable options in a modeling context."
+MAT.CC.9-12.ALG.A-CED.4,,"Rearrange formulas to highlight a quantity of interest, using the same reasoning as in solving equations."
+MAT.CC.9-12.ALG.A-REI.1,,"Explain each step in solving a simple equation as following from the equality of numbers asserted at the previous step, starting from the assumption that the original equation has a solution. Construct a viable argument to justify a solution method."
+MAT.CC.9-12.ALG.A-REI.2,,"Solve simple rational and radical equations in one variable, and give examples showing how extraneous solutions may arise."
+MAT.CC.9-12.ALG.A-REI.3,,"Solve linear equations and inequalities in one variable, including equations with coefficients represented by letters."
+MAT.CC.9-12.ALG.A-REI.4,,Solve quadratic equations in one variable.
+MAT.CC.9-12.ALG.A-REI.4,,a. Use the method of completing the square to transform any quadratic equation in x into an equation of the form (x – p)2 = q that has the same solutions. Derive the quadratic formula from this form.
+MAT.CC.9-12.ALG.A-REI.4,,"b. Solve quadratic equations by inspection (e.g., for x2 = 49), taking square roots, completing the square, the quadratic formula and factoring, as appropriate to the initial form of the equation. Recognize when the quadratic formula gives complex solutions and write them as a ± bi for real numbers a and b."
+MAT.CC.9-12.ALG.A-REI.5,,"Prove that, given a system of two equations in two variables, replacing one equation by the sum of that equation and a multiple of the other produces a system with the same solutions."
+MAT.CC.9-12.ALG.A-REI.6,,"Solve systems of linear equations exactly and approximately (e.g., with graphs), focusing on pairs of linear equations in two variables."
+MAT.CC.9-12.ALG.A-REI.7,,Solve a simple system consisting of a linear equation and a quadratic equation in two variables algebraically and graphically.
+MAT.CC.9-12.ALG.A-REI.8,,(+) Represent a system of linear equations as a single matrix equation in a vector variable.
+MAT.CC.9-12.ALG.A-REI.9,,(+) Find the inverse of a matrix if it exists and use it to solve systems of linear equations (using technology for matrices of dimension 3 × 3 or greater).
+MAT.CC.9-12.ALG.A-REI.10,,"Understand that the graph of an equation in two variables is the set of all its solutions plotted in the coordinate plane, often forming a curve (which could be a line)."
+MAT.CC.9-12.ALG.A-REI.11,,"Explain why the x-coordinates of the points where the graphs of the equations y = f(x) and y = g(x) intersect are the solutions of the equation f(x) = g(x); find the solutions approximately, e.g., using technology to graph the functions, make tables of values, or find successive approximations. Include cases where f(x) and/or g(x) are linear, polynomial, rational, absolute value, exponential, and logarithmic functions."
+MAT.CC.9-12.ALG.A-REI.12,,"Graph the solutions to a linear inequality in two variables as a half plane (excluding the boundary in the case of a strict inequality), and graph the solution set to a system of linear inequalities in two variables as the intersection of the corresponding half-planes."
+MAT.CC.9-12.ALG.F-IF.1,,"Understand that a function from one set (called the domain) to another set (called the range) assigns to each element of the domain exactly one element of the range. If f is a function and x is an element of its domain, then f(x) denotes the output of f corresponding to the input x. The graph of f is the graph of the equation y = f(x)."
+MAT.CC.9-12.ALG.F-IF.2,,"Use function notation, evaluate functions for inputs in their domains, and interpret statements that use function notation in terms of a context."
+MAT.CC.9-12.ALG.F-IF.3,,"Recognize that sequences are functions, sometimes defined recursively, whose domain is a subset of the integers."
+MAT.CC.9-12.ALG.F-IF.4,,"For a function that models a relationship between two quantities, interpret key features of graphs and tables in terms of the quantities, and sketch graphs showing key features given a verbal description of the relationship."
+MAT.CC.9-12.ALG.F-IF.5,,"Relate the domain of a function to its graph and, where applicable, to the quantitative relationship it describes."
+MAT.CC.9-12.ALG.F-IF.6,,Calculate and interpret the average rate of change of a function (presented symbolically or as a table) over a specified interval.
+MAT.CC.9-12.ALG.F-IF.7,,"Graph functions expressed symbolically and show key features of the graph, by hand in simple cases and using technology for more complicated cases."
+MAT.CC.9-12.ALG.F-IF.7.a,,"Graph linear and quadratic functions and show intercepts, maxima, and minima."
+MAT.CC.9-12.ALG.F-IF.7.b,,"Graph square root, cube root, and piecewise-defined functions, including step functions and absolute value functions."
+MAT.CC.9-12.ALG.F-IF.7.c,,"Graph polynomial functions, identifying zeros when suitable factorizations are available, and showing end behavior."
+MAT.CC.9-12.ALG.F-IF.7.d,,"(+) Graph rational functions, identifying zeros and asymptotes when suitable factorizations are available, and showing end behavior."
+MAT.CC.9-12.ALG.F-IF.7.e,,"Graph exponential and logarithmic functions, showing intercepts and end behavior, and trigonometric functions, showing period, midline, and amplitude."
+MAT.CC.9-12.ALG.F-IF.8,,Write a function defined by an expression in different but equivalent forms to reveal and explain different properties of the function.
+MAT.CC.9-12.ALG.F-IF.8.a,,"Use the process of factoring and completing the square in a quadratic function to show zeros, extreme values, and symmetry of the graph, and interpret these in terms of a context."
+MAT.CC.9-12.ALG.F-IF.8.b,,Use the properties of exponents to interpret expressions for exponential functions.
+MAT.CC.9-12.ALG.F-IF.9,,"Compare properties of two functions each represented in a different way (algebraically, graphically, numerically in tables, or by verbal descriptions)."
+MAT.CC.9-12.ALG.F-BF.1,,Write a function that describes a relationship between two quantities.
+MAT.CC.9-12.ALG.F-BF.1.a,,"Determine an explicit expression, a recursive process, or steps for calculation from a context."
+MAT.CC.9-12.ALG.F-BF.1.b,,Combine standard function types using arithmetic operations.
+MAT.CC.9-12.ALG.F-BF.1.c,,(+) Compose functions.
+MAT.CC.9-12.ALG.F-BF.2,,"Write arithmetic and geometric sequences both recursively and with an explicit formula, use them to model situations, and translate between the two forms."
+MAT.CC.9-12.ALG.F-BF.3,,"Identify the effect on the graph of replacing f(x) by f(x) + k, k f(x), f(kx), and f(x + k) for specific values of k (both positive and negative); find the value of k given the graphs. Experiment with cases and illustrate an explanation of the effects on the graph using technology."
+MAT.CC.9-12.ALG.F-BF.4,,Find inverse functions.
+MAT.CC.9-12.ALG.F-BF.5,,(+) Understand the inverse relationship between exponents and logarithms and use this relationship to solve problems involving logarithms and exponents.
+MAT.CC.9-12.ALG.F-LE.1,,Distinguish between situations that can be modeled with linear functions and with exponential functions.
+MAT.CC.9-12.ALG.F-LE.1.a,,"Prove that linear functions grow by equal differences over equal intervals, and that exponential functions grow by equal factors over equal intervals."
+MAT.CC.9-12.ALG.F-LE.1.b,,Recognize situations in which one quantity changes at a constant rate per unit interval relative to another.
+MAT.CC.9-12.ALG.F-LE.1.c,,Recognize situations in which a quantity grows or decays by a constant percent rate per unit interval relative to another.
+MAT.CC.9-12.ALG.F-LE.2,,"Construct linear and exponential functions, including arithmetic and geometric sequences, given a graph, a description of a relationship, or two input-output pairs (include reading these from a table)."
+MAT.CC.9-12.ALG.F-LE.3,,"Observe using graphs and tables that a quantity increasing exponentially eventually exceeds a quantity increasing linearly, quadratically, or (more generally) as a polynomial function."
+MAT.CC.9-12.ALG.F-LE.4,,"For exponential models, express as a logarithm the solution to abct = d where a, c, and d are numbers and the base b is 2, 10, or e; evaluate the logarithm using technology."
+MAT.CC.9-12.ALG.F-LE.5,,Interpret the parameters in a linear or exponential function in terms of a context.
+MAT.CC.9-12.ALG.F-TF.1,,
+MAT.CC.9-12.ALG.F-TF.2,,
+MAT.CC.9-12.ALG.F-TF.3,,
+MAT.CC.9-12.ALG.F-TF.4,,
+MAT.CC.9-12.ALG.F-TF.5,,
+MAT.CC.9-12.ALG.F-TF.6,,
+MAT.CC.9-12.ALG.F-TF.7,,
+MAT.CC.9-12.ALG.F-TF.8,,
+MAT.CC.9-12.ALG.F-TF.9,,
+MAT.CC.9-12.ALG.G-CO.1,,
+MAT.CC.9-12.ALG.G-CO.2,,
+MAT.CC.9-12.ALG.G-CO.3,,
+MAT.CC.9-12.ALG.G-CO.4,,
+MAT.CC.9-12.ALG.G-CO.5,,
+MAT.CC.9-12.ALG.G-CO.6,,
+MAT.CC.9-12.ALG.G-CO.7,,
+MAT.CC.9-12.ALG.G-CO.8,,
+MAT.CC.9-12.ALG.G-CO.9,,
+MAT.CC.9-12.ALG.G-CO.10,,
+MAT.CC.9-12.ALG.G-CO.11,,
+MAT.CC.9-12.ALG.G-CO.12,,
+MAT.CC.9-12.ALG.G-CO.13,,
+MAT.CC.9-12.ALG.G-SRT.1,,
+MAT.CC.9-12.ALG.G-SRT.2,,
+MAT.CC.9-12.ALG.G-SRT.3,,
+MAT.CC.9-12.ALG.G-SRT.4,,
+MAT.CC.9-12.ALG.G-SRT.5,,
+MAT.CC.9-12.ALG.G-SRT.6,,
+MAT.CC.9-12.ALG.G-SRT.7,,
+MAT.CC.9-12.ALG.G-SRT.8,,
+MAT.CC.9-12.ALG.G-SRT.9,,
+MAT.CC.9-12.ALG.G-SRT.10,,
+MAT.CC.9-12.ALG.G-SRT.11,,
+MAT.CC.9-12.ALG.G-C.1,,
+MAT.CC.9-12.ALG.G-C.2,,
+MAT.CC.9-12.ALG.G-C.3,,
+MAT.CC.9-12.ALG.G-C.4,,
+MAT.CC.9-12.ALG.G-C.5,,
+MAT.CC.9-12.ALG.G-GPE.1,,
+MAT.CC.9-12.ALG.G-GPE.2,,
+MAT.CC.9-12.ALG.G-GPE.3,,
+MAT.CC.9-12.ALG.G-GPE.4,,Use coordinates to prove simple geometric theorems algebraically.
+MAT.CC.9-12.ALG.G-GPE.5,,"Prove the slope criteria for parallel and perpendicular lines and use them to solve geometric problems (e.g., find the equation of a line parallel or perpendicular to a given line that passes through a given point)."
+MAT.CC.9-12.ALG.G-GPE.6,,Find the point on a directed line segment between two given points that partitions the segment in a given ratio.
+MAT.CC.9-12.ALG.G-GPE.7,,"Use coordinates to compute perimeters of polygons and areas of triangles and rectangles, e.g., using the distance formula."
+MAT.CC.9-12.ALG.G-GMD.1,,
+MAT.CC.9-12.ALG.G-GMD.2,,
+MAT.CC.9-12.ALG.G-GMD.3,,
+MAT.CC.9-12.ALG.G-GMD.4,,
+MAT.CC.9-12.ALG.G-MG.1,,"Use geometric shapes, their measures, and their properties to describe objects (e.g., modeling a tree trunk or a human torso as a cylinder)."
+MAT.CC.9-12.ALG.G-MG.2,,"Apply concepts of density based on area and volume in modeling situations (e.g., persons per square mile, BTUs per cubic foot)."
+MAT.CC.9-12.ALG.G-MG.3,,"Apply geometric methods to solve design problems (e.g., designing an object or structure to satisfy physical constraints or minimize cost; working with typographic grid systems based on ratios)."
+MAT.CC.9-12.ALG.S-ID.1,,"Represent data with plots on the real number line (dot plots, histograms, and box plots)."
+MAT.CC.9-12.ALG.S-ID.2,,"Use statistics appropriate to the shape of the data distribution to compare center (median, mean) and spread (interquartile range, standard deviation) of two or more different data sets."
+MAT.CC.9-12.ALG.S-ID.3,,"Interpret differences in shape, center, and spread in the context of the data sets, accounting for possible effects of extreme data points (outliers)."
+MAT.CC.9-12.ALG.S-ID.4,,"Use the mean and standard deviation of a data set to fit it to a normal distribution and to estimate population percentages. Recognize that there are data sets for which such a procedure is not appropriate. Use calculators, spreadsheets, and tables to estimate areas under the normal curve."
+MAT.CC.9-12.ALG.S-ID.5,,"Summarize categorical data for two categories in two-way frequency tables. Interpret relative frequencies in the context of the data (including joint, marginal, and conditional relative frequencies). Recognize possible associations and trends in the data."
+MAT.CC.9-12.ALG.S-ID.6,,"Represent data on two quantitative variables on a scatter plot, and describe how the variables are related."
+MAT.CC.9-12.ALG.S-ID.6,,a. Fit a function to the data; use functions fitted to data to solve problems in the context of the data.
+MAT.CC.9-12.ALG.S-ID.6,,b. Informally assess the fit of a function by plotting and analyzing residuals.
+MAT.CC.9-12.ALG.S-ID.6,,c. Fit a linear function for a scatter plot that suggests a linear association.
+MAT.CC.9-12.ALG.S-ID.7,,Interpret the slope (rate of change) and the intercept (constant term) of a linear model in the context of the data.
+MAT.CC.9-12.ALG.S-ID.8,,Compute (using technology) and interpret the correlation coefficient of a linear fit.
+MAT.CC.9-12.ALG.S-ID.9,,Distinguish between correlation and causation.
+MAT.CC.9-12.ALG.S-IC.1,,Understand statistics as a process for making inferences about population parameters based on a random sample from that population.
+MAT.CC.9-12.ALG.S-IC.2,,"Decide if a specified model is consistent with results from a given data-generating process, e.g., using simulation."
+MAT.CC.9-12.ALG.S-IC.3,,"Recognize the purposes of and differences among sample surveys, experiments, and observational studies; explain how randomization relates to each."
+MAT.CC.9-12.ALG.S-IC.4,,Use data from a sample survey to estimate a population mean or proportion; develop a margin of error through the use of simulation models for random sampling.
+MAT.CC.9-12.ALG.S-IC.5,,Use data from a randomized experiment to compare two treatments; use simulations to decide if differences between parameters are significant.
+MAT.CC.9-12.ALG.S-IC.6,,Evaluate reports based on data.
+MAT.CC.9-12.ALG.S-CP.1,,"Describe events as subsets of a sample space (the set of outcomes) using characteristics (or categories) of the outcomes, or as unions, intersections, or complements of other events (“or,” “and,” “not”)."
+MAT.CC.9-12.ALG.S-CP.2,,"Understand that two events A and B are independent if the probability of A and B occurring together is the product of their probabilities, and use this characterization to determine if they are independent."
+MAT.CC.9-12.ALG.S-CP.3,,"Understand the conditional probability of A given B as P(A and B)/P(B), and interpret independence of A and B as saying that the conditional probability of A given B is the same as the probability of A, and the conditional probability of B given A is the same as the probability of B."
+MAT.CC.9-12.ALG.S-CP.4,,Construct and interpret two-way frequency tables of data when two categories are associated with each object being classified. Use the two-way table as a sample space to decide if events are independent and to approximate conditional probabilities.
+MAT.CC.9-12.ALG.S-CP.5,,Recognize and explain the concepts of conditional probability and independence in everyday language and everyday situations.
+MAT.CC.9-12.ALG.S-CP.6,,"Find the conditional probability of A given B as the fraction of B’s outcomes that also belong to A, and interpret the answer in terms of the model."
+MAT.CC.9-12.ALG.S-CP.7,,"Apply the Addition Rule, P(A or B) = P(A) + P (B) – P(A and B), and interpret the answer in terms of the model."
+MAT.CC.9-12.ALG.S-CP.8,,"(+) Apply the general Multiplication Rule in a uniform probability model, P(A and B) = P(A) P(B|A) = P(B) P(A|B), and interpret the answer in terms of the model."
+MAT.CC.9-12.ALG.S-CP.9,,(+) Use permutations and combinations to compute probabilities of compound events and solve problems.
+MAT.CC.9-12.ALG.S-MD.1,,
+MAT.CC.9-12.ALG.S-MD.2,,
+MAT.CC.9-12.ALG.S-MD.3,,
+MAT.CC.9-12.ALG.S-MD.4,,
+MAT.CC.9-12.ALG.S-MD.5,,
+MAT.CC.9-12.ALG.S-MD.6,,
+MAT.CC.9-12.ALG.S-MD.7,,

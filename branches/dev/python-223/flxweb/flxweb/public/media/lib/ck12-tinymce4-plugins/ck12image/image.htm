@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Insert/Edit image</title>
+		<link href="/media/common/css/webfont.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="/media/lib/tinymce4/js/tinymce/skins/ck12lightgray/skin.min.css" type="text/css" />
+		<link href="css/ck12image.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="/media/lib/jquery/jquery-1.7.1.js"></script>
+		<script type="text/javascript" src="/media/lib/jquery-ui/js/jquery-ui-1.8.17.custom.min.js"></script>
+		<script type="text/javascript" src="/media/lib/tinymce/jscripts/tiny_mce/utils/validate.js"></script>
+		<script type="text/javascript" src="/media/lib/tinymce/jscripts/tiny_mce/utils/editable_selects.js"></script>
+		<script type="text/javascript" src="/media/lib/jquery-plugins/jquery.form.js"></script>
+		<script type="text/javascript" src="js/base64.js"></script>
+	</head>
+	<body id="ck12image" class="forceColors mce-window-iframe-tabs" >
+		<form id="imageform" target="_docUploadForm" enctype="multipart/form-data" method="POST" action="" class="mce-container-body mce-abs-layout">
+			<!-- Tabs -->
+			<div class="mce-tabs mce-container">
+				<div id="general_tab" class="mce-tab mce-active" data-controls="general_panel" onclick="ImageDialog.tabHandler(this)">General</div>
+				<div id="appearance_tab" class="mce-tab" data-controls="appearance_panel" onclick="ImageDialog.tabHandler(this)">Image Options</div>
+			</div>
+
+			<!-- General Panel -->
+			<div id="general_panel">
+				<!-- Upload -->
+				<fieldset>
+					<legend class="mce-widget mce-label">Upload an image from your computer<span class="asterisk">*</span></legend>
+					<div class="fileupload-buttonbar">
+						<label class="fileinput-button mce-btn">
+							<span id="fileName">No file chosen</span>
+							<input name="uploadfile" type="file" id="uploadfile" value="" onchange="ImageDialog.notifyImageChange(this);"/>&nbsp;
+							<input name="forceUnique" type="hidden" value="true" />
+							<input name="type" type="hidden" value="image" />&nbsp;
+						</label>
+					</div>
+					<br>
+					<legend class="mce-widget mce-label">Or choose an image from the web<span class="asterisk">*</span></legend>
+					<div class="properties mce-container-body">
+						<label id="srclabel" for="src" class="mce-widget mce-label">Url</label>
+						<input name="src" type="text" id="src" value="" class="mceFocus mce-textbox" onchange="ImageDialog.showPreviewImage(this.value);" />
+						<!-- <p id="srcbrowsercontainer">&nbsp;</p> -->
+						<p class="asterisk right">* jpeg, png, gif and bmp supported</p>
+					</div>
+				</fieldset>
+				<!-- Preview -->
+				<fieldset>
+					<legend class="mce-widget mce-label">Preview</legend>
+					<div id="prev" class="mce-textbox mce-multiline"></div>
+				</fieldset>
+			</div>
+
+			<!-- Appearance Panel -->
+			<div id="appearance_panel" class="panel hidden">
+			<fieldset>
+				<label class="mce-label mce-widget" id="typelabel" for="type_list">type</label>
+				<select id="type_list" name="type_list" class="mce-widget mce-btn mce-menubtn mce-listbox" onchange="ImageDialog.changeType();">
+					<option value="figure">figure</option>
+					<option value="inline">inline</option>
+				</select>
+				<label class="mce-label mce-widget" for="class_list">size</label>
+				<select id="class_list" class="mce-widget mce-btn mce-menubtn mce-listbox" name="class_list" class="mceEditableSelect" onchange="ImageDialog.changeClass();">
+					<option value="x-ck12-img-postcard">postcard</option>
+					<option value="x-ck12-img-thumbnail">thumbnail</option>
+					<option value="x-ck12-img-fullpage">fullpage</option>
+				</select>
+				<label class="mce-label mce-widget" for="align_list">position</label>
+				<select id="align_list" name="align_list" class="mceEditableSelect mce-widget mce-btn mce-menubtn mce-listbox">
+					<option value="x-ck12-nofloat">normal</option>
+					<option value="x-ck12-float">left aligned</option>
+				</select>
+				<label class="mce-label mce-widget" id="longdesclabel" for="longdesc">caption</label>
+				<textarea class="mce-textbox" id="longdesc" name="longdesc" type="text" value="" ></textarea>
+
+				<label class="mce-label mce-widget" id="titlelabel" for="title">title</label>
+				<input id="title" class="mce-textbox" name="title" type="text" value="" />
+
+				<label class="mce-label mce-widget" id="altlabel" for="alt">alt</label>
+				<input id="alt" class="mce-textbox" name="alt" type="text" value="" />
+
+				<label class="mce-label mce-widget" id="widthlabel" for="width">width</label>
+				<input id="width" class="mce-textbox" name="width"  size="5" maxlength="4" type="text" value="" disabled="disabled" onchange="ImageDialog.changeWidth();" /><span>&nbsp;px</span>
+
+				<label class="mce-label mce-widget" id="licenselabel">license</label>
+				<div id="license-info">
+					<p class="strong">CC BY-NC 3.0</p>
+					<p>Images you upload will be licensed under
+						<a target="_blank" href="http://creativecommons.org/licenses/by-nc/3.0/">Creative Commons BY-NC 3.0</a>
+					</p>
+				</div>
+
+
+				<label class="mce-label mce-widget" id="image_idlabel" for="image_id">id</label>
+				<input id="image_id" class="mce-textbox" name="image_id" type="text" value="" />
+
+				<label class="mce-label mce-widget" id="urllabel" for="url">source</label>
+				<input id="url" class="mce-textbox" name="url" type="text" value="" />
+
+				<label class="mce-label mce-widget" id="authorlabel" for="author">credit</label>
+				<input id="author" class="mce-textbox" name="author" type="text" value="" />
+				</fieldset>
+			</div>
+			<div class="mceActionPanel mce-container-body mce-abs-layout">
+				<div class="mce-container right">
+					<div class="mce-widget mce-btn mce-last">
+						<button type="button" id="cancel" name="cancel" onclick="top.tinymce.activeEditor.windowManager.close();">Cancel</button>
+					</div>
+					<div class="mce-widget mce-btn mce-primary mce-first">
+						<button type="button" id="insert" name="insert" onclick="this.disabled=true;ImageDialog.insert(this.value);return false;">Insert</button>
+					</div>
+				</div>
+				<div class="clearfix">&nbsp;</div>
+			</div>
+		</form>
+		<iframe id="_imgUploadForm" src="" name="_imgUploadForm" style="display:none" ></iframe>
+		<script type="text/javascript" src="js/image.js" defer></script>
+	</body>
+</html>

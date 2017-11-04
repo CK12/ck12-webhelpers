@@ -1,0 +1,57 @@
+<div class="reveal-modal modal-uikit assign-group-modal" id="assign-groups-modal">
+	<a id="close-assign-modal" class="close-reveal-modal close">+</a>
+	<div class="row collapse assign-header-wrapper">
+		<div class="edmodo-logo-header">
+			<span class="edmodo-logo">
+			<img src="/lmspractice/media/practiceapp/images/edmodo_logo.png"/>
+			</span>
+			<span class="assign-groups-header">Assign to <span class="group-context">Edmodo Groups</span></span>
+		</div>
+		<div class="concept-header-text"></div>
+		<div class="hide single-group-assigned">The assignment is due on <span class="single-group-due"></span>.</div>
+	</div>
+	<div class="row collapse groups-list-container">
+		<div class="columns large-6 unassigned-list-wrapper">
+			<div class="row collapse group-list-header">
+				<div class="columns large-8 group-select-header">
+					<span>GROUPS</span>
+					<div id = "toggle-group-button" class="turquoise button small margin-bottom-zero">Select All</div>
+				</div>
+				<div class="columns large-4 due-date-header">
+					<i class="icon-calendar"></i>
+					<span class="">DUE DATE</span>
+				</div>
+			</div>
+			<div id="lms-group-list" class="all-groups-list">
+			</div>
+			<div class="row collapse group-list-footer text-center">
+				<div class="column send-assignment-wrapper">
+					<a class="turquoise button large margin-bottom-zero js-confirm-assign js-disabled disabled">Send Assignment to Edmodo</a>
+					<span>or</span>
+					<a class="js-cancel-assign">Cancel</a>
+				</div>
+			</div>
+		</div>
+		<div id="assigned-group-list-container" class="columns large-6 assigned-group-list-wrapper">
+			<div class="row collapse assigned-list-header">
+				<div class="columns large-8">
+					<span>ALREADY ASSIGNED</span>
+				</div>
+				<div class="columns large-4 due-date-header">
+					<i class="icon-calendar"></i>
+					<span class="">DUE DATE</span>
+				</div>
+			</div>
+			<div id="lms-assigned-group-list" class="all-assigned-groups-list">
+			</div>
+			<div class="all-assigned-ok hide text-center">
+				<a class="turquoise button small js-cancel-assign">OK</a>
+			</div>
+		</div>
+	</div>
+	<div class="row collapse no-groups-container text-center hide">
+		<div class="column large-12 no-groups-wrapper">
+			<div>You don't seem to have any Edmodo groups yet.</div>
+		</div>
+	</div>
+</div>

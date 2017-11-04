@@ -1,0 +1,25 @@
+upstream paster_sts {
+        server 127.0.0.1:7000 fail_timeout=0;
+}
+
+server {
+        listen 80 default;
+        client_max_body_size 4G;
+        server_name _;
+
+        keepalive_timeout 5;
+
+
+        location /taxonomy {
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header Host $http_host;
+            proxy_redirect off;
+
+            rewrite /taxonomy/((media/|css/|js/|.*\.(html|js|png|jpg|jpeg|gif|ico|htm))(.*))$ /$1 break;
+            proxy_pass http://paster_sts;
+
+            proxy_cache   CACHE;
+            proxy_cache_valid  200 302  60m;
+            proxy_cache_valid  404      1m;
+        }
+}

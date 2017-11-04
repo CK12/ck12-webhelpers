@@ -1,0 +1,46 @@
+{% from "macros/pagination.html" import paginate with context %}  
+
+{% if c.paginator.item_count > 0 %}
+  {% for i in c.paginator.items %}
+    <div class="tr paneview {{ h.hide_if_full(c.viewmode)}}" id="{{i.id}}">
+      <div class="td id">{{i.id}}</div>
+      <div class="td viewtrigger" data-id="{{i.id}}">{{h.userlink2(i, truncate=30)}}</div>
+      <div class="td">{{i.firstName|escape|truncate(15, killwords=True)}} {{i.lastName|escape|truncate(15, killwords=True)}}<br>{{i.email}}</div>
+      <div class="td nowrap">{{i.lastLogin|compact}}</div>
+      <div class="td word-break js_lms_user_token">-</div>
+      {% if c.has_switch_access %}
+      <div class="td">
+        {% if c.self_id != i.id %}
+            <div class="linklike floatleft js_switch_action" data-id="{{i.id}}">[Switch User]</div>
+        {% endif %}
+      </div>
+      {% endif %}
+    </div>
+
+    <div class="tr fullview {{ h.hide_if_pane(c.viewmode)}}" id="{{i.id}}">
+      <div class="td id">{{i.id}}</div>
+      <div class="td img"><img width="25px" height="25px" src="/auth/member/image/{{i.id}}"></div>
+      <div class="td viewtrigger nowrap" data-id="{{i.id}}">{{h.userlink2(i, truncate=25)}}</div>
+      <div class="td">{{i.firstName|escape|truncate(30, killwords=True)}}</div>
+      <div class="td">{{i.lastName|escape|truncate(30, killwords=True)}}</div>
+      <div class="td mailto">{{i.email}}</div>
+      {#<div class="td">{{i.authTypes.keys()|join(', ')}}</div>#}
+      <div class="td nowrap">{{i.lastLogin|compact}}</div>
+      <div class="td word-break js_lms_user_token">-</div>
+      <div class="td actionitemwrap">
+        <div class="actionstat floatleft">{{i.state}}</div>
+        <div class='actionitem'></div>
+        <div class='disableitem'></div>
+        <div class='actionmsg hide'></div>
+      </div>
+      {% if c.has_switch_access %}
+      <div class="td">
+        {% if c.self_id != i.id %}
+            <div class="linklike floatleft js_switch_action" data-id="{{i.id}}">[Switch User]</div>
+        {% endif %}
+      </div>
+      {% endif %}
+    </div>
+  {% endfor %}
+  {{ paginate(c.paginator) }}
+{% endif %}

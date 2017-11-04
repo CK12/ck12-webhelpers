@@ -1,0 +1,7 @@
+pylons="m-py2"
+pylonsbzr="m-py1"
+search="m-sr"
+print="m-pr"
+image="m-im"
+web="m-wc1 m-wc2"
+cache="m-cache"

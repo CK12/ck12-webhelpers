@@ -1,0 +1,75 @@
+<div class="reader-dialog2 reveal-modal" data-reveal id="readerDialogModal">
+	<div class="row">
+		<div class="reader-dialog-panel-title">
+			<div class="reader-dialog-title"> We have something better coming soon!</div>
+			<div class="reader-dialog-subtitle">
+				The <b>FlexBook&reg Web Reader</b> is an enhanced way to experience and manage your digital textbooks!
+			</div>
+		</div>
+	</div>
+	<div class="row pannel-container">
+		<div class="small-12 columns reader-dialog-toppanel">
+			<div class="reader-dialog-card-container">
+				<div class="small-4 columns">
+					<div class="reader-dialog-card card-grey">
+						<div class="reader-dialog-img-container">
+							<img src="/media/reader/images/wifi.png"/>
+						</div>
+						<div class="reader-dialog-img-description">
+							Access your downloaded FlexBooks&reg <span class="reader-dialog-keyword">offline</span>.
+						</div>
+					</div>
+				</div>
+				<div class="small-4 columns">
+					<div class="reader-dialog-card card-green">
+						<div class="reader-dialog-img-container distrction-free-container">
+							<img src="/media/reader/images/distraction_free.png"/>
+						</div>
+						<div class="reader-dialog-img-description">
+							Read and experience in a <span class="reader-dialog-keyword">distraction-free</span> environment.
+						</div>
+					</div>
+				</div>
+				<div class="small-4 columns">
+					<div class="reader-dialog-card card-yellow">
+						<div class="reader-dialog-img-container">
+							<img src="/media/reader/images/sync.png"/>
+						</div>
+						<div class="reader-dialog-img-description">
+							Downloaded FlexBooks&reg will be <span class="reader-dialog-keyword">synced</span> across all devices.
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<% if(isLoggedIn){%>
+		<div class="row">
+			<div class="small-12 columns reader-dialog-bottompanel">
+				<div class="reader-dialog-hint">
+					Want to be notified when this is available?
+				</div>
+				<button class="emailpanel-notifyme dxtrack-user-action" data-dx-desc="reader_web_email_notifyme" data-dx-referrer="reader_dialog" data-dx-artifactRevisionID="<%= data.artifactRevisionID %>" data-dx-artifactID="<%= data.artifactID%>">
+					Notify Me
+				</button>
+				<div class="reader-dialog-success-message hide">
+					<img src="/media/reader/images/success_message.png"/>
+				</div>
+			</div>
+		</div>
+	<%}else{%>
+		<div class="row">
+			<div class="small-12 columns reader-dialog-bottompanel">
+				<div class="reader-dialog-hint">
+					Sign in to be notified when this is available.
+				</div>
+				<button class="emailpanel-signup dxtrack-user-action" data-dx-desc="reader_web_signin" data-dx-referrer="reader_dialog" data-dx-artifactRevisionID="<%= data.artifactRevisionID %>" data-dx-artifactID="<%= data.artifactID%>">
+					Sign In
+				</button>
+			</div>
+		</div>
+	<%}%>
+	<span class="reader-dialog-close dxtrack-user-action" data-dx-desc="reader_web_dialog_close" data-dx-artifactRevisionID="<%= data.artifactRevisionID %>" data-dx-artifactID="<%= data.artifactID%>">
+		<img src="/media/reader/images/close_x.png"/>
+	</span>
+</div>

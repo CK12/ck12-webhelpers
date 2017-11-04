@@ -1,0 +1,21 @@
+{% from "macros/pagination.html" import paginate with context %}
+
+{% if c.paginator.item_count > 0 %}
+  {% for i in c.paginator.items %}
+    <div id ="{{i.id}}" class="tr paneview">
+      <div class="td id">{{i.id}}</div>
+      <div class="td" data-id="{{i.id}}">
+      	<span class="">
+      		{{h.idlink('group/', i, 'name', alttext=i.name|truncate(100))}}
+      		</span>
+      </div>
+      <div class="td">{{i.creationTime|compact}}</div>
+      <div class="td">{{i.isVisible}}</div>
+      <div class='td nowrap hide'>
+		<span class="moveUp linklike" data-parent-id="{{i.id}}">[Move Up]</span>
+       	<span class="moveDown linklike" data-parent-id="{{i.id}}">[Move Down]</span>
+      </div>
+    </div>    
+  {% endfor %}
+  {{ paginate(c.paginator) }}
+{% endif %}

@@ -1,0 +1,141 @@
+Level 1,Level 2,Level 3,Level 4,Level 5,Level 6,EncodedID,Original EncodedIDs,Description
+Trigonometric Ratios,,,,,,MAT.TRG.100,,
+,Right Triangle Trigonometry,,,,,MAT.TRG.101.0,"MAT.TRG.130, MAT.GEO.650, MAT.GEO.652","Sine, cosine, tangent, and other ratios of sides of a right triangle."
+,,Calculator Trig Functions,,,,MAT.TRG.101.010,"MAT.TRG.133, MAT.GEO.654",Trigonometric ratios based on sides of right triangles in relation to an angle.
+,,Sine,,,,MAT.TRG.101.030,MAT.GEO.652.1,Determine sine given side lengths
+,,Cosine,,,,MAT.TRG.101.040,MAT.GEO.652.2,Determine cosine given side lengths
+,,Tangent,,,,MAT.TRG.101.050,MAT.GEO.652.3,Explore the tangent ratio and use it to find missing sides of right triangles.
+,,Sine and Cosine of Complementary Angles,,,,MAT.TRG.101.060,MAT.GEO.652.7,Sine of an angle equals the cosine of its complement.
+,,"Secant, Cosecant, and Cotangent Functions",,,,MAT.TRG.101.070,MAT.TRG.135,"Secant, cosecant, cotangent values of common angles"
+,Inverse Trig Functions,,,,,MAT.TRG.103.0,"MAT.TRG.400, MAT.TRG.410, MAT.TRG.412",Solving for an angle given a trigonometric ratio.
+,,Inverses by Mapping,,,,MAT.TRG.103.010,MAT.TRG.422,Reflect points from f(x) across the line y = x.
+,,Composition of Trig Functions and Their Inverses,,,,MAT.TRG.103.030,MAT.TRG.433,"Application of sine, cosine, tangent, or their inverses and then another function."
+,,Definition of Inverse Reciprocal Trig Functions,,,,MAT.TRG.103.050,MAT.TRG.434,"Inverse secant, cosecant, and cotangent functions."
+,,Composition of Inverse Reciprocal Trig Functions,,,,MAT.TRG.103.070,MAT.TRG.435,Application of one of six trigonometric functions or inverses and then another.
+,,Trigonometry in Terms of Algebra,,,,MAT.TRG.103.090,"MAT.TRG.436, MAT.TRG.432",Relationships between the lengths of two sides of a triangle.
+,Trigonometry and the Unit Circle,,,,,MAT.TRG.105.0,MAT.TRG.164,Determine exact values of trig ratios for common radian measures
+,,Measuring Rotation,,,,MAT.TRG.105.010,MAT.TRG.150,Explore trig ratios of angles greater than 90 degrees
+,,Angles of Rotation in Standard Positions,,,,MAT.TRG.105.020,MAT.TRG.152,Counterclockwise angles beginning at the positive x-axis.
+,,Coterminal Angles,,,,MAT.TRG.105.030,MAT.TRG.154,Set of angles with the same terminal or end side. 
+,,"Domain, Range, and Signs of Trigonometric Functions",,,,MAT.TRG.105.040,MAT.TRG.184,x and y values of a function; signs of functions based on quadrants.
+,,Trigonometric Functions and Angles of Rotation,,,,MAT.TRG.105.050,"MAT.TRG.160, MAT.TRG.162",Based on the unit circle.
+,,Reference Angles and Angles in the Unit Circle,,,,MAT.TRG.105.060,MAT.TRG.172,Formed between the terminal side of an angle and the closest part of the x-axis.
+,,Trigonometric Functions of Negative Angles,,,,MAT.TRG.105.070,MAT.TRG.174,Angles measured by rotating clockwise from the positive x-axis.
+,,Trigonometric Functions of Angles Greater than 360 Degrees,,,,MAT.TRG.105.080,MAT.TRG.176,Based on coterminal and reference angles.
+,,"Exact Values for Inverse Sine, Cosine, and Tangent",,,,MAT.TRG.105.090,MAT.TRG.414,Find all angles on unit circle matching exact trig ratios
+,Solve Triangles and Trig Function Applications,,,,,MAT.TRG.107.0,MAT.TRG.142,
+,,The Pythagorean Theorem and Trigonometry,,,,MAT.TRG.107.010,MAT.TRG.140,Using trigonometric functions or the pythagorean theorem based on given information.
+,,"Determine and Use Sine, Cosine, and Tangent with a Calculator",,,,MAT.TRG.107.020,"MAT.GEO.652.4, MAT.GEO.652.5, MAT.GEO.652.6","Use a calculator to find sine, cosine, and tangent in basic applications"
+,,Angles of Elevation and Depression,,,,MAT.TRG.107.030,MAT.TRG.146,Angles going up or down from a horizontal line of sight.
+,,Right Triangles and Bearings,,,,MAT.TRG.107.040,MAT.TRG.148,Directions based off compass points.
+,,Solve Right Triangles,,,,MAT.TRG.107.050,MAT.GEO.660,Using the inverse trigonometric functions to solve for missing information about right triangles.
+,,Applications of Inverse Trigonometric Functions,,,,MAT.TRG.107.060,MAT.TRG.440,Angle values in real world examples.
+,,Inverse Trig Functions using Algebra,,,,MAT.TRG.107.070,MAT.TRG.416,"""Undo"" a function by switching x and y values and solving for y."
+Graphing Trigonometric Functions,,,,,,MAT.TRG.200,,
+,Radian Measure,,,,,MAT.TRG.202.0,MAT.TRG.210,Angle measure in a circle where the arc length equals the radius.
+,,Conversion between Degrees and Radians,,,,MAT.TRG.202.010,MAT.TRG.212,Convert between radians and degrees
+,,Trig Functions and Radians with Technology,,,,MAT.TRG.202.020,MAT.TRG.214,Degrees versus radians and calculator modes.
+,,Rotations in Radians,,,,MAT.TRG.202.030,"MAT.TRG.222, MAT.TRG.220",Rotation of clock hands.
+,,Angular Velocity,,,,MAT.TRG.202.040,MAT.TRG.228,Converting between linear and angular speeds using radius and circumference.
+,,Length of an Arc,,,,MAT.TRG.202.050,MAT.TRG.223,Radius times the angle in radians.
+,,Area of a Sector,,,,MAT.TRG.202.060,MAT.TRG.226,Half the radius squared times the angle in radians.
+,,Length of a Chord,,,,MAT.TRG.202.070,MAT.TRG.227,Twice the radius times the sine of half the angle in radians.
+,General Sinusoidal Graphs,,,,,MAT.TRG.204.0,MAT.TRG.260,Sine and cosine waves and their relationship to the unit circle.
+,,Sine Graph and Cosine Graph,,,,MAT.TRG.204.010,MAT.TRG.232,Graph and stretch trig functions
+,,Translating Sine and Cosine Functions,,,,MAT.TRG.204.030,MAT.TRG.240,Graph shifted trig functions
+,,Vertical Translations,,,,MAT.TRG.204.050,MAT.TRG.242,Shift up or down the y-axis.
+,,Horizontal Translations or Phase Shifts,,,,MAT.TRG.204.070,MAT.TRG.244,Shift right or left along the x-axis.
+,,"Amplitude, Period, and Frequency",,,,MAT.TRG.204.090,MAT.TRG.258,Vertical and horizontal properties of sine and cosine waves.
+,,,Amplitude,,,MAT.TRG.204.09020,MAT.TRG.252,Measure of a wave's height from the center axis.
+,,,Period and Frequency,,,MAT.TRG.204.09040,"MAT.TRG.257, MAT.TRG.254",Horizontal distance traveled before y values repeat; number of complete waves in 2pi.
+,"Graphing Tangent, Cotangent, Secant and Cosecant",,,,,MAT.TRG.206.0,"MAT.TRG.270, MAT.TRG.236","Tangent, cotangent, cosecant, and secant graphs."
+,,Tangent Graphs,,,,MAT.TRG.206.010,MAT.TRG.272,"Adjust the length of the curve, or the distance before the y values repeat, from 2pi. "
+,,Tangent and Cotangent Graphs,,,,MAT.TRG.206.030,MAT.TRG.234,Involve asymptotes spaced pi radians apart.
+,,Sine and Cosecant Graphs,,,,MAT.TRG.206.050,MAT.TRG.231,Wave based on y value and radius of a circle; graph based on the reciprocal. 
+,,Cosine and Secant Graphs,,,,MAT.TRG.206.070,MAT.TRG.233,Wave based on x value and radius of a circle; graph based on the reciprocal. 
+,,Graph Inverse Trigonometric Functions,,,,MAT.TRG.206.090,"MAT.TRG.424, MAT.TRG.420",Domain and range of inverse functions.
+Trigonometric Identities,,,,,,MAT.TRG.300,,
+,Fundamental Trigonometric Identities,,,,,MAT.TRG.301.0,"MAT.TRG.310, MAT.TRG.312","Prove equations are true using Reciprocal, Tangent, and other identities. "
+,,Quotient Identities,,,,MAT.TRG.301.010,MAT.TRG.185,Tangent equals sine divided by cosine.
+,,Reciprocal Identities,,,,MAT.TRG.301.030,MAT.TRG.183,Relationship between sine / cosine / tangent and cosecant / secant / cotangent.
+,,Pythagorean Identities,,,,MAT.TRG.301.050,"MAT.TRG.188, MAT.TRG.314",Sine squared plus cosine squared equals one.
+,,Even and Odd Identities,,,,MAT.TRG.301.070,MAT.TRG.316,Functions symmetric with respect to the y-axis or about the origin.
+,,Cofunction Identities,,,,MAT.TRG.301.090,"MAT.TRG.318, MAT.TRG.186",A cofunction identity is a relationship between one trig function of an angle and another trig function of the complement of that angle.
+,Simplifying and Solving with Basic Trig Identities,,,,,MAT.TRG.303.0,,
+,,Trigonometric Identities and Equations,,,,MAT.TRG.303.005,MAT.TRG.300,"Based on amplitude, frequency, and horizontal and vertical translations."
+,,Trig Identities to Find Exact Trigonometric Values,,,,MAT.TRG.303.010,MAT.TRG.311,"Pythagorean, Tangent, and Reciprocal Identities used to find values of functions."
+,,Simplifying Trigonometric Expressions,,,,MAT.TRG.303.020,MAT.TRG.322,Convert to sine/cosine and use basic trig identities to simplify.
+,,Proofs of Trigonometric Identities,,,,MAT.TRG.303.030,MAT.TRG.319,"Convert to sine/cosine, use basic identities, and simplify sides of the equation."
+,,Simpler Form of Trigonometric Equations,,,,MAT.TRG.303.040,MAT.TRG.323,Breakdown of complex expressions using trigonometric identities.
+,,Solving Trigonometric Equations,,,,MAT.TRG.303.050,MAT.TRG.320,Identities and solving equations on an interval or with no solutions.
+,,Solving Trigonometric Equations Using Basic Algebra,,,,MAT.TRG.303.060,MAT.TRG.327,Substitute in potential solutions or solve using inverse trig functions.
+,,Trigonometric Equations Using the Quadratic Formula,,,,MAT.TRG.303.070,MAT.TRG.326,The quadratic formula with a trigonometric function in place of the variable.
+,,Trigonometric Equations Using Factoring,,,,MAT.TRG.303.080,MAT.TRG.324,Factoring and the Quadratic Formula.
+,Sum and Difference Identities,,,,,MAT.TRG.305.0,MAT.TRG.330,"Sine, cosine, or tangent of two angles that are added or subtracted."
+,,Simplifying Trigonometric Expressions using Sum and Difference Formulas,,,,MAT.TRG.305.020,MAT.TRG.339,"Simplify sine, cosine, and tangent of angles that are added or subtracted."
+,,,Sine Sum and Difference Formulas,,,MAT.TRG.305.02030,MAT.TRG.334,Sine of a sum or difference related to a set of cosine and sine functions.
+,,,Cosine Sum and Difference Formulas,,,MAT.TRG.305.02060,MAT.TRG.332,Cosine of a sum or difference related to a set of cosine and sine functions.
+,,,Tangent Sum and Difference Formulas,,,MAT.TRG.305.02090,MAT.TRG.336,Tangent of a sum or difference related to a set of tangent functions.
+,,Solving Trigonometric Equations using Sum and Difference Formulas,,,,MAT.TRG.305.040,MAT.TRG.331,"Solve sine, cosine, and tangent of angles that are added or subtracted."
+,,Finding Exact Trigonometric Values Using Sum and Difference Formulas,,,,MAT.TRG.305.060,MAT.TRG.337,"Convert angles to sum or difference of 30, 45, and 60 degrees to solve."
+,,Applications of Sum and Difference Formulas,,,,MAT.TRG.305.080,MAT.TRG.338,"Sine, cosine, and tangent sum and difference formulas."
+,Double and Half Angle Identities,,,,,MAT.TRG.307.0,MAT.TRG.347,"Sine, cosine, and tangent of angles other than multiples of 30, 45, and 60 degrees."
+,,Double Angle Identities,,,,MAT.TRG.307.010,"MAT.TRG.340, MAT.TRG.344",Simplifying trigonometric functions with twice a given angle.
+,,Simplifying Trigonometric Expressions with Double-Angle Identities,,,,MAT.TRG.307.030,MAT.TRG.345,"Simplify sine, cosine, and tangent of angles multiplied or divided by 2."
+,,Solving Equations with Double-Angle Identities,,,,MAT.TRG.307.050,MAT.TRG.346,"Solve sine, cosine, and tangent of angles multiplied or divided by 2."
+,,Half Angle Formulas,,,,MAT.TRG.307.070,"MAT.TRG.350, MAT.TRG.352",Derivation of sine and cosine formulas for half a given angle.
+,,Trigonometric Equations Using Half Angle Formulas,,,,MAT.TRG.307.090,MAT.TRG.356,Simplifying all six trigonometric functions with half a given angle.
+,Sum to Product Formulas for Sine and Cosine,,,,,MAT.TRG.307.5,"MAT.TRG.361, MAT.TRG.360",Relation of the sum or difference of two trigonometric functions to a product.
+,Product to Sum Formulas for Sine and Cosine,,,,,MAT.TRG.308.5,MAT.TRG.363,Relation of the product of two trigonometric functions to a sum or difference.
+,Triple-Angle Formulas and Linear Combinations,,,,,MAT.TRG.309.5,"MAT.TRG.369, MAT.TRG.366, MAT.TRG.368",Combination of the sum and double angle formulas; set of terms added or subtracted with a constant multiplier.
+Non-Right Triangle Trig,,,,,,MAT.TRG.400,MAT.TRG.500,
+,Laws of Sines and Cosines,,,,,MAT.TRG.402.0,MAT.GEO.670,Solving for parts of non-right triangles using trigonometry.
+,,Law of Sines,,,,MAT.TRG.402.010,"MAT.TRG.530, MAT.GEO.672",Proportion based on ratios of sides and sines of the opposite angles for non-right triangles.
+,,,Angle-Angle-Side Triangles,,,MAT.TRG.402.01020,MAT.TRG.532,Law of sines: proportion based on ratios of sides and sines of the opposite angles.
+,,,Angle-Side-Angle Triangles,,,MAT.TRG.402.01040,MAT.TRG.534,Law of sines given two angles and the included side.
+,,,Side-Side-Angle: The Ambiguous Case,,,MAT.TRG.402.01060,"MAT.TRG.540, MAT.TRG.542",Evaluate triangles given two sides and one angle not between them
+,,Law of Cosines,,,,MAT.TRG.402.020,"MAT.TRG.514, MAT.GEO.674, MAT.TRG.512",Find unknown side given two sides and included angle
+,,Determination of Unknown Angles Using Law of Cosines,,,,MAT.TRG.402.030,MAT.TRG.516,Find unknown angle given lengths of all 3 sides
+,,Identify Accurate Drawings of Triangles,,,,MAT.TRG.402.040,MAT.TRG.518,Whether a triangle is correct based on law of cosines.
+,,Applications of the Law of Cosines,,,,MAT.TRG.402.050,MAT.TRG.510,Relationship between the three sides and an angle for non-right triangles.
+,,Trigonometry Word Problems,,,,MAT.TRG.402.060,MAT.GEO.659,"Contextual use of triangle properties, ratios, theorems, and laws."
+,Area Formula for Non-Right Triangles,,,,,MAT.TRG.404.0,MAT.TRG.520,Area equals half the product of two sides and the sine of the included angle.
+,,Introduction to the Triangle Area Formula,,,,MAT.TRG.404.010,MAT.TRG.521,Find areas of non-right triangles using the sine ratio
+,,Determination of Unknown Triangle Measures Given Area,,,,MAT.TRG.404.030,MAT.TRG.524,Solve for missing triangle parts using area formulas and the law of cosines/sines.
+,,Heron's Formula,,,,MAT.TRG.404.050,MAT.TRG.522,Area formula based on lengths of sides of a triangle and half its perimeter.
+,,General Solutions of Triangles,,,,MAT.TRG.404.070,MAT.TRG.550,"Application of pythagorean theorem, trigonometric functions, and laws of sines/cosines."
+Polar System and Complex Numbers,,,,,,MAT.TRG.500,MAT.TRG.600,
+,The Polar Coordinate System and Graphing,,,,,MAT.TRG.501.0,"MAT.CAL.860, MAT.CAL.862, MAT.CAL.864, MAT.CAL.866",
+,,Plot Polar Coordinates,,,,MAT.TRG.501.020,"MAT.TRG.612, MAT.ALY.412",Points as distance from the origin and angle from an axis.
+,,Distance Between Two Polar Coordinates,,,,MAT.TRG.501.040,MAT.TRG.614,Application of the law of cosines.
+,,Graph Polar Equations,,,,MAT.TRG.501.060,"MAT.TRG.620, MAT.TRG.624, MAT.ALY.410",Points and graphs based on equations involving radius and angle measurements.
+,,Transform Polar Graphs,,,,MAT.TRG.501.080,MAT.TRG.622,Alteration of graph based on changing constants and/or function of a polar equation.
+,,Special Polar Equations and Graphs,,,,MAT.TRG.501.090,MAT.CAL.868,"Archimedean spirals, cardioids, and roses."
+,Polar and Rectangular Conversions,,,,,MAT.TRG.502.0,"MAT.TRG.632, MAT.TRG.630, MAT.TRG.610, MAT.ALY.414",Convert from polar to cartesian coordinates
+,,Rectangular to Polar Conversions,,,,MAT.TRG.502.040,"MAT.TRG.634, MAT.TRG.638",Convert from cartesian to polar coordinates
+,,Rectangular and Polar Form of Equations,,,,MAT.TRG.502.060,"MAT.TRG.636, MAT.CAL.851, MAT.CAL.850",Convert equations by substituting x and y with expressions of distance and angles.
+,Polar Equations,,,,,MAT.TRG.503.0,"MAT.CAL.870, MAT.CAL.872, MAT.CAL.878",
+,,Intersections of Polar Curves,,,,MAT.TRG.503.020,"MAT.TRG.642, MAT.TRG.640",Polar curves are graphs that form spiral patterns
+,,Equivalent Polar Curves,,,,MAT.TRG.503.060,MAT.TRG.644,
+,,Systems of Polar Equations,,,,MAT.TRG.503.080,MAT.ALY.416,Points of intersection or locations where two polar equations have the same solution.
+,Polar Equations and Calculus,,,,,MAT.TRG.504.0,MAT.CAL.880,Convert polar equations to rectangular form to calculate volume of solids created by curves revolved around given lines.
+,,Polar Equations of Conics in Calculus,,,,MAT.TRG.504.010,"MAT.CAL.874, MAT.ALY.418, MAT.CAL.876","Move between polar and rectangular equations for ellipses, circles, hyperbolas and parabolas."
+,,Polar Formula for Area in the Plane,,,,MAT.TRG.504.030,MAT.CAL.882,Integrate polar equations to find area under curves.
+,,Polar Formula for Length of a Curve,,,,MAT.TRG.504.050,MAT.CAL.884,Differentiate and integrate polar equations to calculate arc length.
+,,Polar Formulas for Area of a Surface of Revolution,,,,MAT.TRG.504.070,MAT.CAL.886,Definite integrals to find surface area of solids created by polar curves revolved around the polar axis or a line.
+,,"Polar Formulas for Mass, Moments, and Centers",,,,MAT.TRG.504.090,MAT.CAL.888,
+,Imaginary and Complex Numbers,,,,,MAT.TRG.508.0,MAT.ALY.420,
+,,Imaginary Numbers,,,,MAT.TRG.508.010,MAT.ALY.421,The imaginary number 'i' is equal to the square root of negative 1
+,,Complex Numbers,,,,MAT.TRG.508.020,MAT.ALY.422,"a + bi, the sum of a real and an imaginary number."
+,,Quadratic Formula and Complex Sums,,,,MAT.TRG.508.030,MAT.ALY.424,"Solve quadratic equations with complex roots, and add and subtract complex numbers."
+,,Products and Quotients of Complex Numbers,,,,MAT.TRG.508.040,MAT.ALY.425,Strategies based on multiplying binomials and conjugates.
+,,Trigonometric Form of Complex Numbers,,,,MAT.TRG.508.060,MAT.TRG.650,x plus y times i equals r times the sum of cosine theta and i times sine theta. 
+,,Polar Form of a Complex Number,,,,MAT.TRG.508.070,"MAT.TRG.652, MAT.ALY.426","Conversion of a + bi to (a, b), (r, theta), and rcistheta."
+,,Product and Quotient Theorems,,,,MAT.TRG.508.80,"MAT.ALY.427, MAT.TRG.662, MAT.TRG.660,
+MAT.TRG.664",Simplified way to multiply and divide complex numbers.
+,DeMoivre's Theorem and Complex Roots,,,,,MAT.TRG.509.0,MAT.TRG.670,"
+
+Raise complex numbers to powers or find their roots."
+,,DeMoivre's Theorem,,,,MAT.TRG.509.020,"MAT.TRG.672, MAT.ALY.428",Simplify the calculation of powers of complex numbers.
+,,Equations Using DeMoivre's Theorem,,,,MAT.TRG.509.040,MAT.TRG.673,Complex roots of an equation. 
+,,Geometry of Complex Roots,,,,MAT.TRG.509.060,"MAT.TRG.676, MAT.TRG.674",Roots equally spaced around circles.

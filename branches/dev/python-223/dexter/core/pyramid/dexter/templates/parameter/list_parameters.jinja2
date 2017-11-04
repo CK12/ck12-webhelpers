@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>List Parameters</title>
+    </head>
+    <body>
+            <table>
+                <tr>
+                    <th><label>Parameter Name</label> </th>
+                    <th><label>Type</label></th>
+                    <th><label>API</label></th>
+                    <th><label>Attributes</label></th>
+                    <th><label>Status Field</label></th>
+                    <th><label>Table Name</label></th>
+                 </tr>
+                 {% for eachParameter in parameters %}
+                 <tr>
+                   <td><label>{{eachParameter.name}}</label></td>
+                   <td><label>{{eachParameter.type}}</label></td>
+                   <!--<td><label>
+                    {% if eachParameter.created %}
+                       {{eachParameter.created.strftime('%Y-%m-%d')}}
+                    {% endif %}
+                   </label></td>
+                   <td><label>
+                    {% if eachParameter.updated %}
+                       {{eachParameter.updated.strftime('%Y-%m-%d')}}
+                    {% endif %}
+                   </label></td>-->
+                   <td><label>{{eachParameter.api}}</label></td>
+                   <td><label>{{eachParameter.attributesField}}</label></td>
+                   <td><label>{{eachParameter.statusField}}</label></td>
+                   <td><label>{{eachParameter.tableName}}</label></td>
+                </tr>
+                {% endfor %}
+            </table>
+    </body>
+</html>

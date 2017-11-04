@@ -1,0 +1,50 @@
+{% from "macros/pagination.html" import paginate with context %}  
+
+{% if c.paginator.item_count > 0 %}
+  {% if not c.asOverlay %}
+
+  {% for i in c.paginator.items %}
+    <div class="tr paneview {{ h.hide_if_full(c.viewmode)}}">
+      <div class="td id">{{i.id}}</div>
+      <div class="td viewtrigger tiptrigger" data-id="{{i.id}}">{{h.idlink2('/question/'+c.Qclass, i, alttext=i.displayText|truncate(32)|escape)}}</br>
+        {{h.question_type(i.questionTypeID)}},
+        by: {{h.userlink(i, 'creator', 'createdBy', truncate=15)}}
+      </div>
+      <div class="td nowrap">{{i.updateTime|compact}}</div>
+      <div class='hide tipdiv'>{{i.displayText|escape}}</div>
+    </div>
+    <div class="tr fullview {{ h.hide_if_pane(c.viewmode)}}">
+      <div class="td id">{{i.id}}</div>
+      <div class="td">{{h.question_type(i.questionTypeID)}}</div>
+      <div class="td">{{i.difficultyLevel}}</div>
+      <div class="td viewtrigger tiptrigger" data-id="{{i.id}}">{{h.idlink2('/question/'+c.Qclass, i, alttext=i.displayText|truncate(50)|escape)}}</div>
+      <div class="td">{{i.isValid}}</div>
+      <div class="td">{{h.userlink(i, 'approver', 'approvedBy')}}</div>
+      <div class="td">{{h.userlink(i, 'creator', 'createdBy', truncate=15)}}</div>
+      <div class="td nowrap">{{i.updateTime|compact}}</div>
+      <div class='hide tipdiv'>{{i.displayText|escape}}</div>
+    </div> 
+  {% endfor %}
+
+  {% else %}
+
+  {% for i in c.paginator.items %}
+    <div class="tr">
+      <div class="td id">{{h.idlink('/question/'+c.Qclass, i, 'id')}}</div>
+      <div class="td">{{h.question_type(i.questionTypeID)}}</div>
+      <div class="td">{{i.difficultyLevel}}</div>
+      <div class="td expand">{{i.displayText|truncate(50)|escape}}</div>
+      <div class="td">{{i.isValid}}</div>
+      <div class="td">{{i.creator|shorten(15)}}</div>
+      <div class="td nowrap">{{i.updateTime|compact}}</div>
+      <div class="td actionitemwrap">
+        <div class='actionitem'></div>
+        <div class='actionmsg hide'></div>
+      </div>
+      <div class='hide expanded'>{{i.displayText|escape}}</div>
+    </div>
+  {% endfor %}
+
+  {% endif %}
+{{ paginate(c.paginator) }}
+{% endif %}

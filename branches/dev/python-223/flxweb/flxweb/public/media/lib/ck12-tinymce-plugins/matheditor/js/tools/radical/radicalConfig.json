@@ -1,0 +1,12 @@
+{
+		"root" : {
+			"data" : "\\sqrt{}",
+			"pos" : [0,6,7],
+			"length" : 7
+		},
+		"rootdegree" : {
+			"data" : "\\sqrt[]{}",
+			"pos" : [0,6,8,9],
+			"length" : 9
+		}
+}

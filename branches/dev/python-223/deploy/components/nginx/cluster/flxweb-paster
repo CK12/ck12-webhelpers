@@ -1,0 +1,8 @@
+upstream paster_flxweb {
+        server 127.0.0.1:9000 fail_timeout=0;
+}
+
+upstream homesite {
+        server about.ck12.org:80 fail_timeout=0;
+}
+

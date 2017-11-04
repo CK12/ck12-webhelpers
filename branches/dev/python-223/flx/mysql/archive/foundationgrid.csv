@@ -1,0 +1,1245 @@
+foundation_code,name,parent_code
+CKT,STEM,
+CKT.E,Engineering,CKT
+CKT.M,Mathematics,CKT
+CKT.M.ALG,Algebra,CKT.M
+CKT.M.ALG.10,Graphing Techniques,CKT.M.ALG
+CKT.M.ALG.100,Abstract Algebra,CKT.M.ALG
+CKT.M.ALG.100.10,Groups,CKT.M.ALG.100
+CKT.M.ALG.100.20,Rings and Ideals,CKT.M.ALG.100
+CKT.M.ALG.100.30,Fields,CKT.M.ALG.100
+CKT.M.ALG.100.40,Galois Theory,CKT.M.ALG.100
+CKT.M.ALG.100.50,Multilinear Algebra,CKT.M.ALG.100
+CKT.M.ALG.20,Algebraic Manipulation,CKT.M.ALG
+CKT.M.ALG.30,Functions,CKT.M.ALG
+CKT.M.ALG.30.10,Linear,CKT.M.ALG.30
+CKT.M.ALG.30.20,Quadratic,CKT.M.ALG.30
+CKT.M.ALG.30.30,Polynomial,CKT.M.ALG.30
+CKT.M.ALG.30.40,Rational,CKT.M.ALG.30
+CKT.M.ALG.30.50,Exponential,CKT.M.ALG.30
+CKT.M.ALG.30.60,Logarithmic,CKT.M.ALG.30
+CKT.M.ALG.30.70,Piece-Wise,CKT.M.ALG.30
+CKT.M.ALG.30.80,Step,CKT.M.ALG.30
+CKT.M.ALG.40,Equations,CKT.M.ALG
+CKT.M.ALG.40.10,Linear,CKT.M.ALG.40
+CKT.M.ALG.40.20,Quadratic,CKT.M.ALG.40
+CKT.M.ALG.40.30,Polynomial,CKT.M.ALG.40
+CKT.M.ALG.40.40,Rational,CKT.M.ALG.40
+CKT.M.ALG.40.50,Exponential,CKT.M.ALG.40
+CKT.M.ALG.40.60,Logarithmic,CKT.M.ALG.40
+CKT.M.ALG.40.70,Systems,CKT.M.ALG.40
+CKT.M.ALG.50,Inequalities,CKT.M.ALG
+CKT.M.ALG.60,Matrices,CKT.M.ALG
+CKT.M.ALG.70,Sequences and Series,CKT.M.ALG
+CKT.M.ALG.80,Algebraic Proof,CKT.M.ALG
+CKT.M.ALG.90,Linear Algebra,CKT.M.ALG
+CKT.M.ALG.90.10,Systems of Linear Equations,CKT.M.ALG.90
+CKT.M.ALG.90.20,Matrix Algebra,CKT.M.ALG.90
+CKT.M.ALG.90.30,Vectors in R3,CKT.M.ALG.90
+CKT.M.ALG.90.40,Vector Spaces,CKT.M.ALG.90
+CKT.M.ALG.90.50,Linear Transformations,CKT.M.ALG.90
+CKT.M.ALG.90.60,Eigenvalues and Eigenvectors,CKT.M.ALG.90
+CKT.M.ALG.90.70,Inner Product Spaces,CKT.M.ALG.90
+CKT.M.ANL,Analysis,CKT.M
+CKT.M.ANL.10,Real Analysis,CKT.M.ANL
+CKT.M.ANL.10.10,Metric Spaces,CKT.M.ANL.10
+CKT.M.ANL.10.20,Convergence,CKT.M.ANL.10
+CKT.M.ANL.10.30,Continuity,CKT.M.ANL.10
+CKT.M.ANL.10.40,Differentiation,CKT.M.ANL.10
+CKT.M.ANL.10.50,Integration,CKT.M.ANL.10
+CKT.M.ANL.10.60,Measure Theory,CKT.M.ANL.10
+CKT.M.ANL.20,Complex Analysis,CKT.M.ANL
+CKT.M.ANL.20.10,Convergence,CKT.M.ANL.20
+CKT.M.ANL.20.20,Infinite Series,CKT.M.ANL.20
+CKT.M.ANL.20.30,Analytic Functions,CKT.M.ANL.20
+CKT.M.ANL.20.40,Integration,CKT.M.ANL.20
+CKT.M.ANL.20.50,Contour Integrals,CKT.M.ANL.20
+CKT.M.ANL.20.60,Conformal Mappings,CKT.M.ANL.20
+CKT.M.ANL.20.70,Several Complex Variables,CKT.M.ANL.20
+CKT.M.ANL.30,Numerical Analysis,CKT.M.ANL
+CKT.M.ANL.30.10,Computer Arithmetic,CKT.M.ANL.30
+CKT.M.ANL.30.20,Solutions of Equations,CKT.M.ANL.30
+CKT.M.ANL.30.30,Solutions of Systems,CKT.M.ANL.30
+CKT.M.ANL.30.40,Interpolation,CKT.M.ANL.30
+CKT.M.ANL.30.50,Numerical Differentiation,CKT.M.ANL.30
+CKT.M.ANL.30.60,Numerical Integration,CKT.M.ANL.30
+CKT.M.ANL.30.70,Numerical Solutions of ODEs,CKT.M.ANL.30
+CKT.M.ANL.30.80,Numerical Solutions of PDEs,CKT.M.ANL.30
+CKT.M.ANL.40,Integral Transforms,CKT.M.ANL
+CKT.M.ANL.40.10,Fourier Transforms,CKT.M.ANL.40
+CKT.M.ANL.40.20,Laplace Transforms,CKT.M.ANL.40
+CKT.M.ANL.40.30,Hankel Transforms,CKT.M.ANL.40
+CKT.M.ANL.40.40,Wavelets,CKT.M.ANL.40
+CKT.M.ANL.40.50,Other Transforms,CKT.M.ANL.40
+CKT.M.ANL.50,Signal Analysis,CKT.M.ANL
+CKT.M.ANL.50.10,Sampling Theory,CKT.M.ANL.50
+CKT.M.ANL.50.20,Filters,CKT.M.ANL.50
+CKT.M.ANL.50.30,Noise,CKT.M.ANL.50
+CKT.M.ANL.50.40,Data Compression,CKT.M.ANL.50
+CKT.M.ANL.50.50,Image Processing,CKT.M.ANL.50
+CKT.M.ANL.60,Functional Analysis,CKT.M.ANL
+CKT.M.ANL.60.10,Hilbert Spaces,CKT.M.ANL.60
+CKT.M.ANL.60.20,Banach Spaces,CKT.M.ANL.60
+CKT.M.ANL.60.30,Topological Spaces,CKT.M.ANL.60
+CKT.M.ANL.60.40,Locally Convex Spaces,CKT.M.ANL.60
+CKT.M.ANL.60.50,Bounded Operators,CKT.M.ANL.60
+CKT.M.ANL.60.60,Spectral Theorem,CKT.M.ANL.60
+CKT.M.ANL.60.70,Unbounded Operators,CKT.M.ANL.60
+CKT.M.ANL.70,Harmonic Analysis,CKT.M.ANL
+CKT.M.ANL.80,Global Analysis,CKT.M.ANL
+CKT.M.CAL,Calculus,CKT.M
+CKT.M.CAL.10,Single Variable,CKT.M.CAL
+CKT.M.CAL.10.10,Functions,CKT.M.CAL.10
+CKT.M.CAL.10.20,Limits,CKT.M.CAL.10
+CKT.M.CAL.10.30,Continuity,CKT.M.CAL.10
+CKT.M.CAL.10.40,Differentiation,CKT.M.CAL.10
+CKT.M.CAL.10.50,Integration,CKT.M.CAL.10
+CKT.M.CAL.10.60,Series,CKT.M.CAL.10
+CKT.M.CAL.20,Several Variables,CKT.M.CAL
+CKT.M.CAL.20.10,Functions of Several Variables,CKT.M.CAL.20
+CKT.M.CAL.20.20,Limits,CKT.M.CAL.20
+CKT.M.CAL.20.30,Continuity,CKT.M.CAL.20
+CKT.M.CAL.20.40,Partial Derivatives,CKT.M.CAL.20
+CKT.M.CAL.20.50,Multiple Integrals,CKT.M.CAL.20
+CKT.M.CAL.20.60,Taylor Series,CKT.M.CAL.20
+CKT.M.CAL.30,Advanced Calculus,CKT.M.CAL
+CKT.M.CAL.30.10,Vector Valued Functions,CKT.M.CAL.30
+CKT.M.CAL.30.20,Line Integrals,CKT.M.CAL.30
+CKT.M.CAL.30.30,Surface Integrals,CKT.M.CAL.30
+CKT.M.CAL.30.40,Stokes Theorem,CKT.M.CAL.30
+CKT.M.CAL.30.50,Curvilinear Coordinates,CKT.M.CAL.30
+CKT.M.CAL.30.60,Linear Spaces,CKT.M.CAL.30
+CKT.M.CAL.30.70,Fourier Series,CKT.M.CAL.30
+CKT.M.CAL.30.80,Orthogonal Functions,CKT.M.CAL.30
+CKT.M.CAL.40,Differential Equations,CKT.M.CAL
+CKT.M.CAL.40.10,Ordinary Differential Equations,CKT.M.CAL.40
+CKT.M.CAL.40.10.10,First Order,CKT.M.CAL.40.10
+CKT.M.CAL.40.10.20,Second Order,CKT.M.CAL.40.10
+CKT.M.CAL.40.10.30,Linear Oscillations,CKT.M.CAL.40.10
+CKT.M.CAL.40.10.40,Nonlinear Oscillations,CKT.M.CAL.40.10
+CKT.M.CAL.40.10.50,Systems of Differential Equations,CKT.M.CAL.40.10
+CKT.M.CAL.40.10.60,Sturm Liouville Problems,CKT.M.CAL.40.10
+CKT.M.CAL.40.10.70,Special Functions,CKT.M.CAL.40.10
+CKT.M.CAL.40.10.80,Power Series Methods,CKT.M.CAL.40.10
+CKT.M.CAL.40.10.90,Laplace Transforms,CKT.M.CAL.40.10
+CKT.M.CAL.40.20,Partial Differential Equations,CKT.M.CAL.40
+CKT.M.CAL.40.20.10,First Order,CKT.M.CAL.40.20
+CKT.M.CAL.40.20.20,Elliptic,CKT.M.CAL.40.20
+CKT.M.CAL.40.20.30,Parabolic,CKT.M.CAL.40.20
+CKT.M.CAL.40.20.40,Hyperbolic,CKT.M.CAL.40.20
+CKT.M.CAL.40.20.50,Integral Transforms,CKT.M.CAL.40.20
+CKT.M.CAL.40.20.60,Integral Equations,CKT.M.CAL.40.20
+CKT.M.CAL.40.20.70,Potential Theory,CKT.M.CAL.40.20
+CKT.M.CAL.40.20.80,Nonlinear Equations,CKT.M.CAL.40.20
+CKT.M.CAL.40.20.90,Symmetries and Integrability,CKT.M.CAL.40.20
+CKT.M.CAL.50,Tensor Calculus,CKT.M.CAL
+CKT.M.CAL.60,Calculus of Variations,CKT.M.CAL
+CKT.M.CAL.70,Operational Calculus,CKT.M.CAL
+CKT.M.ELE,Elementary Mathematics,CKT.M
+CKT.M.ELE.10,Number Sets,CKT.M.ELE
+CKT.M.ELE.10.10,Natural,CKT.M.ELE.10
+CKT.M.ELE.10.20,Integers,CKT.M.ELE.10
+CKT.M.ELE.10.30,Rational,CKT.M.ELE.10
+CKT.M.ELE.10.40,Irrational,CKT.M.ELE.10
+CKT.M.ELE.10.50,Real,CKT.M.ELE.10
+CKT.M.ELE.10.60,"Famous Numbers, 0, pi, golden ratio",CKT.M.ELE.10
+CKT.M.ELE.20,Arithmetic,CKT.M.ELE
+CKT.M.ELE.20.10,Operations,CKT.M.ELE.20
+CKT.M.ELE.20.10.10,Addition,CKT.M.ELE.20.10
+CKT.M.ELE.20.10.20,Subtraction,CKT.M.ELE.20.10
+CKT.M.ELE.20.10.30,Multiplication,CKT.M.ELE.20.10
+CKT.M.ELE.20.10.40,Division,CKT.M.ELE.20.10
+CKT.M.ELE.20.10.50,Roots,CKT.M.ELE.20.10
+CKT.M.ELE.20.10.60,Factorials,CKT.M.ELE.20.10
+CKT.M.ELE.20.10.70,Factoring,CKT.M.ELE.20.10
+CKT.M.ELE.20.10.80,Properties of Operations,CKT.M.ELE.20.10
+CKT.M.ELE.20.10.90,Estimation,CKT.M.ELE.20.10
+CKT.M.ELE.20.20,Fractions,CKT.M.ELE.20
+CKT.M.ELE.20.20.10,Addition,CKT.M.ELE.20.20
+CKT.M.ELE.20.20.20,Subtraction,CKT.M.ELE.20.20
+CKT.M.ELE.20.20.30,Multiplication,CKT.M.ELE.20.20
+CKT.M.ELE.20.20.40,Division,CKT.M.ELE.20.20
+CKT.M.ELE.20.20.50,Ratio and Proportion,CKT.M.ELE.20.20
+CKT.M.ELE.20.20.60,Equivalent Fractions,CKT.M.ELE.20.20
+CKT.M.ELE.20.30,Decimals,CKT.M.ELE.20
+CKT.M.ELE.20.30.10,Addition,CKT.M.ELE.20.30
+CKT.M.ELE.20.30.20,Subtraction,CKT.M.ELE.20.30
+CKT.M.ELE.20.30.30,Multiplication,CKT.M.ELE.20.30
+CKT.M.ELE.20.30.40,Division,CKT.M.ELE.20.30
+CKT.M.ELE.20.30.50,Percents,CKT.M.ELE.20.30
+CKT.M.ELE.20.40,Comparison of Numbers,CKT.M.ELE.20
+CKT.M.ELE.20.50,Exponents,CKT.M.ELE.20
+CKT.M.ELE.20.50.10,Multiplication,CKT.M.ELE.20.50
+CKT.M.ELE.20.50.20,Division,CKT.M.ELE.20.50
+CKT.M.ELE.20.50.30,Powers,CKT.M.ELE.20.50
+CKT.M.ELE.20.50.40,Integer Exponents,CKT.M.ELE.20.50
+CKT.M.ELE.30,Patterns and Sequences,CKT.M.ELE
+CKT.M.ELE.30.10,Number Patterns,CKT.M.ELE.30
+CKT.M.ELE.30.20,Fibonacci Sequence,CKT.M.ELE.30
+CKT.M.ELE.30.30,Arithmetic Sequence,CKT.M.ELE.30
+CKT.M.ELE.30.40,Geometric Sequence,CKT.M.ELE.30
+CKT.M.ELE.40,Measurement,CKT.M.ELE
+CKT.M.ELE.40.10,Units of Measurement,CKT.M.ELE.40
+CKT.M.ELE.40.10.10,Metric System,CKT.M.ELE.40.10
+CKT.M.ELE.40.10.20,Standard Units,CKT.M.ELE.40.10
+CKT.M.ELE.40.10.30,Nonstandard Units,CKT.M.ELE.40.10
+CKT.M.ELE.40.100,Scale,CKT.M.ELE.40
+CKT.M.ELE.40.20,Linear Measure,CKT.M.ELE.40
+CKT.M.ELE.40.20.10,Distance,CKT.M.ELE.40.20
+CKT.M.ELE.40.20.20,Circumference,CKT.M.ELE.40.20
+CKT.M.ELE.40.20.30,Perimeter,CKT.M.ELE.40.20
+CKT.M.ELE.40.30,Area,CKT.M.ELE.40
+CKT.M.ELE.40.30.10,Area of Polygons,CKT.M.ELE.40.30
+CKT.M.ELE.40.30.20,Area of Circles,CKT.M.ELE.40.30
+CKT.M.ELE.40.30.30,Surface Area,CKT.M.ELE.40.30
+CKT.M.ELE.40.30.40,Nonstandard Shapes,CKT.M.ELE.40.30
+CKT.M.ELE.40.40,Volume,CKT.M.ELE.40
+CKT.M.ELE.40.50,Weight and Mass,CKT.M.ELE.40
+CKT.M.ELE.40.60,Temperature,CKT.M.ELE.40
+CKT.M.ELE.40.70,Time,CKT.M.ELE.40
+CKT.M.ELE.40.80,Speed,CKT.M.ELE.40
+CKT.M.ELE.40.90,Money,CKT.M.ELE.40
+CKT.M.GEO,Geometry,CKT.M
+CKT.M.GEO.10,Geometric Proof,CKT.M.GEO
+CKT.M.GEO.20,Plane Geometry,CKT.M.GEO
+CKT.M.GEO.20.10,Measurement,CKT.M.GEO.20
+CKT.M.GEO.20.20,Lines and Planes,CKT.M.GEO.20
+CKT.M.GEO.20.30,Angles,CKT.M.GEO.20
+CKT.M.GEO.20.40,Triangles,CKT.M.GEO.20
+CKT.M.GEO.20.40.10,Properties,CKT.M.GEO.20.40
+CKT.M.GEO.20.40.20,Congruence,CKT.M.GEO.20.40
+CKT.M.GEO.20.40.30,Similarity,CKT.M.GEO.20.40
+CKT.M.GEO.20.40.40,Pythagorean Theorem,CKT.M.GEO.20.40
+CKT.M.GEO.20.50,Polygons,CKT.M.GEO.20
+CKT.M.GEO.20.50.10,Properties,CKT.M.GEO.20.50
+CKT.M.GEO.20.50.20,Regular,CKT.M.GEO.20.50
+CKT.M.GEO.20.50.30,Irregular,CKT.M.GEO.20.50
+CKT.M.GEO.20.50.40,Congruence,CKT.M.GEO.20.50
+CKT.M.GEO.20.50.50,Similarity,CKT.M.GEO.20.50
+CKT.M.GEO.20.60,Circles,CKT.M.GEO.20
+CKT.M.GEO.20.70,Patterns,CKT.M.GEO.20
+CKT.M.GEO.20.70.10,Geometric Patterns,CKT.M.GEO.20.70
+CKT.M.GEO.20.70.20,Tilings and Tessellations,CKT.M.GEO.20.70
+CKT.M.GEO.20.70.30,Symmetry,CKT.M.GEO.20.70
+CKT.M.GEO.20.70.40,Golden Ratio,CKT.M.GEO.20.70
+CKT.M.GEO.20.80,Transformations,CKT.M.GEO.20
+CKT.M.GEO.20.80.10,Translation,CKT.M.GEO.20.80
+CKT.M.GEO.20.80.20,Rotation,CKT.M.GEO.20.80
+CKT.M.GEO.20.80.30,Reflection,CKT.M.GEO.20.80
+CKT.M.GEO.20.80.40,Scaling,CKT.M.GEO.20.80
+CKT.M.GEO.30,Solid Geometry,CKT.M.GEO
+CKT.M.GEO.30.10,Dihedral Angles,CKT.M.GEO.30
+CKT.M.GEO.30.20,Spheres,CKT.M.GEO.30
+CKT.M.GEO.30.30,Cones,CKT.M.GEO.30
+CKT.M.GEO.30.40,Cylinders,CKT.M.GEO.30
+CKT.M.GEO.30.50,Pyramids,CKT.M.GEO.30
+CKT.M.GEO.30.60,Prisms,CKT.M.GEO.30
+CKT.M.GEO.30.70,Polyhedra,CKT.M.GEO.30
+CKT.M.GEO.40,Analytic Geometry,CKT.M.GEO
+CKT.M.GEO.40.10,Cartesian Coordinates,CKT.M.GEO.40
+CKT.M.GEO.40.20,Lines,CKT.M.GEO.40
+CKT.M.GEO.40.30,Circles,CKT.M.GEO.40
+CKT.M.GEO.40.40,Planes,CKT.M.GEO.40
+CKT.M.GEO.40.50,Conics,CKT.M.GEO.40
+CKT.M.GEO.40.60,Polar Coordinates,CKT.M.GEO.40
+CKT.M.GEO.40.70,Parametric Curves,CKT.M.GEO.40
+CKT.M.GEO.40.80,Surfaces,CKT.M.GEO.40
+CKT.M.GEO.40.90,Distance Formula,CKT.M.GEO.40
+CKT.M.GEO.50,Projective Geometry,CKT.M.GEO
+CKT.M.GEO.60,Differential Geometry,CKT.M.GEO
+CKT.M.GEO.70,Algebraic Geometry,CKT.M.GEO
+CKT.M.GEO.80,Fractal Geometry,CKT.M.GEO
+CKT.M.STA,Statistics and Probability,CKT.M
+CKT.M.STA.10,Data Collection,CKT.M.STA
+CKT.M.STA.10.10,Experimental Design,CKT.M.STA.10
+CKT.M.STA.10.20,Sampling and Surveys,CKT.M.STA.10
+CKT.M.STA.10.30,Data and Measurement Issues,CKT.M.STA.10
+CKT.M.STA.20,Data Summary and Presentation,CKT.M.STA
+CKT.M.STA.20.10,Summary Statistics,CKT.M.STA.20
+CKT.M.STA.20.10.10,Measures of Central Tendency,CKT.M.STA.20.10
+CKT.M.STA.20.10.20,Measures of Spread,CKT.M.STA.20.10
+CKT.M.STA.20.20,Data Representation,CKT.M.STA.20
+CKT.M.STA.20.20.10,Graphs and Plots,CKT.M.STA.20.20
+CKT.M.STA.20.20.20,Tables,CKT.M.STA.20.20
+CKT.M.STA.30,Statistical Inference and Techniques,CKT.M.STA
+CKT.M.STA.30.10,Sampling Distributions,CKT.M.STA.30
+CKT.M.STA.30.20,Regression and Correlation,CKT.M.STA.30
+CKT.M.STA.30.30,Confidence Intervals,CKT.M.STA.30
+CKT.M.STA.30.40,Hypothesis Tests,CKT.M.STA.30
+CKT.M.STA.30.50,Statistical Quality Control,CKT.M.STA.30
+CKT.M.STA.30.60,Non-Parametric Techniques,CKT.M.STA.30
+CKT.M.STA.30.70,Multivariate Techniques,CKT.M.STA.30
+CKT.M.STA.30.80,Survival Analysis,CKT.M.STA.30
+CKT.M.STA.30.90,Bayesian Statistics,CKT.M.STA.30
+CKT.M.STA.40,Probability,CKT.M.STA
+CKT.M.STA.40.10,Elementary Probability,CKT.M.STA.40
+CKT.M.STA.40.10.10,Sample Space and Events,CKT.M.STA.40.10
+CKT.M.STA.40.10.20,General Rules,CKT.M.STA.40.10
+CKT.M.STA.40.10.30,Combinations and Permutations,CKT.M.STA.40.10
+CKT.M.STA.40.10.40,Random Variables,CKT.M.STA.40.10
+CKT.M.STA.40.20,Univariate Distributions,CKT.M.STA.40
+CKT.M.STA.40.20.10,Discrete Distributions,CKT.M.STA.40.20
+CKT.M.STA.40.20.20,Continuous Distributions,CKT.M.STA.40.20
+CKT.M.STA.40.20.30,Expected Value,CKT.M.STA.40.20
+CKT.M.STA.40.30,Limit Theorems,CKT.M.STA.40
+CKT.M.STA.40.30.10,Central Limit Theorem,CKT.M.STA.40.30
+CKT.M.STA.40.30.20,Law of Large Numbers,CKT.M.STA.40.30
+CKT.M.STA.40.40,Multivariate Distributions,CKT.M.STA.40
+CKT.M.STA.40.40.10,Joint,CKT.M.STA.40.40
+CKT.M.STA.40.40.20,Conditional,CKT.M.STA.40.40
+CKT.M.STA.40.40.30,Expectations,CKT.M.STA.40.40
+CKT.M.STA.40.50,Stochastic Processes,CKT.M.STA.40
+CKT.M.STA.40.50.10,Brownian Motion,CKT.M.STA.40.50
+CKT.M.STA.40.50.20,Markov Chains,CKT.M.STA.40.50
+CKT.M.STA.40.50.30,Queuing Theory,CKT.M.STA.40.50
+CKT.M.STA.40.60,Probability Measures,CKT.M.STA.40
+CKT.M.STA.40.70,Simulation,CKT.M.STA.40
+CKT.M.TRI,Trigonometry,CKT.M
+CKT.M.TRI.10,Complex Numbers,CKT.M.TRI
+CKT.M.TRI.20,Angles,CKT.M.TRI
+CKT.M.TRI.30,Trigonometric Functions,CKT.M.TRI
+CKT.M.TRI.40,Inverse Trigonometric Functions,CKT.M.TRI
+CKT.M.TRI.50,Trigonometric Identities,CKT.M.TRI
+CKT.M.TRI.60,Trigonometric Equations,CKT.M.TRI
+CKT.M.TRI.70,Roots of Unity,CKT.M.TRI
+CKT.M.TRI.80,Spherical Trigonometry,CKT.M.TRI
+CKT.S,Science,CKT
+CKT.S.BIO,Biology,CKT.S
+CKT.S.BIO.10,Foundations of Life Science,CKT.S.BIO
+CKT.S.BIO.10.10,Goals of Science,CKT.S.BIO.10
+CKT.S.BIO.10.20,Scientific Theories,CKT.S.BIO.10
+CKT.S.BIO.10.30,Communication,CKT.S.BIO.10
+CKT.S.BIO.10.40,Science and Society,CKT.S.BIO.10
+CKT.S.BIO.100,Plants,CKT.S.BIO
+CKT.S.BIO.100.10,Evolution and Classification of Plants,CKT.S.BIO.100
+CKT.S.BIO.100.10.10,Nonvascular Plants,CKT.S.BIO.100.10
+CKT.S.BIO.100.10.20,Seedless Vascular Plants,CKT.S.BIO.100.10
+CKT.S.BIO.100.10.30,Seed Plants,CKT.S.BIO.100.10
+CKT.S.BIO.100.10.40,Flowering Plants,CKT.S.BIO.100.10
+CKT.S.BIO.100.20,Structure and Function in Plants,CKT.S.BIO.100
+CKT.S.BIO.100.20.10,Plant Tissues and Growth,CKT.S.BIO.100.20
+CKT.S.BIO.100.20.20,Roots,CKT.S.BIO.100.20
+CKT.S.BIO.100.20.30,Stems,CKT.S.BIO.100.20
+CKT.S.BIO.100.20.40,Leaves,CKT.S.BIO.100.20
+CKT.S.BIO.100.30,Reproduction of Plants,CKT.S.BIO.100
+CKT.S.BIO.100.30.10,Life Cycles of Non-flowering Plants,CKT.S.BIO.100.30
+CKT.S.BIO.100.30.20,Reproduction of Flowering Plants,CKT.S.BIO.100.30
+CKT.S.BIO.100.30.30,Seeds and Fruits of Flowering Plants,CKT.S.BIO.100.30
+CKT.S.BIO.100.30.40,Other Methods,CKT.S.BIO.100.30
+CKT.S.BIO.100.40,Plant Adaptations and Responses,CKT.S.BIO.100
+CKT.S.BIO.100.40.10,Aquatic Adaptations,CKT.S.BIO.100.40
+CKT.S.BIO.100.40.20,Plant Hormones,CKT.S.BIO.100.40
+CKT.S.BIO.100.40.30,Plant Growth and Responses,CKT.S.BIO.100.40
+CKT.S.BIO.110,Invertebrates,CKT.S.BIO
+CKT.S.BIO.110.10,Characteristics,CKT.S.BIO.110
+CKT.S.BIO.110.20,Classification,CKT.S.BIO.110
+CKT.S.BIO.110.30,Evolution,CKT.S.BIO.110
+CKT.S.BIO.110.40,Sponges,CKT.S.BIO.110
+CKT.S.BIO.110.50,Cnidarians,CKT.S.BIO.110
+CKT.S.BIO.110.60,Worms and Mollusks,CKT.S.BIO.110
+CKT.S.BIO.110.60.10,Flatworms,CKT.S.BIO.110.60
+CKT.S.BIO.110.60.20,Roundworms,CKT.S.BIO.110.60
+CKT.S.BIO.110.60.30,Annelids,CKT.S.BIO.110.60
+CKT.S.BIO.110.60.40,Mollusks,CKT.S.BIO.110.60
+CKT.S.BIO.110.70,Arthropods,CKT.S.BIO.110
+CKT.S.BIO.110.70.10,Insects,CKT.S.BIO.110.70
+CKT.S.BIO.110.80,Echinoderms,CKT.S.BIO.110
+CKT.S.BIO.110.90,Nonvertebrate Chordates,CKT.S.BIO.110
+CKT.S.BIO.120,Vertebrates,CKT.S.BIO
+CKT.S.BIO.120.10,Characteristics,CKT.S.BIO.120
+CKT.S.BIO.120.100,Animal Behavior,CKT.S.BIO.120
+CKT.S.BIO.120.20,Classification,CKT.S.BIO.120
+CKT.S.BIO.120.30,Evolution,CKT.S.BIO.120
+CKT.S.BIO.120.40,Fishes,CKT.S.BIO.120
+CKT.S.BIO.120.50,Amphibians,CKT.S.BIO.120
+CKT.S.BIO.120.60,Reptiles,CKT.S.BIO.120
+CKT.S.BIO.120.70,Birds,CKT.S.BIO.120
+CKT.S.BIO.120.80,Mammals,CKT.S.BIO.120
+CKT.S.BIO.120.90,Humans and Other Primates,CKT.S.BIO.120
+CKT.S.BIO.130,Human Biology,CKT.S.BIO
+CKT.S.BIO.130.10,The Human Body,CKT.S.BIO.130
+CKT.S.BIO.130.100,Excretory Systems,CKT.S.BIO.130
+CKT.S.BIO.130.110,Immune System,CKT.S.BIO.130
+CKT.S.BIO.130.120,Disease,CKT.S.BIO.130
+CKT.S.BIO.130.20,Nervous System,CKT.S.BIO.130
+CKT.S.BIO.130.30,Endocrine System,CKT.S.BIO.130
+CKT.S.BIO.130.40,Skeletal System,CKT.S.BIO.130
+CKT.S.BIO.130.50,Muscular System,CKT.S.BIO.130
+CKT.S.BIO.130.60,Integumentary System,CKT.S.BIO.130
+CKT.S.BIO.130.70,Circulatory System,CKT.S.BIO.130
+CKT.S.BIO.130.80,Respiratory System,CKT.S.BIO.130
+CKT.S.BIO.130.90,Digestive System,CKT.S.BIO.130
+CKT.S.BIO.140,Environmental Problems and Human Health,CKT.S.BIO
+CKT.S.BIO.140.10,Carcinogens and Cancer,CKT.S.BIO.140
+CKT.S.BIO.140.20,Air Pollution and Respiratory Illness,CKT.S.BIO.140
+CKT.S.BIO.140.30,Bioterrorism,CKT.S.BIO.140
+CKT.S.BIO.150,Reproductive System and Human Development,CKT.S.BIO
+CKT.S.BIO.150.10,Male Reproductive System,CKT.S.BIO.150
+CKT.S.BIO.150.20,Female Reproductive System,CKT.S.BIO.150
+CKT.S.BIO.150.30,Sexually Transmitted Diseases,CKT.S.BIO.150
+CKT.S.BIO.20,Scientific Research,CKT.S.BIO
+CKT.S.BIO.20.10,Scientific Method,CKT.S.BIO.20
+CKT.S.BIO.20.20,Scientific Theories,CKT.S.BIO.20
+CKT.S.BIO.20.30,Tools and Techniques,CKT.S.BIO.20
+CKT.S.BIO.30,Biological Principles,CKT.S.BIO
+CKT.S.BIO.30.10,Characteristics of Living Things,CKT.S.BIO.30
+CKT.S.BIO.30.20,Interdependence of Living Things,CKT.S.BIO.30
+CKT.S.BIO.30.30,Diversity of Life,CKT.S.BIO.30
+CKT.S.BIO.30.40,Evolution of Life,CKT.S.BIO.30
+CKT.S.BIO.40,Chemical Basis of Life,CKT.S.BIO
+CKT.S.BIO.40.10,Matter,CKT.S.BIO.40
+CKT.S.BIO.40.20,Organic Compounds,CKT.S.BIO.40
+CKT.S.BIO.40.20.10,Carbon Bonds,CKT.S.BIO.40.20
+CKT.S.BIO.40.20.20,Carbohydrates,CKT.S.BIO.40.20
+CKT.S.BIO.40.20.30,Proteins,CKT.S.BIO.40.20
+CKT.S.BIO.40.20.40,Lipids,CKT.S.BIO.40.20
+CKT.S.BIO.40.20.50,Nucleic Acids,CKT.S.BIO.40.20
+CKT.S.BIO.40.30,Chemical Reactions,CKT.S.BIO.40
+CKT.S.BIO.40.30.10,Enzymes and Biochemical Reactions,CKT.S.BIO.40.30
+CKT.S.BIO.40.40,Water,CKT.S.BIO.40
+CKT.S.BIO.40.50,Acids and Bases,CKT.S.BIO.40
+CKT.S.BIO.50,Cells,CKT.S.BIO
+CKT.S.BIO.50.10,Cell Structure and Function,CKT.S.BIO.50
+CKT.S.BIO.50.10.10,Discovery of Cells,CKT.S.BIO.50.10
+CKT.S.BIO.50.10.20,Cell Theory,CKT.S.BIO.50.10
+CKT.S.BIO.50.10.30,Function of Cells,CKT.S.BIO.50.10
+CKT.S.BIO.50.10.40,Prokaryote Cells,CKT.S.BIO.50.10
+CKT.S.BIO.50.10.50,Eurkaryote Cells,CKT.S.BIO.50.10
+CKT.S.BIO.50.10.50.10,Organelles,CKT.S.BIO.50.10.50
+CKT.S.BIO.50.10.50.20,Plant-cells,CKT.S.BIO.50.10.50
+CKT.S.BIO.50.10.60,Multicellular Organisms,CKT.S.BIO.50.10
+CKT.S.BIO.50.20,Cell Processes,CKT.S.BIO.50
+CKT.S.BIO.50.20.10,Transport,CKT.S.BIO.50.20
+CKT.S.BIO.50.20.20,Homeostatis,CKT.S.BIO.50.20
+CKT.S.BIO.50.30,Photosynthesis,CKT.S.BIO.50
+CKT.S.BIO.50.30.10,Electron Carriers,CKT.S.BIO.50.30
+CKT.S.BIO.50.30.20,Light-Dependent Reactions,CKT.S.BIO.50.30
+CKT.S.BIO.50.30.30,Calvin Cycle,CKT.S.BIO.50.30
+CKT.S.BIO.50.40,Cellular Respiration,CKT.S.BIO.50
+CKT.S.BIO.50.40.10,Glycolysis,CKT.S.BIO.50.40
+CKT.S.BIO.50.40.20,Fermentation,CKT.S.BIO.50.40
+CKT.S.BIO.50.40.30,Krebs Cycle,CKT.S.BIO.50.40
+CKT.S.BIO.50.40.40,Electron Transport,CKT.S.BIO.50.40
+CKT.S.BIO.50.50,Cell Division,CKT.S.BIO.50
+CKT.S.BIO.50.50.10,Cell Growth,CKT.S.BIO.50.50
+CKT.S.BIO.50.50.20,Prokaryotic Cell Division,CKT.S.BIO.50.50
+CKT.S.BIO.50.50.30,Eurkaryotic Cell Division,CKT.S.BIO.50.50
+CKT.S.BIO.50.50.40,Chromosomes,CKT.S.BIO.50.50
+CKT.S.BIO.50.50.50,Mitosis,CKT.S.BIO.50.50
+CKT.S.BIO.50.50.60,Cancer,CKT.S.BIO.50.50
+CKT.S.BIO.50.60,Reproduction,CKT.S.BIO.50
+CKT.S.BIO.50.60.10,Asexual Reproduction,CKT.S.BIO.50.60
+CKT.S.BIO.50.60.20,Sexual Reproduction,CKT.S.BIO.50.60
+CKT.S.BIO.50.60.30,Meiosis,CKT.S.BIO.50.60
+CKT.S.BIO.50.60.40,Gametogenesis,CKT.S.BIO.50.60
+CKT.S.BIO.50.60.50,Fertilization,CKT.S.BIO.50.60
+CKT.S.BIO.60,Genetics,CKT.S.BIO
+CKT.S.BIO.60.10,Mendelian Genetics,CKT.S.BIO.60
+CKT.S.BIO.60.10.10,Dominant Traits,CKT.S.BIO.60.10
+CKT.S.BIO.60.10.20,Recessive Traits,CKT.S.BIO.60.10
+CKT.S.BIO.60.10.30,Law of Segregation,CKT.S.BIO.60.10
+CKT.S.BIO.60.10.40,Law of Independent Assortment,CKT.S.BIO.60.10
+CKT.S.BIO.60.10.50,Mendelian Inheritance,CKT.S.BIO.60.10
+CKT.S.BIO.60.10.50.10,Probability,CKT.S.BIO.60.10.50
+CKT.S.BIO.60.10.50.20,Punnett Squares,CKT.S.BIO.60.10.50
+CKT.S.BIO.60.20,Molecular Genetics,CKT.S.BIO.60
+CKT.S.BIO.60.20.10,DNA and RNA,CKT.S.BIO.60.20
+CKT.S.BIO.60.20.10.10,Discovery,CKT.S.BIO.60.20.10
+CKT.S.BIO.60.20.10.20,Structure,CKT.S.BIO.60.20.10
+CKT.S.BIO.60.20.10.30,Chromosomes,CKT.S.BIO.60.20.10
+CKT.S.BIO.60.20.10.40,Genes,CKT.S.BIO.60.20.10
+CKT.S.BIO.60.20.10.50,Replication,CKT.S.BIO.60.20.10
+CKT.S.BIO.60.20.10.60,RNA,CKT.S.BIO.60.20.10
+CKT.S.BIO.60.20.20,Protein Synthesis,CKT.S.BIO.60.20
+CKT.S.BIO.60.20.20.10,Transcription,CKT.S.BIO.60.20.20
+CKT.S.BIO.60.20.20.20,Genetic Code,CKT.S.BIO.60.20.20
+CKT.S.BIO.60.20.20.30,Translation,CKT.S.BIO.60.20.20
+CKT.S.BIO.60.20.30,Mutation,CKT.S.BIO.60.20
+CKT.S.BIO.60.20.30.10,Causes,CKT.S.BIO.60.20.30
+CKT.S.BIO.60.20.30.20,Types,CKT.S.BIO.60.20.30
+CKT.S.BIO.60.20.30.30,Significance,CKT.S.BIO.60.20.30
+CKT.S.BIO.60.20.30.40,Cancer,CKT.S.BIO.60.20.30
+CKT.S.BIO.60.20.40,Regulation of Gene Expression,CKT.S.BIO.60.20
+CKT.S.BIO.60.20.40.10,Mechanisms of Regulation,CKT.S.BIO.60.20.40
+CKT.S.BIO.60.20.40.20,Gene Expression in Development,CKT.S.BIO.60.20.40
+CKT.S.BIO.60.20.40.30,Gene Expression in Cancer,CKT.S.BIO.60.20.40
+CKT.S.BIO.60.30,Human Genetics,CKT.S.BIO.60
+CKT.S.BIO.60.30.10,Human Genome,CKT.S.BIO.60.30
+CKT.S.BIO.60.30.20,Autosomes,CKT.S.BIO.60.30
+CKT.S.BIO.60.30.30,Sex Chromosomes,CKT.S.BIO.60.30
+CKT.S.BIO.60.30.40,Sex-linked Genes,CKT.S.BIO.60.30
+CKT.S.BIO.60.40,Human Inheritance,CKT.S.BIO.60
+CKT.S.BIO.60.40.10,Autosomal Traits,CKT.S.BIO.60.40
+CKT.S.BIO.60.40.20,Sex-linked Traits,CKT.S.BIO.60.40
+CKT.S.BIO.60.40.30,Multiple-allele Traits,CKT.S.BIO.60.40
+CKT.S.BIO.60.40.40,Polygenic Traits,CKT.S.BIO.60.40
+CKT.S.BIO.60.40.50,Complex Traits,CKT.S.BIO.60.40
+CKT.S.BIO.60.50,Genetic Disorders,CKT.S.BIO.60
+CKT.S.BIO.60.50.10,Mutations,CKT.S.BIO.60.50
+CKT.S.BIO.60.50.20,Genetic Disorders,CKT.S.BIO.60.50
+CKT.S.BIO.60.50.30,Chromosomal Disorders,CKT.S.BIO.60.50
+CKT.S.BIO.60.50.40,Diagnosis and Treatment,CKT.S.BIO.60.50
+CKT.S.BIO.60.60,Biotechnology,CKT.S.BIO.60
+CKT.S.BIO.60.60.10,DNA Technology,CKT.S.BIO.60.60
+CKT.S.BIO.60.60.10.10,Recombinant DNA,CKT.S.BIO.60.60.10
+CKT.S.BIO.60.60.10.20,Polymerase Chain Reaction,CKT.S.BIO.60.60.10
+CKT.S.BIO.60.60.20,Biotechnology,CKT.S.BIO.60.60
+CKT.S.BIO.60.60.30,Genetic Testing,CKT.S.BIO.60.60
+CKT.S.BIO.60.60.40,Prenatal Diagnosis,CKT.S.BIO.60.60
+CKT.S.BIO.60.60.50,Animal Cloning,CKT.S.BIO.60.60
+CKT.S.BIO.60.60.60,Forensic Science,CKT.S.BIO.60.60
+CKT.S.BIO.60.60.70,Ethical Issues,CKT.S.BIO.60.60
+CKT.S.BIO.70,Evolution,CKT.S.BIO
+CKT.S.BIO.70.10,Evolutionary Theory,CKT.S.BIO.70
+CKT.S.BIO.70.10.10,Darwin,CKT.S.BIO.70.10
+CKT.S.BIO.70.10.20,Voyage of the Beagle,CKT.S.BIO.70.10
+CKT.S.BIO.70.10.30,Darwin's Theory of Evolution,CKT.S.BIO.70.10
+CKT.S.BIO.70.10.40,The Origin of Species,CKT.S.BIO.70.10
+CKT.S.BIO.70.100,Classification,CKT.S.BIO.70
+CKT.S.BIO.70.100.10,Phylogenetic Classification,CKT.S.BIO.70.100
+CKT.S.BIO.70.100.20,Modern Classification System,CKT.S.BIO.70.100
+CKT.S.BIO.70.20,Evidence for Past Evolution,CKT.S.BIO.70
+CKT.S.BIO.70.20.10,Fossils,CKT.S.BIO.70.20
+CKT.S.BIO.70.20.20,Biogeography,CKT.S.BIO.70.20
+CKT.S.BIO.70.20.30,Comparative Anatomy,CKT.S.BIO.70.20
+CKT.S.BIO.70.20.40,Embryology,CKT.S.BIO.70.20
+CKT.S.BIO.70.20.50,Molecular Biology,CKT.S.BIO.70.20
+CKT.S.BIO.70.30,Ongoing Evolution,CKT.S.BIO.70
+CKT.S.BIO.70.30.10,Artificial Selection,CKT.S.BIO.70.30
+CKT.S.BIO.70.30.20,Evolution of Resistance,CKT.S.BIO.70.30
+CKT.S.BIO.70.30.30,Speciation,CKT.S.BIO.70.30
+CKT.S.BIO.70.40,Evolution in Populations,CKT.S.BIO.70
+CKT.S.BIO.70.40.10,Population Genetics,CKT.S.BIO.70.40
+CKT.S.BIO.70.40.20,Genes and Alleles,CKT.S.BIO.70.40
+CKT.S.BIO.70.40.30,Genetic Variation,CKT.S.BIO.70.40
+CKT.S.BIO.70.40.40,Populations and Gene Pools,CKT.S.BIO.70.40
+CKT.S.BIO.70.40.50,Allele Frequencies,CKT.S.BIO.70.40
+CKT.S.BIO.70.50,Genetic Change in Populations,CKT.S.BIO.70
+CKT.S.BIO.70.50.10,Microevolution,CKT.S.BIO.70.50
+CKT.S.BIO.70.50.20,Hardy-Weinberg Equilibrium Populations,CKT.S.BIO.70.50
+CKT.S.BIO.70.50.30,Mutation and Gene Flow,CKT.S.BIO.70.50
+CKT.S.BIO.70.50.40,Genetic Drift,CKT.S.BIO.70.50
+CKT.S.BIO.70.50.50,Natural Selection,CKT.S.BIO.70.50
+CKT.S.BIO.70.60,Speciation,CKT.S.BIO.70
+CKT.S.BIO.70.60.10,Biological Species Concept,CKT.S.BIO.70.60
+CKT.S.BIO.70.60.20,Overview of Speciation,CKT.S.BIO.70.60
+CKT.S.BIO.70.60.30,Isolating Mechanisms,CKT.S.BIO.70.60
+CKT.S.BIO.70.60.40,Rates of Speciation,CKT.S.BIO.70.60
+CKT.S.BIO.70.70,History of Life,CKT.S.BIO.70
+CKT.S.BIO.70.70.10,Fossil Record,CKT.S.BIO.70.70
+CKT.S.BIO.70.70.20,Geologic Time Scale,CKT.S.BIO.70.70
+CKT.S.BIO.70.70.30,Patterns of Macroevolution,CKT.S.BIO.70.70
+CKT.S.BIO.70.70.40,Rates of macroevolution,CKT.S.BIO.70.70
+CKT.S.BIO.70.80,Early Life,CKT.S.BIO.70
+CKT.S.BIO.70.80.10,Formation of Earth,CKT.S.BIO.70.80
+CKT.S.BIO.70.80.20,First Organic Molecules,CKT.S.BIO.70.80
+CKT.S.BIO.70.80.30,Emergence of Life,CKT.S.BIO.70.80
+CKT.S.BIO.70.80.40,First Eukaryotes,CKT.S.BIO.70.80
+CKT.S.BIO.70.80.50,Endosymbiotic Theory,CKT.S.BIO.70.80
+CKT.S.BIO.70.90,Multicellular Life,CKT.S.BIO.70
+CKT.S.BIO.70.90.10,Precambrian Time,CKT.S.BIO.70.90
+CKT.S.BIO.70.90.20,Paleozoic Era,CKT.S.BIO.70.90
+CKT.S.BIO.70.90.30,Mesozoic Era,CKT.S.BIO.70.90
+CKT.S.BIO.70.90.40,Cenozoic Era,CKT.S.BIO.70.90
+CKT.S.BIO.80,Ecology,CKT.S.BIO
+CKT.S.BIO.80.10,The Science of Ecology,CKT.S.BIO.80
+CKT.S.BIO.80.100,Growth of Human Populations,CKT.S.BIO.80
+CKT.S.BIO.80.110,Human Actions,CKT.S.BIO.80
+CKT.S.BIO.80.120,Natural Resources,CKT.S.BIO.80
+CKT.S.BIO.80.130,Air Pollution,CKT.S.BIO.80
+CKT.S.BIO.80.140,Climate Change,CKT.S.BIO.80
+CKT.S.BIO.80.20,Flow of Energy in Ecosystems,CKT.S.BIO.80
+CKT.S.BIO.80.30,Recycling Matter,CKT.S.BIO.80
+CKT.S.BIO.80.40,Biogeochemical Cycles,CKT.S.BIO.80
+CKT.S.BIO.80.40.10,Water Cycle,CKT.S.BIO.80.40
+CKT.S.BIO.80.40.20,Carbon Cycle,CKT.S.BIO.80.40
+CKT.S.BIO.80.40.30,Nitrogen Cycle,CKT.S.BIO.80.40
+CKT.S.BIO.80.50,Biomes,CKT.S.BIO.80
+CKT.S.BIO.80.60,Ecosystems,CKT.S.BIO.80
+CKT.S.BIO.80.70,Communities,CKT.S.BIO.80
+CKT.S.BIO.80.80,Characteristics of Populations,CKT.S.BIO.80
+CKT.S.BIO.80.90,Population Dynamics,CKT.S.BIO.80
+CKT.S.BIO.90,Microorganisms and Fungi,CKT.S.BIO
+CKT.S.BIO.90.10,Prokaryotes,CKT.S.BIO.90
+CKT.S.BIO.90.20,Bacteria,CKT.S.BIO.90
+CKT.S.BIO.90.30,Viruses,CKT.S.BIO.90
+CKT.S.BIO.90.40,Protists,CKT.S.BIO.90
+CKT.S.BIO.90.50,Animal-like Protists,CKT.S.BIO.90
+CKT.S.BIO.90.60,Plant-like Protists,CKT.S.BIO.90
+CKT.S.BIO.90.70,Fungus-like Protists,CKT.S.BIO.90
+CKT.S.BIO.90.80,Fungi,CKT.S.BIO.90
+CKT.S.CHEM,Chemistry,CKT.S
+CKT.S.CHEM.10,Scientific Method,CKT.S.CHEM
+CKT.S.CHEM.10.10,Observation,CKT.S.CHEM.10
+CKT.S.CHEM.10.20,Hypothesis,CKT.S.CHEM.10
+CKT.S.CHEM.10.30,Experiment,CKT.S.CHEM.10
+CKT.S.CHEM.10.40,Theory,CKT.S.CHEM.10
+CKT.S.CHEM.10.50,Models,CKT.S.CHEM.10
+CKT.S.CHEM.100,Chemical Equations,CKT.S.CHEM
+CKT.S.CHEM.100.10,Molecules,CKT.S.CHEM.100
+CKT.S.CHEM.100.20,Moles,CKT.S.CHEM.100
+CKT.S.CHEM.100.30,Phases,CKT.S.CHEM.100
+CKT.S.CHEM.100.40,Energy Changes,CKT.S.CHEM.100
+CKT.S.CHEM.100.50,Balance,CKT.S.CHEM.100
+CKT.S.CHEM.100.60,Classification,CKT.S.CHEM.100
+CKT.S.CHEM.110,Molecular Architecture,CKT.S.CHEM
+CKT.S.CHEM.110.10,VSEPR Theory,CKT.S.CHEM.110
+CKT.S.CHEM.110.20,Lewis structures,CKT.S.CHEM.110
+CKT.S.CHEM.110.30,Multiple bonds,CKT.S.CHEM.110
+CKT.S.CHEM.110.40,Hybridized Orbitals,CKT.S.CHEM.110
+CKT.S.CHEM.110.50,Electron promotion,CKT.S.CHEM.110
+CKT.S.CHEM.110.60,Resonance structures,CKT.S.CHEM.110
+CKT.S.CHEM.110.70,Electronic Geometry,CKT.S.CHEM.110
+CKT.S.CHEM.110.80,Molecular Geometry,CKT.S.CHEM.110
+CKT.S.CHEM.110.90,Polarities,CKT.S.CHEM.110
+CKT.S.CHEM.120,Gases,CKT.S.CHEM
+CKT.S.CHEM.120.10,Kinetic Molecular Theory,CKT.S.CHEM.120
+CKT.S.CHEM.120.10.10,Pressure,CKT.S.CHEM.120.10
+CKT.S.CHEM.120.10.20,Temperature,CKT.S.CHEM.120.10
+CKT.S.CHEM.120.20,Ideal Gas Laws,CKT.S.CHEM.120
+CKT.S.CHEM.120.20.10,Boyle's Law,CKT.S.CHEM.120.20
+CKT.S.CHEM.120.20.20,Charles's Law,CKT.S.CHEM.120.20
+CKT.S.CHEM.120.20.30,Gay-Lussac's Law,CKT.S.CHEM.120.20
+CKT.S.CHEM.120.20.40,Avogadro's Law,CKT.S.CHEM.120.20
+CKT.S.CHEM.120.20.50,Combined,CKT.S.CHEM.120.20
+CKT.S.CHEM.120.30,Standard Conditions,CKT.S.CHEM.120
+CKT.S.CHEM.120.40,Universal Gas Law,CKT.S.CHEM.120
+CKT.S.CHEM.120.40.10,Molar Mass,CKT.S.CHEM.120.40
+CKT.S.CHEM.120.40.20,Density,CKT.S.CHEM.120.40
+CKT.S.CHEM.120.50,Dalton's Law of Partial Pressure,CKT.S.CHEM.120
+CKT.S.CHEM.120.60,Graham's Law of Diffusion,CKT.S.CHEM.120
+CKT.S.CHEM.120.70,Molar Volumes,CKT.S.CHEM.120
+CKT.S.CHEM.120.80,Stoichiometry of Gas Volumes,CKT.S.CHEM.120
+CKT.S.CHEM.130,Liquids and Solids,CKT.S.CHEM
+CKT.S.CHEM.130.10,Properties,CKT.S.CHEM.130
+CKT.S.CHEM.130.100,Amorphous Solids,CKT.S.CHEM.130
+CKT.S.CHEM.130.110,Heats of Fusion and Vaporization,CKT.S.CHEM.130
+CKT.S.CHEM.130.120,Heating and Cooling Curves,CKT.S.CHEM.130
+CKT.S.CHEM.130.130,Phase Diagrams,CKT.S.CHEM.130
+CKT.S.CHEM.130.20,Molecular Comparison,CKT.S.CHEM.130
+CKT.S.CHEM.130.30,Intermolecular Forces,CKT.S.CHEM.130
+CKT.S.CHEM.130.40,London Dispersion Forces (Van der Waals Forces),CKT.S.CHEM.130
+CKT.S.CHEM.130.50,Dipole Attractions,CKT.S.CHEM.130
+CKT.S.CHEM.130.60,Hydrogen Bonds,CKT.S.CHEM.130
+CKT.S.CHEM.130.70,Ionic Solids and Liquids,CKT.S.CHEM.130
+CKT.S.CHEM.130.80,Metallic Solids and Liquids,CKT.S.CHEM.130
+CKT.S.CHEM.130.90,Network Solids,CKT.S.CHEM.130
+CKT.S.CHEM.140,Solutions,CKT.S.CHEM
+CKT.S.CHEM.140.10,Dissolving Process,CKT.S.CHEM.140
+CKT.S.CHEM.140.100,Mole Fraction,CKT.S.CHEM.140
+CKT.S.CHEM.140.20,Solutes-Solvents,CKT.S.CHEM.140
+CKT.S.CHEM.140.30,Solvation (Hydration),CKT.S.CHEM.140
+CKT.S.CHEM.140.40,Dissolving Equilibrium,CKT.S.CHEM.140
+CKT.S.CHEM.140.50,Dissolving Gases,CKT.S.CHEM.140
+CKT.S.CHEM.140.60,Enthalpy,CKT.S.CHEM.140
+CKT.S.CHEM.140.70,Solubilities,CKT.S.CHEM.140
+CKT.S.CHEM.140.80,Molarity,CKT.S.CHEM.140
+CKT.S.CHEM.140.90,Molality,CKT.S.CHEM.140
+CKT.S.CHEM.150,Colligative Properties,CKT.S.CHEM
+CKT.S.CHEM.150.10,Vapor Pressure Depression,CKT.S.CHEM.150
+CKT.S.CHEM.150.20,Freezing Point Depression,CKT.S.CHEM.150
+CKT.S.CHEM.150.30,Boiling Point Elevation,CKT.S.CHEM.150
+CKT.S.CHEM.150.40,Mixtures,CKT.S.CHEM.150
+CKT.S.CHEM.150.40.10,Distillation,CKT.S.CHEM.150.40
+CKT.S.CHEM.150.40.20,Crystallization,CKT.S.CHEM.150.40
+CKT.S.CHEM.150.40.30,Chromatography,CKT.S.CHEM.150.40
+CKT.S.CHEM.160,Chemical Kinetics,CKT.S.CHEM
+CKT.S.CHEM.160.10,Reaction Rate,CKT.S.CHEM.160
+CKT.S.CHEM.160.20,Collision Theory,CKT.S.CHEM.160
+CKT.S.CHEM.160.30,Reaction Mechanism,CKT.S.CHEM.160
+CKT.S.CHEM.160.40,Reactants,CKT.S.CHEM.160
+CKT.S.CHEM.160.50,Temperature,CKT.S.CHEM.160
+CKT.S.CHEM.160.60,Surface Area,CKT.S.CHEM.160
+CKT.S.CHEM.160.70,Catalysts,CKT.S.CHEM.160
+CKT.S.CHEM.160.80,Potential Energy,CKT.S.CHEM.160
+CKT.S.CHEM.160.90,Pressure,CKT.S.CHEM.160
+CKT.S.CHEM.170,Equilibrium,CKT.S.CHEM
+CKT.S.CHEM.170.10,Reversible Reactions,CKT.S.CHEM.170
+CKT.S.CHEM.170.20,Dynamic Equilibrium,CKT.S.CHEM.170
+CKT.S.CHEM.170.30,Equilibrium Constant,CKT.S.CHEM.170
+CKT.S.CHEM.170.40,Gas Phase Equilibrium,CKT.S.CHEM.170
+CKT.S.CHEM.170.50,Le Chatelier's Principle,CKT.S.CHEM.170
+CKT.S.CHEM.170.60,Solubility Equilibrium,CKT.S.CHEM.170
+CKT.S.CHEM.180,"Acids, Bases, Salts",CKT.S.CHEM
+CKT.S.CHEM.180.10,Properties,CKT.S.CHEM.180
+CKT.S.CHEM.180.100,Lewis Acids-Bases,CKT.S.CHEM.180
+CKT.S.CHEM.180.110,Acid-Base Titration,CKT.S.CHEM.180
+CKT.S.CHEM.180.120,Acid-Base Indicators,CKT.S.CHEM.180
+CKT.S.CHEM.180.130,Acid-Base Buffers,CKT.S.CHEM.180
+CKT.S.CHEM.180.140,Hydrolysis of Salts,CKT.S.CHEM.180
+CKT.S.CHEM.180.20,Dissociation of Ionic Compounds,CKT.S.CHEM.180
+CKT.S.CHEM.180.30,Arrhenius Acids-Bases,CKT.S.CHEM.180
+CKT.S.CHEM.180.40,Dissociation of Water,CKT.S.CHEM.180
+CKT.S.CHEM.180.50,Bronsted-Lowry Acids-Bases,CKT.S.CHEM.180
+CKT.S.CHEM.180.60,Conjugate Acids-Bases Pairs,CKT.S.CHEM.180
+CKT.S.CHEM.180.70,Strong Acids-Bases,CKT.S.CHEM.180
+CKT.S.CHEM.180.80,Weak Acids-Bases,CKT.S.CHEM.180
+CKT.S.CHEM.180.90,pH,CKT.S.CHEM.180
+CKT.S.CHEM.190,Thermodynamics,CKT.S.CHEM
+CKT.S.CHEM.190.10,Enthalpy,CKT.S.CHEM.190
+CKT.S.CHEM.190.20,Hess's Law,CKT.S.CHEM.190
+CKT.S.CHEM.190.30,Entropy,CKT.S.CHEM.190
+CKT.S.CHEM.190.40,Gibb's Free Energy,CKT.S.CHEM.190
+CKT.S.CHEM.190.50,Reaction Spontaneity,CKT.S.CHEM.190
+CKT.S.CHEM.20,Measurement,CKT.S.CHEM
+CKT.S.CHEM.20.10,Qualitative,CKT.S.CHEM.20
+CKT.S.CHEM.20.20,Quantitative,CKT.S.CHEM.20
+CKT.S.CHEM.20.30,SI system,CKT.S.CHEM.20
+CKT.S.CHEM.20.40,Unit analysis and conversion,CKT.S.CHEM.20
+CKT.S.CHEM.20.50,Significant figures,CKT.S.CHEM.20
+CKT.S.CHEM.20.60,Exponential notation (aka Scientific notation),CKT.S.CHEM.20
+CKT.S.CHEM.20.70,Accuracy and precision,CKT.S.CHEM.20
+CKT.S.CHEM.20.80,Graphing,CKT.S.CHEM.20
+CKT.S.CHEM.200,Oxidation-Reduction,CKT.S.CHEM
+CKT.S.CHEM.200.10,Oxidation Numbers,CKT.S.CHEM.200
+CKT.S.CHEM.200.20,Oxidizing and Reducing Agents,CKT.S.CHEM.200
+CKT.S.CHEM.200.30,Balancing Redox Equations,CKT.S.CHEM.200
+CKT.S.CHEM.200.40,Stoichiometry with Redox Reactions,CKT.S.CHEM.200
+CKT.S.CHEM.210,Electrochemistry,CKT.S.CHEM
+CKT.S.CHEM.210.10,Electric Current,CKT.S.CHEM.210
+CKT.S.CHEM.210.100,Half-reactions,CKT.S.CHEM.210
+CKT.S.CHEM.210.110,Corrosion,CKT.S.CHEM.210
+CKT.S.CHEM.210.20,Electrolytic Conduction,CKT.S.CHEM.210
+CKT.S.CHEM.210.30,Electrolysis,CKT.S.CHEM.210
+CKT.S.CHEM.210.40,Electrochemical Cells,CKT.S.CHEM.210
+CKT.S.CHEM.210.50,Salt Bridge,CKT.S.CHEM.210
+CKT.S.CHEM.210.60,Redox Potentials,CKT.S.CHEM.210
+CKT.S.CHEM.210.70,Reduction Potentials,CKT.S.CHEM.210
+CKT.S.CHEM.210.80,Cell Potential,CKT.S.CHEM.210
+CKT.S.CHEM.210.90,Quantitative,CKT.S.CHEM.210
+CKT.S.CHEM.220,Nuclear Chemistry,CKT.S.CHEM
+CKT.S.CHEM.220.10,Radioactivity,CKT.S.CHEM.220
+CKT.S.CHEM.220.100,Decay Series,CKT.S.CHEM.220
+CKT.S.CHEM.220.110,Fusion,CKT.S.CHEM.220
+CKT.S.CHEM.220.120,Nuclear Reactions,CKT.S.CHEM.220
+CKT.S.CHEM.220.130,Ionizing and Penetration Power,CKT.S.CHEM.220
+CKT.S.CHEM.220.140,Half-life,CKT.S.CHEM.220
+CKT.S.CHEM.220.150,Radioactive Dating,CKT.S.CHEM.220
+CKT.S.CHEM.220.160,Medical uses for Radioactivity,CKT.S.CHEM.220
+CKT.S.CHEM.220.170,Particle Accelerators,CKT.S.CHEM.220
+CKT.S.CHEM.220.180,Radiation Detectors,CKT.S.CHEM.220
+CKT.S.CHEM.220.190,Fission Reactors,CKT.S.CHEM.220
+CKT.S.CHEM.220.20,Binding Energy,CKT.S.CHEM.220
+CKT.S.CHEM.220.200,Nuclear Weapons,CKT.S.CHEM.220
+CKT.S.CHEM.220.30,Nuclear Notation,CKT.S.CHEM.220
+CKT.S.CHEM.220.40,Fission,CKT.S.CHEM.220
+CKT.S.CHEM.220.50,Natural Radioactivity,CKT.S.CHEM.220
+CKT.S.CHEM.220.60,Radioactive Emissions,CKT.S.CHEM.220
+CKT.S.CHEM.220.70,Alpha Decay,CKT.S.CHEM.220
+CKT.S.CHEM.220.80,Beta Decay,CKT.S.CHEM.220
+CKT.S.CHEM.220.90,Artificial Radioactivity,CKT.S.CHEM.220
+CKT.S.CHEM.230,Organic Chemistry,CKT.S.CHEM
+CKT.S.CHEM.230.10,Organic compounds,CKT.S.CHEM.230
+CKT.S.CHEM.230.100,Aromatic Hydrocarbons,CKT.S.CHEM.230
+CKT.S.CHEM.230.110,Amino Acids,CKT.S.CHEM.230
+CKT.S.CHEM.230.20,Bonding,CKT.S.CHEM.230
+CKT.S.CHEM.230.30,Alkanes,CKT.S.CHEM.230
+CKT.S.CHEM.230.40,Alkenes,CKT.S.CHEM.230
+CKT.S.CHEM.230.50,Alkynes,CKT.S.CHEM.230
+CKT.S.CHEM.230.60,Structural Formulas,CKT.S.CHEM.230
+CKT.S.CHEM.230.70,Isomers,CKT.S.CHEM.230
+CKT.S.CHEM.230.80,Substituted Halogens,CKT.S.CHEM.230
+CKT.S.CHEM.230.90,Functional Groups,CKT.S.CHEM.230
+CKT.S.CHEM.230.90.10,Alcohols,CKT.S.CHEM.230.90
+CKT.S.CHEM.230.90.20,Aldehydes,CKT.S.CHEM.230.90
+CKT.S.CHEM.230.90.30,Ketones,CKT.S.CHEM.230.90
+CKT.S.CHEM.230.90.40,Ethers,CKT.S.CHEM.230.90
+CKT.S.CHEM.230.90.50,Carboxylic acids,CKT.S.CHEM.230.90
+CKT.S.CHEM.230.90.60,Esters,CKT.S.CHEM.230.90
+CKT.S.CHEM.30,Atomic Structure,CKT.S.CHEM
+CKT.S.CHEM.30.10,Matter,CKT.S.CHEM.30
+CKT.S.CHEM.30.10.10,Mass,CKT.S.CHEM.30.10
+CKT.S.CHEM.30.10.20,Conservation of mass,CKT.S.CHEM.30.10
+CKT.S.CHEM.30.10.30,Homogeneous,CKT.S.CHEM.30.10
+CKT.S.CHEM.30.10.40,Heterogeneous,CKT.S.CHEM.30.10
+CKT.S.CHEM.30.10.50,Elements,CKT.S.CHEM.30.10
+CKT.S.CHEM.30.10.60,Compounds,CKT.S.CHEM.30.10
+CKT.S.CHEM.30.10.70,Mixtures,CKT.S.CHEM.30.10
+CKT.S.CHEM.30.20,Energy,CKT.S.CHEM.30
+CKT.S.CHEM.30.20.10,Kinetic,CKT.S.CHEM.30.20
+CKT.S.CHEM.30.20.20,Potential,CKT.S.CHEM.30.20
+CKT.S.CHEM.30.20.30,Conservation,CKT.S.CHEM.30.20
+CKT.S.CHEM.30.20.40,Transfer,CKT.S.CHEM.30.20
+CKT.S.CHEM.30.20.50,Heat,CKT.S.CHEM.30.20
+CKT.S.CHEM.30.20.60,Temperature,CKT.S.CHEM.30.20
+CKT.S.CHEM.40,Atomic Theory,CKT.S.CHEM
+CKT.S.CHEM.40.10,The Atom,CKT.S.CHEM.40
+CKT.S.CHEM.40.10.10,History,CKT.S.CHEM.40.10
+CKT.S.CHEM.40.10.20,Dalton,CKT.S.CHEM.40.10
+CKT.S.CHEM.40.10.30,Thomson,CKT.S.CHEM.40.10
+CKT.S.CHEM.40.10.40,Rutherford,CKT.S.CHEM.40.10
+CKT.S.CHEM.40.20,Elementary Sub-Atomic Particles,CKT.S.CHEM.40
+CKT.S.CHEM.40.20.10,Nucleus,CKT.S.CHEM.40.20
+CKT.S.CHEM.40.20.20,Electron Cloud,CKT.S.CHEM.40.20
+CKT.S.CHEM.40.20.30,Atomic Weight,CKT.S.CHEM.40.20
+CKT.S.CHEM.40.20.40,Atomic Numbers,CKT.S.CHEM.40.20
+CKT.S.CHEM.40.20.50,Mass Numbers,CKT.S.CHEM.40.20
+CKT.S.CHEM.40.20.60,Isotopes,CKT.S.CHEM.40.20
+CKT.S.CHEM.40.30,Bohr Model,CKT.S.CHEM.40
+CKT.S.CHEM.40.30.10,Electromagnetic Radiation,CKT.S.CHEM.40.30
+CKT.S.CHEM.40.30.20,Atomic Spectra,CKT.S.CHEM.40.30
+CKT.S.CHEM.40.30.30,Energy Levels,CKT.S.CHEM.40.30
+CKT.S.CHEM.50,Modern Atomic Structure,CKT.S.CHEM
+CKT.S.CHEM.50.10,Quantum Theory,CKT.S.CHEM.50
+CKT.S.CHEM.50.10.10,Planck,CKT.S.CHEM.50.10
+CKT.S.CHEM.50.10.20,DeBroglie,CKT.S.CHEM.50.10
+CKT.S.CHEM.50.10.30,Heisenberg,CKT.S.CHEM.50.10
+CKT.S.CHEM.50.10.40,Einstein,CKT.S.CHEM.50.10
+CKT.S.CHEM.50.10.50,Schroedinger,CKT.S.CHEM.50.10
+CKT.S.CHEM.50.20,Probability Patterns,CKT.S.CHEM.50
+CKT.S.CHEM.50.30,Quantum Numbers,CKT.S.CHEM.50
+CKT.S.CHEM.50.40,Atomic Orbitals,CKT.S.CHEM.50
+CKT.S.CHEM.50.50,Pauli Exclusion Principle,CKT.S.CHEM.50
+CKT.S.CHEM.50.60,Aufbau Rule,CKT.S.CHEM.50
+CKT.S.CHEM.50.70,Electron Configuration,CKT.S.CHEM.50
+CKT.S.CHEM.50.80,Orbitals,CKT.S.CHEM.50
+CKT.S.CHEM.60,Periodic Table and Electron Configuration,CKT.S.CHEM
+CKT.S.CHEM.60.10,Mendeleev Chemical Behavior,CKT.S.CHEM.60
+CKT.S.CHEM.60.20,Periods,CKT.S.CHEM.60
+CKT.S.CHEM.60.30,Families,CKT.S.CHEM.60
+CKT.S.CHEM.60.40,Periodic Table,CKT.S.CHEM.60
+CKT.S.CHEM.60.40.10,IA and IIA,CKT.S.CHEM.60.40
+CKT.S.CHEM.60.40.20,IIIA through VIIIA,CKT.S.CHEM.60.40
+CKT.S.CHEM.60.40.30,Lanthanides,CKT.S.CHEM.60.40
+CKT.S.CHEM.60.40.40,Actinides,CKT.S.CHEM.60.40
+CKT.S.CHEM.60.50,Atomic Size,CKT.S.CHEM.60
+CKT.S.CHEM.60.60,Electronegativity,CKT.S.CHEM.60
+CKT.S.CHEM.60.70,Ionization Energy,CKT.S.CHEM.60
+CKT.S.CHEM.60.80,Electron Affinity,CKT.S.CHEM.60
+CKT.S.CHEM.60.90,Oxidation Numbers,CKT.S.CHEM.60
+CKT.S.CHEM.70,Ionic Bonding,CKT.S.CHEM
+CKT.S.CHEM.70.10,Valence Electrons,CKT.S.CHEM.70
+CKT.S.CHEM.70.20,Ionic Bonding,CKT.S.CHEM.70
+CKT.S.CHEM.70.30,Nomenclature,CKT.S.CHEM.70
+CKT.S.CHEM.80,Covalent Bonding,CKT.S.CHEM
+CKT.S.CHEM.80.10,Non-metals,CKT.S.CHEM.80
+CKT.S.CHEM.80.20,Octet Rule,CKT.S.CHEM.80
+CKT.S.CHEM.80.30,Lewis Structures,CKT.S.CHEM.80
+CKT.S.CHEM.80.40,Multiple Bonds,CKT.S.CHEM.80
+CKT.S.CHEM.80.50,Covalent Nomenclature,CKT.S.CHEM.80
+CKT.S.CHEM.80.60,Polar Bonds,CKT.S.CHEM.80
+CKT.S.CHEM.90,Stoichiometry,CKT.S.CHEM
+CKT.S.CHEM.90.10,Formula Mass,CKT.S.CHEM.90
+CKT.S.CHEM.90.20,Empirical Formulas,CKT.S.CHEM.90
+CKT.S.CHEM.90.30,Molecular Formulas,CKT.S.CHEM.90
+CKT.S.CHEM.90.40,Percent Composition,CKT.S.CHEM.90
+CKT.S.CHEM.90.50,Moles,CKT.S.CHEM.90
+CKT.S.CHEM.90.60,Equation Stoichimetry,CKT.S.CHEM.90
+CKT.S.ES,Earth Science,CKT.S
+CKT.S.ES.10,Foundations of Earth Science,CKT.S.ES
+CKT.S.ES.10.10,Nature of Science,CKT.S.ES.10
+CKT.S.ES.10.20,Earth Science and Its Branches,CKT.S.ES.10
+CKT.S.ES.10.30,Geology,CKT.S.ES.10
+CKT.S.ES.10.40,Oceanography,CKT.S.ES.10
+CKT.S.ES.10.50,Meteorology,CKT.S.ES.10
+CKT.S.ES.10.60,Astronomy,CKT.S.ES.10
+CKT.S.ES.10.70,Other Branches of Earth Science,CKT.S.ES.10
+CKT.S.ES.100,Ecosystems,CKT.S.ES
+CKT.S.ES.110,Human Populations,CKT.S.ES
+CKT.S.ES.120,Human Actions,CKT.S.ES
+CKT.S.ES.120.10,The Land,CKT.S.ES.120
+CKT.S.ES.120.20,Earth's Resources,CKT.S.ES.120
+CKT.S.ES.120.30,Earth's Waters,CKT.S.ES.120
+CKT.S.ES.120.40,The Atmosphere,CKT.S.ES.120
+CKT.S.ES.130,Astronomy,CKT.S.ES
+CKT.S.ES.130.10,Space Exploration,CKT.S.ES.130
+CKT.S.ES.130.20,Planet Earth,CKT.S.ES.130
+CKT.S.ES.130.30,The Moon,CKT.S.ES.130
+CKT.S.ES.130.40,The Sun,CKT.S.ES.130
+CKT.S.ES.130.50,Solar System,CKT.S.ES.130
+CKT.S.ES.130.60,Stars,CKT.S.ES.130
+CKT.S.ES.130.70,Galaxies,CKT.S.ES.130
+CKT.S.ES.130.80,The Universe,CKT.S.ES.130
+CKT.S.ES.20,Earth,CKT.S.ES
+CKT.S.ES.20.10,Earth's Surface,CKT.S.ES.20
+CKT.S.ES.20.100,Earthquakes,CKT.S.ES.20
+CKT.S.ES.20.110,Volcanoes,CKT.S.ES.20
+CKT.S.ES.20.120,Weathering,CKT.S.ES.20
+CKT.S.ES.20.130,Soil,CKT.S.ES.20
+CKT.S.ES.20.140,Erosion,CKT.S.ES.20
+CKT.S.ES.20.140.10,Water Erosion and Deposition,CKT.S.ES.20.140
+CKT.S.ES.20.140.20,Wave Erosion and Deposition,CKT.S.ES.20.140
+CKT.S.ES.20.140.30,Wind Erosion and Deposition,CKT.S.ES.20.140
+CKT.S.ES.20.140.40,Glacial Deposition,CKT.S.ES.20.140
+CKT.S.ES.20.140.50,Gravitational Deposition,CKT.S.ES.20.140
+CKT.S.ES.20.20,Modeling,CKT.S.ES.20
+CKT.S.ES.20.30,Topographic Maps,CKT.S.ES.20
+CKT.S.ES.20.40,Satellites,CKT.S.ES.20
+CKT.S.ES.20.50,Computers,CKT.S.ES.20
+CKT.S.ES.20.60,Minerals,CKT.S.ES.20
+CKT.S.ES.20.60.10,Characteristics,CKT.S.ES.20.60
+CKT.S.ES.20.60.20,Structures,CKT.S.ES.20.60
+CKT.S.ES.20.60.30,Groups,CKT.S.ES.20.60
+CKT.S.ES.20.70,Rocks,CKT.S.ES.20
+CKT.S.ES.20.70.10,Igneous,CKT.S.ES.20.70
+CKT.S.ES.20.70.20,Sedimentary,CKT.S.ES.20.70
+CKT.S.ES.20.70.30,Metamorphic,CKT.S.ES.20.70
+CKT.S.ES.20.80,Energy,CKT.S.ES.20
+CKT.S.ES.20.80.10,Resources,CKT.S.ES.20.80
+CKT.S.ES.20.80.20,Nonrenewable Resources,CKT.S.ES.20.80
+CKT.S.ES.20.80.30,Renewable Resources,CKT.S.ES.20.80
+CKT.S.ES.20.90,Plate Tectonics,CKT.S.ES.20
+CKT.S.ES.20.90.10,Earth's Interior,CKT.S.ES.20.90
+CKT.S.ES.20.90.20,Continental Drift,CKT.S.ES.20.90
+CKT.S.ES.20.90.30,Seafloor Spreading,CKT.S.ES.20.90
+CKT.S.ES.20.90.40,Plate Tectonic Theory,CKT.S.ES.20.90
+CKT.S.ES.30,Earth's Past,CKT.S.ES
+CKT.S.ES.30.10,Fossils,CKT.S.ES.30
+CKT.S.ES.30.20,Relative Age of Rocks,CKT.S.ES.30
+CKT.S.ES.30.30,Absolute Age of Rocks,CKT.S.ES.30
+CKT.S.ES.40,Earth's History,CKT.S.ES
+CKT.S.ES.40.10,Geologic Time Scale,CKT.S.ES.40
+CKT.S.ES.40.20,Early Earth,CKT.S.ES.40
+CKT.S.ES.40.30,Life Forms,CKT.S.ES.40
+CKT.S.ES.50,Water,CKT.S.ES
+CKT.S.ES.50.10,Distribution,CKT.S.ES.50
+CKT.S.ES.50.20,Surface Water,CKT.S.ES.50
+CKT.S.ES.50.30,Underground Water,CKT.S.ES.50
+CKT.S.ES.60,Ocean,CKT.S.ES
+CKT.S.ES.60.10,Formation,CKT.S.ES.60
+CKT.S.ES.60.20,Composition,CKT.S.ES.60
+CKT.S.ES.60.30,Movement,CKT.S.ES.60
+CKT.S.ES.60.40,Seafloor,CKT.S.ES.60
+CKT.S.ES.60.50,Ocean Life,CKT.S.ES.60
+CKT.S.ES.70,Atmosphere,CKT.S.ES
+CKT.S.ES.70.10,Composition of Air,CKT.S.ES.70
+CKT.S.ES.70.20,Atmospheric Layers,CKT.S.ES.70
+CKT.S.ES.70.30,Energy,CKT.S.ES.70
+CKT.S.ES.70.40,Air Movement,CKT.S.ES.70
+CKT.S.ES.80,Weather,CKT.S.ES
+CKT.S.ES.80.10,Atmospheric Water,CKT.S.ES.80
+CKT.S.ES.80.10.10,Humidity,CKT.S.ES.80.10
+CKT.S.ES.80.10.20,Cloud Formation,CKT.S.ES.80.10
+CKT.S.ES.80.10.30,Precipitation,CKT.S.ES.80.10
+CKT.S.ES.80.20,Changing Weather,CKT.S.ES.80
+CKT.S.ES.80.20.10,Fronts,CKT.S.ES.80.20
+CKT.S.ES.80.20.20,Storms,CKT.S.ES.80.20
+CKT.S.ES.80.20.30,Thunderstorms,CKT.S.ES.80.20
+CKT.S.ES.80.20.40,Tornadoes,CKT.S.ES.80.20
+CKT.S.ES.80.20.50,Hurricanes,CKT.S.ES.80.20
+CKT.S.ES.80.20.60,Blizzards,CKT.S.ES.80.20
+CKT.S.ES.80.30,Forcasting,CKT.S.ES.80
+CKT.S.ES.90,Climate,CKT.S.ES
+CKT.S.ES.90.10,World Climates,CKT.S.ES.90
+CKT.S.ES.90.20,Climate Change,CKT.S.ES.90
+CKT.S.ES.90.20.10,El Nino,CKT.S.ES.90.20
+CKT.S.ES.90.20.20,La Nina,CKT.S.ES.90.20
+CKT.S.ES.90.20.30,Plate Tectonics,CKT.S.ES.90.20
+CKT.S.ES.90.20.40,Ice Ages,CKT.S.ES.90.20
+CKT.S.ES.90.20.50,Global Warming,CKT.S.ES.90.20
+CKT.S.LS,Life Science,CKT.S
+CKT.S.LS.10,Understanding Living Things,CKT.S.LS
+CKT.S.LS.10.10,Nature of Science,CKT.S.LS.10
+CKT.S.LS.10.20,Scientific Method,CKT.S.LS.10
+CKT.S.LS.10.30,Tools of Science,CKT.S.LS.10
+CKT.S.LS.10.40,Safety in Scientific Research,CKT.S.LS.10
+CKT.S.LS.100,Fungi,CKT.S.LS
+CKT.S.LS.110,Plants,CKT.S.LS
+CKT.S.LS.110.10,Seedless Plants,CKT.S.LS.110
+CKT.S.LS.110.20,Seed Plants,CKT.S.LS.110
+CKT.S.LS.110.30,Plant Responses,CKT.S.LS.110
+CKT.S.LS.120,Invertebrates,CKT.S.LS
+CKT.S.LS.120.10,Characteristics,CKT.S.LS.120
+CKT.S.LS.120.100,Insects,CKT.S.LS.120
+CKT.S.LS.120.20,Classification,CKT.S.LS.120
+CKT.S.LS.120.30,Evolution,CKT.S.LS.120
+CKT.S.LS.120.40,Sponges,CKT.S.LS.120
+CKT.S.LS.120.50,Cnidarians,CKT.S.LS.120
+CKT.S.LS.120.60,Worms,CKT.S.LS.120
+CKT.S.LS.120.70,Mollusks,CKT.S.LS.120
+CKT.S.LS.120.80,Echinoderms,CKT.S.LS.120
+CKT.S.LS.120.90,Arthropods,CKT.S.LS.120
+CKT.S.LS.130,Vertebrates,CKT.S.LS
+CKT.S.LS.130.10,Characteristics,CKT.S.LS.130
+CKT.S.LS.130.100,Humans,CKT.S.LS.130
+CKT.S.LS.130.20,Classification,CKT.S.LS.130
+CKT.S.LS.130.30,Evolution,CKT.S.LS.130
+CKT.S.LS.130.40,Fishes,CKT.S.LS.130
+CKT.S.LS.130.50,Amphibians,CKT.S.LS.130
+CKT.S.LS.130.60,Reptiles,CKT.S.LS.130
+CKT.S.LS.130.70,Birds,CKT.S.LS.130
+CKT.S.LS.130.80,Mammals,CKT.S.LS.130
+CKT.S.LS.130.90,Primates,CKT.S.LS.130
+CKT.S.LS.140,Animal Behavior,CKT.S.LS
+CKT.S.LS.150,The Human Body,CKT.S.LS
+CKT.S.LS.150.10,Skin,CKT.S.LS.150
+CKT.S.LS.150.100,The Senses,CKT.S.LS.150
+CKT.S.LS.150.110,Endocrine System,CKT.S.LS.150
+CKT.S.LS.150.120,Diseases and the Body's Defenses,CKT.S.LS.150
+CKT.S.LS.150.130,The Immune System,CKT.S.LS.150
+CKT.S.LS.150.20,Skeletal System,CKT.S.LS.150
+CKT.S.LS.150.30,The Muscular System,CKT.S.LS.150
+CKT.S.LS.150.40,Digestive System,CKT.S.LS.150
+CKT.S.LS.150.50,Cardiovascular System,CKT.S.LS.150
+CKT.S.LS.150.60,Respiratory System,CKT.S.LS.150
+CKT.S.LS.150.70,Excretory System,CKT.S.LS.150
+CKT.S.LS.150.80,The Nervous System,CKT.S.LS.150
+CKT.S.LS.150.90,Eyes and Vision,CKT.S.LS.150
+CKT.S.LS.160,Reproductive Systems and Life Stages,CKT.S.LS
+CKT.S.LS.160.10,Male Reproductive System,CKT.S.LS.160
+CKT.S.LS.160.20,Female Reproductive System,CKT.S.LS.160
+CKT.S.LS.160.30,Reproductive System Health,CKT.S.LS.160
+CKT.S.LS.160.40,Reproduction and Life Stages,CKT.S.LS.160
+CKT.S.LS.170,Ecology,CKT.S.LS
+CKT.S.LS.170.10,Populations,CKT.S.LS.170
+CKT.S.LS.170.20,Communities,CKT.S.LS.170
+CKT.S.LS.170.30,Ecosystems,CKT.S.LS.170
+CKT.S.LS.170.40,Biomes and the Biosphere,CKT.S.LS.170
+CKT.S.LS.170.50,Ecosystem Dynamics,CKT.S.LS.170
+CKT.S.LS.170.60,Environmental Problems,CKT.S.LS.170
+CKT.S.LS.170.60.10,Air Pollution,CKT.S.LS.170.60
+CKT.S.LS.170.60.20,Water Pollution,CKT.S.LS.170.60
+CKT.S.LS.170.60.30,Waste,CKT.S.LS.170.60
+CKT.S.LS.170.60.40,Natural Resources,CKT.S.LS.170.60
+CKT.S.LS.170.60.50,Habitat Destruction and Extinction,CKT.S.LS.170.60
+CKT.S.LS.20,Living Things,CKT.S.LS
+CKT.S.LS.20.10,Chemicals of Life,CKT.S.LS
+CKT.S.LS.20.10.10,Elements and Compounds,CKT.S.LS.20.10
+CKT.S.LS.20.10.20,Organic Compounds,CKT.S.LS.20.10
+CKT.S.LS.20.10.30,Chemical Reactions and Enzymes,CKT.S.LS.20.10
+CKT.S.LS.20.20,Classification of Living Things,CKT.S.LS
+CKT.S.LS.30,Cells,CKT.S.LS
+CKT.S.PS,Physical Science,CKT.S
+CKT.S.PS.10,Foundations of Physical Science,CKT.S.PS
+CKT.S.PS.10.10,Scientific Thinking,CKT.S.PS.10
+CKT.S.PS.10.20,Scientific Inquiry,CKT.S.PS.10
+CKT.S.PS.10.30,Technology,CKT.S.PS.10
+CKT.S.PS.10.40,Society,CKT.S.PS.10
+CKT.S.PS.10.50,Measurement,CKT.S.PS.10
+CKT.S.PS.10.60,Mathematics,CKT.S.PS.10
+CKT.S.PS.10.70,Graphing,CKT.S.PS.10
+CKT.S.PS.10.80,Communication,CKT.S.PS.10
+CKT.S.PS.20,"Motion, Forces, and Energy",CKT.S.PS
+CKT.S.PS.20.10,Motion,CKT.S.PS.20
+CKT.S.PS.20.20,Acceleration,CKT.S.PS.20
+CKT.S.PS.20.30,Force,CKT.S.PS.20
+CKT.S.PS.20.40,Friction ,CKT.S.PS.20
+CKT.S.PS.20.50,Gravity,CKT.S.PS.20
+CKT.S.PS.30,Laws of Motion,CKT.S.PS
+CKT.S.PS.30.10,Newton's First Law,CKT.S.PS.30
+CKT.S.PS.30.20,Newton's Second Law,CKT.S.PS.30
+CKT.S.PS.30.30,Newton's Third Law,CKT.S.PS.30
+CKT.S.PS.30.40,Projectile Motion,CKT.S.PS.30
+CKT.S.PS.40,Forces in Fluids ,CKT.S.PS
+CKT.S.PS.40.10,Fluid Pressure,CKT.S.PS.40
+CKT.S.PS.40.20,Archimedes' Principle,CKT.S.PS.40
+CKT.S.PS.40.30,Pascal's Principle,CKT.S.PS.40
+CKT.S.PS.40.40,Bernoulli's Principle,CKT.S.PS.40
+CKT.S.PS.50,"Work, Machines, and Energy",CKT.S.PS
+CKT.S.PS.50.10,Work,CKT.S.PS.50
+CKT.S.PS.50.20,Power,CKT.S.PS.50
+CKT.S.PS.50.30,Simple Machines,CKT.S.PS.50
+CKT.S.PS.50.40,Energy,CKT.S.PS.50
+CKT.S.PS.60,Thermal Energy and Heat,CKT.S.PS
+CKT.S.PS.60.10,Measuring Heat,CKT.S.PS.60
+CKT.S.PS.60.20,Heat Transfer,CKT.S.PS.60
+CKT.S.PS.60.30,Heat and Matter,CKT.S.PS.60
+CKT.S.PS.60.40,Thermodynamics,CKT.S.PS.60
+CKT.S.PS.70,Heat and Technology,CKT.S.PS
+CKT.S.PS.70.10,Heating Systems,CKT.S.PS.70
+CKT.S.PS.70.20,Cooling Systems,CKT.S.PS.70
+CKT.S.PS.70.30,Heat Engines,CKT.S.PS.70
+CKT.S.PS.70.40,Heat and the Earth,CKT.S.PS.70
+CKT.S.PS.80,Forms of Energy,CKT.S.PS
+CKT.S.PS.80.10,Conservation of Energy,CKT.S.PS.80
+CKT.S.PS.80.20,Chemical Energy,CKT.S.PS.80
+CKT.S.PS.80.30,Radioactivity,CKT.S.PS.80
+CKT.S.PS.80.40,Energy and Technology,CKT.S.PS.80
+CKT.S.PS.90,Properties of Matter,CKT.S.PS
+CKT.S.PS.90.10,Matter,CKT.S.PS.90
+CKT.S.PS.90.20,Measuring Matter,CKT.S.PS.90
+CKT.S.PS.90.30,Changes in Matter,CKT.S.PS.90
+CKT.S.PS.90.40,Matter and Energy,CKT.S.PS.90
+CKT.S.PS.100,"Solids, Liquids, and Gases",CKT.S.PS
+CKT.S.PS.100.10,States of Matter,CKT.S.PS.100
+CKT.S.PS.100.20,Changes of State,CKT.S.PS.100
+CKT.S.PS.100.30,Behavior of Gases,CKT.S.PS.100
+CKT.S.PS.110,Elements and the Periodic Table,CKT.S.PS
+CKT.S.PS.110.10,Atomic Structure,CKT.S.PS.110
+CKT.S.PS.110.20,Organizing the Elements,CKT.S.PS.110
+CKT.S.PS.110.30,Metals,CKT.S.PS.110
+CKT.S.PS.110.40,Nonmetals,CKT.S.PS.110
+CKT.S.PS.110.50,Metalloids,CKT.S.PS.110
+CKT.S.PS.120,Materials and Technology,CKT.S.PS
+CKT.S.PS.120.10,Alloys,CKT.S.PS.120
+CKT.S.PS.120.20,Glass,CKT.S.PS.120
+CKT.S.PS.120.30,Ceramics,CKT.S.PS.120
+CKT.S.PS.120.40,Polymers,CKT.S.PS.120
+CKT.S.PS.120.50,Nanotechnology,CKT.S.PS.120
+CKT.S.PS.130,Chemical Interactions,CKT.S.PS
+CKT.S.PS.130.10,Chemical Bonds,CKT.S.PS.130
+CKT.S.PS.130.20,Atoms and Bonding,CKT.S.PS.130
+CKT.S.PS.130.30,Ionic Bonds,CKT.S.PS.130
+CKT.S.PS.130.40,Covalent Bonds,CKT.S.PS.130
+CKT.S.PS.130.50,Metallic Bonds,CKT.S.PS.130
+CKT.S.PS.140,Chemical Reactions,CKT.S.PS
+CKT.S.PS.140.10,Chemical Equations,CKT.S.PS.140
+CKT.S.PS.140.20,Types of Chemical Reactions,CKT.S.PS.140
+CKT.S.PS.140.30,Rates of Chemical Reactions,CKT.S.PS.140
+CKT.S.PS.150,Solution Chemistry,CKT.S.PS
+CKT.S.PS.150.10,Solutions,CKT.S.PS.150
+CKT.S.PS.150.20,Suspensions,CKT.S.PS.150
+CKT.S.PS.150.30,Colloids,CKT.S.PS.150
+CKT.S.PS.150.40,Acids,CKT.S.PS.150
+CKT.S.PS.150.50,Bases,CKT.S.PS.150
+CKT.S.PS.150.60,Salts,CKT.S.PS.150
+CKT.S.PS.150.70,pH,CKT.S.PS.150
+CKT.S.PS.160,Carbon Chemistry,CKT.S.PS
+CKT.S.PS.160.10,Properties of Carbon,CKT.S.PS.160
+CKT.S.PS.160.20,Carbon Compounds,CKT.S.PS.160
+CKT.S.PS.160.30,Carbon and Life,CKT.S.PS.160
+CKT.S.PS.160.40,Energy and Life,CKT.S.PS.160
+CKT.S.PS.170,Nuclear Chemistry,CKT.S.PS
+CKT.S.PS.170.10,Radioactivity,CKT.S.PS.170
+CKT.S.PS.170.20,Rates of Nuclear Decay,CKT.S.PS.170
+CKT.S.PS.170.30,Artificial Transmutation,CKT.S.PS.170
+CKT.S.PS.170.40,Nuclear Medicine,CKT.S.PS.170
+CKT.S.PS.170.50,Fission and Fusion,CKT.S.PS.170
+CKT.S.PS.180,Magnetism,CKT.S.PS
+CKT.S.PS.180.10,Properties of Magnets,CKT.S.PS.180
+CKT.S.PS.180.20,Magnetic Materials,CKT.S.PS.180
+CKT.S.PS.180.30,Earth as a Magnet,CKT.S.PS.180
+CKT.S.PS.180.40,Applications of Magnets,CKT.S.PS.180
+CKT.S.PS.190,Electricity,CKT.S.PS
+CKT.S.PS.190.10,Electric Charge,CKT.S.PS.190
+CKT.S.PS.190.20,Electric Current,CKT.S.PS.190
+CKT.S.PS.190.30,Electric Circuits,CKT.S.PS.190
+CKT.S.PS.190.40,Electrochemistry,CKT.S.PS.190
+CKT.S.PS.200,Electromagnetism,CKT.S.PS
+CKT.S.PS.200.10,Electromagnets,CKT.S.PS.200
+CKT.S.PS.200.20,Electrical Energy Transformation,CKT.S.PS.200
+CKT.S.PS.200.30,Magnetism,CKT.S.PS.200
+CKT.S.PS.200.40,Electric Power,CKT.S.PS.200
+CKT.S.PS.210,Electronic Technology,CKT.S.PS
+CKT.S.PS.210.10,Electronic Components,CKT.S.PS.210
+CKT.S.PS.210.20,Electronic Communication,CKT.S.PS.210
+CKT.S.PS.210.30,Computers,CKT.S.PS.210
+CKT.S.PS.210.40,Computer Networks,CKT.S.PS.210
+CKT.S.PS.220,Waves,CKT.S.PS
+CKT.S.PS.220.10,Motion,CKT.S.PS.220
+CKT.S.PS.220.20,Properties,CKT.S.PS.220
+CKT.S.PS.220.30,Interactions,CKT.S.PS.220
+CKT.S.PS.220.40,Seismic Waves,CKT.S.PS.220
+CKT.S.PS.230,Sound,CKT.S.PS
+CKT.S.PS.230.10,Making Sound,CKT.S.PS.230
+CKT.S.PS.230.20,Hearing Sound,CKT.S.PS.230
+CKT.S.PS.230.30,Using Sound,CKT.S.PS.230
+CKT.S.PS.240,Electromagnetic Waves,CKT.S.PS
+CKT.S.PS.240.10,Electromagnetic Spectrum,CKT.S.PS.240
+CKT.S.PS.240.20,Visible Light,CKT.S.PS.240
+CKT.S.PS.240.30,Wireless Communication,CKT.S.PS.240
+CKT.S.PS.250,Light and Optics,CKT.S.PS
+CKT.S.PS.250.10,Light,CKT.S.PS.250
+CKT.S.PS.250.20,Color,CKT.S.PS.250
+CKT.S.PS.250.30,Seeing Light,CKT.S.PS.250
+CKT.S.PS.250.40,Mirrors,CKT.S.PS.250
+CKT.S.PS.250.50,Lenses,CKT.S.PS.250
+CKT.S.PS.250.60,Using Light,CKT.S.PS.250
+CKT.S.PS.260,Earth and Space Science,CKT.S.PS
+CKT.S.PS.260.10,Earth's Interior,CKT.S.PS.260
+CKT.S.PS.260.20,Earth's Surface,CKT.S.PS.260
+CKT.S.PS.260.30,Weather,CKT.S.PS.260
+CKT.S.PS.260.40,Climate,CKT.S.PS.260
+CKT.S.PS.260.50,The Solar System,CKT.S.PS.260
+CKT.S.PS.260.60,The Universe,CKT.S.PS.260
+CKT.S.PHY,Physics,CKT.S
+CKT.S.PHY.10,Mechanics,CKT.S.PHY
+CKT.S.PHY.10.10,Kinematics,CKT.S.PHY.10
+CKT.S.PHY.10.10.10,Linear Motion,CKT.S.PHY.10.10
+CKT.S.PHY.10.10.10.10,Speed,CKT.S.PHY.10.10.10
+CKT.S.PHY.10.10.10.20,Velocity,CKT.S.PHY.10.10.10
+CKT.S.PHY.10.10.10.30,Acceleration,CKT.S.PHY.10.10.10
+CKT.S.PHY.10.10.10.40,Free Fall,CKT.S.PHY.10.10.10
+CKT.S.PHY.10.10.20,Projectile Motion,CKT.S.PHY.10.10
+CKT.S.PHY.10.10.30,Newton's First Law,CKT.S.PHY.10.10
+CKT.S.PHY.10.10.30.10,Inertia,CKT.S.PHY.10.10.30
+CKT.S.PHY.10.10.40,Newton's Second Law,CKT.S.PHY.10.10
+CKT.S.PHY.10.10.40.10,Force and Acceleration,CKT.S.PHY.10.10.40
+CKT.S.PHY.10.10.50,Newton's Third Law,CKT.S.PHY.10.10
+CKT.S.PHY.10.10.50.10,Action and Reaction,CKT.S.PHY.10.10.50
+CKT.S.PHY.10.10.60,Momentum,CKT.S.PHY.10.10
+CKT.S.PHY.10.10.60.10,Conservation of Momentum,CKT.S.PHY.10.10.60
+CKT.S.PHY.10.20,Energy,CKT.S.PHY.10
+CKT.S.PHY.10.20.10,Work,CKT.S.PHY.10.20
+CKT.S.PHY.10.20.20,Power,CKT.S.PHY.10.20
+CKT.S.PHY.10.20.30,Mechanical Energy,CKT.S.PHY.10.20
+CKT.S.PHY.10.20.40,Potential Energy,CKT.S.PHY.10.20
+CKT.S.PHY.10.20.50,Kinetic Energy,CKT.S.PHY.10.20
+CKT.S.PHY.10.20.60,Simple Machines,CKT.S.PHY.10.20
+CKT.S.PHY.10.30,Circular Motion,CKT.S.PHY.10
+CKT.S.PHY.10.30.10,Center of Gravity,CKT.S.PHY.10.30
+CKT.S.PHY.10.30.10.10,Center of Mass,CKT.S.PHY.10.30.10
+CKT.S.PHY.10.30.20,Rotational Mechanics,CKT.S.PHY.10.30
+CKT.S.PHY.10.30.20.10,Torque,CKT.S.PHY.10.30.20
+CKT.S.PHY.10.30.20.20,Angular Momentum,CKT.S.PHY.10.30.20
+CKT.S.PHY.10.40,Universal Gravitation,CKT.S.PHY.10
+CKT.S.PHY.10.40.10,Newton's Law of Universal Gravitation,CKT.S.PHY.10.40
+CKT.S.PHY.10.40.20,Gravity and Distance,CKT.S.PHY.10.40
+CKT.S.PHY.10.50,Gravitational Interactions,CKT.S.PHY.10
+CKT.S.PHY.10.60,Satellite Motion,CKT.S.PHY.10
+CKT.S.PHY.10.60.10,Circular Orbits,CKT.S.PHY.10.60
+CKT.S.PHY.10.60.20,Elliptical Orbits,CKT.S.PHY.10.60
+CKT.S.PHY.10.70,Special Relativity,CKT.S.PHY.10
+CKT.S.PHY.10.70.10,Space-Time,CKT.S.PHY.10.70
+CKT.S.PHY.10.70.20,Length,CKT.S.PHY.10.70
+CKT.S.PHY.10.70.30,Momentum,CKT.S.PHY.10.70
+CKT.S.PHY.10.70.40,Energy,CKT.S.PHY.10.70
+CKT.S.PHY.20,Properties of Matter,CKT.S.PHY
+CKT.S.PHY.20.10,The Atomic Nature of Matter,CKT.S.PHY.20
+CKT.S.PHY.20.10.10,Elements,CKT.S.PHY.20.10
+CKT.S.PHY.20.10.20,Atoms,CKT.S.PHY.20.10
+CKT.S.PHY.20.10.30,Molecules,CKT.S.PHY.20.10
+CKT.S.PHY.20.10.40,Compounds,CKT.S.PHY.20.10
+CKT.S.PHY.20.10.50,Electrons,CKT.S.PHY.20.10
+CKT.S.PHY.20.20,Solids,CKT.S.PHY.20
+CKT.S.PHY.20.20.10,Density,CKT.S.PHY.20.20
+CKT.S.PHY.20.20.20,Elasticity,CKT.S.PHY.20.20
+CKT.S.PHY.20.30,Liquids,CKT.S.PHY.20
+CKT.S.PHY.20.30.10,Pressure,CKT.S.PHY.20.30
+CKT.S.PHY.20.30.20,Buoyancy,CKT.S.PHY.20.30
+CKT.S.PHY.20.30.30,Flotation,CKT.S.PHY.20.30
+CKT.S.PHY.20.40,Gases,CKT.S.PHY.20
+CKT.S.PHY.20.40.10,Atmosphere,CKT.S.PHY.20.40
+CKT.S.PHY.20.40.20,Barometer,CKT.S.PHY.20.40
+CKT.S.PHY.20.40.30,Buoyancy of Air,CKT.S.PHY.20.40
+CKT.S.PHY.30,Heat,CKT.S.PHY
+CKT.S.PHY.30.10,"Temperature, Heat, and Expansion",CKT.S.PHY.30
+CKT.S.PHY.30.20,Heat Transfer,CKT.S.PHY.30
+CKT.S.PHY.30.20.10,Conduction,CKT.S.PHY.30.20
+CKT.S.PHY.30.20.20,Convection,CKT.S.PHY.30.20
+CKT.S.PHY.30.20.30,Radiation,CKT.S.PHY.30.20
+CKT.S.PHY.30.30,Change of Phase,CKT.S.PHY.30
+CKT.S.PHY.30.30.10,Evaporation,CKT.S.PHY.30.30
+CKT.S.PHY.30.30.20,Condensation,CKT.S.PHY.30.30
+CKT.S.PHY.30.30.30,Boiling,CKT.S.PHY.30.30
+CKT.S.PHY.30.30.40,Freezing,CKT.S.PHY.30.30
+CKT.S.PHY.30.40,Thermodynamics,CKT.S.PHY.30
+CKT.S.PHY.30.40.10,First Law of Thermodynamics,CKT.S.PHY.30.40
+CKT.S.PHY.30.40.20,Second Law of Thermodynamics,CKT.S.PHY.30.40
+CKT.S.PHY.30.40.30,Entropy,CKT.S.PHY.30.40
+CKT.S.PHY.40,Sound and Light,CKT.S.PHY
+CKT.S.PHY.40.10,Vibrations and Waves,CKT.S.PHY.40
+CKT.S.PHY.40.20,Sound,CKT.S.PHY.40
+CKT.S.PHY.40.30,Light,CKT.S.PHY.40
+CKT.S.PHY.40.40,Color,CKT.S.PHY.40
+CKT.S.PHY.40.50,Reflection,CKT.S.PHY.40
+CKT.S.PHY.40.60,Refraction,CKT.S.PHY.40
+CKT.S.PHY.40.70,Mirror Optics,CKT.S.PHY.40
+CKT.S.PHY.40.80,Lenses,CKT.S.PHY.40
+CKT.S.PHY.40.90,Diffraction,CKT.S.PHY.40
+CKT.S.PHY.40.100,Interference,CKT.S.PHY.40
+CKT.S.PHY.50,Electricity and Magnetism,CKT.S.PHY
+CKT.S.PHY.50.10,Electrostatics,CKT.S.PHY.50
+CKT.S.PHY.50.20,Electric Fields and Potential,CKT.S.PHY.50
+CKT.S.PHY.50.30,Electric Current,CKT.S.PHY.50
+CKT.S.PHY.50.40,Electric Circuits,CKT.S.PHY.50
+CKT.S.PHY.50.50,Magnetism,CKT.S.PHY.50
+CKT.S.PHY.50.60,Electromagnetic Induction,CKT.S.PHY.50
+CKT.S.PHY.50.70,Transformers,CKT.S.PHY.50
+CKT.S.PHY.60,Atomic and Nuclear Physics,CKT.S.PHY
+CKT.S.PHY.60.10,Atom,CKT.S.PHY.60
+CKT.S.PHY.60.20,Quantum,CKT.S.PHY.60
+CKT.S.PHY.60.30,Atomic Nucleus,CKT.S.PHY.60
+CKT.S.PHY.60.40,Radioactivity,CKT.S.PHY.60
+CKT.S.PHY.60.50,Nuclear Fission,CKT.S.PHY.60
+CKT.S.PHY.60.60,Nuclear Fusion,CKT.S.PHY.60

@@ -1,0 +1,11 @@
+db.Clients.ensureIndex({"clientID": 1}, { unique: true })
+db.Clients.ensureIndex({"name": 1}, { unique: true })
+db.EventTypes.ensureIndex({"eventType": 1}, { unique: true })
+db.Parameters.ensureIndex({"name": 1, }, { unique: true })
+db.Events.ensureIndex({"resolved": 1, "timestamp": 1})
+db.Events.ensureIndex({"eventType": 1}, {"background": true})
+db.Events.ensureIndex({"timestamp": 1}, {"background": true})
+
+db.Artifacts.ensureIndex({"entityKey": 1, }, { unique: true })
+db.context_eid.ensureIndex({"entityKey": 1, }, { unique: true })
+db.Members.ensureIndex({"entityKey": 1, }, { unique: true })

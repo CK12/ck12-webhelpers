@@ -1,0 +1,25 @@
+{% extends "common/master.html" %}
+{% block title %}{{ _("Schools using CK-12") }}{% endblock %}
+
+{% block stylesheets %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('schools/css/schools.css') }}" />
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+<script>
+    require(['main'], function(){
+        require(['schools/schools']);
+    });
+</script>
+{% endblock %}
+
+
+{% block schoolBanner %}
+<div id="schoolBanner" class="district-banner smooth-text"></div>
+{% endblock %}
+{% block content %}
+{{ super() }}
+<div id="schoolMain" class="row collapse smooth-text"></div>
+{% endblock %}

@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns:dc="http://www.ck12.org/dc/will_create_ns"
+unique-identifier="chapterid" version="2.0">
+
+  <chapter>
+    <metadata>
+<chapterSeq>21</chapterSeq>
+
+<book>Biology I</book>
+
+      <chapterid></chapterid>
+      <title>Skeletal, Muscular, and Integumentary Systems </title>
+      <description>Topics in this chapter include:Muscular_System,Integumentary_System.
+     </description>
+    </metadata>
+    
+    <lessons>
+      <item id="Skeletal_System" href="Skeletal_System.html" sequence="1" />
+      <item id="Muscular_System" href ="Muscular_System.html" sequence="2" />
+      <item id="Integumentary_System" href ="Integumentary_System.html" sequence="3" />
+   </lessons>
+  </chapter>
+
+</package>

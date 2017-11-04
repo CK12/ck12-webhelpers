@@ -1,0 +1,120 @@
+{% extends "details.html" %}  
+{% block admincontent %} 
+<div class="sectionhead sectiontitle">{{c.pagetitle}} </div>
+<div class="section withfloatedsubmit">
+<form id="mainform" method="get" action="javascript:void(0)">
+	<div class='leftaligned'>
+    {{ h.labelreadonly("SchoolID", "schoolID", "xlong", val="c.school.schoolID")}}
+	{{ h.labelinput("School Name",'schoolName', 'info xmed', val="c.school.schoolName")}}
+	{{ h.labelreadonly("State",'state', 'info xmed', val="c.school.state")}}
+	{{ h.labelreadonly("City",'city', 'info xmed', val="c.school.city")}}
+	{{ h.labelreadonly("Zip Code",'zipcode', 'info xmed', val="c.school.zipcode")}}
+    {% if c.school.isDeleted %}
+    	{{ h.labelreadonly("isDeleted",'isDeleted', 'info xmed', val="Deleted")}}
+    {% else %}
+    	{{ h.labelreadonly("isDeleted",'isDeleted', 'info xmed', val="Not Deleted")}}
+    {% endif %}
+	</div>
+	{{ h.submitbutton(c.save_prefix, id='update_school')}}
+    {{ h.cancelbutton(c.cancel)}}
+    
+</form>
+</div>
+
+<div class="sectionhead sectiontitle">Claim School</div>
+<div class="section withfloatedsubmit">
+  <form id='clainSchoolForm' class=''>
+    <div class="leftaligned">
+        {{c.school.claimMemberID}}
+        {{ h.labelreadonly("Claim Status", "claimStatus", "info mixed", val="c.school.claimStatus")}}
+        {{ h.labelreadonly("Current Claim MemberID", "orgClaimMemberID", "info mixed", val="c.school.orgClaimMemberID")}}
+	    {{ h.labelinput("New Claim MemberID",'claimMemberID', 'info xmed', val="c.school.claimMemberID")}}
+    </div>
+    {{ h.submitbutton('Claim School')}}
+  </form>
+</div>
+
+{% endblock admincontent %}
+
+{% block js_scripts %}
+  <script type="text/javascript" src="{{ h.url_js('inlineList.js') }}"></script>
+{% if not c.is_pane %} {# o/w profiles.html already included it #}
+  <script type="text/javascript" src="{{ h.url_js('activation_action.js') }}"></script>
+{% endif %}
+
+<script type='text/javascript'>
+
+$(document).ready(function(){
+    $("#update_school").click(function(event){
+        event.stopPropagation();
+        var schoolName = $("#schoolName").val();
+        schoolName = schoolName.trim();
+        if (!schoolName)
+          {
+            alert("Please provide School Name.");
+            return false;
+          }
+        data = {}
+        data['schoolID'] = $("#schoolID").val();
+        data['schoolName'] = schoolName;
+        updateSchool(data);
+    });
+
+    function updateSchool(data){
+        // Ajax call to create school
+        $.ajax({
+            "url" : "/api/flx/update/school",
+            "type" : "POST",
+            "dataType" : "json",
+            "data" : data,
+            "success" : function(response){
+                var msg = '';
+                if(response.responseHeader.status != 0){
+                    if(response.response.message) 
+                        msg = 'Error: ' + response.response.message;                    
+                    $('#admintop').html('<div class="success messaging" style="color:red">Unable to update the school.  ' + msg +'. </div>')
+                }else{
+                    $('#admintop').html('<div class="success messaging">School updated Successfully!</div>')  
+                }
+            },
+            "error" : function(){
+                return false;
+          }
+      });
+    }
+  
+    //var claimSchoolUrl = '/api/flx/add/school/claim',
+    clainSchoolForm = $('#clainSchoolForm'),
+    $claimSuccessMsg = $('#claimSuccessMsg'),
+    params = $.deparam.querystring(window.location.href);
+    
+    
+     // Claim school action
+    clainSchoolForm.submit(function(e){
+            var params = {'memberID': $('#claimMemberID').val(), 'schoolID':$('#schoolID').val()};
+            if ($('#orgClaimMemberID').val()) {
+                var claimUrl = '/api/flx/update/school/claim';
+            } else {
+                var claimUrl = '/api/flx/add/school/claim';
+            }
+            $.ajax({url: claimUrl,
+                type: 'POST',
+                dataType : "json",
+                data: params,
+                success: function(data){
+                    if(data.responseHeader.status != 0){
+                        if(data.response.message) {
+                                $('#admintop').html('<div class="success messaging" style="color:red">'+ data.response.message +'</div>')
+                            } else {
+                                $('#admintop').html('<div class="success messaging" style="color:red">Unable to update the school claim.</div>')
+                            }
+                    }else{
+                        $('#admintop').html('<div class="success messaging">School claim updated Successfully!</div>')  
+                    }
+                },
+            }); 
+        e.preventDefault();
+    });
+});
+</script>
+{% endblock %}

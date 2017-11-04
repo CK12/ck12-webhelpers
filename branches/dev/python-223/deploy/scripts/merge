@@ -1,0 +1,222 @@
+#!/bin/bash
+
+usage() {
+    echo "Usage: ${0} revision-to-merge target-branch [src-branch]"
+    echo "    WHERE"
+    echo "       revision-to-merge:  an svn revision number [eg: 34574]"
+    echo "       target-branch:      SVN branch. Either a local checked out branch root directory "
+    echo "                 or relative SVN branch path (eg: /opt/2.2.2 or branches/releases/2.2.2)"
+    echo "       src-branch:  optional root of current branch's work directory. (eg: /opt/devbranch)"
+    echo "                 or relative SVN branch path (eg: branches/dev/featureX)"
+    echo "                 defaults to (/opt/2.0). Will be detected based on CWD"
+    echo "    NOTE: You must be in a directory with working copy of the source SVN branch."
+    echo ""
+    exit 1
+}
+
+printMsg() {
+    echo
+    echo ">>> $*"
+    echo
+}
+
+getCommonPrefix() {
+    str=""
+    for p in ${@}; do
+        [ -n "${str}" ] && str="${str}\n"
+        str="${str}${p}"
+    done
+    str="${str}\n"
+    prefix="$(echo ${str} | sed -e 'N;s|^\(.*\).*\n\1.*$|\1|')"
+    echo "${prefix}"
+}
+
+if [ "${1}" = "-h" ]; then
+    usage
+fi
+
+SVN_OPTS=""
+[ -n "${SVN_USER}" ] && SVN_OPTS="--username ${SVN_USER}"
+
+#svn info
+#if [ $? -ne 0 ]; then
+#    echo "Not a SVN working copy. You must be in a SVN working directory to merge (of the source branch)"
+#    usage
+#fi
+
+REV="${1}"
+if [ -z "${REV}" ]; then
+    echo -n "Enter the revision to merge: "
+    read REV
+fi
+shift
+BRANCH="${1}"
+if [ -z "${BRANCH}" ]; then
+    echo "Which branch to merge to? Enter the local directory where the branch is checked out"
+    echo "    or relative branch path in SVN (eg: /opt/2.2.2 or branches/releases/2.2.2)"
+    echo -n "Enter the branch version to merge to (eg: /opt/2.2.2 or branches/releases/2.2.2): "
+    read BRANCH
+fi
+shift
+if [ -n "${1}" ]; then
+    WORKROOT="${1}"
+else
+    mydir="$(pwd -P)"
+    while [ -n "${mydir}" ] && [ "${mydir}" != "/" ]; do
+        if [ -f "${mydir}/svn_up.py" ]; then
+            break
+        else
+            mydir="$(dirname ${mydir})"
+        fi
+    done
+    WORKROOT=${mydir}
+fi
+
+if [ -z "${WORKROOT}" ] || [ "${WORKROOT}" = "/" ]; then
+    echo "Cannot determine WORKROOT"
+    usage
+fi
+
+SVNROOT="svn://dev.ck12.org/ck12"
+## Check if WORKROOT is a relative path or prefixed with SVNROOT
+if [ "${WORKROOT##/}" = "${WORKROOT}" ] || [ "${WORKROOT##$SVNROOT}" != "${WORKROOT}" ]; then
+    WORKROOT="${WORKROOT##${SVNROOT}}"
+    WORKROOT="${WORKROOT##/}"
+    WORKROOT="${SVNROOT}/${WORKROOT}"
+    srcbrn="${WORKROOT}"
+else
+    cd ${WORKROOT} > /dev/null
+    WORKROOT=$(pwd -P)
+    svn info
+    if [ $? -ne 0 ]; then
+        echo "Not a SVN working copy. You must be in a SVN working directory to merge (of the source branch)"
+        usage
+    fi
+    srcbrn="$(svn info | grep '^URL: ' | sed 's|^URL: ||')"
+fi
+echo "WORKROOT=${WORKROOT}"
+
+if [[ ${REV} == *:* ]]; then
+    FIRST_REV=$(echo ${REV} | cut -f1 -d:)
+    LAST_REV=$(echo ${REV} | cut -f2 -d:)
+    if [ ${FIRST_REV} -gt ${LAST_REV} ]; then
+        echo "Invalid revision range: ${REV}"
+        exit 1
+    fi
+    i=${FIRST_REV}
+    REV=""
+    while [ $i -le $LAST_REV ]; do
+        [ -n "${REV}" ] && REV="${REV},"
+        REV="${REV}${i}"
+        let i=i+1
+    done
+    REV="${REV%%,}"
+    echo "REVLIST=${REV}"
+fi
+srcbrn="${srcbrn%%/}"
+srcbrnrel="${srcbrn##$SVNROOT}"
+
+echo "srcbrn=${srcbrn}"
+
+TARGET_ROOT=/tmp/merge-$$
+if [ "${BRANCH##/}" != "${BRANCH}" ]; then
+    LOCAL_BRANCH="true"
+    printMsg "Using local checked out copy: ${BRANCH}"
+else
+    LOCAL_BRANCH="false"
+    BRANCH_URL="svn://dev.ck12.org/ck12/${BRANCH}"
+fi
+
+PATHS="$(svn log ${srcbrn} -c${REV} -v  | grep '^ [ ]*[A-Z][A-Z ]*\/' | tr -s ' ' | cut -d' ' -f3 | sed -e "s|^${srcbrnrel}/||g" | xargs)"
+echo "Changed Paths=$PATHS"
+SVNSRC="${srcbrn}/"
+COMMENT="$(svn log ${srcbrn} -c ${REV} | grep -v '^---' | grep -v '^$' | grep -v '^r[0-9]*')"
+echo "COMMENT=${COMMENT}"
+(
+    if [ "${LOCAL_BRANCH}" = "false" ]; then
+        [ -d "${TARGET_ROOT}" ] && rm -rf "${TARGET_ROOT}"
+        mkdir -p ${TARGET_ROOT}
+        pushd ${TARGET_ROOT} > /dev/null
+        printMsg "Checking out ${BRANCH_URL}/ in ${TARGET_ROOT} ..."
+        echo "!!! Continue? [y/n] "
+        read ans
+        if [ "${ans}" = "n" ]; then
+            printMsg "Cancelling check out. Must specify a checkout root directory for target branch."
+            exit 1
+        else
+            printMsg "Checking out ..."
+            BRN_ROOT="$(basename ${BRANCH_URL})"
+            svn co --depth empty ${BRANCH_URL} ${BRN_ROOT}
+            pushd ${TARGET_ROOT}/${BRN_ROOT} > /dev/null
+            for pth in ${PATHS}; do
+                uniqPaths="${uniqPaths} $(dirname ${pth})"
+            done
+            uniqPaths=$(echo ${uniqPaths} | xargs -n1 | sort -u)
+            echo "uniqPaths=${uniqPaths}"
+            for pth in ${uniqPaths}; do
+                for part in $(echo ${pth} | tr '/' ' '); do
+                    if [ ! -d ${part} ]; then
+                        #echo svn update --set-depth empty ${part}
+                        svn update --set-depth empty ${part}
+                    fi
+                    cd ${part}
+                done
+                cd ${TARGET_ROOT}/${BRN_ROOT}
+            done
+            #pwd
+            for pth in ${PATHS}; do
+                pthdir=$(dirname ${pth})
+                pthfile=$(basename ${pth})
+                (
+                    cd ${pthdir}
+                    echo svn update ${pthfile}
+                    svn update ${pthfile}
+                )
+            done
+        fi
+    else
+        pushd ${BRANCH}/ > /dev/null
+        BRANCH_URL="$(svn info . | grep '^URL:' | sed -e 's|^URL:[ ]*\(.*\)$|\1|')"
+    fi
+    echo svn info ${BRANCH_URL}
+    serverRev=$(svn info ${BRANCH_URL} | grep '^Revision:' | sed -e 's|^Revision:[ ]*\([0-9]*\).*$|\1|')
+    pwd
+    localRev=$(svn info . | grep '^Revision:' | sed -e 's|^Revision:[ ]*\([0-9]*\).*$|\1|')
+    echo "serverRev=${serverRev},localRev=${localRev}"
+    if [ "${serverRev}" != "${localRev}" ]; then
+        printMsg "Updating local ${BRANCH} copy..."
+        svn up --ignore-externals
+    fi
+    svn info
+    printMsg "Merging svn merge --ignore-ancestry ${SVNSRC} -c${REV} ."
+    svn merge --ignore-ancestry ${SVNSRC} -c${REV} .
+    printMsg "Showing diff..."
+    svn diff ${PATHS} | less
+    if [ -n "${COMMENT}" ]; then
+        printMsg "Using comment: \"${COMMENT}\""
+        printMsg svn commit ${SVN_OPTS} -m "${COMMENT}" ${PATHS}
+        echo "!!! Continue? [y/n/c] "
+        read ans
+        if [ "${ans}" = "c" ]; then
+            msgFile="/tmp/svn$$"
+            echo "${COMMENT}" > ${msgFile}
+            _EDITOR="${SVN_EDITOR:-$EDITOR}"
+            ${_EDITOR} ${msgFile}
+            printMsg "Committing ..."
+            printMsg svn commit ${SVN_OPTS} -F ${msgFile} ${PATHS}
+            svn commit ${SVN_OPTS} -F ${msgFile} ${PATHS}
+        elif [ "${ans}" = "y" ]; then
+            printMsg "Committing ..."
+            printMsg svn commit ${SVN_OPTS} -m "${COMMENT}" ${PATHS}
+            svn commit ${SVN_OPTS} -m "${COMMENT}" ${PATHS}
+        else
+            printMsg "Skipping commit..."
+        fi
+    else
+        printMsg "Committing ..."
+        printMsg svn commit ${SVN_OPTS} ${PATHS}
+        svn commit ${SVN_OPTS} ${PATHS}
+    fi
+    popd
+    [ -d ${TARGET_ROOT} ] && rm -rf ${TARGET_ROOT}
+)

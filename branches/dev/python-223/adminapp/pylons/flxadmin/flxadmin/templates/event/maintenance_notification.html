@@ -1,0 +1,98 @@
+{% extends "listings.html" %}
+
+{% block admintop %}
+    {% block filters %} 
+    {% endblock %}
+ 
+    {% block searches %} 
+    {% endblock %}
+{% endblock %}
+
+{% block admincontent %} 
+<div class="sectionhead sectiontitle">{{c.pagetitle}}</div>
+<div class="section withfloatedsubmit">
+    <div class='floatright'>
+        <input type="submit" value="Invalidate Cache" name="invalidatecache" id="invalidate_cache" class="btn primaryaction floatleft hide">
+        <input type="submit" value="Update" name="update" class="btn primaryaction floatright update_notifications">
+    </div>
+    {{ super() }}
+</div>
+{% endblock %}
+
+{% block js_scripts %}
+    {{ super() }}
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var idsStrSep = ',';
+            Listings({
+                sort: '',
+                enableMultipleIdsFilter: true,
+                idsStrSep: idsStrSep,
+                params: '{{c.query}}',
+                ajaxRoot: CK12.admUrl('/maintenance/notification_list')
+            });
+
+            {% if c.invalidateCache %}
+            $.get(CK12.flxUrl('get/maintenance/notification?nocache=true&key=maintenancenotification'), function(data){
+                //console.log('cache invalidated successfully');
+            });
+            {% endif %}
+            
+            $('.update_notifications')
+            .off('click.update_notifications')
+            .on('click.update_notifications', function(){
+                var notificationItems = $('#leftpane .table .tbody .tr'),
+                    notifications = [];
+
+                notificationItems.each(function(){
+                    var notification = new Object();
+                    var sequence = parseInt($(this).find('#sequence').val());
+                    notification['id'] = sequence;
+                    
+                    var hasNotification = $(this).find('#status').is( ':checked' );
+                    notification['status'] = hasNotification;
+                    
+                    var message = $(this).find('#message').val();
+                    notification['message'] = message;
+
+                    notifications.push(notification);
+                });
+
+                var url = "/maintenance/notification/create";
+                $.ajax({url: CK12.admUrl(url), 
+                    type: 'POST',
+                    data : {'data' : JSON.stringify(notifications)},
+                    success: function(response, status, xhr){
+                        if (response){
+                            response = $.parseJSON(response);
+                            alert(response.status.substr(0, 1).toUpperCase() + response.status.substr(1) + ": " + response.message);
+                            if (response.status == 'success'){
+                                $('#invalidate_cache').click();
+                            }
+                        }
+                    },
+                    error: function(xhr, textStatus, errorThrown){
+                        alert('API Error: '+ Fns.formatResponseError(
+                            xhr, textStatus, errorThrown));
+                    }
+                });
+            });
+
+            $('#invalidate_cache').css({'margin':'0px 10px'}).off('click.invalidatecache').on('click.invalidatecache', function(){
+                var url = '/maintenance/notification_list';
+                $.ajax({url: CK12.admUrl(url), 
+                        type: 'GET',
+                        success: function(response, status, xhr){
+                                if (response){
+                                    $('#leftpane .table .tbody').html(response);
+                                }
+                        },
+                        error: function(xhr, textStatus, errorThrown){
+                                alert('API Error: '+ Fns.formatResponseError(xhr, textStatus, errorThrown));
+                        }
+                });
+            });
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,178 @@
+.widget-header {
+    display: flex;
+     display: -webkit-flex;
+    height: 30px;
+    max-width: 400px;
+    margin: 0px 0px 10px 0px;
+    padding: 25px 0px;
+    color: white !important;
+    word-spacing: 0.1px;
+    align-items: center;
+    -webkit-align-items: center;
+	border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    background-color: #fff;
+  /*   box-shadow:0px 1px 8px 2px rgba(128, 128, 128, 0.4);
+    -moz-box-shadow:0px 1px 8px 2px rgba(128, 128, 128, 0.4);
+    -webkit-box-shadow:0px 1px 8px 2px rgba(128, 128, 128, 0.4); */
+    border: 2px solid #CCC;
+}
+
+.widget-header .practice-section{
+/* 	flex: 8 1 0; */
+     margin: 0 auto;
+    font-size: 18px;
+    font-weight: normal;
+    letter-spacing: 0;
+    width: 70%;
+    text-align: left;
+}
+
+.minimize-section, .maximize-section{
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* flex: 2 1 0; */
+    text-align: center;
+    cursor: pointer;
+    height: 30px;
+    background-position: 100%;
+    width: 6%;
+
+}
+.sticky-widget{
+	position: fixed;
+	top	: 110px;
+	min-width: 340px;
+	z-index: 11;
+	background-color: #f9f9f5;
+}
+.sticky-widget-full{	
+	position: static;
+	min-width: 100%;
+}
+.minimize-section{
+	margin-right: 20px;
+}
+.maximize-section{
+	margin-right:10px;
+}
+.close-btn{
+	position: absolute;
+    display: block;
+    width: 50px;
+    height: 50px;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+}
+.contract-section{
+	position: absolute;
+	top: 14px;
+}
+i.icon-contract.iconCon {
+    font-size: 25px;
+}
+/* .minimize-section{
+	background-image:url('../../src/images/minimize.png');
+}
+
+.maximize-section{
+	background-image:url('../../src/images/maximize.png');
+} */
+
+.widget-container{
+	width:100%;
+    margin-top:10px;
+    border: 2px solid #CCC;
+    min-height: 600px;
+	transition:transform .7s ease;
+	-ms-transition:transform .7s ease;
+	-moz-transition:transform .7s ease;
+    -o-transition:transform .7s ease;
+	-webkit-transition:transform .7s ease;
+ /*    box-shadow: 0px 1px 8px 2px rgba(128, 128, 128, 0.4);
+    -moz-box-shadow: 0px 1px 8px 2px rgba(128, 128, 128, 0.4);
+    -webkit-box-shadow: 0px 1px 8px 2px rgba(128, 128, 128, 0.4); */
+}
+
+.iconCmn {
+      font-size: 16px;
+    color: #56544D;
+    line-height: 24px !important;
+}
+.widget-iframe{
+	width:100%;
+	min-height:600px;
+	border: 0;
+}
+.mobile-view-modal .modal-content{
+	height:auto
+}
+.widget-iframe.modal{
+	width:100%;
+	min-height:600px;
+}
+
+.modal-box{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    box-shadow: 2px 4px 5px gray;
+    -moz-box-shadow: 2px 4px 5px gray;
+    -webkit-box-shadow: 2px 4px 5px gray;
+    position: absolute;
+    /* top:50%;
+    left:50%; */
+    z-index:53;
+    background : #fff; 
+}
+
+.animate-maximize{
+	transform:translate(-66%,-107px);
+	-ms-transform:translate(-66%,-107px);
+	-webkit-transform:translate(-66%,-107px);
+}
+
+.widget-container.modal-box{
+	width: 100%;
+	top:0;
+}
+
+.hide{
+	display:none;
+}
+
+.modal-box-back{
+	z-index: 52;
+    width: 100vw;
+    height: 100vh;
+    min-height: 100%;
+    min-width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,.6);
+}
+/* css for higlights and notes icon  */
+.widget-annotation-aposition{
+	right:-20px !important;	
+}
+
+/*This CSS is to hide iframe Scrollbar*/
+
+/* .widget-iframe html {
+    overflow: scroll;
+    overflow-x: hidden;
+} */
+/* ::-webkit-scrollbar {
+    width: 0px;  remove scrollbar space
+    background: transparent;  optional: just make scrollbar invisible
+} */
+/* optional: show position indicator in red */
+/* ::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+ */
+/*CSS Ends*/

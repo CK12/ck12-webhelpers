@@ -1,0 +1,66 @@
+{% extends "base/1column.html" %}
+
+{% block extra_metatags %}
+{{ super() }}
+<meta name="robots" content="noindex, nofollow">
+{% endblock extra_metatags %}
+
+{% block js %}
+{{ super() }}
+ <script language="JavaScript" type="text/javascript">
+ 	var artifact_type = "{{ c.artifact_type }}";
+ 	var artifact_id = '{{ c.artifact_id }}';
+ 	require(['main'],function(){
+	 	require(['jquery'],function($){
+	 		function domready(){
+		 		var support_url = $("#supportlink");
+	            var support_mailto = $(support_url).attr('href');
+	            var mail_msg = "Help: Content transfer request";
+	            var mail_body = "URL: " + window.location.href + '\r\n';
+	            mail_body += 'Artifact Type: ' + artifact_type + '\r\n';
+	            mail_body += 'Artifact ID: ' + artifact_id;
+	            support_mailto +=  '?subject=' + escape(mail_msg);
+	            support_mailto +=  '&body=' + escape(mail_body);
+	            $(support_url).attr('href', support_mailto);
+	 		}
+	 		$(document).ready(domready);
+	 	});
+ 	});
+ </script>
+{% endblock %}
+
+{% block pageinfotop %}
+<div class="contenttop"></div>
+{% endblock %}
+
+{% block content %}
+
+<div class="contentarea">
+	<div class="unmigrated_artifact_info contentarea prefix_2 grid_8 suffix_2">
+		<div class="spacetopxlarge"></div>&nbsp;<div class="spacetopxlarge"></div>
+		<h1 class="toptitle">{{ _('<img src="%(logo)s" alt="CK-12" /> is new and improved...' % {'logo':h.url_images('logo_ck12.png') }  ) }}</h1>
+		<h2>{{ _('The %(artifact_type)s you are looking for has moved.' % {'artifact_type': c.artifact_type_legal}) }}</h2>
+		<div class="divider spacetop"></div>
+		<div class="spacetoplarge"></div>
+		<p>
+			{{ _('We have recently upgraded to a newer version of our FlexBook&#174; textbook Platform&reg;. The new platform is equipped with many <a href="%(features_url)s">new features</a>.' % { 'features_url': config.get('features_url') }) }}
+		</p>
+		<p>{{ _('We are currently in the process of transferring the content to the new system. In the meantime, some content may not be immediately available.') }}</p>
+		<div class="spacetopxlarge"></div>
+		<h2 class="toptitle">{{ _('How to transfer  your content') }}</h2>
+		<div class="divider"></div>
+
+		<p>{{ _('For quicker access to your content, please log in and follow the instructions to begin the transfer of your content.') }}</p>
+		<p class="spacetoplarge">
+			<a class="btn" href="{{ h.url('dashboard', qualified=True) }}" style="display:inline"> {{ _("Begin") }}</a>
+		</p>
+		<div class="spacetopxlarge"></div>
+		<h2 class="toptitle"></h2>
+		<div class="divider"></div>
+		<p>{{  _('Contact <a id="supportlink" href="mailto:%(support_email)s">support</a> for more assistance.' % {'support_email' : config.support_email}) }}</p>
+		<p>{{  _('Thanks for your patience.') }}</p>
+		<div class="spacetopxlarge"></div>&nbsp;
+		<div class="spacetopxlarge"></div>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,365 @@
+{% extends "details.html" %}  
+{% from "macros/form_errors.html" import form_errors with context %}  
+
+<!--
+*************************************************************************** 
+Macro: test_question_html
+Macro to display the test question in table row with edit and preview actions
+***************************************************************************
+-->
+{% macro test_question_html (question) %}
+<div class="tr">
+    <div class="td">
+    	{% if question.object.questionData.stem %}
+        	{{h.htmla_('/assessment/question/%s'% question.object._id, txt=question.object.questionData.stem.displayText|escape|truncate(100))}}
+        {% else %}
+        	{{h.htmla_('/assessment/question/%s'% question.object._id, txt='Detail')}}
+        {% endif %}
+    </div>
+    <div class="td">
+        {{ question.object.questionType.name }}
+    </div>
+    <div class="td">
+       {% if question.object.questionType.name  == 'geometry-interactive' %}
+            {{ h.htmla('/assessment/ui/views/question.builder.html?edit/%s&impersonateMemberID=%s'%(question.object._id, question.object.owner.uID), 'Edit', 'edit')}} |
+            {{ h.htmla('/assessment/tools/geometry-tool/embed.html?url=/assessment/api/render/questionInstance?qID=%s'%(question.object._id), 'Preview', 'preview')}}
+        {% elif question.object.questionType.name == 'sim-interactive' %}
+            <span>N/A</span>
+        {% else %}
+            {{ h.htmla('/assessment/ui/?question/edit/%s&impersonateMemberID=%s'%(question.object._id, question.object.owner.uID), 'Edit', 'edit')}} |
+            {{ h.htmla('/assessment/ui/?question/preview/%s'%(question.object._id), 'Preview', 'preview')}}
+            
+        {% endif %}
+    </div>
+</div>
+{% endmacro %}
+
+{% block admincontent %} 
+{% if c.test %} 
+<div class="sectionhead sectiontitle">{{c.pagetitle}}</div>
+<div class="section withfloatedsubmit">
+  <form id="mainform" method="post">
+    <div class="leftaligned">
+    {% for field in c.form.ordered_fields %}
+      {{ field }}
+    {% endfor %}
+      {{ h.labelselect('Test Type', 'testType', c.testTypes, 'filter',selected=c.test.testType)}}
+      
+      {{ h.labelinput("Encoded IDs",'encodedIDs','elong')}}
+      
+      {{ h.labelselect('Public', 'isPublic', [('True', 'True'),('False','False')], 'filter',selected=c.test.isPublic)}}
+      
+      {{ h.htmllabel('Owner')}}<div>
+        {{h.userlink(c.test['owner'], 'email', 'uID')}}
+      </div>
+      
+      {% if c.test.artifactID %}
+        {{ h.labeldiv('Artifact', (h.idlink('/artifact/', c.test, 'artifactID', 'artifactID')) ) }}
+      {% endif %}
+
+      {{ h.labelreadonly("Number of Questions", 'questionsCount', 'info') }}
+      {{ h.labeltextarea("Test Policy",'policies', 5, 82)}}
+      
+      {{ h.labeltextarea('Items', 'questions', 5, 82)}}
+      
+      {{ h.labeldiv('Action')}}<div>
+      {% if c.enable_show_edit_link %}
+      {{ h.htmla_('/assessment/test/edit/'+c.id, 'Show/Edit Questions', 'test_questions')}} |
+      {% endif %}
+      {% if c.include_more_published_questions %}
+      {{ h.htmla_('/assessment/questions/published/'+c.id, 'Include More Published Questions', 'published_questions')}} |
+      {% endif %}
+      {% if c.test.get('itemsInput') %}
+          {{ h.htmla('/assessment/ui/?test/edit/%s&impersonateMemberID=%s&isFlxAdmin=ture&testOwner=%s'%(c.test._id, c.test.owner.uID,c.test.owner.login), 'Use Test Editor', 'editTest')}} |
+      {% endif %}
+      {{ h.htmla('/create/exercise/test', 'New Test', 'newTest', target='_blank')}} |
+      {{ h.htmla_('/assessment/create/test/new', 'New Test (Advanced)', 'newTestAdvance')}}
+      </div>
+
+    </div>
+      {{ h.deletebutton('Delete')}}
+      {{ h.submitbutton('Update', 'short')}}
+      {{ h.cancelbutton(c.cancel)}}
+<span class='ajaxError'></span>
+  </form>
+</div>
+
+{% if c.test.get('items') %}
+    <div class="prethead title">Test Questions</div>
+    <div class="inline table">
+        <div class="thead sectionhead">
+            <div class="tr">
+                <div class="td">
+                    Question
+                </div>
+                <div class="td">
+                    Question Type
+                </div>
+                <div class="td">
+                    Action
+                </div>
+            </div>
+        </div>
+    
+        <div class="tbody">
+        {% for item in c.test.get('items') %}
+            {% if item.type == 'question' %}
+                {{ test_question_html(item) }}
+            {% elif item.type == 'pool' %}
+                {% for q_item in item.get('items') %}
+                    {{ test_question_html(q_item) }}
+                {% endfor %}
+           {% endif %}
+        {% endfor %}
+        </div>
+    </div>
+{% endif %}
+
+{% endif %} 
+{% endblock %}
+
+{% block js_scripts %}
+<script type="text/javascript" src="{{ h.url_js('colorbox_popup_resize.js') }}"></script>
+<script type='text/javascript'>
+{{ form_errors('after') }}
+$(document).ready(function(){
+  window.action = '';
+  window.is_pane = '{{c.is_pane}}';
+
+  //Bug - 15812 - chaning test type is not supported in FBS right now, don't allow to change test type'
+  $('[name="testType"]').prop('disabled', true);
+
+  $('input:submit').off('click').on('click', function(event){
+        var data = $('textarea#policies').val();
+        var jsonObj = JSON.parse(data);
+        var isDataValid = true;
+        $.each(jsonObj, function (){
+            if (this.name === 'timelimit'){
+                if (typeof this.value != 'number' || (typeof this.value === 'number' && this.value % 1 != 0)){
+                    alert("Test Policy - Only Integer values are allowed for timelimit");
+                    isDataValid = false;
+                    return;
+                }
+                
+                if (this.value && this.value < 60){
+                    alert("Test Policy - timelimit cannot be less than 1 min(60 Sec)");
+                    isDataValid = false;
+                    return;
+                }
+            }
+        });
+        if(! isDataValid){
+            event.preventDefault();
+            event.stopPropagation();
+        }
+  });
+
+  function validateTest(context, originalValue){
+      var currentValue = $(context).val();
+      if (currentValue == originalValue)
+          return true;
+      if (!currentValue.length){
+          alert("Test " + $(context).attr("id") + " can not be blank");
+          $(context).val(originalValue);
+          return false;
+      }
+      var regex = new RegExp("^[0-9a-zA-Z_ \.:-]*$");
+      if (!regex.test(currentValue)) {
+          alert("Invalid characters in test " + $(context).attr("id") + "");
+          $(context).val(originalValue);
+          return false;
+      }
+      return true;
+  }
+  $('#title').blur(function(){
+      validateTest(this, "{{ c.test.title }}");
+  });
+
+  $('#handle').blur(function(){
+      validateTest(this, "{{ c.test.handle }}");
+  });
+
+  $('#mainform').submit(function(e) {
+     if(! validateTest($("#title"), "{{ c.test.title }}")
+          || ! validateTest($("#handle"), "{{ c.test.handle }}")
+          || ! validateEID($("#questions"))){
+         Fns.unblockUI();
+         return false;
+     }
+  });
+
+  function validateEID(context){
+      var currentValue = $.trim($(context).val());
+      var eids_valid = true;
+      var hasInvalidEIDGroup = false;
+      var allEIDs;
+      // Check for the empty 'items' field 
+      if (! currentValue){
+           alert("Atleast one question needs to be added for this test");
+           $(context).val(eids);
+           return false;
+      }
+      // Parse items  	
+      try{
+          var allEIDs = JSON.parse(currentValue);
+      }catch(e){
+    	  var allEIDs = null;
+    	  console.log("Can not parse the items");
+      }  
+      
+      if(allEIDs){
+	      $.each(allEIDs, function(index,eachEids){
+	          if (hasInvalidEIDGroup){
+	              return false;
+	          }
+	          // Validate 'items' field format 
+	          if ($.trim(eachEids)){
+	              // 'items' type should be any of foolowing 
+	              if(!eachEids.type || (eachEids.type !== 'question' && eachEids.type !== 'questionpool' && eachEids.type !== 'questionset')){
+	            	  eids_valid = false;
+	              }
+	              else if(eachEids.type === 'question' && !eachEids.id){
+	            	  eids_valid = false;
+	              }
+	              else if(eachEids.type === 'questionpool' && (!eachEids.items || !(eachEids.items instanceof Array) || eachEids.items.length < 1)){
+	            	  eids_valid = false;
+	              }
+	              else if(eachEids.type === 'questionset' && (!eachEids.encodedID || !eachEids.count || parseInt(eachEids.count, 10) < 1)){
+	            	  eids_valid = false;
+	              }
+	              
+	              if(!eids_valid){
+	            	  alert("Invalid format specified in items field");
+	            	  $(context).val(eids);
+	                  eids_valid = false;
+	                  hasInvalidEIDGroup = true;
+	                  return false;
+	              }
+	          }
+	          else{
+	        	  alert("No encodedID specified");
+	              $(context).val(eids);
+	              eids_valid = false;
+	              return false;
+	          }
+	      });
+      }
+      return eids_valid;
+  }
+  
+  $('#questions')
+  .attr(
+    'placeholder', 'Q:<questionID>;QI:<questionInstanceID>;QP:Q:<questionID>,Q:<questionID>;EID:<EID>:<questionsCount>:<level>(optional)')
+  .focus(function(){
+      eids = $(this).val();
+  })
+  .blur(function(){
+      validateEID(this);
+  });
+
+  var eids = $("#questions").val();
+  $('.wiz').colorbox(Defaults.overlay('listing'));
+  $('.wiz').click(function(){
+  });
+  $('#editTest').colorbox(Defaults.overlay('flxweb'));
+  $('#published_questions').colorbox(Defaults.overlay('wiz'));
+  
+  /*$('#test_questions').colorbox(Defaults.overlay('wiz'));
+  $('#test_questions').off('click').on('click', function(){
+      window.action = "edit_test_questions";
+  });
+  $('#test_questions').colorbox({
+      onClosed: reloadListingPage
+  });*/
+
+  $('.inline.table .tbody .tr .td #edit').colorbox(Defaults.overlay('flxweb'));
+  $('.inline.table .tbody .tr .td #preview').colorbox(Defaults.overlay('flxweb'));
+
+function  reloadListingPage(options){
+   if (window.action === 'add' || window.action === 'delete'){
+        window.action = '';
+        window.location.href = CK12.admUrl('assessment/tests?search=ownerID,{{c.loggedInUserID}}&sort=updated,desc');
+    }else{
+        window.action = '';
+        if (window.is_pane && window.is_pane.toLowerCase() == 'true'){
+            $('#cboxClose').click()
+            $('.active .paneview').click();
+        }
+        else{
+            window.location.reload();
+        }
+    }
+}
+
+function contributeQuestionForConcept(options){
+	if(options && options.conceptId){
+		window.location.href = CK12.admUrl('assessment/questions#contributeQuestion/' + options.conceptId);
+	}
+}
+
+function reloadTestDetailsPage(){
+    window.location.reload();
+}
+
+function createAssessmentListener(){
+    window.scrollToTop=true;
+    window.assessmentFrameListener = {
+        "resize": resize,
+        "loadMyTests" : reloadListingPage,
+        "contributeQuestionForConcept" : contributeQuestionForConcept,
+        "loadTestDetailsPage" : reloadTestDetailsPage,
+        "setParentURL" : function(url){
+        	window.location.href = url;
+        }
+    };
+}
+
+createAssessmentListener();
+
+  var deleteTest = {
+      confirmMsg : 'Are you sure to delete the Test?',
+      successMsg : 'Test deleted successfully',
+      this : null,
+              
+      deleteTestTask : function(){
+          if (confirm(deleteTest.confirmMsg)){
+            deleteTest.this = $(this)
+            $(this).hide();
+            $.ajax({url: CK12.admroot + 'assessment/delete/test/{{ c.test._id }}', 
+              type: 'POST', 
+              data:{'error_response_format':'JSON'},
+              success: function(data, status, xhr){
+                  $(deleteTest.this).show();
+                  try{
+                      data = $.parseJSON(data);
+                  }catch (e){
+                  }
+                  if (data && data.status == 'error'){
+                      var message = '';
+                      if(data.api_status_code){
+                          message += data.api_status_code;
+                      }
+                      if (data.response){
+                          message += ' - ' + data.response;
+                      }else{
+                          message += 'Unknow Reason'
+                      }
+                      alert('API Error: ' + message);
+                  }else{
+                      alert(deleteTest.successMsg);
+                      window.location.href = CK12.admUrl('assessment/tests');
+                  }
+              },
+              error: function(xhr, textStatus, errorThrown){
+                  alert('API Error: '+ Fns.formatResponseError(
+                  xhr, textStatus, errorThrown));
+              }
+           });
+         }
+      }
+    };
+    $("#delete").click(deleteTest.deleteTestTask);
+    
+  });
+</script>
+{% endblock %}

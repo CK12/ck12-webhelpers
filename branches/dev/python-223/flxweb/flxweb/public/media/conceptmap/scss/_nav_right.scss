@@ -1,0 +1,45 @@
+$ns-module: "conceptmap-nav__right";
+
+.#{$ns-module}{
+    list-style-type: none;
+    margin-bottom: 0;
+
+    li {
+        display: inline-block;
+        text-align: center;
+
+        span {
+            display: block;
+            font-size: rem-calc(12);
+        }
+    }
+
+    i {
+        font-size: $nav-icon-font-size * 0.75;
+        line-height: $nav-icon-line-height * 0.75;
+        cursor: pointer;
+
+        & + .tooltip-bottom {
+            @include tooltip-bottom();
+
+            white-space: nowrap;
+            transform: translateX(-50%);
+            left: 50%;
+            top: rem-calc(58);
+        }
+        &:hover {
+            & + .tooltip-bottom {
+                @include tooltip--visible();
+            }
+        }
+    }
+}
+
+
+#{$zero-state} {
+    .#{$ns-module}{
+        i, span {
+            opacity: 0;
+        }
+    }
+}

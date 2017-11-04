@@ -1,0 +1,89 @@
+.single-select-container{
+    li{
+        list-style: none;
+        padding-left: 40px;
+        &:hover{
+            background-color: #85c3f0;
+            cursor: pointer;
+        }
+        &.notclickable{
+            &:hover{
+                background-color: #ffffff;
+                cursor: inherit;
+            }
+        }
+        .icon-expand-arrow-down{
+            position: absolute;
+            border-top: 5px solid black;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            left: 48%;
+        }
+        .icon-collapse-arrow-up{
+            position: absolute;
+            border-bottom: 5px solid black;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            left: 48%;
+        }
+        &.more{
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+    .single-select{
+        &.disabled{
+            color: #ccc;
+            .arrow-down{
+                &::before{
+                    border-bottom: 5px solid #7f7f7f;
+                }
+                &::after{
+                    border-top: 5px solid #7f7f7f;
+                }
+            }
+        }
+    }
+    .arrow-down{
+        position: absolute;
+        top: 16px;
+        right: 4px;
+
+        &::before{
+            content: '';
+            border-bottom: 5px solid black;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            position: absolute;
+            top: -9px;
+        }
+        &::after{
+            content: '';
+            border-top: 5px solid black;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+        }
+    }
+    .container-standard{
+        z-index: 23 !important;
+    }
+    .container-subject{
+        z-index: 22 !important;
+        li{
+            padding-left: 20px !important;
+        }
+    }
+    .container-grade{
+        z-index: 21 !important;
+        li{
+            padding-left: 20px !important;
+        }
+    }
+}
+
+@media all and (max-width: 767px) {
+    .single-select-container{
+        padding: 15px !important;
+    }
+}

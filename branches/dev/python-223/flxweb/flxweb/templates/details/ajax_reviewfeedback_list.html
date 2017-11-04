@@ -1,0 +1,25 @@
+{% from "macros/artifact.html" import ck12_artifact_review_feedback with context %}
+<div>
+
+{% for review in c.reviewfeedback %}
+        <div class="feedbacksection" id="{{ review['memberID'] }}">
+            <div class="feedbackauth">
+                <span class="membername"> {{ review['memberName'].title() }} </span>
+                <span class="date">  {{ review['creationTime']|ck12_date }}</span>
+                <span>
+                {% if review['score'] == -1 %} 
+                    <a class="dislikeicon" title="{{ _("Not helpful") }}"><span class="imgwrap"></span></a> 
+                {% else  %} 
+                     <a class="likeicon" title="{{ _("Helpful") }}"><span class="imgwrap"></span></a> 
+                 
+                {% endif %}
+                </span>
+            </div>
+            <div class="feedbackcomment">
+                {{ review['comments']|e }}
+            </div>
+            <div class="divider spacetop"></div>
+        </div>
+    {% endfor %}
+    
+</div> 

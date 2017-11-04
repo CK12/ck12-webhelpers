@@ -1,0 +1,26 @@
+INSERT INTO `BrowseTermCandidates` (`categoryID`, `rangeStart`, `rangeEnd`, `sequence`) select id, 'MAT.ARI.110', 'MAT.ARI.110', 1 FROM `BrowseTerms` where `encodedID` = 'MAT.ARI' AND `termTypeID` = 4;
+INSERT INTO `BrowseTermCandidates` (`categoryID`, `rangeStart`, `rangeEnd`, `sequence`) select id, 'MAT.ARI.210', 'MAT.ARI.210', 2 FROM `BrowseTerms` where `encodedID` = 'MAT.ARI' AND `termTypeID` = 4;
+INSERT INTO `BrowseTermCandidates` (`categoryID`, `rangeStart`, `rangeEnd`, `sequence`) select id, 'MAT.ARI.310', 'MAT.ARI.310', 3 FROM `BrowseTerms` where `encodedID` = 'MAT.ARI' AND `termTypeID` = 4;
+INSERT INTO `BrowseTermCandidates` (`categoryID`, `rangeStart`, `rangeEnd`, `sequence`) select id, 'MAT.ARI.510', 'MAT.ARI.510', 4 FROM `BrowseTerms` where `encodedID` = 'MAT.ARI' AND `termTypeID` = 4;
+INSERT INTO `BrowseTermCandidates` (`categoryID`, `rangeStart`, `rangeEnd`, `sequence`) select id, 'MAT.ARI.000', 'MAT.ARI.599', 1001 FROM `BrowseTerms` where `encodedID` = 'MAT.ARI' AND `termTypeID` = 4;
+INSERT INTO `BrowseTermCandidates` (`categoryID`, `rangeStart`, `rangeEnd`, `sequence`) select id, 'MAT.ARI.110', 'MAT.ARI.110', 1 FROM `BrowseTerms` where `encodedID` = 'MAT.ARI.090' AND `termTypeID` = 4;
+INSERT INTO `BrowseTermCandidates` (`categoryID`, `rangeStart`, `rangeEnd`, `sequence`) select id, 'MAT.ARI.120', 'MAT.ARI.120', 2 FROM `BrowseTerms` where `encodedID` = 'MAT.ARI.090' AND `termTypeID` = 4;
+INSERT INTO `BrowseTermCandidates` (`categoryID`, `rangeStart`, `rangeEnd`, `sequence`) select id, 'MAT.ARI.130', 'MAT.ARI.130', 3 FROM `BrowseTerms` where `encodedID` = 'MAT.ARI.090' AND `termTypeID` = 4;
+INSERT INTO `BrowseTermCandidates` (`categoryID`, `rangeStart`, `rangeEnd`, `sequence`) select id, 'MAT.ARI.140', 'MAT.ARI.140', 4 FROM `BrowseTerms` where `encodedID` = 'MAT.ARI.090' AND `termTypeID` = 4;
+INSERT INTO `BrowseTermCandidates` (`categoryID`, `rangeStart`, `rangeEnd`, `sequence`) select id, 'MAT.ARI.000', 'MAT.ARI.199', 1001 FROM `BrowseTerms` where `encodedID` = 'MAT.ARI.090' AND `termTypeID` = 4;
+INSERT INTO `BrowseTermCandidates` (`categoryID`, `rangeStart`, `rangeEnd`, `sequence`) select id, 'MAT.ARI.210', 'MAT.ARI.210', 1 FROM `BrowseTerms` where `encodedID` = 'MAT.ARI.200' AND `termTypeID` = 4;
+INSERT INTO `BrowseTermCandidates` (`categoryID`, `rangeStart`, `rangeEnd`, `sequence`) select id, 'MAT.ARI.220', 'MAT.ARI.220', 2 FROM `BrowseTerms` where `encodedID` = 'MAT.ARI.200' AND `termTypeID` = 4;
+INSERT INTO `BrowseTermCandidates` (`categoryID`, `rangeStart`, `rangeEnd`, `sequence`) select id, 'MAT.ARI.230', 'MAT.ARI.230', 3 FROM `BrowseTerms` where `encodedID` = 'MAT.ARI.200' AND `termTypeID` = 4;
+INSERT INTO `BrowseTermCandidates` (`categoryID`, `rangeStart`, `rangeEnd`, `sequence`) select id, 'MAT.ARI.240', 'MAT.ARI.240', 4 FROM `BrowseTerms` where `encodedID` = 'MAT.ARI.200' AND `termTypeID` = 4;
+INSERT INTO `BrowseTermCandidates` (`categoryID`, `rangeStart`, `rangeEnd`, `sequence`) select id, 'MAT.ARI.200', 'MAT.ARI.299', 1001 FROM `BrowseTerms` where `encodedID` = 'MAT.ARI.200' AND `termTypeID` = 4;
+INSERT INTO `BrowseTermCandidates` (`categoryID`, `rangeStart`, `rangeEnd`, `sequence`) select id, 'MAT.ARI.310', 'MAT.ARI.310', 1 FROM `BrowseTerms` where `encodedID` = 'MAT.ARI.300' AND `termTypeID` = 4;
+INSERT INTO `BrowseTermCandidates` (`categoryID`, `rangeStart`, `rangeEnd`, `sequence`) select id, 'MAT.ARI.320', 'MAT.ARI.320', 2 FROM `BrowseTerms` where `encodedID` = 'MAT.ARI.300' AND `termTypeID` = 4;
+INSERT INTO `BrowseTermCandidates` (`categoryID`, `rangeStart`, `rangeEnd`, `sequence`) select id, 'MAT.ARI.300', 'MAT.ARI.399', 1001 FROM `BrowseTerms` where `encodedID` = 'MAT.ARI.300' AND `termTypeID` = 4;
+INSERT INTO `BrowseTermCandidates` (`categoryID`, `rangeStart`, `rangeEnd`, `sequence`) select id, 'MAT.ARI.500', 'MAT.ARI.500', 1 FROM `BrowseTerms` where `encodedID` = 'MAT.ARI.500' AND `termTypeID` = 4;
+INSERT INTO `BrowseTermCandidates` (`categoryID`, `rangeStart`, `rangeEnd`, `sequence`) select id, 'MAT.ARI.510', 'MAT.ARI.510', 2 FROM `BrowseTerms` where `encodedID` = 'MAT.ARI.500' AND `termTypeID` = 4;
+INSERT INTO `BrowseTermCandidates` (`categoryID`, `rangeStart`, `rangeEnd`, `sequence`) select id, 'MAT.ARI.500', 'MAT.ARI.599', 1001 FROM `BrowseTerms` where `encodedID` = 'MAT.ARI.500' AND `termTypeID` = 4;
+INSERT INTO `BrowseTermCandidates` (`categoryID`, `rangeStart`, `rangeEnd`, `sequence`) select id, 'MAT.ARI.700', 'MAT.ARI.700', 1 FROM `BrowseTerms` where `encodedID` = 'MAT.ARI.700' AND `termTypeID` = 4;
+INSERT INTO `BrowseTermCandidates` (`categoryID`, `rangeStart`, `rangeEnd`, `sequence`) select id, 'MAT.ARI.710', 'MAT.ARI.710', 2 FROM `BrowseTerms` where `encodedID` = 'MAT.ARI.700' AND `termTypeID` = 4;
+INSERT INTO `BrowseTermCandidates` (`categoryID`, `rangeStart`, `rangeEnd`, `sequence`) select id, 'MAT.ARI.720', 'MAT.ARI.720', 3 FROM `BrowseTerms` where `encodedID` = 'MAT.ARI.700' AND `termTypeID` = 4;
+INSERT INTO `BrowseTermCandidates` (`categoryID`, `rangeStart`, `rangeEnd`, `sequence`) select id, 'MAT.ARI.700', 'MAT.ARI.779', 1001 FROM `BrowseTerms` where `encodedID` = 'MAT.ARI.700' AND `termTypeID` = 4;
+

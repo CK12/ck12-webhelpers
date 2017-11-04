@@ -1,0 +1,17 @@
+<div class="row collapse concept-track-wrapper js-concept-track-wrapper-small">
+	<div class="columns large-6 pointer concept-track-parent js-concept-track-parent-small" title="<%= data.title %>" data-eid="<%= data.encodedID %>">
+		<span class="concept-track-icon">
+			<img src="<%= data.previewImageUrl %>">
+		</span>
+		<a class="ellipsis relative concept-track"><%= data.title %></a>
+		<span class="for-place-only"></span>
+	</div>
+	<div class="columns large-6 concept-list-container js-concept-list-container-small">
+		<ul>
+			<% var index; if(data.contains){ %>
+			<% for (index = 0; index < data.contains.length; index++) { %>
+				<li><a href="/c/<%= data.collectionHandle.toLowerCase() %>/<%= data.contains[index].absoluteHandle %>"><%= data.contains[index].title %></a></li>
+			<% }} %>
+		</ul>
+	</div>
+</div>

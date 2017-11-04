@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>CK-12 BrainFlex</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+	<div style="height:100%; background:#fff; max-width:600px; margin:0 auto; height:100%; font-family:'Helvetica Neue','Helvetica',Helvetica,Arial,sans-serif;">
+		<div class="main-container">
+			<div style="text-align: center;padding: 20px;">
+				<img class="ck12-logo" alt="ck12 logo" src="{{ site }}/assessment/ui/public/lib/summer/logo-2x.png" width="92px" style="margin-right: 22px;display: inline-block;vertical-align: middle;">
+				<span class="heading-logo" style="font-size: 24px;font-weight: bold;color: #56544d;display: inline-block;vertical-align: middle;">BrainFlex</span>
+			</div>
+			<div class="coach-heading">
+				<div class="blue-band" style="height: auto;background: #d5f4fa;padding-left: 20px;">
+				    <div class="heading-coach" style="font-size: 27px;font-weight: bold;color: #56544d;display: inline-block;width: 280px;padding-top: 31px;vertical-align: top;">
+				    You were chosen to be a BrainFlex coach!
+				    </div>
+					<img class="brain-img" alt="brain logo" src="{{ site }}/assessment/ui/public/lib/summer/coach-whistle.png" width="142px" style="display: inline-block;vertical-align: text-bottom;margin-top: 38px;margin-left: 72px;">
+				</div>
+				<div class="green-band" style="height: 24px;background: #c1d963;"></div>
+			</div>
+			<div class="main-cont" style="padding-left: 42px;padding-right: 42px;padding-top: 34px;font-size: 16px;color: #56544d;line-height: 21px;">
+				<p style="margin-top:1em;margin-bottom:1em;">Get your whistle ready! <span class="student-name">{{ events[0].eventData['studentName'] }}</span> just signed up for CK-12’s summer BrainFlex program and chose you as their coach.</p>
+                <p style="margin-top:1em;margin-bottom:1em;">BrainFlex is CK-12’s free summer challenge aimed at helping students avoid summer learning loss. The eight week program, starting June 19, provides daily, adaptive math and 
+                science practice to help students keep their brains active!</p>
+                <p style="margin-top:1em;margin-bottom:1em;">By agreeing to be a coach, you’ll help <span class="student-name">{{ events[0].eventData['studentName'] }}</span> stay motivated to reach their full potential. 
+                  We make coaching simple by sending you weekly reports of your student’s progress, and you can also send notes of encouragement through our messaging system.</p>
+                <p style="margin-top:1em;margin-bottom:1em;">Just a few minutes of coaching each week could make a dramatic difference in your student’s achievement! It's pretty amazing how far we can go when someone believes in us.</p>
+				<p class="btn-cont" style="margin-top:38px;margin-bottom:1em;text-align:center;">
+					<a class="button" href="{{ events[0].eventData['coachAcceptanceLink'] }}" style="font-weight:bold;border:medium none;border-radius:3px 3px 3px 3px;font-size:1em;
+						padding:10px 16px;background:#ff6633;color:white;text-decoration:none;margin: auto;display: block;width: 205px;text-align:center;">I'm ready to coach!</a>
+                      <br/><br/>
+				</p>
+			</div>
+		</div>
+	</div>	
+</body>
+</html>

@@ -1,0 +1,73 @@
+{% extends "master.html" %}  
+
+{% block admintop %} 
+  <div class="errorline"></div>
+  <span id="filters"></span>
+  {% block filters %} 
+  {% endblock %} 
+  
+  {% block searches %} 
+    <div class="col wider padleft">
+      {{ h.labelinput('Search', 'search', 'med')}}
+      <img id="admin_search_icon" src="{{h.url_images('icon_magnifier2.png')}}"/>
+    </div>  
+  {% endblock %} 
+
+  {% block aftersearches %} 
+  {% if c.viewmode and not c.asOverlay %}
+    <div class="col">
+      <div class="label">
+        <label class="label">View Mode</label>
+      </div>
+      <div id="viewmodes">
+        <div class="pushbtn changemode pane" title="Panes" data-viewmode="pane">
+          <img src="{{ h.url_images('icon_pane.png')}}" alt="Panes" />
+        </div>
+        <div class="pushbtn changemode full" title="Detailed" data-viewmode="full">
+          <img src="{{ h.url_images('icon_list.png')}}" alt="Detailed" />
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  {% endblock %} 
+
+  <div id='resultmsgs'>
+    <p class='ajaxError'></p>
+    <p id='resultmsg'></p>
+    <p id='clearactions'></p>
+  </div>
+{% endblock %}
+
+{% block admincontent %} 
+<div id="panes">
+  <div id='leftpane'>
+    <div class="table hide">
+      <div class="thead sectionhead">
+        <div class="tr paneview {{ h.hide_if_full(c.viewmode)}}">
+        {% for head in c.form.listhead_short %}
+          <div class="td">
+            {{head}}<span class='sort-indicator hide'></span>
+          </div>
+        {% endfor %}
+        </div>
+        <div class="tr fullview {{ h.hide_if_pane(c.viewmode)}}">
+        {% for head in c.form.listhead %}
+          <div class="td">
+            {{head}}<span class='sort-indicator hide'></span>
+          </div>
+        {% endfor %}
+        </div>
+      </div>
+      <div class="tbody"></div>
+    </div>
+  </div>
+  <div id="rightpane">
+  </div>
+</div>
+<div id="pagination"></div>
+{% endblock %}
+{% block js_globals %}{% if not c.asOverlay or (c.forceAsOverlay and c.forceAsOverlay == True) %} {{super()}} {% endif %}{% endblock %}
+
+{% block js_scripts %}
+<script type="text/javascript" src="{{ h.url_js('listings.js') }}"></script>
+{% endblock %}

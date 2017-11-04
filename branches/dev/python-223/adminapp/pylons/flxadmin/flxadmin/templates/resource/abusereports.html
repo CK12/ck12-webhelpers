@@ -1,0 +1,67 @@
+{% extends "listings.html" %}  
+{% from "macros/form_errors.html" import form_errors with context %} 
+
+{% block filters %} 
+  <div class="col tiny">Filter by:</div>
+  <div class="col med">
+    {{ h.labelselect('Type', 'type_filter', c.form.type_sel, 'filter')}}
+  </div>
+  <div class="col">
+    {{ h.labelselect('Status', 'status_filter', c.form.status_sel, 'filter')}}
+  </div>
+  {# uncomment if reason filter added in API
+  <div class="col wide">
+    {{ h.labelselect('Reason Type', 'reason_filter', c.form.reason_sel, 'filter')}}
+  </div>
+  #}
+{% endblock %}
+
+{% block searches %}
+  <div class="col">
+    {{ h.labelinput('Aritfact Id', 'artifactID', 'searchby short') }}
+  </div>
+  <div class="col">
+    {{ h.labelinput('Resource Id', 'resourceID', 'searchby short') }}
+  </div>
+  <div class="col">
+    {{ h.labelinput('Resource Revision Id', 'resourceRevisionID', 'searchby short')}}
+  </div>
+  <div class="col">
+  {{ h.labelreadonly('Start Date', 'fromDate', 'searchby short', c.startDate) }}
+  </div>
+  <div class="col">
+  {{ h.labelreadonly('End Date', 'toDate', 'searchby short', c.endDate) }}
+  <img id="admin_search_icon" src="{{h.url_images('icon_magnifier2.png')}}"/>
+  </div>
+  
+{% endblock %}
+
+{% block js_scripts %}
+{{ super() }}
+<script type='text/javascript'>
+  Listings({
+    sort: 'updated,desc',
+    ajaxRoot: CK12.admUrl('abusereports_list'),
+    formAjax: CK12.admUrl('abusereport/'),
+    viewmode: '{{c.viewmode}}'
+  });
+</script>
+
+<script type="text/javascript">
+{{ form_errors('after') }}
+    $(document).ready(function () {
+        $("#fromDate").datepicker({
+            dateFormat: 'mm-dd-yy',
+            maxDate: '+0d'
+        });
+        $("#toDate").datepicker({
+            dateFormat: 'mm-dd-yy',
+            maxDate: '+0d',
+            beforeShow: function () {
+                $(this).datepicker('option', 'minDate', $('#fromDate').val());
+            }
+        });
+
+    });
+</script>
+{% endblock %}

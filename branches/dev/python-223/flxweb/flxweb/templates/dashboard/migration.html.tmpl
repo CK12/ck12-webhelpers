@@ -1,0 +1,146 @@
+<!--
+Migration templates for dashboard
+-->
+
+<script type="text/template" id="dashboard_migration_not_started_tmpl">
+<div class="container_12 notificationwrap">
+	<div class="notification">
+		<div class="message">
+			{{ _("We have updated our system.  Your FlexBooks and Chapters are not yet transferred to the new system.  It may take 24 hours or less to transfer them.  Would you like to start the transfer now?") }}
+		</div>
+		<p>
+			<a id="action_start_import" href="#" >{{ _("Yes, start the transfer") }}</a> &nbsp; | &nbsp; 
+			<a id="action_remind_later" href="#" >{{ _("Remind me later") }}</a> &nbsp; | &nbsp; 
+			<a id="action_decline" href="#" >{{ _("Don't remind me") }}</a>
+		</p>
+		<div class="dismiss"><a href="#">{{ _('Hide') }}</a></div>
+		<div id="dont-remind-tooltip" class="gentooltip tooltip-content">
+			<div class="tipcontainter">
+				<div class="header">{{ _("Don't remind me") }}</div>
+				<div class="helpcontent">
+					{{ _("If you change your mind, you can always go to Account Settings to start transfer") }}
+				</div>
+			</div>
+		</div>
+		<div id="remind-later-tooltip" class="gentooltip tooltip-content">
+			<div class="tipcontainter">
+				<div class="header">{{ _("Remind me later") }}</div>
+				<div class="helpcontent">
+					{{ _("You will be reminded again on your next signin") }}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</script>
+
+<script type="text/template" id="dashboard_migration_in_progress_tmpl">
+<div class="container_12 notificationwrap">
+	<div class="notification">
+		<div class="message">
+			{{ _("We are in the process of transferring your FlexBooks to new system.  Meanwhile, you can browse the <a href='%(url)s'>Concept Map</a> and check out Concepts and FlexBooks." % {'url': h.url('conceptmap-main')} ) }}
+		</div>
+		<div class="dismiss"><a href="#">{{ _('Hide') }}</a></div>
+	</div>
+</div>
+</script>
+
+<script type="text/template" id="dashboard_migration_failed_tmpl">
+<div class="container_12 notificationwrap">
+	<div class="notification">
+		<div class="message">
+			<% if (pass_count > 0 ) { %>
+				{{ _("We have successfully transferred <a href=\"%(link)s\"> <%%=pass_count%%> of your <%%=total_count%%> FlexBook(s)</a> to the new system.  However, we faced a problem with remaining <%%=fail_count%%> FlexBook(s). We are actively working on fixing that problem. Please <a target='_blank' href='mailto:support@ck12.org'>contact us</a> if you have any questions." % {'link': h.url('mylib-type-label',tab='content',object_type='content',item_type='book',label='Migrated')} ) }}
+			<% } else { %>
+				{{ _("We faced a problem while transferring <%=fail_count%> of your FlexBook(s) to the new system. We are actively working on fixing that problem. Please <a target='_blank' href='mailto:support@ck12.org'>contact us</a> if you have any questions.") }}
+			<% } %>
+		</div>
+		<div class="dismiss"><a href="#">{{ _('Hide') }}</a></div>
+	</div>
+</div>
+</script>
+
+<script type="text/template" id="dashboard_migration_done_tmpl">
+<div class="container_12 notificationwrap">
+	<div class="notification">
+		<div class="message">
+			{{ _("All your FlexBooks and Chapters have been successfully transferred to the new system.  You can find them <a href=\"%(link)s\">here</a>" % {'link': h.url('mylib-type-label',tab='content',object_type='content',item_type='book',label='Migrated')} ) }}
+		</div>
+		<div id="action_dismiss"><a href="#">{{ _('Dismiss') }}</a></div>
+	</div>
+</div>
+</script>
+
+<script type="text/template" id="dashboard_migration_minimized_tmpl">
+<div class="container_12 notificationwrap minimized">
+	<div id="action_show" class="show"><a href="#"></a></div>
+</div>
+</script>
+
+<!--
+Migration templates for Account settings page
+-->
+<script type="text/template" id="settings_migration_not_started_tmpl">
+<div class="container_12 notificationwrap">
+	<div class="notification">
+		{{ _("We have updated our system.  Your FlexBooks and Chapters are not yet transferred to the new system.  It may take 24 hours or less to transfer them.  Would you like to start the transfer now?") }}
+		<p>
+			<a id="action_start_import" href="#" >{{ _("Start the Transfer") }}</a>
+		</p>
+		<div class="dismiss"><a href="#">{{ _('Hide') }}</a></div>
+	</div>
+</div>
+</script>
+
+<script type="text/template" id="settings_migration_in_progress_tmpl">
+<div class="container_12 notificationwrap">
+	<div class="notification">
+		<div class="message">
+			{{ _("We are in the process of transferring your FlexBooks to new system.  Meanwhile, you can browse the <a href='%(url)s'>Concept Map</a> and check out Concepts and FlexBooks." % {'url': h.url('conceptmap-main')} ) }}
+		</div>
+		<div class="dismiss"><a href="#">{{ _('Hide') }}</a></div>
+	</div>
+</div>
+</script>
+
+<script type="text/template" id="settings_migration_failed_tmpl">
+<div class="container_12 notificationwrap">
+	<div class="notification">
+		<div class="message">
+			<% if (pass_count > 0 ) { %>
+				{{ _("We have successfully transferred <a href=\"%(link)s\"> <%%=pass_count%%> of your <%%=total_count%%> FlexBook(s)</a> to the new system.  However, we faced a problem with remaining <%%=fail_count%%> FlexBook(s). We are actively working on fixing that problem. Please <a target='_blank' href='mailto:support@ck12.org'>contact us</a> if you have any questions." % {'link': h.url('mylib-type-label',tab='content',object_type='content',item_type='book',label='Migrated')} ) }}
+			<% } else { %>
+				{{ _("We faced a problem while transferring <%=fail_count%> of your FlexBook(s) to the new system. We are actively working on fixing that problem. Please <a target='_blank' href='mailto:support@ck12.org'>contact us</a> if you have any questions.") }}
+			<% } %>
+		</div>
+		<div class="dismiss"><a href="#">{{ _('Hide') }}</a></div>
+	</div>
+</div>
+</script>
+
+<script type="text/template" id="settings_migration_done_tmpl">
+<div class="container_12 notificationwrap">
+	<div class="notification">
+		<div class="message">
+			{{ _("All your FlexBooks and Chapters have been successfully transferred to the new system.  You can find them <a href=\"%(link)s\">here</a>" % {'link': h.url('mylib-type-label',tab='content',object_type='content',item_type='book',label='Migrated')} ) }}
+		</div>
+	</div>
+</script>
+
+<script type="text/template" id="settings_migration_minimized_tmpl">
+<div class="container_12 notificationwrap minimized">
+	<div id="action_show" class="show"><a href="#"></a></div>
+</div>
+</script>
+
+<script type="text/template" id="settings_migration_declined_tmpl">
+<div class="container_12 notificationwrap">
+	<div class="notification">
+		{{ _("We have updated our system.  Your FlexBooks and Chapters are not yet transferred to the new system.  It may take 24 hours or less to transfer them.  Would you like to start the transfer now?") }}
+		<p>
+			<a id="action_start_import" href="#" >{{ _("Start the Transfer") }}</a>
+		</p>
+		<div class="dismiss"><a href="#">{{ _('Hide') }}</a></div>
+	</div>
+</div>
+</script>

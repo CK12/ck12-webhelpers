@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--[if IE 7]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie9 lt-ie10" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<title>CK-12 Foundation | Concept Dashboard</title>
+	<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_css('common/css/master.css') }}" />
+	<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_css('common/css/concept_coversheet.css') }}" />
+</head>
+<!-- Main Content -->
+<body class="nochrome">
+	<!-- Main Page Content and Sidebar -->
+	<div id="loading-icon" class="loading-icon js-loading-icon">
+		<img alt="loading" src="{{ h.asset_image('common/images/icon_loading.gif') }}">
+	</div>
+	<div class="row collapse">
+		<div id="coversheet-content" class="columns small-12 concept-coversheet">
+		</div>
+	</div>
+	<script data-main="{{ h.url_js('main') }}" src="{{ h.url_lib('require.js') }}"></script>
+	<script type='text/javascript'>
+    require(['main'], function(){
+        require(['jquery', 'common/utils/concept_coversheet'],function($, coverSheet){
+        	coverSheet.init({
+                "encodedId": "{{ c.eid }}",
+                "handle" : "{{ c.handle }}",
+                "login" : "{{ c.login }}",
+                "assignmentId" : "{{ c.assignmentId }}",
+                "conceptTitle" : "{{ c.conceptTitle }}",
+                "ep" : "{{ c.ep }}",
+                "completed" : false,
+                "isPageView" : true,
+                "container" : $("#coversheet-content")
+            });
+        });
+    });
+    </script>
+</body>
+</html>

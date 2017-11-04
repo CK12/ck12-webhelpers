@@ -1,0 +1,22 @@
+{% from "macros/pagination.html" import paginate with context %}  
+
+{% if c.paginator.item_count > 0 %}
+	{% for application in c.paginator.items %}
+		<div class='tr'>
+			<div class='td med'>
+				{{ application['name'] }}
+			</div>
+			<div class='td short'>
+				{{ application['email'] }}
+			</div>
+			<div class="td long">
+				{{ application['hash'] }}
+			</div>
+			<div class="td status">
+				<span class='linklike application_delete' data-item-id="{{ application['id'] }}">[Delete]</span>
+        		<span class='linklike api_path hide' data-api-path-ids="{{ application['paths']|escape }}" title="{{ _('API Paths') }}"></span>
+			</div>
+		</div>
+	{% endfor %}
+  	{{ paginate(c.paginator) }}
+{% endif %}

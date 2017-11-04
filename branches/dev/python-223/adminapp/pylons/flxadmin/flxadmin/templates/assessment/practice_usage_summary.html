@@ -1,0 +1,85 @@
+{% extends "master.html" %}  
+{% from "macros/form_errors.html" import form_errors with context %}  
+
+{% block messages %}
+    {{super() }}
+{% endblock %}
+
+{% block admincontent %}
+
+<div class="sectionhead sectiontitle">{{c.pagetitle}}</div>
+<div class="section withfloatedsubmit">
+  <form method="post"> 
+    <div class="leftaligned">
+      {{ h.labelreadonly('Start Date', 'fromDate', 'searchby short', c.startDate) }}
+      {{ h.labelreadonly('End Date', 'toDate', 'searchby short', c.endDate) }}
+      {{c.granularity}}
+      {{ h.labelselect('Granularity', 'granularity', c.form.granularity_sel, selected='branch') }}
+    </div>
+      {{ h.submitbutton('Submit','','submit')}}
+  </form>
+</div>
+<span class='ajaxError'></span>
+{% if c.post_data %}
+    <p>Practice Usage Summary From: <strong>{{ c.post_data.timeSpan.from | parseISODate}}</strong> To: <strong>{{ c.post_data.timeSpan.to | parseISODate}}</strong></p>
+    <p>
+        Number of Practice Attempts : <strong>{{ c.post_data.numberOfPracticeAttempts }} </strong>,
+        Number of Students Who Practised : <strong>{{ c.post_data.numberOfStudentsWhoPractised }} </strong>,
+        Average Weekly Usage Per Student : <strong>{{ c.post_data.averageWeeklyUsagePerStudent }} </strong>,
+    </p><p></p>
+    {% if c.post_data.conceptPerSubjectPerStudent is string %}
+        {{ c.post_data.conceptPerSubjectPerStudent | escape }}
+    {% else %}
+    <div class="thead sectionhead">
+        <div class="tr">
+            <div class="td">
+                <script type="text/javascript">
+                    var e = document.getElementById('granularity');
+                    document.write(e.options[e.selectedIndex].text);
+                </script></div>
+            <div class="td">Avereage Concepts Per Student</div>
+        </div>
+    </div>
+    
+    <div class="tbody">
+        {% for rec in c.post_data.conceptPerSubjectPerStudent %}
+        <div class="tr">
+            <div class="td">  
+                {{ rec.subject }}
+            </div>
+            
+            <div class="td">
+                {{ rec.avgConceptsPerStudent }}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+{% endif %}
+{% endblock %}
+
+{% block js_scripts %}
+<script type="text/javascript">
+{{ form_errors('after') }}
+    $(document).ready(function () {
+        $("#fromDate").datepicker({
+            dateFormat: 'dd-M-yy',
+            maxDate: '+0d'
+        });
+        $("#toDate").datepicker({
+            dateFormat: 'dd-M-yy',
+            maxDate: '+0d',
+            beforeShow: function () {
+                $(this).datepicker('option', 'minDate', $('#fromDate').val());
+            }
+        });
+
+        $('.js_download_link').click(function () {
+             $("#startDate").val('');
+             $("#endDate").val('');
+        });
+    });
+</script>
+{% endblock %}
+
+

@@ -1,0 +1,176 @@
+<!--
+*************************************************************************** 
+Macro: ck12_grid_artifact
+A carousel artifact Template used within the ck12_carousel macro to show
+the artifacts with cover and other details.
+
+Parameters:
+<artifacts> 
+The list of artifacts to render.
+***************************************************************************
+-->
+{% macro ck12_carousel_concept_template (artifacts) %}
+	{% for artifact in artifacts %}
+		<li> 
+			<div class='carouselartifact'>
+				<div class="carouselartifactimgwrap" title="{{ artifact.title }}">
+					<div class="js_thumbsmallimgframe">
+						<a href="{{ config.webroot_url }}{{ artifact.perma }}" ><img class="popularartifactimg" src="{{ artifact|ck12_artifact_cover_thumbnail_small }}" alt="{{ artifact.title }}" title="{{ artifact.title }}" /></a>
+					</div>
+					<div class="thumbsmallimgframeshadow"></div>
+				</div>
+				<div class="carouselartifactimgshadow"></div>
+				<div class="carouselartifacttxtwrap">
+					<div class="carouselartifacttitle">
+						<a href="{{ config.webroot_url }}{{ artifact.perma }}" title="{{ artifact.title }}">{{ artifact.title|truncate(50) }}</a>
+					</div>
+					<div class="carouselartifactsummary">
+						<!-- Commenting out summary
+						{{ artifact.summary|striptags|truncate(100) }}
+						-->
+					</div>
+					<div class="carouselartifactsecondarywrap">
+						<div class="carouselartifactauthor">
+							<!--
+							{{ _("From:") }} <span class="conceptvalue">{{ artifact.creator }}</span>
+							-->
+						</div>
+						<div class="carouselartifactview hide">
+							<!-- Commenting out links
+							<a href="{{ config.webroot_url }}{{ artifact.perma }}" title="{{ _('View %(type)s' %{'type': artifact.artifactType}) }}">{{_("details")}}</a>
+							{% if artifact.has_exercises() %}
+							&nbsp; | &nbsp;<a href="{{ config.webroot_url }}{{ artifact.get_exercise_perma() }}" title="{{ _('View %(type)s' %{'type': 'exercise'}) }}">exercises</a>
+							{% endif %}
+							-->
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</li>
+	{% endfor %}
+{% endmacro %}
+
+<!--
+*************************************************************************** 
+Macro: ck12_carousel_concept_titles_template
+A carousel artifact Template, used within the ck12_carousel macro to show
+the artifacts with titles only
+
+Parameters:
+<artifacts> 
+The list of artifacts to render.
+
+<count>
+The number of items to display in each group i.e <li> 
+***************************************************************************
+-->
+{% macro ck12_carousel_concept_titles_template (artifacts,count=10) %}
+	{% for artifact in artifacts %}
+		{% if (loop.index0 % count) == 0 %}
+		<li> 
+		{% endif %}
+			<div class='carouselartifact'>
+				<a href="{{ config.webroot_url }}{{ artifact.perma }}" title="{{ artifact.title }}">{{ artifact.title }}</a>
+			</div>
+		{% if (loop.index0 % count) == count %}
+			<div class="clear"></div>
+		</li> 
+		{% endif %}
+	{% else %}
+		<li class="noitem"></li>
+	{% endfor %}
+{% endmacro %}
+
+<!--
+*************************************************************************** 
+Macro: ck12_carousel_exercise_template
+A carousel exercise Template, used within the ck12_carousel macro to show
+the exercise details.
+
+Parameters:
+<artifacts> 
+The list of artifacts to render.
+***************************************************************************
+-->
+{% macro ck12_carousel_exercise_template (artifacts) %}
+        {% for artifact in artifacts %}
+                <li>
+                        <div class='carouselartifact'>
+                                <div class="carouselartifactimgwrap" title="{{ artifact.title }}">
+                                        <div class="js_thumbsmallimgframe">
+                                                <a href="{{ config.webroot_url }}{{ artifact.perma|replace(artifact.artifactType , 'exercise', 1) }}" ><img class="popularartifactimg" src="{{ artifact|ck12_artifact_cover_thumbnail_small }}" alt="{{ artifact.title }}" title="{{ artifact.title }}" /></a>
+                                        </div>
+                                        <div class="thumbsmallimgframeshadow"></div>
+                                </div>
+                                <div class="carouselartifacttxtwrap">
+                                        <div class="carouselartifacttitle">
+                                                <a href="{{ config.webroot_url }}{{ artifact.perma|replace(artifact.artifactType , 'exercise', 1) }}" title="{{ artifact.title }}">{{ artifact.title|truncate(50) }}</a>
+                                        </div>
+                                        <div class="carouselartifactsummary">{{ artifact.summary|striptags|truncate(100) }}</div>
+                                        <div class="carouselartifactsecondarywrap">
+                                                <div class="carouselartifactauthor">
+                                                        <!--
+                                                        {{ _("From:") }} <span class="conceptvalue">{{ artifact.creator }}</span>
+                                                        -->
+                                                </div>
+                                                <div class="carouselartifactview">
+                                                	<a href="{{ config.webroot_url }}{{ artifact.perma|replace(artifact.artifactType , 'exercise', 1) }}" title="{{ _('View this %(type)s' %{'type': 'exercise' }) }}">{{_("view exercise...")}}</a>
+												</div>
+                                                <div class="clear"></div>
+                                        </div>
+                                </div>
+                                <div class="clear"></div>
+                        </div>
+                </li>
+        {% endfor %}
+{% endmacro %}
+
+<!--
+*************************************************************************** 
+Macro: ck12_carousel
+A macro that displays artifacts within a carousel. 
+Note: this macro uses other artifact_template macro to render the actual 
+HTML within each item of the carousel. 
+Parameters:
+<artifacts>
+The artifacts list to display within the carousel.
+
+<additionalBackgroundClasses>
+Any additional background css classes that need to be applied to the carousel. 
+
+<additionalContainerClasses>
+Any additional css classes that need to be applied to the carousel container
+
+<AnadditionalCarouselClasses>
+Any additional css classes that need to be applied to the carousel
+
+<artifact_template>
+The artifact template macro to be used to render the actual items within this
+carousel. The default is ck12_carousel_concept_template macro
+
+<carousel_empty_msg>
+The message to be displayed when the passed <artifacts> list is empty.
+***************************************************************************
+-->
+{% macro ck12_carousel (artifacts,additionalBackgroundClasses='',additionalContainerClasses='',additionalCarouselClasses='',artifact_template=ck12_carousel_concept_template, carousel_empty_msg='') %}
+<div class="js_carouselcontainer cornerall12 {{additionalContainerClasses}}">
+	{% if artifacts %}
+	<div title="{{ _("Previous") }}" class="btnPrev btnPrevImg"></div>
+	{% endif %}
+	<div class="carousel {{additionalCarouselClasses}}">
+		<ul>
+			{% if artifacts %}
+			{{ artifact_template(artifacts=artifacts)  }}
+			{% else %}
+			<li class="noitem">{{ carousel_empty_msg }}</li>
+			{% endif %}
+		</ul>
+	</div>
+	{% if artifacts %}
+	<div title="{{ _("Next") }}" class="btnNext btnNextImg"></div>
+	{% endif %}
+	<div class="clear"></div>
+</div>
+{% endmacro %}

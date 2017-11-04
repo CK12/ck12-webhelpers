@@ -1,0 +1,1149 @@
+/* common styles for account page */
+
+.button.disabled {
+	background: none repeat scroll 0 0 #DDDDDD;
+    border-bottom: 3px solid #CCCCCC;
+    border-top: 3px solid #DDDDDD;
+    box-shadow: none;
+    color: #999999;
+    opacity: 1;
+	box-shadow: 0 0;}
+
+.button[disabled]:hover, .button.disabled:hover {
+	background: #DDD;
+	border-bottom: 3px solid #CCC;
+	border-top: 3px solid #DDD;
+	box-shadow: none;
+	color: #999;
+	opacity: 1;}
+.button[disabled]:active .button.disabled:active {
+	background: #DDD;
+	border-bottom: 3px solid #CCC;
+	border-top: 3px solid #DDD;
+	box-shadow: none;
+	color: #999;
+	opacity: 1;}
+.dropdown-label {
+	color: #56544D;
+	display: inline-block;
+	min-width: 55px;
+	width: auto;}
+.dropdown-label:hover {
+	color: #56544D;
+	text-decoration: none;}
+.timezone-dropdown-label {
+	min-width: 285px;
+	text-align: left;}
+.timezone-dropdown-label label {
+   	display: inline;}
+.background-vanilla {
+	background-color: #f9f9f5;}
+.dark-grey {
+	color: #8e8773;}
+.button {
+	margin: 0;}
+form .user-name-error label, form .user-name-error-small label {
+	color: #FB6C33;}
+input.error {
+	background: #ffffff;
+	border-color: #FF6633;}
+.f-dropdown a:hover {
+    text-decoration:none;}
+.hide1 {
+	display: none;} /* do not remove, used in addition to class hide, added by Kaustubh */
+.account-settings-main-wrapper input.valid + i {
+    color: #B0D552;
+    display: inline-block !important;
+    font-size: 18px;
+    margin-top: 4px;}
+.text-margin {
+	margin-top: 12px;}
+	
+/* Account settings css starts */
+
+form {
+	padding-top: 16px;}
+.system-message {
+	padding-top: 75px;
+	position: relative;}
+.settings-unverified-message {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: #FFF7D7;
+	height: 50px;
+	width: 100%;}
+.email-sent {
+    font-weight: bold;
+    width: 100%;}
+.settings-unverified-message * {
+    display: inline-block;
+    font-size: 18px;
+    padding-top: 13px;}
+.account-timezone {
+	height: 250px;
+    margin: 5px 0;
+    max-width: none;
+    overflow: auto;
+    width: 346px !important;}
+.account-timezone label {
+   	display: inline;}
+.content-wrap {
+	padding-bottom: 25px;}
+.account-settings-main-container {
+	padding: 0 10px 0 21px;}
+.account-settings-main-header {
+	font-size: 24px;
+	font-weight: bold;}
+.account-settings-header {
+	font-size: 21px;
+	font-weight: bold;}
+.user-text {
+	display: inline-block;
+	padding-top: 12px;}
+.account-settings-main-wrapper {
+	background-color: #ffffff;
+	margin-top: 15px;
+	border: 1px solid #EFEDE7;}
+.account-settings-main-wrapper > div {
+	padding: 0 40px;}
+.account-settings-main-container .account-settings-main-wrapper .account-settings-border {
+	border-bottom: 1px solid #efede7;
+	padding-bottom: 23px;
+	padding-right: 24px;}
+	#app-notification-summary-wrapper{
+		border : 0 none !important;
+		padding-top : 0px;}
+.account-settings-space {
+	height: 34px;}
+.account-settings-space:first-child .bottom {
+    border-bottom: 1px solid #efede7;
+    height: 100%;}
+.accounts-settings-padding {
+	padding-top: 23px;}
+.account-email-label {
+	padding-top: 12px;
+	padding-bottom: 2px;}
+.account-email-label input {
+	margin: 0;}
+.account-settings-main-wrapper .icon-wrapper {
+	background: none repeat scroll 0 0 #00CDC3;
+	border-radius: 12px;
+	display: inline-block;
+	height: 24px;
+	width: 24px;
+	margin-right: 13px;
+	vertical-align: 1px;}
+.account-settings-main-wrapper i {
+	color: #1aaba3;
+	font-size: 0.875em;}
+.account-settings-main-wrapper i:hover {
+	color: #00ABA4;}
+.account-settings-main-wrapper i.left-icon {
+	display: inline-block;
+	padding-top: 5px;
+	color: #ffffff;}
+.account-settings-main-wrapper .icon-signin.left-icon {
+    padding: 6px 2px 0 0;}
+.account-email-settings {
+	padding-left: 41px;}
+.social-topic-text {
+    padding-bottom: 2px;
+    padding-top: 7px;
+    font-size: 18px;}
+.email-label {
+	width: 18%;}
+.password-label {
+	width: 14%;}
+.email-id {
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 82%;}
+.error-wrapper {
+	width: 69%;}
+form .user-name-error {
+	margin: -14px 0 0 18%;
+	font-size: 12px;}
+.account-username {
+	width: 51%;}
+.password .account-username {
+	margin-left: 4%;}
+.password-box {
+    font-size: 14px;
+    width: auto;}
+.password-box label {
+	display: inline-block;}
+.password-box span {
+    margin-right: 9px;
+    vertical-align: sub;}
+.password input {
+    margin: 0 0 13px;}
+.save-changes {
+	padding: 1px 0 2px;}
+#username-change {
+	padding: 6px 0;}
+.username-change {
+	background-color: #FFFAD3;
+	margin-top: 1px;
+    position: absolute;
+    right: 0;
+    top: -15px;
+    padding: 0 3px 0 4px;
+    height: 22px;}
+.account-settings-main-wrapper .username-change i {
+    color: #FFCC40;
+    margin-right: -1px;}
+.account-button {
+	padding-top: 25px;
+	padding-bottom: 2px;}
+.social-account-wrapper i {
+	font-size: 25px;
+	margin-left: 1px;
+	margin-right: 5px;
+	vertical-align: middle;}
+.social-account-wrapper span {
+	vertical-align: middle;}
+.social-button-wrapper a {
+	font-size: 14px;}
+.account-settings-main-wrapper .social-account-wrapper .icon-google2 {
+	color: #DF4A32;}
+.account-settings-main-wrapper .social-account-wrapper .icon-facebook-2 {
+	color: #315799;}
+.account-settings-main-wrapper .social-account-wrapper .icon-twitter-2 {
+	color: #1DABEB;}
+.account-settings-main-wrapper .social-account-wrapper .icon-microsoftlive {
+	color: #004281;}
+.social-account-container {
+	padding-bottom: 2px;
+	padding-top: 3px;}
+.social-button-wrapper {
+    float: left;
+    position: relative;}
+
+.social-account-wrapper {
+    padding: 15px 0 0;}
+.social-text-wrapper {
+	width: 27%;
+	padding-top: 5px;}
+.social-disconnect {
+	padding-top: 9px;
+	display: inline-block;}
+.disconnect-tooltip {
+	padding: 12px 15px;
+	background-color: #57544E;
+	height: 115px;
+	width: 286px;
+	position: absolute;
+	z-index: 2;
+	right: -19px;
+	top: 44px;}
+.disconnect-tooltip span.text {
+    color: #ffffff;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 18px;
+    margin-right: 19px;}
+.account-settings-main-wrapper .disconnect-tooltip i {
+    color: #ffffff;
+    font-size: 15px;
+    margin: 0;
+    position: absolute;
+    right: 15px;
+    top: 15px;}
+.disconnect-tooltip a {
+    margin-top: 19px;}
+.social-arrow:after {
+    top: -20px;
+    border: 10px solid rgba(0, 0, 0, 0);
+    content: " ";
+    right: 43px;
+    position: absolute;
+    border-bottom-color: #57544E;}
+.social-alert-wrapper {
+	padding: 15px 8px;}
+.social-alert-icon {
+    background-color: #FFCC40;
+    border-radius: 33px;
+    display: inline-block;
+    font-size: 45px;
+    height: 65px;
+    margin: 0 8px 14px 0;
+    padding: 5px 10px;
+    width: 65px;}
+.social-alert {
+    padding-left: 9px;}
+.social-alert-icon i {
+    color: #ffffff;}
+.social-alert-text {
+    font-size: 30px;
+    vertical-align: super;}
+#wait-disconnect .button {
+    margin: 35px 0 15px;}
+.icon-center {
+    padding-left: 5px;}
+.account-links {
+	font-size: 1.125em;
+	padding-left: 32px;}
+.account-links a {
+	display: inline-block;
+	padding-top: 3px;}
+.account-notifications-wrapper {
+	padding-top: 15px;
+	position: relative;}
+.account-notifications-border {
+	border-bottom: 1px solid #f9f9f5;
+	padding-bottom: 7px;
+	padding-top: 7px;}
+.settings-image {
+	display: inline-block;
+	height: 35px;
+	width: 45px;}
+.account-notifications-wrapper .settings-image-label {
+	position: absolute;
+	top: 21px;
+	left: 85px;}
+.account-notifications-border .settings-image-label {
+	top: 13px;}
+.settings-notification-image {
+	background:url("../images/notifications.svg") no-repeat scroll transparent;}
+.settings-email-image {
+	background:url("../images/email_icon.png") no-repeat scroll transparent;
+	height: 30px;}
+.account-notification-wrapper { /* do not change heirarchy, added by Kaustubh*/
+	padding-top: 25px;}
+.account-settings-main-container .account-settings-main-wrapper .account-notification-wrapper {
+	padding-bottom: 17px;}
+.edit-notifications {
+	padding-left: 7px;}
+.notification-right-text {
+	padding-top: 8px;
+	float: right;}
+.inapp-notification-text {
+	padding-top: 7px;}
+.timezone-label {
+	padding: 4px 0 13px;}
+.timezone-dropdown {
+	padding: 0 0 17px 1px;
+	position: relative;}
+.timezone-save-confirmation {
+	background-color: #DBEAAC;
+	margin-left: 16px;
+	padding: 4px 11px 4px 9px;
+	float: left;}
+.timezone-save-confirmation * {
+	font-size: 1.125em;
+	vertical-align: sub;}
+.timezone-save-confirmation i {
+	font-size: 1.8125em;
+	color: #B1D35B;
+	padding-right: 7px;
+	vertical-align: middle;}
+.timezone-save-confirmation i:hover {
+	color: #B1D35B;}
+.account-timezone-save {
+	padding: 0 0 0 1px;}
+/* Account settings css ends */
+
+/* notification details css starts */
+
+.account-notification-padding {
+	padding-left: 87px;
+	/* padding-left: 47px; */
+	padding-top: 13px;}
+.account-notification-secondary-padding {
+/* 	padding-left: 20px; */
+	padding-left: 0px;
+	padding-bottom: 18px;}
+.account-email-detail {
+	font-weight: bold;
+	padding-bottom: 18px;
+	}
+.notification-switch-label {
+	padding-top: 5px;
+	float: left;
+	width : 18%;}
+.account-settings-main-container .account-settings-main-wrapper .notification-open {
+	border: none;
+	padding-bottom: 0;
+	padding-right: 0;}
+.notification-open .account-notifications-wrapper {
+	padding: 14px 0 0;}
+.notification-open .account-notifications-border {
+	padding: 7px 24px 8px 41px;}
+.notification-open .background-vanilla {
+	padding-left: 41px;}
+.notification-open .background-vanilla .settings-image-label {
+	left: 85px;
+	top: 20px;}
+.notification-switch,.remainder-switch {
+	width: 12.2%;
+	float: left;}
+.groups-notification-section {
+	padding-top: 25px;
+	position: relative;}
+.groups-notification-section {
+	border-top: 1px solid #e0ddd5;}
+.group-image {
+	padding: 0 12px 3px 0;}
+.group-image img {
+	width: 25px;
+	height: 25px;}
+.groups-switch-wrapper {
+	padding: 22px 24px 25px 0;}
+.groups-peerhelp-wrapper {
+	padding: 25px 24px 0 0;}
+.groups-switch-wrapper i {
+	padding: 0 1px 0 10px;}
+.groups-switch-wrapper > div > .notification-links {
+	padding-top: 5px;
+	float: right;}
+.groups-notification-section .account-notification-secondary-padding {
+	padding-bottom: 22px;}
+.groups-white-border {
+	height: 1px;
+	background: none repeat scroll 0 0 #ffffff;
+	margin-left: -107px;
+	width: -webkit-calc(100% + 107px);
+	width: calc(100% + 107px);}
+.groups-notification-expand {
+	padding: 16px 0 0 11.2%;}
+.groups-notification-expand-label {
+	padding: 2px 35px 0 0;}
+.group-notification-expand-instant {
+	padding-right: 30px;}
+.group-notification-expand-weekly {
+	padding-right: 30px;
+	float: left;}
+.group-notification-expand-digest {
+	padding-right: 10px;}
+.group-notification-expand-dropdown {
+	position: relative;
+	float: left;}
+.group-notification-expand-instant .custom-box {
+	width: 75px;}
+.group-notification-expand-weekly .custom-box {
+	width: 140px;}
+.group-notification-expand-dropdown ul.open {
+	width: 115px;
+	top: 27px !important;
+	left: 0 !important;}
+.group-notification-expand-dropdown ul.simple:after {
+	left: 44px;}
+.group-notification-expand-dropdown ul.simple:before {
+	left: 46px;}
+.group-notification-type-wrapper {
+	width: 100%;
+	padding: 2px 0 20px;}
+.groups-notification-type-label {
+	padding-right: 12px;}
+.group-notification-type-all {
+	padding-right: 106px;}
+.close-notification-details {
+    float: right;
+    position: absolute;
+    top: -52px;
+    right: 11px;
+}
+/* notification details css ends */
+
+/* app-notification css starts */
+.practice-app-image {
+    background: url("../images/practice-app.svg") no-repeat scroll transparent;
+    height: 30px;
+    width: 35px;
+    display: inline-block;
+}
+.brainflex-section {
+    padding-left: 40px;
+    padding-top: 15px;
+}
+.brainflex-image {
+    background: url("../images/settings-brainflex.svg") no-repeat scroll transparent;
+    height: 30px;
+    width: 35px;
+    display: inline-block;
+}
+.account-app-settings {
+    padding: 15px 0 10px 41px;
+    background : #fff;
+    position: relative;
+    border-bottom: 1px solid #efede7;
+}
+.settings-app-label {
+    vertical-align: 9px;
+}
+/* app-notification css ends */
+
+.user-info-save {
+    background-color: #DBEAAC;
+    height: 50px;
+    padding-top: 8px;
+    width: 333px;
+    margin-left: -webkit-calc(18% + 160px);
+    margin-left: calc(18% + 185px);
+    margin-top: -4px;}
+#summerChellengeEnrolled .user-info-save {
+	margin-left :25%;
+}
+.user-info-save * {
+    vertical-align: middle;}
+.account-settings-main-wrapper .user-info-save i {
+    color: #B0D552;
+    font-size: 33px;
+    margin: 0 8px 0 21px;}
+.user-info-save span {
+    font-size: 18px;}
+.error-message{
+  position: absolute;
+  right: 0;
+  font-size: 12px;
+  color: #FF6633;
+  top: -16px;
+}
+.sc-coach-form-section {
+    float: left;
+    width: 51%;
+}
+.sc-coach-form-section input {
+    border-radius: 5px!important;
+    height: 45px!important;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    border: 2px solid #ccc;
+    -webkit-appearance: none;
+}
+.sc-coach-error-msg {
+    font-size: 12px;
+    color: #FB6C33;
+}
+.sc-coach-type-section {
+    position: relative;
+}
+.sc-coach-type-arrow {
+    position: absolute;
+    right: 10px;
+    top: 15px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 10px 0 10px;
+    border-color: #00ABA4 transparent transparent transparent;
+}
+.sc-coach-type-options div {
+    padding-left: 15px;
+    height: 40px;
+    color: grey;
+    padding-top: 10px;
+    font-size: 16px;
+    text-align: left;
+}
+
+.sc-coach-type-options {
+    border-radius: 5px!important;
+    position: absolute;
+    width: 100%;
+    background-color: #fff;
+    z-index: 10;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    border: 2px solid #ccc;
+    -webkit-appearance: none;
+    margin-bottom: 20px;
+}
+.coach-label {
+    float: left;
+    width: 18%;
+}
+#notification-save{
+	margin-top : 15px;
+}
+div#server-error {
+    color: #FB6C33;
+    padding-bottom: 10px;
+}
+.no-network {
+    background: none repeat scroll 0 0 #ffffff;
+    border: 1px solid #cdcdcd;
+    height: auto;
+    left: 50%;
+    margin-left: -161px;
+    padding: 25px;
+    position: absolute;
+    text-align: center;
+    top: 100px;
+    width: 320px;
+    z-index: 101;
+}
+#messagePopupModal #popup_modal_act  {
+    margin-right:15px !important;
+}
+.icon-sym {
+    color: #FFD131;
+    font-size: 2em;
+    padding-bottom: 24px;
+}
+.message-body {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 14px;
+    padding-bottom: 10px;
+}
+#messagePopupModal .message-body {
+    border:none;
+}
+.message-body {
+    border: 2px solid #CDCCCA;
+    border-radius: 5px;
+    color: #56544D;
+    font-size: 1em;
+    padding: 10px;
+    font-weight: normal !important;
+}
+@media all and (min-width: 768px) and (max-width: 1023px) {
+
+	.accounts-settings-padding {
+		padding-top: 21px;}
+	.social-topic-text {
+		padding-top: 12px;}
+	.content-wrap {
+		padding: 25px 0 21px;}
+	.system-message {
+		padding: 75px 0 21px;}
+	.account-settings-space {
+		height: 25px;}
+	.account-settings-main-wrapper {
+		margin-top: 26px;}
+	.account-settings-main-wrapper > div {
+		padding: 0 32px 0 56px;}
+	.account-settings-main-wrapper .icon-wrapper {
+		margin-right: 13px;}
+	.account-email-settings {
+		padding-left: 41px;}
+	.social-account-wrapper {
+    	padding: 16px 0 0;}
+    .social-account-container {
+		padding-bottom: 17px;}
+	.email-label {
+		width: 24%;}
+	.password-label {
+		width: 20%;}
+	.email-id {
+		width: 76%;}
+	.error-wrapper {
+		width: 100%;}
+	.account-links {
+		font-size: 1em;
+		padding-left: 28px;}
+	.account-links a {
+		padding-top: 5px;}
+	.account-notifications-border {
+		padding-top: 11px;}
+	.account-settings-main-container .account-settings-main-wrapper .account-notification-wrapper {
+		padding-bottom: 12px;}
+	.account-notification-wrapper .right {
+		margin-right: -18px;}
+	.account-notifications-border .right {
+		margin-right: -18px;}
+	.account-username {
+		width: 76%;}
+	.account-settings-main-container .account-settings-main-wrapper .account-settings-border {
+		padding-right: 48px;
+		padding-bottom: 8px;}
+	#usernameForm input {
+		margin-bottom: 15px;}
+	#usernameForm #password input {
+		margin-bottom: 13px;}
+	.password-box span {
+		vertical-align: top;}
+	form .user-name-error {
+		margin: -12px 0 0 24%;}
+	.user-info-save * {
+    	vertical-align: bottom;}
+    #summerChellengeEnrolled .user-info-save * {
+    	vertical-align: middle;}	
+	.account-settings-main-container {
+		padding: 0 15px 0 2px;}
+	.notification-right-text {
+		padding-top: 6px;}
+	.account-notification-secondary-padding {
+		  padding-left: 40px;}
+	.account-notification-padding {
+		padding-left:75px;}
+	.groups-switch-wrapper i {
+		padding-left: 4px;}
+	.notification-switch,.remainder-switch {
+		width: 15.5%;}
+	.account-settings-main-container .account-settings-main-wrapper .notification-open {
+		padding: 0;}
+	.groups-white-border {
+		margin-left: -80px;
+		width: -webkit-calc(100% + 80px);
+		width: calc(100% + 80px);}
+	.groups-notification-expand {
+		padding: 6px 0 0 15.5%;}
+	.groups-notification-expand-label {
+		padding: 2px 0 4px;
+		width: 100%;}
+	.group-notification-expand-instant {
+		padding-right: 3px;}
+	.group-notification-expand-weekly {
+		padding-right: 3px;}
+	.group-notification-expand-digest {
+		padding-right: 5px;}
+	.group-notification-expand-dropdown {
+		float: right;}
+	.group-notification-expand-dropdown  > div.button.split.small {
+		padding: 9px 28px 7px 3px !important;}
+	.group-notification-expand-dropdown  > div span {
+		margin-right: -2px;}
+	.group-notification-expand-dropdown ul.open {
+		width: 90px !important;}
+	.group-notification-expand-dropdown ul.simple:after {
+		left: 42px;}
+	.group-notification-expand-dropdown ul.simple:before {
+		left: 44px;}
+	.groups-notification-type-label {
+		padding: 0 0 5px;
+		width: 100%;}
+	.group-notification-type-all {
+		padding-right: 52px;}
+	.group-notification-type-wrapper {
+		padding: 2px 0 14px;}
+	.group-notification-expand-dropdown > div.button.small.split span {
+   		margin-right: 6px;
+    	width: 17px;}
+    .user-info-save {
+	    width: -webkit-calc(76% - 91px);
+	    width: calc(76% - 91px);
+	    }
+	 #summerChellengeEnrolled .user-info-save {
+		margin-left :25%;}
+	.account-settings-main-wrapper .user-info-save i {
+		margin: 0 6px 0 17px;}
+	.social-text-wrapper {
+		width: 30%;
+		padding-top: 4px;}
+	.social-alert-wrapper {
+		padding: 5px 3px;}
+	#wait-disconnect .button {
+    	margin: 40px 0 30px;}
+}
+
+@media all and (max-width: 767px) {
+	
+	.content-wrap {
+		padding: 7px 0 0;}
+	.content-wrap > * {
+		margin-bottom: 15px;}
+	.account-settings-header {
+		font-size: 20px;}
+	.settings-unverified-message {
+		position: relative;
+    	margin: 11px 0 -4px;
+    	padding-top: 4px;}
+	.settings-unverified-message * {
+		display: inline-block;
+		padding: 0;
+		font-size: 14px;
+		line-height: 21px;
+		float: left;}
+	.account-settings-main-wrapper {
+		margin-top: 6px;}
+ 	.account-settings-main-wrapper .icon-wrapper {
+ 		display: none;}
+ 	.email-label {
+		width: 100%;}
+	.password-label {
+		width: 100%;}
+	.email-id {
+		width: 100%;}
+	.account-username {
+		width: 100%;
+		padding-top: 9px;}
+	.password .account-username {
+		margin: 0;
+		padding-top: 9px;}
+	.account-email-settings {
+		padding-left: 0;}
+	.accounts-settings-padding {
+		padding-top: 6px;}
+	.save-changes {
+		padding-top: 14px;
+		padding-bottom: 10px;
+		width: 100%;}
+	.account-button {
+		padding-top: 15px;
+		padding-bottom: 15px;
+		width: 100%;}
+	#usernameForm {
+		padding-top: 12px;}
+	#login {
+		margin-bottom: 18px;}
+	.account-settings-main-wrapper > div {
+		padding: 0;}
+	.account-settings-main-wrapper > div > div > * {
+		padding-left: 14px;
+		padding-right: 14px;}
+	.notification-information {
+		width: 100%;}
+	.account-settings-main-container .account-settings-main-wrapper .account-settings-border {
+		padding-right: 0;
+		padding-bottom: 7px;}
+	.account-settings-main-wrapper > div:nth-child(2) .account-settings-border {
+		padding: 5px 0;}
+	.account-notifications-wrapper .settings-image-label {
+		left: 57px;
+		top: 24px;}
+	#usernameForm .accounts-settings-padding {
+		width: 100%;
+		padding-top: 20px;}
+	.account-settings-main-container {
+		padding: 0 16px;}
+	form .user-name-error-small {
+		margin: 4px 0 -4px;
+		font-size: 0.875em;}
+	.account-notifications-wrapper {
+		padding-bottom: 2px;}
+	.account-notifications-border {
+		padding-bottom: 8px;
+		padding-top: 15px;}
+	.account-notifications-wrapper .right {
+		display: inline-block;
+		padding-top: 3px;}
+	.account-links {
+		padding-top: 2px;
+		padding-left: 0;}
+	.small-border-grey {
+		border-bottom: 1px solid #EFEDE7;
+		padding-bottom: 7px;}
+	.user-text {
+		padding: 0;}
+	.account-links a {
+		padding: 0;}
+	.notification-right-text {
+		padding: 0;
+		float: left;}
+	.account-settings-main-wrapper i {
+		color: #00ABA4;}
+	.edit-notifications {
+		padding-left: 8px;}
+	.account-settings-main-container .account-settings-main-wrapper .notification-open {
+		padding-bottom: 0;}
+	.notification-open .account-notifications-wrapper {
+		padding: 0;}
+	.notification-open .account-notifications-border {
+		padding: 15px 14px 8px;}
+	.notification-open .background-vanilla {
+		padding-left: 14px;
+		padding-top: 15px;}
+	.notification-open .background-vanilla .settings-image-label {
+		top: 24px;
+		left: 57px;}
+	.account-notification-secondary-padding {
+		padding: 0;}
+	.account-notification-secondary-padding span {
+		font-size: 14px;}
+	.notification-switch,.remainder-switch {
+		float: right;
+		width: auto;}
+	.notification-switch-label {
+		width: 55%;
+		padding: 0;
+		line-height: 1em;}
+	.notification-label-peerhelp {
+		padding-top: 8px;}
+	.notification-label-peerhelp-off {
+		padding-top: 8px;}
+	.notification-switch-label span {
+		vertical-align: top;}
+	.notification-promise {
+		margin-right: -5px !important;
+		padding-bottom: 8px;
+		line-height: 0.9em;}
+	.account-notification-padding {
+		padding-top: 3px;}
+	.account-email-detail {
+		padding-bottom: 6px;}
+	.groups-notification-section {
+		padding-top: 15px;}
+	.groups-switch-wrapper i {
+		padding: 0;}
+	.groups-notification-section .account-notification-secondary-padding {
+		padding-bottom: 9px;}
+	.groups-switch-wrapper > div > .notification-links {
+		padding-top: 9px;
+		float: left;}
+	.groups-switch-wrapper {
+		padding: 12px 0 9px;}
+	.groups-peerhelp-wrapper {
+		padding: 15px 0 0;}
+	.groups-notification-expand {
+		padding: 3px 0 0;}
+	.groups-notification-expand-label {
+		padding: 2px 0 0;
+		width: 100%;}
+	.group-notification-expand-instant {
+		padding: 0;
+		width: 46%;}
+	.group-notification-expand-weekly {
+		padding: 0;
+		float: right;
+		width: 54%;}
+	.group-notification-expand-digest {
+		padding: 11px 3px 0 0;}
+	.group-notification-expand-dropdown {
+		padding-top: 6px;}
+	.group-notification-expand-dropdown  > div.button.split.small {
+		padding: 9px 55px 7px 3px !important;}
+	.group-notification-expand-dropdown  > div span {
+		margin-right: -2px;}
+	.group-notification-expand-dropdown ul li {
+		padding: 6px 3px;}
+	.group-notification-expand-dropdown ul li a {
+		padding: 0.3125em 0.5em;}
+	.group-notification-expand-dropdown ul.open {
+		width: 102px !important;
+		top: 32px !important;}
+	.group-notification-expand-dropdown ul.simple:after {
+		left: 37px;}
+	.group-notification-expand-dropdown ul.simple:before {
+		left: 39px;}
+	.group-notification-type-all {
+		padding: 5px 0 7px;}
+	.groups-notification-type-label {
+		padding: 0;}
+	.group-notification-type-wrapper {
+		padding: 2px 0;}
+	.group-notification-type-wrapper > div {
+		width: 100%;}
+	.group-notification-type-my .custom-box {
+		width: 110px;}
+	.group-notification-type-all .custom-box {
+		width: 170px;}
+	.groups-white-border {
+		width: -webkit-calc(100% + 30px);
+		width: calc(100% + 30px);
+		margin-left: -15px;}
+	.group-notification-expand-dropdown > div.button.small.split span {
+   		margin-right: 6px;
+    	width: 17px;}
+    .account-settings-main-wrapper > div > div > .timezone-wrapper {
+    	padding-right: 5px;}
+    .timezone-dropdown-label {
+    	min-width: 210px;}
+    .timezone-dropdown-label label {
+   		display: none;}
+    .account-timezone {
+    	width: 271px !important;}
+    .account-timezone label {
+    	display: none;}
+    .account-timezone-save {
+    	padding: 0 0 0 1px;}
+    .timezone-dropdown {
+    	padding: 0 0 17px 1px;}
+    .timezone-label {
+    	padding: 4px 5px 13px 1px;}
+    .timezone-save-confirmation {
+    	margin: 0;
+    	padding: 3px 5px 3px 6px;
+    	float: right;
+    	width: 48%;
+    	line-height: 0.8125em;}
+    .timezone-save-confirmation * {
+    	font-size: 0.875em;}
+    .timezone-save-confirmation i {
+    	font-size: 0.875em;
+    	padding: 0;
+    	color: #B1D35B;
+    	top: 3px;
+    	position: relative;}
+    .account-timezone.open {
+    	left: 1px !important;}
+	.social-topic-text {
+		font-size: 14px;
+		line-height: 16px;
+		padding-top: 4px;
+		padding-bottom: 5px;}
+	#usernameForm {
+		padding-top: 1px;}
+	.error-wrapper {
+		width: 100%;}
+	#username-change {
+		padding: 0;}
+	.username-change {
+		top: 0;
+		font-size: 12px;
+		margin-top: 2px;}
+	.username-change i, .username-change .show-small {
+		display: inline-block;
+		margin-top: 2px;
+    	vertical-align: text-top;}
+    .username-change .show-small {
+    	margin-top: 1px;}
+	.account-settings-main-wrapper .username-change i {
+		font-size: 15px;
+		margin-right: 1px;
+		margin-left: 5px;}
+	.account-settings-main-wrapper input.valid + i {
+		margin-top: 13px;}
+	.account-settings-main-wrapper input#email.valid + i {
+		margin-top: 8px;}
+	.account-settings-main-wrapper input#password.valid + i {
+		margin-top: 12px;}
+	.password input {
+		margin: 0 0 8px;}
+	.user-info-save {
+	    position: relative;
+	    width: -webkit-calc(100% + 28px);
+	    width: calc(100% + 28px);
+	    margin-left: -14px;
+	    padding: 0;
+	    margin-top: 13px;
+	    height: 40px;}
+	.account-settings-main-wrapper .user-info-save i {
+		font-size: 20px;
+		right: -webkit-calc(50% - 109px);
+    	right: calc(50% - 109px);
+    	margin: 0;
+    	top: 10px;}
+	.user-info-save span {
+		font-size: 14px;
+		left: -webkit-calc(50% - 110px);
+    	left: calc(50% - 110px);
+    	top: 10px;}
+	.user-info-save * {
+		position: absolute;
+		vertical-align: text-bottom;}
+	.social-text-wrapper {
+		width: auto;}
+	.social-button-wrapper {
+		float: right;}
+	.social-account-wrapper {
+		padding: 14px 0 0;}
+	.social-account-wrapper span {
+		vertical-align: super;}
+	.social-account-wrapper i {
+		vertical-align: bottom;}
+	.social-account-wrapper:first-child {
+		padding: 4px 0 0;}
+	.social-account-container {
+		padding-bottom: 8px;}
+	.social-disconnect {
+    	padding-right: 5px;
+    	padding-top: 7px;}
+	.disconnect-tooltip {
+		right: -14px;
+		top: 42px;}
+	.account-settings-main-wrapper .wait-disconnect-tooltip {
+    	padding: 0;
+    	position: absolute;
+    	z-index: 2;}
+	.wait-header {
+    	background-color: #EEB23E;
+    	height: 35px;
+    	width: 100%;}
+    .social-alert {
+    	background-color: #FFCB4E;
+    	padding: 10px;
+    	font-size: 14px;}
+    .account-settings-main-wrapper .wait-disconnect-tooltip i {
+    	color: #FFFFFF;
+    	font-size: 15px;
+    	padding: 9px;}
+	.wait-header span {
+	    color: #FFFFFF;
+	    display: inline-block;
+	    font-weight: bold;
+	    padding: 6px 10px;}
+	.wait-social-arrow:after {
+	    top: -20px;
+	    border: 10px solid rgba(0, 0, 0, 0);
+	    content: " ";
+	    right: 43px;
+	    position: absolute;
+    	border-bottom-color: #EEB23E;}
+	.margin-top {
+		margin-top: 53px;}
+	.text-margin {
+		margin-top: 0;}
+	.close-notification-details {
+	    top: -42px;
+	}
+	.app-notification-switch-wrapper {
+	    padding-bottom: 15px;
+	}
+	.app-notification-switch-wrapper .notification-switch-label {
+	    padding-top: 6px;
+	}
+	.brainflex-section{
+		padding-left :0;
+	}
+	row.collapse.coach-section {
+	    margin-top: 15px;
+	}
+	#summerChellengeEnrolled .user-info-save {
+	    margin-left: 0;
+	    width : 99%;
+	}
+}
+
+@media all and (min-width: 768px) {
+
+	.account-settings-main-wrapper > .notification-details-main {
+		padding-bottom: 23px;}
+	.username-change * {
+    	margin-top: 1px;}
+	.username-change i, .username-change .hide-small {
+		display: inline-block;}
+}
+
+@media all and (min-width: 1024px) {
+
+	.settings-image-label {
+		font-size: 1.125em;}
+}
+
+@media all and (min-width: 500px)  and (max-width: 767px) {
+
+	.notification-switch-label {
+		width: 70%;}
+}
+@media all and (max-width: 500px) {
+		.coach-button-wrapper {
+  		left: 0;
+ 		width: 100%;
+  		top: -10px;
+		}
+		#coachEmail {
+  	 	 width: 100%;
+		}
+
+		#coach-email-save .icon-validated {
+		left:2%;
+		}
+		.coach-tooltip {
+  		left: -14px;
+  		top: 56%;
+		}
+	#coach-email-save {
+   		 width: 100%;
+    	 position: relative;
+    	 margin: 0;
+	}
+	.coach-label {
+    	width: 28%;
+    	font-size: 14px;
+	}
+		.sc-coach-form-section {
+	    float: left;
+	    width: 70%;
+	}
+}
+@media all and (max-width:320px) {
+	.user-info-save span {
+    left: 30px;
+
+	}
+}
+

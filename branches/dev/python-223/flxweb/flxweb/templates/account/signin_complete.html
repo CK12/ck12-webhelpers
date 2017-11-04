@@ -1,0 +1,106 @@
+{% extends "base/plain.html" %}
+
+{% block meta_extra %} {{ super() }} <meta name="robots" content="noindex" /> {% endblock %}
+
+{% block js %}
+{{ super() }}
+{% block profileBuilderJS %}
+{% endblock %}
+{% if c.user %}
+    {#
+        Give GA time to track this page
+        see http://support.google.com/googleanalytics/bin/answer.py?hl=en&answer=55527 
+     #}
+
+    {% if c.isNewuser %}
+         <script type="text/javascript">
+                 var contextObject = {{ (c.redirect|ck12_json) }};
+                 contextObject = contextObject.split("returnTo=")[1];
+                 if(contextObject && !contextObject.match(/account\/federated\/authorized\/$/)){
+                    var payload = {
+                            'memberID': "{{c.user.id}}",
+                            'authType': "{{c.user.authType}}",
+                            'referrer': "{{c.redirect}}"
+                    };
+                    if (window._ck12){
+                        _ck12.logEvent('FBS_SIGNINS', payload);
+                    }
+                 }
+         </script>
+        {% if config.production == "true" %}
+             <!-- Google Code for Signup Conversion Page -->
+             <script type="text/javascript">
+                /* <![CDATA[ */
+                var google_conversion_id = 1016426631;
+                var google_conversion_language = "en";
+                var google_conversion_format = "3";
+                var google_conversion_color = "ffffff";
+                var google_conversion_label = "cMStCMnaowgQh-HV5AM";
+                var google_conversion_value = 0;
+                /* ]]> */
+            </script>
+            <script type="text/javascript"
+                src="//www.googleadservices.com/pagead/conversion.js">
+            </script>
+            <noscript>
+                <div style="display:inline;">
+                    <img height="1" width="1" style="border-style:none;" alt=""
+                        src="//www.googleadservices.com/pagead/conversion/1016426631/?value=0&amp;label=cMStCMnaowgQh-HV5AM&amp;guid=ON&amp;script=0"/>
+                </div>
+            </noscript>
+            <!--END Google Code for Signup Conversion Page -->
+        {% endif %}
+    {% else %}
+        <script>
+            var payload = {
+                    'memberID': "{{c.user.id}}",
+                    'authType': "{{c.user.authType}}",
+                    'referrer': "{{c.redirect}}"
+            };
+            if (window._ck12){
+                _ck12.logEvent('FBS_SIGNINS', payload);
+            }
+       </script>
+    {% endif %}
+    <script>
+        function handle_page() {
+            {% if c.redirect %}
+                var redirect = decodeURIComponent("{{c.redirect}}");
+            {% else %}
+                var redirect = "/my/dashboard";
+            {% endif %}
+
+            //check if we can access the parent of the current window.
+            //if not, just redirect to the redirect url ( e.g for assessment iframes)
+            //if yes, check if we need to reload or redirect ( e.g FBS normal flow)
+            var isParentOK = false;
+            try {
+                if (window.parent && window.parent.location.href) {
+                    isParentOK = true;
+                }
+            }catch( e) {
+                isParentOK = false;
+            }
+            if (!isParentOK) {
+                window.location.href = redirect;
+            } else if (isParentOK && window.parent && (window.parent.location != window.location)) {
+                window.parent.location.reload();
+            } else {
+                window.parent.location.href = redirect;
+            }
+        }
+        setTimeout(handle_page, 1000);
+    </script>
+{% endif %}
+{% endblock %}
+
+
+{% block pagewrap %}
+    {% block contentwrap %}
+        <div class="signincompletewrap">
+            <img src="{{ h.asset_image('common/images/icon_loading.gif') }}"/>
+            <br/>
+            <p>{{ _('Please wait while we sign you in...') }}</p>
+        </div>
+    {% endblock %}
+{% endblock %}

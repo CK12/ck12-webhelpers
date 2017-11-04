@@ -1,0 +1,38 @@
+{% extends "common/master.html" %}
+
+{% block title %}{{ _("Groups") }}{% endblock %}
+
+{% block stylesheets %}
+{{ super() }}
+    <link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('common/vendor/jquery-ui/css/ui-lightness/jquery-ui-1.10.2.custom.min.css') }}" />
+	<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('groups/assets/css/tangerine.groups.css') }}" />
+	<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('groups/assets/css/tangerine.group.reports.css') }}" />
+	<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('common/css/walkthrough.css') }}" />
+{% endblock %}
+ 
+{% block js %}
+{{ super() }}
+	<script>
+    	require(['main'], function(){
+        	require(['groups/controllers/group.reports'],function(groups){
+            	groups.load(document.getElementById('group-reports'), "{{ c.user.id }}");
+        	});
+    	});
+	</script>
+{% endblock %}
+ 
+<!-- Main Page Content and Sidebar -->
+{% block content %}
+{{ super() }}
+	<div id="page-disable" class="page-disable js-page-disable hide"></div>
+	<div id="loading-icon" class="loading-icon js-loading-icon hide-small">
+       	<img alt="loading" src="{{ h.asset_image('common/images/icon_loading.gif') }}">
+	</div>
+	<div id="group-reports" class="row groups-container hide-small" data-user="{{c.user.id}}" data-user-role="{{c.user.role.description}}"></div>
+	<div class="row collapse show-for-small text-center header2" style="padding-top: 120px;">You can view this page in landscape mode</div>
+{% endblock %}
+<!-- End Main Content and Sidebar -->
+ 
+  
+
+

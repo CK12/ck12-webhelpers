@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns:dc="http://www.ck12.org/dc/will_create_ns"
+unique-identifier="chapterid" version="2.0">
+
+  <chapter>
+    <metadata>
+<chapterSeq>7</chapterSeq>
+
+<book>Algebra I</book>
+
+      <chapterid></chapterid>
+      <title>Solving Systems of Equations and Inequalities</title>
+      <description>Topics in this chapter:Solving_Linear_Systems_by_Substitution,Solving_Linear_Systems_by_Elimination_through_Addition_or_Subtraction,Solving_Systems_of_Equations_by_Multiplication,Special_Types_of_Linear_Systems,Systems_of_Linear_Inequalities.
+     </description>
+    </metadata>
+    
+    <lessons>
+      <item id="Linear_Systems_by_Graphing" href="Linear_Systems_by_Graphing.html" sequence="1" />
+      <item id="Solving_Linear_Systems_by_Substitution.html" href ="Solving_Linear_Systems_by_Substitution.html" sequence="2" />
+      <item id="Solving_Linear_Systems_by_Elimination_through_Addition_or_Subtraction" href ="Solving_Linear_Systems_by_Elimination_through_Addition_or_Subtraction.html" sequence="3" />      
+      <item id="Solving_Systems_of_Equations_by_Multiplication" href ="Solving_Systems_of_Equations_by_Multiplication.html" sequence="4" />
+      <item id="Special_Types_of_Linear_Systems" href ="Special_Types_of_Linear_Systems.html" sequence="5" />
+      <item id="Systems_of_Linear_Inequalities" href ="Systems_of_Linear_Inequalities.html" sequence="6" />
+   </lessons>
+  </chapter>
+
+</package>

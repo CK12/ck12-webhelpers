@@ -1,0 +1,232 @@
+{% extends "base/2_column_right_detail.html" %}
+{% from "macros/attachments.html" import ck12_artifact_edit_resource with context %}
+{% from "macros/artifact.html" import ck12_artifact_review_feedback_bottom with context %}
+{% from "macros/artifact.html" import ck12_artifact_myreview_feedback with context %}
+{% set page_url = h.url(controller='resource', action='resource_details', resource_type=c.resource.type, resource_handle=c.resource.handle, realm=c.resource.realm, stream=c.resource.stream, qualified=True) %}
+
+{% block stylesheets %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.url_css('book_details.css') }}" />
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+<script language="JavaScript" type="text/javascript">
+	var resourceID = '{{c.resource.id}}';
+	var modality_type = '{{c.modality_type}}';
+	var context_eid = '{{ c.context_eid }}';
+	var artifactID = '{{ c.artifactID }}';
+	var artifactRevisionID = '{{ c.artifactRevisionID }}';
+	/*
+	{% if c.artifact and c.artifact.get_domains() %}
+		{% for domain in c.artifact.get_domains() %}
+			 eid = '{{ domain.encodedid }}';
+		{% endfor %}
+	{% endif %}
+	*/
+	var resourceRevisionID = '{{c.resource.resourceRevisionID}}';
+	var artifactLabels = {{c.resource.getLibraryLabels()|ck12_json}};
+</script>
+<script language="JavaScript" type="text/javascript">
+	require(['main'], function(){
+		require(['flxweb.library.common','flxweb.edit.resource','flxweb.details.resource','flxweb.attachments','flxweb.details.feedbackreview'])
+	});
+</script>
+{% endblock %}
+
+{% block title %} {{ c.resource.name }} {% endblock %}
+
+{% block content_left_inner %}
+	<div class="actions">
+		{% if c.resource.is_public() %}
+		<!--
+		<div class="divider spacetop"></div>
+		-->
+		<!-- Share buttons -->
+		<div class="spacetop">
+			<a id="sharetwitter" data-name="twitter" class="sharetwitter" href="http://twitter.com?status=Download%20{{ page_url }}" target="_blank" title="{{ _('Share on Twitter') }}"></a>
+			<a id="sharefacebook" data-name="facebook" class="sharefacebook fbshare" href="https://www.facebook.com/sharer.php?u={{ page_url.encode('utf-8') }}" title="{{ _('Share on Facebook') }}"></a>
+			<div id="shareemail" data-name="email" class="shareemailwrap">
+				<a class="shareemail" href="mailto:?&subject=Download%20{{ c.resource.name }}&body=Download%20{{ c.resource.name}} : {{page_url}}" title="{{ _('Share via Email') }}"></a>
+			</div>
+			<div class="clear"></div>
+		</div>
+		{% endif %}
+	</div>
+	{% block resource_actions %}
+		{% if c.resource.is_owner(c.user) %}
+		<div class="divider"></div>
+		<div class="spacetop js_resource_row">
+			<a class="js_resource_edit"
+				data-resource-id="{{ c.resource.id }}" 
+				data-resource-type="{{ c.resource.type }}"
+				data-resource-name="{{ c.resource.name }}"
+                data-resource-public="{{ c.resource.isPublic }}"
+                data-resource-external="{{ c.resource.isExternal }}"
+                data-resource-uri="{{ c.resource.uri }}"
+				href="#" title="{{ _('Edit') }}">
+				{{ _('Edit') }}
+			</a>
+			<span class="hide js_resource_description" >{{ c.resource.description }}</span>
+		</div>
+		{% endif %}
+	{% endblock %}
+{% endblock %}
+
+{% block pageinfotop %}
+<div class="contenttop container_12 clearfix">
+	{#
+	<div class="addtolibraryiconwrap">
+	{% if c.resource.is_public() %}
+		{% if c.user %}
+			{% if not c.resource.is_owner(c.user) %}
+			<div>
+				<a id="addtolibraryaction" {% if c.resource.getAddedToLibrary() %} class="hide"{% endif %} title="{{ _('Add to your Bookmarks') }}" href="#"><span class="starimg"></span></a>
+				<span id="addtolibrary">{{ _('Bookmark this') }}</span>
+			</div>
+			<div>
+				<a id="addedtolibrary" {% if not c.resource.getAddedToLibrary() %} class="hide"{% endif %} title="{{ _('Remove from your Bookmarks') }}"><span class="inLib"></span></a>
+				<span id="removefromlibrary">{{ _('Remove Bookmark') }}</span>
+			</div>
+			{% endif %}
+		{% else %}
+			<div>
+				<a onClick="javascript:$.flxweb.alertToSignin();return false;" title="{{ _('Add to your Bookmarks') }}" href="#"><span class="starimg"></span></a>
+				<span id="addtolibrary">{{ _('Bookmark this') }}</span>
+			</div>
+		{% endif %}
+	{% endif %}
+	</div>
+	#}
+</div>
+{% endblock %}
+
+{% block rightinfotop %}{% endblock %}
+{% block content_right_inner %}
+	<!-- About the Resource -->
+	<header class="artifactabout clearfix">
+		{% block resource_title %}	
+		<h1 id="resource_title">
+			<span itemprop="name">{{ c.resource.name }}</span>
+		</h1>
+		{% endblock %}
+		{% block breadcrumbs %}
+		<!-- Artifact Breadcrumbs -->
+		<div class="artifactbreadcrumbs">
+			{% for crumb in c.breadcrumbs %}
+				{% if not loop.last %}
+					<a href="{{ crumb.perma }}" 
+					    title="{% if crumb.is_subject %}{{ _('Subject: ') }}{% endif %}{{ crumb.title|escape }}" 
+					    class="{% if loop.revindex == 2 %}last_shown{% endif %} {% if crumb.is_subject %}subject_crumb{% endif %}">{{ crumb.title|escape }}<span class="imgwrap"></span></a>
+				{% endif %}
+			{% endfor%}
+		</div>
+		<!-- /Artifact Breadcrumbs -->
+		{% endblock %}
+
+		<!-- Owner
+		<div> {{ c.resource.creator }} </div>
+		 -->
+		
+<!-- Artifact Voting -->
+        {% block voting %}
+            {% if artifactID  %}
+            {{ ck12_artifact_myreview_feedback( ) }}
+            {% endif %}
+        {% endblock %}
+<!-- /Artifact Voting -->
+		<div class="spacetoplarge"></div>
+	</header>
+	
+	
+	<!-- TABS BEGIN -->
+	<div id="details_tabs" class="js_detailstabs">
+	<ul class="hide">
+		<li>
+			<div class="topshadowfix"></div>
+			<a href="#view_content">{{ _("Read") }}</a>
+		</li>
+	</ul>
+	<div class=" contentarea">
+	<!-- START - CONTENT VIEW -->
+	<div id="view_content" class="contentview js_viewtab">
+	
+		<!-- Content body -->
+		{% block before_content %}{% endblock %}
+		<section id="resource_content" class="clearfix">
+			<div class="divider"></div>
+			<div class="spacetop"></div>
+			{% if c.resource.description %}
+			    <div>{{ c.resource.description }}</div>
+			    <div class="spacetop">&nbsp;</div>
+			{% endif %}
+			
+			{% if c.resource.is_public() or c.resource.is_owner(c.user) %}
+				{% block resource_content %}
+					{% if c.resource.is_eo() %}
+						<div>{{ c.resource.embeddedObject.iframe }}</div>
+					{% elif c.resource.isExternal %}
+						<div> 
+							{% if c.modality_type in ['studyguide', 'flashcard'] %}
+								{{ _("Open this resource in a new window. If you need more support, be sure to visit CK-12's") }}
+							 	<a class="notificationlink" href="https://apps.facebook.com/studyhelp/">{{ _("studyHELP") }}</a>
+								{{ _("for getting answers to your questions right when you need them.") }}
+							{% else %}
+								{{ 'Open the resource in a new window.' }}
+							{% endif %}
+							<br>
+							<br>
+							<a class="break-all" target="_blank" href="{{c.resource.uri }}">{{ c.resource.uri }}</a>
+						</div>
+					{% else %}
+						<div>
+							<div class="fileicon_container">
+								<div class="fileicon filetype_{{ c.resource.get_file_extension().replace('.','') }}">&nbsp;</div>
+							</div>
+							<div class="resource_download_container tdcenter">
+								<a class="btn download_btn button turquoise" target="_blank" href="{{ c.resource.uri }}"> {{ _("Download") }} </a>
+							</div>
+						</div>
+					{% endif %}
+				{% endblock %}
+			{% else %}
+				<div class="resource_private_message">
+					{{ _("This file is marked as 'Private' and is only available to the uploader.") }}
+				</div>
+			{% endif %}
+			<div class="divider spacetoplarge"></div>
+		</section>
+		{% block after_content %}{% endblock %}
+		<!-- /Content body -->
+	
+		{% block extra_content %}
+			
+		{% endblock %}
+	
+		<div id="view_content_footer"><span class="imgwrap"></span></div>
+	</div>
+	<!-- /END - CONTENT VIEW -->
+
+	</div> <!-- THIS IS THE CONTAINER FOR TABS EXCLUDING THE LIST -->
+	</div> <!-- THIS IS THE CONTAINER FOR TABS INCLUDING THE LIST -->
+
+
+<!-- Bottom Artifact Review Feedback -->
+{% block artifact_review_feedback %}
+{% if artifactID  %}
+{{ ck12_artifact_review_feedback_bottom( ) }}
+{% endif %}
+{% endblock %}
+<!-- /Bottom Artifact Review Feedback -->
+
+
+{% endblock %}
+{% block rightinfobottom %}{% endblock %}
+{% block hidden_divs %}
+{{ super() }}
+{{ ck12_artifact_edit_resource() }}
+<!--
+    Templates for reviews 
+-->
+{% include "jstemplates/reviews.html" %}
+{% endblock %}

@@ -1,0 +1,249 @@
+{% extends "dashboard/common.html" %}
+{% from "macros/pagination.html" import ck12_pagination with context%}
+
+{% block title %}{{ _("Library") }}{% endblock %}
+
+{% block dashboard_titles %}{{ _("Library") }}{% endblock %}
+
+{% block js %}
+{{ super() }}
+{% if config.ads_enabled == "true" %}
+<script>
+    require(['main'],function(){
+        require(['jquery'],function($){
+            $(document).ready(function() {
+                var tabMap = {'content':'my_content','bookmarks':'my_bookmarks'};
+                var payload = {};
+                var tab = '{{ c.tab }}';
+                if (tab in tabMap) {
+                    tab = tabMap[tab];
+                }
+                payload['page'] = tab;
+                window._ck12.logEvent('fbs_view', payload);
+            });
+        });
+    });
+</script>
+{% endif %}
+{% endblock %}
+
+{% block dashboardcontent %}
+<div class="contentarea">
+    <div id="mycontent" class="contentview">
+        {%  block top_bar %}
+        <div class="library_topactions clearfix">
+            {% block top_actions %}
+                {% if c.tab == "content" %}
+                <div class="grid_2 right dropmenuwrap">
+                    <a class="button turquoise secondary create-new" href="#" id="mylib_create_new">{{ _('Create New') }}<span>&#9660;</span><span class="arrowdown"></span></a>
+                    <div id="library_create_menu" class="drop-menu hide" data-menu-link="#mylib_create_new">
+                        <ul class="create-dropdown">
+                            <!-- <li><a href="{{ h.url('create-artifact',artifact_type='concept')}}" title="{{ _('New Read Modality - Concept') }}"> {{ _('Read Modality - Concept') }}</a></li>  -->
+                            <li><a href="{{ h.url('create-artifact',artifact_type='concept')}}" title="{{ _('New Modality') }}"> {{ _('Modality') }}</a></li>
+                            <li><a href="{{ h.url('create-artifact',artifact_type='book')}}" title="{{ _('New FlexBook&#174; Textbook') }}"> {{ _('FlexBook&#174; Textbook') }}</a></li>
+                            <li><a id="curriculum_book" href="#" title="{{ _('Standards Aligned FlexBook&#174; Textbook') }}"> {{ _('Standards Aligned FlexBook&#174; Textbook') }}</a></li>
+                            <li id = "experimental">{{ _("CK-12 Labs:") }}</li>
+                            <li><a id="btn_gdtimport" href="#" title="{{ _('Import from google docs') }}"> {{ _('Import from Google') }}</a></li>
+                            <li><a id="btn_xdtimport" href="#" title="{{ _('Import a word document') }}"> {{ _('Import from Word') }}</a></li>
+                        </ul>
+                    </div>
+                </div>
+                {% endif %}
+
+                <div class="grid_2">
+                    <a class="button turquoise" id="changeLabels" href="#" title="{{ _('Change Labels') }}">{{ _('Change Labels') }}</a>
+                </div>
+                <div class="prefix_6 grid_2">
+                    <a class="button dusty-grey" href="{{ h.url('mylib-archived-type',object_type=c.object_type,item_type=c.item_type) }}" title="{{ _('View Archived Items') }}">{{ _('View Archived') }}</a>
+                </div>
+            {% endblock %}
+        </div>
+        {% endblock %}
+    <!-- Library LHS -->
+    <div class="grid_2">
+        <div id='library_labels'>
+            <div class="spacetoplarge"></div>
+            <div class="divider spacetop"></div>
+            <h2>{{ _('Filter by Type') }}</h2>
+            {% for iType in c.item_types %}
+            <div class="filters">
+                {% if iType.key == c.item_type %}
+                    {% if iType.label|escape  == "FlexBooks" %}
+                        <span title="FlexBook&#174; Textbooks" >{{ _("FlexBook&#174; Textbooks") }}</span>
+                    {% else %}
+                        <span title="{{ iType.label|escape }}" >{{ iType.label|escape }}</span>
+                    {% endif %}
+                {% else %}
+                    {% if iType.label|escape  == "FlexBooks" %}
+                        <a title="FlexBook&#174; Textbooks" href="{{ h.url('mylib-type-label',tab=c.tab,object_type=iType.object_type,item_type=iType.key,label=c.selected_label) }}">{{_("FlexBook&#174; Textbooks")}}</a>
+                    {% else %}
+                        <a title="{{ iType.label|escape }}" href="{{ h.url('mylib-type-label',tab=c.tab,object_type=iType.object_type,item_type=iType.key,label=c.selected_label) }}">{{ iType.label|escape }}</a>
+                    {% endif %}
+                {% endif %}
+            </div>
+            {% endfor %}
+
+            <div class="divider spacetop"></div>
+            {% block filter_labels %}
+                <h2>{{ _('Filter by Label') }}</h2>
+
+                <!-- APP Labels -->
+                {% for aLabel in c.labels.app %}
+                <div data-label="{{aLabel.label}}">
+                    {% if aLabel.label|escape == c.selected_label %}
+                        <span title="{{ aLabel.label|escape }}" >{{ aLabel.label|escape }}</span>
+                    {% else %}
+                        <a title="{{ aLabel.label|escape }}" href="{{ h.url('mylib-type-label',tab=c.tab,object_type=c.object_type,item_type=c.item_type,label=aLabel.label) }}">{{ aLabel.label|escape }}</a>
+                    {% endif %}
+                </div>
+                {% endfor %}
+
+                <!-- System Labels -->
+                {% for sLabel in c.labels.system %}
+                <div data-label="{{sLabel.label}}">
+                    {% if sLabel.label == c.selected_label %}
+                        <span title="{{ sLabel.label|escape }}">{{ sLabel.label|escape }}</span>
+                    {% else %}
+                        <a title="{{ sLabel.label|escape }}" href="{{ h.url('mylib-type-label',tab=c.tab,object_type=c.object_type,item_type=c.item_type,label=sLabel.label) }}">{{ sLabel.label|escape }}</a>
+                    {% endif %}
+                </div>
+                {% endfor %}
+
+                <!-- my Labels -->
+                {% for mLabel in c.labels.my %}
+                <div class="mylabel" data-label="{{mLabel.id}}">
+                    {% if mLabel.label == c.selected_label %}
+                        <span>{{ mLabel.label|truncate(12)|escape }}</span>
+                    {% else %}
+                        <a title="{{mLabel.label|escape}}" href="{{ h.url('mylib-type-label',tab=c.tab,object_type=c.object_type,item_type=c.item_type,label=mLabel.label) }}">{{ mLabel.label|truncate(12,killwords=true)|escape }}</a>
+                        <a title="{{ _('Delete label') }}" href="#" class="label_delete">
+                            <span class="imgwrap"></span>
+                        </a>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            {% endblock %}
+        </div>
+    </div>
+
+
+    <!-- My library RHS -->
+    <div class="grid_10">
+        <div> 
+            <div id="view_mylibrary">
+                {% if c.paginator.get_total_count() > 0 %}
+                    <div class="clearfix">
+                        <div class="sort">
+                            <form id="sort_form" method="GET">
+                                Sort by
+                                <select id="sort_option" name="sort">
+                                    {% for option in c.sort_options %}
+                                    <option {% if c.sort == option.0 %} selected {% endif %} value="{{option.0}}">{{option.1}}</option>
+                                    {% endfor %}
+                                </select>
+                            </form>
+                        </div>
+                    </div>
+                    <div id="mylib_items"> 
+                        {% block results_area %} {% endblock %}
+                    </div>
+                {% endif %}
+                <div id="mylib_empty_message" class="{% if c.paginator.get_total_count() > 0 %}hide{%endif%}">
+                {% if c.tab == "fav" and c.selected_label == "All" %}
+                    <!--  NO ITEMS IN BOOKMARKS -->
+                    <div class="noitemstext">{{ _("You have not bookmarked any %(type)s. You can bookmark items while browsing FlexBook&#174; textbooks and Modalities."%({'type':c.item_type_label})) }}</div>
+                {% elif c.tab == "fav" %}
+                    <!--  NO ITEMS IN BOOKMARKS WITH THIS LABEL -->
+                    <div class="noitemstext">{{ _("You have no %(type)s bookmarked with this label. To apply this label, select items and click 'Change Labels'." % ({'type':c.item_type_label})) }}</div>
+                {% elif c.archived_items %}
+                    <!--  NO ARCHIVED ITEMS -->
+                    {% if c.item_type_label == 'FlexBooks' %}
+                        <div class="noitemstext">{{ _("You have no FlexBook&#174; textbooks in Archive." %({'type':c.item_type_label})) }}</div>
+                    {% else %}
+                        <div class="noitemstext">{{ _("You have no %(type)s in Archive." %({'type':c.item_type_label})) }}</div>
+                    {% endif %}
+                {% elif c.tab == "content" and c.selected_label == "All" %}
+                    <!--  NO OWNED ITEMS -->
+                    {% if c.item_type_label == 'FlexBooks' %}
+                        <div class="noitemstext">{{ _("You can add new FlexBook&#174; textbooks using 'Create New' button." % ({'type':c.item_type_label})) }}</div>
+                    {% elif c.item_type_label == 'Files' %}
+                        <div class="noitemstext">{{ _("You don't have any files.") }}</div>
+                    {% else %}
+                        <div class="noitemstext">{{ _("You can add new %(type)s using 'Create New' button." % ({'type':c.item_type_label})) }}</div>
+                    {% endif %}
+                {% else %}
+                    <!--  NO ITEMS IN LABEL -->
+                    <div class="noitemstext">{{ _("There are no items with this label. To apply this label, select items and click 'Change Labels'.") }}</div>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+        {% block paginationbottom %}
+        <!--  Pagination Bottom -->
+        <div class="paginationbottom">
+            <div class="js_resulttotal">
+                {% if c.paginator.get_total_count() > 0 %}
+                    <span class="resultkey">
+                     {{ _("Displaying %(from)s to %(to)s of %(total)s") % {'from': c.paginator.first_itemnumber(),
+                                                                            'to':c.paginator.last_itemnumber(),
+                                                                            'total': c.paginator.get_total_count() } }} 
+                    </span>
+                {% endif %}
+            </div>
+            {% if c.paginator.total_pages > 1 %}
+            <div class="result_pagination">
+                {{ ck12_pagination(paginator=c.paginator,url_path=request.path) }}
+            </div>
+            {% endif %}
+        </div>
+        <!--  /Pagination Bottom -->
+        {% endblock %}
+    </div>
+    <div class="clear"></div>
+</div>
+</div>
+{% endblock %}
+
+{% block hidden_divs %}
+{{ super() }}
+
+{# For coursegen dialog #}
+{% if c.user %}
+<div id="dialog_coursegen" 
+    data-url="{{ h.url('dlg-coursegen') }}"
+    data-title="{{_('Create standards aligned FlexBook&#174; Textbook') }}">
+</div>
+{% endif %}
+
+{# For file upload dialog #}
+<div id="dialog_fileupload">
+    <div class="js_dialog_fileupload_container">
+        <div class="js_upload_msg">{{ _("Uploading") }} <span class="js_upload_filename"></span></div>
+        <div class="js_progress_container">
+            <div class="js_progress_status">&nbsp;</div>
+        </div>
+    </div>
+</div>
+
+{# gdt and xdt #}
+<div id="js_dialog_addfromgdocs" data-dialogurl="{{ h.url('dialog/addfromgdocs/',qualified=True,showCollections=True) }}" data-dialogtitle="{{ _("Import from Google Docs") }}"></div>
+<div id="js_dialog_uploadworddoc" data-dialogurl="{{ h.url('dialog/uploadworddoc/',qualified=True) }}" data-dialogtitle="{{ _("Import a Word Document") }}"></div>
+
+{# template for Javascript objects. Uses underscore.js template syntax #} 
+<!-- LHS label template -->
+<script type="text/template" id="tmpl_library_label">
+    <div class="mylabel" data-label="<%=  label  %>">
+        <a title="<%= _.escape(label) %>" href="{{ h.url('mylib-type',tab=c.tab,object_type=c.object_type,item_type=c.item_type) }}<%= label %>/"><%= _.escape(_(label).truncate(12)) %></a>
+        <a class="label_delete" href="#">
+            <span class="imgwrap" title="{{ _('Remove Label') }}"></span>
+        </a>
+    </div>
+</script>
+
+<!-- RHS row/artifact template -->
+<script type="text/template" id="tmpl_library_row_label">
+<span title="<%= _.escape(label) %>" data-label="<%=  label  %>" class="labels"><%= _.escape(_(label).truncate(20)) %></span>
+</script>
+
+
+{% endblock %}

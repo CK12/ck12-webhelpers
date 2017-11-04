@@ -1,0 +1,14 @@
+<li class="modality_group<% if ('interactive' === data.group_classname || 'simulations' === data.group_classname) { %> hide-small<% } %>">
+    <a data-groupname="<%= data.group_classname %>" class="lnk_modality_filter group_<%= data.group_classname %>">
+        	<i class="<%= data.modalityIcon %>"></i>
+        <span class="group_label">
+        	<% if (data.display_text.match('All')) {%>
+        		<span>All</span>
+        	<% } else {%>
+        		<span><%= data.display_text %></span>
+        	<% } %>
+        	<br class="show-small"/>
+        	<span class="js-count">(<%= data.count || 99 %>)</span>
+        </span>
+    </a>
+</li>

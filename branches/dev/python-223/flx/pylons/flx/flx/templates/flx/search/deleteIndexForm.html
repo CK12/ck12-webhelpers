@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Delete Artifacts from Search Index</title>
+        <script type="text/javascript">
+          function formSubmit() {
+            if (confirm('Are you sure you want to remove these artifacts from the index?')) {
+              document.metadata.submit();
+              return true;
+            }
+            return false;
+          }
+        </script>
+    </head>
+    <body>
+        <h1>Delete Artifacts from Search Index<h1>
+        <form name="metadata" method="POST" action="{{ c.prefix }}/delete/index" onsubmit="return formSubmit();">
+            <table>
+                <tr>
+                    <td>
+                        Artifact IDs (separate with commas):
+                    </td>
+                    <td>
+                        <input type="text" name="artifactIDs" value="" size="100" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align:right;">
+                        <label><input type="checkbox" name="waitFor" value="True" /> Wait synchronously for the results?</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align:right;">
+                        <input type="submit" name="submit" value="Delete" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

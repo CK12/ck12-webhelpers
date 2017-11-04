@@ -1,0 +1,1 @@
+select s.id, s.title, u.id, u.code, l.id, l.code, c.id, c.title from flexmath.Components c, flexmath.Lessons l, flexmath.Units u, flexmath.Subjects s where c.lessonID=l.id and l.unitID=u.id and u.subjectID=s.id

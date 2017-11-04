@@ -1,0 +1,465 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Labs.js</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link href="http://ajax.aspnetcdn.com/ajax/bootstrap/3.0.3/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <h1>Labs.js Guide</h1>
+
+        <div class="section">
+            <div class="page-header">
+                <h1>Overview</h1>
+            </div>
+
+            <p>
+                Labs.js is an API that allows applications (also known as labs) to integrate with an Athena lesson.
+                By writing against the API an application can easily be
+                run within the PowerPoint authoring tool as well as in the online lesson player.
+                It is designed to be a lightweight API that is simple and can easily be plugged in to existing platforms.
+                All a platform needs is to implement the underlying driver interfaces and any app targeted towards Labs.js will run.
+            </p>
+            <p>
+                This guide is divided into six main sections:
+            </p>
+
+            <ul>
+                <li>
+                    <a href="#setup">Setup</a>
+                    Describes the setup tasks needed to start developing labs with Labs.js.
+                </li>
+                <li>
+                    <a href="#apioverview">API Overview</a>
+                    Provides an overview description of how to make use of the API.
+                </li>
+                <li>
+                    <a href="#portingGuide">Porting Guide</a>
+                    Information on migrating from the original labs.js to this new version.
+                </li>
+                <li>
+                    <a href="#reference">Reference</a>
+                    Links to reference documentation for the various classes within the API
+                </li>
+            </ul>
+            
+            <h3>Files in SDK</h3>
+            <p>
+                There are a handfull of files included in the SDK for labs.js development
+            </p>
+            <ul>
+                <li>
+                    <a href="labs-1.0.0.js">labs.js</a>
+                    The JavaScript API for Athena labs development. This file needs to be included in your project in order to integrate with Athena.
+                </li>
+                <li>
+                    <a href="labs-1.0.0.d.ts">labs.d.ts</a>
+                    TypeScript definition file for labs.js. This makes it possible to easily integrate your TypeScript code with labs.js.
+                    The definition file also provides a broad overview of all the components contained in labs.js. You can download TypeScript from <a href="http://www.typescriptlang.org/">http://www.typescriptlang.org/</a>.
+                    The definition file was built against TypeScript 0.9.1.1.
+                </li>
+                <li>
+                    <a href="labshost.html">labshost.html</a>
+                    Web page that provides a way to view and debug your lab against Athena, outside of the context of PowerPoint. Simply type in your URL to the main input box and it will load within the frame. Data exchanged
+                    between the API and Athena when running in PowerPoint or the Athena lesson player will show up in the input boxes to the right. The data can also be preseeded. The <a href="#examples">examples</a> section
+                    provides examples of existing Athena apps running in the context of the host.
+                </li>      
+                <li>
+                    <a href="SampleManifest.xml">SampleManifest.xml</a>
+                    A sample Office Apps manifest to use as a template for creating your own application manifest.
+                </li>          
+            </ul>
+
+            <h3 id="examples">Examples</h3>
+            <p>
+                The following provides a brief list of existing labs created for Athena using labs.js.
+            </p>
+            <ul>                
+                <li><a href="labshost.html?lab=https://athenadevapps.cloudapp.net/Quiz/TrueFalse?postmessage">True/False</a></li>                
+            </ul>
+
+            <h3 id="help">Getting help</h3>
+            <p>
+                For help, feature requests, comments, issues, etc... don't hesitate to send mail to <a href="mailto:kurtb@microsoft.com">kurtb@microsoft.com</a>
+            </p>
+        </div>
+
+        <!-- Setup section -->
+        <div class="section" id="setup">
+            <div class="page-header">
+                <h1>Setup</h1>
+            </div>
+            <p>
+                The following sections describes the steps necessary for doing Labs.js development.
+            </p>
+            <p>
+                Athena utilizes <a href="http://msdn.microsoft.com/en-US/office/dn448457">Apps for Office</a> in order to integrate interactive content within 
+                a PowerPoint slide deck. To lab developers the details of Office.js, the API for Apps for Office, are abstracted behind the labs.js API. But in order
+                to develop an Athena application you will need to set yourself up as an Apps for Office developer.
+            </p>
+        </div>
+
+        <!-- Initialization Section -->
+        <h2>Register for an Office 365 Developer Site</h2>
+        <p>
+            The first step is to register for an Office 365 developer site. This will give you a place where you can host your applications prior to submitting
+            them to the store for approval. Also, hosting on a developer site will allow you to publish any of these apps to Athena and try it out in our live
+            environment.
+        </p>
+        <p>
+            Instructions on how to do this can be found by visiting this link:
+            <a href="http://msdn.microsoft.com/library/office/fp179924(v=office.15)">http://msdn.microsoft.com/library/office/fp179924(v=office.15)</a>
+        </p>
+        <p>
+            You only need to follow the first two steps. Making use of "Napa" is optional. Once you create your site it will be provisioned. Once SharePoint
+            has been provisioned you can move on to the next step. Note that it can take a bit of time to fully provision your developer site.
+        </p>       
+
+        <h2>Set up an app catalog on SharePoint Online</h2>
+        <p>
+            The next step is to set up an app catalog on SharePoint Online. An app catalog is used to host apps specific to an individual organization. For Athena
+            we make use of an app catalog to be able to insert pre-production apps into a lesson and test it out end to end prior to submitting the app to the store.                    
+        </p>                
+        <p>
+            Instructions on this process can be found here: 
+            <a href="http://msdn.microsoft.com/en-us/library/1d50a571-6e02-4bc0-a3d6-6ef1eca3c2ce(Office.1501401)">http://msdn.microsoft.com/en-us/library/1d50a571-6e02-4bc0-a3d6-6ef1eca3c2ce(Office.1501401)</a>
+        </p>                
+
+        <h2>Create your application manifest</h2>
+        <p>
+            The application manifest is an XML document that describes your lab app. It contains a URL reference to where the app is hosted as well as various details about it.
+            These include display name, description, icons, default starting size, etc... A sample manifest is contained below.
+        </p>
+        <p>
+            The SDK also comes with a sample manifest: <a href="SampleManifest.xml">SampleManifest.xml</a>
+        </p>
+        <h3>Sample manifest</h3>
+<pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;OfficeApp xmlns=&quot;http://schemas.microsoft.com/office/appforoffice/1.1&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:type=&quot;ContentApp&quot;&gt;
+  &lt;Id&gt;[Id]&lt;/Id&gt;
+  &lt;Version&gt;1.0.0.0&lt;/Version&gt;
+  &lt;ProviderName&gt;[ProviderName]&lt;/ProviderName&gt;
+  &lt;DefaultLocale&gt;en-US&lt;/DefaultLocale&gt;
+  &lt;DisplayName DefaultValue=&quot;[DisplayName]&quot;&gt;
+  &lt;/DisplayName&gt;
+  &lt;Description DefaultValue=&quot;[Description]&quot;&gt;
+  &lt;/Description&gt;
+  &lt;IconUrl DefaultValue=&quot;[IconUrl]&quot;&gt;
+  &lt;/IconUrl&gt;
+  &lt;HighResolutionIconUrl DefaultValue=&quot;[HighResolutionIconUrl]&quot;&gt;
+  &lt;/HighResolutionIconUrl&gt;
+  &lt;Hosts&gt;
+    &lt;Host Name=&quot;Presentation&quot;/&gt;
+  &lt;/Hosts&gt;  
+  &lt;DefaultSettings&gt;
+    &lt;SourceLocation DefaultValue=&quot;[Url]&quot;&gt;&lt;/SourceLocation&gt;
+    &lt;!--Only Incontent MOE can have both width and height--&gt;
+    &lt;RequestedWidth&gt;960&lt;/RequestedWidth&gt; 
+    &lt;RequestedHeight&gt;540&lt;/RequestedHeight&gt;
+  &lt;/DefaultSettings&gt;
+  &lt;Permissions&gt;ReadWriteDocument&lt;/Permissions&gt;
+  &lt;!--Allowed snapshot can be true or false for InContent Agaves only--&gt;
+  &lt;AllowSnapshot&gt;true&lt;/AllowSnapshot&gt;
+&lt;/OfficeApp&gt;
+</pre>
+        <p>
+            Instructions on this process can be found here:
+            <a href="http://msdn.microsoft.com/en-us/library/1d50a571-6e02-4bc0-a3d6-6ef1eca3c2ce(Office.1501401)">http://msdn.microsoft.com/en-us/library/1d50a571-6e02-4bc0-a3d6-6ef1eca3c2ce(Office.1501401)</a>
+        </p>      
+        
+        <h2>Upload your application manifest to your SharePoint site</h2>
+        <p>
+            Once you have an app catalog created and have your first manifest you are now ready to submit your application to your catalog. Navigate to your application 
+            catalog (usually https://[your site]/sites/AppCatalog). Then click on the "new app" button and follow the steps to upload your application manifest. Once this
+            succeeds your catalog now contains your newly submitted app.
+        </p>
+
+        <h2>Update your PowerPoint app catalog and log in with your developer account</h2>
+        <p>
+            These instructions can also be found at the beginning of the document referenced above about setting up an app catalog
+            (<a href="http://msdn.microsoft.com/en-us/library/1d50a571-6e02-4bc0-a3d6-6ef1eca3c2ce(Office.1501401)">http://msdn.microsoft.com/en-us/library/1d50a571-6e02-4bc0-a3d6-6ef1eca3c2ce(Office.1501401)</a>)
+        </p>
+        <p>
+            Open up PowerPoint and then navigate to: <b>File > Options > Trust Center > Trust Center Settings > Trusted App Catalogs</b>.
+        </p>
+        <p>
+            From here add a reference to your app catalog. Click OK and PowerPoint will ask you to sign out for the changes to take place. Do this.
+        </p>
+        <p>
+            The last step then is to log in under the developer account. In the upper-right corner of PowerPoint you will see your login name. Click on this and log in under
+            your developer account. You are now all ready to insert your app.
+        </p>
+
+        <h2>Insert your app</h2>
+        <p>
+            After you've changed the app catalog, restarted PowerPoint for the change to take affect, and changed your login name you are now ready to insert an application.
+        </p>
+        <p>
+            To do so click on the <b>Insert</b> ribbon item. Then find <b>Store</b> in the <b>Apps</b> section. Click on this button to open the "Apps for Office" dialog. Now
+            click on <b>My Organization</b> and you should see the apps in your app catalog. Now simply click on whichever one you want, choose insert, and your app will be
+            inserted within the PowerPoint document.
+        </p>
+
+        <h2>Publish and View</h2>
+        <p>
+            You can now make use of all the usual Athena functionality to publish your lesson with your new app.
+        </p>
+        <p>
+            <b>Note</b> however when you go to view the application you will need to log in to your SharePoint catalog with the same browser that you view your lesson from.
+            SharePoint catalogs only allow access from authenticated users and so in order to see your application you need to log in first. That way when the app attempts
+            to contact the catalog to determine its manifest it can load.
+        </p>
+
+        <h2>Submit to Office Store</h2>
+        <p>
+            Publishing instructions are available here:
+            <a href="http://msdn.microsoft.com/en-US/office/dn448457#publish">http://msdn.microsoft.com/en-US/office/dn448457#publis</a></p>
+        
+        <!-- API Overview -->
+        <div class="section" id="apioverview">
+            <div class="page-header">
+                <h1>API Overview</h1>
+            </div>
+            
+            <h2>Initialization</h2>
+            <p>Initialiation is responsible for setting up communication between the lab and the host of the lab. Once initialization is complete the other API
+                methods can be called.</p>
+            
+
+            <h3>Examples</h3>
+            <pre>
+Labs.on(Labs.EventTypes.ModeChanged, function (modeChangedEvent) {
+    $("#currentMode").text(modeChangedEvent.mode);                    
+});
+</pre>
+            
+            <h2>Edit Lab</h2>            
+            <p>
+                Athena provides API methods for lab developers to get and set their configuration. The configuration is used to indicate to
+                Athena what type of lab is being created as well as what type of data the lab will send back. This information is used in the collection
+                and visualization of analytics.
+            </p>
+            
+            <h3>Getting the lab editor</h3>
+            <p>
+                The <a href="#">LabEditor</a> provies the ability to edit and configure the lab. With it you can set the configuration for the lab and get
+                the configuration for the lab. Only one labEditor can be open at any given time. When done editing the lab you need to call the <a href="#">done</a>
+                method. Done is not required to be called. But must be called before either taking the lab or opening another lab editor.
+            </p>
+            <pre>
+Labs.editLab((err, labEditor) => {    
+});
+</pre>            
+            
+            <h3>Set and get configuration</h3>
+            <p>The get and set configuration methods allow you to store the configuration for the lab.</p>
+            <pre>
+labEditor.setConfiguration(configuration, (err, unused) => { 
+});
+
+labEditor.getConfiguration((err, configuration) => {
+});
+</pre>
+            
+            <h3>Closing the editor</h3>
+            <pre>
+labEditor.done((err) => {    
+});
+</pre>
+
+            <h2>Take Lab</h2>
+            <p>
+                State is temporary storage associated with a user taking the lab. It is a scratch space for developers to use to store information they
+                would like to retrieve between loads of the lab. As an example a programming lab could store the user's current work in the scratch space. Unlike
+                with results the saving of state does not cause any analytic computations to take place.
+            </p>
+            <p>
+                The results API is responsible for tracking a user's interaction with a lab. It stores submissions, hints, access times, etc... Currently this is exposed
+                by getting and setting a JSON object representing the entire history of a user's interaction with a lab. This will soon be deprecated in favor of finer
+                grained method calls.
+            </p>
+            <h2>Events</h2>
+            <p>
+                The events API tracks lab specific events and allows the application developer to add handlers to deal with them. Events include things like the mode changing from
+                edit to view while within PowerPoint.
+            </p>          
+            <h3>Mode change</h3>
+            The mode changed event is fired when the lab changes from "edit" to "view" mode. Edit mode is shown when in the editor mode in PowerPoint. View mode is shown when in
+            slide show mode in PowerPoint or when being displayed within the Athena lesson player. The view mode should display what hte user will see when taking the lab. The edit lab should 
+            allow the user to configure hte lab.
+
+            <h3>Activate</h3>
+            The activate event is sent when when the slide the application is contained on becomes active within the lesson player. 
+
+            <h3>Deactivate</h3>
+            The deactivate event is sent when when the slide the application is contained on is no longe the active slide. 
+            
+
+            <h2>Timeine</h2>
+            <p>
+                The lab also has the ability to interact with the player timeline. Using the timeline allows the lab to tell the player to advance to te next slide. 
+                The timeline objects is found by calling the <a href="#">Labs.getTimeline()</a> method. 
+            </p>  
+            <h3>Examples</h3>
+            <pre>
+Labs.getTimeline().next({}, (err, unused) => { });
+</pre>
+        </div>
+        
+        <!-- Porting section -->
+        <div class="section" id="reference">
+            <div class="page-header">
+                <h1>Porting Guide</h1>
+            </div>
+            <p>The following contains some guidelines for porting from the old labs.js to the new one</p>
+            
+            <h2>Initialization</h2>
+            
+            <h2>Configuration</h2>
+            
+            <h2>State & Results</h2>
+            <p>The primary changes come in the results section. For better analytics and performance we no longer take in a large JSON blob of data for the results
+            but instead make use of finer grained actions (see the LabsCore reference for more information). 
+            </p>
+            
+            <h2>Events</h2>
+            <p>The events API remains unchanged</p>
+        </div>
+
+        <!-- Reference section -->
+        <div class="section" id="reference">
+            <div class="page-header">
+                <h1>Reference</h1>
+            </div>
+            <p>
+                The following provides links to the high level components of Labs.js
+            </p>
+            <ul>
+                <li>
+                    <a href="LabsCore.html">Labs Core</a>
+                    Initialiation is responsible for setting up communication between the lab and the host of the lab. Once initialization is complete the other API
+                    methods can be called.
+                </li>
+                <li>
+                    <a href="LabsActions.html">Labs Actions</a>
+                    Athena provides API methods for lab developers to get and set their configuration. The configuration is used to indicate to
+                    Athena what type of lab is being created as well as what type of data the lab will send back. This information is used in the collection
+                    and visualization of analytics.
+                </li>
+                <li>
+                    <a href="LabsGetActions.html">Labs Get Actions</a>
+                    State is temporary storage associated with a user taking the lab. It is a scratch space for developers to use to store information they
+                    would like to retrieve between loads of the lab. As an example a programming lab could store the user's current work in the scratch space. Unlike
+                    with results the saving of state does not cause any analytic computations to take place.
+                </li>
+                <li>
+                    <a href="LabsApi.html">Labs API</a>
+                    The results API is responsible for tracking a user's interaction with a lab. It stores submissions, hints, access times, etc... Currently this is exposed
+                    by getting and setting a JSON object representing the entire history of a user's interaction with a lab. This will soon be deprecated in favor of finer
+                    grained method calls.
+                </li>
+                <li>
+                    <a href="LabsComponents.html">Labs Components</a>
+                    The events API tracks lab specific events and allows the application developer to add handlers to deal with them. Events include things like the mode changing from
+                    edit to view while within PowerPoint.
+                </li>                
+            </ul>
+        </div>
+
+        <div class="section" id="initialization">
+            <div class="page-header">
+                <h1>API</h1>
+            </div>
+            <p>
+                The following section outlines the labs.js API.
+            </p>
+        </div>
+
+            <h3>Example</h3>
+            <pre>
+var labHost = new Labs.LabHost();
+Labs.initialize(labHost, function (err, initialState) {
+});
+</pre>
+
+            <h3>Examples</h3>
+            <pre>
+Labs.getConfiguration(function (err, configuration) {
+    if (configuration == null) {
+        var choices = [
+            { id: "0", text: "True" },
+            { id: "1", text: "False" }];                                                    
+        var hints = [{ text: "This is a hint" }];                        
+        var problem = new Labs.Configuration.ChoiceProblem(
+            "Is this a simple question?",
+            choices,
+            hints,
+            ["0"],
+            1,
+            0,
+            0,
+            null);
+        configuration = { name: "simplelab", data: null, components: [problem] };
+                        
+        Labs.setConfiguration(configuration, function (err, data) {
+        });
+    }
+});
+</pre>
+        
+            <h3>Example</h3>
+            <pre>
+Labs.getState(function (err, state) {
+    if (state == null) {
+        // Set an initial state if none is set
+        Labs.setState({ data: "Hello, Data!" }, function (err, data) {                            
+        });
+    }
+});
+</pre>
+        
+            <h3>Examples</h3>
+            <pre>
+Labs.getResults(function(err, results) {
+    if (results == null) {                        
+        var problem = new Labs.Results.ChoiceProblemResult([]);
+        results = { componentResults: [problem] };
+        Labs.setResults(results, function (err, data) {                
+        });
+    }
+                    
+    $("#submitAttempt").click(function () {                       
+        var attempt = new Labs.Results.ChoiceProblemAttempt(
+            [],
+            [{ score: 1, submitTime: new Date().getTime(), value: ["0"] }],
+            new Date().getTime(),
+            Labs.Results.ProblemState.Completed);
+        results.componentResults[0].attempts.push(attempt);
+        Labs.setResults(results, function (err, data) {                            
+        });
+    });
+});
+</pre>
+        
+            <h3>Examples</h3>
+            <pre>
+Labs.on(Labs.EventTypes.ModeChanged, function (modeChangedEvent) {
+    $("#currentMode").text(modeChangedEvent.mode);                    
+});
+</pre>
+        
+            <h3>Example</h3>
+    <pre>
+Labs.done(function(err, data) {                    
+});
+</pre>
+
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/bootstrap/3.0.3/bootstrap.js"></script>
+</body>
+</html>
+

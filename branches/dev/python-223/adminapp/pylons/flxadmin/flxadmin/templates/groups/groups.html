@@ -1,0 +1,83 @@
+{% extends "listings.html" %}  
+
+{% block filters %} 
+  <div class="col">
+    {{ h.labelselect('Filter', '', c.form.group_type_filter_sel, 'filter') }}
+  </div>
+  <div class="col med">
+    {{ h.labelselect('LMS Name', 'providerID', c.form.lms_filter_sel, 'filter') }}
+  </div>
+  <div class="col">
+    {{ h.labelselect('LMS App Name', 'appName', [('',"Select LMS App")], 'filter', disabled='true') }}
+  </div>
+{% endblock %} 
+
+{% block searches %}
+    {{ super() }}
+    <div class="col wide padleft">
+        {{ h.labelinput('Creator ID', 'creatorID', 'med searchby')}}
+        <img id="admin_search_icon" src="{{h.url_images('icon_magnifier2.png')}}"/>
+    </div>
+{% endblock %}
+
+{% block js_scripts %}
+{{ super() }}
+<script type='text/javascript'>
+$(document).ready(function(){
+  Listings({
+    sort: 'updateTime,desc',
+    ajaxRoot: CK12.admUrl('groups_list'),
+    postLoad: function(){
+      $('.tiptrigger').tooltip({
+        bodyHandler: function(){ return $(this).siblings('.tipdiv').html(); }
+      });
+    }
+  });
+  var loadLMSApps = function(providerID, appID){
+        if (providerID){
+            $.get(CK12.admUrl('lms/provider/apps/'+ providerID + '/raw'), function(data){
+                $.each(JSON.parse(data), function(index,each_app){
+                    $('#appName').append('<option value=appID,'+ each_app.appID +'>' + each_app.appName + ' (' + each_app.appID + ')' + '</option>');
+                });
+                if(appID)
+                {
+                    $("#appName option[value='appID,"+appID+"']").attr("selected","selected");
+                    $("#appName").trigger("change");
+                }                  
+            });
+        }
+    }
+
+    $('#providerID').off('change').on('change', function(e){
+        $('#appName').find('option').remove();
+        $('#appName').append('<option value="appID,">Select LMS App</option>');
+        if ($(this).val().split(',')[1]){
+            $('#appName').removeAttr('disabled').addClass('med');
+            loadLMSApps($(this).val().split(',')[1])
+        }else{
+            $("#leftpane .table .tbody .tr.{{c.viewmode}}view").removeClass('hide');
+            $('#appName').attr({'disabled':'disabled'}).removeClass('med');
+        }
+    });
+
+    if(location.search){
+        var urlSearchParams = $.deparam(location.search.slice(1,));
+        if ("filters" in urlSearchParams){
+            var searchFilters = urlSearchParams["filters"];
+            console.log(searchFilters);
+            searchFilters = searchFilters.split(";").join("&");
+            searchFilters = searchFilters.split(",").join("=");
+            searchFilters = $.deparam(searchFilters);
+            if($("#appName").is(":disabled"))
+            {   
+                $('#appName').find('option').remove();
+                $('#appName').append('<option value="appID,">Select LMS App</option>');                        
+                $('#appName').removeAttr('disabled').addClass('med');
+                loadLMSApps(searchFilters["providerID"], searchFilters["appID"]);
+            }
+        }
+    }
+
+});
+</script>
+{% endblock %}

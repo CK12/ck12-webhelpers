@@ -1,0 +1,53 @@
+.functionContainer.tool-bar-tools {
+	line-height: 18px;
+	padding-top: 5px;
+}
+
+.functionContainer .bracTrans{
+	-ms-transform-origin-x :center;
+	-ms-transform-origin-y :bottom;
+	 transform-origin: center bottom 0;
+	-webkit-transform-origin: center bottom 0;
+	-moz-transform-origin: center bottom 0;
+    vertical-align: bottom;
+    font-style:normal;
+    font-size:18px !important;
+}
+.functionContainer .sup {
+    font-size: 70%;
+    line-height: inherit;
+    position: relative;
+    vertical-align: super;
+}
+.functionContainer.funcTooltip .toolbarStyling {
+    font-size: 16px;
+    padding: 5px;
+    vertical-align: 1em;
+    width: 83px;
+    border-bottom:0 none;
+}
+.functionContainer .functionOper {
+    font-size: 1em;
+}
+.tool-tip-row:first-child .tooltip-tools-inner {
+    /*border-bottom: 1px solid;*/
+}
+.functionContainer .suffixText {
+   font-size: 80%;
+	left: 3px;
+	position: relative;
+	top: -6px;
+	vertical-align: super
+}
+.functionContainer .functionText {
+    font-size: 1.3em;
+    margin-right: 3px;
+}
+.functionContainer .tool-tip-row:first-child .tooltip-tools-inner:last-child {
+    /*text-align: left;
+    width: 89px;*/
+}
+ .functionContainer .close-cont{
+ 	height:98%;
+ }
+ 

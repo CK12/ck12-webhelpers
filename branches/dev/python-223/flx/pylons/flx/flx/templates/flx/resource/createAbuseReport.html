@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>Create an Abuse Report</title>
+    </head>
+    <body>
+      <h1>Report abuse</h1>
+      <form name="metadata" method="POST" action="{{ c.prefix }}/create/abusereport">
+        <table>
+            <tr>
+                <td>Resource id: </td>
+                <td><input type="text" name="resourceID" value="" /></td>
+            </tr>
+            <tr>
+                <td>Resource revision id: (optional) </td>
+                <td><input type="text" name="resourceRevisionID" value="" /></td>
+            </tr>
+            <tr>
+                <td>Artifact id: </td>
+                <td><input type="text" name="artifactID" value="" /></td>
+            </tr>
+            <tr>
+                <td>Reason ID:</td>
+                <td><input type="text" name="reasonID" /></td>
+            </tr>
+            <tr>
+                <td>Reason Name:</td>
+                <td><input type="text" name="reasonName" /></td>
+            </tr>
+            <tr>
+                <td>Reason Description:</td>
+                <td><textarea name="reason"></textarea></td>
+            </tr>
+            <tr>
+                <td>Reporter:</td>
+                <td><input type="text" readonly="readonly" name="reporterLogin" value="{{ c.reporterLogin }}" /></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:right;">
+                    <input type="submit" name="submit" value="Create" />
+                </td>
+            </tr>
+            </table>
+        </form>
+    </body>
+</html>

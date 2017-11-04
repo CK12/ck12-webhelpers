@@ -1,0 +1,29 @@
+{#
+*************************************************************************** 
+Macro: paginate
+Macro to display the pagination template. 
+
+Parameters:
+<paginator>
+The paginator object that will provide the details like how many total items,
+how many items per page, how many pages, etc.
+
+***************************************************************************
+#}
+
+{% macro paginate(paginator) %}
+	<div class="pagination">
+	    {% if paginator.item_count > 0 %}
+	      <p class="paginationinfo">
+	        {{ _("Displaying results %(from)s to %(to)s of %(total)s") % {
+	          'from': paginator.first_item,
+	          'to': paginator.last_item,
+	          'total': paginator.item_count } 
+	        }} 
+	      </p>
+	    {% endif %}
+	    <div class="result_pagination">
+	      {{ paginator.pager('~3~')}}
+	    </div>
+	</div>
+{% endmacro %}

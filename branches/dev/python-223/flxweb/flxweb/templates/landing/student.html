@@ -1,0 +1,317 @@
+
+{% from "macros/browse_listing.html" import ck12_branch_browse_grid with context %}
+{% from "landing/explore.html" import modalities_circles with context %}
+{% extends "common/master.html" %}
+
+{% block title %}{{ _("Free Online Textbooks, Flashcards, Adaptive Practice, Real World Examples, Simulations") }}{% endblock %}
+
+{% block canonical %}
+	<link rel="canonical" href="http://www.ck12.org" />
+    <meta property="og:url" content="http://www.ck12.org" />
+{% endblock %}
+
+{% block meta_extra %}
+    <meta property="og:description" name="description" content="CK-12 Foundation provides a library of free online textbooks, videos, exercises, flashcards, and real world applications for over 5000 concepts from arithmetic to history">
+    <meta property="og:image" content="https:{{ h.asset_image('common/images/logo_ck12_xlarge.png') }}" />
+    <meta name="google-play-app" content="app-id=org.ck12.app.practice">
+    <meta name="apple-itunes-app-internal" content="app-id=909343639">
+{% endblock %}
+
+{% block stylesheets %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.url_css('landing.css') }}" />
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('common/vendor/jquery-plugins/appdownload/css/jquery.appdownload.css') }}" />
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('carousel/css/carousel.css') }}" />
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+<script>
+    require(['main'],function() {
+        require(['carousel/carousel', 'js/flxweb.landing.new'], function(carousel) {
+            carousel.studentCarousel();
+        });
+    });
+</script>
+{% endblock %}
+
+{% block header %}
+    {% include 'common/header_student.html' %}
+{% endblock %}
+
+{% block contentwrap %}
+
+	<div class="content-wrap-landing">
+		{% block content %}
+
+		<!-- Search -->
+		<div class="search-row">
+            <div class="ck-12-mission-wrapper text-center hide-for-small top hide">
+                <!-- <a class="dxtrack-user-action button standard turquoise bold start-exploring" data-dx-desc="start_exploring" data-dx-referrer="student_landing" data-dx-domEvent="click">Start Exploring</a> -->
+            </div>
+            <div class="carousel-main-wrapper">
+                <img class="carousel-loading" alt="loading" src="{{ h.asset_image('common/images/icon_loading.gif') }}">
+            </div>
+			<div class="row hide-for-small scroll-down-container hide">
+                <div class="large-12 columns">
+                    <div class="row scroll-down-wrapper">
+                        <img class="right" src="/media/common/images/Scroll_Down.png" />
+                    </div>
+                </div>
+            </div>
+			<div class="ck-12-mission-wrapper text-center bottom">
+	 	       <span class="relative">
+	 	           <span class="ck-12-mission-header text-center">100% Free, Personalized Learning for Every Student</span>
+		           <span class="ck-12-mission-text text-center">Create digital classrooms, customize textbooks, and learn
+					   <br class="show-for-small" />
+					   K-12 STEM concepts.</span>
+		           <div class="ck-12-mission-buttons text-center">
+		               {% if c.user %}
+		               <a class="ck-12-mission-dashboard button large dxtrack-user-action"
+					       data-dx-desc="hero-dashboard-click"
+					   	   href="{{ h.url('dashboard') }}">Go to Dashboard</a>
+		               {% else %}
+		               <a class="ck-12-mission-getStarted button large dxtrack-user-action"
+					       data-dx-desc="hero-get-started-click"
+					   	   >Get Started</a>
+		               {% endif %}
+		               <a class="ck-12-mission-overview button large dxtrack-user-action"
+					       data-dx-desc="hero-why-ck12-clicked"
+					       data-reveal-id="overviewVideoModal"><i class="icon-play"></i>Why CK-12?</a>
+		           </div>
+	 	       </span>
+	 	       <!-- <a class="dxtrack-user-action button standard turquoise bold start-exploring" data-dx-desc="start_exploring" data-dx-referrer="teacher_landing" data-dx-domEvent="click">Start Exploring</a> -->
+	 	    </div>
+
+	 	    <!-- Tutorial Video -->
+            <div id="overviewVideoModal" class="modal-uikit reveal-modal small">
+                <div class="close close-reveal-modal button-close">+</div>
+                <h4>Why CK-12?</h4>
+                <div class="flex-video"></div>
+            </div>
+            <!-- /Tutorial Video -->
+
+			<!-- <div class="row collapse">
+				<div class="trending-concepts-wrapper js-trending-concepts-wrapper trending-concepts-static-height">
+                    <div class="trending-concepts-text-wrapper text-center">
+                        <span class="icon-fire trending-concept-icon"></span>
+                        <span class="trending-concepts-text">TRENDING CONCEPTS</span>
+                    </div>
+                    <div id="trending_searches" class="trending-concept-list js-trending-concepts-list text-center notranslate">
+
+                    </div>
+                </div>
+			</div> -->
+		</div>
+		<div class="cbse-banner show-for-india hide-banner" id="cbseBanner">
+			<div class="row collapse flag-wrapper hide-for-medium-down">
+				<img class="left" src="/media/cbse/images/flag.png">
+				<div class="cbse-banner-text-wrapper left">
+					<div class="cbse-banner-text-top bold">
+						INTRODUCING CK-12
+					</div>
+					<div class="cbse-banner-text-bottom bold">
+						<span class="cbse-heading"> CBSE </span>
+						<span> Maths, Physics, Chemistry, and Biology FlexBooks&reg; </span>
+						<a href="/cbse/" class="button standard tangerine cbse-explore-now">Explore now</a>
+					</div>
+				</div>
+			</div>
+			<div class="row collapse flag-wrapper show-for-medium-down">
+				<div class="cbse-banner-text-small text-center">
+					<span class="cbse-banner-text-top bold"> Introducing </span>
+					<span class="cbse-heading"> CBSE </span>
+					<span> FlexBooks&reg; </span>
+					<a href="/cbse/" class="button standard tangerine cbse-explore-now">Explore</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- <div id="jumpstart-outer-container" class="row dxtrack-user-action" style="padding-bottom:0px;" data-dx-desc="BrainFlex Banner: Start Now"onclick="window.location.href='/summer/';">
+			<div class="large-9 jumpstart-banner-wrapper" style="background: none;">
+				<div class="column jumpstart-image-container">
+					<a href="/summer/">
+	                	<img alt="jumpstart logo" class="jumpstart-logo-image" src="https://www.ck12.org/assessment/ui/public/lib/summer/brain.svg" style="max-height: 150px;" />
+	            	</a>
+				</div>
+				<div class="column jumpstart-text" style="background: none;">
+					<span class="jumpstart-heading">
+						<div class="summer-challenge-header"><span>BrainFlex</span><span>&nbsp;<span class="sc-blue-ribbon">Summer 2017</span></span></div>
+					</span>
+					<p style="color:#56544D">
+						Get active and happy this summer. <br>
+						Build your math and science skills with daily practice. <br>
+						<a href="/summer/">Start now!</a>
+					</p>
+				</div>
+			</div>
+		</div> -->
+
+		<div id="divider-line" class="hide-for-small">
+			<div class="divider-line-content"></div>
+		</div>
+
+		<!-- Browse Subjects -->
+		<div id="browse-grid-wrapper">
+		{{ ck12_branch_browse_grid(c.subjects) }}
+		</div>
+		<!-- /Browse Subjects -->
+
+		<div id="divider-line" class="hide-for-small">
+			<div class="divider-line-content"></div>
+		</div>
+
+		<!-- Explore modalities -->
+		{{ modalities_circles('student','https://' ~ config.hosts ~ '/student/') }}
+
+		{% endblock %}
+
+		<!-- Testimonial Start -->
+
+		<div id="student_testimonials" class="student-testimonials js-student-testimonials">
+			<div class="row collapse student-testimonials-container">
+				<div class="student-testimonials-wrapper js-student-testimonials-wrapper">
+					<div class="left individual-testimonial js-individual-testimonial active" data-class="fadeIn" style="left: 0%">
+						<div class="testimonial-image-wrapper left">
+							<img class="animated fadeIn" src="{{ h.asset_image('common/images/lydia_1024.png') }}" />
+							<span class="student-name">-Lydia</span>
+						</div>
+						<div class="student-testimonial-text-wrapper js-student-testimonial-text-wrapper">
+							<span class="testimonial-quote">“</span>
+							<div class="student-testimonial-text animated">
+								<span>
+									I really like having my social studies textbook on-line because it is all in one place.
+									I also like that I don't have to carry around a five pound book!
+									I enjoy having access to different links and websites that are in the textbook.
+									The online text gives me a variety of references and helps me become more interested in a specific topic.
+									I like that on Ck-12 I am able to highlight important facts in the textbook and even post notes for information that
+									I need to remember. I really prefer online textbooks over the hardback textbooks.
+								</span>
+							</div>
+							<div class="blur-testimonial-text js-blur-testimonial-text"></div>
+							<a class="expand-more js-expand-more">+ More</a>
+						</div>
+					</div>
+					<div class="left individual-testimonial js-individual-testimonial" data-class="fadeIn" style="left: 33.33%">
+						<div class="testimonial-image-wrapper left">
+							<img class="animated" src="{{ h.asset_image('common/images/helena_1024.png') }}" />
+							<span class="student-name">-Helena</span>
+						</div>
+						<div class="student-testimonial-text-wrapper js-student-testimonial-text-wrapper student-testimonial-text-wrapper-2">
+							<span class="testimonial-quote">“</span>
+							<div class="student-testimonial-text animated">
+								<span>
+									CK-12 allows me to learn by doing which is much more enjoyable than just reading a textbook.
+									I actually look forward to using the PLIX and SIMS when I need to study and my test scores have gone up!
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="left individual-testimonial js-individual-testimonial" data-class="fadeIn" style="left: -33.33%">
+						<div class="testimonial-image-wrapper left">
+							<img class="animated" src="{{ h.asset_image('common/images/colin_1024.png') }}" />
+							<span class="student-name">-Colin</span>
+						</div>
+						<div class="student-testimonial-text-wrapper js-student-testimonial-text-wrapper student-testimonial-text-wrapper-3">
+							<span class="testimonial-quote">“</span>
+							<div class="student-testimonial-text animated">
+								<span>
+									CK-12 is a great way to learn online. It is very interactive. Kids can watch videos,
+									listen to audio, look at slide presentations, and so much more! One really good thing about it is that
+									you can highlight important passages. I believe kids these days can be engaged in work online.
+									In conclusion, CK-12 is a great learning tool with many great features.
+								</span>
+							</div>
+							<div class="blur-testimonial-text js-blur-testimonial-text"></div>
+							<a class="expand-more js-expand-more">+ More</a>
+						</div>
+					</div>
+				</div>
+				<div class="row collapse navigate-icon-wrapper js-navigate-icon-wrapper hide-for-medium-down">
+					<i class="icon-arrow3_left left js-left-navigate"></i>
+					<i class="icon-arrow3_right right js-right-navigate"></i>
+				</div>
+				<div class="row collapse pagination js-pagination show-for-medium-down">
+					<span class="option-button js-option-button active"></span>
+					<span class="option-button js-option-button"></span>
+					<span class="option-button js-option-button"></span>
+				</div>
+				<div class="scroll-top-wrapper js-scroll-top text-center">
+					<i class="icon-arrow3-up"></i>
+					<div class="scroll-top-text bold">
+						TOP
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Testimonial End -->
+
+		<!-- App Banner -->
+		<div class="apps-banner student-app-banner">
+			<div class="desktop_view row collapse">
+				<div class="large-12 column">
+					<div class="text-center app-store-heading">
+						<div>CK-12 Everywhere</div>
+						<div class="app-sub-heading">Get it free on:</div>
+					</div>
+					<div class="app-store-icon-container row">
+						<div class="app-link-wrapper apple-link-wrapper small-6 large-3">
+							<a id="apple-link" target="_blank" class="track_hero_clicks text-center relative" href="https://itunes.apple.com/us/app/ck-12/id909343639?ls=1&mt=8" data-banner="apps" data-link="IOS">
+								<img src="{{ h.asset_image('common/images/Apple.svg') }}"/>
+								<span class="app-store-name">iPhone/iPad</span>
+							</a>
+						</div>
+						<div class="app-link-wrapper android-link-wrapper small-6 large-3">
+							<a id="android-link" target="_blank" class="track_hero_clicks text-center relative" href="https://play.google.com/store/apps/details?id=org.ck12.app.practice" data-banner="apps" data-link="android">
+								<img src="{{ h.asset_image('common/images/Android_Robot.svg') }}"/>
+								<span class="app-store-name">Android</span>
+							</a>
+						</div>
+						<div class="app-link-wrapper small-6 large-3">
+							<a id="windows-link" target="_blank" class="track_hero_clicks text-center" href="http://apps.microsoft.com/windows/en-in/app/ck-12/004598b2-a5fd-42d2-9a6f-4469eadb782c" data-banner="apps" data-link="windows">
+								<img src="{{ h.asset_image('common/images/windows_1color.svg') }}"/>
+								<span class="app-store-name">Windows 8/10</span>
+							</a>
+						</div>
+						<div class="app-link-wrapper chrome-link-wrapper small-6 large-3">
+							<a id="chrome-link" target="_blank" class="track_hero_clicks text-center" href="https://chrome.google.com/webstore/detail/ck-12/ilmbnmigihncgeckjgmkehcgkdeohkhl?hl=en-US" data-banner="apps" data-link="chrome">
+								<img src="{{ h.asset_image('common/images/chrome.svg') }}"/>
+								<span class="app-store-name">Chrome WebApp</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /App Banner -->
+
+		{% if not c.user %}
+		<!-- <div class="join-wrapper">
+			<div class="row collapse">
+				<div class="testimonial_join columns large-centered">
+				<div class="row collapse">
+					<span class="join-text">Get unlimited math and science practice with help for free.</span>
+					<a id="join_for_free" class="button large tangerine btn_joinck12" href="{{ h.auth_signup_url() }}" rel="nofollow">Join CK-12 for Free</a>
+				</div>
+				</div>
+			</div>
+		</div> -->
+		{% endif %}
+	</div>
+	<div class="row collapse" id="profilebuilder-content"></div>
+    <div class="row collapse" id="ck12-license-container"></div>
+    <div class="row collapse hide" id="notification_popup"></div>
+	<script type="application/ld+json">
+		{
+		"@context": "http://schema.org",
+		"@type": "WebSite",
+		"url": "http://www.ck12.org/",
+		"potentialAction": {
+			"@type": "SearchAction",
+			"target": "http://www.ck12.org/search?q={search_term_string}",
+			"query-input": "required name=search_term_string"
+			}
+		}
+	</script>
+{% endblock %}

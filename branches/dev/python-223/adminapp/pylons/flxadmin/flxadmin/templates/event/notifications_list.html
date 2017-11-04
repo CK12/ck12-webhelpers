@@ -1,0 +1,23 @@
+{% from "macros/pagination.html" import paginate with context %}  
+
+{% if c.paginator.item_count > 0 %}
+  {% for i in c.paginator.items %}
+  <div class="tr paneview {{ h.hide_if_full(c.viewmode)}}">
+    <div class="td viewtrigger" data-id="{{i.id}}">{{h.idlink2('notification/', i, 'eventType')}}</div>
+    <div class="td">{{i.lastSent|compact}}</br>
+    {{i.frequency}}, {{i.notificationType}}</div>
+    <div class="td nowrap">{{i.updated|compact}}</div>
+  </div>
+  <div class="tr fullview {{ h.hide_if_pane(c.viewmode)}}">
+    <div class="td id">{{i.id}}</div>
+    <div class="td viewtrigger" data-id="{{i.id}}">{{h.idlink2('notification/', i, 'eventType')}}</div>
+    <div class="td">{{i.notificationType}}</div>
+    <div class="td">{{i.frequency}}</div>
+    <div class="td">{{i.subscriber|escape|shorten(18)}}</div>
+    <div class="td">{{i.lastSent}}</div>
+    <div class="td nowrap">{{i.created|compact}}</div>
+    <div class="td nowrap">{{i.updated|compact}}</div>
+  </div>
+  {% endfor %}
+  {{ paginate(c.paginator) }}
+{% endif %}

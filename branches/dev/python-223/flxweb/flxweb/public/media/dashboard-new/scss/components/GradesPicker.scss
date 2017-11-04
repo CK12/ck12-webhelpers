@@ -1,0 +1,52 @@
+@import '../main';
+
+:local {
+    .gradesPicker {
+        position: absolute;
+        background-color: $white;
+        border: $global-border;
+        text-align: center;
+        width: 100%;
+
+        input { display: none; }
+        label {
+            margin: 0;
+            font-size: rem-calc(16);
+            padding: rem-calc(5) $global-padding;
+            width: 100%;
+            transition: all 0.15s;
+
+            &:hover {
+                color: $white;
+                background-color: lighten($OCEAN, 15%);
+            }
+        }
+
+        input[type=checkbox]:checked + label,
+        input[type=radio]:checked + label {
+            color: $white;
+            background-color: $OCEAN;
+        }
+
+        :global(.row) {
+            border-bottom: $global-border;
+            &:last-child { border-bottom-width: 0; }
+
+            :global(.column){
+                border-right: $global-border;
+                &:last-child { border-right-width: 0; }
+            }
+        }
+
+    }
+
+    @include breakpoint(small only){
+        .gradesPicker {
+            min-width: rem-calc(150);
+
+            label {
+                padding: rem-calc(5) 0;
+            }
+        }
+    }
+}

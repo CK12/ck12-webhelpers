@@ -1,0 +1,246 @@
+.operatorContainer .eq-cont{
+ 	position: relative;
+    vertical-align: -0.5em;
+}
+.operatorContainer .input-cont {
+    display: inline-table;
+}
+
+.operatorContainer .in-inter-symbol {
+    display: inline-table;
+    vertical-align: 1.5em;
+}
+.operatorContainer .definateLower {
+    display: table-footer-group;
+    font-size: 70%;
+    text-align: center;
+    vertical-align: sub;
+}
+.operatorContainer .definateUpperEdit {
+    display: table-header-group;
+    font-size: 70%;
+    text-align: center;
+    vertical-align: super;
+}
+
+
+.in-union-symbol{
+	  display: inline-table;
+	  line-height:14px;
+}
+.summationContainer .in-union-symbol{
+	  display: inline-table;
+	  line-height:inherit;
+}
+.operatorContainer .intersectionEdit{
+	  font-size: 3em;
+    vertical-align: top;
+}
+.operatorContainer .operator-symbol {
+    display: inline-block;
+    transform: scale(1.2, 1.3);
+    -ms-transform:scale(1.2, 1.3); /* IE 9 */
+	-webkit-transform:scale(1.2, 1.3);/* Safari and Chrome */
+}
+.operatorContainer .operatorLower {
+    bottom: 8px;
+    font-size: 80%;
+    left: 11px;
+    position: relative;
+}
+.operatorContainer .operatorUpper {
+     font-size: 80%;
+    left: 12px;
+    position: relative;
+    top: 9px
+}
+.operatorContainer .operatorText {
+    position: absolute;
+    top: 23px;
+    left:47px\9 !important;
+}
+.operatorContainer .unionTrippleSymbol {
+    left: 4px;
+    position: relative;
+    top: 6px;
+}
+.sumTripple .operatorText {
+	left:47px;
+}
+.unionTripple .operatorText {
+	left:180px;
+}
+.intersectionTripple .operatorText {
+	left:311px;
+}
+.operatorContainer .textLower {
+    font-size: 80%;
+    left: -5px;
+    position: relative;
+    top: 16px;
+    vertical-align: sub;
+}
+
+.operatorContainer .textUpper {
+    font-size: 80%;
+    left: -12px;
+    position: relative;
+    top: -7px;
+    vertical-align: text-top;
+}
+
+.operatorContainer .textright {
+    left: -5px;
+    position: relative;
+    top: 4px;
+}
+.operatorContainer .operatorSymbol {
+    /*position: relative;
+    top: 7px;*/
+    font-size:1.4em;
+    padding-top: 2px;
+    font-style:normal; 
+}
+.unionTripple .operatorSymbol{
+	padding-top:0px;
+}
+.operatorContainer .unionSymbol{
+	font-size:1.4em;
+}
+.unionSymbol{
+	font-style:normal;
+}
+.tool-tip.operatorContainer {
+	padding: 0px;
+}
+.operatorContainer .inner-container {
+	padding: 0px;
+}
+.operatorContainer .tooltip-tools-inner{
+	/*padding:0px;*/
+	vertical-align: middle;
+	line-height:22px;
+	width: 65px;
+}
+.eq-cont.operatorContainer {
+    vertical-align:1.7em;
+}
+.operatorContainer .unionEdit {
+     display: table-row;
+    font-size: 2.4em;
+    font-style: normal;
+    text-align: center;
+    vertical-align: top;
+ }
+ .sumEdit{
+ 	 display: table-row;
+    font-size: 1.8em;
+    font-style: normal;
+    text-align: center;
+    vertical-align: top;
+    font-family:Symbola,"Times New Roman",serif;
+ }
+.definateUpperEdit .unionEdit {
+    font-size: 1.2em;
+    line-height: 13px;
+}
+.definateLower .unionEdit {
+    font-size: 1.2em;
+    line-height: 13px;
+}
+.definateUpperEdit .sumEdit {
+    font-size: 1em;
+    line-height: 12px;
+}
+.definateLower .sumEdit {
+    font-size: 1em;
+    line-height: 12px;
+}
+.eq-cont.intersectionContainer {
+    vertical-align: 1.3em;
+}
+.intersectionContainer .intersectionEdit {
+    display: table-row;
+    font-size: 1.8em;
+    font-style: normal;
+    font-weight: 900;
+    text-align: center;
+    vertical-align: top;
+}
+.definateUpperEdit .intersectionEdit {
+    font-size: 1em;
+    line-height: 6px;
+}
+.definateLower .intersectionEdit {
+    font-size: 1em;
+     line-height: 6px;
+}
+.intersectionContainer .in-union-symbol{
+	line-height:18px;
+}
+.operatorContainer .close-cont{
+	height:97%;
+}
+/** implementaion as integral*/
+.operatorContainer.definateSym .eq-cont {
+	position: relative;
+	vertical-align: middle;
+}
+.operatorContainer .input-cont {
+    display: inline-table;
+}
+.operatorContainer.definateSym .definateSymbolEdit {
+	display: table-cell;
+	vertical-align: middle;
+}
+.operatorContainer.definateSym .txtew {
+	display: table-cell;
+	vertical-align: bottom;
+}
+.operatorContainer.definateSym .in-inter{
+	 display: inline-table;
+	vertical-align:baseline;
+}
+.operatorContainer .definateSymbolEdit {
+	display: inline-block;
+	margin-top: 5px;
+	font-size: 2em;
+	font-style:normal;
+}
+.operatorContainer .definateLowerInt {
+    font-size: 80%;
+    text-align: left;
+    vertical-align: sub;
+    display:table-footer-group;
+}
+.operatorContainer .definateUpperEdit {
+    font-size: 80%;
+    vertical-align: text-bottom;
+}
+.operatorContainer .definateUpperEdit .definateSymbolEdit {
+    font-size: 1.7em;
+}
+.operatorContainer .definateLowerInt .definateSymbolEdit {
+    font-size: 1.7em;
+}
+.operatorContainer .unionSymbolEdit{
+    font-size: 2.4em;
+    vertical-align: -0.2em;
+    font-style:normal;
+    font-family:"ProximaNova",Helvetica !important;
+
+}
+.operatorContainer .intsingleEdit{
+	font-size: 2em;
+    vertical-align: -0.2em;
+    font-style:normal;
+     font-family: "ProximaNova",Helvetica !important;
+     font-weight:normal;
+}
+.intersectionTripple .operatorSymbol{
+	font-size:1.2em;
+}
+.operatorContainer .intsingleSymbol{
+	font-style:normal;
+	font-size:1.2em;
+}

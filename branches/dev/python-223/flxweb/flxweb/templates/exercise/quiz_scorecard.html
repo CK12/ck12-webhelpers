@@ -1,0 +1,84 @@
+{% set scorecards = c.scorecards %}
+<div id="quizscorecard">
+	<ul class="scorecard_list">
+                {% if scorecards %}
+		<li class="scorecard_list_header">
+				<div>
+					<ul class="scorecard_heading_row">
+						<li class="js_expand_toggle row_expand_toggle ui-icon ui-icon-triangle-1-e"></li>
+						<li class="row_scorecard_date js_row_scorecard_date"><h2>Attended Time</h2></li>
+						<li class="row_scorecard_clock js_row_scorecard_clock"><h2>Duration</h2></li>
+						<li class="row_scorecard_right js_row_scorecard_right"><h2>Right</h2></li>
+						<li class="row_scorecard_wrong js_row_scorecard_wrong"><h2>Wrong</h2></li>
+						<li class="row_scorecard_percentage js_row_scorecard_percentage"><h2>Percentage</h2></li>
+					</ul>
+					<div class="clear"></div>
+				</div>
+		</li>    
+  			{% for scorecard in c.scorecards %}
+			    {% if loop.first and c.firstView%}	
+			    <li class="js_scorecard_list_item selected">
+			    {% else %}
+			    <li class="js_scorecard_list_item">
+                            {% endif %} 	
+				<div>
+					<ul class="scorecard_row">
+						{% if loop.first and c.firstView %}
+							<li class="js_expand_toggle row_expand_toggle ui-icon ui-icon-triangle-1-s"></li>
+						{% else %}
+							<li class="js_expand_toggle row_expand_toggle ui-icon ui-icon-triangle-1-e"></li>
+						{% endif %}
+						<li class="row_scorecard_date js_row_scorecard_date">{{ scorecard.attendedTime }}</li>
+						<li class="row_scorecard_clock js_row_scorecard_clock">{{ scorecard.duration }}</li>
+						<li class="row_scorecard_right js_row_scorecard_right">{{ scorecard.correctCount }}</li>
+						<li class="row_scorecard_wrong js_row_scorecard_wrong">{{ scorecard.wrongCount }}</li>
+						<li class="row_scorecard_percentage js_row_scorecard_percentage">{{ scorecard.percentage }}%</li>
+					</ul>
+			                {% if loop.first and c.firstView %}	
+					<div class="js_quiz_questions_info quiz_questions_info">
+                                        {% else %}
+					<div class="js_quiz_questions_info quiz_questions_info hide">
+					{% endif %}
+						<div class="questions_info_wrapper">
+							<h2 id="questions_info_title" >Attended Question Details</h2>
+							<ul class="question_list">
+								{% for question in scorecard.quizResultQuestions %}
+									<li class="question_list_item">
+										<div>
+											<div class="question_row">
+												<div class="row_question_index js_row_question_index">{{ question.displayOrder }}</div>
+												<div class="row_question js_row_question">
+												{{ question.questionDisplayText }}
+													
+												</div>
+												{% if question.isCorrect == "T" %}
+													<div class="row_question_result right">Right</div>
+												{% else %}
+													<div class="row_question_result wrong">Wrong</div>
+												{% endif %}	
+												<div class="clear"></div>
+												<div>
+													{% if question.isCorrect == "T" %}
+														<div class="quiz_user_answer correct_quiz_answer">Your answer: {{ question.userAnswer|capitalize }}</div>
+														<div class="correct_quiz_answer">Correct answer: {{ question.correctAnswer|capitalize }}</div>
+													{% else %}
+														<div class="quiz_user_answer wrong_quiz_answer">Your answer: {{ question.userAnswer|capitalize }}</div>
+														<div class="correct_quiz_answer_false">Correct answer: {{ question.correctAnswer|capitalize }}</div>
+													{% endif %}
+												</div>
+												<div class="clear"></div>
+											</div>
+										</div>
+									</li>
+								{% endfor %}
+							</ul>
+						</div>
+					</div>
+				</div>
+			    </li>
+			{% endfor %}
+	        {% else %}
+			{{ _("At the moment, You do not have any quiz results in this exercise. Please go back to Exercise and take quiz and test yourself your learning skills.") }}
+		{% endif %}
+	</ul>
+</div>

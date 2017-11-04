@@ -1,0 +1,79 @@
+@import '../../../main';
+
+$label-radio-button-width: 33%;
+$label-radio-button-inner-circle-size: rem-calc(24);
+
+:local {
+    .radio {
+        display: none;
+
+        & + label {
+            background-color: $IVORY;
+            padding: $global-padding / 2;
+            position: relative;
+            font-size: rem-calc(12);
+            margin: 0 auto ($global-padding / 2);
+            text-align: center;
+            align-items: center;
+            display: flex;
+
+
+             & > span {
+                padding-left: calc(33% + #{$global-padding / 4});
+                text-transform: none;
+                display: block;
+                width: 100%;
+            }
+
+            strong {
+                display: block;
+                text-transform: uppercase;
+            }
+
+
+            &:before {
+                transition: background-color 0.1s linear;
+                position: absolute;
+                top: 0;
+                left: 0;
+                content: '';
+                width: $label-radio-button-width;
+                height: 100%;
+                background-color: $TAUPE;
+            }
+
+            &:after {
+                background-color: white;
+                border-radius: 50%;
+                border: $global-border-deep;
+                height: $label-radio-button-inner-circle-size;
+                width: $label-radio-button-inner-circle-size;
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: ($label-radio-button-width / 2);
+                transform: translate(-50%, -50%);
+                text-align: center;
+                line-height: $label-radio-button-inner-circle-size * 0.9;
+                font-size: $label-radio-button-inner-circle-size;
+            }
+        }
+
+
+        &:checked + label {
+            &:before {
+                background-color: $OCEAN;
+            }
+
+            &:after {
+                content:'\2022';
+            }
+        }
+    }
+
+    :global(#{$ie11}) {
+        .radio + label:after {
+            line-height: 0.7;
+        }
+    }
+}

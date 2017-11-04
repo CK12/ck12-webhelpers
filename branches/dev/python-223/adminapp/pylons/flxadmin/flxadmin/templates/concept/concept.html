@@ -1,0 +1,64 @@
+{% extends "details.html" %}  
+
+{% block admincontent %} 
+{% if c.concept %}
+<div class="sectionhead sectiontitle">Concept: {{c.concept.name|e}}</div>
+<div class="section withfloatedsubmit">
+  <form id="mainform" method="post">
+    <div class="leftaligned">
+        {% if c.update_title %}
+            {{ h.labelinput('Title', 'name', 'xlong', val='c.concept.name')}}
+            {{ h.labelinput('Handle', 'handle', 'xlong', val='c.concept.handle')}}
+        {% else %}
+            {{ h.labelreadonly('Title', 'name', 'xlong', val='c.concept.name')}}
+            {{ h.labelreadonly('Handle', 'handle', 'xlong', val='c.concept.handle')}}
+        {% endif %}
+        {% for field in c.form.ordered_fields %}
+          {{ field }}
+        {% endfor %}
+        
+		{{ h.labelinput('PreviewIconUrl', 'previewIconUrl', 'xlong', val='c.concept.previewIconUrl')}}
+        {{ h.labeltextarea('Description', 'description', 6, 82)}}
+    </div>
+    <input class="short btn primaryaction floatright" id="" name="" type="button" value="Update" onclick="updateConcept('{{c.concept.encodedID}}')">
+    {{ h.cancelbutton(c.cancel)}}
+  </form>
+
+</div>
+
+{% endif %}
+{% endblock admincontent %}
+
+
+{% block js_scripts %}
+<!--script type="text/javascript" src="{{ h.url_js('inlineList.js') }}"></script-->
+<!--script type="text/javascript" src="{{ h.url_js('publish_action.js') }}"></script-->
+<!-- <script type='text/javascript'>
+$(document).ready(function(){
+    $('#summary').val('{{c.concept.description or ""}}')
+    });
+</script> -->
+<script>
+function updateConcept(encodedID) {
+  var description = $('#description').val();
+  var name = $('#name').val();
+  var handle = $('#handle').val();
+  var previewiconurl = $('#previewIconUrl').val()
+  console.log("id ::" + id);
+  console.log("description ::" + description);
+  console.log("name ::" + name);
+  console.log("handle ::" + handle);
+  params = {'id':encodedID, 'description':description, 'name':name, 'handle':handle, 'previewIconUrl':previewiconurl}
+  var url = CK12.taxonomyUrl('update/concept');
+  //var url = '/taxonomy/update/concept'
+  $.post(url, params, function(resp){
+      console.log( resp.responseHeader);
+      if (resp.responseHeader.status != '0') {
+          $('#admintop').append('<div class="success messaging" style="color:red">Unable to update concept description.</div>')
+          } else {
+              $('#admintop').append('<div class="success messaging">Concept description Updated Successfully!</div>')
+        }
+      }, "json");
+      }
+</script>
+{% endblock %}

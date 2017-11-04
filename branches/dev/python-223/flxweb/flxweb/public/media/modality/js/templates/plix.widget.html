@@ -1,0 +1,29 @@
+<div class="plix-thumbnail-container">
+  <div class="plix-overlay" ></div>
+  <div class="plix-meta">
+    <div class="interactive-header">
+      <div class="interactive-header-icon">
+        <img src="/media/images/icon-interactive.png">
+      </div>
+      <div class="interactive-header-text">
+        <div class="plix-heading">INTERACTIVE</div>
+        <div class="truncate plix-title"><%= model.title %></div>
+      </div>
+      <a data-count="<%= model.count%>" class="close-plix hide"><img src="/media/images/icon-close.png"></a>
+      <button data-count="<%= model.count%>" class="try-online hide"><img class="try-back hide" src="/media/images/chevron-right.png"><span>TRY IT</span><img class="try-front" src="/media/images/chevron-right.png"></button>
+    </div>
+    <!-- <div class="plix-title row hide"><span><%= model.title %></span></div> -->
+    <div class="maximize-minimize hide" data-count="<%= model.count%>"><img class= "hide desc-expand" src="/media/images/icon_maximize.png"><img class= "desc-collapse" src="/media/images/icon_minimize.png"></div>
+    <div class="plix-description row"><span><%= model.description %></span></div>
+
+  </div>
+  <div class="plix-box">
+    <div class="button-container hide">
+      <button data-count="<%= model.count%>" class="try-online"><img class="try-back hide" src="/media/images/chevron-right.png"><span>TRY IT</span><img class="try-front" src="/media/images/chevron-right.png"></button>
+    </div>
+    <div class="offline-text hide-one">Your device seems to be offline.<br>Please check your internet connection and try again.</div>
+    <div class="plix-thumbnail-box">
+      <img data-count="<%= model.count%>" class="plix-thumbnail" src="<%= model.previewImageUrl%>" > </img>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+{% from "macros/pagination.html" import paginate with context %}
+
+{% if c.paginator.item_count > 0 %}
+  {% for i in c.paginator.items %}
+    <div class="tr paneview {{ h.hide_if_full(c.viewmode)}}">
+      <div class="td name">{{i.groupIDs[0] | int}}</div>
+      <div class="td">{{ i.postType }}</div>
+      <div class="td">{{h.userlink(i.member, 'firstName', 'memberID', truncate=15)}}</div>
+      <div class="td content word-break">{{i.content}}</div>
+      <div class="td">  {% if i.avgFlags and i.avgFlags.flags %}
+                            {% for each_flag in i.avgFlags.flags %}
+                                {{ each_flag.flagType}}:
+                                    <strong>({{ each_flag.count}})</strong><br/>
+                            {% endfor %}
+                        {% else %}
+                            -
+                        {%endif%}</div>
+      <div class="td">  {% if i.avgRating %}
+                            {{i.avgRating.vote}}
+                        {% else %}
+                            -
+                        {%endif%}</div>
+      <div class="td">
+        <span class="hidePost linklike" data-clientid="{{i.clientID}}" data-id="{{i._id}}">[Hide Post]</span>
+        <br/><span class="deletePost linklike" data-id="{{i._id}}">[Delete Post]</span>
+
+        {% if i.avgFlags and i.avgFlags.total >= 3 %}
+            <br/><span class="resetFlagCount linklike" data-clientid="{{i.clientID}}" data-id="{{i._id}}">[Reset Flag Count]</span>
+        {% endif %}
+        
+		<br/><span class="flagForReview linklike" data-clientid="{{i.clientID}}" data-id="{{i._id}}" data-is-flagged="{{ i.markedForReview }}">[{% if i.markedForReview %}Unmark{% else %}Mark{% endif %} For Review]</span>
+
+      </div>
+    </div>    
+    <div class="tr fullview {{ h.hide_if_pane(c.viewmode)}}">
+      <div class="td name">{{i.groupIDs[0] | int}}</div>
+      <div class="td">{{ i.postType }}</div>
+      <div class="td">{{h.userlink(i.member, 'firstName', 'memberID', truncate=15)}}</div>
+      <div class="td content word-break">{{i.content}}</div>
+      <div class="td">  {% if i.avgFlags and i.avgFlags.flags %}
+                            {% for each_flag in i.avgFlags.flags %}
+                                {{ each_flag.flagType}}:
+                                    <strong>({{ each_flag.count}})</strong><br/>
+                            {% endfor %}
+                        {% else %}
+                            -
+                        {%endif%}</div>
+
+      <div class="td">  {% if i.avgRating %}
+                            {{i.avgRating.vote}}
+                        {% else %}
+                            -
+                        {%endif%}</div>
+
+      <div class="td">
+        <span class="hidePost linklike" data-ishidden="{% if i.isHidden %}true{%else%}false{% endif %}" data-clientid="{{i.clientID}}" data-id="{{i._id}}">[{% if i.isHidden %}Show{%else%}Hide{% endif %} Post]</span>
+        <br/><span class="deletePost linklike" data-clientid="{{i.clientID}}" data-id="{{i._id}}">[Delete Post]</span>
+
+        {% if i.avgFlags and i.avgFlags.total >= 1 %}
+            <br/><span class="resetFlagCount linklike" data-clientid="{{i.clientID}}" data-id="{{i._id}}">[Reset Flag Count]</span>
+        {% endif %}
+        
+        <br/><span class="flagForReview linklike" data-clientid="{{i.clientID}}" data-id="{{i._id}}" data-is-flagged="{{ i.markedForReview }}">[{% if i.markedForReview %}Unmark{% else %}Mark{% endif %} For Review]</span>
+      </div>
+      <div class="td nowrap">{{i.created|parseISODate|compact}}</div>
+      <div class="td nowrap">{{i.updated|parseISODate|compact}}</div>
+    </div>    
+  {% endfor %}
+  {{ paginate(c.paginator) }}
+{% endif %}

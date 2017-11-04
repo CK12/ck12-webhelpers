@@ -1,0 +1,19 @@
+define('main-editor',
+        ['main',
+        'jquery.scrollTo',
+        'jquery.ba-hashchange',
+        'flxweb.utils.base64',
+        'flxweb.utils.url',
+        'flxweb.models.artifact',
+        'jquery.iframe-transport',
+        'jquery.fileupload',
+        'flxweb.attachments',
+        'flxweb.editor.common',
+        'flxweb.editor.tinymce.loader',
+        'flxweb.editor.tinymce',
+        'jeditable',
+        'jstree',
+        'flxweb.editor.metadata',
+        'flxweb.edit.resource'
+], function() {
+});

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <script>
+    function closeWindow() { 
+        //for windows apps, use notify to close window
+        try{
+            window.external.notify("WINDOWCLOSE~~"+ window.location.href); 
+        }catch(e) {
+            //ignore
+        }
+        try {
+            if (window.opener && !window.opener.closed && window.opener.location.pathname.match('/bookmarklet/')) {    // reload parent window only for bookmarklet
+                window.opener.location.reload(); 
+            }
+        } catch(e) {
+            //ignore
+        }
+        window.close();
+    } 
+
+    var returnTo = "{{c.returnTo}}";
+    {% if c.newMember %}
+        if (window.opener && window.opener.postMessage) { 
+            window.opener.postMessage(JSON.stringify({"auth_new":{{ c.status }}}),"*");
+            setTimeout(closeWindow,1000);
+        } else {
+            if(window.opener && !returnTo) {
+                // browser does not support postMessage, see if you can get the parent location
+                try{
+                    returnTo = window.opener.location; 
+                } catch (e) {
+                    //ignore, nothing you can do. User will need close the window and reload as per the message
+                }
+            }
+            if (returnTo) {
+                window.opener.location = "{{ config.get('web_prefix_url') }}/auth/signup/complete?returnTo=" + returnTo;
+            }
+        }
+    {% else %}
+        //for non auth pages,sent postMessage
+        if (window.opener && window.opener.postMessage) {
+            window.opener.postMessage(JSON.stringify({"auth":{{ c.status }}}),"*");
+            setTimeout(closeWindow,1000);
+        }
+    {% endif %}
+    </script>
+    </head>
+    <body>
+    <br><br>
+    <center>
+    <h3>Please wait while we sign you in.</h3>
+    If this window does not close automatically, please <a href="#" onclick="closeWindow();">click here</a> to close and try again
+    </center>
+    </body>
+</html>

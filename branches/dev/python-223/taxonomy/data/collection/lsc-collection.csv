@@ -1,0 +1,1108 @@
+Collection Name,Collection Handle,Collection Description,Collection Canonical ID,Collection Parent Subject ID,Level 1,Level 2,Level 3 ,Level 4,,EncodedID,ModalityIDs
+Life Science ,life-science,"Life Science is the study of life and living organisms, including their physical and chemical structure, function, development, and evolution.",SCI.LSC,SCI,,,,,,,
+,,,,,Foundations of Life Science,,,,,,
+,,,,,,The Nature of Science,,,,,
+,,,,,,,Scientific Inquiry,,,,
+,,,,,,,,Scientific Ways of Thinking ,,SCI.BIO.005,_ALL_
+,,,,,,,,Fields in the Life Sciences ,,SCI.BIO.007,_ALL_
+,,,,,,,,Scientific Method ,,SCI.BIO.011,"1105626,
+1321750,
+1587822,
+1458499,
+1137411,
+1138773,
+1138865"
+,,,,,,,,Scientific Theories ,,SCI.BIO.015,"1105624,
+1321749,
+1337762,
+1587807,
+1137405,
+1138773,
+1137401"
+,,,,,,,,Basic and Applied Science ,,SCI.BIO.016,_ALL_
+,,,,,,,,Microscope,,SCI.BIO.104,"1105630,
+1321754,
+1321755,
+1321756,
+1321757,
+1824127,
+1587788,
+1137403,
+1138866"
+,,,,,,,,Safety in the Life Sciences  ,,SCI.BIO.017,_ALL_
+,,,,,,,,,,,
+,,,,,,,Introduction to Living Things,,,,
+,,,,,,,,Characteristics of Life ,,SCI.BIO.024,"1105634,
+1587792,
+1137403,
+1138830,
+1174946"
+,,,,,,,,Organization of Living Things ,,SCI.BIO.027,"1105640,
+1321762,
+1587718,
+1338044,
+1138776,
+1137401,
+1174946"
+,,,,,,,,Domain,,SCI.BIO.327,"1105642,
+1458829,
+1587719"
+,,,,,Cell Biology ,,,,,,
+,,,,,,Cells and Their Structures,,,,,
+,,,,,,,Introduction to Cells,,,,
+,,,,,,,,Elements and Compounds,,SCI.BIO.032,"1105636,
+1337764,
+1587786,
+1137405,
+1163502,
+1174966"
+,,,,,,,,Organic Compounds ,,SCI.BIO.035,_ALL_
+,,,,,,,,Cell Theory,,SCI.BIO.103,"1105647,
+1137403,
+1587725"
+,,,,,,,Cell Structures ,,,,
+,,,,,,,,Prokaryotic and Eukaryotic Cells ,,SCI.BIO.104,"1105649,
+1321765,
+1587726,
+1137412,
+1137403"
+,,,,,,,,Cell Membrane ,,SCI.BIO.111,_ALL_
+,,,,,,,,Nucleus,,SCI.BIO.119,"1105653,
+1587729,
+1163504"
+,,,,,,,,Organelles ,,SCI.BIO.120,"1105655,
+1321766,
+1587730,
+1426193"
+,,,,,,,,Plant Cell Structure,,SCI.BIO.128,"1105657,
+1587731"
+,,,,,,,Cell Function ,,,,
+,,,,,,,,Cell Transport ,,SCI.BIO.131,"1105659,
+1053095,
+1220509,
+1587732,
+1426192"
+,,,,,,,,Diffusion ,,SCI.BIO.132,"1105661,
+1321767,
+1587735,
+1426195,
+1174976"
+,,,,,,,,Passive Transport  ,,SCI.BIO.134,"1105663,
+1163502,
+1321768,
+2731462,
+1587736"
+,,,,,,,,Active Transport ,,SCI.BIO.135,"1105665,
+1220507,
+1321769,
+1587737,
+1426214"
+,,,,,,,Photosynthesis and Cellular Respiration,,,,
+,,,,,,,,Photosynthesis ,,SCI.BIO.144,"1105667,
+1321770,
+1321771,
+1587740,
+1138862"
+,,,,,,,,Light Reactions,,SCI.BIO.145,"1105669,
+1318754,
+1321772,
+1587744,
+1426215,
+1138862"
+,,,,,,,,Cellular Respiration ,,SCI.BIO.153,"1105671,
+1333027,
+1587750,
+2116526,
+1138867,
+2845815"
+,,,,,,,,Cellular Respiration Process ,,SCI.BIO.154,"1105681,
+1318761,
+1321773,
+1587751,
+1318760,
+1138867"
+,,,,,,,,Cellular Respiration and Photosynthesis,,SCI.BIO.148,_ALL_
+,,,,,,,,Fermentation ,,SCI.BIO.158,"1105691,
+1321775,
+1587756"
+,,,,,,,"Cell Division, Mitosis, and Meiosis ",,,,
+,,,,,,,,Cell Division ,,SCI.BIO.163,"1105693,
+1321776,
+1587757,
+1426223,
+1137404,
+1220503"
+,,,,,,,,Cell Cycle ,,SCI.BIO.166,"1105695,
+1321778,
+1829200,
+1426224,
+1587692,
+1137404,
+1220503"
+,,,,,,,,Mitosis,,SCI.BIO.171,"1105697,
+1321780,
+1220503,
+1587690"
+,,,,,,,,Reproduction,,SCI.BIO.173,"1105699,
+1138775,
+1587767,
+1458830"
+,,,,,,,,Meiosis ,,SCI.BIO.176,"1105701,
+1163503,
+1587768,
+1669681,
+1824192"
+,,,,,,,,Mitosis vs. Meiosis ,,SCI.BIO.177,_ALL_
+,,,,,Genetics,,,,,,
+,,,,,,Genetics and Molecular Biology ,,,,,
+,,,,,,,Mendelian Genetics,,,,
+,,,,,,,,Pea Plants ,,SCI.BIO.204,"1105720,
+1587785,
+1137406"
+,,,,,,,,Mendel's Laws ,,SCI.BIO.208,"1105722,
+1587780,
+1137406"
+,,,,,,,,Punnett Squares,,SCI.BIO.212,"1105724,
+1321787,
+1587777,
+1137406"
+,,,,,,,"DNA, RNA, and Protein Synthesis",,,,
+,,,,,,,,DNA,,SCI.BIO.221,"1105706,
+1587764,
+1137405,
+1137407"
+,,,,,,,,DNA Structure and Replication,,SCI.BIO.222,"1105708,
+1321784,
+1587766,
+1137405,
+1163505"
+,,,,,,,,RNA,,SCI.BIO.224,"1105712,
+1321785,
+1587774"
+,,,,,,,,Protein Synthesis ,,SCI.BIO.228,"1105710,
+1587772,
+1138830,
+1137408,
+1137404"
+,,,,,,,,Transcription ,,SCI.BIO.229,"1105714,
+1137402,
+1321786,
+1587779,
+1829203"
+,,,,,,,,Translation ,,SCI.BIO.231,"1105716,
+1587781,
+1138870"
+,,,,,,,,Mutation,,SCI.BIO.233,"1105718,
+1587783,
+1137407,
+1138870,
+1163505"
+,,,,,,,Human Genetics,,,,
+,,,,,,,,Molecular Genetics ,,SCI.BIO.210,"1105726,
+1321788,
+2177553,
+1426249,
+1587776,
+1137407"
+,,,,,,,,Non-Mendelian Inheritance,,SCI.BIO.256,"1105728,
+1587775,
+1163505,
+1174981"
+,,,,,,,,Polygenic Traits,,SCI.BIO.214,"1105730,
+1321789,
+1587773,
+1137407"
+,,,,,,,,Sex-linked Inheritance,,SCI.BIO.254,"1105732,
+1321790,
+2681601,
+1318773,
+1587771,
+1174948"
+,,,,,,,,Pedigree,,SCI.BIO.252,_ALL_
+,,,,,,,,Genetic Disorders,,SCI.BIO.257,"1105734,
+1174970,
+1587770,
+1105738,
+1163503,
+1458833,
+1587762"
+,,,,,,,Biotechnology,,,,
+,,,,,,,,Cloning,,SCI.BIO.261,"1105742,
+1587761,
+1163504"
+,,,,,,,,Recombinant DNA,,SCI.BIO.262,"1105740,
+1587759,
+1220502"
+,,,,,,,,Human Genome Project,,SCI.BIO.246,"1105744,
+1174947,
+1318772,
+1645048,
+1587758"
+,,,,,,,,Gene Therapy,,SCI.BIO.258,"1105746,
+1587755,
+1174948"
+,,,,,,,,Agriculture,,SCI.BIO.266,"1105748,
+1321793,
+1587753,
+1137408,
+1220502"
+,,,,,Evolution ,,,,,,
+,,,,,,Principles of Evolution,,,,,
+,,,,,,,Darwin's Theory of Evolution,,,,
+,,,,,,,,Theory of Evolution ,,SCI.BIO.332,"1105751,
+1587752,
+1137410,
+1138829,
+1220501"
+,,,,,,,,Influences on Darwin,,SCI.BIO.334,"1105753,
+1053541,
+1587748"
+,,,,,,,,Natural Selection,,SCI.BIO.349,"1105755,
+1587743,
+2145092,
+2189942,
+2777680,
+1138771,
+1137407,
+1105765,
+1587733,
+1138781,
+1138813,
+1138829"
+,,,,,,,Evidence for Evolution ,,,,
+,,,,,,,,Fossil ,,SCI.BIO.336,"1105757,
+1321794,
+1321795,
+1587742,
+1137409,
+1220511"
+,,,,,,,,Evolution Evidence,,SCI.BIO.337,"1105759,
+1174961,
+1587739"
+,,,,,,,,Molecular Evidence,,SCI.BIO.339,"1105761,
+1163505,
+1321796,
+1321797,
+1587738"
+,,,,,,,,Macroevolution ,,SCI.BIO.364,"1105763
+1321798
+1587734
+1138768
+1138783
+1137410"
+,,,,,,,,Hardy-Weinberg ,,SCI.BIO.345,"1105767,
+1587727"
+,,,,,,,History of Life on Earth,,,,
+,,,,,,,,Origin of Species,,SCI.BIO.359,"1105769,
+1587723,
+1426290,
+1138771,
+1138783,
+1174961"
+,,,,,,,,Tracing Evolution ,,SCI.BIO.365,"1105771,
+1458508,
+1587721,
+1137411"
+,,,,,,,,First Cell,,SCI.BIO.310,"1105773,
+1174949,
+1321799,
+1587720"
+,,,,,,,,Geologic Time Scale,,SCI.BIO.306,"1105775,
+1458834,
+1587717,
+1137409,
+1137411"
+,,,,,Viruses and Prokaryotes,,,,,,
+,,,,,,Studying Viruses and Prokaryotes,,,,,
+,,,,,,,Viruses Overview,,,,
+,,,,,,,,Virus,,SCI.BIO.521,"1105644,
+1318748,
+1321764,
+1587722,
+1338052,
+1137402,
+1138869,
+1220507"
+,,,,,,,,,,,
+,,,,,,,Prokaryote Overview ,,,,
+,,,,,,,,Bacteria Characteristics,,SCI.BIO.511,_ALL_
+,,,,,,,,Bacteria Nutrition,,SCI.BIO.512,"1105782,
+1318747,
+1587694,
+1137412,
+1137410"
+,,,,,,,,Bacteria Reproduction,,SCI.BIO.515,"1105784,
+1321802,
+1321803,
+1587708,
+1137412,
+1137410"
+,,,,,,,,Bacteria and Humans,,SCI.BIO.516,"1105786,
+1321805,
+1458835,
+1587713,
+1137412,
+1138867,
+1174971,
+1105788,
+1321806,
+1587691,
+1137412,
+1138867,
+1174971"
+,,,,,,,,Archaea,,SCI.BIO.504,"1105790,
+1587693,
+1137413"
+,,,,,,,,Types of Archaea,,SCI.BIO.505,"1105792,
+1321807,
+2116529,
+1587688,
+1137413"
+,,,,,Protists and Fungi,,,,,,
+,,,,,,Studying Protists and Fungi,,,,,
+,,,,,,,Protists Overview,,,,
+,,,,,,,,Protist Characteristics,,SCI.BIO.540,"1105795,
+1174951,
+1321808,
+1587827"
+,,,,,,,,Protist Nutrition,,SCI.BIO.541,_ALL_
+,,,,,,,,Protozoa,,SCI.BIO.543,"1105799,
+1321809,
+1587829,
+1137414"
+,,,,,,,,Algae,,SCI.BIO.550,"1105801,
+1321810,
+1587830,
+1174950"
+,,,,,,,,Mold ,,SCI.BIO.557,"1105803,
+1174951,
+1321811,
+1321812,
+1587831"
+,,,,,,,,Importance of Protists,,SCI.BIO.537,_ALL_
+,,,,,,,Fungi Overview,,,,
+,,,,,,,,Fungi,,SCI.BIO.563,"1105807,
+1321814,
+1587833,
+1138767,
+1874955"
+,,,,,,,,Fungi Structure,,SCI.BIO.564,"1105811,
+1321817,
+1587835"
+,,,,,,,,Fungi Reproduction,,SCI.BIO.566,"1105813,
+1138868,
+1321818,
+1321819,
+1587836"
+,,,,,,,,Fungi Classification,,SCI.BIO.569,"1105815,
+1321820,
+1587809,
+1138767"
+,,,,,,,,Fungi Symbiosis,,SCI.BIO.574,"1105809,
+1321815,
+1321816,
+1587834"
+,,,,,,,,Uses of Fungi,,SCI.BIO.576,"1105817,
+1138868,
+1321821,
+1587837"
+,,,,,Plants,,,,,,
+,,,,,,Introduction to the Plant Kingdom,,,,,
+,,,,,,,Plant Overview,,,,
+,,,,,,,,Plant Characteristics,,SCI.BIO.603,"1105820,
+1321822,
+1587838,
+1137406,
+1138768,
+1138770"
+,,,,,,,,Plant Evolution,,SCI.BIO.606,"1105822,
+1321823,
+1333028,
+2782151,
+1138768,
+1220510"
+,,,,,,,,Plant Life Cycle,,SCI.BIO.654,"1105824,
+1321824,
+1587839,
+1137408,
+1220510"
+,,,,,,,,Plant Classification,,SCI.BIO.608,"1105826,
+1321825,
+1587840,
+1138768,
+1220510"
+,,,,,,,,Nonvascular Plants,,SCI.BIO.610,"1105828,
+1321826,
+1587823,
+1138768"
+,,,,,,,,Vascular Plants,,SCI.BIO.613,"1105830,
+1333029,
+2378006"
+,,,,,,,Plant Biology,,,,
+,,,,,,,,Life Cycle of Seedless Vascular Plants,,SCI.BIO.657,"1105832,
+1333030,
+1587842,
+1138768"
+,,,,,,,,Importance of Plants,,SCI.BIO.604,"1105834,
+1321827,
+1587843"
+,,,,,,,,Seed Dispersal,,SCI.BIO.618,_ALL_
+,,,,,,,,Seed Plants,,SCI.BIO.617,"1105838,
+1321829,
+1321830,
+1587845,
+1138769"
+,,,,,,,,Angiosperm,,SCI.BIO.622,"1105840,
+1459414,
+1587846,
+1137406,
+1138770,
+1174952"
+,,,,,,,,Plant Hormones,,SCI.BIO.674,"1105842,
+1137408,
+1587847"
+,,,,,,,,Tropisms,,SCI.BIO.680,"1105844,
+1174952,
+1333032,
+1587848"
+,,,,,,,,Plant Adaptations,,SCI.BIO.667,"1105846,
+1138771,
+2112365,
+2172019,
+1587849"
+,,,,,Invertebrates,,,,,,
+,,,,,,Introduction to the Animal Kingdom,,,,,
+,,,,,,,Animal Overview,,,,
+,,,,,,,,Animal Behavior,,SCI.BIO.706,"1105849,
+1321832,
+1587850,
+1175362,
+1138773,
+1138774"
+,,,,,,,,Innate Behavior,,SCI.BIO.708,"1105853,
+1138780,
+1587852"
+,,,,,,,,Learned Behavior,,SCI.BIO.709,"1105851,
+1321834,
+1321835,
+1458837,
+1587851,
+1138773,
+1138774"
+,,,,,,,,Social Behavior,,SCI.BIO.710,"1105857,
+1321837,
+1587854,
+1138774,
+1138810"
+,,,,,,,,Cyclic Behavior ,,SCI.BIO.714,"1105861,
+1322706,
+1322707,
+1322708,
+1587856,
+1138861,
+1138869,
+1174962"
+,,,,,,,,Reproductive Behavior,,SCI.BIO.717,"1459423,
+3052214,
+1587855,
+1138775,
+1138810,
+1174956"
+,,,,,,,,Communication,,SCI.BIO.711,"1105855,
+1321836,
+1587853,
+1138773,
+1174965"
+,,,,,,,Invertebrate Overview,,,,
+,,,,,,,,Invertebrate Diversity,,SCI.BIO.721,"1105866,
+1587858,
+1138779,
+1138776,
+1220511"
+,,,,,,,Sponges and Cnidarians Overview,,,,
+,,,,,,,,Sponges,,SCI.BIO.726,"1105868,
+1174953,
+1458838,
+1587860"
+,,,,,,,,Cnidarians,,SCI.BIO.731,"1105870,
+1458839,
+1175362,
+1458840,
+1587824"
+,,,,,,,Worm Overview,,,,
+,,,,,,,,Flatworms,,SCI.BIO.737,"1105872,
+1458841,
+1138873,
+1587861"
+,,,,,,,,Segmented Worms,,SCI.BIO.740,_ALL_
+,,,,,,,,Roundworms,,SCI.BIO.742,"1105874,
+1138778,
+1322717,
+1322718,
+1587862"
+,,,,,,,Mollusk Overview,,,,
+,,,,,,,,Mollusks,,SCI.BIO.752,"1105878,
+1174955,
+1322720,
+1458843,
+1587864"
+,,,,,,,,Types of Mollusks,,SCI.BIO.753,"1105880,
+1174956,
+1458844,
+1458845,
+1587865,
+1458846"
+,,,,,,,,Importance of Mollusks,,SCI.BIO.754,_ALL_
+,,,,,,,Arthropod Overview,,,,
+,,,,,,,,Arthropods,,SCI.BIO.760,"1105890,
+1587870,
+1458847,
+1138780,
+1174957,
+1220511"
+,,,,,,,,Crustaceans,,SCI.BIO.766,"1105892,
+1426324,
+1587871,
+1174957,
+1220510"
+,,,,,,,,Centipededs and Millipedes,,SCI.BIO.767,_ALL_
+,,,,,,,,Arachnids,,SCI.BIO.768,"1105896,
+1322731,
+1587873,
+1138780,
+1138864"
+,,,,,,,,Importance of Arthropods ,,SCI.BIO.761,_ALL_
+,,,,,,,Insect Overview,,,,
+,,,,,,,,Insects,,SCI.BIO.770,"1105900,
+1587875,
+1458850,
+1174959"
+,,,,,,,,Insect Food,,SCI.BIO.771,"1105904,
+1322736,
+1458851,
+1587877,
+1174959"
+,,,,,,,,Insect Reproduction,,SCI.BIO.774,_ALL_
+,,,,,,,,Importance of Insects,,SCI.BIO.775,_ALL_
+,,,,,,,,Insect Control,,SCI.BIO.776,_ALL_
+,,,,,,,Echinoderm Overview,,,,
+,,,,,,,,Echinoderms,,SCI.BIO.781,"1105884,
+1587867,
+1459415,
+1138779"
+,,,,,,,,Types of Echinoderms ,,SCI.BIO.783,"1105886,
+1322725,
+1322726,
+1322727,
+1587868,
+1138779"
+,,,,,,,,Importance of Echinoderms,,SCI.BIO.784,_ALL_
+,,,,,Vertebrates,,,,,,
+,,,,,,"Fishes, Amphibians, and Reptiles",,,,,
+,,,,,,,Vertebrate Overview,,,,
+,,,,,,,,Chordates,,SCI.BIO.791,"1105911,
+1587880,
+1458852"
+,,,,,,,,Vertebrate Diversity,,SCI.BIO.803,"1105913,
+1138775,
+1458853,
+1587881"
+,,,,,,,Fish Overview,,,,
+,,,,,,,,Fish,,SCI.BIO.809,"1105915,
+1138781,
+1322742,
+1322743,
+1587882"
+,,,,,,,,Jawless Fish,,SCI.BIO.812,_ALL_
+,,,,,,,,Cartilaginous Fish,,SCI.BIO.813,_ALL_
+,,,,,,,,Bony Fish,,SCI.BIO.814,_ALL_
+,,,,,,,Amphibian Overview,,,,
+,,,,,,,,Amphibians,,SCI.BIO.817,"1105923,
+1322748,
+1587886,
+1138783"
+,,,,,,,,Salamanders,,SCI.BIO.821,_ALL_
+,,,,,,,,Frogs and Toads,,SCI.BIO.822,_ALL_
+,,,,,,,,Amphibian Evolution and Ecology,,SCI.BIO.823,"1105929,
+1587889,
+1645040,
+1138783"
+,,,,,,,Reptile Overview,,,,
+,,,,,,,,Reptiles,,SCI.BIO.826,"1105931,
+1138775,
+1458854,
+1587890"
+,,,,,,,,Lizards and Snakes,,SCI.BIO.830,"1105933,
+1322752,
+1322753,
+1459416,
+1587891,
+1138775,
+1138788"
+,,,,,,,,Crocodilia,,SCI.BIO.834,"1105935,
+1322754,
+1322755,
+1587892"
+,,,,,,,,Turtles ,,SCI.BIO.833,"1105937,
+1174962,
+1322756,
+1322757,
+1587893"
+,,,,,,,,Importance of Reptiles ,,SCI.BIO.837,_ALL_
+,,,,,,,Bird Overview,,,,
+,,,,,,,,Birds,,SCI.BIO.839,"1105941,
+1345217,
+1587895,
+1137407,
+1138773"
+,,,,,,,,Bird Reproduction,,SCI.BIO.842,"1105943,
+1174965,
+1322759,
+1322760,
+1587896"
+,,,,,,,,Bird Diversity ,,SCI.BIO.844,_ALL_
+,,,,,,,,Bird Ecology ,,SCI.BIO.846,_ALL_
+,,,,,,,Mammals ,,,,
+,,,,,,,,Mammals Overview,,SCI.BIO.849,"1105949,
+1322767,
+1322768,
+1322769,
+1587899,
+1138774"
+,,,,,,,,Mammal Reproduction,,SCI.BIO.855,_ALL_
+,,,,,,,,Classification of Mammals,,SCI.BIO.862,"1105953,
+1322772,
+1322773,
+1587901,
+1138774"
+,,,,,,,,Importance of Mammals,,SCI.BIO.850,_ALL_
+,,,,,,,,Primates,,SCI.BIO.864,_ALL_
+,,,,,,,,Primates and Humans,,SCI.BIO.865,_ALL_
+,,,,,The Human Body,,,,,,
+,,,,,,Organization of the Human Body,,,,,
+,,,,,,,The Human Body and Homeostasis,,,,
+,,,,,,,,Human Body,,SCI.BIO.903,"1105962,
+1322784,
+1587904,
+1137401"
+,,,,,,,,Homeostasis,,SCI.BIO.908,"1105964,
+1587905,
+2172026,
+1174976"
+,,,,,,,The Skin,,,,
+,,,,,,,,Skin,,SCI.BIO.929,"1105966,
+1320852,
+1322785,
+1587906,
+1174966,
+1174969"
+,,,,,,,,Skin Health,,SCI.BIO.932,_ALL_
+,,,,,,,,Nails and Hair,,SCI.BIO.933,"1105968,
+1318839,
+1587907,
+1174966,
+1174969"
+,,,,,,,The Skeletal System ,,,,
+,,,,,,,,Skeletal System,,SCI.BIO.912,"1105972,
+1174970,
+1587909"
+,,,,,,,,Bone Health,,SCI.BIO.918,_ALL_
+,,,,,,,,Joints,,SCI.BIO.916,"1105974,
+1174970,
+1322787,
+1587910,
+2116525"
+,,,,,,,The Muscular System ,,,,
+,,,,,,,,Muscles,,SCI.BIO.921,"1105978,
+1322789,
+1587912,
+1174972,
+1174970"
+,,,,,,,,Skeletal Muscles,,SCI.BIO.922,"1105980,
+1174970,
+1322790,
+2378007"
+,,,,,,,,Exercise,,SCI.BIO.927,_ALL_
+,,,,,,,"Food, Nutrients, and Balanced Eating Overview",,,,
+,,,,,,,,Food and Nutrients,,SCI.BIO.999.213,"1105984,
+1322794,
+1587795,
+1138813,
+1174950"
+,,,,,,,,Types of Nutrients ,,SCI.BIO.999.214,_ALL_
+,,,,,,,,Vitamins and Minerals,,SCI.BIO.999.215,"1105988,
+1322795,
+1587916,
+1174981,
+1174950"
+,,,,,,,,Balanced Eating,,SCI.BIO.999.216,"1105990,
+1322796,
+1587917,
+1138831,
+1220502,
+1174950"
+,,,,,,,The Digestive System ,,,,
+,,,,,,,,Digestive System,,SCI.BIO.999.203,"1105992,
+1322797,
+1587918,
+1138870"
+,,,,,,,,Digestive System Organs,,SCI.BIO.999.202,"1105996,
+1174971,
+1322799,
+1587920"
+,,,,,,,,Digestive System Enzymes,,SCI.BIO.999.207,_ALL_
+,,,,,,,,Digestive System Bacteria,,SCI.BIO.999.209,_ALL_
+,,,,,,,,Digestive System Health,,SCI.BIO.999.211,_ALL_
+,,,,,,,The Cardiovascular System,,,,
+,,,,,,,,Cardiovascular System,,SCI.BIO.999.105,_ALL_
+,,,,,,,,Lymphatic System,,SCI.BIO.999.108,"1106097,
+1220507,
+1322860,
+1587964,
+1106004,
+1322804,
+1587924"
+,,,,,,,,Heart,,SCI.BIO.999.102,"1106006,
+1322805,
+1587925,
+1174972"
+,,,,,,,,Blood Vessels,,SCI.BIO.999.103,"1106008,
+1322807,
+1322808,
+1587926,
+1458858,
+1174954"
+,,,,,,,,Blood Pressure,,SCI.BIO.999.107,_ALL_
+,,,,,,,,Blood,,SCI.BIO.999.112,"1106010,
+1322811,
+1587927,
+1138829,
+1174976"
+,,,,,,,,Blood Type,,SCI.BIO.999.114,"1106019,
+1322812,
+2267346,
+1587928,
+1137414"
+,,,,,,,,Blood Diseases,,SCI.BIO.999.115,"1106024,
+1322813,
+1322814,
+1587821,
+1137414"
+,,,,,,,,Cardiovascular Diseases,,SCI.BIO.999.109,"1106031,
+1322816,
+1587929,
+1138871,
+1174954"
+,,,,,,,,Cardiovascular Health,,SCI.BIO.999.110,_ALL_
+,,,,,,,The Respiratory System,,,,
+,,,,,,,,Respiratory System,,SCI.BIO.999.117,"1106035,
+1587931,
+1174975"
+,,,,,,,,Respiratory System Organs,,SCI.BIO.999.118,"1106037,
+1322818,
+1587932,
+1174975"
+,,,,,,,,Respiratory System Disorders,,SCI.BIO.999.122,"1106041,
+1322820,
+1587934,
+1174975"
+,,,,,,,,Respiratory System Health,,SCI.BIO.999.123,_ALL_
+,,,,,,,,Breathing,,SCI.BIO.999.120,"1106039,
+1322819,
+1587933,
+1138829,
+1174975"
+,,,,,,,The Excretory System,,,,
+,,,,,,,,Excretory System,,SCI.BIO.999.221,"1106045,
+1322824,
+1587937,
+1138867"
+,,,,,,,,Urinary System,,SCI.BIO.999.222,"1106047,
+1587938,
+1138867,
+1174976"
+,,,,,,,,Kidneys,,SCI.BIO.999.224,"1106049,
+1322825,
+1322826,
+1587939,
+1138867,
+1174976"
+,,,,,,,,Excretory System Diseases,,SCI.BIO.999.226,"1106051,
+1322828,
+1587940,
+1174976"
+,,,,,,,The Nervous System,,,,
+,,,,,,,,Nervous System,,SCI.BIO.999.004,_ALL_
+,,,,,,,,Nerve Impulse,,SCI.BIO.999.005,"1106055,
+1322829,
+1587942,
+1138873,
+1220509"
+,,,,,,,,Central Nervous System,,SCI.BIO.999.007,"1106057,
+1322830,
+1322831,
+1587943,
+1138813,
+1220505"
+,,,,,,,,Peripheral Nervous System,,SCI.BIO.999.008,"1106059,
+1322832,
+1587944,
+1174977,
+1220509"
+,,,,,,,,Nervous System Diseases,,SCI.BIO.999.018,"1106073,
+1322846,
+1587952,
+1138830"
+,,,,,,,,Nervous System Injuries,,SCI.BIO.999.019,_ALL_
+,,,,,,,,Nervous System Health,,SCI.BIO.999.020,_ALL_
+,,,,,,,"The Eyes, Vision, and Other Senses",,,,
+,,,,,,,,Vision ,,SCI.BIO.999.011,_ALL_
+,,,,,,,,Eyes,,SCI.BIO.999.012,_ALL_
+,,,,,,,,Vision Correction ,,SCI.BIO.999.013,_ALL_
+,,,,,,,,Hearing and Balance,,SCI.BIO.999.014,_ALL_
+,,,,,,,,Touch,,SCI.BIO.999.015,_ALL_
+,,,,,,,,Taste and Smell,,SCI.BIO.999.016,_ALL_
+,,,,,,,The Immune System and Disease,,,,
+,,,,,,,,Pathogen,,SCI.BIO.999.303,"1106079,
+1322849,
+1587955,
+1137413,
+1137414,
+1174982"
+,,,,,,,,HIV/AIDS,,SCI.BIO.999.318,"1106081,
+1220507,
+1322850,
+1587956"
+,,,,,,,,Infectious Diseases,,SCI.BIO.999.304,_ALL_
+,,,,,,,,Cancer,,SCI.BIO.999.321,"1106085,
+1587958,
+1138867,
+1220503"
+,,,,,,,,Diabetes,,SCI.BIO.999.028,_ALL_
+,,,,,,,,Autoimmune Disease,,SCI.BIO.999.316,"1106089,
+1138778,
+1322854,
+1322855,
+1587960"
+,,,,,,,,Noninfectious Diseases,,SCI.BIO.999.305,_ALL_
+,,,,,,,,Innate Immune System,,SCI.BIO.999.306,"1106093,
+1345218,
+1587962"
+,,,,,,,,Inflammatory Response,,SCI.BIO.999.307,"1106095,
+1322858,
+1587963,
+1138871"
+,,,,,,,,,,,
+,,,,,,,,B and T Cell Response ,,SCI.BIO.999.309,"1106099,
+1587965,
+1138778,
+1220507"
+,,,,,,,,Immunity,,SCI.BIO.999.312,"1106101,
+1322861,
+1587966,
+1138778,
+1220507"
+,,,,,,,The Reproductive System and Human Development ,,,,
+,,,,,,,,Male Reproductive System,,SCI.BIO.999.403,_ALL_
+,,,,,,,,Male Reproductive Organs,,SCI.BIO.999.404,"1106105,
+1322864,
+1587968,
+1174978"
+,,,,,,,,Sperm,,SCI.BIO.999.407,"1106107,
+1322865,
+1587969,
+1174978"
+,,,,,,,,Female Reproductive System,,SCI.BIO.999.409,_ALL_
+,,,,,,,,Female Reproductive Organs,,SCI.BIO.999.410,"1106111,
+1174983,
+1587971"
+,,,,,,,,Egg Cells,,SCI.BIO.999.413,"1106113,
+1322867,
+1587972,
+1163504,
+1174983"
+,,,,,,,,Menstrual Cycle,,SCI.BIO.999.414,"1106115,
+1174983,
+1322868,
+1587973"
+,,,,,,,,Fertilization,,SCI.BIO.999.418,"1106117,
+1174983,
+1587974,
+1645044"
+,,,,,,,,Pregnancy and Childbirth,,SCI.BIO.999.422,"1106119,
+1587975,
+1174979"
+,,,,,,,,Infancy and Childhood,,SCI.BIO.999.424,_ALL_
+,,,,,,,,Puberty and Adolescence,,SCI.BIO.999.425,_ALL_
+,,,,,,,,Adulthood and Aging ,,SCI.BIO.999.427,"1106125,
+1322871,
+1322872,
+1587978,
+1174981,
+1174985,
+1163502"
+,,,,,,,,Sexually Transmitted Infections  (STIs),,SCI.BIO.999.429,"1106127,
+1322873,
+1587979,
+1174982,
+1220508"
+,,,,,,,,Reproductive System Disorders,,SCI.BIO.999.432,_ALL_
+,,,,,,,,Reproductive System Health,,SCI.BIO.999.433,_ALL_
+,,,,,Ecology ,,,,,,
+,,,,,,Principles of Ecology ,,,,,
+,,,,,,,The Science of Ecology ,,,,
+,,,,,,,,Ecology Overview,,SCI.BIO.403,"9522,
+1138771,
+1645045,
+1587982"
+,,,,,,,,Ecological Organization,,SCI.BIO.405,_ALL_
+,,,,,,,Populations,,,,
+,,,,,,,,Population,,SCI.BIO.437,"1106136,
+1345224,
+1587984,
+1138872"
+,,,,,,,,Population Growth Patterns,,SCI.BIO.442,"1106138,
+1053140,
+1587985,
+1174985"
+,,,,,,,,Population Growth Limits,,SCI.BIO.443,"1106140,
+1138771,
+1345225,
+2172025,
+1587986"
+,,,,,,,,Human Population,,SCI.BIO.445,"1106142,
+1587987,
+1458872,
+1174985"
+,,,,,,,Communities,,,,
+,,,,,,,,Competition,,SCI.BIO.433,"1106144,
+1322884,
+1587988,
+1138832,
+1220501,
+1174953"
+,,,,,,,,Predation,,SCI.BIO.432,"1322887,
+1587989,
+1138788,
+1138780,
+1138872"
+,,,,,,,,Symbiosis,,SCI.BIO.434,"1106148,
+1587990,
+2116524,
+1458873,
+1138776,
+1138873,
+1174959"
+,,,,,,,Ecosystems Overview ,,,,
+,,,,,,,,Ecosystems,,SCI.BIO.404,"1106150,
+1323685,
+1587991,
+1138842"
+,,,,,,,,Habitat and Niche,,SCI.BIO.407,_ALL_
+,,,,,,,Biomes and the Biosphere,,,,
+,,,,,,,,Biome,,SCI.BIO.418,_ALL_
+,,,,,,,,Terrestrial ,,SCI.BIO.421,"1106156,
+1333036,
+1345226,
+1587993,
+1138769,
+1138771,
+1138788"
+,,,,,,,,Aquatic,,SCI.BIO.426,"1106158,
+1333037,
+1333038,
+1587994,
+1138779,
+1138776,
+1138767"
+,,,,,,,,Biosphere,,SCI.BIO.420,_ALL_
+,,,,,,,Flow of Energy and Ecosystem Change,,,,
+,,,,,,,,Producer,,SCI.BIO.409,"1106162,
+1322893,
+1587996"
+,,,,,,,,Consumers and Decomposers,,SCI.BIO.410,"1106164,
+1322895,
+1587997,
+1220506,
+1174958,
+1174986"
+,,,,,,,,Food Chain ,,SCI.BIO.411,"2055058,
+1587998,
+1138788,
+1137402,
+1138842,
+2055058"
+,,,,,,,,Energy Flow,,SCI.BIO.408,"1106168,
+1295770,
+1322897,
+1138788,
+1138842"
+,,,,,,,,Succession,,SCI.BIO.435,"1106176,
+1174986,
+1333040,
+1588002"
+,,,,,,,Cycles of Matter,,,,
+,,,,,,,,Water Cycle,,SCI.BIO.414,"1106170,
+1138771,
+1333039,
+1587999"
+,,,,,,,,Carbon Cycle,,SCI.BIO.415,"2055060,
+1588000,
+1645046,
+1138865,
+2055060"
+,,,,,,,,Nitrogen Cycle,,SCI.BIO.416,"1106174,
+1588001,
+1220501,
+1220506"
+,,,,,,,Environmental Problems - Air Pollution,,,,
+,,,,,,,,Air Pollution ,,SCI.BIO.462,"1106178,
+1333041,
+1588003"
+,,,,,,,,Indoor Air Pollution ,,SCI.BIO.463,"1106181,
+1322903,
+1588004,
+1138862"
+,,,,,,,,Health Hazards of Air Pollution,,SCI.BIO.464,"1106183,
+1322906,
+1588005,
+1138862"
+,,,,,,,Water Pollution and Waste,,,,
+,,,,,,,,Water Pollution,,SCI.BIO.460,"1106185,
+1333042,
+1588006,
+1106187,
+1322908,
+1588007,
+1138863,
+1174955
+"
+,,,,,,,,Soil and Water,,SCI.BIO.459,_ALL_
+,,,,,,,Natural Resources,,,,
+,,,,,,,,Renewable Resources,,SCI.BIO.456,_ALL_
+,,,,,,,,Nonrenewable Resources,,SCI.BIO.457,_ALL_
+,,,,,,,,Conservation,,SCI.BIO.458,_ALL_
+,,,,,,,"Habitats, Biodiversity, and Extinction ",,,,
+,,,,,,,,Habitat Destruction ,,SCI.BIO.453,"1106197,
+1322913,
+1322914,
+1588012,
+1138861,
+1174955,
+1220510"
+,,,,,,,,Importance of Biodiversity,,SCI.BIO.450,"1106201,
+1322916,
+1588014,
+1138769,
+1138864,
+1174953"
+,,,,,,,,Mass Extinction,,SCI.BIO.452,"1105777,
+1645088,
+1587716,
+1137411,
+1220511,
+1106199,
+1322915,
+1588013,
+1138861,
+1138842"

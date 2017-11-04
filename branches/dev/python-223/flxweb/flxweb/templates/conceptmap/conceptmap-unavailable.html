@@ -1,0 +1,44 @@
+{% from "macros/browse_listing.html" import ck12_branch_browse_grid with context%}
+{% extends "base/1column.html" %}
+{% block title %}{{ _("Concept Map is under maintenance.") }}{% endblock %}
+
+{% block extra_head %}
+{{ super() }}
+<meta name="robots" content="noindex">
+<script type="text/javascript">
+var pageType = "conceptmap-unavailable";
+</script>
+{% endblock %}
+
+
+{% block pageinfotop %}
+<div class="contenttop"></div>
+{% endblock %}
+
+{% block content %}
+<div id="errorcontent" class="clearfix row">
+	<div class="toptitleWrapper">
+			<h1 class="toptitle">{{ _("Concept Map is under maintenance.") }}</h1>
+		<br>
+		<div class="toptitle">{{ _("While it gets a tune-up, check out the video below to find out what it's all about.") }}</div>
+		<br>
+	</div>
+	<div class="row">
+		<div class="columns small-12 large-8 large-centered spacetop">
+			<div class="flex-video">
+				<iframe
+					src="https://www.youtube.com/embed/JYPoZBvbc_I?rel=0&amp;controls=0&amp;showinfo=0&amp;enablejsapi=1"
+					frameborder="0"
+					allowfullscreen=""
+					width="100%"
+					height="400"
+					class="tutorial-video is--active"
+				></iframe>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+{% block js %}
+	{{ super() }}
+{% endblock %}

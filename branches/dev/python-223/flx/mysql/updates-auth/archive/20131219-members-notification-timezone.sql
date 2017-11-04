@@ -1,0 +1,1 @@
+ALTER TABLE Members ADD COLUMN timezone VARCHAR (52) DEFAULT 'US/Pacific';

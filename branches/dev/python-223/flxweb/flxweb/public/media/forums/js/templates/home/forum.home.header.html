@@ -1,0 +1,64 @@
+<h1 class="forum-name-container">
+    <span class="forum-name"><%-group.name%></span>
+    <!-- <a class="icon-edit forum-pencil-size js-forum-title-edit hide"></a> -->
+</h1>
+<!-- <div class="forum-title-edit row collapse hide">
+    <div class="edit-error-msg-wrapper">
+    </div>
+    <div class="columns small-11 large-8">
+        <input id="forum-title-edit" type="text" maxlength="60" value="<%-group.name%>">
+    </div>
+    <div class="columns small-12 large-4">
+        <a class="button standard turquoise forum-title-save">Save</a>
+        <a class="forum-title-cancel link-green">Cancel</a>
+    </div>
+</div> -->
+<div class="forum-header-button-container hide-small">
+    <%if(!isMember){%>
+    <div class="forum-info link-follow button btn-forum small">
+        <i class="icon-plus"></i> Follow
+    </div>
+    <%}else{%>
+    <div class="forum-info link-unfollow button btn-forum small">
+        <i class="icon-checkmark"></i> Following
+    </div>
+    <%}%>
+    <div class="forum-info link-setting">
+        <i class="icon-settings_single"></i>
+        <a>Settings</a>
+    </div>
+    <div class="forum-info link-share">
+        <i class="icon-share"></i>
+        <a>Share</a>
+    </div>
+</div>
+<div class="clearfix"></div>
+<div class="forum-discription-container">
+    <span class="forum-description"><%-group.description%></span>
+    <!-- <a class="icon-edit forum-pencil-size js-forum-description-edit hide"></a> -->
+</div>
+<!-- <div class="forum-description-edit hide">
+    <div>
+        <textarea id="forum-description-edit" class="js-group-description-field"><%-group.description%></textarea>
+    </div>
+     <div>
+        <a class="button standard turquoise js-group-detail-save" id="description-save">Save</a>
+        <a class="js-group-detail-cancel link-green">Cancel</a>
+    </div>
+</div> -->
+<div class="row collapse forum-info-wrapper">
+    <div class="forum-info">
+        <%-peerHelpInfo.threadsCount%> Thread<%if(peerHelpInfo.threadsCount!== 1){%>s<%}%>
+    </div>
+    <div class="forum-info">
+        <%-peerHelpInfo.commentsCount%> Comment<%if(peerHelpInfo.commentsCount!== 1){%>s<%}%>
+    </div>
+    <div class="forum-info hide-small">
+        <div class="members-container">
+            <% _.each(membersData.members, function(member){ %>
+                <img src="/auth/member/image/<%- member.id %>" />
+            <% });%>
+            <a class="members-count"><%- membersData.total %> Followers</a>
+        </div>
+    </div>
+</div>

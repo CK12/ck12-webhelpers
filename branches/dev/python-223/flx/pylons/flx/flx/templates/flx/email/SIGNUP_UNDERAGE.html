@@ -1,0 +1,63 @@
+{% extends "MASTER_EMAIL_TEMPLATE.html" %}
+{% block email_heading %}
+Help {{ events[0]['eventData']['name'] }} Register for CK-12
+{% endblock %}
+{% block email_body %}
+    <tr>
+        <td valign="top" style="font-size:14px;padding:31px 0 0;">Hi there,</td>
+    </tr>
+    <tr>
+        <td valign="top" style="padding:26px 0 0;line-height:18px;font-size:14px;color:#56544d;">
+            {{ events[0]['eventData']['name'] }} would like to create a CK-12 account.
+        </td>
+    </tr>
+    <tr>
+        <td valign="top" style="padding:26px 0 0;line-height:18px;font-size:14px;color:#56544d;">
+            {{ events[0]['eventData']['firstName'] }} is under 13, so we'll need your help to create it.
+        </td>
+    </tr>
+    <tr>
+        <td valign="top" style="padding:26px 0 0;line-height:18px;font-size:14px;color:#56544d;">
+            You were listed as {{ events[0]['eventData']['firstName'] }}'s teacher, parent, or guardian.
+        </td>
+    </tr>
+    <tr>
+    	<td valign="top" style="padding:26px 0 0;line-height:18px;font-size:14px;color:#56544d;">
+			To create an account for {{ events[0]['eventData']['name'] }}, please <a href="{{ events[0]['eventData']['rurl'] }}" target="_blank">Login</a> or <a href="{{ events[0]['eventData']['signupTeacherUrl'] }}" target="_blank">Sign Up</a> for a CK-12 Account.
+		</td>
+    </tr>
+    <tr>
+        <td valign="top" style="padding: 54px 0 38px;line-height:18px;font-size:14px;color:#56544d;">
+            <div style="background: none repeat scroll 0 0 #00ABA4;display:inline-block;border-bottom: 3px solid #0089A6;border-top: 3px solid #00ABA4;border-radius: 3px;box-shadow: none;font-size: 1em;text-shadow: none;transition: background-color 100ms ease-out 0s;color:white;font-size: 1.13em;padding: 11px 23px 12px !important;">
+       	    <a style="text-decoration: none; color: white ! important;" href="{{ events[0]['eventData']['rurl'] }}" target="_blank">Help create {{ events[0]['eventData']['firstName'] }}'s account</a>
+        </div>
+        </td>
+    </tr>
+    <tr>
+    	<td valign="top" style="padding:20px 0 26px;line-height:18px;font-size:14px;color:#56544d;">
+            For more information on CK-12 Foundation and our policy please read our <a href="http://www.ck12.org/about/technology-2/privacy-policy/" style="color: #42B8B2;text-decoration: none;" target="_blank">Privacy Policy</a> and <a style="color: #42B8B2;text-decoration: none;" href="http://www.ck12.org/about/terms-of-use/" target="_blank">Terms of Use</a>
+        </td>
+    </tr>
+{% endblock %}
+
+{% block email_questions %}
+<div></div>
+{% endblock %}
+{% block email_salutation %}
+	<tr>
+		<td align="left" valign="top" style="padding:0px 22px 0px 0px; color:#56544d; font-size:14px;line-height:18px;">
+		Cheers!
+		</td>
+	</tr>
+	<tr>
+		<td align="left" valign="top" style="padding:0px 22px 125px 0px; color:#56544d; font-size:14px;line-height:18px;">
+		The CK-12 Team
+		</td>
+	</tr>
+{% endblock %}
+{% block email_social_icons%}
+<div></div>
+{% endblock %}
+{% block email_footer_extended %}
+<div></div>
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends "common/master.html" %}
+{% block title %}{{ _("CBSE Books") }}{% endblock %}
+
+{% block stylesheets %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('common/css/3d-book.css') }}" />
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('cbse/css/cbse.books.css') }}" />
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+<script>
+require(['main'], function(){
+    require(['cbse/cbse.books'],function(cbse){
+        cbse.load();
+    });
+});
+</script>
+{% endblock %}
+
+{% block header %}
+{{ super() }}
+<div id="cbseBanner" class="cbse-banner smooth-text">
+	<div class="row collapse flag-wrapper">
+		<img src="/media/cbse/images/flag.png" />
+		<span class="cbse-banner-text bold"> India CK-12 FlexBooks&#174 </span>
+	</div>
+</div>
+{% endblock %}
+{% block content %}
+{{ super() }}
+<div id="cbse_contentwrap">
+	<div class="column large-12 small-12 cbse-dropdown-wrapper">
+		<div class="cbse-dropdown-parent disable">
+			<span class="dropdown-view">You are viewing</span>
+			<div class="button small cbse-dropdowm split simple standards-dropdown">
+				CBSE
+				<span></span>
+			</div>
+			<span>FlexBooks&#174 in</span>
+			<div class="button small cbse-dropdowm split simple country-dropdown">
+				<i class="icon-map"></i>
+				India
+				<span></span>
+			</div>
+			<span class="show-for-small">for</span>
+		</div>
+		<div class="cbse-dropdown-parent">
+			<span class="hide-for-small">for</span>
+			<div id="selectSubjects" class="button small cbse-dropdowm split simple subjects-dropdown" data-dropdown="dropSubjects">
+				All Subjects
+				<span></span>
+			</div>
+			<ul data-dropdown-content="" class="f-dropdown tangerine-list simple" id="dropSubjects">
+				<li class="subject-selector" data-subject="all"><a>All Subjects</a></li>
+				<li class="subject-selector" data-subject="Maths"><a>Maths</a></li>
+				<li class="subject-selector" data-subject="Biology"><a>Biology</a></li>
+				<li class="subject-selector" data-subject="Chemistry"><a>Chemistry</a></li>
+				<li class="subject-selector" data-subject="Physics"><a>Physics</a></li>
+			</ul>
+			<div id="selectGrades" class="button small cbse-dropdowm split simple" data-dropdown="dropGrades">
+				All Grades
+				<span></span>
+			</div>
+			<ul data-dropdown-content="" class="f-dropdown tangerine-list simple" id="dropGrades">
+				<li class="grade-selector" data-grade="all"><a>All Grades</a></li>
+				<li class="grade-selector" data-grade="9"><a>9th Grade</a></li>
+				<li class="grade-selector" data-grade="10"><a>10th Grade</a></li>
+				<li class="grade-selector" data-grade="11"><a>11th Grade</a></li>
+				<li class="grade-selector" data-grade="12"><a>12th Grade</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+{% endblock %}

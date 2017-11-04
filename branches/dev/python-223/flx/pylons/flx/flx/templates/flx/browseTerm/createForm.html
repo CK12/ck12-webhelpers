@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>Create BrowseTerm</title>
+    </head>
+    <body>
+        <form name="browsetermdata" method="POST" action="{{ c.prefix }}/create/browseTerm">
+            <table>
+                {% for item in c.browseTermList %}
+                <tr>
+                    <td>
+                        {{ item }}:
+                    </td>
+                    <td>
+                        <input type="text"
+                               name="{{ item }}"
+                               value=""
+                               size="200"/>
+                    </td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td>
+                        Browse term type:
+                    </td>
+                    <td>
+                        <select name="typeID">
+                            <option value="">Choose a browse term type...</option>
+                            {% for key in c.browseTermTypeKeys %}
+                            <option value="{{ key }}">{{ c.browseTermTypeDict[key] }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Belongs to:
+                    </td>
+                    <td>
+                        <select name="parentID">
+                            <option value="">Choose a parent...</option>
+                            {% for key in c.subjectBrowseTermKeys %}
+                            <option value="{{ key }}">{{ c.subjectBrowseTermDict[key] }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Encoded ID:
+                    </td>
+                    <td>
+                        <input type="text" name="encodedID" value="" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" name="submit" value="OK" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

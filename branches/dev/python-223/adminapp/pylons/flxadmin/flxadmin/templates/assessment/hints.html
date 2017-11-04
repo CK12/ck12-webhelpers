@@ -1,0 +1,190 @@
+{% extends "listings.html" %}  
+
+{% block header %}{{super()}}{% endblock %}
+{% block crumbs %}{{super()}}{% endblock %}
+
+{% block footer %}
+	{{super()}}
+{% endblock %}
+
+{% block admintop %}
+	{% block filters %} 
+        <div class="col topalign" style="margin:20px;">Filter by:</div>
+
+        <div class="col topalign">
+            {{ h.labelselect('Subject', 'subject_filter', c.form.subject_sel, 'filter')}}
+        </div>
+        
+        <div class="col topalign">
+            {{ h.labelselect('Branch', 'branch_filter', c.form.branch_sel, 'filter')}}
+        </div>
+        
+        <div class="col topalign">
+            {{ h.labelselect('Question Type', 'type_filter', c.form.type_sel, 'filter')}}
+        </div>
+        
+        <div class="col topalign">
+            {{ h.labelselect('Source', 'other_type_filter', c.form.other_type_sel, 'filter')}}
+        </div>
+        
+        <div class="col">
+        	<input class=" btn primaryaction" id="get_hints" type="submit" value="Get Hints">
+        </div>
+    {% endblock %}
+    
+    {% block searches %}
+	    </br>
+	    <div class="col topalign">
+	        {{ h.labelinput('Concept Name or EID', 'concepteid', 'med searchby')}}
+	    </div>
+	    <div class="col topalign">
+        	<input class=" btn primaryaction" id="get_hints_eid" type="submit" value="Get Hints">
+        </div>
+	    
+	{% endblock %}
+    
+    {% block aftersearches %} 
+	    {{ super() }}
+	    <div>
+	    	<input id='disableListOnEmptySearch' type='checkbox' checked='true'>
+	    	<label>Disable Listing on Empty Searches</label>
+	    </div>
+	{% endblock %}
+
+{% endblock %}
+
+{% block js_scripts %}
+{{ super() }}
+
+<script type='text/javascript'>
+
+// Below changes are to support filters applied on 
+// dynamically populated select boxes [Story #151261482] 
+if(location.search)
+{
+	//window.landingLocationHref = location.href;
+	//var landingLocationSearchParams = window.location.search;
+    var urlParams = $.deparam(location.search.slice(1, ));
+	if("filters" in urlParams){
+		var filtersString = urlParams["filters"];
+		var filterItems = filtersString.replace(/;/g, "&").split("&");
+		filterItems.forEach(function(item){
+			var param = item.split(",")[0];
+			var value = item.split(",")[1];
+			if(param == "branch" && value != ""){
+				$("#branch_filter").val("branch,"+value);
+				window.branchFilter = "branch,"+value;
+			}
+		});
+	}
+}
+
+Listings({
+	sort: '',
+    ajaxRoot: CK12.admUrl('/assessment/hints_list'),
+    postLoad: function(){
+    	$('#disableListOnEmptySearch').attr('checked', true);
+    }
+});
+
+defaultBranchOption = $('#branch_filter').html();
+
+$('#subject_filter').change(function(e){
+	e.stopPropagation();
+	subject = $(this).val();
+	subject = subject.split(',')[1];
+	if(subject){
+		// AJAX call to get branches 
+	    $.ajax({
+	        "url" : "/taxonomy/get/info/branches/" + subject,
+	        "type" : "GET",
+	        "dataType" : "json",
+	        "success" : function(response){
+	        	// Template to get a drop-down list of branches 
+	        	var template  = "<option value='branch,@@value@@'>@@branchName@@</option>",
+	        		option = "",
+	        		html = [];
+	            
+	        	if(response.responseHeader.status === 0){
+	            	$('#branch_filter').find('option').remove();	// Remove options 
+	            	// If no branch is selected, then append all branches of selected subject to get the result 
+	            	var defaultOptions = [];
+	            	
+	                for(var i=0; i<response.response.branches.length; i++){
+	                	defaultOptions.push(response.response.branches[i].shortname);
+	                	option = template;
+	                	option = option.replace(/@@value@@/g , response.response.branches[i].shortname);
+	                	option = option.replace(/@@branchName@@/g , response.response.branches[i].name);
+	                	html.push(option);
+	                }
+	                // Create drop-down list of branches 
+	                var defaultOptionHtml = template;
+	                defaultOptions = defaultOptions.join('$');		// Separate 'branch' filter values with '$' 
+	                defaultOptionHtml = defaultOptionHtml.replace(/@@value@@/g, defaultOptions);
+	                defaultOptionHtml = defaultOptionHtml.replace(/@@branchName@@/g, 'Select Branch');
+	                $("#branch_filter").append(defaultOptionHtml);
+	                $("#branch_filter").append(html.join(""));
+	                if(window.branchFilter)
+	                {
+						$("#branch_filter option[value='"+window.branchFilter+"']").attr("selected","selected");
+						delete window.branchFilter;
+						$("#get_hints").trigger("click");
+					}
+	            } else{
+	                 alert(response.response.message);
+	            }
+	        },
+	        "error" : function(){
+	            alert("There is some problem while getting the branches");
+	        }
+	    });
+	} else{
+		$("#branch_filter").html(defaultBranchOption);
+	}
+	
+});
+
+function getHints(isEid){
+	// Clear subject and branch filter, when concept name or eid is entered(vice versa) 
+	if(isEid){
+		$('#subject_filter').val('');
+		$('#branch_filter').val('');
+	} else{
+		$('#concepteid').val('');
+	}
+	$('#disableListOnEmptySearch').removeAttr('checked');
+	$('#disableListOnEmptySearch').change();
+}
+
+$('#get_hints').click(function(){
+	// Get selected subject 
+	var subject_sel = $('#subject_filter').val();
+	
+	if(subject_sel){
+		getHints(false);
+	} else{
+		alert('Please select a subject');
+	}
+});
+
+$('#get_hints_eid').click(function(e){
+	// Get concept name or EID 
+	var concepteid = $('#concepteid').val();
+	
+	if(concepteid){
+		getHints(true);
+	} else{
+		alert('Please enter any concept or EID');
+	}
+});
+
+$(document).ready(function(){
+	if(window.branchFilter){
+		$("#subject_filter").trigger("change");
+		// Need to think about this for [Story #151261482] 
+		//history.pushState(params, "", window.landingLocationHref);
+	}
+});
+
+</script>
+{% endblock %}

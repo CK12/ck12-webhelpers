@@ -1,0 +1,34 @@
+{% from "macros/pagination.html" import paginate with context %}  
+
+{% if c.paginator.item_count > 0 %}
+  {% for i in c.paginator.items %}
+  <div class="tr datarow">
+    <div class="td">{{h.userlink(i, 'memberID', 'memberID')}}</div>
+    <div class="td">{{i.memberID1x}}</div>
+    <div class="td">{{i.email}}</div>
+    <div class="td status">{{i.status}}</div>
+    <div class="td started">{{i.started}}</div>
+    <div class="td migrated">{{i.migrated}}</div>
+    <div class="td actionitemwrap">
+      <div class='actionitem'>
+      {% if i.status=='Failed' %}
+        [Re-Import]
+      {% elif not i.started %}
+        [Import]
+      {% endif %}
+      </div>
+
+      <div class='actionlink'>
+      {% if i.taskID %}
+        {{ h.idlink('/task/', i, '', 'taskID', 'Import Details')}}
+      {% endif %}
+      </div>
+    </div>
+    <div class="td bookslink">
+    </div>
+    <div class="td userID hide" id="{{i.memberID}}"></div>
+    {#<div class="td taskID hide" id="{{i.taskID}}"></div>#}
+  </div>
+  {% endfor %}
+  {{ paginate(c.paginator) }}
+{% endif %}

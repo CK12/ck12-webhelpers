@@ -1,0 +1,65 @@
+from celeryconfig_queues import *
+from celery.schedules import crontab
+
+CELERYD_CONCURRENCY = 3
+CELERY_IMPORTS = ( 
+                  "flx.controllers.celerytasks.artifact",
+                  "flx.controllers.celerytasks.artifacturlvalidator",
+                  "flx.controllers.celerytasks.browseTerm",
+                  "flx.controllers.celerytasks.ContentMover",
+                  "flx.controllers.celerytasks.course",
+                  "flx.controllers.celerytasks.documentLoader",
+                  "flx.controllers.celerytasks.member",
+                  "flx.controllers.celerytasks.modality",
+                  "flx.controllers.celerytasks.mongo.relatedartifacts",
+                  "flx.controllers.celerytasks.mongo.seometadata",
+                  "flx.controllers.celerytasks.mongo.standard",
+                  "flx.controllers.celerytasks.mongo.collection",
+                  "flx.controllers.celerytasks.notifier",
+                  "flx.controllers.celerytasks.retrolation",
+                  "flx.controllers.celerytasks.standard",
+                  "flx.controllers.celerytasks.vocabulary",
+                  "flx.controllers.celerytasks.persist_content_model",
+                  "flx.controllers.celerytasks.compute_content_similarity",
+                  "flx.controllers.celerytasks.compute_retrolation",
+                  "flx.controllers.celerytasks.mongo.artifactvisits_curator",
+                 )
+
+CELERY_DEFAULT_QUEUE = "artifact"
+
+CELERYBEAT_SCHEDULE = {
+    "run-every-midnight-05": {
+        "task": "flx.controllers.celerytasks.mongo.relatedartifacts.createRelatedArtifacts",
+        "schedule": crontab(minute=5, hour=0),
+    },
+    "run-every-midnight-30": {
+        "task": "flx.controllers.celerytasks.artifacturlvalidator.ArtifactUrlValidator",
+        "schedule": crontab(minute=30, hour=0),
+    },
+    "run-every-night-00_05-persist_content_model": {
+        "task": "flx.controllers.celerytasks.persist_content_model.PersistContentModel",
+        "schedule": crontab(minute=5, hour=0)
+    },
+    "run-every-night-01_00-compute_content_similarity": {
+        "task": "flx.controllers.celerytasks.compute_content_similarity.ComputeContentSimilarity",
+        "schedule": crontab(minute=0, hour=1)
+    },
+    "run-every-midnight-10": {
+        "task": "flx.controllers.celerytasks.mongo.artifactviews.ArtifactViewsUpdaterTask",
+        "schedule": crontab(minute=10, hour=0)
+    },    
+    "run-every-night-01_00-compute_retrolation": {
+        "task": "flx.controllers.celerytasks.compute_retrolation.ComputeRetrolation",
+        "schedule": crontab(minute=8, hour=13)
+    },
+    "run-every-midnight-15-artifactvisits_curator": {
+        "task": "flx.controllers.celerytasks.mongo.artifactvisits_curator.ArtifactVisitsCuratorTask",
+        "schedule": crontab(minute=15, hour=0, day_of_week='sunday')
+    },
+    "run-every-saturday-collection": {
+        "task": "flx.controllers.celerytasks.mongo.collection.SyncCollectionsTask",
+        "schedule": crontab(day_of_week="saturday", hour=1, minute=1),
+    },
+
+}
+

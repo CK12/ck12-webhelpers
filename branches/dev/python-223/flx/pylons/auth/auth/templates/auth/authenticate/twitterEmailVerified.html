@@ -1,0 +1,27 @@
+{% extends "base/auth/1column.html" %}
+{% block title %} {{ _('Twitter Email Verified') }} {% endblock %}
+
+{% block content %}
+<div id="content" class="prefix_3 grid_6 suffix_3">
+	<h1>{{ _("Email Verification") }}</h1>
+	{% if c.form_errors %}
+		<div id="signin_errors">
+			<ul class="messaging error">
+				{% for error in c.form_errors %}
+				<span class="imgwrap"></span>
+				<li>{{error}}
+					{% if c.form_errors[error] %}
+					- {{ c.form_errors[error] }}
+					{% endif %}
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
+	{% else %}
+		<div class="divider"></div>
+		<p>{{ _("Your email has been verified.") }}</p> 
+		<div class="divider spacetop"></div>
+		<p>{{ _("Please") }} <a href="{{ h.url(controller='twitter', action='login', qualified=True) }}?url={{ h.url(controller='twitter', action='authenticated', qualified=True) }}?newMember={{ c.isNewMember }}&returnTo={{ c.site }}">{{ _("click here") }}</a> {{ _("to browse and get started. You will need to sign in again for updates.") }}</p>
+	{% endif %}
+</div>
+{% endblock %}

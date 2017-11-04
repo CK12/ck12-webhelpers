@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                      "http://www.w3.org/TR/html4/loose.dtd"> 
+<html>
+    <head>
+        <title>Update Concept Node</title>
+    </head>
+    <body>
+        <form action="/taxonomy/update/concept"
+            method="POST">
+            
+            <table>
+                <tr>
+                    <td>Login ID:</td>
+                    <td>{{ c.memberLogin }}</td>
+                </tr>
+                <tr>
+                  <td>Concept Node ID:</td>
+                  <td><input type="text" name="id" readonly="readonly" value="{{ c.conceptNode.id }}" /></td>
+                </tr>
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text" name="name" size="100" value="{{ c.conceptNode.name }}" /></td>
+                </tr>
+                <tr>
+                    <td>Handle:</td>
+                    <td><input type="text" name="handle" size="100" value="{{ c.conceptNode.handle  }}" /></td>
+                </tr>
+                <tr>
+                    <td>Description:</td>
+                    <td><input type="text" name="description" size="100" value="{{ c.conceptNode.description or '' }}" /></td>
+                </tr>
+                <tr>
+                    <td>Subject:</td>
+                    <td><input type="text" name="subjectID" value="{{ c.conceptNode.subject.shortname }}" /></td>
+                </tr>
+                <tr>
+                    <td>Branch:</td>
+                    <td><input type="text" name="branchID" value="{{ c.conceptNode.branch.shortname }}" /></td>
+                </tr>
+                <tr>
+                  <td>Encoded ID:</td>
+                  <td><input type="text" name="encodedID" value="{{ c.conceptNode.encodedID }}" /></td>
+                </tr>
+                <tr>
+                  <td>Preview Image URL:</td>
+                  <td><input type="text" name="previewImageUrl" size="100" value="{{ c.conceptNode.previewImageUrl or '' }}" /></td>
+                </tr>
+                <tr>
+                    <td>Parent EID:</td>
+                    <td><input type="text" name="parentEID" value="{{ c.parentEID or '' }}" /></td>
+                </tr>
+                <tr>
+                    <td>Keywords:</td>
+                    <td><input type="text" name="keywords" size="100" value="{{ c.keywords }}" /></td>
+                </tr>
+                <tr>
+                    <td>Dependencies:</td>
+                    <td><input type="text" name="prereqs" size="100" value="{{ c.prereqs }}" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align:right;"><input type="submit" value="Update" /></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
+

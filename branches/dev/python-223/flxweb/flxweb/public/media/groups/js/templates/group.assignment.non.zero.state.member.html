@@ -1,0 +1,117 @@
+<div>
+	<div id="member-assignment">
+		<div id="group-assignment-container" class="row collapse group-assignment-container">
+			<div class="small-12 large-12 columns member-assignment-wrapper">
+				<div class="row collapse member-assignment-header hide-for-small">
+					<i class="icon-arrow2_right right link-green" data-state="state,completed"></i>
+					<a class="change-assignment-viewed right link-green">See completed assignments</a>
+					<i class="icon-arrow2_left right link-green hide" data-state="state,upcoming;state,past-due"></i>
+				</div>
+				<div class="row collapse member-assignment-header member-assignment-header-mobile show-for-small text-center">
+					<i class="icon-arrow2_right right link-green hide-important" data-state="state,completed"></i>
+					<a class="change-assignment-viewed link-green">See completed assignments</a>
+					<i class="icon-arrow2_left right link-green hide hide-important" data-state="state,upcoming;state,past-due"></i>
+				</div>
+				<div class="row collapse js-incomplete member-assignments-container">
+					<div id="past-due" class="small-12 large-12 columns">
+						<div class="row collapse member-assignment-list-header">
+							<div class="left text-center member-assignment-due">
+								<i class="icon-calendar"></i>
+							</div>
+							<div class="left text-center member-assignment-late">
+								<span>&nbsp;</span>
+							</div>
+							<div class="member-assignment-name">
+								<span>PAST DUE</span>
+								<i class="icon-bell"></i>
+							</div>
+							<div class="right text-center member-assignment-progess">
+								<span>PROGRESS</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row collapse js-incomplete member-assignments-container">
+					<div id="upcoming" class="small-12 large-12 columns">
+						<div class="row collapse member-assignment-list-header">
+							<div class="left text-center member-assignment-due">
+								<span>&nbsp;</span>
+								<i class="icon-calendar js-only-upcoming"></i>
+							</div>
+							<div class="left text-center member-assignment-late">
+								<span>&nbsp;</span>
+							</div>
+							<div class="member-assignment-name">
+								<span>COMING UP</span>
+							</div>
+							<div class="right text-center member-assignment-progess">
+								<span>&nbsp;</span>
+								<span class="js-only-upcoming">PROGRESS</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row collapse hide js-complete member-assignments-container">
+					<div id="complete" class="small-12 large-12 columns">
+						<div class="row collapse member-assignment-list-header">
+							<div class="left text-center member-assignment-due">
+								<span>&nbsp;</span>
+							</div>
+							<div class="left text-center member-assignment-late">
+								<span>&nbsp;</span>
+							</div>
+							<div class="member-assignment-name">
+								<span>&nbsp;</span>
+							</div>
+							<div class="right text-center member-assignment-progess">
+								<span>PROGRESS</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="member-no-assignment">
+		<div class="row collapse start-practice-wrapper">
+			<div class="small-12 large-12 columns">
+        		<span class="fantastic-icon"></span>
+            	<p class="fantastic">Fantastic.</p>
+            	<p class="fantastic-complete">You completed all of your assignments.</p>
+            	<div class="fantastic-complete hide-for-small">
+            		<span>Review </span>
+            		<a href="@@reportsLink@@">performance reports</a>
+            		<span> or see all </span>
+            		<a class="view-completed-assignments">completed assignments.</a>
+            	</div>
+            	<div class="fantastic-complete show-for-small">
+            		<span>See all </span>
+            		<a class="view-completed-assignments">completed assignments.</a>
+            	</div>
+        	</div>
+        </div>
+        <div id="complete-assignment-container" class="row collapse group-assignment-container hide">
+        	<div class="small-12 large-12 columns member-assignment-wrapper">
+        		<div class="member-assignment-header"></div>
+        		<div class="row collapse member-assignments-container">
+        			<div id="complete" class="small-12 large-12 columns">
+						<div class="row collapse member-assignment-list-header">
+							<div class="left text-center member-assignment-due">
+								<i class="icon-calendar"></i>
+							</div>
+							<div class="left text-center member-assignment-late">
+								<span>&nbsp;</span>
+							</div>
+							<div class="member-assignment-name">
+								<span>&nbsp;</span>
+							</div>
+							<div class="right text-center member-assignment-progess">
+								<span>PROGRESS</span>
+							</div>
+						</div>
+					</div>
+        		</div>
+        	</div>
+        </div>
+	</div>
+</div>

@@ -1,0 +1,47 @@
+body#list {
+    margin: 0 8px;
+    overflow: hidden;
+}
+
+#list #general_panel{
+    padding: 1em 0;
+}
+
+#list form {
+    padding-bottom: 50px;
+}
+
+#list form fieldset {
+    border: 0;
+    margin: 0;
+    padding: 4px;
+}
+
+#list form label {
+    text-align: right;
+    vertical-align: middle;
+    width: 25%;
+    padding-right: 3%;
+    font-size: 14px;
+}
+
+#list form input {
+    width: 65%;
+}
+
+#list .right {
+    float: right;
+}
+
+#list .mceActionPanel {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 50px;
+  width: 100%;
+  background: white
+}
+
+#list .mceActionPanel .mce-container {
+  margin: 5px 1em 0 0;
+}

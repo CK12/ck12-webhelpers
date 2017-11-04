@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<!--[if IE 7]>         <html class="no-js lt-ie9" itemscope itemtype="http://schema.org/Organization" lang="en"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" itemscope itemtype="http://schema.org/Organization" lang="en"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie9 lt-ie10" itemscope itemtype="http://schema.org/Organization" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+    <head>
+            {% block head %}
+                <title>{% block title %}{{ _("Welcome to CK-12 Foundation") }}{% endblock %}{% block common_title %} | {{ _("CK-12 Foundation") }}{% endblock %} </title>
+
+                {% if request.path|ck12_optimizely_enabled() %}
+                <script src="{{config.optimizely_js}}"></script>
+                {% endif %}
+
+                <meta charset="utf-8" />
+                <meta name="viewport" content="width=device-width" />
+                <meta name="google-site-verification" content="wHx0f-Udlfd7ZNYNrIXpJVpjjO8nSH5RE0jIX8V-jIM" />
+                <meta name="google-translate-customization" content="{{ config.gt_meta}}"></meta>
+                <meta itemprop="name" content="CK-12 Foundation">
+                <meta itemprop="url" content="http://www.ck12.org">
+                <meta itemprop="telephone" content="(650) 494-1302">
+                <link rel="shortcut icon" href="{{ config.url_media }}/images/favicon.ico" type="image/x-icon" />
+
+                {% block canonical %}
+                    <link rel="canonical" href="https://www.ck12.org{{request.path}}"/>
+                {% endblock %}
+
+                {% block stylesheets %}
+                <link rel="stylesheet" type="text/css" media="all" href="{{ config.url_media }}/common/vendor/foundation/css/foundation.min.css" />
+                <link rel="stylesheet" type="text/css" media="all" href="{{ config.url_media }}/common/vendor/foundation/css/normalize.css" />
+                <link rel="stylesheet" type="text/css" media="all" href="{{ config.url_media }}/common/css/fontck12.css" />
+                <link rel="stylesheet" type="text/css" media="all" href="{{ config.url_media }}/common/css/webfont.css" />
+                <link rel="stylesheet" type="text/css" media="all" href="{{ config.url_media }}/common/css/main.css" />
+                <link rel="stylesheet" type="text/css" media="all" href="{{ config.url_media }}/common/css/tangerine-ui.css" />
+                <link rel="stylesheet" type="text/css" media="all" href="{{ config.url_media }}/common/css/tangerine.search.css" />
+                <link rel="stylesheet" type="text/css" media="all" href="{{ config.url_media }}/common/css/header.css" />
+                <link rel="stylesheet" type="text/css" media="all" href="{{ config.url_media }}/common/themes/uikit/css/ui-kit.css" />
+                <link rel="stylesheet" type="text/css" media="all" href="{{ config.url_media }}/common/css/gtranslate.overrides.css" />
+                <link rel="stylesheet" type="text/css" media="all" href="{{ config.url_media }}/notification/css/notification.css" />
+                <link rel="stylesheet" type="text/css" media="all" href="{{ config.url_media }}/auth/css/auth.css" />
+                <link rel="stylesheet" type="text/css" media="all" href="{{ config.url_media }}/common/css/overlay.css" />
+                <!-- Hide the google translate blue bar -->
+                <style type="text/css">iframe.goog-te-banner-frame { display:none !important; }</style>
+                {% endblock %}
+                <!--[if lt IE 9]>
+                    <link rel="stylesheet" type="text/css" media="all" href="{{ config.url_media }}/common/vendor/foundation/css/ie8-grid-foundation-4.css" />
+                    <script src="{{ config.url_media }}/common/vendor/respondjs/respond.min.js"></script>
+                <![endif]-->
+
+                {% block extra_head %}
+                    <!-- All other pages can add any extra head tags here -->
+                {% endblock %}
+            {% endblock %}
+
+        <!-- Start Alexa Certify Javascript -->
+        <script type="text/javascript">
+        _atrk_opts = { atrk_acct:"iA1Pi1a8Dy00ym", domain:"ck12.org",dynamic: true};
+        (function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as, s); })();
+        </script>
+        <noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=iA1Pi1a8Dy00ym" style="display:none" height="1" width="1" alt="" /></noscript>
+        <!-- End Alexa Certify Javascript -->
+    </head>
+    <body>
+        {% block tracking %}
+            {% include 'base/auth/tracking.html' %}
+        {% endblock %}
+        {% block header %}
+            {% include 'base/auth/header.html' %}
+        {% endblock %}
+        {% block overlay %}
+            {% include 'base/auth/overlay.html' %}
+        {% endblock %}
+        {% block pageinfotop %}
+        {% endblock %}
+
+        {% block contentwrap %}
+        <a name="anchor-content"></a>
+        <div class="content-wrap row">
+            {% block content %}
+            <!-- individual page contents go here -->
+            {% endblock %}
+        </div>
+        <div class="row collapse hide" id="notification_popup"></div>
+        {% endblock %}
+
+        {% block footer %}
+            {% include 'base/auth/footer.html' %}
+        {% endblock %}
+
+        {# dialog that asks the user to signin #}
+        <div id="js_signin_message">
+            {% block sign_in %}
+                <!-- {{ _('You need to be signed in to perform this action. Please sign-in and try again.') }} -->
+            {% endblock %}
+        </div>
+
+        {% block js %}
+            <script src="{{ config.url_media }}/common/js/utils/globals.js"></script>
+            <script src="{{ config.url_media }}/dexterjs/dexterjs.min.js"></script>
+            <script data-main="{{ config.url_media }}/main" src="{{ config.url_media }}/common/vendor/requirejs/require.js"></script>
+            <!-- RG: TODO: can we instead use a JS file for page level global JS? -->
+            {% include 'base/auth/global_js.html' %}
+        {% endblock%}
+
+        <script type="text/javascript">
+            require(['main'],function(){
+                require(['jquery'],function($){
+                    $(document).ready(function() {
+                        $('footer').show();
+                    });
+                });
+            });
+            if (!window.navigator.cookieEnabled && window.location.pathname !=='/nocookies') {
+                window.location.href = '/nocookies';
+            }
+        </script>
+        {% block noscript %}
+        <noscript>
+          <div style="position:fixed; top:0;left:0;right:0;margin:auto; z-index:9999;">
+              <div class="row collapsed" style="text-align:center;background-color:#FFFF99;padding:5px 5px 5px 5px; border:2px solid #999;font-size:16px;text-shadow:none;color:#000000;">
+                  <div>To use this website, please enable javascript in your browser. <a style="text-shadow: none;color:#0000FF;text-decoration:underline;" href="/nojavascript/">Learn more</a></div>
+              </div>
+          </div>
+        </noscript>
+        {% endblock %}
+    </body>
+</html>

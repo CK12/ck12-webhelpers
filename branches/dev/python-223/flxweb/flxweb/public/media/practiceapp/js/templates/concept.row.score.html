@@ -1,0 +1,53 @@
+<div class="row collapse pointer select-concept-wrapper js-select-concept-wrapper js-concept-select concept-row-score no-hover" data-encodedID="<%= data.encodedID %>" data-handle="<%= data.handle %>" data-parent-handle="<%= data.parentHandle %>" data-points="<%= data.points %>">
+	<span class="concept-name">
+		<span class="js-concept-name"><%= data.conceptName %></span>
+	</span>
+	<% if(data.points !== null) { %>
+	<div class="right concept-score">
+		<div class="progress-container">
+			<svg viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+			  <circle cx="50" cy="50" r="40" stroke="#eee" stroke-width="10" fill="transparent"/>
+			  <path stroke="#eee" stroke-width="10" fill="transparent" class="bar" />
+			</svg>
+			<div class="progress-label"></div>
+		</div>
+		<% if(data.isFirst) { %>
+			<div class="three-bounce loader">
+				<div class="one"></div>
+				<div class="two"></div>
+				<div class="three"></div>
+			</div>
+		<% } %>
+		<!-- <canvas width="36" height="36"></canvas> -->
+		<!-- <div class="best-score-container left js-open-practice">
+			<div class="best-score-pie">
+				<div class="pie-container left">
+					<div class="inner-circle">
+					</div>
+					<div class="hold">
+						<div class="pie"></div>
+						<div class="pie"></div>
+					</div>
+				</div>
+				<div class="best-score-value right"><%= data.points %>%</div>
+			</div>
+		</div> -->
+		
+		<% if(data.noQuestion) { %>
+			<!-- div class="button tangerine small right margin-bottom-zero button-custom js-open-practice restartPractice hide-for-mobile">Restart</div-->
+		<% } else {%>
+			<!-- <div class="button tangerine small right margin-bottom-zero button-custom js-open-practice  hide-for-mobile">Resume</div> -->
+		<% } %>
+		<!-- <% if(data.points > 84.9 && data.testScoreId) { %>
+			<div class="button tangerine small right margin-bottom-zero button-custom js-open-practice" data-testScoreId="<%= data.testScoreId %>">Review</div>
+		<% }else{%>
+		<div class="button tangerine small right margin-bottom-zero button-custom js-open-practice">Try again</div>
+		<%}%> -->
+		
+	</div>
+	<% }else{ %>
+	<!-- <div class="right-concept-btn">
+		<div class="button turquoise small right margin-bottom-zero button-custom js-open-practice">Practice</div>
+	</div> -->
+	<% } %>
+</div>

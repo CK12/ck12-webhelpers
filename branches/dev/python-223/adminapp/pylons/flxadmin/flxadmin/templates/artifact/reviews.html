@@ -1,0 +1,185 @@
+{% extends "listings.html" %}
+{% from "macros/form_errors.html" import form_errors with context %}  
+{% block admintop %} 
+	{% block filters %} 
+	{% endblock %}
+	{% block searches %} 
+		{% if c.reviewsByUser %} 
+			{{ super() }}
+		{% endif %}
+	{% endblock %} 
+	{% block aftersearches %}
+		{% if c.reviewsByUser %} 
+			<div style="display:block">
+			  <input id='disableListOnEmptySearch' type='checkbox' checked='true'>
+			  <label>Disable Listing on Empty Searches</label>
+			</div>
+		{% endif %}
+	{% endblock %}
+{% endblock admintop %}
+
+{% block admincontent %}
+{% if not c.reviewsByUser %} 
+<a id='manageUserReviews' href="/flxadmin/manage/user/reviews" class='linklike'>[Manage User Reviews]</a>
+{% endif %}
+{{ super() }}
+	<div id = "review_list" class = "hide">
+	<div class="prethead title">Feedback Review(s)</div>
+	<div class="inline table">
+  		<div class="thead sectionhead">
+		<div class="tr">
+        	{% for head in c.form.inlinelisthead %}
+          	<div class="td">
+            	{{head}}<span class='sort-indicator hide'></span>
+          	</div>
+        {% endfor %}
+        </div> 
+        </div>
+  		<div class="tbody">
+  		</div>
+	</div>
+	</div>
+</div>
+
+{% endblock admincontent %}
+
+{% block js_scripts %}
+{{ super() }}
+<script type="text/javascript" src="{{ h.url_js('inlineList.js') }}"></script>
+<script type='text/javascript'>
+{{ form_errors() }}
+
+$(document).ready(function(){
+	var {% if not c.reviewsByUser %}
+			artifactID =  {{ c.artifactID }},
+			ajaxUrl = CK12.admUrl('/feedback_list/'+ artifactID ), 
+		{% else %} 
+			artifactID = null, 
+			ajaxUrl = CK12.admUrl('/user_feedback_list' ),
+		{% endif %}
+  	memberID = '',
+  	currentFeedbackRow = null;
+  	Listings({
+    		sort: 'updateTime,desc',
+    		ajaxRoot: ajaxUrl,
+    		postLoad: function(url, _params){
+				$('#leftpane div.no-reviews').remove();
+    			if ($($('.table')[0]).find('.tbody').children().length){
+    				$('#review_list').removeClass('hide');
+    			}else{
+					$('#review_list').addClass('hide');
+    				$('#leftpane').append('<div class="no-reviews">No Reviews Present!</div>')
+    			}
+    			$('.inline').find('.tbody').html('');
+			}
+  	});
+	var inlineListings ;
+	$('#rebuild_cache').click(function(){
+		cache_urls = $('.td').children().filter('input:checked');
+		cache_urls_len = cache_urls.length;
+		$.each(cache_urls, function(index,value){
+			$($(value).parent().siblings().filter('.status')[0]).html('PENDING');
+		});
+		if (cache_urls_len > 0){
+			Fns.colorStatus();
+			check_cache_urls(0);
+		}
+	});
+
+	$('#selectall').click(function(){
+		if ($(this).is(':checked')){
+			$('.td').find(':checkbox').attr("checked", "checked");
+			$(this).attr('title', 'Unselect All');
+		}else{
+			$('.td').find(':checkbox').removeAttr('checked');
+			$(this).attr('title', 'Select All');
+		}
+	});
+
+	getFeedbackReview = function(){
+		memberID = $(this).data('member-id');
+		artID = $(this).data('artifact-id');
+		currentFeedbackRow = this;
+		siblings = $(this).parent().parent().siblings();
+		for (i = 0 ; i < siblings.length; i++){
+    		$(siblings[i]).removeClass('selected');
+		}
+		$('.title').html('Feedback Review(s) For ' + $(this).data('member-name'));
+		$($(this).parent().parent()).addClass('selected');
+  		updateFeedbackReview(memberID, artID);
+  	}
+  
+  	updateFeedbackReview = function(memberID, artifactID){
+  		InlineList({
+			ajaxRoot: CK12.admUrl('/json/feedback/reply/'+ artifactID + '/' + memberID),
+			postLoad: function(){
+    			if ($('.inline').find('.tbody').children().length == 0){
+    				$(currentFeedbackRow).remove();
+    			}
+			}
+		});
+  	}
+  	
+  	deleteFeedback = function(){
+		var memID = $(this).data('member-id');
+		var artID = $(this).data('artifact-id');
+		var data = {'artifactID' : artID,
+		            'memberID' : memID,
+		            'type' : 'vote'
+		           } 
+		var url = '/json/feedback/delete'
+		var currentContext = this;
+		$.ajax({url: CK12.admUrl(url), 
+              type: 'POST', 
+              data: data,
+              success: function(data, status, xhr){ //data is just {} for artifacts
+                 window.updateListingsResult();
+              },
+              error: function(xhr, textStatus, errorThrown){
+                  alert('API Error: '+ Fns.formatResponseError(
+                  xhr, textStatus, errorThrown));
+              }
+		});
+  	}
+  	
+  	
+  	deleteFeedbackReview = function(){
+  		if (! (memberID)){
+  			return false;
+  		}
+		reviewersMemberID = $(this).data('reviewer-id');
+		reviewID = $(this).data('review-id');
+		var data = {'memberID' : memberID,
+		            'reviewersMemberID' : reviewersMemberID,
+		            'reviewID' : reviewID,
+		            'type' : 'vote'
+		           } 
+		var url = '/json/review/delete'
+		var currentContext = this;
+		$.ajax({url: CK12.admUrl(url), 
+              type: 'POST', 
+              data: data,
+              success: function(data, status, xhr){ //data is just {} for artifacts
+					updateFeedbackReview(memberID)
+              },
+              error: function(xhr, textStatus, errorThrown){
+                  alert('API Error: '+ Fns.formatResponseError(
+                  xhr, textStatus, errorThrown));
+              }
+		});
+  	}
+  	
+  	deleteSuccess = function(data,context){
+  		if (data && data.response && data.response.is_deleted){
+  			$(context).remove();
+  		}else{
+			alert('Unable to perform delete operation. Try Again Later')			  		
+  		}
+  	}
+  	
+  	$(".review_delete").live('click', deleteFeedbackReview);
+  	$(".feedback_delete").live('click', deleteFeedback);
+  	$(".reply").live('click', getFeedbackReview);
+});
+</script>
+{% endblock %}

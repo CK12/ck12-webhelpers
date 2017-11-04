@@ -1,0 +1,245 @@
+@mixin multiLineEllipsis($lineHeight: 1.2em, $lineCount: 1, $bgColor: white){
+  overflow: hidden;
+  position: relative;
+  line-height: $lineHeight;
+  max-height: $lineHeight * $lineCount;
+  text-align: justify;
+  margin-right: -1em;
+  padding-right: 1em;
+  margin-bottom: 5px;
+  &:before {
+    content: '...';
+    position: absolute;
+    right: 10px;
+    background: $bgColor;
+    bottom: 0;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    right: 5px;
+    width: 1em;
+    height: 1em;
+    margin-top: 0.2em;
+    background: $bgColor;
+  }
+}
+#forums-main{
+    padding-bottom: 20px;
+}
+
+.show-more-container{
+    margin-top: 20px;
+    a{
+        font-weight: bold;
+        font-size: 16px;
+    }
+}
+.filters-container{
+    padding-top: 30px;
+    .filter{
+        margin-left: 20px;
+        font-size: 16px;
+        font-family: 'ProximaNova';
+        color: #56544D;
+        font-weight: normal;
+        &.active{
+            color:#00aba4;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+    }
+}
+.create-new-cafe-btn{
+    margin-left: 10px;
+    border-left: 1px solid #8a8c89;
+    padding-left: 10px;
+    font-weight: bold;
+}
+.btn-forum {
+    background-color: #ffffff;
+    border: 1px solid #00aba4;
+    color: #00aba4;
+}
+.btn-follow{
+    width: 100px;
+    font-weight: bold;
+    padding: 7px;
+    i{
+        margin-right:7px;
+        font-size: 11px;
+    }
+}
+.btn-following, .link-unfollow{
+    width: 110px;
+    font-weight: bold;
+    padding: 7px;
+    background-color: #1aaba3;
+    color: #ffffff;
+    i{
+        margin-right:7px;
+        font-size: 11px;
+    }
+}
+.forum-card{
+    width: 300px;
+    height: 385px;
+    overflow: hidden;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 5px;
+    background: #ffffff;
+    box-shadow: 0px 3px 5px -2px rgba(158, 158, 158, 0.46);
+    position: relative;
+    .cafe-edit-container{
+        position: absolute;
+        color: #ffffff;
+        padding: 11px;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+    .card-footer-container{
+        position: absolute;
+        bottom: 0;
+        width: 90%;
+    }
+    .forum-image{
+        width: 100%;
+        height: 150px;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+    .content-container{
+        padding: 15px;
+        h2{
+            @include multiLineEllipsis($lineHeight: 1.5em, $lineCount: 2, $bgColor: #FFFFFF);
+        }
+    }
+    h2{
+        font-size: 20px;
+        margin: 0;
+    }
+    .description{
+        height: 35px;
+        padding-top: 2px;
+    }
+    .description-text{
+        min-height: 1em;
+        color: #56544D;
+        font-size: 14px;
+    }
+    .members-container{
+        height: 25px;
+        img{
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+        }
+    }
+    .actions-info-container{
+        width: 100%;
+        padding-top: 20px;
+        .follow-btn{
+            float: left;
+        }
+        .icon-background{
+            width: 30px;
+            height: 30px;
+            border-radius: 16px;
+            background-color: #cccccc;
+            float: right;
+            padding-top: 6px;
+            padding-left: 6px;
+            &.thread{
+                padding-top: 8px;
+                padding-left: 6px;
+            }
+            position: relative;
+            i{
+                font-size: 18px;
+                color: #ffffff;
+            }
+            &:first{
+                margin-right: 30px;
+            }
+            .image-container{
+                width: 20px;
+                height: 20px;
+            }
+            &:hover{
+                &:before{
+                    content: '';
+                    position: absolute;
+                    top: -39px;
+                    left: -15px;
+                    padding: 5px 10px 6px;
+                    border-radius: 2px;
+                    background: #00aba4;
+                    color: #ffffff;
+                    font-size: 14px;
+                }
+                &:after{
+                    content: '';
+                    border-top: 9px solid #00aba4;
+                    border-left: 10px solid transparent;
+                    border-right: 10px solid transparent;
+                    top: -15px;
+                    left: 6px;
+                    position: absolute;
+                }
+            }
+            &.answer:hover{
+                &:before{
+                    content: 'Answers';
+                    font-family: "ProximaNova"
+                }
+            }
+            &.thread:hover{
+                &:before{
+                    content: 'Threads';
+                    font-family: "ProximaNova"
+                }
+            }
+        }
+        .count{
+            float: right;
+            padding: 5px 8px;
+        }
+    }
+    &.create-cafe{
+        padding: 20px;
+    }
+    .create-button-container{
+        &:hover{
+            cursor: pointer;
+        }
+        border: 3px dashed #CCCCCC;
+        border-radius: 3px;
+        height: 100%;
+        .icon-background{
+            width: 50px;
+            height: 50px;
+            border-radius: 30px;
+            background-color: #cccccc;
+            padding-top: 13px;
+            padding-left: 13px;
+            margin: auto;
+            margin-top: 60px;
+            i{
+                font-size: 25px;
+                color: #ffffff;
+            }
+        }
+        .title{
+            text-align: center;
+            margin-top: 30px;
+            color: #CCCCCC;
+        }
+        .subtitle{
+            text-align: center;
+            color: #CCCCCC;
+        }
+    }
+}

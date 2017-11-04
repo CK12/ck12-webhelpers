@@ -1,0 +1,67 @@
+{% extends "master.html" %}  
+{% from "macros/form_errors.html" import form_errors with context %}  
+
+{% block admincontent %}
+
+<div class="sectionhead sectiontitle">Group Quiz Report</div>
+<div class="section withfloatedsubmit">
+  <form method="post"> 
+    <div class="leftaligned">
+      {{ h.labelinput('Group ID', 'groupID', 'searchby short', c.groupID) }}
+      {{ h.labelinput('Quiz ID', 'quizID', 'searchby short', c.quizID) }}
+      {{ h.labelselect('Aggregate Method', 'aggregate', c.form.aggregate_select) }}
+      {{ h.labelselect('Format', 'format', c.form.format_select) }}
+    </div>
+      {{ h.submitbutton('Generate Report')}}
+  </form>
+</div>
+
+
+<span class='ajaxError'></span>
+
+{% if c.result != '' %}
+  {% if c.format =='csv' %}
+    <div class="thead sectionhead">
+      <div class="tr">
+        <div class="td">Result</div>
+      </div>
+    </div>
+    <div class="tbody">
+      <div class="tr">
+        <div class="td">  
+        The quiz score report can be downloaded from: <a href="{{ c.result }}">{{ c.result }} </a>
+        </div>
+      </div>  
+    </div>
+  {% else%}
+    <div class="thead sectionhead">
+      <div class="tr">
+        <div class="td">User ID</div>
+        <div class="td">Username</div>
+        <div class="td">First Name</div>
+        <div class="td">Last Name</div>
+        <div class="td">Email</div>
+        <div class="td">Score (%)</div>
+        <div class="td">Last Completed</div>
+      </div>
+    </div>    
+    <div class="tbody" id='results'>
+    {% for row in c.result %}
+      <div class="tr">
+        <div class="td">{{ row['userID'] }}</div>
+        <div class="td">{{ row['login'] }}</div>
+        <div class="td">{{ row['givenName'] }}</div>
+        <div class="td">{{ row['surname'] }}</div>
+        <div class="td">{{ row['email'] }}</div>
+        <div class="td">{{ row['score'] }}</div>
+        <div class="td">{{ row['last_completed'] }}</div>
+      </div>
+    {% endfor%}
+    </div>
+  {% endif%}
+{% endif%}
+
+{% endblock %}
+
+
+

@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>Delete Artifact-Resource Association</title>
+        <script type="text/javascript">
+          function formSubmit() {
+            if (confirm('Are you sure you want to remove this resource from this artifact (the resource itself will not be deleted)?')) {
+              document.metadata.submit();
+              return true;
+            }
+            return false;
+          }
+        </script>
+    </head>
+    <body>
+        <h1>Delete Artifact-Resource Association<h1>
+        <form name="metadata" method="POST" action="{{ c.prefix }}/delete/resource/association" onsubmit="return formSubmit();">
+            <table>
+                <tr>
+                    <td>
+                        Resource ID:
+                    </td>
+                    <td>
+                        <input type="text" name="resourceID" value="" size="100" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Artifact ID:
+                    </td>
+                    <td>
+                        <input type="text" name="artifactID" value="" size="100" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Resource Revision ID (Optional):
+                    </td>
+                    <td>
+                        <input type="text" name="resourceRevisionID" value="" size="100" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Artifact Revision ID (Optional):
+                    </td>
+                    <td>
+                        <input type="text" name="artifactRevisionID" value="" size="100" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align:right;">
+                        <input type="submit" name="submit" value="Delete" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
+

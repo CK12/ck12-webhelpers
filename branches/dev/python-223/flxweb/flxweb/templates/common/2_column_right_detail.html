@@ -1,0 +1,23 @@
+{% extends "common/master.html" %}
+{% block js_data_main %}{{ h.url_js('main') }}{% endblock %}
+
+<!-- RIGHT SIDE as MAIN CONTENT -->
+{% block content %}
+	{% block content_left %}
+	<aside id="leftsecondary" class="columns large-2 hide-for-small">
+		{% block content_left_inner %}
+			left content
+		{% endblock %}
+	</aside>
+	{% endblock %}
+	{% block content_right %}
+		{% block rightinfotop %}{% endblock %}
+		<div id="content" class="columns large-10">
+			{% block content_right_inner %}
+				right content
+			{% endblock %}
+			{% block rightinfobottom %}{% endblock %}
+		</div>
+	{% endblock %}
+	<div class="gclear"></div>
+{% endblock %}

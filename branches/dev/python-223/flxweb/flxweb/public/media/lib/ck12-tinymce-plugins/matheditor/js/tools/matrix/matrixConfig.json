@@ -1,0 +1,37 @@
+{
+	"unbracketedMatrix1X2" : {
+		"data" : "\\begin{bmatrix} & \\end{bmatrix}",
+		"pos" : [0,15,18,31],
+		"length" : "31"
+	},
+	"unbracketedMatrix2X1" : {
+		"data" : "\\begin{bmatrix}\\\\\\end{bmatrix}",
+		"pos" : [0,15,17,30],
+		"length" : 30
+	},
+	"unbracketedMatrix1X3" : {
+		"data" : "\\begin{bmatrix} &  & \\end{bmatrix}",
+		"pos" : [0,15,18,21,34],
+		"length" : 34
+	},
+	"unbracketedMatrix3X1" : {
+		"data" : "\\begin{bmatrix}\\\\\\\\\\end{bmatrix}",
+		"pos" : [0,15,17,19,32],
+		"length" : 32
+	},
+	"unbracketedMatrix2X2" : {
+		"data" : "\\begin{bmatrix} & \\\\ & \\end{bmatrix}",
+		"pos" : [0,15,18,20,23,36],
+		"length" : 36
+	},
+	"unbracketedMatrix2X3" : {
+		"data" : "\\begin{bmatrix} &  & \\\\ &  & \\end{bmatrix}",
+		"pos" : [0,15,18,21,23,26,29,42],
+		"length" : 42
+	},
+	"unbracketedMatrix3X2" : {
+		"data" : "\\begin{bmatrix} & \\\\ & \\\\ & \\end{bmatrix}",
+		"pos" : [0,15,18,20,23,25,28,41],
+		"length" : 41
+	}
+}

@@ -1,0 +1,68 @@
+// &-1 {
+//     padding-top: 8%;
+//     &__header {
+//         font-size: rem-calc(18);
+//         color: #56544D;
+//         text-align: center;
+//         margin-bottom: rem-calc(40);
+//     }
+// ​}
+// // .tutorial__modal__slide-1__header{
+// //     font-size: 36px;
+// //     color: #ffffff;
+// //     margin-top: 65px;
+// //     text-align: center;
+// // }
+// .tutorial__modal__slide-1__map{
+//     margin-left: 20px;
+//     img{
+//         width: 250px;
+//     }
+// }
+
+&-0 {
+    padding-top: 60px;
+    overflow: auto;
+    &__header {
+        font-size: 36px;
+        color: #ffffff;
+        text-align: center;
+    }
+    &__welcome{
+        img{
+            width: 35%;
+            padding: 0 50px;
+        }
+    }
+    &__content{
+        float: right;
+        width: 65%;
+        padding-right: 50px;
+        overflow: auto;
+        &__top{
+            font-size: 24px;
+            line-height: 30px;
+            margin-bottom: 30px;
+            color: #FFFFFF;
+        }
+        &__middle{
+            font-size: 16px;
+            line-height: 18px;
+            color: #FFFFFF;
+            margin-bottom: 50px;
+        }
+        &__bottom{
+            text-align: center;
+            width: 130px;
+            .cancel-tour{
+                &:hover{
+                    cursor: pointer;
+                }
+                font-size: 16px;
+                font-weight: bold;
+                color: #FFFFFF;
+            }
+        }
+    }
+
+}

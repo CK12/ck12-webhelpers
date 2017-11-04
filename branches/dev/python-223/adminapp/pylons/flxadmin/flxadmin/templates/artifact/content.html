@@ -1,0 +1,171 @@
+{% extends "master.html" %}
+
+{% block admincontent %}
+{% if c.artifact %}
+<a name='top'></a>
+<div class="sectionhead sectiontitle">{{c.artifact.title}}
+</div>
+<div>
+  <div class="section" id='main'>
+    <form method="post">
+        <div class="hide" id='editLinks'>
+          <span id='editInTMCE' class='linklike'>Edit with tinyMCE</span>&nbsp;
+          <span id='switchTMCE' class='linklike' style="float: right;">Switch Editor</span>&nbsp;
+        </div>
+        <div id='conceptText'>
+        {% if c.content %}
+          {{ c.content }}
+        {% else %}
+          <p>Content Not Found</p>
+        {% endif %}
+        </div>
+        <div class="hide contentAdmin" id="buttons">
+          {{ h.submitbutton('Submit','hide') }}
+        </div>
+      </div>
+    </form>
+    <div id="backto">
+    <label>Back to:</label>&nbsp;
+    <a href='#top'>[Top]</a>&nbsp;
+    {{c.backto}}
+  </div>
+
+</div>
+{% endif %}
+{% endblock %}
+
+{% block js_scripts %}
+{% if not c.isArtifact %}
+
+<script type="text/javascript" src="{{ h.url_js('tinymce.loader.js')}}"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    var enableMathJax = true;
+
+    var getXhtml = function(){
+        var xhtml = $("#conceptText").tinymce().getContent();
+        xhtml = $('<div>' + xhtml + '</div>');
+        $('span[class^="MathJax"]', xhtml).remove();
+        if (xhtml.find('#MathJax_Hidden').length > 0 && xhtml.find('#MathJax_Hidden').parent().children().length === 1) {
+                xhtml.find('#MathJax_Hidden').parent().remove();
+        }
+        $('div[id^="MathJax"]', xhtml).remove();
+        $('.MathJax_Display', xhtml).remove();
+        $('span[data-mce-type="bookmark"]', xhtml).remove();
+        xhtml.find('div').each(function(){
+                var _t = $(this);
+                _t.html( $.trim(_t.html()) );
+        });
+        $('div:empty', xhtml).remove();
+        $('p:empty', xhtml).remove();
+        replaceMathEquation(xhtml);
+        xhtml.find('*').removeClass('x-ck12-validated x-ck12-dirty').removeAttr('data-error');    //removing validation related classes before saving the artifact.
+        return $(xhtml).html();
+    }
+    // Bug #54611
+    // New firewall setup, we need to encode the payload before sending it.
+    $('form').submit(function(e){
+      e.preventDefault();
+      try{
+          var payload = admin.utils.b64EncodeUnicode(getXhtml());
+          if (payload){
+              var posting = $.post(window.location.href, {'conceptText': payload});
+              posting.done(function(data) {
+                  $("body").html(data);
+              });
+          }
+      } catch (e) {
+          console.log("Error posting content: "+ String(e));
+      }
+    });
+    if (enableMathJax) {
+    	var script = document.createElement("script");
+        script.id = "mathLoader";
+        script.type = "text/javascript";
+        script.src = "//d3lkjnwva6z405.cloudfront.net/mathjax-min-2.6-20160201/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+        var config = 'MathJax.Hub.Config({' +
+        	'styles: {'+
+                '"#MathJax_MSIE_Frame": {'+
+                        '"position": "static",'+
+                        '"height": "0",'+
+                        '"overflow": "hidden",'+
+                        '"visibility": "hidden",'+
+                        '"display": "none"'+
+                '}'+
+           '},'+
+           'extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],' +
+           'tex2jax: {'+
+                      'inlineMath: [["@$","@$"]],'+
+                      'displayMath: [["@$$","@$$"]],'+
+                    '},'+
+                    'showMathMenu: false ,'+
+           'jax: ["input/TeX","output/HTML-CSS"],' +
+           'messageStyle: "none"' +
+        '});'+
+        'function refreshMath(){' +
+        	'MathJax.Hub.Queue(["Typeset", MathJax.Hub]);' +
+    	'};';
+
+    	if (window.opera) {
+            script.innerHTML = config;
+    	}
+    	else {
+            script.text = config;
+        }
+    	document.getElementsByTagName("head")[0].appendChild(script);
+    }
+	var editInTMCE = function(){
+	    // var $this = $(this);
+		var $this = $('#editInTMCE');
+		if ($this.hasClass('linklike') && CK12Config.doneLoading){
+			$this.removeClass('linklike');
+			$("input[type=submit]").removeClass('hide')
+			$('#editInRaw').addClass('linklike');
+			Fns.initTMCE('#conceptText', 'concept');
+			replaceMathEquation($("#conceptText"));
+			$(".contentAdmin").off("mousedown").on("mousedown", "input", function(){
+				var xhtml = $("#conceptText").tinymce().getContent();
+				xhtml = $('<div>' + xhtml + '</div>');
+				$('span[class^="MathJax"]', xhtml).remove();
+				if (xhtml.find('#MathJax_Hidden').length > 0 && xhtml.find('#MathJax_Hidden').parent().children().length === 1) {
+					xhtml.find('#MathJax_Hidden').parent().remove();
+				}
+				$('div[id^="MathJax"]', xhtml).remove();
+				$('.MathJax_Display', xhtml).remove();
+				$('span[data-mce-type="bookmark"]', xhtml).remove();
+				xhtml.find('div').each(function(){
+					var _t = $(this);
+					_t.html( $.trim(_t.html()) );
+				});
+				$('div:empty', xhtml).remove();
+				$('p:empty', xhtml).remove();
+				replaceMathEquation(xhtml);
+				xhtml.find('*').removeClass('x-ck12-validated x-ck12-dirty').removeAttr('data-error');    //removing validation related classes before saving the artifact.
+				$("#conceptText").tinymce().setContent($(xhtml).html());
+			});
+		} else {
+      alert('Please wait for TinyMCE to load.');
+    }
+	};
+	$('#editInTMCE').click(editInTMCE);
+	$('#main').addClass('withfloatedsubmit');
+	$('#buttons').removeClass('hide');
+	$('#editLinks').removeClass('hide');
+	function replaceMathEquation(content){
+		$.each((content.find('.x-ck12-mathEditor')), function () {
+		    var $this = $(this),
+			mathLatex;
+			if($this.data("math-class")=="x-ck12-block-math"){
+				mathLatex = "@$$"+decodeURIComponent($this.data("tex"))+"@$$";
+			}
+    		else {
+    			mathLatex = "@$"+decodeURIComponent($this.data("tex"))+"@$";
+    		}
+    		$this.html(mathLatex).prop("contenteditable", false);
+		});
+	}
+});
+
+</script>
+{% endif %}
+{% endblock %}

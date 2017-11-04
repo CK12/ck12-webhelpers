@@ -1,0 +1,137 @@
+.#{$slide-class}-1 {
+    @include hidden();
+
+    text-align: center;
+    padding-top: 7.5%;
+
+    .map-logo {
+        max-height: rem-calc(85);
+    }
+
+    .logo-text {
+        text-align: left;
+        font-weight: normal;
+        line-height: rem-calc(85);
+        margin: 0 0 2.5%;
+
+        @include betaIcon(15, 10);
+    }
+
+    .science-dot, .math-dot {
+        margin: 0 2px;
+    }
+
+    .science-dot::before, .math-dot::before {
+        content: '';
+        position: absolute;
+        border-radius: 50%;
+        width: 0.75rem;
+        height: 0.75rem;
+        transform: translateY(0.33rem);
+    }
+
+    .science-dot::before{
+        background-color: $ui-green;
+    }
+
+    .math-dot::before{
+        background-color: $ui-blue;
+    }
+
+    .mock-video-cover {
+        background: url('/media/conceptmap/images/tutorial/video-cover-1.png') no-repeat;
+        background-size: cover;
+        border-radius: 3px;
+        box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2);
+        background-position-x: 50%;
+        width: 100%;
+        min-height: 165px;
+        cursor: pointer;
+        position: relative;
+
+        &:hover:after {
+            opacity: 1;
+        }
+
+        &:after {
+            transition: opacity 0.25s;
+            opacity: 0.6;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            content: '\25B6';
+            background: rgba(0,0,0,0.6);
+            width: rem-calc(54);
+            height: rem-calc(36);
+            border-radius: rem-calc(5);
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            font-size: rem-calc(16);
+            padding-top: calc(#{rem-calc(36) / 2} - #{rem-calc(16) / 2});
+        }
+    }
+
+    .tutorial-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 3;
+        display: none;
+
+        + .tutorial-video__close-button {
+            display: none;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 3;
+            color: $medium-gray;
+            cursor: pointer;
+        }
+
+        &.is--active{
+            display: block;
+
+            + .tutorial-video__close-button {
+                display: block;
+            }
+        }
+    }
+
+    p.video-text {
+        padding: 0;
+        margin-top: 3px;
+        font-size: rem-calc(14);
+        font-weight: bold;
+        white-space: nowrap;
+        margin-bottom: 0;
+    }
+
+    p {
+        font-size: 1.25rem;
+        line-height: 1.45rem;
+    }
+}
+
+.tutorial__modal--active {
+    .#{$slide-class}-1.tutorial__modal__slide--active {
+        @include visible();
+    }
+}
+
+
+@media screen and #{breakpoint(medium down)} {
+    .#{$slide-class}-1 {
+        .logo-text {
+            font-size: rem-calc(32);
+        }
+
+        .mock-video-cover {
+            min-height: 125px;
+            transform: translateX(18.5px);
+        }
+    }
+}

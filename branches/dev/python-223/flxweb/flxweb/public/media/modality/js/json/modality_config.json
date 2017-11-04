@@ -1,0 +1,531 @@
+{
+    "modalities": {
+        "concept": {
+            "artifact_type": "concept",
+            "weight_teacher": 10,
+            "student_show": true,
+            "display_label": "Read",
+            "weight_student": 10
+        },
+        "lessonplan": {
+            "artifact_type": "lessonplan",
+            "weight_teacher": 60,
+            "student_show": false,
+            "display_label": "Lesson Plan",
+            "weight_student": 230
+        },
+        "lessonplanans": {
+            "artifact_type": "lessonplanans",
+            "weight_teacher": 60,
+            "student_show": false,
+            "display_label": "Lesson Plan Answer Key",
+            "weight_student": 0
+        },
+        "simulationint": {
+            "artifact_type": "simulationint",
+            "weight_teacher": 20,
+            "student_show": true,
+            "display_label": "Interactive Simulations",
+            "weight_student": 20
+        },
+        "lessonplanx": {
+            "artifact_type": "lessonplanx",
+            "weight_teacher": 60,
+            "student_show": false,
+            "display_label": "Lesson Plan",
+            "weight_student": 240
+        },
+        "rubric": {
+            "artifact_type": "rubric",
+            "weight_teacher": 180,
+            "student_show": false,
+            "display_label": "Rubric",
+            "weight_student": 0
+        },
+        "activityans": {
+            "artifact_type": "activityans",
+            "weight_teacher": 70,
+            "student_show": false,
+            "display_label": "Activity Answer Key",
+            "weight_student": 0
+        },
+        "lesson": {
+            "artifact_type": "lesson",
+            "weight_teacher": 10,
+            "student_show": true,
+            "display_label": "Read",
+            "weight_student": 10
+        },
+        "postreadans": {
+            "artifact_type": "postreadans",
+            "weight_teacher": 100,
+            "student_show": false,
+            "display_label": "Post Read Answer Key",
+            "weight_student": 0
+        },
+        "prepostread": {
+            "artifact_type": "prepostread",
+            "weight_teacher": 100,
+            "student_show": false,
+            "display_label": "Pre and Post Read",
+            "weight_student": 230
+        },
+        "web": {
+            "artifact_type": "web",
+            "weight_teacher": 210,
+            "student_show": true,
+            "display_label": "Link",
+            "weight_student": 110
+        },
+        "cthink": {
+            "artifact_type": "cthink",
+            "weight_teacher": 90,
+            "student_show": true,
+            "display_label": "Critical Thinking",
+            "weight_student": 130
+        },
+        "rwaans": {
+            "artifact_type": "rwaans",
+            "weight_teacher": 130,
+            "student_show": false,
+            "display_label": "Real World Application Answer Key",
+            "weight_student": 0
+        },
+        "section": {
+            "artifact_type": "section",
+            "weight_teacher": 300,
+            "student_show": false,
+            "display_label": "Read",
+            "weight_student": 300
+        },
+        "plix": {
+            "artifact_type": "plix",
+            "weight_teacher": 40,
+            "student_show": true,
+            "display_label": "PLIX",
+            "weight_student": 40
+        },
+        "whileread": {
+            "artifact_type": "whileread",
+            "weight_teacher": 100,
+            "student_show": false,
+            "display_label": "While Read",
+            "weight_student": 220
+        },
+        "quiz": {
+            "artifact_type": "quiz",
+            "weight_teacher": 80,
+            "student_show": true,
+            "display_label": "Downloadable Quiz",
+            "weight_student": 120
+        },
+        "lessonplanxans": {
+            "artifact_type": "lessonplanxans",
+            "weight_teacher": 60,
+            "student_show": false,
+            "display_label": "Lesson Plan Answer Key",
+            "weight_student": 0
+        },
+        "preread": {
+            "artifact_type": "preread",
+            "weight_teacher": 100,
+            "student_show": false,
+            "display_label": "Pre Read",
+            "weight_student": 200
+        },
+        "attachment": {
+            "artifact_type": "attachment",
+            "weight_teacher": 230,
+            "student_show": true,
+            "display_label": "Attachment",
+            "weight_student": 260
+        },
+        "lecture": {
+            "artifact_type": "lecture",
+            "weight_teacher": 50,
+            "student_show": true,
+            "display_label": "Video",
+            "weight_student": 50
+        },
+        "presentation": {
+            "artifact_type": "presentation",
+            "weight_teacher": 140,
+            "student_show": false,
+            "display_label": "Presentation",
+            "weight_student": 100
+        },
+        "image": {
+            "artifact_type": "image",
+            "weight_teacher": 160,
+            "student_show": false,
+            "display_label": "Image",
+            "weight_student": 170
+        },
+        "quizdemo": {
+            "artifact_type": "quizdemo",
+            "weight_teacher": 80,
+            "student_show": false,
+            "display_label": "Downloadable Quiz Demonstration",
+            "weight_student": 0
+        },
+        "rwa": {
+            "artifact_type": "rwa",
+            "weight_teacher": 130,
+            "student_show": true,
+            "display_label": "Real World Application",
+            "weight_student": 70
+        },
+        "whilereadans": {
+            "artifact_type": "whilereadans",
+            "weight_teacher": 100,
+            "student_show": false,
+            "display_label": "While Read Answer Key",
+            "weight_student": 0
+        },
+        "prereadans": {
+            "artifact_type": "prereadans",
+            "weight_teacher": 100,
+            "student_show": false,
+            "display_label": "Pre Read Answer Key",
+            "weight_student": 0
+        },
+        "postread": {
+            "artifact_type": "postread",
+            "weight_teacher": 100,
+            "student_show": false,
+            "display_label": "Post Read",
+            "weight_student": 210
+        },
+        "exerciseint": {
+            "artifact_type": "exerciseint",
+            "weight_teacher": 80,
+            "student_show": true,
+            "display_label": "Interactive Exercise",
+            "weight_student": 70
+        },
+        "lab": {
+            "artifact_type": "lab",
+            "weight_teacher": 120,
+            "student_show": false,
+            "display_label": "Lab Kit",
+            "weight_student": 150
+        },
+        "flashcard": {
+            "artifact_type": "flashcard",
+            "weight_teacher": 220,
+            "student_show": true,
+            "display_label": "Flashcards",
+            "weight_student": 50
+        },
+        "studyguide": {
+            "artifact_type": "studyguide",
+            "weight_teacher": 200,
+            "student_show": true,
+            "display_label": "Study Guide",
+            "weight_student": 60
+        },
+        "quizans": {
+            "artifact_type": "quizans",
+            "weight_teacher": 80,
+            "student_show": false,
+            "display_label": "Downloadable Quiz Answer Key",
+            "weight_student": 0
+        },
+        "asmtpractice": {
+            "artifact_type": "asmtpractice",
+            "weight_teacher": 80,
+            "student_show": true,
+            "display_label": "Practice",
+            "weight_student": 70
+        },
+        "prepostreadans": {
+            "artifact_type": "prepostreadans",
+            "weight_teacher": 100,
+            "student_show": false,
+            "display_label": "Pre and Post-read Answer Key",
+            "weight_student": 0
+        },
+        "labans": {
+            "artifact_type": "labans",
+            "weight_teacher": 120,
+            "student_show": false,
+            "display_label": "Lab Kit Answer Key",
+            "weight_student": 0
+        },
+        "asmtquiz": {
+            "artifact_type": "asmtquiz",
+            "weight_teacher": 90,
+            "student_show": true,
+            "display_label": "Quiz",
+            "weight_student": 80
+        },
+        "worksheet": {
+            "artifact_type": "worksheet",
+            "weight_teacher": 110,
+            "student_show": false,
+            "display_label": "Worksheet",
+            "weight_student": 130
+        },
+        "handout": {
+            "artifact_type": "handout",
+            "weight_teacher": 150,
+            "student_show": false,
+            "display_label": "Handout",
+            "weight_student": 160
+        },
+        "simulation": {
+            "artifact_type": "simulation",
+            "weight_teacher": 30,
+            "student_show": true,
+            "display_label": "Simulation",
+            "weight_student": 30
+        },
+        "exercise": {
+            "artifact_type": "exercise",
+            "weight_teacher": 80,
+            "student_show": false,
+            "display_label": "Exercise",
+            "weight_student": 70
+        },
+        "activity": {
+            "artifact_type": "activity",
+            "weight_teacher": 70,
+            "student_show": false,
+            "display_label": "Activity",
+            "weight_student": 140
+        },
+        "worksheetans": {
+            "artifact_type": "worksheetans",
+            "weight_teacher": 110,
+            "student_show": false,
+            "display_label": "Worksheet Answer Key",
+            "weight_student": 0
+        },
+        "audio": {
+            "artifact_type": "audio",
+            "weight_teacher": 190,
+            "student_show": false,
+            "display_label": "Audio",
+            "weight_student": 180
+        },
+        "conceptmap": {
+            "artifact_type": "conceptmap",
+            "weight_teacher": 170,
+            "student_show": true,
+            "display_label": "Mind Map",
+            "weight_student": 90
+        },
+        "enrichment": {
+            "artifact_type": "enrichment",
+            "weight_teacher": 50,
+            "student_show": true,
+            "display_label": "Video",
+            "weight_student": 80
+        },
+        "interactive": {
+            "artifact_type": "interactive",
+            "weight_teacher": 140,
+            "student_show": false,
+            "display_label": "Interactive Image",
+            "weight_student": 140
+        }
+    },
+    "modality_groups": [
+        {
+            "display_text": "All Modalities",
+            "artifact_types": [
+                "__ALL__"
+            ],
+            "sequence": 0,
+            "group_classname": "all",
+            "group_name": "All types",
+            "show_text_label": true,
+            "default_thumb": "modality_generic_icons/concept_gicon.png"
+        },
+        {
+            "display_text": "Read",
+            "artifact_types": [
+                "lesson",
+                "concept",
+                "section"
+            ],
+            "sequence": 1,
+            "group_classname": "text",
+            "group_name": "Read",
+            "show_text_label": false,
+            "default_thumb": "modality_generic_icons/read_gicon.png"
+        },
+        {
+            "display_text": "Video",
+            "artifact_types": [
+                "lecture",
+                "audio",
+                "enrichment"
+            ],
+            "sequence": 4,
+            "group_classname": "multimedia",
+            "group_name": "Video",
+            "show_text_label": false,
+            "default_thumb": "modality_generic_icons/video_gicon.png"
+        },
+        {
+            "display_text": "Activities",
+            "artifact_types": [
+                "labans",
+                "prepostreadans",
+                "worksheet",
+                "prereadans",
+                "lab",
+                "preread",
+                "postread",
+                "activityans",
+                "activity",
+                "worksheetans",
+                "whilereadans",
+                "cthink",
+                "postreadans",
+                "prepostread",
+                "whileread"
+            ],
+            "sequence": 5,
+            "group_classname": "activities",
+            "group_name": "Activities",
+            "show_text_label": false,
+            "default_thumb": "modality_generic_icons/activities_gicon.png"
+        },
+        {
+            "display_text": "Study Aids",
+            "artifact_types": [
+                "flashcard",
+                "studyguide"
+            ],
+            "sequence": 6,
+            "group_classname": "study_resource",
+            "group_name": "Study Aids",
+            "show_text_label": false,
+            "default_thumb": "modality_generic_icons/styaids_gicon.png"
+        },
+        {
+            "display_text": "Lesson Plans",
+            "artifact_types": [
+                "lessonplan",
+                "lessonplanans",
+                "handout",
+                "lessonplanxans",
+                "lessonplanx",
+                "rubric",
+                "presentation"
+            ],
+            "sequence": 7,
+            "group_classname": "teaching_resource",
+            "group_name": "Lesson Plans",
+            "show_text_label": false,
+            "default_thumb": "modality_generic_icons/lesson_gicon.png"
+        },
+        {
+            "display_text": "Images",
+            "artifact_types": [
+                "image",
+                "interactive"
+            ],
+            "sequence": 8,
+            "group_classname": "reference",
+            "group_name": "Images",
+            "show_text_label": false,
+            "default_thumb": "modality_generic_icons/images_gicon.png"
+        },
+        {
+            "display_text": "Assessments",
+            "artifact_types": [
+                "asmtpractice",
+                "asmtquiz",
+                "quiz"
+            ],
+            "sequence": 9,
+            "group_classname": "assessment",
+            "group_name": "Assessments",
+            "show_text_label": false,
+            "default_thumb": "modality_generic_icons/assest_gicon.png"
+        },
+        {
+            "display_text": "Simulations",
+            "artifact_types": [
+                "simulationint",
+                "simulation",
+                "simulationint"
+            ],
+            "sequence": 2,
+            "group_classname": "simulations",
+            "group_name": "Simulations",
+            "show_text_label": false,
+            "default_thumb": "modality_generic_icons/simul_gicon.png"
+        },
+        {
+            "display_text": "Web Links",
+            "artifact_types": [
+                "web"
+            ],
+            "sequence": 11,
+            "group_classname": "web_links",
+            "group_name": "Web Links",
+            "show_text_label": false,
+            "default_thumb": "modality_generic_icons/web_gicon.png"
+        },
+        {
+            "display_text": "Concept Map",
+            "artifact_types": [
+                "conceptmap"
+            ],
+            "sequence": 12,
+            "group_classname": "mind_map",
+            "group_name": "Mind Map",
+            "show_text_label": false,
+            "default_thumb": "modality_generic_icons/mm_gicon.png"
+        },
+        {
+            "display_text": "Real World",
+            "artifact_types": [
+                "rwa",
+                "rwaans"
+            ],
+            "sequence": 14,
+            "group_classname": "real_world",
+            "group_name": "Real World",
+            "show_text_label": false,
+            "default_thumb": "modality_generic_icons/rwa_gicon.png"
+        },
+        {
+            "display_text": "Attachments",
+            "artifact_types": [
+                "attachment"
+            ],
+            "sequence": 15,
+            "group_classname": "attachment",
+            "group_name": "Attachment",
+            "show_text_label": false,
+            "default_thumb": "modality_generic_icons/attachment_gicon.png"
+        },
+        {
+            "display_text": "PLIX",
+            "artifact_types": [
+                "plix"
+            ],
+            "sequence": 3,
+            "group_classname": "interactive",
+            "group_name": "PLIX",
+            "show_text_label": false,
+            "default_thumb": "modality_generic_icons/interactive_ic.png"
+        },
+        {
+            "display_text": "More",
+            "artifact_types": [
+                "__OTHER__"
+            ],
+            "sequence": 0,
+            "group_classname": "other",
+            "group_name": "More",
+            "show_text_label": true,
+            "default_thumb": "modality_generic_icons/other_gicon.png"
+        }
+    ]
+}

@@ -1,0 +1,1552 @@
+@CHARSET "ISO-8859-1";
+/*
+@font-face {
+    font-family: MathJax_Main; src: url('//d3lkjnwva6z405.cloudfront.net/mathjax-min-2.6-20160201/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff') format('woff'), url('//d3lkjnwva6z405.cloudfront.net/mathjax-min-2.6-20160201/fonts/HTML-CSS/TeX/otf/MathJax_Main-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: MathJax_Main; src: url('//d3lkjnwva6z405.cloudfront.net/mathjax-min-2.6-20160201/fonts/HTML-CSS/TeX/woff/MathJax_Main-Bold.woff') format('woff'), url('//d3lkjnwva6z405.cloudfront.net/mathjax-min-2.6-20160201/fonts/HTML-CSS/TeX/otf/MathJax_Main-Bold.otf') format('opentype'); font-weight: bold;
+}
+
+@font-face {
+    font-family: MathJax_Main; src: url('//d3lkjnwva6z405.cloudfront.net/mathjax-min-2.6-20160201/fonts/HTML-CSS/TeX/woff/MathJax_Main-Italic.woff') format('woff'), url('//d3lkjnwva6z405.cloudfront.net/mathjax-min-2.6-20160201/fonts/HTML-CSS/TeX/otf/MathJax_Main-Italic.otf') format('opentype'); font-style: italic;
+}
+
+@font-face {
+    font-family: MathJax_Math; src: url('//d3lkjnwva6z405.cloudfront.net/mathjax-min-2.6-20160201/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff') format('woff'), url('//d3lkjnwva6z405.cloudfront.net/mathjax-min-2.6-20160201/fonts/HTML-CSS/TeX/otf/MathJax_Math-Italic.otf') format('opentype'); font-style: italic;
+}
+
+@font-face {
+    font-family: MathJax_Caligraphic; src: url('//d3lkjnwva6z405.cloudfront.net/mathjax-min-2.6-20160201/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Regular.woff') format('woff'), url('//d3lkjnwva6z405.cloudfront.net/mathjax-min-2.6-20160201/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: MathJax_Size1; src: url('//d3lkjnwva6z405.cloudfront.net/mathjax-min-2.6-20160201/fonts/HTML-CSS/TeX/woff/MathJax_Size1-Regular.woff') format('woff'), url('//d3lkjnwva6z405.cloudfront.net/mathjax-min-2.6-20160201/fonts/HTML-CSS/TeX/otf/MathJax_Size1-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: MathJax_Size2; src: url('//d3lkjnwva6z405.cloudfront.net/mathjax-min-2.6-20160201/fonts/HTML-CSS/TeX/woff/MathJax_Size2-Regular.woff') format('woff'), url('//d3lkjnwva6z405.cloudfront.net/mathjax-min-2.6-20160201/fonts/HTML-CSS/TeX/otf/MathJax_Size2-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: MathJax_Size3; src: url('//d3lkjnwva6z405.cloudfront.net/mathjax-min-2.6-20160201/fonts/HTML-CSS/TeX/woff/MathJax_Size3-Regular.woff') format('woff'), url('//d3lkjnwva6z405.cloudfront.net/mathjax-min-2.6-20160201/fonts/HTML-CSS/TeX/otf/MathJax_Size3-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: MathJax_Size4; src: url('//d3lkjnwva6z405.cloudfront.net/mathjax-min-2.6-20160201/fonts/HTML-CSS/TeX/woff/MathJax_Size4-Regular.woff') format('woff'), url('//d3lkjnwva6z405.cloudfront.net/mathjax-min-2.6-20160201/fonts/HTML-CSS/TeX/otf/MathJax_Size4-Regular.otf') format('opentype');
+}
+*/
+
+.header {
+    background-color: #FFFFFF;
+    height: 57px;
+}
+
+html {
+    /* width: 100%;
+    height: 99%; */
+}
+
+body {
+    background: none repeat scroll 0 0 #F5F5F5;
+   /*  height: 100%;
+     width: 100%; */
+    margin: 0;
+    font-family: "ProximaNova", Helvetica;
+}
+.math-main-cont{
+	font-family: texgyreschola;
+	font-style:italic;
+}
+.leftcontainer {
+	/* height: 90%; */
+    height: calc(100% - 176px);
+    height: -webkit-calc(100% - 176px);
+    padding-left: 1%;
+    padding-right: 1%;
+    width: 98%;
+}
+
+/* li {
+    list-style: none outside none;
+} */
+
+.math-editor {
+    height: 95%;
+    box-sizing : content-box;
+}
+
+.math-main-cont {
+    /* height: 100%; */
+    height: calc(100% - 57px);
+    height: -webkit-calc(100% - 57px);
+}
+
+.math-cont {
+    height: 100%;
+}
+
+.formula-column {
+    height: 100%;
+}
+
+.rightcontainer {
+    background: none repeat scroll 0 0 #FFFFFF;
+    height: 10px;
+    position: absolute;
+    /* top: 525px; */
+    width: 100%;
+    opacity: 0;
+}
+
+.formula {
+    background: none repeat scroll 0 0 #F5F5F5;
+    height: 100%;
+    width: 100%;
+}
+
+.latex, .equa-preview-container {
+    height: 100px;
+    margin: 0 auto;
+    width: 96%;
+}
+
+.latex {
+	margin-top: 10px;
+}
+
+.preview-container {
+	background-color: #ffffff;
+	border: 1px solid #ccc;
+	font-family: "ProximaNova", Helvetica;
+	height: 100%;
+	margin-top: 7px;
+	overflow: auto;
+	padding: 8px;
+}
+
+.equa-preview-container span {
+	font-style: normal;
+}
+
+.latex textarea {
+    -webkit-box-sizing: border-box;
+ /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+    box-sizing: border-box;
+         /* Opera/IE 8+ */
+    width: 100%;
+    padding: 10px;
+    height: 100%;
+    resize: none;
+    margin: 0px;
+    font-size:18px;
+}
+
+.formulaselector {
+	/*height : 40px;*/
+    background: none repeat scroll 0 0 #00ABA4;
+    text-align: center;
+}
+
+.button-style {
+    background: none repeat scroll 0 0 #CDCDCD;
+    border: 1px solid #545253;
+    border-radius: 5px 5px 5px 5px;
+    color: #545253;
+    cursor: pointer;
+    float: right;
+    font-weight: bold;
+    margin-right: 2%;
+    padding: 5px;
+    text-align: center;
+    width: 70px;
+}
+
+
+.showbox {
+    position: relative;
+   /*  min-width : 20px; */
+    height: 20px;
+    margin-bottom: 2px;
+    margin-top: 2px;
+    width: 20px;
+    border: 2px dotted;
+    -webkit-box-sizing: border-box;
+ /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+    box-sizing: border-box;
+         /* Opera/IE 8+ */;
+}
+
+.cursor-input {
+    background: none repeat scroll 0 0 transparent;
+    border: 0 none;
+    width: 2px;
+}
+
+hr {
+    background-color: black;
+    border-width: 0;
+    height: 1px;
+    margin: 0;
+}
+
+.tooltip-tools-inner hr {
+    background-color: #00ABA4;
+    margin: 3px 8px 0 auto;
+    width: 52%;
+}
+
+.showbox.noText,.getWidth {
+    min-width: 20px;
+}
+
+.formula-right-container {
+	display: inline-block;
+	margin: 0 auto;
+	min-width: 700px;
+}
+
+.icons-left-container {
+	display: inline-block;
+	margin: 25px 15px 0px 0px;
+	/* width: 125px; */
+}
+
+.formulacontainer {
+    display: inline-block;
+    height: 100%;
+    /*margin: auto;
+    min-width: 620px !important;*/
+}
+
+.tool-tip {
+    background: none repeat scroll 0 0 #FFFFFF;
+    /*border: 1px solid #00ABA4;*/
+    border-radius: 4px;
+    display: table;
+    /*margin: auto;*/
+    padding: 10px 0px 0px 25px;
+    position: absolute;
+    text-align: center;
+    top: 76px;
+    /*width: 700px;*/
+    z-index: 3;
+}
+
+.tool-tip:before {
+    border-color: #FFFFFF transparent transparent transparent;
+	border-style: solid;
+	border-width: 13px 8px 0;
+	height: 8px;
+    left: 8px;
+    top: -20px;
+    width: 1px;
+
+    transform: rotate(-180deg);
+	-ms-transform: rotate(-180deg);
+	-moz-transform: rotate(-180deg);
+	-webkit-transform: rotate(-180deg);
+	-o-transform: rotate(-180deg);
+}
+
+.tool-tip:before, .tool-tip:after {
+	content: "";
+	position: absolute;
+}
+
+.tool-tip-row {
+    display: table-row;
+}
+
+.tool-tip * {
+    color: #00ABA4 !important;
+}
+
+.tooltipClose {
+      color: #00ABA4;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 0;
+}
+
+.button-cont {
+    background: none repeat scroll 0 0 #56544D;
+    bottom: 0;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    position: relative;
+    text-align: right;
+    top: 29px;
+}
+
+.math {
+    border: 0 none;
+    display: inline;
+    line-height: normal;
+    margin: 0;
+    padding: 0;
+    position: static;
+    text-decoration: none;
+    vertical-align: 0;
+}
+/*
+.mn {
+    position: absolute;
+    top: 1em;
+}*/
+.MathJax {
+    font-size: 14px;
+}
+body.mce-content-body{
+	font-size:100%;
+}
+MathJax_Hover_Frame {
+    border-radius: .25em;
+    -webkit-border-radius: .25em;
+    -moz-border-radius: .25em;
+    -khtml-border-radius: .25em;
+    box-shadow: 0px 0px 15px #83A;
+    -webkit-box-shadow: 0px 0px 15px #83A;
+	-moz-box-shadow: 0px 0px 15px #83A;
+    -khtml-box-shadow: 0px 0px 15px #83A;
+    border: 1px solid #A6D ! important;
+    display: inline-block;
+    position: absolute;
+}
+
+.MathJax_Hover_Arrow {
+    position: absolute;
+    width: 15px;
+    height: 11px;
+    cursor: pointer;
+}
+
+.MathJax_Display {
+    text-align: center;
+    margin: 1em 0em;
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+#MathJax_Message {
+	display: none;
+}
+
+.x-ck12-mathEditor .MathJax_Display {
+	margin: 0.3em 0em;
+}
+
+.MathJax .merror {
+    background-color: #FFFF88;
+    color: #CC0000;
+    border: 1px solid #CC0000;
+    padding: 1px 3px;
+    font-style: normal;
+    font-size: 90%;
+}
+
+#MathJax_Tooltip {
+    background-color: InfoBackground;
+    color: InfoText;
+    border: 1px solid black;
+    box-shadow: 2px 2px 5px #AAAAAA;
+    -webkit-box-shadow: 2px 2px 5px #AAAAAA;
+    -moz-box-shadow: 2px 2px 5px #AAAAAA;
+    -khtml-box-shadow: 2px 2px 5px #AAAAAA;
+    filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true');
+    padding: 3px 4px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: auto;
+    height: auto;
+    display: none;
+}
+
+.MathJax {
+    display: inline;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 100%;
+    font-size-adjust: none;
+    text-indent: 0;
+    text-align: left;
+    text-transform: none;
+    letter-spacing: normal;
+    word-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    float: none;
+    direction: ltr;
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.MathJax img, .MathJax nobr, .MathJax a {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    max-width: none;
+    max-height: none;
+    vertical-align: 0;
+    line-height: normal;
+    text-decoration: none;
+}
+
+img.MathJax_strut {
+    border: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    vertical-align: 0 !important;
+}
+
+.MathJax span {
+    display: inline;
+    position: static;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    vertical-align: 0;
+    line-height: normal;
+    text-decoration: none;
+}
+
+.MathJax nobr {
+    white-space: nowrap ! important;
+}
+
+.MathJax img {
+    display: inline ! important;
+    float: none ! important;
+}
+
+.MathJax_Processing {
+    visibility: hidden;
+    position: fixed;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+.MathJax_Processed {
+    display: none!important;
+}
+
+.MathJax_ExBox {
+    display: block;
+    overflow: hidden;
+    width: 1px;
+    height: 60ex;
+}
+
+.MathJax .MathJax_EmBox {
+    display: block;
+    overflow: hidden;
+    width: 1px;
+    height: 60em;
+}
+
+.MathJax .MathJax_HitBox {
+    cursor: text;
+    background: white;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.MathJax .MathJax_HitBox * {
+    filter: none;
+    opacity: 1;
+    background: transparent;
+}
+
+#MathJax_Tooltip * {
+    filter: none;
+    opacity: 1;
+    background: transparent;
+}
+
+.MathJax .noError {
+    vertical-align: ; font-size: 90%;
+    text-align: left;
+    color: black;
+    padding: 1px 3px;
+    border: 1px solid;
+}
+
+
+.hruler {
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.x-ck12-mathEditor {
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.rendered-math {
+    font-variant: normal;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 1;
+    display: -moz-inline-box;
+    display: inline-block;
+  /* position : relative; */
+    font-family: texgyreschola;
+    font-style:italic;
+}
+
+.rendered-math * {
+    font-size: inherit;
+    line-height: inherit;
+  /*margin-left: 1px;
+  margin-right:1px;*/
+    padding: 0;
+    border-color: black;
+  /* -moz-user-select: none; */
+    user-select: none;
+    white-space: pre-wrap;
+  /* position : relative; */
+    display: inline-block;
+}
+
+.rendered-math .hasText* {
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+input[type="text"], .getWidth {
+  /* margin:2px;*/;
+}
+
+.getWidth {
+    font-size: 11px;
+}
+
+.showboxroot {
+    position: relative;
+    height: 15px;
+    width: 15px;
+    border: 2px dotted;
+    -webkit-box-sizing: border-box;
+ /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+    box-sizing: border-box;
+         /* Opera/IE 8+ */;
+}
+
+.hasText,.getWidth {
+    border: none;
+    background: none;
+}
+
+.first.noText,.getWidth {
+    min-width: 20px;
+}
+
+.definate,.indefinite,.doubleIndefinite,.doubleDefinite {
+    /*border-left: 1px solid #FAF5F7;
+    border-right: 1px solid #FAF5F7;*/
+    color: #FFFFFF;
+    cursor: pointer;
+    float: left;
+    height: 100%;
+}
+
+.toolbarStyling {
+    border-bottom: 1px solid;
+    border-right: 1px solid #00ABA4;
+    color: #FFFFFF;
+    cursor: pointer;
+    float: left;
+    font-size: 1.2em;
+    height: 40px;
+    position: relative;
+    width: 50px;
+}
+
+.emptyBox {
+    background-color: #F5F5F5;
+    border: 1px dotted black;
+    display: inline-block;
+    height: 12px;
+    position: relative;
+    top: 2px;
+    width: 12px;
+}
+
+.symbolContainer .emptyBox {
+    top: 0px;
+}
+
+.emptyBoxSmall {
+    background-color: #F5F5F5;
+    border: 1px dotted black;
+    display: inline-block;
+    height: 9px;
+    position: relative;
+    top: 1px;
+    width: 9px;
+}
+
+.commonHeight {
+    height: 50px;
+}
+
+.alignCharacter div:first-of-type {
+    height: 16px;
+    margin-top: -9px;
+}
+
+input[type="text"].leftText {
+    border: none;
+    background: none;
+    width: 11px;
+}
+
+.selectFormula {
+    background: none repeat scroll 0 0 #D9F2FF;
+}
+
+.selectFormula input {
+    background: none repeat scroll 0 0 #D9F2FF;
+}
+
+input[type="text"] {
+    border: 1px dotted;
+    border-radius: 0 0 0 0;
+    display: inline-block;
+    height: auto;
+    margin-bottom: 1px;
+    margin-top: 1px;
+    outline: medium none;
+    padding: 0 !important;
+    box-shadow: none !important;
+    font-family: texgyreschola;
+    font-style:italic;
+}
+
+input[type="text"] :focus {
+    border-radius: 0 0 0 0;
+    display: inline-block;
+    height: auto;
+    outline: medium none;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: 0 none;
+}
+
+input[type="text"].cursor-input {
+    background: none repeat scroll 0 0 transparent !important;
+    border: 0 none !important;
+    box-shadow: none !important;
+    width: 2px;
+    height: auto;
+}
+
+.hasText,.getWidth {
+    border: none !important;
+    background: none !important;
+}
+
+input[type="text"].first {
+    /* min-width : 20px; */
+    /* height: 24px;
+    width: 24px; */
+    -webkit-box-sizing: border-box;
+ /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+    box-sizing: border-box;
+         /* Opera/IE 8+ */;
+}
+
+input[type="text"].noText {
+    height: auto;
+}
+
+input[type="text"].hasText {
+    height: auto;
+    text-align : center;
+}
+
+span {
+    white-space: nowrap !important;
+}
+
+.tool-bar-tools {
+    /*border-right: 1px solid;*/
+    color: #FFFFFF;
+    cursor: pointer;
+    /*display: table-cell;*/
+    float: none;
+    font-size: 1em;
+    /*margin-top: 28px;*/
+    margin-top: 26px;
+    min-height: 30px;
+    /*min-width: 62px;
+    padding-bottom: 6px;
+    padding-top: 34px;
+    text-align: center;
+    vertical-align: middle;*/
+}
+
+.app-top-bar {
+    background: none repeat scroll 0 0 #FFFFFF;
+    box-shadow: 0 3px 1px #DEDDDA;
+    height: 60px;
+    margin: 0;
+    padding: 7px 0;
+}
+
+.app-name {
+    background-color: #FFFFFF !important;
+    color: #666666 !important;
+    float: right;
+    font-size: 1.5em !important;
+    font-weight: normal !important;
+    /* margin-top: 15px; */
+    padding-right: 1em !important;
+    margin-top : 25px;
+}
+
+.logo-name {
+    height: 50px;
+    /* padding-left: 9px;
+    padding-top: 7px; */
+}
+
+.logo-img {
+    height: 27px;
+    padding: 10px;
+}
+
+.btn-faq.small {
+    margin: 11px 10px 0 0;
+    padding-bottom: 3px;
+    padding-top: 4px;
+}
+
+.btn-faq span {
+    margin: 0;
+}
+
+.btn-faq img {
+    height: 20px;
+    margin-right: 5px;
+    position: relative;
+    top: -1px;
+}
+
+.renderlatex {
+    margin-bottom: 0;
+    margin-right: 15px;
+}
+
+.clear {
+    margin-bottom: 0;
+    margin-left: 20px;
+    margin-right: 21px;
+}
+
+.formula-container {
+	display: table-cell;
+	height: 69px;
+	min-width: 25px;
+	padding-right: 21px;
+	vertical-align: middle;
+}
+
+.formula-container:last-child {
+	padding-right: 0px;
+}
+
+.inner-container {
+	display: table-cell;
+	min-width: 25px;
+	padding-bottom: 15px;
+	padding-right: 25px;
+	vertical-align: middle;
+}
+
+.operatorContainer .inner-container {
+	padding: 0px;
+}
+
+.tooltip-tools-inner {
+   	/*border-right: 1px solid #00ABA4 !important;*/
+    color: #FFFFFF;
+    cursor: pointer;
+    display: table-cell;
+    font-size: 1.2em;
+    height: 100%;
+    line-height: 24px;
+    /*padding: 9px 5px 17px;*/
+    position: relative;
+    /*width: 65px;*/
+    float:none;
+}
+
+.formula-row {
+    height: 48%;
+    overflow: auto;
+}
+
+*,*:before,*:after {
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+}
+
+.showboxfunction {
+    position: relative;
+    height: 16px;
+    width: 16px;
+    border: 2px dotted;
+    -webkit-box-sizing: border-box;
+ /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;
+    /* Firefox, other Gecko */
+    box-sizing: border-box;
+         /* Opera/IE 8+ */;
+}
+
+/*.mce-panel {
+    background: #000 !important;
+}*/
+
+.tool-tip-container {
+    /*margin: 0 auto;
+    width: 700px;*/
+}
+
+/*css for preview modal pop-up*/
+
+#myModal {
+    margin-top: 20px;
+    height: 43%;
+    margin-left: 0;
+    left:17%;
+}
+
+#myModal .header {
+    color: #00ABA4;
+    font-family: "ProximaNova",Helvetica;
+	height:30px;
+}
+.modalContainer {
+    overflow: overlay;
+    margin: auto;
+    height: 75%;
+    border: solid 1px #E2E0E0;
+    overflow: auto;
+}
+.modalContent {
+    padding-top: 30px;
+    text-align: center;
+}
+#confirmModal .modalContent, #noEditorPreviewModal .modalContent {
+    padding-top: 10px;
+}
+#confirmModal .modalContainer, #noEditorPreviewModal .modalContainer {
+	 border: 0 none;
+}
+.button-inner {
+    margin-top: 9px;
+    text-align: right;
+}
+
+.row.preview-button-cont {
+    width: 96%;
+   /*  position: fixed;
+    bottom: 0px; */
+}
+
+.previewModalButton {
+    text-align: center;
+}
+
+#previewModal .header {
+    height: 30px;
+}
+
+#previewModal .content {
+    padding: 5px 0 10px;
+}
+.preview{
+	font-family: "ProximaNova",Helvetica !important;
+	font-style:normal;
+	z-index: 4;
+}
+.add-variable{
+	font-family: "ProximaNova",Helvetica !important;
+	font-style:normal;
+	z-index: 4;
+}
+.green_button {
+	background-color: #00ABA4 !important;
+	box-shadow: none !important;
+	width: 65px;
+}
+.disable_button {
+	box-shadow: none !important;
+	width: 65px;
+}
+.render_canvas{
+	font-family: "ProximaNova",Helvetica !important;
+	font-style:normal;
+	z-index: 4;
+	display : none !important;
+}
+.clearMath {
+	font-family: "ProximaNova",Helvetica !important;
+	font-style:normal;
+	z-index: 4;
+}
+.highlightTool{
+	 background: none repeat scroll 0 0 #4DCCC4;
+}
+input[type="text"].noText.cursor-input.leftInput {
+     background: none repeat scroll 0 0 #C4C2C2 !important;
+}
+input.noText.cursor-input.rightInput[type="text"] {
+    background:none repeat scroll 0 0 #C4C2C2 !important;
+}
+input[type="text"].cursor-input.leftInput {
+    background: none repeat scroll 0 0 transparent !important;
+}
+input[type="text"].cursor-input.rightInput {
+    background: none repeat scroll 0 0 transparent !important;
+}
+
+*, *:before, *:after {
+    -moz-box-sizing: inherit;
+}
+.preview.button.small.secondary.disabled.grey {
+}
+button.disabled.secondary:hover, button.disabled.secondary:focus, button.secondary[disabled]:hover, button.secondary[disabled]:focus, .button.disabled.secondary:hover, .button.disabled.secondary:focus, .button.secondary[disabled]:hover, .button.secondary[disabled]:focus {
+    background-color: #E9E9E9;
+}
+button.disabled.secondary:hover, button.disabled.secondary:focus, button.secondary[disabled]:hover, button.secondary[disabled]:focus, .button.disabled.secondary:hover, .button.disabled.secondary:focus, .button.secondary[disabled]:hover, .button.secondary[disabled]:focus {
+    color: #999999;
+    background: #DDDDDD;
+}
+
+.font-tool-bar {
+    font-family: "ProximaNova",Helvetica;
+    font-style: normal;
+    line-height: 1px;
+    margin: 0 auto;
+    text-align: right;
+    height : 100%;
+}
+.font-cont {
+    background: none repeat scroll 0 0 #ffffff;
+    border-bottom: 1px solid #FFFFFF;
+    height: 36px;
+    width: 100%;
+    height : 50px !important;
+}
+.variable-button {
+    /* background: none repeat scroll 0 0 #FFFFFF !important; */
+    /* border: 2px solid #CCCCCC; */
+    color: #8F8E8A !important;
+    font-size: 13px !important;
+    margin-bottom: 0;
+    font-weight:normal;
+    margin-right:10px;
+}
+.fontSize-12{
+	font-size:16px;
+}
+.fontSize-14{
+	font-size:18px;
+}
+.fontSize-18{
+	font-size:24px;
+}
+.fontSize-24{
+	font-size:32px;
+}
+.fontSize-36{
+	font-size:42px;
+}
+.fontSize-48{
+	font-size:48px;
+}
+.fontSize-10{
+	font-size:13px;
+}
+.font-size-dd {
+    margin-bottom: 0 !important;
+    text-align: center;
+}
+.font-size-head{
+	  margin-bottom: 0;
+}
+.font-size-dd  a {
+    text-align: left;
+    padding-left:3px !important;
+}
+.color-tag {
+   color: #8F8E8A;
+    display: inline-block;
+    float: left !important;
+    font-size: 13px;
+    position: relative;
+    text-align: left;
+    top: 12px;
+    vertical-align: 5px;
+    width: 39px;
+}
+#fontFamily li {
+    text-align: left;
+}
+#color-picker {
+    right: 5px;
+    top: 52px !important;
+    width: 275px;
+    display: none;
+}
+.cp-default {
+    box-shadow: 0 0 3px #000000 !important;
+}
+.font-family-times{
+	font-family:"Times New Roman",Georgia,Serif;
+}
+.font-family-times input[type="text"]{
+	font-family:"Times New Roman",Georgia,Serif !important;
+}
+.font-family-arial input[type="text"]{
+	font-family:Arial, Helvetica, sans-serif !important;
+}
+.font-family-texgyreschola input[type="text"]{
+	font-family:texgyreschola !important;
+}
+.font-family-ProximaNova input[type="text"]{
+	font-family: "ProximaNova",Helvetica !important;
+}
+.font-family-head{
+	margin-bottom:0;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+
+    .upperContainer .in-inter {
+        vertical-align: 1.4em;
+    }
+    .sqrt-prefix.hasroot {
+        top: -2px;
+    }
+    .sqrt-prefix {
+        top: -1px;
+    }
+    .supEdit {
+        vertical-align: top;
+    }
+    .tooltip-tools-inner .rootdegreetext {
+        left: 25px;
+        top: 0px;
+    }
+    .definateUpper {
+        left: -15px !important;
+    }
+    .doubleDefiniteUpper {
+        left: -9px !important
+    }
+    .mathFunction {
+        padding-top: 6px;
+    }
+	.rootsign:after{
+		left: 11px !important;
+		top: -2px !important;
+	}
+	.tooltip-tools-inner .rootsign:after{
+		left:9px !important;
+		top:1px !important;
+	}
+	.matrixContainer .leftParenthesis{
+		top:11px !important;
+	}
+	.logToolContainer .tooltip-tools-inner {
+		/*height: 29px !important;*/
+	}
+	.integralContainer .tooltip-tools-inner{
+		height: 29px !important;
+	}
+	.fracContainer.divisionContainer{
+		vertical-align:-1.4em !important;
+	}
+	.upperContainer .divisionContainer{
+		vertical-align:-1.2em !important;
+	}
+	.mathOperatorContainer .close-cont{
+		height:99% !important;
+	}
+	.functionContainer .close-cont{
+		height:99% !important;
+	}
+	.operatorContainer .close-cont{
+		height:99% !important;
+	}
+	.operatorContainer .operatorText {
+		left:47px !important;
+	}
+	.shapeContainer .close-cont{
+		height:98% !important;
+	}
+
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    .in-inter {
+        display: inline-table;
+        vertical-align: -0.6em;
+    }
+
+    .eq-cont {
+        position: relative;
+        vertical-align: -1.5em;
+    }
+
+    .single-int {
+        vertical-align: -0.5em;
+    }
+    .math-main-cont {
+    	height: 91% !important;
+	}
+}
+
+.mathdiv {
+    background: none repeat scroll 0 0 #FFFFFF;
+    padding: 15px;
+    position:absolute;
+}
+/* div.formulaContainer{
+	display:none;
+} */
+.48-fontsize{
+	font-size:42px;
+}
+.font-tool-bar div {
+    display: inline-block;
+    margin-left: 10px;
+}
+.color-pick {
+    /* margin-top: -4px; */
+}
+.color-cont {
+	background: none repeat scroll 0 0 #FFFFFF;
+	/* border: 2px solid #CCCCCC; */
+	float: none;
+	height: 29px;
+	/* margin-top: 0px; */
+	/* position: relative; */
+	text-align: right;
+	/* top: 5px; */
+	width: 96px;
+	cursor: pointer;
+	width: 82px;
+}
+.colorSelector{
+	background: none repeat scroll 0 0 #5F5F5F;
+    cursor: pointer;
+    display: inline-block;
+    height: 15px;
+    /* margin-bottom: 0 !important; */
+    /* position: relative;
+    right: 33px;
+        right: 7px;
+    top: 13px; */
+    margin: 14px 22px 0 0 !important;
+    width: 15px;
+}
+.reveal-modal{
+	z-index:70000;
+}
+#addVariableModalContainer {
+    border: 1px solid #E2E0E0;
+    margin: auto;
+    overflow: auto;
+}
+#variableToolbar .variableEditDelete {
+    border-bottom: 1px solid #00ABA4 !important;
+    color: #00ABA4;
+    cursor: pointer;
+    display: block;
+    float: none;
+    font-size: 1.2em;
+    height: 25px;
+    line-height: 24px;
+    margin-left: 0;
+    padding: 9px 5px 17px;
+    padding: 9px 5px 5px\9;
+    position: relative;
+    width: auto;
+}
+/*.variableEditDelete:first-child {
+    margin-top: 24px;
+}*/
+#varToolbarInner {
+   background: none repeat scroll 0 0 #D4FCF3;
+    border: 1px solid #00ABA4;
+    display: block;
+    margin: auto;
+    max-height: 371px;
+    overflow: auto;
+    position: absolute;
+    right: 10px;
+    text-align: center;
+    top: 81px;
+    width: 158px;
+    z-index: 5;
+}
+.close-cont-var{
+	 background: none repeat scroll 0 0 #C3F4E9;
+    border-color: #D4FCF3;
+    border-style: solid;
+    display: block;
+    height: 25px;
+    position: absolute;
+    right: 11px;
+    text-align: center;
+    top: 52px;
+    width: 152px;
+    z-index: 9;
+}
+.editVariable {
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 11px;
+    position: relative;
+}
+ .deleteVariable {
+    /*float:right;*/
+}
+.variableEditDelete{
+    color: #FFFFFF;
+    cursor: pointer;
+    display: table-cell;
+    float: none;
+    font-size: 1.2em;
+    height: 100%;
+    line-height: 24px;
+    padding: 9px 5px 17px;
+    position: relative;
+    width: 65px;
+}
+
+.vartooltipClose{
+	 color: #00ABA4;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 0;
+    position: absolute;
+    right: 5px;
+    top: 1px;
+    z-index: 11;
+    top: 1px;
+}
+
+input[type="text"].noText.cursor-input.leftInput.hasVariable{
+	background:none repeat scroll 0 0 #F5F5F5 !important;
+}
+input[type="text"].cursor-input.rightInput.hasVariable {
+    background: none repeat scroll 0 0 #F5F5F5 !important;
+}
+
+input[type="text"].hasVariable{
+	background: #F5F5F5 !important;
+	 border: 1px solid #D9D9D9 !important;
+    border-radius: 3px 3px 3px 3px;
+    text-align:center;
+}
+input[type="text"].cursor-input.leftInput.hasVariable{
+	background: #F5F5F5 !important;
+}
+input[type="text"].cursor-input.rightInput.hasVariable{
+	background: #F5F5F5 !important;
+}
+.close-cont {
+ 	background: none repeat scroll 0 0 #C3F4E9;
+	border-left: 1px solid;
+	display: none;
+	float: right;
+	height: 97%;
+	height: 97%\9;
+	position: absolute;
+	right: -1px;
+	top: 1px;
+	width: 23px;
+	z-index: 7;
+	border-right: 1px solid;
+}
+.messageText {
+	float:left;
+
+}
+.varContainer {
+     display: inline-block;
+    overflow: hidden;
+    padding-left: 6px;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 70px;
+     vertical-align: bottom;
+}
+.variable-button.disabled {
+    background: none repeat scroll 0 0 #DDDDDD !important;
+    color: #999999 !important;
+    opacity: 1 !important;
+}
+.confirmModal {
+    height: 14%;
+    left: 28% !important;
+    margin-left: 0;
+    margin-top: 20px;
+    padding-bottom: 50px;
+    width: 43% !important;
+}
+.confirmModal .modalContainer {
+    /* margin-top: 5px;
+    padding-top: 9px; */
+}
+.arrow-drop {
+    border-left: 0.4425em solid transparent;
+    border-right: 0.4425em solid transparent;
+    border-top: 0.4425em solid #00ABA4;
+    height: 0;
+    position: absolute;
+    right: -19px;
+    top: 8px;
+    width: 0;
+}
+.arrow-drop-variables{
+	border-left: 0.4425em solid transparent;
+    border-right: 0.4425em solid transparent;
+    border-top: 0.4425em solid #00ABA4;
+    height: 0;
+    position: absolute;
+    right: 4px;
+    top: 13px;
+    width: 0;
+}
+.infoModal {
+    height: 12%;
+    left: 23% !important;
+    margin-left: 0;
+    margin-top: 20px;
+    padding-bottom: 50px;
+    width: 46% !important;
+}
+
+.infoModal .modalContainer {
+    margin-top: 5px;
+    padding-top: 9px;
+   	border: 0 none;
+}
+
+.infoModal .modalContent {
+    padding-top: 10px;
+}
+.variable-naming-rules{
+	text-align:left;
+	line-height:1;
+}
+.messageText{
+	font-weight:bold;
+}
+.red{
+	color:red;
+}
+.green{
+	color:green;
+}
+.error-message{
+	border-color:red;
+}
+.button-inner .hidden{
+	display: none;
+}
+.variable-name{
+	visibility:hidden;
+}
+.variable-value{
+	visibility:hidden;
+}
+ .variable-name-rules{
+	left:86.25px !important;
+	top:134.833px !important;
+}
+.variable-value-rules{
+	left:67.15px  !important;
+	top:219.467px !important;
+}
+.asterik-font-size{
+	font-size:18px;
+	vertical-align: -0.3em;
+}
+input[type="radio"]{
+	margin: 0px 0.5em .1em;
+	vertical-align: middle;
+}
+
+/* .row.latexRow{
+	position: fixed;
+	bottom: 50px;
+} */
+.reveal-modal{
+	width:60%;
+	left:57%;
+}
+.tool-bar-tools:first-child {
+    /*border-left: 1px solid;*/
+}
+
+/* .mathEditor span{
+	font-variant : none !important;
+} */
+
+.fontToolbar1{
+	width : 8px;
+	height : 14px;
+	margin-bottom: 0px !important;
+	margin-top : 8px !important;
+}
+
+.fontSizeIcon{
+	/* top: 7px;
+	position: absolute;
+	right: -2px; */
+	color: #FFFFFF !important;
+	font-size : 16px !important;
+	cursor : pointer;
+}
+
+.variableIcon{
+	/* top: 14px;
+	position: relative;
+	right: 10px; */
+	margin: 11px 22px 0px 0px !important;
+	color: #FFFFFF !important;
+	font-size : 21px !important;
+}
+
+.vBar{
+	height: 77%;
+	border-left: solid 1px black;
+	margin-top: 7px;
+	float: left;
+	margin-left: 0px !important;
+}
+
+.font-size-dd {
+	display: inline-block;
+	margin: 13px 20px 0 0 !important;
+}
+
+.font-size-drd a {
+	text-align: left;
+    padding-left:3px !important;
+}
+
+.font-size-drd{
+	width : 130px;
+}
+
+.variableIcon.activeVarIcon{
+	cursor : pointer !important;
+}
+
+.variableIcon.inactiveVarIcon{
+	cursor : default !important:
+}
+
+.fontSizeIcon:hover{
+	color : #ff6633 !important;
+}
+
+.variableIcon.activeVarIcon:hover{
+	color : #ff6633 !important;
+}
+
+.colorSelector.color-cont:hover{
+	border: solid 1px #ff6633 !important;
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#color-picker{
+	-webkit-box-sizing: content-box !important;
+    -moz-box-sizing: content-box !important;
+    box-sizing: content-box !important;
+}
+.paste-option {
+	white-space:normal !important;
+	font-size:14px;
+}
+.paste-overlay {
+    left: -316px;
+    padding: 5px;
+    position: absolute;
+    width: 697px;
+}
+.math-method {
+    display: inline-block;
+    float: left;
+    font-size: 12px;
+    font-style: normal;
+    margin-top: 13px;
+}
+.infoIcon {
+	color: #037591;
+}
+.alignatInfo, .inlineInfo, .blockInfo {
+	background-color: #B9F1F3;
+	border-radius: 5px;
+	bottom: 52px;
+	color: #037591;
+	display: none;
+	padding: 8px;
+	position: absolute;
+	width: 150px;
+}
+.alignatInfo:before, .inlineInfo:before, .blockInfo:before {
+    border-color: #B9F1F3 transparent transparent transparent;
+	border-style: solid;
+	border-width: 8px 5px 0;
+	bottom: -8px;
+	/*height: 8px;*/
+    /* left: 17px; */
+    /*width: 1px;*/
+}
+.alignatInfo:before, .alignatInfo:after, .inlineInfo:before, .inlineInfo:after, .blockInfo:before, .blockInfo:after {
+	content: "";
+	position: absolute;
+}
+.x-ck12-mathEditor[mathmethod="block"], .x-ck12-mathEditor[data-mathmethod="block"] {
+    text-align: center;
+    width: 100% !important;
+}
+.paste-option {
+	white-space:normal !important;
+}
+.paste-overlay {
+    left: -316px;
+    padding: 5px;
+    position: absolute;
+    width: 697px;
+}

@@ -1,0 +1,29 @@
+{% extends "details.html" %}  
+{% from "macros/form_errors.html" import form_errors with context %}  
+
+{% block admincontent %} 
+{% if c.isNewApp or c.site %} 
+<div class="sectionhead sectiontitle">{{c.pagetitle}}</div>
+<div class="section withfloatedsubmit">
+  <form id="mainform" method="post">
+    <div class="leftaligned">
+    {% for field in c.form.ordered_fields %}
+      {{ field }}
+    {% endfor %}
+    </div>
+      {{ h.submitbutton(c.createOrSave, 'short')}}
+      {{ h.cancelbutton(c.cancel)}}
+<span class='ajaxError'></span>
+</div>
+  </form>
+</div>
+{% endif %} 
+{% endblock %}
+
+{% block js_scripts %}
+<script type='text/javascript'>
+{{ form_errors('after') }}
+$(document).ready(function(){
+});
+</script>
+{% endblock %}

@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <title>Create Standard</title>
+    </head>
+    <body>
+        <form name="metadata" method="POST" action="{{ c.prefix }}/create/standard">
+            <table>
+                <tr>
+                    <td>
+                        Standard Board:
+                    </td>
+                    <td>
+                        <select name="standardBoardID">
+                            <option value="">Choose a standard board...</option>
+                            {% for key in c.standardBoardKeys %}
+                            <option value="{{ key }}">{{ c.standardBoardDict[key] }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Subject:
+                    </td>
+                    <td>
+                        <select name="subjectID">
+                            <option value="">Choose a subject...</option>
+                            {% for key in c.subjectKeys %}
+                            <option value="{{ key }}">{{ c.subjectDict[key] }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Grade:
+                    </td>
+                    <td>
+                        <select multiple name="grades">
+                            {% for key in c.gradeKeys %}
+                            <option value="{{ key }}">{{ c.gradeDict[key] }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+                {% for key in c.keys %}
+                <tr>
+                    <td>
+                        {{ key }}:
+                    </td>
+                    <td>
+                        {% if key == 'description' %}
+                        <textarea name="{{ key }}" rows="20" cols="73" wrap="physical"></textarea>
+                        {% else %}
+                        <input type="text"
+                               name="{{ key }}"
+                               value="{{ c.standardDict[key] }}"
+                               size="64"/>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td>
+                        <input type="submit" name="submit" value="OK" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

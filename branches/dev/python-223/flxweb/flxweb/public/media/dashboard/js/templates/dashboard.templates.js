@@ -1,0 +1,28 @@
+define(function(require){
+    'use strict';
+    require('text!dashboard/templates/dashboard.student.group.activity.html');
+    require('text!dashboard/templates/dashboard.student.group.class.html');
+    require('text!dashboard/templates/dashboard.student.group.join.html');
+    require('text!dashboard/templates/dashboard.student.group.study.html');
+    require('text!dashboard/templates/dashboard.activity.assign.html');
+    require('text!dashboard/templates/dashboard.activity.discussion.html');
+    require('text!dashboard/templates/dashboard.self.study.subject.html');
+    require('text!dashboard/templates/dashboard.student.active.html');
+    require('text!dashboard/templates/dashboard.student.inactive.html');
+    require('text!dashboard/templates/dashboard.self.study.html');
+    require('text!dashboard/templates/dashboard.self.study.listview.html');
+    require('text!dashboard/templates/dashboard.student.concept.html');
+    require('text!dashboard/templates/dashboard.student.assignment.html');
+    require('text!dashboard/templates/dashboard.activity.join.html');
+    require('text!dashboard/templates/dashboard.activity.share.html');
+    require('text!dashboard/templates/dashboard.self.study.complete.html');
+    require('text!dashboard/templates/dashboard.self.study.subjects.list.html');
+    require('text!dashboard/templates/dashboard.self.study.zero.state.html');
+    require('text!dashboard/templates/dashboard.group.activity.zero.state.html');
+    require('text!dashboard/templates/dashboard.latest.assignments.complete.html');
+    require('text!dashboard/templates/dashboard.teacher.inactive.html');
+    require('text!dashboard/templates/dashboard.student.inactive.subject.html');
+    require('text!dashboard/templates/dashboard.bar.tooltip.html');
+    require('text!dashboard/templates/dashboard.student.group.member.html');
+    require('text!dashboard/templates/dashboard.active.no.group.html');
+});

@@ -1,0 +1,18 @@
+@import '../main';
+
+
+.booksContainerTitle{
+	margin-top:40px !important;
+	font-weight:bold;
+	font-size:rem-calc(22);
+	padding:0 10px;
+	color:$EARTH;
+} 
+.filterTitle{
+    padding: 7px 10px;
+    color:$EARTH;
+    font-size:rem-calc(17);
+}      
+.dropDownContainer{
+    padding: 20px 0;
+}

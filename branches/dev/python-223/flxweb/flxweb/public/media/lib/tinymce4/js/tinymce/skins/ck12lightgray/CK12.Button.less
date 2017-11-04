@@ -1,0 +1,162 @@
+@font-size: 18px;
+@font-color: #FFF;
+@font-color-secondary: #1AABA3;
+@btn-padding: 7px 16px 9px;
+
+@btn-primary-bg:                 #00ABA4;
+@btn-primary-bg-hlight:          #00ABA4;
+@btn-primary-bg-hover:           #4DCCC4;
+@btn-primary-bg-hover-hlight:    #4DCCC4;
+@btn-primary-bg-active:          #019690;
+
+@btn-primary-text:               #fff;
+@btn-primary-text-shadow:        none;
+
+@btn-primary-border-top:         #00ABA4;
+@btn-primary-border-top-hover:   #4DCCC4;
+@btn-primary-border-top-active:  #007974;
+
+@btn-primary-border-right:       #00ABA4;
+
+@btn-primary-border-bottom:      #0089A6;
+@btn-primary-border-bottom-hover:#00ABA4;
+@btn-primary-border-bottom-active:#019690;
+
+@btn-primary-border-left:        #00ABA4;
+
+// Button
+
+.@{prefix}-btn {
+    border-radius: 3px;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: normal;
+    line-height: 1;
+    margin: 0 0 1.25em;
+    text-decoration: none;
+    text-align: center;
+    font-size: @font-size;
+    color: @font-color-secondary;
+    background-color: transparent;
+
+    // This border is here to keep text aligned with other buttons that actually use a border
+    border-top: 3px solid transparent;
+
+    text-shadow: none;
+    box-shadow: none;
+    transition: background-color 100ms ease-out 0s;
+
+    &:hover, &:focus {
+        color: @font-color-secondary;
+        background-color: transparent;
+        border-color: transparent;
+    }
+
+    &:active {
+        border-color: @btn-border-active;
+    }
+
+    &.@{prefix}-active:hover {
+        background-color: transparent;
+        border-color: #cccccc;
+    }
+
+    button {
+        padding: @btn-padding;
+        font-size: @font-size;
+        line-height: @line-height;
+        *line-height: @line-height - 4px;
+        cursor: pointer;
+        color: @font-color-secondary;
+        text-align: center;
+
+        // Fixes for default inner padding of button
+        overflow: visible; // IE7
+        -webkit-appearance: none; // WebKit
+        &::-moz-focus-inner { // Gecko
+            border: 0;
+            padding: 0;
+        }
+    }
+
+    i {
+        text-shadow: 1px 1px @btn-text-shadow;
+    }
+
+    @import "CK12.ListBox.less";
+
+}
+
+label.@{prefix}-btn {
+    color: #B5B1A8;
+    font-size: 14px;
+
+    &::before {
+        content: 'Choose File';
+        position: absolute;
+        left: 40px;
+        display: inline-block;
+        font-size: 18px;
+        line-height: 36px;
+        white-space: nowrap;
+        background-color: white;
+        padding: 0 9px;
+        border-radius: 3px;
+    }
+    input {
+        display: none;
+    }
+}
+
+.@{prefix}-primary {
+    background-color: @btn-primary-bg;
+    color: @btn-primary-text;
+    border-style: solid;
+    border-width: 3px 0;
+    border-top-color: @btn-primary-border-top;
+    border-bottom-color: @btn-primary-border-bottom;
+
+    &:hover, &:focus {
+        background-color: @btn-primary-bg-hover;
+        border-top-color: @btn-primary-border-top-hover;
+        border-bottom-color: @btn-primary-border-bottom-hover;
+        outline: none;
+    }
+
+    &:active {
+        background-color: @btn-primary-bg-active;
+        border-top-color: @btn-primary-border-top-active;
+        border-bottom-color: @btn-primary-border-bottom-active;
+    }
+}
+
+.@{prefix}-primary:not(.mce-disabled):active {
+    background-color: @btn-primary-bg-active;;
+}
+
+.@{prefix}-primary button, .@{prefix}-primary button i {
+    margin-top: 0;
+    color: @font-color;
+}
+
+.@{prefix}-secondary, label.@{prefix}-btn::before {
+    background-color: #fff;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #E7E5DE;
+
+    &:hover, &:focus {
+        background-color: #fff;
+        border-color: #c4c4c4;
+    }
+
+    &:active {
+        background-color: #fff;
+        border-color: #E7E5DE;
+    }
+}
+
+.@{prefix}-secondary button, .@{prefix}-secondary button i, label.@{prefix}-btn::before {
+    margin-top: 0;
+    color: #7B7B78;
+}

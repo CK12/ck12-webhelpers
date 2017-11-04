@@ -1,0 +1,355 @@
+{% from "macros/browse_listing.html" import ck12_branch_browse_grid with context%}
+{% from "landing/explore.html" import modalities_circles with context %}
+{% extends "common/master.html" %}
+
+{% block title %}{{ _("Free Online Textbooks, Math & Science Lesson Plans, Worksheets, Real World Examples & Teacher Resources") }}{% endblock %}
+
+{% block meta_extra %}
+<meta property="og:description" name="description" content="CK-12 Foundation provides a library of free online teacher resources, including textbooks, worksheets, group activities and more, covering more than 5,000 math and science concepts from arithmetic to chemistry">
+<meta property="og:image" content="https:{{ h.asset_image('common/images/logo_ck12_xlarge.png') }}" />
+<meta name="google-play-app" content="app-id=org.ck12.app.practice">
+<meta name="apple-itunes-app-internal" content="app-id=909343639">
+{% endblock %}
+
+{% block stylesheets %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.url_css('landing.css') }}" />
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.url_css('simpletextrotator.css') }}" />
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('common/vendor/jquery-plugins/appdownload/css/jquery.appdownload.css') }}" />
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('carousel/css/carousel.css') }}" />
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('standardSelections/build/css/standardSelections.css') }}" />
+{% endblock %}
+
+{% block js %}
+<script type='text/javascript' src="{{ h.asset_lib('common/vendor/react-0.14.0/build/react-with-addons.min.js') }}"></script>
+<script type='text/javascript' src="{{ h.asset_lib('standardSelections/build/standardSelections.js') }}"></script>
+{{ super() }}
+<script>
+	require(['main'],function() {
+		require(['carousel/carousel', 'js/flxweb.landing.new','js/flxweb.standards'], function(carousel) {
+		    carousel.teacherCarousel();
+		});
+	});
+</script>
+{% endblock %}
+
+{% block header %}
+    {% include 'common/header_teacher.html' %}
+{% endblock %}
+
+{% block contentwrap %}
+
+	<div class="content-wrap-landing">
+	{% block content %}
+		<!-- Search -->
+		<div class="search-row">
+		   <div class="ck-12-mission-wrapper text-center hide-for-small top hide">
+		       <!-- <a class="dxtrack-user-action button standard turquoise bold start-exploring" data-dx-desc="start_exploring" data-dx-referrer="teacher_landing" data-dx-domEvent="click">Start Exploring</a> -->
+		   </div>
+	        <div class="carousel-main-wrapper">
+	            <img class="carousel-loading" alt="loading" src="{{ h.asset_image('common/images/icon_loading.gif') }}">
+	        </div>
+	        <div class="row hide-for-small scroll-down-container hide">
+	            <div class="large-12 columns">
+	                <div class="row scroll-down-wrapper">
+	                    <img class="right" src="/media/common/images/Scroll_Down.png" />
+	                </div>
+	            </div>
+	        </div>
+			<div class="ck-12-mission-wrapper text-center bottom">
+	 	       <span class="relative">
+	 	           <span class="ck-12-mission-header text-center">100% Free, Personalized Learning for Every Student</span>
+		           <span class="ck-12-mission-text text-center">Create digital classrooms, customize textbooks, and learn
+					   <br class="show-for-small" />
+					   K-12 STEM concepts.</span>
+		           <div class="ck-12-mission-buttons text-center">
+		               {% if c.user %}
+		               <a class="ck-12-mission-dashboard button large dxtrack-user-action"
+					       data-dx-desc="hero-dashboard-click"
+					   	   href="{{ h.url('dashboard_new') }}">Go to Dashboard</a>
+		               {% else %}
+		               <a class="ck-12-mission-getStarted button large dxtrack-user-action"
+					       data-dx-desc="hero-get-started-click"
+					   	   >Get Started</a>
+		               {% endif %}
+		               <a class="ck-12-mission-overview button large dxtrack-user-action"
+					       data-dx-desc="hero-why-ck12-clicked"
+					       data-reveal-id="overviewVideoModal"><i class="icon-play"></i>Why CK-12?</a>
+		           </div>
+	 	       </span>
+	 	       <!-- <a class="dxtrack-user-action button standard turquoise bold start-exploring" data-dx-desc="start_exploring" data-dx-referrer="teacher_landing" data-dx-domEvent="click">Start Exploring</a> -->
+	 	    </div>
+
+            <!-- Tutorial Video -->
+            <div id="overviewVideoModal" class="modal-uikit reveal-modal small">
+                <div class="close close-reveal-modal button-close">+</div>
+                <h4>Why CK-12?</h4>
+                <div class="flex-video"></div>
+            </div>
+            <!-- /Tutorial Video -->
+
+		</div>
+
+		<div id="divider-line" class="hide-for-small">
+			<div class="divider-line-content"></div>
+		</div>
+
+		<!-- Browse Subjects -->
+		<div id="browse-grid-wrapper">
+		{{ ck12_branch_browse_grid(c.subjects) }}
+		</div>
+		<!-- /Browse Subjects -->
+
+		<div id="divider-line" class="hide-for-small">
+			<div class="divider-line-content"></div>
+		</div>
+
+		<!-- Jumpstart start-->
+		<div id="jumpstart-outer-container">
+			<div class="jumpstart-banner-wrapper js-jumpstart-banner-wrapper">
+				<div class="column jumpstart-image-container">
+					<img alt="jumpstart logo" class = "jumpstart-logo-image" src='/media/common/images/Webinar_Badge_001.png'>
+				</div>
+				<div class="column jumpstart-text">
+					<span class="jumpstart-heading">Jumpstart your teaching!</span>
+					<p>
+					    Join a community of educators transforming and creating<br />
+					    <span>content this school year. </span><span class="jumpstart-learn-more">Learn More <span class="icon-arrow3_right right-side"></span></span>
+					</p>
+				</div>
+			</div>
+		</div>
+		<!-- Jumpstart end-->
+
+		<!-- Standards Alignment -->
+		<!-- <div class="standards-select-wrapper">
+			<div class="large-12 columns standards-select-container hide">
+				<div id="standards_select" class="row">
+					<h5>Find a Standards-Aligned FlexBook&#174; Textbook</h5>
+					<span class="standards_select-text">FlexBooks&#174; are <strong>FREE</strong>, digital textbooks that can be fully customized for your classroom needs.</span>
+					<div id="standardsApp"></div>
+
+					<a class="teacher-cbse-banner show-for-india hide-important" href="/cbse/">
+						<img class="cbse-new-label" src="/media/common/images/new_orng_ribbon.png">
+						<span>Introducing</span>
+						<span class="cbse-heading"> CBSE </span>
+						<span>Maths, Physics, Chemistry, and Biology FlexBooks&reg;</span>
+					</a>
+				</div>
+			</div>
+		</div> -->
+		
+		<!-- <div class="standards-type-container">
+			<div class="standards-type-wrapper row collapse">
+	            <div class="standards-math-wrapper large-4 small-12 columns">
+	                <img src="/media/common/images/math-icon.png">
+	                <div class="standard-type">
+	                    <div>COMMON CORE</div>
+                        <div><a href="/standards-flexbooks/ccss/">MATH</a> STANDARDS</div>
+	                </div>
+	            </div>
+	            <div class="standards-science-wrapper large-4 small-12 columns left">
+	                <img src="/media/common/images/science-icon.png">
+	                <div class="standard-type">
+	                    <div>NEXT GENERATION</div>
+                        <div><a href="/standards-flexbooks/ngss/">SCIENCE</a> STANDARDS</div>
+	                </div>
+	            </div>
+			</div>
+		</div> -->
+		
+		<div class="standards-select-wrapper">
+            <div class="large-12 columns standards-select-container">
+                <div id="standards_select_new" class="row">
+                    <div class="large-10 small-12 columns standards_select-text-wrapper">
+                        <h5>Find a Standards - Aligned FlexBook&#174; Textbook</h5>
+                        <span class="standards_select-text">FlexBooks&#174; are FREE, digital textbooks that can be fully customized</span>
+                        <span>for your classroom needs.</span>
+                        <!-- <div><a>Learn More</a></div> -->
+                    </div>
+                    <div class="books large-2 columns hide-for-small">
+                        <figure class="book no-transform">
+                            <a href="" class="listitemimglink">
+                                <ul>
+                                    <li class="front">
+                                        <div class="cover">
+                                            <img src="{{ h.asset_image('common/images/Geometry-cover-full-V2.jpg') }}" title="CK-12 College Precalculus" alt="CK-12 College Precalculus">
+                                        </div>
+                                        <span class="shadow"></span>
+                                    </li>
+                                    <li class="pages">
+                                        <div class="thin page1"></div>
+                                        <div class="thin page2"></div>
+                                        <div class="thin page3"></div>
+                                    </li>
+                                    <li class="back"></li>
+                                    <span class="shadow"></span>
+                                </ul>
+                            </a>
+                        </figure>
+                    </div>
+                    <div id="standardsApp"></div>
+
+                    <a class="teacher-cbse-banner show-for-india hide-important" href="/cbse/">
+                        <img class="cbse-new-label" src="/media/common/images/new_orng_ribbon.png">
+                        <span>Introducing</span>
+                        <span class="cbse-heading"> CBSE </span>
+                        <span>Maths, Physics, Chemistry, and Biology FlexBooks&reg;</span>
+                    </a>
+                </div>
+            </div>
+		</div>
+	    <!-- /Standards Alignment -->
+
+	    <!-- Explore modalities start-->
+		{{ modalities_circles('teacher','https://' ~ config.hosts ~ '/teacher/') }}
+		<!-- Explore modalities end-->
+
+	{% endblock %}
+	</div>
+
+	<div class="episd-row relative">
+		<div class="black-background">
+			<div class="row collapse episd-iframe-container relative">
+				<iframe id="episd-player" class="episd-video-iframe" width="560" height="315" src="https://www.youtube.com/embed/lixnobRdx2o?enablejsapi=1&rel=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
+				<a class="close-video-icon"><i class="close-icon"></i></a>
+			</div>
+		</div>
+		<div class="row collapse episd-container">
+			<div class="large-12 small-12 column episd-wrapper">
+				<div id="episd-video-link" class="left relative pointer video-images-wrapper">
+					<img class="video-image" src="{{h.url_images('landing/episd_video_image.png' )}}"/>
+					<img class="video-orange" src="{{h.url_images('landing/video_orange.svg' )}}"/>
+					<div class="small-black-overlay show-for-small"></div>
+					<div class="small-episd-text show-for-small">El Paso Independent School District, TX</div>
+				</div>
+				<div class="episd-text-container hide-for-small">
+					<div class="episd-text-wrapper">
+						<div class="episd-text-upper">&#8220;The electronic version allows that textbook to come to life. You can see real life examples of issues that are occurring in our current day.&#8221;</div>
+						<div class="episd-text-lower"> &#8212;El Paso Independent School District, TX</div>
+					</div>
+					<img class="episd_logo right hide-for-medium" src="{{h.url_images('landing/episd_logo_sh.png' )}}"/>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Testimonial Start -->
+
+	<div id="teacher_testimonials">
+		<div class="row collapse">
+			<div class="large-12  small-12 columns">
+				<div class="testimonial_title text-center row collapse">
+					What People are Saying
+			</div>
+				<div class="testimonial_data row collapse">
+					<div class="large-4 columns text-center studentReview" style="">
+						<span class="teacher-name-review teacher_testimonial_text review-1">&ldquo;EPISD used CK-12 OER resources to create digital texts. Saved $$ and bought laptops for students!&rdquo;</span>
+						<img src = "{{ h.asset_image('common/images/holt.jpg') }}"/>
+						<span class="teacher-name-review test_teacher_name text_space">Tim Holt</span>
+						<span class="teacher-school">Director of Instructional services</span>
+						<span class="school-address">El Paso ISD, TX</span>
+					</div>
+					<div class="large-4 columns text-center studentReview" style="">
+						<span class="teacher-name-review teacher_testimonial_text review-2" style="">&ldquo;CK-12 has become an integral component of the Tullahoma City Schools curricular program and has served as a great conduit for the open source content we have developed.&rdquo;</span>
+						<img src = "{{ h.asset_image('common/images/lawson.jpg') }}"/>
+						<span class="teacher-name-review test_teacher_name text_space">Dr. Dan Lawson</span>
+						<span class="teacher-school">Director of Schools</span>
+						<span class="school-address">Tullahoma City Schools, TN</span>
+					</div>
+					<div class="large-4 columns text-center studentReview">
+						<span class="teacher_testimonial_text teacher-name-review review-3">&ldquo;CK-12 is a great learning tool. I would highly recommend it as an additional resource for engaging a student and enhancing the learning curve.&rdquo;</span>
+						<img src = "{{ h.asset_image('common/images/harjani.jpg') }}"/>
+						<span class="teacher-name-review test_teacher_name">Arjan Harjani</span>
+						<span class="teacher-school">Program Director & Science Chair</span>
+						<span class="school-address">Providence High School, CA</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Testimonial End -->
+
+	<!-- App Banner -->
+	<div class="apps-banner teacher-app-banner">
+		<div class="desktop_view row collapse">
+			<div class="large-12 column">
+				<div class="text-center app-store-heading">
+					<div>CK-12 Everywhere</div>
+					<div class="app-sub-heading">Get it free on:</div>
+				</div>
+				<div class="app-store-icon-container row">
+					<div class="app-link-wrapper apple-link-wrapper">
+						<a id="apple-link" target="_blank" class="track_hero_clicks text-center relative" href="https://itunes.apple.com/us/app/ck-12/id909343639?ls=1&mt=8" data-banner="apps" data-link="IOS">
+							<img src="{{ h.asset_image('common/images/Apple.svg') }}"/>
+							<span class="app-store-name">iPhone/iPad</span>
+						</a>
+					</div>
+					<div class="app-link-wrapper android-link-wrapper">
+						<a id="android-link" target="_blank" class="track_hero_clicks text-center relative" href="https://play.google.com/store/apps/details?id=org.ck12.app.practice" data-banner="apps" data-link="android">
+							<img src="{{ h.asset_image('common/images/Android_Robot.svg') }}"/>
+							<span class="app-store-name">Android</span>
+						</a>
+					</div>
+					<div class="app-link-wrapper">
+						<a id="windows-link" target="_blank" class="track_hero_clicks text-center" href="http://apps.microsoft.com/windows/en-in/app/ck-12/004598b2-a5fd-42d2-9a6f-4469eadb782c" data-banner="apps" data-link="windows">
+							<img src="{{ h.asset_image('common/images/windows_1color.svg') }}"/>
+							<span class="app-store-name">Windows 8/10</span>
+						</a>
+					</div>
+					<div class="app-link-wrapper chrome-link-wrapper">
+						<a id="chrome-link" target="_blank" class="track_hero_clicks text-center" href="https://chrome.google.com/webstore/detail/ck-12/ilmbnmigihncgeckjgmkehcgkdeohkhl?hl=en-US" data-banner="apps" data-link="chrome">
+							<img src="{{ h.asset_image('common/images/chrome.svg') }}"/>
+							<span class="app-store-name">Chrome WebApp</span>
+						</a>
+					</div>
+					<div class="app-link-wrapper edmodo-link-wrapper relative">
+						<ul id="edmodo-app-dropdown" class="f-dropdown tangerine-list edmodo-app-list">
+							<li><a target="_blank" class="track_hero_clicks" href="https://www.edmodo.com/store/app/ck-12-math-practice" data-banner="apps" data-link="edmodo-math">Math Practice App</a></li>
+							<li><a target="_blank" class="track_hero_clicks" href="https://www.edmodo.com/store/app/ck-12-science-practice" data-banner="apps" data-link="edmodo-science">Science Practice App</a></li>
+						</ul>
+						<a id="edmodo-link" class="track_hero_clicks text-center edmodo-app-link dropdown" data-dropdown="edmodo-app-dropdown" data-banner="apps" data-link="edmodo">
+							<img src="{{ h.asset_image('common/images/edmodo.svg') }}"/>
+							<span class="app-store-name">Edmodo</span>
+							<i class="icon-arrow-up"></i>
+						</a>
+					</div>
+					<div class="app-link-wrapper google-classroom-link-wrapper">
+						<a id="chrome-link" target="_blank" class="track_hero_clicks text-center" href="http://www.ck12.org/blog/new-ways-to-learn-ck12-org-is-integrating-with-google-classroom/" data-banner="apps" data-link="chrome">
+							<img src="{{ h.asset_image('common/images/google_classroom.png') }}"/>
+							<span class="app-store-name">Google Classroom</span>
+						</a>
+					</div>
+					<div class="app-link-wrapper canvas-link-wrapper">
+						<a id="chrome-link" target="_blank" class="track_hero_clicks text-center" href="http://www.ck12.org/blog/ck-12-partners-with-canvas/" data-banner="apps" data-link="chrome">
+							<img src="{{ h.asset_image('common/images/canvas.svg') }}"/>
+							<span class="app-store-name">Canvas</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /App Banner -->
+
+	{% if not c.user %}
+	<!-- <div>
+		<div class="row collapse">
+			<div class="testimonial_join columns large-centered">
+			<div class="row collapse">
+				<span>Create classes, assign practice, and track performance.</span>
+                                <a id="join_for_free" class="button large turquoise" href="{{ h.auth_signup_url() }}" rel="nofollow">Get Started</a>
+			</div>
+			</div>
+		</div>
+	</div> -->
+	{% endif %}
+	<div class="testimonial_arrow hide-for-small">
+		<div class="row collapse text-center">
+			<i class="icon-arrow_up js-scroll-top dxtrack-user-action" data-dx-desc="Teacher homepage - Scroll up" data-dx-domEvent="click"></i>
+		</div>
+	</div>
+	<div class="row collapse" id="profilebuilder-content"></div>
+    <div class="row collapse" id="ck12-license-container"></div>
+	<div class="row collapse hide" id="notification_popup"></div>
+{% endblock %}

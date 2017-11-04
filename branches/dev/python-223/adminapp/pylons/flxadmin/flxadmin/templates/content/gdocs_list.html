@@ -1,0 +1,33 @@
+{% from "macros/pagination.html" import paginate with context %}  
+
+{% if c.paginator.item_count > 0 %}
+  {% for i in c.paginator.items %}
+  <form class='tr' method="post">
+    <div class='td longer inputwrap'>
+      <input class='efull' type='text' name='title' value='{{i.title}}'/>
+    </div>
+    <input class='hide id' type='text' name='docID' value='{{i.id}}'/>
+    <input class='hide' type='text' name='command' value='gdoc2xhtml'/>
+    <input class='hide artifactType' type='text' name='artifactType'/> 
+  {#<div class="td">{{i.updated|compact}}</div>#}
+    <div class="td actionitemwrap">
+    {% if c.doctype.startswith('doc') %}
+      <div class='actionitem' id='lesson'>[Lesson]</div>
+    {% elif c.doctype.startswith('folder') %}
+      <div class='actionitem' id='book'>[Book]</div>
+    {% endif %}
+      <div class='actionlink hide'></div>
+      <div class='actionstat status hide'></div>
+      <div class='actionmsg hide'></div>
+    </div>
+    <div class='td'>
+    {% if c.doctype.startswith('doc') %}
+      <a href="https://docs.google.com/document/d/{{i.id}}/edit" target="_blank">[GDocs]</a>
+    {% elif c.doctype.startswith('folder') %}
+      <a href="https://docs.google.com/#folders/{{i.id}}" target="_blank">[GDocs]</a>
+    {% endif %}
+    </div>
+  </form>
+  {% endfor %}
+  {{ paginate(c.paginator) }}
+{% endif %}

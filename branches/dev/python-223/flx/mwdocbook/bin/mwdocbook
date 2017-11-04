@@ -1,0 +1,36 @@
+#!/usr/bin/env python
+from mwdocbook.render import WikiRenderer
+from mwdocbook.docbook import Docbook
+from optparse import OptionParser
+
+USAGE = "usage: %prog -l <web-location> -d URL TARGET_DIR"
+VERSION = "%prog 2.0\n"
+DESCRIPTION = "Parse the collection of chapters at URL and deposit the \
+               docbook composite at TARGET as a directory (-d)"
+
+parser = OptionParser(usage=USAGE,
+                          version=VERSION,
+                          description=DESCRIPTION)
+
+parser.add_option("-d",
+                      "--directory",
+                      action="store_true",
+                      dest="directory",
+                      default=False,
+                      help="target is a directory")
+
+parser.add_option("-l",
+        "--web-location",
+        action="store",
+        dest="webLocation",
+        default="http://localhost",
+        help="Web location prefix to contact to contact for embedded objects.")
+
+
+(options, args) = parser.parse_args()
+    
+url, target = args 
+renderer = WikiRenderer()
+Docbook.urldocbook = url
+renderer.book_to_dir(url, target, options.webLocation, Docbook)
+

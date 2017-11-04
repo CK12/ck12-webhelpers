@@ -1,0 +1,190 @@
+{% extends "master.html" %}  
+
+{% block admincontent %}  
+<div class="sectionhead sectiontitle">Re-Index</div>
+<div class="section">
+  <div class='margined'>
+  {% if c.id %}  
+    {{ h.labelcheckbox('Re-Index All Child Artifacts', 'recursive', 'checked')}}
+    <input type="submit" class="btn primaryaction" value="Re-Index &nbsp;{{h.type_title(c.artifact)}}">
+    {{h.htmla_('/artifact/'+c.id, '[Artifact Details]')}}
+  {% else %}  
+    {{ h.labelcheckbox('Metadata Only', 'metadataOnly')}}
+    <input type="submit" class="btn primaryaction" value="Re-Index All Artifacts">
+  {% endif %}  
+  </div>
+</div>
+
+<span class='ajaxError'></span>
+<div class="prethead">
+  Recent {% if c.id %}Re-Indexes for this Artifact{% else %}Global Re-Indexes{% endif %}
+</div>
+<div id='nonefound'></div>
+<div class="thead sectionhead hide">
+  <div class="tr">
+    <div class="td">Id</div>
+    <div class="td">Name</div>
+    <div class="td">Status</div>
+    <div class="td">Started</div>
+    <div class="td">Updated</div>
+    <div class="td">Result</div>
+    <div class="td">User Data</div>
+  </div>
+</div>
+<div class="tbody" id='results'></div>
+{% endblock admincontent %}
+
+{% block js_scripts %}
+<script type="text/javascript">
+$(document).ready(function(){
+  var 
+  updateInterval = Defaults.interval.med, 
+  pageSize = 100, // pageSize for tasks API (need many since need to filter right one)
+  maxStats = 6,   // max stats to show 
+  createIndexPageSize = 2,
+  artifactId = '{% if c.id %}{{c.id}}{% endif %}',
+  createIndexTasksUrl = CK12.flxUrl('get/info/tasks?filters=name,CreateIndex&pageSize='+createIndexPageSize+'&sort=updated,desc'),
+  tasksUrl = artifactId? 
+    CK12.flxUrl('get/info/tasks?filters=name,CreateIndex%3Bname,Reindex&pageSize='+pageSize+'&sort=updated,desc'):
+    createIndexTasksUrl,
+  reindexUrl = CK12.flxUrl('update/index'),
+  createindexUrl = CK12.flxUrl('create/index'),
+  taskUrlRoot = CK12.flxUrl('get/status/task/'),
+  $thead = $('.thead'),
+  $results = $('#results'),
+  $submit = $('input[type=submit]'),
+  $nonefound = $('#nonefound'),
+  tasks = [],
+
+  formatTask = function(task){ 
+    var 
+      justNowMsg = 'just now',
+      hasIDMsg = task.taskID && task.messages,
+      _id = task.id || '',
+      _link = (_id && task.name)? CK12.admHtmla('/task/'+_id, task.name) :
+                        hasIDMsg? CK12.admHtmla('/task/'+task.taskID, 'task'):'',
+      _status = task.status || (hasIDMsg? 'PENDING' : 'UNKNOWN'),
+      _started = task.started || justNowMsg, 
+      _updated = task.updated || justNowMsg, 
+      _result  = task.result || task.messages || '',
+      _userdata = task.userdata || '';
+    return '<div class="tr">\
+      <div class="td id">'+_id+'</div>\
+      <div class="td">'+_link+'</div>\
+      <div class="td status">'+_status+'</div>\
+      <div class="td">'+_started+'</div>\
+      <div class="td">'+_updated+'</div>\
+      <div class="td">'+_result+'</div>\
+      <div class="td">'+_userdata+'</div>\
+      <div class="td taskID hide">'+task.taskID+'</div>\
+    </div>';
+  },
+  artifactInTask = function(task){ 
+    // Returns true if task is CreateIndex or if artifactId is found in task's userdata
+    if (task.name == 'CreateIndex'){
+      return true;
+    }else if (artifactId){
+        var matchedAry = task.userdata? task.userdata.match(/\[(.*?)\]/) : [''];
+        if (matchedAry == null) {
+          matchedAry = [''];
+        }
+        var artifactsStr = matchedAry.length==2 ? matchedAry[1] : matchedAry[0],
+        artifacts = artifactsStr.split(/\,\s?/);
+      if ($.inArray(artifactId, artifacts) != -1)
+        return true;
+    }
+    return false;
+  },
+  updateTasksList = function(data){
+    if (tasks.length >= maxStats) return;
+    var _tasks = data.response? data.response.tasks : [];
+    $(_tasks).each(function(i, task){
+      if (artifactInTask(task))
+        tasks.push(task);
+    });
+  };
+
+  // re-index action handler
+  $submit.click(function(){
+    var 
+      ok = $submit.hasClass('disabled')? confirm(
+        "Re-index seems to be already in progress.  Are you sure you want to trigger a new one?")
+        : true,
+      url = artifactId? reindexUrl : createindexUrl,
+      data = artifactId? {artifactIDs: artifactId, recursive: $('#recursive').is(':checked')}
+                       : {metadataOnly: $('#metadataOnly').is(':checked')};
+    if (ok){
+      $.ajax({url: url, data: data, type: 'POST', 
+        success: function(data) {
+          $thead.removeClass('hide');
+          $nonefound.addClass('hide');
+          $results.prepend(formatTask(data.response||{}));
+          $submit.addClass('disabled');
+          Fns.colorStatus();
+        }
+      });
+    }
+  });
+
+  // update recent re-indexes table
+  $.ajax({url: tasksUrl,
+    success: function(data) {
+      updateTasksList(data);
+
+      if (artifactId && tasks.length==0){
+        if (console) console.log(
+          'No Reindex tasks found for artifact, see if has createIndex tasks..');
+        $.get(createIndexTasksUrl, function(data){
+          updateTasksList(data);
+        });
+      }
+
+      // populate table with tasks or show "None found", disable submit if inProgress
+      var result_html = '';
+      $(tasks).each(function(i, task){
+        result_html += formatTask(task);
+        if (i==0) $submit.toggleClass('disabled', Fns.inProgress(task.status));
+      });
+      if (result_html){
+        $thead.removeClass('hide');
+        $results.html(result_html);
+        Fns.colorStatus();
+      }else if (artifactId){
+        $nonefound.text('(None found in recent '+pageSize+' Reindex/CreateIndex tasks)');
+      }else{
+        $nonefound.text('(None)');
+      }
+    }
+  });
+
+  // poll status
+  Fns.pollStatus = function(){
+    $('.status').each(function (i, elm){
+      var 
+        $elm = $(elm),
+        status = $elm.text().trim();
+      if (Fns.inProgress(status)){
+        var 
+          isNewTask = $elm.siblings('.id').text() == '',
+          id = isNewTask? $elm.siblings('.taskID').text() : 
+                          $elm.siblings('.id').text();
+        if (id){
+          $.ajax({url: taskUrlRoot+id,
+            success: function(data) {
+              var 
+                task = data.response,
+                $row = $elm.parent();
+              $submit.toggleClass('disabled', 
+                $row.is(':first-child') && Fns.inProgress(task.status));
+              $row.replaceWith(formatTask(task));
+              Fns.colorStatus();
+            }
+          });
+        }
+      }
+    });
+  };
+  Poll = setInterval("Fns.pollStatus()", updateInterval); 
+});
+</script>
+{% endblock %}

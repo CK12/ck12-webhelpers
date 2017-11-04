@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Index All Artifacts</title>
+        <script type="text/javascript">
+          function formSubmit() {
+            if (confirm('Are you sure you want to delete and recreate the entire search index?')) {
+              document.metadata.submit();
+              return true;
+            }
+            return false;
+          }
+        </script>
+    </head>
+    <body>
+      <h1>Index all Artifacts</h1>
+      <p>Note: Deletes existing index.</p>
+        <form name="metadata" method="POST" action="{{ c.prefix }}/create/index" onsubmit="return formSubmit();">
+            <table>
+                <tr>
+                    <td>
+                        Index text contents of all artifacts?
+                    </td>
+                    <td>
+                        <input type="checkbox" name="metadataOnly" value="False" checked="checked" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Wait for the indexing to finish?
+                    </td>
+                    <td>
+                        <input type="checkbox" name="waitFor" value="True" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align:right;">
+                        <input type="submit" name="submit" value="Create" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,12 @@
+@import '../main';
+
+:local {
+    .page {
+        padding: 0 0 $global-padding;
+        background-color: $IVORY;
+    }
+
+    .loader {
+        margin: 100% 0;
+    }
+}

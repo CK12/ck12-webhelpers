@@ -1,0 +1,22 @@
+{% from "macros/pagination.html" import paginate with context %}  
+
+{% if c.paginator.item_count > 0 %}
+  {% for i in c.paginator.items %}
+    <div class="tr paneview {{ h.hide_if_full(c.viewmode)}}">
+      <div class="td viewtrigger" data-id="{{i._id}}"><span class="tiptrigger">{{h.idlink2('/rwe/', i, alttext=i.title|truncate(40)|escape, idkey='_id')}}, {{i.simID}}</span><br/>
+        <div class='hide tipdiv'>{{i.title}}</div>
+      </div>
+      <div class="td nowrap">{{i.updated|parseISODate}}</div>
+    </div>
+    <div class="tr fullview {{ h.hide_if_pane(c.viewmode)}}">
+	  <div class="td viewtrigger tiptrigger" data-id="{{i._id}}">{{h.idlink2('/rwe/', i, alttext=i.title|truncate(40)|escape, idkey='_id')}}</div>
+	  	<div class='hide tipdiv'>{{i.title}}</div>
+	  <div class="td">{{h.idlink2('/artifact/', i, alttext=i.simID, idkey='simID')}}</div>
+      <div class="td">{{i.eids | join(', ') or "N/A"}}</div>
+      <div class="td">{{i.level}}</div>
+      <div class="td nowrap">{{i.updated|parseISODate}}</div>
+      <div class='hide tipdiv'>{{i.title|escape}}</div>
+    </div>
+  {% endfor %}
+  {{ paginate(c.paginator) }}
+{% endif %}

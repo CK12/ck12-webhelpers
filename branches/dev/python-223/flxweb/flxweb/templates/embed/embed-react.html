@@ -1,0 +1,52 @@
+{% extends "common/master.html" %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_css('common/css/master.css') }}" />
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_css('css/modalities.css') }}" />
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_css('embed/css/embed.css') }}" />
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_css('css/rosetta.css') }}" />
+{% endblock %}
+
+
+{% block additional_body_classes %}{% endblock %}
+
+{% block js %}
+<script src="{{ h.asset_lib('common/js/utils/globals.js') }}"></script>
+<script language="JavaScript" type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		extensions: ["tex2jax.js"],
+		tex2jax: {
+			inlineMath: [['@$','@$']],
+			displayMath: [['@$$','@$$']]
+		},
+		showMathMenu : false,
+		jax: ["input/TeX","output/HTML-CSS"],
+		messageStyle: "none",
+		TeX: {
+			extensions: ["cancel.js", "color.js"]
+		}
+	});
+</script>
+<script language="JavaScript" type="text/javascript" src="//d3lkjnwva6z405.cloudfront.net/mathjax-min/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="{{ h.asset_js('dexterjs/dexterjs.min.js') }}"></script>
+<script data-main="{{ h.asset_js('main') }}" src="{{ h.asset_lib('common/vendor/requirejs/require.js') }}"></script>
+{% include 'common/global_js.html' %}
+<script>
+    var embedder = null;
+	require(['main'], function(){
+		require(['embed/embed-react'], function (Embedder){
+			var embed = new Embedder();
+			embed.init();
+		});
+	});
+</script>
+{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+<div id="embed_container"></div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

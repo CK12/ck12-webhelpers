@@ -1,0 +1,1 @@
+/opt/2.0/deploy/components/wsgi/flx/flx.wsgi

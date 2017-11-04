@@ -1,0 +1,119 @@
+{% extends "common/master.html" %}
+{% block title %}{{ _("Browse Study Guides") }}{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+{% endblock %}
+
+{% block stylesheets %}
+{{ super() }}
+  <!-- Include any style sheets here -->
+  <link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('study-guides/vendor/fonts/font-roboto/font-roboto.css') }}" />
+  <link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('study-guides/app/launcher.min.css') }}" />
+{% endblock %}
+
+{% block overlay %}{% endblock %}
+{% block additional_body_classes %}
+{{ super() }}
+{{ _('nochrome') }}
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+
+<!-- include any JS files here -->
+
+<script type="text/javascript"> <!-- Define global variables -->
+    window.timeStamp = "";
+    window.browsehost = window.apihost = window.location.hostname;
+    require(['main'], function () {
+        require(['jquery', 'study-guides/app/launcher.min'], function ($) {
+            $('.content-wrap').removeClass('row');
+        });
+    });
+</script>
+
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+
+<!-- include the html content here -->
+    <div id="loader">
+          <div class="loading-gif-wrapper">
+            <img src="{{ h.asset_image('study-guides/assets/images/plix_1024.png') }}">
+            <br>
+              <img src="{{ h.asset_image('study-guides/assets/images/Line.png') }}">
+            <div class="loading-title">Study Guides</div>
+              <div class="loading-line-wrapper">
+                  <div class="loading-line"></div>
+                  <div class="loading-percent">0%</div>
+              </div>
+              <!-- div class="loading-text">Loading...</div -->
+          </div>
+    </div>
+    <div id="wait" class="hide">
+        <img src="{{ h.asset_image('study-guides/assets/images/Preloader_5.gif') }}" alt="Please wait." class="wait-img">
+    </div>
+    <main class="full-height">
+    
+    <header class="header">
+        <nav>
+            <div class="head-title">
+                <a href="#" class="back-button" title="Back"></a>
+                <a href="//@@apihost@@" title="CK-12"><img class="app-logo" src="{{ h.asset_image('study-guides/assets/images/ck12-logo-300dpi.png') }}" alt="CK-12"></a>
+                <div class="exploration-series">Study Guides</div>
+            </div>
+            <div class="search-box">
+                <input type="text" class="search-field open-search" placeholder="Search for titles, concepts and standards" size="30" name="search-field">
+                <img src="{{ h.asset_image('study-guides/assets/images/close-white.svg') }}" class="close-search hide">
+            </div>            
+        </nav>
+    </header>
+    <section id="main-container" class="main-container">
+        <div class="branch-view-holder">
+            <div class="horizontal-scroll-container">
+                <div class="left-scroll no-display"></div>
+                <div class="center-scroll">
+                    <div class="branch-scroll">
+                        <div class="interested-branches"></div>
+                    </div>
+                </div>
+                <div class="right-scroll no-display"></div>
+            </div>
+            <!-- button class="btn cyan edit-branches hide">Change Branches</button -->
+        </div>
+        <div class="thumbnail-view-holder">
+            <div class="thumbnail-view-row my-branches-row hide">
+                <div class="no-plix hide">Sorry no study guides for this subject yet!</div>
+            </div>
+        </div>
+        <!-- <div class="big-overlay hide"></div>-->
+    </section>
+    <img src="{{ h.asset_image('study-guides/assets/images/ajax-loader.gif') }}" alt="Loading..." class="loading-gif hide">
+    <div class="modal-window hide">
+        <div class="modal-content">
+            <div class="close-modal"></div>
+            <div class="iframe-container">
+                <iframe class="i-frame" src="" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+    
+    <div id="searchResultWrapper" class="search-result-wrapper hide">
+        <div class="search-text">Search Results</div>
+        <div id="searchResultContainer" class="search-result-container">
+        </div>
+        <div id="noResult" class="no-result hide">No results available.</div>
+    </div>
+    
+    </main>
+
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

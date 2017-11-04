@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                      "http://www.w3.org/TR/html4/loose.dtd"> 
+<html>
+    <head>
+        <title>Associate Concept Node with Instance at Source URL</title>
+    </head>
+    <body>
+        <form action="/taxonomy/create/conceptPrerequires" method="POST">
+            
+            <table>
+                <tr>
+                    <td>Concept Node ID:</td>
+                    <td><input type="text" name="conceptNodeID" /></td>
+                </tr>
+                <tr>
+                    <td>Prerequire Concepts (EID1:weight1,EID2:weight2...):</td>
+                    <td><input type="text" name="prerequireConcepts" /></td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" style="text-align:right;"><input type="submit" value="Create" /></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
+

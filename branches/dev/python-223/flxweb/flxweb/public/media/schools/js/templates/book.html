@@ -1,0 +1,37 @@
+<div class="book-container columns large-3 medium-4 small-6 <%- data.classname %>">
+  <div class="book-area<% if (data.editMode) { %> border<% } %>">
+    <div class="bookWrapHoverElement">
+        <div class="bookWrap<% if (data.description === '') { %> no-description<% } %>">
+            <div class="bookCover bookface front">
+                <img src="<%- data.artifactCoverThumb %>" />
+            </div>
+            <div class="bookInfo bookface back">
+                <div class="bookInfoTop">
+                    <div class="bookDescription">
+                        <% if (data.description){ %>
+                        <strong>Description:</strong> 
+                        <span class="description js-description" title="<%- data.description %>"><%- data.description %></span>
+                        <% } %>
+                    </div>
+                    <div class="bookCreator">
+                        <strong>Created by: </strong><span><%- data.creatorName %></span>
+                    </div>
+                </div>
+                <a id="lnk-book-flipside-<%- data.artifactID %>" class="bookLink" href="<%- data.artifactPerma %>">Open FlexBook &reg;</a>
+            </div>
+        </div>
+    </div>
+    <div class="bookTitle text-center">
+        <a id="lnk-book-title-<%- data.artifactID %>" class="bookLink" href="<%- data.artifactPerma %>" title="<%- data.artifactTitle %>"><%- data.artifactTitleElipsis %></a>
+        <div class="bookCreator">
+            <span><%- data.creatorName %></span>
+        </div>
+    </div>
+     <% if( data.editMode ) { %>
+        <div class="delete-book right" title='Delete This Book' >
+            <i class="icon-remove"></i>
+        </div>
+        <% } %>
+    
+    </div>
+</div>

@@ -1,0 +1,38 @@
+{
+	"infinity" : {
+		"data" : "\\infty ",
+		"pos" : [0,7],
+		"length" : 7
+	},
+	"surd" : {
+		"data" : "\\surd ",
+		"pos" : [0,6],
+		"length" : 6
+	},
+	"empty" : {
+		"data" : "\\emptyset ",
+		"pos" : [0,10],
+		"length" : 10
+	},
+	"angle" : {
+		"data" : "\\angle ",
+		"pos" : [0,7],
+		"length" : 7
+	},
+	"upTack" : {
+		"data" : "\\bot ",
+		"pos" : [0,5],
+		"length" : 5
+	},
+	"parallel" : {
+		"data" : "\\parallel ",
+		"pos" : [0,10],
+		"length" : 10
+	},
+	"sharp" : {
+		"data" : "\\sharp ",
+		"pos" : [0,7],
+		"length" : 7
+	}
+	
+}

@@ -1,0 +1,253 @@
+Level 1,Level 2,Level 3,Level 4,Level 5,Level 6,EncodedID,Original EncodedIDs,Description
+Basics of Geometry,,,,,,MAT.GEO.100,,
+,2D Shapes,,,,,MAT.GEO.101.0,"MAT.EM2.820.01, MAT.EM3.820.01, MAT.EM2.820.02, MAT.EM3.820.02, MAT.EM2.820.03, MAT.EM3.820.03","Overview of Lines, Curves, Vertices, and Sides of 2D Shapes"
+,,Identify Shapes ,,,,MAT.GEO.101.010,"MAT.EM1.805.2, MAT.EM2.805.02, MAT.EM3.805.02, MAT.EM5.805.02, MAT.EM1.805.1, MAT.EM2.805.01, MAT.EM3.805.01, MAT.EM5.805.01, MAT.EM1.805.4, MAT.EM2.805.04, MAT.EM3.805.04, MAT.EM5.805.04, MAT.EM1.805.3, MAT.EM2.805.03, MAT.EM3.805.03,","Identifying rectangles, squares, circles, and triangles.  Locate sets of shapes and identify shapes of common objects."
+,,Identify Less Common Shapes,,,,MAT.GEO.101.030,"MAT.EM2.810.04, MAT.EM3.810.04, MAT.EM4.910.04, MAT.EM5.810.04, MAT.EM2.810.05, MAT.EM3.810.05, MAT.EM5.810.05, MAT.EM2.810.06, MAT.EM3.810.06, MAT.EM5.810.06,  ","Overview of ellipses, trapezoids, rhombi, and polygons.  Match similar shapes."
+,,Composite Shapes  ,,,,MAT.GEO.101.050,"MAT.EM1.805.5, MAT.EM2.805.05, MAT.EM3.805.05, MAT.EM5.805.05, MAT.EM2.810.08, MAT.EM3.810.08, MAT.EM2.810.09, MAT.EM3.810.09, MAT.EM2.810.07, MAT.EM3.810.07, MAT.EM4.910.07, MAT.EM5.810.07","Count Different 2D Shapes; rectangles, squares and triangles, within simple and within complex, composite figures."
+,Geometric Definitions,,,,,MAT.GEO.102.0,MAT.GEO.110,"Define and use terms, including points, lines, planes, space, and postulates."
+,Line Segments,,,,,MAT.GEO.103.0,MAT.GEO.124,Identify the Positive length between points.
+,,Midpoints and Segment Bisectors,,,,MAT.GEO.103.010,MAT.GEO.122,Use midpoints and bisectors to find the halfway mark between two coordinates.
+,,Midpoint Formula,,,,MAT.GEO.103.030,MAT.ALG.826,Determine the midpoints of line segments by taking the average of x values and average of y values
+,,Points that Partition Line Segments,,,,MAT.GEO.103.050,MAT.GEO.128,Section formula finds coordinates of a point that splits a line segment in a given ratio.
+,Classify Angles,,,,,MAT.GEO.104.0,"MAT.GEO.130, MAT.EM4.970.02, MAT.EM4.970.04","Comparison and classification of angles, such as right or vertical, and their relation to lines and rays. "
+,,Identification of Angles by Vertex and Ray,,,,MAT.GEO.104.010,"MAT.GEO.131, MAT.EM4.970.01",Learn how to name angles using letters.
+,,Measuring Angles,,,,MAT.GEO.104.020,"MAT.GEO.134.2, MAT.EM4.970.05, MAT.EM4.970.06, MAT.EM4.970.07, MAT.EM4.970.08",Measurement of angles with protractors and the Angle Addition Postulate.
+,,Classifying Angles,,,,MAT.GEO.104.040,"MAT.GEO.132, MAT.EM4.970.09, MAT.EM4.970.11, ","Classify angles as acute, obtuse, right or straight."
+,,Congruent Angles and Angle Bisectors,,,,MAT.GEO.104.060,MAT.GEO.134.1,"Angles of the same measure, and lines or portions of lines that divide angles into two equal halves."
+,Construct Bisectors of Line Segments and Angles,,,,,MAT.GEO.105.0,"MAT.GEO.136.1, MAT.GEO.139",Construct angles and line segments. Divide angles and line segments into two congruent parts.
+,Angle Pairs,,,,,MAT.GEO.106.0,"MAT.GEO.198, MAT.GEO.138","Find angles and line segments, and determine if shapes are congruent and lines are parallel. Understand complementary angles as angles whose sum is 90 degrees and supplementary angles as angles whose sum is 180 degrees."
+,,Supplementary and Complementary Angles,,,,MAT.GEO.106.010,MAT.GEO.138.5,Find missing angle measures for supplementary or complementary angles.
+,,,Complementary Angles,,,MAT.GEO.106.01020,MAT.GEO.138.1,Two angles that add up to 90 degrees.
+,,,Supplementary Angles,,,MAT.GEO.106.01040,"MAT.GEO.138.3,
+MAT.GEO.138.2",Two angles that add to 180 degrees and when adjacent form a straight line.
+,,Vertical Angles,,,,MAT.GEO.106.060,MAT.GEO.138.4,Understand that vertical angles are opposite each other and have the same measure.
+,Classify Polygons,,,,,MAT.GEO.107.0,MAT.GEO.140,"Categories of polygons based on the number of sides, and whether they are concave or convex"
+,,Vertices and Sides,,,,MAT.GEO.107.030,"MAT.EM2.820.04, MAT.EM3.820.04, MAT.EM4.970.03",Count the angles/vertices and sides in a closed figure.
+,,Polygon Classification in the Coordinate Plane,,,,MAT.GEO.107.060,MAT.GEO.149,Identify polygons graphed on the coordinate plane.
+Reasoning and Proof,,,,,,MAT.GEO.200,,
+,Patterns and Reasoning,,,,,MAT.GEO.201.0,,
+,,Basic Visual Patterns,,,,MAT.GEO.201.010,"MAT.GEO.152.2, MAT.EM2.810.11, MAT.EM3.810.11, MAT.EM4.910.11, MAT.EM2.810.13, MAT.EM3.810.13, MAT.EM4.910.13, MAT.EM5.810.13, MAT.EM3.810.14, MAT.EM4.910.14, MAT.EM2.810.1, MAT.EM3.810.1, MAT.EM4.910.1, MAT.EM5.810.1",Describe non-arithmetic sequences by finding a rule.  Identify visual and geometric patterns
+,,Identify Basic Pattern Type,,,,MAT.GEO.201.020,"MAT.EM3.810.12, MAT.EM4.910.12",Describe patterns using letters.
+,,Number Patterns,,,,MAT.GEO.201.030,"MAT.GEO.152.3, MAT.ALG.216",Identify missing values in numerical patterns.
+,,Reasoning Types,,,,MAT.GEO.201.040,"MAT.GEO.154.4,
+MAT.GEO.150",Deductive versus Inductive Reasoning.  Deductive is from the general to the specific. Inductive is the reverse.  It is impossible for the premises to be true and the conclusion to be false. 
+,,Inductive Reasoning from Patterns,,,,MAT.GEO.201.050,MAT.GEO.152.1,Making conclusions based upon examples and patterns.
+,,Conjectures and Counterexamples,,,,MAT.GEO.201.060,MAT.GEO.152.4,Educated guesses and examples that disprove them.
+,,Deductive Reasoning,,,,MAT.GEO.201.070,MAT.GEO.154,Drawing conclusions from facts.
+,Logic Statements,,,,,MAT.GEO.203.0,,
+,,Truth Tables,,,,MAT.GEO.203.010,MAT.GEO.154.5,Organization and analysis of logic using symbols.
+,,And and Or Statements,,,,MAT.GEO.203.030,MAT.GEO.155,Truth tables for conjunctions and disjunctions.
+,,Negative Statements,,,,MAT.GEO.203.050,MAT.GEO.165,"Truth values for negation of conditional statements, conjunctions, and disjunctions."
+,,If Then Statements,,,,MAT.GEO.203.070,MAT.GEO.162,Hypothesis followed by a conclusion in a conditional statement.
+,,"Converse, Inverse, and Contrapositive Statements",,,,MAT.GEO.203.090,MAT.GEO.164,Conditional statements drawn from an if-then statement.
+,Properties and Proofs,,,,,MAT.GEO.205.0,"MAT.GEO.100,
+MAT.GEO.188",Use two column proofs to assert and prove the validity of a statement by writing formal arguments of mathematical statements. Also learn about paragraph and flow diagram proof formats.
+,,Properties of Equality and Congruence,,,,MAT.GEO.205.010,MAT.GEO.180,Logical rules involving equality and congruence that allow equations to be manipulated and solved.
+,,Angle Pairs and Segments Proofs,,,,MAT.GEO.205.030,MAT.GEO.190,"Vertical angles, perpendicular bisectors, and other theorems based on intersecting lines or parallel lines and a transversal."
+,,Parallel and Perpendicular Lines Proofs,,,,MAT.GEO.205.040,MAT.GEO.250,Proofs involving lines with slopes that are equal or opposite reciprocals of each other.
+,,Parallelogram Proofs,,,,MAT.GEO.205.050,MAT.GEO.430,Apply theorems to show if a quadrilateral has two pairs of parallel sides.
+,,Triangle Proofs,,,,MAT.GEO.205.070,MAT.GEO.300,"Prove theorems about the sum of angles, base angles of isosceles triangles, and exterior and interior angles."
+,,Indirect Proof in Algebra and Geometry,,,,MAT.GEO.205.090,MAT.GEO.170,"Proof by contradiction, beginning with the assumption that the conclusion is false."
+Lines,,,,,,MAT.GEO.300,,
+,Identify Line Types,,,,,MAT.GEO.301.0,"MAT.GEO.200, MAT.EM3.835.07, MAT.EM3.835.06,
+MAT.EM3.835.02, MAT.EM3.835.04, MAT.EM5.835.04, MAT.GEO.244, MAT.GEO.211, MAT.EM2.835.1, MAT.EM3.835.02, MAT.EM3.835.06","Identify parallel, perpendicular  and intersecting lines.  "
+,Parallel and Skew Lines,,,,,MAT.GEO.301.5,MAT.GEO.212,Lines that never intersect.
+,Parallel Lines and Transversals,,,,,MAT.GEO.302.0, MAT.EM2.835.09,Evaluate parallel lines cut by a traversal.
+,,Corresponding Angles,,,,MAT.GEO.302.010,MAT.GEO.222,Identify corresponding angles as matching angles.
+,,Alternate Interior Angles,,,,MAT.GEO.302.030,MAT.GEO.224,"Angles on opposite sides of a transversal, but inside the lines it intersects."
+,,Alternate Exterior Angles,,,,MAT.GEO.302.050,MAT.GEO.226,"Angles on opposite sides of a transversal, but outside the lines it intersects."
+,,Same Side Interior Angles,,,,MAT.GEO.302.070,MAT.GEO.228,Angles on the same side of a transversal and inside the lines it intersects.
+,,Angles and Perpendicular Lines,,,,MAT.GEO.302.090,MAT.GEO.240,Lines that intersect at a 90 degree or right angle.
+,Lines in the Coordinate Plane,,,,,MAT.GEO.304.0,,
+,,Parallel Lines in the Coordinate Plane,,,,MAT.GEO.304.030,MAT.GEO.254,Lines with the same slope that never intersect.
+,,Perpendicular Lines in the Coordinate Plane,,,,MAT.GEO.304.050,MAT.GEO.256,"Lines with opposite sign, reciprocal slopes that intersect at right angles."
+,Line Construction,,,,,MAT.GEO.305.0,MAT.GEO.270,Create lines that do not intersect or intersect at a 90 degree angle using a compass and straightedge.
+Triangles,,,,,,MAT.GEO.400,,
+,Classifying Triangles ,,,,,MAT.GEO.401.0,"MAT.EM3.840.07, MAT.EM4.940.07, MAT.EM3.840.08, MAT.EM4.940.08, MAT.EM3.840.09, MAT.EM4.940.09, MAT.GEO.340","Classify triangles as acute, right, obtuse or equiangular and as scalene, isosceles or equilateral. Use classifications to find missing information."
+,,Classify Triangles with Angle Measurement,,,,MAT.GEO.401.010,"MAT.EM3.840.04, MAT.EM3.840.03, MAT.EM4.940.03, MAT.EM4.940.04, MAT.GEO.341, MAT.EM4.970.1","Identify triangles as acute, right, obtuse or equiangular."
+,,Classify Triangles with Side Measurement,,,,MAT.GEO.401.030,"MAT.EM3.840.05, MAT.EM4.940.05, MAT.EM3.840.06, MAT.EM4.940.06, MAT.GEO.345","Classify triangles as scalene, isosoles or equalateral by identifying the number of equal sides."
+,,Isosceles Triangles,,,,MAT.GEO.401.050,"MAT.GEO.342, MAT.EM3.840.12, MAT.EM4.940.12",Properties of triangles with two equal sides/angles.
+,,Equilateral Triangles,,,,MAT.GEO.401.070,MAT.GEO.344,Properties of triangles with three equal sides.
+,Area and Perimeter of Triangles,,,,,MAT.GEO.403.0,MAT.GEO.812,Area is half the base times the height while the perimeter is the sum of the sides.
+,,Triangle Area,,,,MAT.GEO.403.030,MAT.GEO.832,Half the product of base and height
+,,Unknown Dimensions of Triangles,,,,MAT.GEO.403.060,MAT.GEO.832.1,Use the formula A = (bh)/2 to solve for the unknown variable
+,Triangle Congruence,,,,,MAT.GEO.405.0,MAT.GEO.322,Sides and angles of congruent triangles have the same measure.
+,,Congruence Statements,,,,MAT.GEO.405.010,MAT.GEO.324,Corresponding angles and sides of congruent triangles are congruent.
+,,Third Angle Theorem,,,,MAT.GEO.405.015,"MAT.GEO.326, MAT.EM3.840.14, MAT.EM4.940.14, MAT.EM3.840.15, MAT.EM4.940.15",Third angles are equal if the other two sets are each congruent.
+,,Congruent Triangles,,,,MAT.GEO.405.030,MAT.GEO.330,"Verify congruency with SSS, SAS, RHS, and ASA"
+,,,SSS Triangle Congruence,,,MAT.GEO.405.03020,MAT.GEO.332,Three sets of equal side lengths determine congruence.
+,,,SAS Triangle Congruence,,,MAT.GEO.405.03040,MAT.GEO.334,Two sets of corresponding sides and included angles prove congruent triangles. 
+,,,ASA and AAS Triangle Congruence,,,MAT.GEO.405.03060,MAT.GEO.336,Two sets of corresponding angles and any corresponding set of sides prove congruent triangles.
+,,,HL Triangle Congruence,,,MAT.GEO.405.03080,MAT.GEO.338,Congruent hypotenuse-leg pairs show right triangle congruence.
+,Triangle Relationships,,,,,MAT.GEO.407.0,,
+,,Triangle Angle Sum Theorem,,,,MAT.GEO.407.010,"MAT.GEO.311, MAT.GEO.312,  MAT.EM3.840.01, MAT.EM4.940.01, MAT.EM3.840.02, MAT.EM4.940.02, MAT.EM3.840.11, MAT.EM4.940.11, MAT.EM3.840.13, MAT.EM4.940.13",The interior angles of a triangle add to 180 degrees Use equations to find missing angle measures given the sum of 180 degrees.
+,,Exterior Angles and Theorems,,,,MAT.GEO.407.015,MAT.GEO.314,Exterior angles equal the sum of the remote interiors.
+,,Midsegment Theorem,,,,MAT.GEO.407.020,MAT.GEO.352,Midsegment of a triangle joins the midpoints of two sides and is half the length of the side it is parallel to.
+,,Perpendicular Bisectors,,,,MAT.GEO.407.025,MAT.GEO.362,Intersect line segments at their midpoints and form 90 degree angles with them.
+,,Angle Bisectors in Triangles,,,,MAT.GEO.407.030,MAT.GEO.364,"Construction and properties of bisectors, which cut angles in half."
+,,Concurrence and Constructions,,,,MAT.GEO.407.035,"MAT.GEO.390, MAT.GEO.776",Constructions related to theorems involving circumcenters and other intersection points of three or more lines.
+,,Medians,,,,MAT.GEO.407.040,MAT.GEO.372,Line segment that joins a vertex and the midpoint of the opposite side of a triangle.
+,,Altitudes,,,,MAT.GEO.407.045,MAT.GEO.376,Height of a triangle or the line segment from a vertex and perpendicular to the opposite side.
+,,Comparing Angles and Sides in Triangles,,,,MAT.GEO.407.050,MAT.GEO.331,Inequality theorems and ordering angles and sides of triangles.
+,,Triangle Inequality Theorem,,,,MAT.GEO.407.055,MAT.GEO.384,Sum of the lengths of any two sides of a triangle is greater than the third side.
+,Right Triangles,,,,,MAT.GEO.409.0,,
+,,The Pythagorean Theorem,,,,MAT.GEO.409.010,MAT.GEO.600,Square of the hypotenuse equals the sum of the squares of the legs in right triangles.
+,,,Basics of Pythagorean Theorem,,,MAT.GEO.409.01010,"MAT.GEO.612,
+MAT.GEO.614",Identify triples and calculate missing sides. Use indirect measurement applications
+,,,Pythagorean Theorem to Classify Triangles,,,MAT.GEO.409.01030,"MAT.TRG.114,
+MAT.GEO.622","Lengths of triangle sides using the Pythagorean Theorem to classify triangles as obtuse, acute or right."
+,,,Pythagorean Triples,,,MAT.GEO.409.01050,MAT.TRG.112,Integer triples that make right triangles.
+,,,Converse of the Pythagorean Theorem,,,MAT.GEO.409.01070,MAT.GEO.620,Identify right triangles using the theorem
+,,,Pythagorean Theorem Applications,,,MAT.GEO.409.01090,MAT.TRG.110,"Discover, geometrically prove, and apply the Pythagorean Theorem."
+,,The Distance Formula,,,,MAT.GEO.409.040,,
+,,,Distance and Triangle Classification Using the Pythagorean Theorem,,,MAT.GEO.409.04020,MAT.GEO.610,Find missing sides to calculate the areaa
+,,,Distance Formula and the Pythagorean Theorem,,,MAT.GEO.409.04040,"MAT.TRG.116,
+MAT.GEO.618","Discover lengths of triangle sides using the Pythagorean Theorem.
+Identify distance as the hypotenuse of a right triangle. Determine distance between ordered pairs."
+,,,Distance Between Parallel Lines,,,MAT.GEO.409.04060,MAT.GEO.264,Length of a perpendicular segment between parallel lines.
+,,,Applications of the Distance Formula,,,MAT.GEO.409.04080,MAT.GEO.260,Length between two points based on a right triangle.
+,,Special Right Triangles and Ratios,,,,MAT.GEO.409.070,"MAT.EM3.840.1, MAT.GEO.640, MAT.TRG.126, MAT.EM4.940.1",Properties of 30-60-90 and 45-45-90 triangles.
+,,,45-45-90 Right Triangles,,,MAT.GEO.409.07010,"MAT.TRG.122,
+MAT.GEO.642",Leg times sqrt(2) equals hypotenuse.
+,,,30-60-90 Right Triangles,,,MAT.GEO.409.07020,"MAT.TRG.124,
+MAT.GEO.644","Hypotenuse equals twice the smallest leg, while the larger leg is sqrt(3) times the smallest."
+Quadrilaterals and Polygons,,,,,,MAT.GEO.500,,
+,Basic Squares and Rectangles,,,,,MAT.GEO.502.0,,
+,,Squares ,,,,MAT.GEO.502.010," MAT.EM5.830.01, MAT.EM3.830.02, MAT.EM5.830.02,",Identify the properties of squares.
+,,Rectangles,,,,MAT.GEO.502.015,"MAT.EM3.830.01, MAT.EM3.830.03, MAT.EM5.830.03, MAT.EM5.830.04, ",Identify the properties of rectangles.  Determine lengths of missing sides.
+,,Square and Rectangle Area and Perimeter,,,,MAT.GEO.502.020,"MAT.EM3.634.01, MAT.GEO.814.2, MAT.EM4.934.04, MAT.EM3.634.02, MAT.EM3.634.03","Compute edge and coverage measures of rectilinear quadrilaterals, given linear measures."
+,,Perimeter of Squares and Rectangles,,,,MAT.GEO.502.040,"MAT.GEO.814.1, MAT.GEO.814.3, MAT.EM2.732.01, MAT.EM3.632.04, MAT.EM4.846.03, ",Use basic quadrilateral formulas to find total edge measures of rectilinear quadrilaterals.
+,,Area of Squares and Rectangles,,,,MAT.GEO.502.060,"MAT.EM4.934.09, MAT.GEO.834.2,
+MAT.GEO.834.3,
+MAT.GEO.814.4, MAT.EM4.934.06, MAT.EM2.732.05, MAT.EM3.634.09, MAT.EM4.934.1",Find the area of squares and rectangles using formulas: base times height and side squared.
+,,Unknown Dimensions of Squares and Rectangles,,,,MAT.GEO.502.080,"MAT.GEO.814.5, MAT.EM4.934.05, MAT.EM4.934.07, MAT.EM4.934.08, MAT.EM3.634.04, MAT.EM3.634.05, MAT.EM3.634.06, MAT.EM3.634.07, MAT.EM3.634.08","Compute linear measures, given edge or surface measures of rectilinear quadrilaterals."
+,Quadrilaterals,,,,,MAT.GEO.504.0,"MAT.EM3.832.01, MAT.EM4.932.01, MAT.EM5.832.01, MAT.EM3.832.02, MAT.EM4.932.02, MAT.EM5.832.02, MAT.EM4.932.03, MAT.EM5.832.03, MAT.EM3.832.03, MAT.GEO.460,
+MAT.GEO.400","Categorize quadrilaterals based on sides and angles. Identify them visually, and by description. Find lengths and angles, determine shapes, and prove congruence and if lines are parallel."
+,,Parallelogram Classification,,,,MAT.GEO.504.005,MAT.GEO.440,"Rectangles, rhombuses, and squares are parallelograms defined by their diagonals, angles, and sides."
+,,Parallelograms,,,,MAT.GEO.504.010,"MAT.GEO.420, MAT.EM3.835.05, MAT.EM5.835.05, MAT.EM3.832.04",Find unknown angle measurements of quadrilaterals with two pairs of parallel sides. 
+,,Area of a Parallelogram,,,,MAT.GEO.504.015,MAT.GEO.834.1,Use A = bh to find area.
+,,Unknown Dimensions of Parallelograms,,,,MAT.GEO.504.020,MAT.GEO.834.4,Use formula A = bh to solve for unknown variable
+,,Estimation of Parallelogram Area in Scale Drawings,,,,MAT.GEO.504.025,MAT.GEO.834.5,Use a formula and a scale to determine actual dimensions from scale dimensions.
+,,Trapezoids,,,,MAT.GEO.504.040,"MAT.GEO.452, MAT.EM3.832.05, MAT.EM4.932.05",Determine unknown angle measurements of quadrilaterals with exactly one pair of parallel sides. 
+,,Area and Perimeter of Trapezoids,,,,MAT.GEO.504.045,MAT.GEO.816.1,Area is the height times the average of the bases; perimeter is the sum of the sides.
+,,Area of Parallelograms: Squares Rectangles and Trapezoids,,,,MAT.GEO.504.050,MAT.GEO.834,"Find the area of rectangles, parallelograms, trapezoids."
+,,Kites,,,,MAT.GEO.504.060,MAT.GEO.454,"Quadrilaterals with two distinct sets of adjacent, congruent sides."
+,,Area and Perimeter of Rhombuses and Kites,,,,MAT.GEO.504.065,MAT.GEO.816.2,Area is half the product of the diagonals; perimeter is the sum of the sides.
+,,Area and Perimeter of Composite Shapes,,,,MAT.GEO.504.070,"MAT.GEO.839, MAT.GEO.839.2, MAT.EM4.934.11, MAT.EM4.934.12, MAT.EM4.934.13, MAT.EM4.934.14, MAT.EM4.934.15, MAT.EM2.732.03, MAT.EM3.632.02",Find area and perimeter of figures made up of two or more common shapes.
+,,Quadrilateral Classification in the Coordinate Plane,,,,MAT.GEO.504.080,,NEEDS AIDs 7604 and 68536
+,Regular and Irregular Polygons,,,,,MAT.GEO.506.0,MAT.GEO.141,Understand and identify regular and irregular polygons.
+,,Area of Regular and Irregular Polygons,,,,MAT.GEO.506.010,"MAT.GEO.838, MAT.EM2.732.06, MAT.EM3.632.07",Half the apothem times the perimeter.
+,,Area and Perimeter of Similar Polygons,,,,MAT.GEO.506.030,MAT.GEO.819.1,Ratio of the areas is the square of the scale factor; ratio of perimeters is the scale factor.
+,,Construct Regular Polygons,,,,MAT.GEO.506.050,"MAT.GEO.141.2, MAT.GEO.141.1","Construct drawings of equilateral triangles, squares, and regular polygons using a compass and straightedge. Create polygons using Geogebra."
+,,Congruent Polygons,,,,MAT.GEO.506.070,"MAT.GEO.184, MAT.GEO.320",Recognize and understand congruent polygons.
+,,Corresponding Parts of Congruent Figures,,,,MAT.GEO.506.090,MAT.GEO.328.1,Identify matching side lengths and angle measures in congruent figures.
+,Polygon Angle Measures,,,,,MAT.GEO.508.0,,
+,,Determine Missing Angle Measures,,,,MAT.GEO.508.020,"MAT.GEO.412.1, MAT.EM3.830.05, MAT.EM5.830.05",Find missing angle measures of quadrilaterals given a sum of 360 degrees.
+,,Interior Angles in Convex Polygons,,,,MAT.GEO.508.040,"MAT.GEO.411,
+MAT.GEO.412",Use the formula (x - 2)180 to find the sum of the interior angles of any polygon.
+,,Exterior Angles in Convex Polygons,,,,MAT.GEO.508.060,MAT.GEO.414,Measure of angles on the outside of a polygon formed by extending a side.
+Circles,,,,,,MAT.GEO.600,,
+,Identifying Semicircles and Quarter Circles,,,,,MAT.GEO.600.5,"MAT.EM1.810.1, MAT.EM2.810.01, MAT.EM3.810.01, MAT.EM4.910.01, MAT.EM5.810.01, MAT.EM1.810.2, MAT.EM2.810.02, MAT.EM3.810.02, MAT.EM1.810.3, MAT.EM2.810.03, MAT.EM3.810.03",Visually identify semicircles and quarter circles.
+,Parts of Circles,,,,,MAT.GEO.601.0,MAT.GEO.710,"Components, circumference, and area of circles."
+,,"Diameter, Radius, and Pi",,,,MAT.GEO.601.020,MAT.GEO.780,Identify the constant ratio π = C/d.
+,,Circumference,,,,MAT.GEO.601.040,"MAT.GEO.822,
+MAT.GEO.820",Find the circumference of a circle using the formulas: C = πd; C = 2πr.
+,,Diameter or Radius of a Circle Given Circumference,,,,MAT.GEO.601.060,MAT.GEO.823,Find the diameter or radius of a circle using the formulas: C = πd; C = 2πr.
+,Area of a Circle,,,,,MAT.GEO.602.0,MAT.GEO.840,The area of a circle is pi times the radius squared.
+,,Areas of Combined Figures Involving Semicircles,,,,MAT.GEO.602.020,MAT.GEO.839.1,Calculate areas of irregular shapes. 
+,,Radius or Diameter of a Circle Given Area,,,,MAT.GEO.602.040,MAT.GEO.841,"To find the radius, divide the area by pi, then take the square root."
+,Tangent Lines,,,,,MAT.GEO.602.5,MAT.GEO.714,Lines perpendicular to the radius drawn to the point of tangency.
+,Arcs in Circles,,,,,MAT.GEO.603.0,MAT.GEO.720,Sections of a circle and central angles.
+,,Area of Sectors and Segments,,,,MAT.GEO.603.020,MAT.GEO.842,Area of parts of a circle.
+,,Arc Length,,,,MAT.GEO.603.040,MAT.GEO.824,Portion of a circle's circumference.
+,Chords,,,,,MAT.GEO.604.5,"MAT.GEO.722,
+MAT.GEO.730",Arcs determined by angles whose vertex is the center of a circle and chords (segments that connect two points on a circle).
+,Segments from Chords,,,,,MAT.GEO.605.0,MAT.GEO.762,Apply the Intersecting Chords Theorem.
+,Circles and Angles,,,,,MAT.GEO.606.0,,
+,,Inscribed Angles in Circles,,,,MAT.GEO.606.020,MAT.GEO.742,"Vertex on a circle and chords as sides, and whose measure equals half the intercepted arc."
+,,Inscribed Quadrilaterals in Circles,,,,MAT.GEO.606.040,MAT.GEO.744,Quadrilaterals with every vertex on a circle and opposite angles that are supplementary.
+,,Angles On and Inside a Circle,,,,MAT.GEO.606.060,MAT.GEO.750,Angles whose vertices are on the circumference of a circle or formed by tangent lines and chords.
+,,Angles Outside a Circle,,,,MAT.GEO.606.080,MAT.GEO.756,Angles formed by tangents and/or secants.
+,Intersecting Secants Theorem,,,,,MAT.GEO.607.5,MAT.GEO.764,Prove and use theorems involving lines that intersect a circle at two points.
+,Tangent Secant Theorem,,,,,MAT.GEO.608.0,MAT.GEO.766,Product of the outside segment and whole secant equals the square of the tangent to the same point.
+,Circles in the Coordinate Plane,,,,,MAT.GEO.608.5,"MAT.GEO.772,
+MAT.GEO.774,
+MAT.GEO.770","Graph a circle.  Use (h, k) as the center and a point on the circle. Formula: (x-h)^2 + (y-k)^2 = r^2 where (h, k) is the center and r is the radius."
+Similarity,,,,,,MAT.GEO.700,"MAT.GEO.500, MAT.GEO.346",Figures that have the same shape but not the same size.
+,Ratio and Proportion in Similar Figures,,,,,MAT.GEO.700.5,"MAT.GEO.512, MAT.GEO.514",Simplify ways to compare two numbers.
+,Similar Polygons and Scale Factors,,,,,MAT.GEO.701.5,"MAT.GEO.522, MAT.GEO.520","Compare matching side lengths using ratios and proportions of polygons with the same shape, but not necessarily the same size. "
+,Corresponding Parts of Similar Figures,,,,,MAT.GEO.702.0,MAT.GEO.524,Identify matching side lengths and angle measures in similar figures.
+,Indirect Measurement,,,,,MAT.GEO.702.5,MAT.GEO.526,Find lengths using proportions of similar triangles.
+,Indirect Measurement Applications,,,,,MAT.GEO.703.0,MAT.GEO.538,Use ratios and proportions to solve for missing lengths in similar figures in real world situations.
+,Triangle Similarity,,,,,MAT.GEO.704.0,,
+,,AA Similarity,,,,MAT.GEO.704.020,MAT.GEO.532,Two triangles are similar if two pairs of angles are congruent.
+,,SSS Similarity,,,,MAT.GEO.704.040,MAT.GEO.534,Triangles are similar if their corresponding sides are proportional.
+,,SAS Similarity,,,,MAT.GEO.704.060,MAT.GEO.536,Triangles are similar if two pairs of sides are proportional and the included angles are congruent.
+,Triangle Proportionality,,,,,MAT.GEO.706.0,MAT.GEO.542,Sides divided by a line parallel to the third side of a triangle.
+,,Inscribed Similar Triangles,,,,MAT.GEO.706.020,MAT.GEO.632,Division of a right triangle into similar triangles using an altitude.
+,,"Parallel Lines, Transversals, and Proportionality",,,,MAT.GEO.706.040,MAT.GEO.544,"As demonstrated by the the Triangle Proportionality Theorem, three or more parallel lines cut by two transversals divide them proportionally."
+,,Proportions and Angle Bisectors,,,,MAT.GEO.706.060,MAT.GEO.546,Angle bisectors divide triangles proportionally.
+,,Theorems Involving Similarity,,,,MAT.GEO.706.080,MAT.GEO.630,"Prove and use the Triangle Proportionality, Triangle Angle Bisector, and Pythagorean Theorems."
+,Dilation,,,,,MAT.GEO.708.0,MAT.GEO.552,Larger or smaller version of a figure that preserves its shape.
+,,Dilation in the Coordinate Plane,,,,MAT.GEO.708.030,MAT.GEO.554,Multiplication of coordinates by a scale factor given the origin as the center.
+,,Mapping Dilations,,,,MAT.GEO.708.060,"MAT.GEO.555,
+MAT.GEO.550",Figures that can be carried to each other using one or more rigid transformations followed by a dilation. Rules that describe given size changes of images
+,Self-Similarity and Fractals,,,,,MAT.GEO.708.5,MAT.GEO.560,One part of an object can be enlarged or shrunk to look like the whole object.
+Rigid Transformations,,,,,,MAT.GEO.800,MAT.GEO.900,"Identify transformations, translations, reflections and rotations."
+,Symmetry,,,,,MAT.GEO.801.0,,
+,,Lines of Symmetry,,,,MAT.GEO.801.020,"MAT.GEO.910, MAT.EM5.845.03, MAT.EM3.845.04, MAT.EM4.945.05, MAT.EM5.845.06",Identify existence and number of lines of symmetry
+,,Reflection Symmetry,,,,MAT.GEO.801.040,"MAT.GEO.912, MAT.EM3.845.01, MAT.EM4.945.01, MAT.EM5.845.01, MAT.EM5.845.02",Property of a shape with one or more lines of symmetry.
+,,Rotation Symmetry,,,,MAT.GEO.801.060,"MAT.GEO.914, MAT.EM3.845.07, MAT.EM4.945.07, MAT.EM5.845.07, MAT.EM3.845.08, MAT.EM4.945.08, MAT.EM5.845.08",Rotation less than 360 degrees that carries a shape onto itself.
+,Translations,,,,,MAT.GEO.803.0,"MAT.GEO.924.1,
+MAT.GEO.924",Understand translations as movement of every point in a figure the same distance in the same direction. Graph images given preimage and translation
+,,Sliding Figures,,,,MAT.GEO.803.020,MAT.GEO.970,Use coordinates to move figures on the coordinate plane.
+,,Translation Notation,,,,MAT.GEO.803.040,"MAT.GEO.925,
+MAT.GEO.920,
+MAT.GEO.924.2","Graphical introduction to image translations. Learn to use notation to describe mapping rules,and graph images given preimage and translation"
+,,Geometry Software for Translations,,,,MAT.GEO.803.060,MAT.GEO.928,Perform and analyze translations using Geogebra.
+,,Translation Applications in Circle Similarity,,,,MAT.GEO.803.080,MAT.GEO.570,Solve problems involving ratios and circles and use transformations to show circles are similar.
+,Rotations,,,,,MAT.GEO.805.0,"MAT.GEO.940, MAT.EM4.970.12",Transformations by which a figure is turned around a fixed point to create an image.
+,,Defining Rotations,,,,MAT.GEO.805.020,MAT.GEO.942,State rules that describe given rotations
+,,Geometry Software and Graphing Rotations,,,,MAT.GEO.805.040,"MAT.GEO.943,
+MAT.GEO.944",Graph rotated images given preimage and number of degrees. Perform rotations using Geogebra.
+,Reflections,,,,,MAT.GEO.807.0,MAT.GEO.930,Transformations that turn a figure into its mirror image by flipping it over a line.
+,,Rules for Reflections,,,,MAT.GEO.807.020,MAT.GEO.938,Identify and state rules describing reflections using notation
+,,Geometry Software for Reflections,,,,MAT.GEO.807.040,"MAT.GEO.937,
+MAT.GEO.939",Graph images given preimage and line of reflection. Perform reflections using Geogebra.
+,,Reflecting Figures,,,,MAT.GEO.807.060,MAT.GEO.980,Move figures on the coordinate plane using patterns.
+,Composition of Transformations,,,,,MAT.GEO.809.0,"MAT.GEO.957,
+MAT.GEO.950","Learn how to compose transformations of a figure on a coordinate plane, and understand the order in which to apply them."
+,,Notation for Composite Transformations,,,,MAT.GEO.809.020,MAT.GEO.958,Interpret and use notation for combined transformations 
+,Tessellations,,,,,MAT.GEO.809.5,"MAT.GEO.960, MAT.EM3.845.09, MAT.EM4.945.09, MAT.EM5.845.09, MAT.EM3.845.11, MAT.EM4.945.11, MAT.EM5.845.11, MAT.EM3.845.1, MAT.EM4.945.1, MAT.EM5.845.1",Tiling over a plane such that the figures fill the plane with no overlaps or gaps.
+Solid Figures,,,,,,MAT.GEO.900,"MAT.GEO.882, MAT.EM2.820.08, MAT.EM3.820.08, MAT.EM2.820.09, MAT.EM3.820.09",3-D figures formed by polygons enclosing regions in space.
+,"Faces, Edges, and Vertices of Solids",,,,,MAT.GEO.900.5,"MAT.GEO.881, MAT.GEO.884.1, MAT.EM2.820.05, MAT.EM3.820.05, MAT.EM2.820.06, MAT.EM3.820.06, MAT.EM2.820.07, MAT.EM3.820.07","Leaning on what makes a solid, identify and count the elements, including faces, edges, and vertices of prisms, cylinders, cones"
+,Cross-Sections and Nets,,,,,MAT.GEO.901.0,MAT.GEO.888,"Cross-sections are intersections of a plane with a solid.  Nets are unfolded, flat representations of the sides of a 3-D shape that allow you to find the sum of the area of the faces by showing the edges and faces in 2-D."
+,Surface Area,,,,,MAT.GEO.901.5,MAT.GEO.850,
+,Volume,,,,,MAT.GEO.902.0,MAT.GEO.860,"Number of unit cubes to fill prisms, spheres, pyramids, cylinders, cones, and composite solids."
+,Cross Sections and Basic Solids of Revolution,,,,,MAT.GEO.902.5,MAT.GEO.887,Cross sections of solids and solids created by rotating shapes around lines.
+,Prisms,,,,,MAT.GEO.903.0,MAT.GEO.852,3-D figures with 2 congruent bases in parallel planes and rectangles for their other faces.
+,,Surface Area of Prisms,,,,MAT.GEO.903.010,"MAT.GEO.852.2,
+MAT.GEO.852.3,
+MAT.GEO.852.1",Use formulas to find the surface area of a rectangular prisms and triangular prisms.
+,,Volume of Prisms,,,,MAT.GEO.903.030,MAT.GEO.862,Use the formula V = Bh
+,,Volume of Prisms Using Unit Cubes,,,,MAT.GEO.903.050,MAT.GEO.862.1,Use cubes to find the volume of a prism.
+,,Volume of Rectangular Prisms,,,,MAT.GEO.903.070,MAT.GEO.862.2,Volume equals length times width times height
+,,Volume of Triangular Prisms,,,,MAT.GEO.903.090,MAT.GEO.862.3,Volume equals base times height times half of length.
+,Pyramids,,,,,MAT.GEO.904.0,MAT.GEO.856,Surface area and volume of solids with a base and lateral faces that meet at a common vertex.
+,,Volume of Pyramids,,,,MAT.GEO.904.060,MAT.GEO.866,Volume equals area of the base times 1/3 of height.
+,Cylinders,,,,,MAT.GEO.905.0,MAT.GEO.854,Surface area and volume of solids with congruent circular bases in parallel planes.
+,,Surface Area of Cylinders,,,,MAT.GEO.905.020,MAT.GEO.854.1,SA = 2πr(h+r)
+,,Volume of Cylinders,,,,MAT.GEO.905.040,MAT.GEO.864,Volume equals the area of top or bottom times height.
+,,Heights of Cylinders Given Surface Area or Volume,,,,MAT.GEO.905.060,"MAT.GEO.864.1,
+MAT.GEO.854.2","Use formulas to find the height of a cylinder, given the volume or surface area."
+,Cones,,,,,MAT.GEO.906.0,MAT.GEO.858,Surface area equals the area of the circle plus the area of the outside of the cone
+,,Surface Area of Cones,,,,MAT.GEO.906.030,,NEEDS CONTENT FROM GEO.858
+,,Volume of Cones,,,,MAT.GEO.906.060,MAT.GEO.868,Volume equals the area of the base times 1/3 of the height.
+,Spheres,,,,,MAT.GEO.907.0,MAT.GEO.870,Derive and use the formula: volume equals 4/3 times pi times the radius cubed.
+,,Surface Area of Spheres,,,,MAT.GEO.907.030,MAT.GEO.872,Surface area from radius
+,,Volume of Spheres,,,,MAT.GEO.907.060,MAT.GEO.874,Volume given radius and diameter
+,Composite Solids,,,,,MAT.GEO.907.5,MAT.GEO.880,Solids made up of two or more solids.
+,Area and Volume of Similar Solids,,,,,MAT.GEO.908.0,MAT.GEO.890,Solve problems using ratios between similar solids.
+,Surface Area and Volume Applications,,,,,MAT.GEO.908.5,"MAT.GEO.889.1,
+MAT.GEO.889.2,
+MAT.GEO.889","Use geometric solids to model real world objects and solve problems. Find density by the ratio of mass, people, or things to volume or area."

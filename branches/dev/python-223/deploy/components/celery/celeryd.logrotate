@@ -1,0 +1,11 @@
+/var/log/celery/*.log {
+        daily 
+        missingok
+        su www-data www-data
+        size 500M
+        rotate 20
+        compress
+        delaycompress
+        notifempty
+        copytruncate
+              }

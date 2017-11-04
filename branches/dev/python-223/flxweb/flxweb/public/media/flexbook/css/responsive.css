@@ -1,0 +1,36 @@
+@media screen and (max-width: 767px)
+{ body
+  {
+    background: #fff;
+  }
+  #artifact_content iframe{
+    width: 100%;
+  }
+  .tab-content{
+     padding: 0!important;
+     border: none!important;
+   }
+   a.individual-modality{
+    height: auto;
+  }
+  .groups_share_dialog:before {
+    border-bottom-color: #b5b1a8 !important;
+    left: auto !important;
+    right: 15px !important;
+    top: -23px !important;
+    border-right-color: transparent !important;
+  }
+  .groups_share_dialog:after {
+    border-bottom-color: #ffffff !important;
+    left: auto !important;
+    right: 15px !important;
+    top: -22px !important;
+    border-right-color: transparent !important;  
+  }
+}
+
+@media only screen and (max-width:425px){
+    .confirm_modal{
+        width: 290px !important;
+    }
+}

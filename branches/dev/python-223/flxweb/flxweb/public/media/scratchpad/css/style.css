@@ -1,0 +1,120 @@
+body {
+  -ms-content-zooming:none;
+}
+
+.mobile-only {
+  display: none !important;
+}
+
+.transition-all {
+  -webkit-transition: all 0.618s ease-in-out;
+  -moz-transition: all 0.618s ease-in-out;
+  -ms-transition: all 0.618s ease-in-out;
+  transition: all 0.618s ease-in-out;
+}
+
+.annotation-canvas-container {
+  position: absolute;
+}
+
+.annotation-tool-wrapper {
+  font-family: ProximaNova;
+  top: 0;
+  right: 0;
+  left:0;
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+
+.annotation-canvas {
+  position:absolute;
+  box-shadow: 1px 1px 7px 3px #E0E0E0;
+  background: #FFF; /* TODO: this may mess with inserted bg images */
+  /* Bug #45857 Using absolute cdn path name to handle IE cursor issue */
+  cursor: url('//dvninqhj78q4x.cloudfront.net/media/scratchpad/dist/cur/pencil.cur'),auto;
+  -ms-touch-action:none;
+}
+
+.eraser-active .annotation-canvas {
+  /* Bug #45857 Using absolute cdn path name to handle IE cursor issue */
+  cursor: url('//dvninqhj78q4x.cloudfront.net/media/scratchpad/dist/cur/eraser.cur'),auto;
+}
+
+.annotation-tools {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 500;
+  padding: 5px 20px 2px 25px;
+}
+
+.toolbox > div {
+  display: inline-block;
+}
+
+.toolbox .tools {
+  position: absolute;
+  top: 0px;
+  right: 2px;
+  min-width: 300px;
+  text-align: right;
+}
+
+.annotation-toolbox {
+  position: relative;
+  z-index: 100;
+  text-align: center;
+  user-select:none;
+  -moz-user-select:none;
+  -webkit-user-select:none;
+}
+
+.annotation-tools .tool {
+  display: inline-block;
+  color: #00ABA4;
+  width: 40px;
+  height: 32px;
+  font-size: 32px;
+  background: #FFF;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  vertical-align:middle; 
+  text-align:center;
+}
+
+.annotation-tools .tool.selected {
+  color:#76746D;
+}
+
+.annotation-tools .js-paintbucket.tool.selected {
+  background:#ECECEC;
+}
+
+.tool.icon-eraser {
+  font-size: 26px;
+  height: 26px;
+}
+
+.tool.icon-paintcan {
+  font-size: 38px;
+  height: 38px;
+}
+
+.tools .tool.icon-close {
+  height: 24px;
+  font-size: 24px;
+}
+
+.tools .tool.icon-remove {
+  height: 24px;
+  font-size: 24px;
+}
+
+.clear {
+  clear:both;
+}
+
+

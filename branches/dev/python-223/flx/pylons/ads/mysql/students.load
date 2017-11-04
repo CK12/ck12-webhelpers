@@ -1,0 +1,1 @@
+select m.id, if(concat(ifnull(m.firstName, ''), ' ', ifnull(m.lastName, '')) = ' ', m.email, concat(ifnull(m.firstName, ''), ' ', ifnull(m.lastName, ''))) from flexmath.Members m, flexmath.MemberRoles mr where m.roleID=mr.id and mr.name='Student'

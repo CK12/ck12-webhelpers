@@ -1,0 +1,59 @@
+.@{prefix}-window-iframe,
+.@{prefix}-window-iframe-tabs {
+    @import (multiple) "CK12.Button.less";
+}
+
+.@{prefix}-window-iframe,
+.@{prefix}-window-iframe-tabs {
+    font-family: "ProximaNova";
+    .@{prefix}-label {
+        font-size: 18px;
+    }
+
+    form {
+        padding-bottom: 50px;;
+    }
+
+    .mceActionPanel {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        height: 50px;
+        width: 100%;
+        background: white;
+
+        .@{prefix}-container {
+          margin: 5px 20px 0 0;
+        }
+    }
+
+}
+
+.@{prefix}-window-iframe-tabs {
+    background: white;
+
+    .@{prefix}-tabs {
+        border-bottom: 0;
+        background-color: #E0DDD5;
+
+        .@{prefix}-tab {
+            font-size: 14px;
+            border: 0;
+            background-color: #EFEDE7;
+            color: #56544D;
+            margin-right: 7px;
+            padding: 10px 19px;
+            text-transform: uppercase;
+
+            &.@{prefix}-active {
+                background-color: white;
+                font-weight: bold;
+            }
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
+}
+

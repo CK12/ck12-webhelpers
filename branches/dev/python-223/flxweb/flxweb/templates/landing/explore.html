@@ -1,0 +1,209 @@
+{% macro modalities_circles(referrer,backUrl) %}
+<div class="start-browsing-row">
+	<div class="row collapse">
+		<div class = "start-browse-heading row collapse text-center">Explore</div>
+		<div class="row collapse hide-for-small">
+			<div class="large-12 large-centered column start-browse-wrapper hide-for-touch">
+				<!-- Simulations -->
+				<div class="large-3 column browse-sim-wrapper start-browse-common hide-for-touch">
+					<div class="flip-wrapper-container">
+						<a href="{{config.interactives_url}}/simulations/index.html?referrer={{ referrer }}&backUrl={{ backUrl}}" id="browse-sims-circle" class="browse-circle-link">
+							<div class="flip-wrapper">
+								<div class="hide-on-flip explore-image-container">
+									<img src = "{{ h.asset_image('common/images/sim-physics.png') }}"/>
+									<img class="flip-image-2" src = "{{ h.asset_image('common/images/sim-chemistry.png') }}"/>
+								</div>
+								<div class="show-on-flip">
+									<div class="overlay-text">Discover a new way of learning Physics and Chemistry using Real World Simulations.</div>
+									<div class="start-browse-overlay" style=""></div>
+								</div>
+							</div>
+						</a>
+					</div>
+					<div class="start-browse-for">
+						<div>SIMULATIONS</div>
+						<a id="browse-sims-physics" href="{{config.interactives_url}}/simulations/physics.html?referrer={{referrer}}&backUrl={{backUrl}}">Physics</a>
+						|
+						<a id="browse-sims-chemistry" href="{{config.interactives_url}}/simulations/chemistry.html?referrer={{referrer}}&backUrl={{backUrl}}">Chemistry</a></div>
+				</div>
+				<!-- PLIX -->
+				<div class="large-3 column browse-plix-wrapper start-browse-common hide-for-touch">
+					<div class="flip-wrapper-container">
+						<a href="{{config.interactives_url}}/plix/index.html?referrer={{referrer}}&backUrl={{backUrl}}" id="browse-plix-circle" class="browse-circle-link">
+							<div class="flip-wrapper">
+								<div class="hide-on-flip explore-image-container">
+									<img src = "{{ h.asset_image('common/images/start_browse_plix.png') }}"/>
+									<img class="flip-image-2" src = "{{ h.asset_image('common/images/plix2.png') }}"/>
+								</div>
+								<div class="show-on-flip">
+									<div class="overlay-text">Play, Learn, Interact and Xplore a concept with PLIX.</div>
+									<div class="start-browse-overlay" style=""></div>
+								</div>
+							</div>
+						</a>
+					</div>
+					<div class="start-browse-for"><a id="browse-plix-link" href="{{config.interactives_url}}/plix/index.html?referrer={{referrer}}&backUrl={{backUrl}}">PLIX</a></div>
+				</div>
+				<!-- PRACTICE -->
+				<div class="large-3 column start-browse-common hide-for-touch">
+					<div class="flip-wrapper-container">
+						<a href="{{ config.webroot_url }}assessment/ui/browse/practice/?referrer={{referrer}}&backUrl={{backUrl}}" id="browse-practice-circle" class="browse-circle-link">
+							<div class="flip-wrapper">
+								<div class="hide-on-flip explore-image-container">
+									<img src = "{{ h.asset_image('common/images/practice1.png') }}"/>
+									<img class="flip-image-2" src = "{{ h.asset_image('common/images/practice2.png') }}"/>
+								</div>
+								<div class="show-on-flip">
+									<div class="overlay-text">Master Math and Science concepts through regular practice.</div>
+									<div class="start-browse-overlay" style=""></div>
+								</div>
+							</div>
+						</a>
+					</div>
+					<div class="start-browse-for"><a id="browse-practice-link" href="{{ config.webroot_url }}assessment/ui/browse/practice/?referrer={{referrer}}&backUrl={{backUrl}}">Adaptive Practice</a></div>
+				</div>
+				<!-- Users -->
+				{% if referrer == 'teacher' %}
+					<div class="large-3 column start-browse-common hide-for-touch browse-schools-wrapper">
+						<div class="flip-wrapper-container">
+							<a href="{{ config.webroot_url }}schools/" class="browse-circle-link">
+								<div class="flip-wrapper">
+									<div class="hide-on-flip explore-image-container">
+										<img src = "{{ h.asset_image('common/images/schools1.png') }}"/>
+										<img class="flip-image-2" src = "{{ h.asset_image('common/images/schools2.png') }}"/>
+									</div>
+									<div class="show-on-flip">
+										<div class="overlay-text">Find schools and districts near you that are on CK-12.</div>
+										<div class="start-browse-overlay" style=""></div>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="start-browse-for"><a href="{{ config.webroot_url }}schools/">Schools</a></div>
+					</div>
+				{% else %}
+					<div class="large-3 column start-browse-common hide-for-touch study-guides-wrapper">
+                        <a href="{{ config.webroot_url }}study-guides/?referrer={{referrer}}&backUrl={{backUrl}}" class="browse-circle-link">                            
+						    <div class="flip-wrapper-container">
+								<div class="flip-wrapper">
+									<div class="hide-on-flip explore-image-container">
+										<img src = "{{ h.asset_image('common/images/study_guides1.png') }}"/>
+										<img class="flip-image-2" src = "{{ h.asset_image('common/images/study_guides2.png') }}"/>
+									</div>
+									<div class="show-on-flip">
+										<div class="overlay-text">Use study guides to quickly review concepts.</div>
+										<div class="start-browse-overlay" style=""></div>
+									</div>
+								</div>
+    						</div>
+						</a>
+						<div class="start-browse-for"><a href="{{ config.webroot_url }}study-guides/?referrer={{ referrer }}&backUrl={{ backUrl }}">Study Guides</a></div>
+					</div>
+				{% endif %}
+			</div>
+		</div>
+
+		<!-- Non hover version for touch devices -->
+		<div class="row collapse show-for-touch">
+			<div class="large-12 column start-browse-wrapper-small">
+				<!-- Simulations -->
+				<div class="large-3 columns hide-for-small">
+					<div class = "explore-sim-wrapper">
+						<a href="{{config.interactives_url}}/simulations/index.html?referrer={{referrer}}&backUrl={{backUrl}}" id="browse-sims-circle-touch" class="browse-circle-link">
+							<div class="explore-img explore-image-container">
+								<img src = "{{ h.asset_image('common/images/sim-physics.png') }}"/>
+								<img class="flip-image-2" src = "{{ h.asset_image('common/images/sim-chemistry.png') }}"/>
+							</div>
+							<div class="explore-content ">
+								<div class = "explore-type">Simulations</div>
+								<div class="explore-sims-links">
+									<a id="browse-sims-physics-touch" href="{{config.interactives_url}}/simulations/physics.html?referrer={{referrer}}&backUrl={{backUrl}}">Physics</a>
+									|
+									<a id="browse-sims-chemistry-touch" href="{{config.interactives_url}}/simulations/chemistry.html?referrer={{referrer}}&backUrl={{backUrl}}">Chemistry</a>
+								</div>
+								<span>Discover Physics and Chemistry using Real World Simulations.</span>
+							</div>
+						</a>
+					</div>
+				</div>
+				<!-- PLIX -->
+				<div class="large-3 columns hide-for-small">
+					<div class="explore-plix-wrapper">
+						<a href="{{config.interactives_url}}/plix/index.html?referrer={{referrer}}&backUrl={{backUrl}}" id="browse-plix-circle" class="browse-circle-link">
+							<div class="explore-img explore-image-container">
+								<img src = "{{ h.asset_image('common/images/start_browse_plix.png') }}"/>
+								<img class="flip-image-2" src = "{{ h.asset_image('common/images/plix2.png') }}"/>
+							</div>
+							<div class="explore-content">
+								<div class="explore-type">PLIX</div>
+								<span>Play, Learn, Interact, Xplore.</span>
+							</div>
+						</a>
+					</div>
+				</div>
+				<!-- PRACTICE -->
+				<div class="large-3 small-6 columns">
+					<div class="explore-practice-wrapper">
+						<a href="{{ config.webroot_url }}assessment/ui/browse/practice/?referrer={{referrer}}&backUrl={{backUrl}}" id="browse-practice-circle" class="browse-circle-link">
+							<div class="explore-img explore-image-container">
+								<img src = "{{ h.asset_image('common/images/practice1.png') }}"/>
+								<img class="flip-image-2" src = "{{ h.asset_image('common/images/practice2.png') }}"/>
+							</div>
+							<div class= "explore-content">
+								<div class = "explore-type">Adaptive Practice</div>
+								<span>Master concepts through regular practice.</span>
+							</div>
+						</a>
+					</div>
+				</div>
+				<!-- Users -->
+				{% if referrer == 'teacher' %}
+                  <div class="large-3 small-6 columns browse-schools-wrapper">
+                      <div class="explore-plix-wrapper">
+                          <a href="{{ config.webroot_url }}schools/" class="browse-circle-link">
+                              <div class="explore-img explore-image-container">
+                                  <img src = "{{ h.asset_image('common/images/schools1.png') }}"/>
+                                  <img class="flip-image-2" src = "{{ h.asset_image('common/images/schools2.png') }}"/>
+                              </div>
+                              <div class="explore-content">
+                                  <div class = "explore-type">Schools</div>
+                                  <span>Find schools and districts near you that are on <span class="nobr">CK-12</span>.</span>
+                              </div>
+                          </a>
+                      </div>
+                  </div>
+                {% else %}
+                  <div class="large-3 small-6 columns study-guides-wrapper">
+                      <a href="{{ config.webroot_url }}study-guides/?referrer={{referrer}}&backUrl={{backUrl}}" class="browse-circle-link">
+                          <div class="new-sash">
+                              <div class="new-sash-overlay"></div>
+                              <div class="new-sash-container">
+                                  <div class="new-sash-content">New!</div>
+                              </div>
+                          </div>
+                          <div class="explore-plix-wrapper">
+                              <div class="explore-img explore-image-container">
+                                  <img src = "{{ h.asset_image('common/images/study_guides1.png') }}"/>
+                                  <img class="flip-image-2" src = "{{ h.asset_image('common/images/study_guides2.png') }}"/>
+                              </div>
+                              <div class="explore-content">
+                                  <div class = "explore-type">Study Guides</div>
+                                  <span>Use study guides to quickly review concepts.</span>
+                              </div>
+                          </div>
+                      </a>
+                  </div>
+                {% endif %}
+			</div>
+		</div>
+	</div>
+</div>
+<div id="map-wrapper-enlarge" class="pointer map-wrapper-enlarge hide-important">
+	<div id="map-container-large" class="map-container-large">
+	</div>
+	<div class="contract-image-wrapper">
+		<div class='text-center'><span style='font-weight:bold; font-size:17px;'>Explore schools near you using CK-12</span> <a href='/schools/' class='button tangerine'>Get Started</a> </div>
+		<a id="hero-banner-dismiss" class="mini-banner icon-contract"></a>
+	</div>
+</div>
+{% endmacro %}

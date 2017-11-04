@@ -1,0 +1,5 @@
+Hi {{ events[0]['eventData']['memberName'] }}
+
+A new version of the {{ events[0]['eventData']['artifactTypeName'] }} {{ events[0]['eventData']['title'] | escape }} is available.
+
+Please copy and paste the following link onto your browser's address bar:  <strong>{{ events[0]['eventData']['artifact_url'] }}</strong>

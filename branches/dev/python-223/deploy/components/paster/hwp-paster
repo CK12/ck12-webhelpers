@@ -1,0 +1,56 @@
+#!/bin/bash -e
+set -e
+
+pid=/var/run/paster/paster-hwp.pid
+log=/var/log/paster/paster-hwp.log
+project="/opt/2.0/hwpserver"
+paster_cmd=/usr/local/bin/paster
+
+PASTER_USER="www-data"
+PASTER_GROUP="www-data"
+
+. /lib/lsb/init-functions
+
+# Extra start-stop-daemon options, like user/group.
+if [ -n "$PASTER_USER" ]; then
+    DAEMON_OPTS="$DAEMON_OPTS --chuid $PASTER_USER"
+fi
+if [ -n "$PASTER_GROUP" ]; then
+    DAEMON_OPTS="$DAEMON_OPTS --group $PASTER_GROUP"
+fi
+
+if [ -n "$project" ]; then
+    DAEMON_OPTS="$DAEMON_OPTS --chdir $project"
+fi
+
+[ ! -d /var/run/paster ] && mkdir -p /var/run/paster
+[ ! -d /var/log/paster ] && mkdir -p /var/log/paster
+if [ -n "${PASTER_USER}" ] && [ -n "${PASTER_GROUP}" ]; then
+    chown -R ${PASTER_USER}:${PASTER_GROUP} /var/run/paster
+    chown -R ${PASTER_USER}:${PASTER_GROUP} /var/log/paster
+    chmod a+rw -R /opt/2.0/log
+fi
+
+case "$1" in
+start)
+    log_daemon_msg "Starting paster worker server" "homeworkpedia paster"
+    start-stop-daemon --start $DAEMON_OPTS --quiet --oknodo --background --make-pidfile --pidfile ${pid} --exec  ${paster_cmd} -- serve --log-file=$log ${project}/production.ini start
+    log_end_msg $?
+    #paster serve --daemon --pid-file=$pid --log-file=$log --reload production.ini start
+    ;;
+stop)
+    log_daemon_msg "Stopping paster worker server" "homeworkpedia paster"
+    start-stop-daemon --stop --oknodo --quiet --retry 30 --pidfile ${pid} 
+    log_end_msg $?
+    #paster serve --daemon --pid-file=$pid --log-file=$log --reload production.ini stop
+    ;;
+restart)
+    log_daemon_msg "Restarting paster worker server" "homeworkpedia paster"
+    start-stop-daemon --stop --oknodo --quiet --retry 30 --pidfile ${pid}
+    start-stop-daemon --start $DAEMON_OPTS --quiet --oknodo --background --make-pidfile --pidfile ${pid} --exec  ${paster_cmd} -- serve --log-file=$log ${project}/production.ini start
+    #paster serve  --daemon --pid-file=$pid --log-file=$log --reload production.ini restart
+    ;;
+*)
+    echo $"Usage: $0 {start|stop|restart}"
+    exit 1
+esac

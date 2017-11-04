@@ -1,0 +1,26 @@
+{% extends "listings.html" %}  
+
+{% block filters %} 
+  <div class="col tiny">Filter by:</div>
+  <div class="col xwider">
+    {{ h.labelselect('Event Type', 'event_filter', c.form.events, 'filter')}}
+  </div>
+  <div class="col xsml">
+    {{ h.labelselect('Frequency', 'freq_filter', c.form.freqs, 'filter')}}
+  </div>
+{% endblock %}
+ 
+{% block searches %} 
+{% endblock %}
+
+{% block js_scripts %}
+{{ super() }}
+<script type='text/javascript'>
+  Listings({
+    sort: 'updated,desc',
+    ajaxRoot: CK12.admUrl('notifications_list'),
+    formAjax: CK12.admUrl('notification/'),
+    viewmode: '{{c.viewmode}}'
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns:dc="http://www.ck12.org/dc/will_create_ns"
+unique-identifier="chapterid" version="2.0">
+
+  <chapter>
+    <metadata>
+<chapterSeq>6</chapterSeq>
+
+<book>Algebra I</book>
+
+      <chapterid></chapterid>
+      <title>Graphing Linear Inequalities; Introduction to Probability </title>
+      <description>Topics in this chapter:Inequalities_Using_Addition_and_Subtraction,Compound_Inequalities,Absolute_Value_Equations,Absolute_Value_Inequalities,Linear_Inequalities_iin_Two_Variables.
+     </description>
+    </metadata>
+    
+    <lessons>
+      <item id="Inequalities_Using_Addition_and_Subtraction" href="Inequalities_Using_Addition_and_Subtraction.html" sequence="1" />
+      <item id="Inequalities_Using_Multiplication_and_Division" href ="Inequalities_Using_Multiplication_and_Division.html" sequence="2" />
+      <item id="Multi-Step_Inequalities" href ="Multi-Step_Inequalities.html" sequence="3" />      
+      <item id="Compound_Inequalities" href ="Compound_Inequalities.html" sequence="4" />
+      <item id="Absolute_Value_Equations" href ="Absolute_Value_Equations.html" sequence="5" />
+      <item id="Absolute_Value_Inequalities" href ="Absolute_Value_Inequalities.html" sequence="6" />
+      <item id="Linear_Inequalities_iin_Two_Variables" href ="Linear_Inequalities_iin_Two_Variables.html" sequence="7" />
+    </lessons>
+  </chapter>
+
+</package>

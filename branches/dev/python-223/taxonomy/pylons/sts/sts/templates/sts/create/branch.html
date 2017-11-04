@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                      "http://www.w3.org/TR/html4/loose.dtd"> 
+<html>
+    <head>
+        <title>Register a new Branch</title>
+    </head>
+    <body>
+        <form action="/taxonomy/create/branch"
+            method="POST">
+            
+            <table>
+                <tr>
+                    <td>Login ID:</td>
+                    <td>{{ c.memberLogin }}</td>
+                </tr>
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text" name="name" /></td>
+                </tr>
+                <tr>
+                    <td>Description:</td>
+                    <td><input type="text" name="description" /></td>
+                </tr>
+                <tr>
+                    <td>Shortname:</td>
+                    <td><input type="text" name="shortname" /></td>
+                </tr>
+                <tr>
+                    <td>Subject: </td>
+                    <td>
+                        <select name="subjectID">
+                        {% for subject in c.subjects %}
+                            <option value="{{ subject.shortname }}">{{ subject.name }}</option>
+                        {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align:right;"> <input type="submit" value="Create" /></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
+
+

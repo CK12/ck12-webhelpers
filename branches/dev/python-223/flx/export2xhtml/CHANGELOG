@@ -1,0 +1,194 @@
+ Changelog history of export2xhtml
+ 07/11/2011
+ by Thejaswi Raya (thejaswi@ck12.org)
+
+*******
+ 08/02/2012 v2.18.26.1 changes (Thejaswi Raya):
+ 1) Added support for vimeo videos
+ 2) Delete the temporaray directory created by mw-zip
+ 3) Code cleaup - Remove unwanted legacy code
+
+*******
+ 05/11/2012 v2.17.26.1 changes (Thejaswi Raya):
+ 1) Set the class of NumberedList for Problems to x-ck12-lower-alpha - Leave the rest unchanged
+
+*******
+ 05/11/2012 v2.16.26.1 changes (Thejaswi Raya):
+ 1) Fixed the issue with articls having single quotes
+
+*******
+ 05/11/2012 v2.16.25.1 changes (Thejaswi Raya):
+ 1) Added support to h5
+
+*******
+ 05/11/2012 v2.15.25.1 changes (Thejaswi Raya):
+ 1) Fixed the issue with articles having double quotes
+
+*******
+ 05/07/2012 v2.15.24.1 changes (Thejaswi Raya):
+ 1) Remove the style parameter for width in div for the images to support float
+
+*******
+ 04/24/2012 v2.14.24.1 changes (Thejaswi Raya):
+ 1) Set url to empty string if it's not set on the wiki
+
+*******
+ 04/23/2012 v2.14.23.1 changes (Thejaswi Raya):
+ 1) Add url from block images as comments inside the div for images
+ 2) Add thead to the body only if it has a body
+
+*******
+ 04/03/2012 v2.13.23.1 changes (Thejaswi Raya):
+ 1) Support only divs which have a ck12 class. Strip everything else off
+ 2) Append timestamp to all the images from wiki to make them unique wrt Image Satellite Server
+
+*******
+ 04/01/2012 v2.12.23.1 changes (Thejaswi Raya):
+ 1) Added support for div
+
+*******
+ 03/31/2012 v2.12.22.1 changes (Thejaswi Raya):
+ 1) Assign a random ID to tables whose ID is not set on the wiki
+ 2) Fixed a typo in getRandomString function
+
+*******
+ 03/09/2012 v2.12.21.1 changes (Thejaswi Raya):
+ 1) Do not set the ID attributes of table if it is not set on the wiki
+ 2) Fixed a typo in setting ID for embedded objects
+
+*******
+ 03/09/2012 v2.12.20.1 changes (Thejaswi Raya):
+ 1) Added support to import books which have lesson as the direct children of a book
+
+*******
+ 03/04/2012 v2.12.19.1 changes (Thejaswi Raya):
+ 1) Base64 encode the embeddable in iframes to prevent tidy from messing it up
+
+*******
+ 03/04/2012 v2.11.19.1 changes (Thejaswi Raya):
+ 1) Return newline character instead of </br> (tidy removes it)
+
+*******
+ 02/21/2012 v2.10.19.1 changes (Thejaswi Raya):
+ 1) Bump up the heading levels by 1 level for section based books
+
+*******
+ 02/15/2012 v2.9.19.1 changes (Thejaswi Raya):
+ 1) Remove the Rosetta 2.0 css while generating XHTMLs
+
+*******
+ 02/15/2012 v2.9.18.1 changes (Thejaswi Raya):
+ 1) Use logger to print the messages
+ 2) Use a URLSafe ID for iframes for youtube, teachertube and schooltube
+
+*******
+ 02/03/2012 v2.9.17.1 changes (Thejaswi Raya):
+ 1) Generate random IDs for section names with children
+
+*******
+ 01/30/2012 v2.9.16.1 changes (Thejaswi Raya):
+ 1) Removed flashvars parameter from iframe
+
+*******
+ 01/23/2012 v2.8.15.1 changes (Thejaswi Raya):
+ 1) Removed support for div
+ 2) Modified the regex to insert blank line after every section header
+
+*******
+ 01/20/2012 v2.8.14.1 changes (Thejaswi Raya):
+ Fixed numerous Rosetta related errors
+  1) Add a blank line after every section header to workaround a bug in mwlib
+  2) Promote all h5, h6, h7, etc to h4
+  3) Wrap a paragraph around the blockquote content
+  4) urlquote longdesc attribute for images and embedded objects
+  5) Set the frameborder to embedded objects to 0
+  6) Fix the id attribute for embedded objects
+  7) Set the default size for block images to postcard
+
+*******
+ 01/05/2012 v2.7.14.1 changes (Thejaswi Raya):
+ 1) [Bug:6616] Support basic formatting like subscript, superscript, bold, italics etc in image captions
+
+*******
+ 01/04/2012 v2.6.14.1 changes (Thejaswi Raya):
+ 1) Override the default lifestyle from x-ck12-decimal to x-ck12-lower-alpha
+
+*******
+ 01/02/2012 v2.6.13.1 changes (Thejaswi Raya):
+ 1) Fixed pyflakes warnings and minor bug fixes
+
+*******
+ 12/29/2011 v2.6.12.1 changes (Thejaswi Raya):
+ 1) If metadata file is supplied they reply completely on the local cache and supplied metadata file
+
+*******
+ 12/27/2011 v2.6.11.1 changes (Thejaswi Raya):
+ 1) Handle missing images in wiki while computing the width of the images
+
+*******
+ 12/22/2011 v2.6.10.1 changes (Thejaswi Raya):
+ 1) Add the style parameter for width in div for the images only if the align is float
+
+*******
+ 12/20/2011 v2.6.9.1 changes (Thejaswi Raya):
+ 1) Added support for breaking return
+
+*******
+ 12/18/2011 v2.6.8.1 changes (Thejaswi Raya):
+ 1) Use relative path names in metadata.xml
+
+*******
+ 12/14/2011 v2.6.7.1 changes (Thejaswi Raya):
+ 1) Strip trailing white spaces from media objects
+
+*******
+ 12/14/2011 v2.6.6.1 changes (Thejaswi Raya):
+ 1) Added a style parameter for width in div for the images to support float
+
+*******
+ 12/12/2011 v2.5.6.1 changes (Thejaswi Raya):
+ 1) Added the embed code for media as embeddable parameter within an iframe
+
+*******
+ 11/21/2011 v2.4.6.1 changes (Thejaswi Raya):
+ 1) Added the metadata-file option to specify the metadata file
+
+*******
+ 11/07/2011 v2.3.6.1 changes (Thejaswi Raya):
+ 1) Use to str representation while writing the attribute values to handle multiplexed attributes.
+
+*******
+ 10/26/2011 v2.3.5.1 changes (Thejaswi Raya):
+ 1) Fix to skip broken images on wiki
+
+*******
+ 10/24/2011 v2.3.4.1 changes (Thejaswi Raya):
+ 1) Changed export2xhml to work in a sandboxed environmenti. Now you need to invoke export2xhtml as /opt/2.0/flx/export2xhtml/e2x
+
+*******
+ 10/18/2011 v2.3.3.1 changes (Thejaswi Raya):
+ 1) Adding a paragraph with the image caption as text inside the div which encloses normal images
+
+*******
+ 10/07/2011 v2.2.3.1 changes (Thejaswi Raya):
+ 1) Adding a span to enclose inline images
+ 2) Code cleanup
+
+*******
+ 10/05/2011 v2.1.3.1 changes (Thejaswi Raya):
+ 1) Adding a new attribute to table headers to work-around a bug in mwlib (SVN:13011)
+
+*******
+ 09/29/2011 v2.1.2.0 changes (Thejaswi Raya):
+ 1) Using regex to change the version number in bin/export2xhtml
+
+*******
+ 09/27/2011 v2.1.1.0 changes (Thejaswi Raya):
+ 1) Fix to set the authors and license to empty string if not specified instead of setting it to None
+ 2) Set the align attribute to either float or nofloat for images
+ 3) Change the attribute name from size to class to be in sync with changes to authors and authors2 Image template
+
+*******
+ 09/23/2011 v2.1.0.0 changes:
+ 1) Added version string to export2xhtml (Thejaswi Raya)
+ 2) Added CHANGELOG to maintain ChanegLog history (Thejaswi Raya)

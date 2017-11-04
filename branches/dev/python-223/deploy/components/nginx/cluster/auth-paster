@@ -1,0 +1,5 @@
+upstream paster_auth {
+        server 127.0.0.1:2001 fail_timeout=0;
+}
+
+

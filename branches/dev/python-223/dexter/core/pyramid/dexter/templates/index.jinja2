@@ -1,0 +1,9 @@
+<html>
+  <body>
+    <h1>Welcome to CK-12: Project Dexter!</h1>
+    <p>Project: {{ project }}</p>
+    {% for qt in questionTypes %}
+    <p>{{ qt.name }}</p>
+    {% endfor %}
+  </body>
+</html>

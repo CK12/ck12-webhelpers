@@ -1,0 +1,50 @@
+{% extends "master.html" %}
+{% block title %}Sign In{% endblock %}
+
+{% block content%}
+<div class="loginpage">
+<h2 class="title">Sign In</h2>
+
+	{% if c.form_errors %}
+	<div class="error messaging">
+	  Invalid login, password, or credentials 
+	</div>
+	{% endif %}
+
+	<div class="loginwrap">
+		<div class="logincontent" >
+			<div class="logincontentleft">
+			<form id="signin_form" method="POST" action="{{ h.url_('signin') }}">
+				<div>
+					<label for="username">{{ _("Username or Email") }}:</label>
+					<div>
+						<input class="signininput" type="text" id="username" name="username"/>
+					</div>
+				</div>
+				<div class="formlabelwrap">
+					<div>
+						<label for="password">{{ _("Password") }}:</label>
+					</div>
+					<div>
+						<input class="signininput" type="password" id="password" name="password"/>
+					</div>
+				</div>
+				<div class="loginsubmitwrap">
+					<input type="hidden" name="next" value="{{c.form.next}}"/>
+					<input class="btn primaryaction" type="submit" name="submit" value="{{ _('Sign In') }}"/>
+				</div>
+			</form>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block js_scripts %}
+<script type="text/javascript">
+  $(document).ready(function(){ 
+    $('#username').val()? $('#password').focus() : $('#username').focus();
+  });
+</script>
+{% endblock %}

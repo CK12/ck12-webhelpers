@@ -1,0 +1,81 @@
+{% extends "base/auth/1column.html" %}
+{% block title %} {{_('Teacher Sign Up') }} {% endblock %}
+
+{% block js %}
+{{ super() }}
+<script>
+require(['main'], function(){
+   require(['auth/flx.signup']);
+});
+</script>
+{% endblock %}
+
+{% block pageinfotop %}
+<div class="contenttop"></div>
+{% endblock %}
+
+{% block content %}
+
+<form id="signup_teacher_form" class="signup-form-wrapper js-signup-form-wrapper signup-teacher-form" method="POST" action="{{ h.url('signup_complete') }}?returnTo={{ h.urlQuote(c.returnTo) }}{% if c.requestor %}&requestor={{ h.urlQuote(c.requestor) }}{% endif %}">
+	<div class="row collapse show-small signup-header-small">
+		<div class="left text-center sign-up-text-small">Sign Up</div>
+		<div class="right pointer sign-up-close js-sign-up-close">
+			<i class="close-icon"></i>
+		</div>
+	</div>
+	<div class="row collapse">
+		<div class="row collapse">
+			<div class="large-6 columns large-offset-3">
+				<div class="row text-center collapse signup-header">
+					<span class="member-image">
+						<img alt="teacher" src="{{ config.url_media }}/auth/images/teacher-signup.png"/>
+					</span>
+					<span class="role-header">Teacher Sign Up</span>
+					<div class="signup-student-here">
+						<span>Are you a student?</span>
+						<a href="{{ '/auth/signup/student/email' if not c.returnTo else '/auth/signup/student/email?returnTo=' + h.urlQuote(c.returnTo) }}" rel="nofollow">Sign up here</a>
+					</div>
+				</div>
+				<div class="signup-form-container row collapse">
+					<div class="large-2 columns input-labels-ie9">Full Name</div>
+					<div class="error" data-for="name">&nbsp;</div>
+					<input type="text" placeholder="Full Name" name="name" class="forminput name" id="name" value="{{c.form['name']}}" maxlength="63">
+					<div class="large-2 columns input-labels-ie9">Email</div>
+					<div class="error email-error" data-for="email">&nbsp;</div>
+					<input type="email" value="{{c.form['email']}}" maxlength="128" placeholder="Email" name="email" class="forminput email" id="email"
+									data-required="{{ c.messages.ACCOUNT_EMAIL_EMPTY }}"
+									data-maxlength="{{ c.messages.ACCOUNT_EMAIL_MAXLENGTH  }}"
+									data-simple_email="{{ c.messages.ACCOUNT_EMAIL_INVALID  }}"
+									data-remote="{{ c.messages.ACCOUNT_EMAIL_TAKEN }}"/>
+					<div class="large-2 columns input-labels-ie9">Password</div>
+					<div class="error" data-for="password">&nbsp;</div>
+					<input type="password" placeholder="Password" name="password" class="forminput password" id="password"
+									data-required="{{ c.messages.ACCOUNT_PASSWORD_EMPTY }}"
+									data-minlength="{{ c.messages.ACCOUNT_PASSWORD_MINLENGTH }}"
+									data-ck12_password="{{ c.messages.ACCOUNT_PASSWORD_INVALID }}"/>
+					<span class="pointer select-option password-check-wrapper" id="password_display_toggle">
+						<span class="custom-check-box" id="password_check"></span>
+						<span class="lbl_show_password">Show password</span>
+					</span>
+					<div class="form-submit-wrap row collapse">
+                                                <input type="hidden" name="firstName" id="firstName" value="{{ c.firstName }}" />
+                                                <input type="hidden" name="lastName" id="lastName" value="{{ c.lastName }}" />
+                                                <input type="hidden" name="returnTo" id="returnTo" value="{{ h.urlQuote(c.returnTo) }}" />
+                                                <input type="hidden" name="role" id="role" value="teacher" />
+                                                <input type="hidden" name="fromSignupForm" id="fromSignupFrom" value="true" />
+						<div class="text-center submit-btn-wrap">
+							<input type="submit" id="signup_form_submit" class="signup-submit disabled button grey" value="{{ _('Sign up') }}" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="signup-terms-content teacher-signup-terms row collapse text-center">
+			<span>By signing up, I confirm that I have read and agree to the</span>
+			<a href="https://www.ck12info.org/about/terms-of-use/" target="_blank">Terms of use</a> and
+	        <a href="https://www.ck12info.org/about/technology-2/privacy-policy/" target="_blank">Privacy Policy</a>.
+		 </div>
+	</div>
+</form>
+
+{% endblock %}

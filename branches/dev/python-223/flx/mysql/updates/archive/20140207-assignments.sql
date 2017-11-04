@@ -1,0 +1,4 @@
+BEGIN;
+    ALTER TABLE Assignments ALTER COLUMN due SET DEFAULT NULL;
+    UPDATE Assignments SET due = NULL WHERE due = '0000-00-00 00:00:00';
+COMMIT;

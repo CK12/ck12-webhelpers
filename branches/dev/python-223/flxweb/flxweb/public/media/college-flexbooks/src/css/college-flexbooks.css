@@ -1,0 +1,68 @@
+.content-wrap {
+    padding-top: 0px;
+    padding-bottom: 3em;
+    max-width: 100%;
+}
+.book {
+    height: 193px;
+    width: 139px;
+}
+.front .cover img {
+    height: 191px;
+}
+.bold {
+    font-weight: bold;
+}
+.flexbooks-container {
+    padding: 54px;
+    background-color: #ffffff;
+    border: 1px solid #D6D6D1;
+    box-shadow: 0px 2px #E2E5E4;
+}
+#collegeFlexbooks .college-banner-wrapper {
+    padding-left: 20px;
+    max-width: 63.75em;
+    margin-left: auto;
+    margin-right: auto;
+}
+#collegeFlexbooks .flexbooks-container {
+    max-width: 63.75em;
+    margin: 3em auto;
+}
+.college-flexbooks-banner {
+    background-color: #ff6633;
+    padding: 20px 0px 30px;
+}
+.free-digital-text {
+    color: #ffffff;
+}
+.college-banner-image {
+    max-height: 160px;
+}
+.college-banner-text {
+    color: #f9dd6d;
+    font-size: 30px;
+}
+.college-banner-subtitle {
+    color: #f9dd6d;
+    font-size: 21px;
+}
+.flexbook-title {
+    font-size: 20px;
+}
+.flexbook-level {
+    font-size: 14px;
+}
+.flexbook-level img {
+    margin-right: 10px;
+}
+.book-wrapper {
+    margin-bottom: 35px;
+}
+.flexbook-header {
+    margin-left: 12px;
+}
+.book-container{
+    margin-bottom: 25px;
+    height: 315px;
+}

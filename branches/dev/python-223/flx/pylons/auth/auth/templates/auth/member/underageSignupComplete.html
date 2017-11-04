@@ -1,0 +1,27 @@
+{% extends "base/auth/1column.html" %}
+
+{% block pageinfotop %}
+<div class="contenttop"></div>
+{% endblock %}
+
+{% block content %}
+<div class="signup">
+	<div class="large-8 large-centered columns">
+		<h1 class="toptitle">{{ _("Thanks for being patient") }}</h1>
+		<div class="spacetoplarge"></div>
+	</div>
+	<div id="signup" class="contentarea large-8 large-centered columns">
+		<div class="signup-area">
+			<div class="spacetopxlarge"></div>
+			<div class="divider"></div>
+			<p>{{ _("Thanks for signing-up %(memberFirstName)s %(memberLastName)s! We've sent instructions to your parent or guardian to activate your account." % {'memberFirstName': c.member.givenName, 'memberLastName': c.member.surname} ) }}</p>
+			
+			<div class="ribbon-text text-center">{{ _("We can't wait for you to join us!") }}</div>
+	
+			<div class="text-center">
+				<a href="{{ config.web_prefix_url }}" class="button">{{ _("Back to homepage") }}</a>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

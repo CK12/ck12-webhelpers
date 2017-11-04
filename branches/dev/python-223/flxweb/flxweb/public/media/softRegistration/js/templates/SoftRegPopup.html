@@ -1,0 +1,278 @@
+<div class="reg-popup-container">
+	<div class='soft-reg-popup-header'>
+			<div class="reg-btn-header-txt">Sign up in just 20 seconds!</div>
+			<div class="reg-lorem-role-icon-container">
+				<div class="reg-lorem-role-icon-wrapper">
+					<div class="reg-lorem-role-icon student <% if(isStudent){ %>selected <% } %>" role='student' roleSelection='true'>
+						<div class="reg-lorem-role-icon-image-wrapper student-image">
+							<img class='reg-lorem-role-img' src="/media/softRegistration/images/icon-student.png"/></div>
+						<span class="reg-lorem-rol-icon-txt">Student</span>
+						<% if(isStudent){ %>
+							<img src="/media/softRegistration/images/icon-tick.png"/ style="margin-left:10px">
+						<% } %>
+					</div>
+					<div class="reg-lorem-role-icon teacher <% if(!isStudent){ %>selected <% } %>" role='teacher' roleSelection='true'>
+						<div class="reg-lorem-role-icon-image-wrapper teacher-image">
+							<img class='reg-lorem-role-img' src="/media/softRegistration/images/icon-teacher.png"/></div>
+						<span class="reg-lorem-rol-icon-txt">Teacher</span>
+						<% if(!isStudent){ %>
+							<img src="/media/softRegistration/images/icon-tick.png" style="margin-left:10px"/>
+						<% } %>
+					</div>
+				</div>
+			</div> 
+			<div class="soft-reg-header-tooltip-border">
+			</div>
+	</div>
+	<div class="large-12 column reg-popup-content-area">
+			<div class="soft-reg-header-tooltip <%if(isRoleSelected){ %> hide <%} %>">
+				<div class="soft-reg-header-tooltip-caret"><img src="/media/softRegistration/images/tooltip-arrow.png"/></div>
+				<div class="soft-reg-header-tooltip-txt">
+					Select your role to explore more...
+				</div>
+			</div>
+		<div class="large-6 reg-lorem" id='reg-lorem-container'>
+		   <div class="reg-lorem-container">
+				<div class="reg-lorem-header">
+				<% if(headerMsg){ %>
+					<span class="reg-lorem-header-txt" style="margin-left:15px;">By signing up as a <b><%=selectedRole%></b>, you can: -</span>
+				<% } %>
+			</div>
+				<div class="lorem-txt-container">
+					<% _.each( msgList, function(txt, idx){ %>
+						<div class="large-12 column lorem-txt-row">
+							<div class="large-1 column lorem-star-icon-container">
+								<i class="icon-star"></i>	
+							</div>
+							<div class="large-11 column lorem-star-txt-wraper">
+								<span class="lorem-txt"><%=txt %></span>
+								<% if( (idx === msgList.length -1)  &&  msgFooterProp){ %>
+										<p class='soft-reg-msg-props-footer-msg'> <%=msgFooterProp%></p>
+								<% } %>
+							</div>
+						</div>
+					<% }) %>
+				</div>	
+			</div>
+		</div>
+		<div class="large-6 reg-form-area">
+		  <div class="reg-form-container">
+			<div class="reg-btn-container">	
+					<div class="reg-ext-header-area <% if(showMore){ %> soft-reg-truncated-area <% }else { %> soft-reg-extended-area <%} %> ">
+					<% if(serverError){ %>
+							<div class="alert_big error popup-notification">
+							    <i class="icon-notification"></i>
+							    <span>
+							            <%- getTextByKey(serverError) %>
+							    </span>
+							</div>
+						<% }else{ %>
+								<div class="reg-ext-container <% if(isHeaderHidden){ %>shutter-up<% } %>">
+									<a class="button dark-tangerine soft-reg-signin-button sign-up soft-reg-signin-ext text-center google-button" data='google'alt="Sign up with Google" title="Sign up with Google" roleSelection='true'>
+										<i class="icon-google"></i>
+										<span>Sign up with Google</span>
+									</a>
+									<div class='soft-reg-post-permission'>We will never post anything on your social network</div>
+								</div>
+					<% } %>		
+						<%  if(showMore) {%>
+								<div id="show-more-buttons" class="dxtrack-user-action row collapse text-center pointer show-more-buttons" data-dx-desc='soft_reg_showmore' data-dx-popup='signup' roleSelection='true'>Show More</div>
+						 <% }else{ %> 
+								<div class="dxtrack-user-action row collapse text-center pointer show-less-buttons"
+								data-dx-desc='soft_reg_showless' data-dx-popup='signup' roleSelection='true' >Show Less</div>
+						<% } %>
+					</div>
+				<%  if(showMore) {%>
+							<div class="soft-reg-header-or-txt text-center">or</div>
+			    <% } %> 
+					<div class="soft-reg-internal-form <% if(!$pristine) { if(showMore){%> soft-form-fadeIn <% }else{ %> soft-form-fadeOut <%} } %>">
+						<div class="softReg-form-container row collapse">
+							<% if(!isUnderAge){ %>
+								
+								<div id='soft-reg-email-error' class="<% if( emailError ){ %>error<% }else{ %>hide<% } %> right" data-for="email" ><span class="imgwrap"></span>
+									<label for="email" generated="true" class="invalid">
+									<%= (function(){
+										switch(emailError){ 
+										    case "REQUIRED":
+										     return 'Enter valid email address(e.g. name@address.com)';
+										    case "MAX_LENGTH" :
+										     return 'Must be less than 128 characters.';
+										    case "INVALID_EMAIL" :
+										     return 'Please enter a valid email address';
+										    case "EMAIL_ALREADY_TAKEN":
+										     return 'This email address is already taken';
+										    default : 
+										     return '';  
+										}
+										})()   
+									%>	 
+								</label>
+								</div>
+							
+								<input type="text"  maxlength="128" placeholder="Email" name="email" class="forminput email soft-reg-input-email <% if(emailError){ %> error <%} %>"  value="<%=email%>" roleSelection='true'/>
+								
+								<div id='soft-reg-password-error' class="<%if( passwordError ){ %>error<% }else{ %>hide<% } %> right" data-for="password"><span class="imgwrap"></span>
+									<label for="password" generated="true" class="invalid">
+									<%= (function(){
+										switch(passwordError){ 
+										    case "REQUIRED":
+										     return 'Enter at least 6 characters.';
+										    case "AT_LEAST_ONE_NUMBER" :
+										     return 'Password must contain at least one number';
+										    case "MIN_SIZE" :
+										     return 'Enter at least 6 characters.';
+										    default : 
+										     return '';  
+										}
+										})()   
+									%>	 
+									</label>
+								</div>
+								<input type="password" placeholder="Password" name="password" class="forminput password soft-reg-input-password 
+								<% if(passwordError){ %> error <%} %>" value="<%=password%>" roleSelection='true'/>
+							<% } %>	
+
+
+							<div id='soft-reg-name-error' class="<%if( nameError ){ %>error<% }else{ %>hide<% } %> right" data-for="name"><span class="imgwrap"></span>
+								<label for="name" generated="true" class="invalid">
+								<%= (function(){
+									switch(nameError){ 
+									    case "REQUIRED":
+									     return 'Enter your full name';
+									    case "SPECIAL_CHARS_NOT_ALLOWED" :
+									     return 'Special Characters are not allowed';
+									    case "MAX_LENGTH" :
+									     return 'Must be less than 64 characters.';
+									    default : 
+									     return '';  
+									}
+									})()   
+								%>
+								</label>
+							</div>
+
+							<input type="text"  placeholder="Name" name="name" class="forminput name soft-reg-input-name
+							 <% if(nameError){ %> error <%} %>" value="<%=name%>" roleSelection='true' />
+							<div class="soft-reg-student-DOB-container <% if( isStudent) { %>''<% }else{ %> hide <% } %>">
+								<div class="soft-reg-bday-txt">Birthday 
+									<div id='soft-reg-bday-error' class="<%if( brithdayError ){ %>error<% }else{ %>hide<% } %> right" data-for="guardianMail"><span class="imgwrap"></span>
+										<label for="guardianMail" generated="true" class="invalid">
+										<%= (function(){
+											switch(brithdayError){ 
+											    case "INVALID_DATE":
+											     return 'Please enter a valid date';
+											    default : 
+											     return '';  
+											}
+											})()   
+										%>	
+										</label>
+									</div>
+								</div>
+								<div class="soft-reg-drop-down-month-container">
+									<div class="button soft-reg-drop-down-select soft-reg-bday-month split simple medium <% if(!selectedMonth) { %> no-select <% }  %>" data-dropdown="drop-month" roleSelection='true'>
+										<% if(selectedMonth) { %>
+											<%= selectedMonth %>
+										<% } else { %>
+										    Month
+										<% }  %>
+										<span></span>
+									</div>
+									<ul data-dropdown-content class="f-dropdown soft-reg-drop-down month tangerine-list simple" id="drop-month">
+										<% _.each( monthList ,function(val, idx){  %>
+											<li class="soft-reg-month-option" index="<%= idx+1 %>"><a ><%= val %></a></li>
+										<% }) %>
+									</ul>
+								</div>	
+								<div class="soft-reg-drop-down-bday-container">
+									<div class="button soft-reg-drop-down-select soft-reg-bday-day split simple medium <% if(!selectedDay) { %> no-select <% }  %>" data-dropdown="drop-day" roleSelection='true'>
+										<% if(selectedDay) { %>
+											<%= selectedDay %>
+										<% }else { %>
+									 		Day
+										<% }  %>
+									<span></span>
+									</div>
+									<ul data-dropdown-content class="f-dropdown soft-reg-drop-down day tangerine-list simple" id="drop-day">
+										<% _.each( dayList ,function(val){  %>
+											<li class="soft-reg-day-option"><a ><%= val %></a></li>
+										<% }) %>
+									</ul>
+								</div>
+								<div class="soft-reg-drop-down-year-container">	
+									<div class="button soft-reg-drop-down-select soft-reg-bday-year split simple medium <% if(!selectedYear) { %> no-select <% }  %>" data-dropdown="drop-year" roleSelection='true'>
+									<% if(selectedYear) { %>
+											<%= selectedYear %>
+										<% }else { %>
+									 		Year
+										<% }  %>
+									<span></span>
+									</div>
+									<ul data-dropdown-content class="f-dropdown soft-reg-drop-down year tangerine-list simple" id="drop-year">
+										<% _.each( yearList ,function(val){  %>
+											<li class="soft-reg-year-option"><a><%= val %></a></li>
+										<% }) %>
+									</ul>
+								</div>	
+								<% if(isUnderAge){ %>
+										<div id='soft-reg-guardian-error' class="<% if( guardianEmailError ){ %>error<% }else{ %>hide<% }%> right" data-for="guardianMail"><span class="imgwrap"></span>
+											<label for="guardianMail" generated="true" class="invalid">
+											<%= (function(){
+												switch(guardianEmailError){ 
+												    case "REQUIRED":
+												     return 'Enter valid email address(e.g. name@address.com)';
+												    case "MAX_LENGTH" :
+												     return 'Must be less than 128 characters.';
+												    case "INVALID_EMAIL" :
+												     return 'Please enter a valid email address';
+												    default : 
+												     return '';  
+												}
+												})()   
+										    %>	
+											</label>
+										</div>
+									 <input type="text"  placeholder="Your Parent or Teacher's email" name="guardianMail" class="forminput email soft-reg-input-g-email <% if(guardianEmailError){ %> error <%} %>"   value="<%=guardianEmail%>" />
+								 <% } %>
+							</div>	
+							</div>
+						<div class="signup-btn-container">
+							<button id='signup_form_submit' class="soft-reg-sign-up-btn center button turquoise <% if( formError) { %> disabled grey <% } %>">Sign up</button>
+						</div>
+				   	</div>	
+			    	<div class="soft-reg-ext-form-container <% if(!$pristine) { if(showMore){%> doHide <% }else{ %> doShow <%} }%>">
+
+					   <div class="ext-sign-up-container <% if(!$pristine) { if(showMore){%> up <% }else{ %> down <%} }%>">
+							<a class="button turquoise soft-reg-signin-button signup-email-button js-signup-email-button"
+							title="Sign up using email">
+								<span class="icon-email"></span>
+								<span>Sign up using email</span>
+							</a>
+							<a class="button midnight-blue soft-reg-signin-button soft-reg-signin-ext  text-center facebook-button" data='facebook' alt="Sign up with Facebook" title="Sign up with Facebook">
+								<i class="icon-facebook"></i>
+								<span>Sign up with Facebook</span>
+							</a>
+							<a class="button sky-blue soft-reg-signin-button  soft-reg-signin-ext btn-half twitter-button" data='twitter' alt="Sign up with Twitter" title="Sign up with Twitter">
+								<i class="icon-twitter"></i>
+								<span>Twitter</span>
+							</a>
+							<a class="button royal-blue soft-reg-signin-button  soft-reg-signin-ext btn-half microsoft-button" data='azure' alt="Sign up with Microsoft" title="Sign up with Microsoft">
+								<i class="icon-microsoftlive"></i>
+								<span>Microsoft</span>
+							</a>
+				   		</div>	
+					</div>
+					<div class="signup-terms-content student-signup-terms row collapse text-center">
+					        <span>By signing up, I confirm that I have read and agree to the</span>
+					        <a class='terms-link' href="https://www.ck12info.org/about/terms-of-use/" target="_blank">Terms of use</a> and
+					        <a class='terms-link' href="https://www.ck12info.org/about/technology-2/privacy-policy/" target="_blank">Privacy Policy</a>.
+				   	</div>
+				</div>
+			<div class="row collapse text-center account-exist">
+					<span>Already have an account? <a class="dxtrack-user-action js-sign-in soft-reg-sign-in-open" data-dx-desc='soft_reg_signin'  data-dx-style='popup'>Sign in</a></span>
+			</div>
+		</div>
+	   </div>
+	</div>
+</div>
+

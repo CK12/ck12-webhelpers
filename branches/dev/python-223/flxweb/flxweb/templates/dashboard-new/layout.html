@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<!--[if IE 7]>         <html itemscope itemtype="http://schema.org/Organization" class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 8]>         <html itemscope itemtype="http://schema.org/Organization" class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9]>         <html itemscope itemtype="http://schema.org/Organization" class="no-js ie9 lt-ie10" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--> <html itemscope itemtype="http://schema.org/Organization" class="no-js" lang="en"> <!--<![endif]-->
+<head>
+{% block head %}
+    <title>{% block title %}{{ _("Welcome to CK-12 Foundation") }}{% endblock %}{% block common_title %} | {{ _("CK-12 Foundation") }}{% endblock %}</title>
+    <meta property="og:site_name" itemprop="name" name="author" content="CK-12 Foundation" />
+    <meta property="fb:app_id" content="{{config.fb_app_id}}" />
+    <meta itemprop="url" content="http://www.ck12.org" />
+    <meta itemprop="telephone" content="(650) 494-1302" />
+    <meta charset="utf-8" />
+    <!-- DNS Prefetching for domains -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    {%  for static in h.external_domains() %}
+        <link rel="dns-prefetch" href="{{ static }}">
+    {% endfor %}
+
+    {% if request.path|ck12_optimizely_enabled() %}
+    <script src="{{config.optimizely_js}}"></script>
+    {% endif %}
+
+    {% block meta_extra %}
+    {% endblock %}
+
+    {% block canonical %}
+        {% set canonical_url = h.canonical_url() %}
+        {% if canonical_url %}
+            <link rel="canonical" href="{{ canonical_url }}"/>
+            <meta property="og:url" content="{{ canonical_url }}" />
+        {% endif %}
+    {% endblock %}
+
+    <meta name="viewport" content="width=device-width" />
+    <meta name="google-site-verification" content="wHx0f-Udlfd7ZNYNrIXpJVpjjO8nSH5RE0jIX8V-jIM" />
+    <meta name="google-translate-customization" content="{{ config.gt_meta}}"/>
+    <meta name="application-name" content="CK-12 Foundation"/>
+    <meta name="msapplication-TileColor" content="#003300"/>
+    <meta name="msapplication-TileImage" content="{{ h.url_images('ck12-logo-livetile.png') }}"/>
+
+    <link rel="apple-touch-icon" href="{{ h.url_images('ck12-logo-livetile-57x57.png') }}" />
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ h.url_images('ck12-logo-livetile-72x72.png') }}" />
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ h.url_images('ck12-logo-livetile-114x114.png') }}" />
+    <link rel="shortcut icon" href="{{ h.url_images('favicon.ico') }}" type="image/x-icon" />
+
+    {% block stylesheets %}
+    <link rel="stylesheet" type="text/css" media="all" href="{% block css_data_master %}{{ h.asset_css('common/css/master.css') }}{% endblock %}" />
+    {% if c.user and c.user.isProfileUpdated == 0 and c.user.hasAnyRole(['teacher', 'student', 'member']) %}
+        <link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_css('profilebuilder/assets/css/tangerine.profilebuilder.css') }}" />
+    {% endif %}
+    {% if c.user and c.user.licenseAcceptedTime == None %}
+        <link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('ck12license/assets/css/tangerine.ck12license.css') }}" />
+    {% endif %}
+
+    {% endblock %}
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('common/vendor/foundation/css/ie8-grid-foundation-4.css') }}" />
+    <script src="{{ h.asset_lib('common/vendor/respondjs/respond.min.js') }}"></script>
+    <![endif]-->
+    {% block extra_head %}
+        {#  All other pages can add any extra head tags here #}
+    {% endblock %}
+{% endblock %}
+    <!-- Start Alexa Certify Javascript -->
+    <script type="text/javascript">
+    _atrk_opts = { atrk_acct:"iA1Pi1a8Dy00ym", domain:"ck12.org",dynamic: true};
+    (function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as, s); })();
+    </script>
+    <noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=iA1Pi1a8Dy00ym" style="display:none" height="1" width="1" alt="" /></noscript>
+    <!-- End Alexa Certify Javascript -->
+</head>
+<body class="{% block additional_body_classes %}{% endblock %} dashboard-new">
+
+    {% block tracking %}
+		{% include 'common/tracking.html' %}
+	{% endblock %}
+
+	{% block header %}
+        {% include 'dashboard-new/header.html' %}
+	{% endblock %}
+	<div id='content-container'>
+		<div class="row collapse hide" id="notification_popup"></div>
+	</div>
+    {% block content %}
+    <!-- individual page contents go here -->
+    {% endblock %}
+
+	{% block footer %}
+		{% include 'dashboard-new/footer.html' %}
+	{% endblock %}
+
+<div class="hide">
+	{% block hidden_divs %}
+
+	<!-- All the divs inside this div will be hidden and are used for showing dialogs and messages -->
+	<div id="loading_div">
+		{{_("Please wait...") }} <img src="{{ h.url_images('icon_loading.gif') }}" width="43" height="11" />
+	</div>
+
+	{# signin dialog snippet#}
+	<div id="js_signindialog" data-url='{{ h.auth_signin_url(popup=True) }}' data-auth-no-popup-url='{{ h.auth_signin_url(popup=False) }}'>
+		<div class="action"><a id="signin_close" href="#" alt="{{ _('Close Sign In ') }}" title="{{ _('Close Sign In') }}"></a></div>
+	</div>
+
+	<div id="js_dialog_basic">
+	<!-- used for simple OK/Cancel or Alert type dialogs. -->
+	<div class="dialog_msg"></div>
+	<div class="dialog_loading hide">{{ _('Please wait...') }}<img src="{{ h.url_images('icon_loading.gif') }}" width="43" height="11" /></div>
+	</div>
+	{% endblock %}
+</div>
+
+{% block profileBuilderJS %}
+    <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?libraries=places&key={{config.google_places_api_key}}"></script>
+{% endblock %}
+
+{% block js %}
+<script src="{{ h.asset_lib('common/js/utils/globals.js') }}"></script>
+<script src="{{ h.asset_js('dexterjs/dexterjs.min.js') }}"></script>
+<script data-main="{% block js_data_main %}{{ h.asset_js('main') }}{% endblock %}" src="{{ h.asset_lib('common/vendor/requirejs/require.js') }}"></script>
+{% include 'common/global_js.html' %}
+
+{% endblock%}
+
+{% block noscript %}
+ <noscript>
+   <div style="position:fixed; top:0;left:0;right:0;margin:auto; z-index:9999;">
+      <div class="row collapsed" style="text-align:center;background-color:#FFFF99;padding:5px 5px 5px 5px; border:2px solid #999;font-size:16px;text-shadow:none;color:#000000;">
+          <div>To use this website, please enable javascript in your browser. <a style="text-shadow: none;color:#0000FF;text-decoration:underline;" href="/nojavascript/">Learn more</a></div>
+      </div>
+  </div>
+</noscript>
+{% endblock %}
+
+{% block cookies_message_bar %}
+<!-- START cookie disabled message -->
+<div id="nocookies" style= "text-align:center; top: 0px; width:100%; position:absolute;	z-index:9999; display:none;">
+    <div id = "nocookies_inner" style= "margin:0 auto; height:16px;	width:800px; background-color: #FFFF99;	padding:4px 10px 10px 10px; border:3px solid #999; font-size: 16px; text-shadow: none; color: #000000;">
+        <div class="cookiemsg" style="float:left;" >Oops, looks like cookies are disabled on your browser. Click <a style=" text-shadow: none;color: #0000FF;" href="/nocookies/">here</a> to see how to enable them.</div>
+        <div class="cookies_close" style="float:right;"><a style="text-decoration:none;color: #000000;" href="javascript:void(0);" onclick="cookieBar('none');">X</a></div>
+    </div>
+</div>
+<!-- END cookie disabled message -->
+{% endblock %}
+
+<!--
+	###############################
+	#  FLXWEB DEBUG INFORMATION
+	###############################
+	flxweb_node_name = {{ config.flxweb_node_name }}
+	processing_time  = {{ h.calculate_processing_time(c.now) }}
+-->
+</body>
+</html>

@@ -1,0 +1,5 @@
+    WSGIScriptAlias /api-manager /opt/2.0/api/api.wsgi
+
+    <Location ~ "/2.0/.*">
+        FastCgiAccessChecker /opt/2.0/api/api.scm
+    </Location>

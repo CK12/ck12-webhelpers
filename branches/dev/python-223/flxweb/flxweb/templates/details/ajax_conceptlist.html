@@ -1,0 +1,26 @@
+<div class="summary">
+{% if c.chapter_intro %}
+	<div>{{ c.chapter_intro }}</div>
+{% endif %}
+<div><a href="{{ c.chapter_url }}" title="{{ _("Read More...")}}">{{ _("Read More...")}}</a></div>
+</div>
+<ul class="conceptlist">
+	{% for lesson in c.chapter.getChildren() %}
+	<li>
+		<div class="conceptlistitem">
+			<span class="index_label">{{c.position}}.{{ loop.index }}</span>
+			<span class="title"><a href="{{ config.webroot_url }}{{ c.book_context_url }}{{c.position}}.{{ loop.index }}/{{ lesson.artifactType }}/{{ lesson.handle }}/">{{ lesson.title }}</a></span>
+		</div>
+	</li>
+	{% endfor %}
+</ul>
+{% if c.chapter_summary %}
+<div class="summary">
+	<div>
+	{{ c.chapter_summary }}
+	</div>
+	<div><a href="{{ c.chapter_url }}" title="{{ _("Read More...")}}">{{ _("Read More...")}}</a></div>	
+</div>
+
+{% endif %}
+<div class="clear"></div>

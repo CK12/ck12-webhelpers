@@ -1,0 +1,76 @@
+from flx.tests import *
+from flx.model import meta
+from flx.model import api
+from flx.lib.ck12_pdf_lib.ck12pdf import CK12Pdf
+from pylons import config
+import logging
+import os.path
+
+log = logging.getLogger(__name__)
+
+class TestPdfController(TestController):
+
+    def test_PdfLib(self):
+            id = 1
+            defaultImageHost = config.get('default_image_host')
+            downloadPrefix = config.get('pdf_download_prefix')
+            revision=None
+ 
+            if revision == None:
+                artifact = api.getArtifactByID(id=id)
+            else:
+                artifactRevision = api.getArtifactRevisionByID(id=id)
+                artifact = artifactRevision.artifact
+                revision = artifactRevision
+
+            book_metadata = {}
+            chap ={}
+            myPDF = CK12Pdf()
+            myPDF.default_image_host=defaultImageHost
+            book_metadata['id'] = artifact.id
+            book_metadata['authors'] = '; '.join(artifact.getAuthors())
+            book_metadata['title'] = artifact.getTitle()
+            book_metadata['created'] = artifact.getCreated()
+            book_metadata['modified'] = artifact.getModified()
+            book_metadata['summary'] = artifact.getSummary()
+            chapters = artifact.getChildren(revision=revision)
+            myPDF.create_metadata_pdf(book_metadata, 'book')
+
+            for chapter in chapters:
+                chap['id'] = chapter.id
+                chap['title'] = chapter.getTitle()
+                chap['authors'] = '; '.join(chapter.getAuthors())
+                revision = chapter.revisions[0]
+                lessons = revision.getChildren()
+                if len(lessons) != 0 :
+                    chapter_xhtml = ''
+                    #start ---Adding lesson content --
+                    for lesson in lessons:
+                        lesson_xhtml = lesson.getXhtml()
+                        concepts = lesson.getChildren()
+                        if concepts != None and len(concepts) != 0:
+                            concepts_xhtml = ''
+                            #start ---Adding concept content -- 
+                            for concept in concepts:
+                                concept_xhtml = concept.getXhtml()
+                                if concept_xhtml != None and len(concept_xhtml) != 0:
+                                   concepts_xhtml = concepts_xhtml +'\r\n'+concept_xhtml
+                            if len(concepts_xhtml) !=0:
+                               lesson_xhtml = concepts_xhtml + lesson_xhtml
+                            #end --Adding concept content--  
+                        if lesson_xhtml != None:
+                             lesson_xhtml = lesson_xhtml + '\r\n'
+                        chapter_xhtml = chapter_xhtml + lesson_xhtml
+                    chap['xhtml'] =  chapter_xhtml
+                    #end --Adding lesson content--
+                else:
+                    chap['xhtml'] = chapter.getXhtml()
+                myPDF.save_chapter_xml(chap)
+                myPDF.create_metadata_pdf(chap, 'chapter')
+
+            myPDF.save_metadata_file()
+            local_path = myPDF.create_pdf()
+            path = downloadPrefix + local_path
+            book_file_path = path.split('download/pdf')[1]
+            assert os.path.isfile(book_file_path), "pdf Creation failed" 
+

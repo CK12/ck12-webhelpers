@@ -1,0 +1,113 @@
+Level 1,Level 2,Level 3,Level 4,Level 5,Level 6,EncodedID,Original EncodedIDs,Description
+Visualizing Data,,,,,,MAT.STA.100,,
+,Data Display Options,,,,,MAT.STA.101.0,,
+,,Graphs for Discrete and for Continuous Data,,,,MAT.STA.101.010,MAT.STA.310,Choosing the correct display for given data sets
+,,Data Summary and Presentation,,,,MAT.STA.101.020,MAT.STA.200,Arranging qualitative and quantitative data
+,,Introduction to Data and Measurement Issues,,,,MAT.STA.101.030,MAT.STA.130,A glimpse at studying different types of sample data to verify characteristics of a population
+,,Levels of Measurement,,,,MAT.STA.101.040,MAT.STA.132,Applications of the four levels of measurements
+,,Displaying by Type of Data,,,,MAT.STA.101.060,MAT.STA.229,Understand the purpose and use of different graphs to choose an appropriate option.
+,,,Displaying Categorical Variables,,,MAT.STA.101.06020,MAT.STA.229.1,Visually displaying categorical data using bars or sectors of a circle
+,,,Displaying Univariate Data,,,MAT.STA.101.06040,MAT.STA.229.2,Examining the distribution of single variable numerical data from dot plots and stem-and-leaf plots
+,,,Displaying Bivariate Data,,,MAT.STA.101.06060,MAT.STA.229.3,Describing the relationship between two variables from a scatterplot
+,,Misleading Graphs (Identify Misleading Statistics),,,,MAT.STA.101.070,MAT.STA.233,Misleading data from graphs
+,Data Representation,,,,,MAT.STA.103.0,,
+,,Types of Data Representation,,,,MAT.STA.103.010,"MAT.STA.220, MAT.STA.227","Bar charts, histograms, pie charts, and boxplots (box and whiskers plots)."
+,,Pie Charts,,,,MAT.STA.103.020,MAT.STA.223,Read data displayed in given circle graphs.
+,,,Circle Graphs to Make Bar Graphs,,,MAT.STA.103.02020,MAT.STA.223.1,Display data given as circle graphs in bar graphs.
+,,,Interpretation of Circle Graphs,,,MAT.STA.103.02040,MAT.STA.223.2,Use circle graphs and percents to describe real world situations.
+,,,Circle Graphs to Display Data,,,MAT.STA.103.02060,MAT.STA.223.3,Use percents to calculate the number of degrees needed for a circle graph.
+,,Bar Graphs,,,,MAT.STA.103.030,MAT.STA.252,Display given data in single bar graphs.
+,,,Double Bar Graphs,,,MAT.STA.103.03020,MAT.STA.258,Comparing categorical data with adjacent bars for each category
+,,,Multiple Bar Graphs,,,MAT.STA.103.03040,MAT.STA.259,Display given data in multiple bar graphs.
+,,Histograms,,,,MAT.STA.103.040,MAT.STA.226,Visual representation of data on a histogram and the many graphs associated with this display
+,,,Applications of Histograms,,,MAT.STA.103.04020,MAT.STA.226.1,Using TI calculator to create histograms
+,,,Frequency Polygons,,,MAT.STA.103.04040,MAT.STA.226.2,Plotting the x-intercepts and y-values of the interval midpoints.
+,,Frequency Tables to Organize and Display Data,,,,MAT.STA.103.050,MAT.STA.225,Tabulate data according to number of instances.
+,,,"Bar Graphs, Frequency Tables, and Histograms",,,MAT.STA.103.05020,MAT.STA.225.1,Create tables and graphs from given data
+,,,Frequency Tables and Histograms,,,MAT.STA.103.05040,MAT.STA.225.2,Create and read data from histograms
+,,Line Graphs,,,,MAT.STA.103.060,MAT.STA.221,Display given data as linear change on coordinate graphs.
+,,,Broken-Line Graphs,,,MAT.STA.103.06020,MAT.STA.221.1,Information displayed using dots connected with straight lines
+,,,Line Plots from Frequency Tables,,,MAT.STA.103.06040,MAT.STA.221.2,Represent data according to number of instances.
+,,,Line Graphs to Display Data Over Time,,,MAT.STA.103.06060,MAT.STA.221.3,Display given data as linear change on coordinate graphs.
+,,,Double Line Graphs,,,MAT.STA.103.06080,MAT.STA.240,Drawing two line graphs on the same grid to compare related data
+,,,Multiple Line Graphs,,,MAT.STA.103.06090,MAT.STA.221.4,Compare given data as linear change on coordinate graphs.
+,,Scatter Plots,,,,MAT.STA.103.070,MAT.STA.228,"Identify positive, negative, and no correlation relations"
+,,,Linear Regression Equations,,,MAT.STA.103.07020,MAT.STA.228.1,Use TI calculator to calculate regression
+,,,Scatter Plots and Linear Correlation,,,MAT.STA.103.07040,MAT.STA.228.2,Plot points and estimate the line that best represents them
+,,,Scatter Plots on the Graphing Calculator,,,MAT.STA.103.07060,MAT.STA.228.3,Calculate an exact line of fit for a scatterplot
+,,Stem-and-Leaf Plots,,,,MAT.STA.103.080,MAT.STA.222,Sketch plots from data and read data from given plots 
+,,,Stem-and-Leaf Plots and Histograms,,,MAT.STA.103.08020,MAT.STA.222.1,Visualizing data
+,,,"Interpreting Stem and Leaf Plots (Stem and Leaf Plots, Range of a Data Set)",,,MAT.STA.103.08040,"MAT.STA.222.2, MAT.STA.222.3","Range, median and distribution from the plot."
+,,,Two-Sided Stem-and-Leaf Plots,,,MAT.STA.103.08060,MAT.STA.242.1,Comparing discrete grouped data with a leaf on each side of the stem
+,,Box-and-Whisker Plots,,,,MAT.STA.103.090,MAT.STA.224,"Create plots and identify extremes, quartiles, and median from plots"
+,,,Applications of Box-and-Whisker Plots,,,MAT.STA.103.09020,MAT.STA.224.1,Use the TI calculator to draw a box-and-whisker plot
+,,,Effects On Box-and-Whisker Plots,,,MAT.STA.103.09040,MAT.STA.224.2,"Identifying, with and without technology, the differences in boxplots as a result of outliers or of changing units"
+,,,Double Box-and-Whisker Plots,,,MAT.STA.103.09060,MAT.STA.242.2,Visually comparing five number summaries of discrete quantitative data sets
+Planning and Conducting a Study,,,,,,MAT.STA.200,,
+,Collecting Data from Experiments,,,,,MAT.STA.201.0,MAT.STA.342,Necessary considerations and steps to execute a well planned design for statistical experiments
+,Sampling and Surveys,,,,,MAT.STA.203.0,"MAT.STA.120, MAT.STA.100",Various ways to gather data from a selected group such that inferences can be made about an entire population.  
+,,Surveys and Samples,,,,MAT.STA.203.010,MAT.STA.122,Gathering data from a sample versus from a population. Insight into deciding which one fits the situation.
+,,Planning and Conducting Surveys,,,,MAT.STA.203.020,"MAT.STA.330, MAT.STA.332",Designing and conducting a survey for the best response rate
+,,Sampling and Bias,,,,MAT.STA.203.030,MAT.STA.335,Recognize possible reasons for skewed data
+,,Sampling methods,,,,MAT.STA.203.040,"MAT.STA.338, MAT.STA.334",Collecting representative samples
+,,Simple Random Sampling,,,,MAT.STA.203.050,MAT.STA.338.1,Ensuring every member of a population has an equal chance of being chosen for a sample.
+,,Stratified Random Sampling,,,,MAT.STA.203.060,MAT.STA.338.2,Finding size of subgroups
+,,Cluster Sampling,,,,MAT.STA.203.070,MAT.STA.338.3,Clusters and representative sets
+,,Non-Probability Sampling,,,,MAT.STA.203.080,MAT.STA.338.4,Where to use non-random sampling methods
+Analyzing Data and Distributions,,,,,,MAT.STA.300,,
+,Central Tendency & Dispersion,,,,,MAT.STA.302.0,,
+,,"Introduction to Mean, Median, and Mode",,,,MAT.STA.302.010,MAT.STA.212,
+,,Mean,,,,MAT.STA.302.020,MAT.STA.212.1,Sum of the values divided by the number of values
+,,Ungrouped Data to Find the Mean,,,,MAT.STA.302.025,MAT.STA.212.2,Finding weighted mean by hand or using the TI calculator
+,,Grouped Data to Find the Mean,,,,MAT.STA.302.030,MAT.STA.212.3,Using interval midpoints to calculate mean
+,,Median,,,,MAT.STA.302.040,MAT.STA.212.4,Explore the median as a measure of center.
+,,Median of Large Sets of Data,,,,MAT.STA.302.045,MAT.STA.212.5,Using TI calculator to calculate median.
+,,Mode,,,,MAT.STA.302.050,MAT.STA.212.6,Explore the mode as a measure of center.
+,,Spread/Dispersion: Range (Range of Spread/Dispersion),,,,MAT.STA.302.060,MAT.STA.214.1,Explore measure of dispersion: range.
+,,Measures of Spread/Dispersion,,,,MAT.STA.302.070,"MAT.STA.214, MAT.STA.216","Calculating various measures of spread, with and without technology, to understand the distribution of data"
+,,Five Number Summary,,,,MAT.STA.302.080,"MAT.STA.217, MAT.STA.216.1, MAT.STA.210","Quartiles or medians, minimum and maximum values and advanced mean calculations (trimmed mean, weighted mean)."
+,Standard Deviation and Variance,,,,,MAT.STA.304.0,,
+,,Variance of a Data Set,,,,MAT.STA.304.020,MAT.STA.416.1,Multiplying the squares of each variance by its probability
+,,Standard Deviation of a Data Set,,,,MAT.STA.304.040,MAT.STA.416.2,Percentages and the square root of the variance 
+,,Applications of Variance and Standard Deviation,,,,MAT.STA.304.060,MAT.STA.416.3,Using TI calculator to find variance and standard deviation
+,,Coefficient of Variation,,,,MAT.STA.304.080,MAT.STA.416.4,Ratio of standard deviation to mean x 100% measures data clustering.
+,Normal Distribution,,,,,MAT.STA.306.0,,
+,,Normal Distributions,,,,MAT.STA.306.020,"MAT.STA.430, MAT.STA.432.1, MAT.STA.436",Percentages and the bell curve; fitting a bell curve to a histogram
+,,Properties of a Normal Distribution,,,,MAT.STA.306.040,"MAT.STA.432, MAT.STA.432.2, MAT.STA.432.3",Locating a value by direction and number of steps from the mean
+,,Using Tables of the Normal Distribution,,,,MAT.STA.306.060,MAT.STA.434,Using tables to locate values within a given range
+,Probability Distributions,,,,,MAT.STA.308.0,,
+,,Binomial Experiments and Distributions,,,,MAT.STA.308.010,MAT.STA.438,Identify and evaluate data from binomial experiments
+,,Simulation of Random Behavior and Probability Distributions,,,,MAT.STA.308.020,MAT.STA.415,How to conduct experiments to evaluate predicted probability
+,,Theoretical and Experimental Spinners,,,,MAT.STA.308.030,"MAT.STA.415.1, MAT.STA.415.2",Use technology to determine results of simulated experiments
+,,Geometric Distributions,,,,MAT.STA.308.040,MAT.STA.439,Determine the probability of number of trials before a first success
+,,Sampling Distributions,,,,MAT.STA.308.050,MAT.STA.440,Inferring the population mean from samples and sampling error.
+,,Sampling Distribution of a Sample Mean,,,,MAT.STA.308.060,MAT.STA.442,Parameters of distribution of sample means
+,,Central Limit Theorem,,,,MAT.STA.308.070,MAT.STA.443,The sampling distribution of any statistic will be normal or nearly normal if the sample size is large enough. 
+,,Relative Frequency Interpretation,,,,MAT.STA.308.080,MAT.STA.411.1,Adding bin values to all the values of the previous bins.
+Statistical Inference,,,,,,MAT.STA.400,,
+,Interval Estimates,,,,,MAT.STA.402.0,,
+,,Confidence Intervals,,,,MAT.STA.402.020,MAT.STA.513,Overall success rate of an interval capturing the true parameter value 
+,,Margin of Error,,,,MAT.STA.402.040,MAT.STA.230,Interpreting data and calculating percentages
+,Hypothesis Testing,,,,,MAT.STA.404.0,,
+,,Null and Alternative Hypotheses,,,,MAT.STA.404.010,MAT.STA.521.1,The null hypothesis is that the sample and population parameters are equal. The alternative hypothesis says there is a difference.
+,,p-Values,,,,MAT.STA.404.020,MAT.STA.521.2,The P value or calculated probability is the estimated probability of rejecting the null hypothesis (H0) of a study question when that hypothesis is true.
+,,One and Two-Sided Tests of Significance,,,,MAT.STA.404.030,MAT.STA.521.3,Location of rejection values of null hypothesis
+,,Student's t-Distribution,,,,MAT.STA.404.040,MAT.STA.447.1,"When sample sizes are small, and the population standard deviation is unknown, statisticians rely on the distribution of the t-statistic "
+,,Significance Test for a Proportion,,,,MAT.STA.404.050,MAT.STA.522,Calculations of a population proportion needed for rejection or acceptance of the null hypothesis
+,,Significance Test for a Mean,,,,MAT.STA.404.055,"MAT.STA.524, MAT.STA.525","Using z-scores, p-values and known population standard deviation in order to accept or reject a null hypothesis for the mean of a distribution"
+,,Dependent and Independent Samples,,,,MAT.STA.404.060,MAT.STA.528,Calculations for two samples of data (both dependent or both independent) necessary to reject or accept the null hypothesis 
+,,Chi-Square Test,,,,MAT.STA.404.070,MAT.STA.526,Closeness of observed data to expected data of the model
+,,Test of Independence,,,,MAT.STA.404.075,MAT.STA.526.1,Construct a table of values that you would expect to see if the variables were independent.
+,,Tests of Single Variance,,,,MAT.STA.404.080,MAT.STA.526.2,"A test of a single variance may be right-tailed, left-tailed, or two-tailed. One example is the chi-squared test."
+,,Contingency Tables,,,,MAT.STA.404.085,MAT.STA.526.3,Information from a two-way table
+,,F-Distribution,,,,MAT.STA.404.090,MAT.STA.449,Use Fisher's exact test when a chi-square test cannot be conducted because one or more of the cells has an expected frequency of five or less.  
+,,ANOVA Tests,,,,MAT.STA.404.095,"MAT.STA.529.1, MAT.STA.529.2, MAT.STA.529",Variable values are converted to ranks and then correlated
+,Regression and Correlation,,,,,MAT.STA.406.0,,
+,,Linear Regression,,,,MAT.STA.406.010,MAT.STA.530,"Scatterplots, relationship between data, correlation coefficients, and regression."
+,,Least-Squares Regression,,,,MAT.STA.406.020,MAT.STA.532,Calculating regression lines using least squares method and using transformations on residual plots to to create linearity of the data
+,,Inferences about Regression,,,,MAT.STA.406.030,MAT.STA.534,"Linear regression models used for testing null hypothesis, predicting probability and for building confidence intervals"
+,,Multiple Regression,,,,MAT.STA.406.040,MAT.STA.536,Using technology to learn about the relationship between several independent variables and a dependent variable 
+,,Modeling with Regression,,,,MAT.STA.406.050,MAT.STA.537,Residuals and prediction based on function family regressions.
+,,Non-Parametric Statistics,,,,MAT.STA.406.060,MAT.STA.540,"In a Spearman correlation, variable values are converted in ranks and then correlated. "
+,,Rank Sum Test and Rank Correlation,,,,MAT.STA.406.070,MAT.STA.542,Wilcoxon rank-sum test is a nonparametric test involving the summation of ranks
+,,Kruskal-Wallis Test and Runs Test,,,,MAT.STA.406.080,MAT.STA.544,Use Kruskal Wallis test when you have one independent variable with two or more levels and an ordinal dependent variable 

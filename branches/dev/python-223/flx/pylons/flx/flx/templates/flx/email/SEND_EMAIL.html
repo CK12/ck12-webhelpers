@@ -1,0 +1,10 @@
+{% extends "MASTER_EMAIL_TEMPLATE.html" %}
+{% block email_body %}
+<tr>
+  <td>
+    <br/>
+    <br/>
+    {{ events[0].eventData['body'] }}
+  </td>
+</tr>
+{% endblock %}

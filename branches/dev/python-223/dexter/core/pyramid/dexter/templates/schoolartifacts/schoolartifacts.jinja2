@@ -1,0 +1,269 @@
+<html>
+    <head>
+        <title>State Schools Artifacts Information</title>
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                getStatesInfo();
+            });
+            
+            var getStatesInfo = function(){
+                $.getJSON('http://lilyserver.ck12.org/flx/get/info/standard/standardboards', function(data){
+                    var options = $("#stateID");
+                    options.html('');
+                    options.append($("<option />").text("State Name"));
+                    $.each(data.response.standardBoards, function(){
+                        if (this.name == 'CC' || this.name == 'NSES')
+                            return;
+                        options.append($("<option/>").val(this.name).html(this.longname));
+                    });
+                    $('#stateID').off('change').on('change', populateSchoolArtifactsInfo);
+                });
+            }
+            var updateBookInfo = function(){
+                var action = $(this).data('action'),
+                id = $(this).data('id'),
+                parentel = $(this).parent(),
+                gparentel = $(parentel).parent().parent(),
+                html = $('<div/>').append($(this).parent()).html();
+                $.getJSON('http://chaplin.ck12.org//dexter/update/school/artifacts?action='+action+'&id='+id, function(data){
+                    if((new RegExp('Successfully')).test(data.response.message)){
+                        if (action == 'rejected'){
+                            html = html.replace('rejected', 'approved');
+                            html = html.replace('Reject', 'Approve');
+                            $(gparentel).find('#school-rejected-books-container').append(html);
+                            $(gparentel).find('.approved-books-count').text(parseInt($(gparentel).find('.approved-books-count').text()) - 1);
+                            $(gparentel).find('.rejected-books-count').text(parseInt($(gparentel).find('.rejected-books-count').text()) + 1);
+                            $(parentel).remove();
+                        }else{
+                            html = html.replace('approved', 'rejected');
+                            html = html.replace('Approve', 'Reject');
+                            $(gparentel).find('#school-approved-books-container').append(html);
+                            $(gparentel).find('.approved-books-count').text(parseInt($(gparentel).find('.approved-books-count').text()) + 1);
+                            $(gparentel).find('.rejected-books-count').text(parseInt($(gparentel).find('.rejected-books-count').text()) - 1);
+                            $(parentel).remove();
+                       }
+                       $('.action').off('click').on('click', updateBookInfo);
+                   }
+                });
+            }
+
+            var camelCase = function(str){
+                if (str){
+                    str = str.replace(/(^|\s+)(\S)(\S*)/g, function(match, whitespace, firstLetter, rest) {
+                              return whitespace + firstLetter.toUpperCase() + rest.toLowerCase();
+                          });
+                }
+                return str;
+            }
+
+            var renderBook = function(school_seq, container, bookInfo, action){
+                var bookTemplate = $('#school-books-template').html(),
+                    bookID = bookInfo._id;
+                    bookTemplate = bookTemplate.replace(/@@book-id@@/g, bookID)
+
+                $("#"+school_seq).find('#' + container).append(bookTemplate);
+                $("#"+school_seq + ' #' + bookID + ' #cover-image').attr({'src': bookInfo.artifactCover})
+                $("#"+school_seq + ' #' + bookID + ' .book-title').html(bookInfo.artifactTitle);
+                $("#"+school_seq + ' #' + bookID + ' .book-title').attr({'href':bookInfo.artifactPerma, 'title' : bookInfo.artifactTitle});
+                if (action == 'reject'){
+                    $("#"+school_seq + ' #' + bookID + ' .action').attr({'data-id':bookID, 'data-action' : 'rejected', 'value':'Reject'});
+                    $("#"+school_seq + ' #' + bookID + ' .action').val("Reject")
+                }else{
+                    $("#"+school_seq + ' #' + bookID + ' .action').attr({'data-id':bookID, 'data-action' : 'approved', 'value':'Approve'});
+                    $("#"+school_seq + ' #' + bookID + ' .action').text("Approve")
+                }
+                
+
+                if (bookInfo.published == 'yes'){
+                    $("#"+school_seq + ' #' + bookID + ' #published-tag').removeClass('hide').addClass('published-tag');
+                }
+
+                if (bookInfo.artifactCreator){
+                    $("#"+school_seq + ' #' + bookID + ' .cover-container #book-info .js-creator').text(camelCase(bookInfo.artifactCreator));
+                }
+
+                if(bookInfo.artifactID){
+                    $("#"+school_seq + ' #' + bookID + ' .cover-container #book-info .js-artifactID').html(bookInfo.artifactID);
+                    $("#"+school_seq + ' #' + bookID + ' .cover-container #book-info .js-artifactID').attr({'href': 'http://www.ck12.org/flxadmin/artifact/' + bookInfo.artifactID});
+                }
+            }
+
+            var populateSchoolArtifactsInfo = function() {
+                selected_state_id = $('#stateID option:selected').attr('value');
+                if(selected_state_id == undefined)
+                    return;
+                $('#state-details-container').html('');
+                var schools_info = $.getJSON('http://chaplin.ck12.org/dexter/get/school/artifacts?state='+selected_state_id, function(data){
+                    $.each(data.response.school_artifacts, function(index, info){
+                        var htmlTemplate = $('#school-info-template').html();
+                        var schoolName = info.school_name;
+                        htmlTemplate = htmlTemplate.replace(/@@school-name@@/g, schoolName);
+                        var school_seq = 'school-' + (index+1)
+                        htmlTemplate = htmlTemplate.replace(/@@school-sequence@@/g, school_seq);
+                        $('#state-details-container').append(htmlTemplate);
+
+                        $.each(info.approved_books, function(approved_index, bookInfo){
+                            renderBook(school_seq, 'school-approved-books-container', bookInfo, 'reject');
+                        });
+                        $.each(info.rejected_books, function(rejected_index, bookInfo){
+                            renderBook(school_seq, 'school-rejected-books-container', bookInfo, 'approve');
+                        });
+                        $("#"+school_seq +" .approved-books-count").text(info.approved_books.length)
+                        $("#"+school_seq +" .rejected-books-count").text(info.rejected_books.length)
+                        if (info.approved_books.length){
+                            $("#"+school_seq + ' #school-name h3').text(schoolName + ' - ' + camelCase(info.approved_books[0].city))
+                        }else if (info.rejected_books.length){
+                            $("#"+school_seq + ' #school-name h3').text(schoolName + ' - ' + camelCase(info.rejected_books[0].city))
+                        }
+                    });
+                    $('.action').off('click').on('click', updateBookInfo);
+                    if (!data.response.school_artifacts.length){
+                        $('#state-details-container').html("0 schools found, try selecting different state")
+                    }
+                });
+            }
+        </script>
+        <style>
+            .hide{
+                display:none;
+            }
+            .book-details{
+            	top: 0;
+            	left: 0;
+                height:240px;
+                width:160px;
+                display:block;
+                margin:6px;
+                float:left;
+                position:relative;
+            }
+            .row{
+                float:left;
+            }
+            .clear{
+                clear:both;
+            }
+            .center{
+                text-align:center;
+            }
+            .truncate {
+                margin:5px 0 5px 5px;
+                text-align:center;
+                width: 150px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .truncate_long {
+                text-align:left;
+                white-space: normal;
+                text-overflow: ellipsis;
+            }
+            .published-tag {
+                border-bottom: 20px solid transparent;
+                border-left: 15px solid #ff0000;
+                border-right: 15px solid #ff0000;
+                height: 20px;
+                margin: 0 0 0 105px !important;
+                position: absolute;
+                width: 0;
+            }
+
+            ul li{
+                box-shadow:2px 2px 2px rgba(0, 0, 0, 0.25)
+            }
+
+            #book-info{
+                background: none repeat scroll 0 0 #fff;
+                height: 73%;
+                opacity: 0;
+                position: absolute;
+                transform: rotateY(-80deg);
+                transform-origin: 0 0 0;
+                transition: all 0.4s ease-in-out 0s;
+                width: 97%;
+                margin-left:3%;
+                text-align:left;
+            }
+
+            div.cover-container:hover #book-info{
+                opacity: 1;
+                transform: rotateX(0deg);
+            }
+
+            .cover-container{
+                margin-top:5px;
+            }
+
+            .cover-container #book-info div{
+                margin:5px 0 10px 5px;
+                font-size:14px;
+            }
+
+            .cover-container #book-info div:not(:first-of-type){
+                border-top:1px solid #e7e7e7;
+            }
+        </style>
+    </head>
+    <body style="color:#56544d;background-color:rgb(248,248,244)">
+        <form name="f1" method="" >
+            <table>
+                 <tr>
+                    <td> <label>State Name</label> </td>
+                    <td> 
+                      <select name="states" id="stateID">
+                        <option value="">State Name</option>
+                      </select>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <div id="state-details-container">
+        </div>
+    </body>
+
+    <div id="school-info-template" class = "hide">
+        <div id ="@@school-sequence@@">
+            <div id = "school-name"><h3></h3></div>
+            <div class="clear"></div>
+            <div><strong>Approved Books (<span class="approved-books-count"></span>)</strong></div>
+            <ul id ="school-approved-books-container">
+            </ul>
+            <div class="clear"></div>
+            <div><strong>Rejected Books (<span class="rejected-books-count"></span>)</strong></div>
+            <ul id="school-rejected-books-container">
+            </ul>
+            <div class="clear"></div>
+        </div>
+        <hr/>
+        <div class="clear"></div>
+    </div>
+    <div id="school-books-template" class = "hide">
+        <li id = "@@book-id@@" class="book-details center">
+            <div id="published-tag" class="hide"></div>
+            <div class="cover-container">
+                <div id="book-info">
+                    <div>
+                    <span>Created by&nbsp;:&nbsp;</span><span class="js-creator"></span>
+                    </div>
+                    
+                    <div>
+                    <span>Artifact Id&nbsp;:&nbsp;</span><a class="js-artifactID" target="_blank" href=""></a>
+                    </div>
+                    
+                    <div class="truncate_long">
+                        <a class="book-title" target="_blank" href=""></a>
+                    </div>
+                </div>
+                <img height="175" width="150" id="cover-image" src="">
+                </img>
+            </div>
+            <div class="clear"></div>
+            <div class="truncate"><a class="book-title" target="_blank" href=""></a></div>
+            <input type="button" class="action" data-id="" data-action=""/>
+        </li>
+    </div>
+</html>
+

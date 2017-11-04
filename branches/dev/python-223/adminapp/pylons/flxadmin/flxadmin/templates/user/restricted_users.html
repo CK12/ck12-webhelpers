@@ -1,0 +1,54 @@
+{% extends "listings.html" %}  
+
+{% block filters %} 
+  <div class="col tiny">Filter by:</div>
+  <div class="col wide">
+  {{ h.labelselect('Object Type', 'objectType', c.form.filter_sel, 'filter') }}
+  </div>
+{% endblock %}
+
+{% block searches %} 
+{% endblock %}
+
+{% block aftersearches %}
+{% endblock %}
+
+{% block js_scripts %}
+{{ super() }}
+<script type='text/javascript'>
+    $(document).ready(function(){
+        Listings({
+            sort: 'memberID,desc',
+            ajaxRoot: CK12.admUrl('user/restrictions_list'),
+            formAjax: CK12.admUrl('task/'),
+            viewmode: '{{c.viewmode}}',
+            extraStyling: function(){ Fns.colorStatus(); }
+        });
+      
+        $('#content').on('click', '.unblockMember', function(){
+            var $t = $(this),
+                data = {subObjectType: $t.data('subobjecttype'),
+                        memberID : $t.data('id'),
+                        objectType : $t.data('objecttype'),
+                        action: 'allow'
+                      },
+                confirmMsg = 'Are you sure to remove this user from blocked members list? ';
+            if($t.data('subObjectType') != 'public-forum' && $t.data('objectid')){
+                data.objectID = $t.data('objectid');
+            }
+            if (confirm(confirmMsg)){
+                $.ajax({url: CK12.flxUrl('/restrict/member/access/' + data.objectType), 
+                    type: 'POST',
+                    data: data,
+                    success: function(data, status, xhr){
+                        window.location.reload(true);
+                    },
+                    error: function(xhr, textStatus, errorThrown){
+                        alert('API Error: '+Fns.formatResponseError(xhr, textStatus, errorThrown));
+                    }
+                });
+            }
+        });
+    });
+</script>
+{% endblock %}

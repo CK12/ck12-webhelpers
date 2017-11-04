@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns:dc="http://www.ck12.org/dc/will_create_ns"
+unique-identifier="chapterid" version="2.0">
+
+  <chapter>
+    <metadata>
+<chapterSeq>17</chapterSeq>
+
+<book>Biology I</book>
+
+      <chapterid></chapterid>
+      <title>Populations</title>
+      <description>Topics in this chapter include:Characteristics_of_Populations,Human_Population_Growth.
+     </description>
+    </metadata>
+    
+    <lessons>
+      <item id="Characteristics_of_Populations" href="Characteristics_of_Populations.html" sequence="1" />
+      <item id="Population_Dynamics" href ="Population_Dynamics.html" sequence="2" />
+      <item id="Human_Population_Growth" href ="Human_Population_Growth.html" sequence="3" />
+    </lessons>
+  </chapter>
+
+</package>

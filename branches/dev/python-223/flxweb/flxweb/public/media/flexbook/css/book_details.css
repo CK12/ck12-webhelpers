@@ -1,0 +1,137 @@
+.divider{
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #fff;
+}
+
+.spacetop {
+    margin-top: 10px;
+}
+
+#nav_artifact {
+    width: 100%;
+    padding: 10px 0;
+    line-height: 1.2;
+    margin: 20px 0 15px;
+}
+.clearfix {
+    display: block;
+    zoom: 1;
+}
+.spacetoplarge {
+    margin-top: 20px;
+}
+#nav_artifact .next {
+    float: right;
+    text-align: right;
+    width: 49%;
+    word-wrap: break-word;
+}
+.rightinsidewidth {
+    width: 200px;
+}
+.clear {
+    clear: both;
+}
+.row .row.collapse {
+    width: auto;
+    margin: 0;
+    max-width: none;
+}
+
+.practice-summary {
+    color: #1aaba3;
+    margin-top: 10px;
+    max-height: 45px;
+    overflow: hidden;
+    padding: 0 20px;
+    width: 100%;
+}
+.button, .button.standard {
+    border-left: medium none !important;
+    border-right: medium none !important;
+    display: inline-block;
+    padding: 7px 10px 9px !important;
+}
+.button.primary.tangerine, .button.tangerine {
+    background: #FF6633;
+    border-bottom: 3px solid #D9491A;
+    border-top: 3px solid #FF6633;
+}
+.button, .button.standard {
+    border: medium none;
+    border-radius: 3px 3px 3px 3px;
+    font-size: 1em;
+    padding: 7px 16px 9px;
+    text-shadow: none;
+    box-shadow: none;
+    transition: background-color 100ms ease-out 0s;
+}
+
+.practice-button {
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+h1, h2, h3, h4, h5, h6, div, ul, ol, dt {
+    font-family: "ProximaNova","Helvetica Neue",Arial,Helvetica,sans-serif;
+    color: #56544D;
+}
+.modality-type-wrapper {
+    margin-top: 12px;
+    padding-left: 23px
+}
+.individual-modality{
+    background-color: #fff;
+    border: 1px solid #efede7;
+    border-radius: 15px;
+    display: block;
+    overflow: hidden;
+    padding-bottom: 12px;
+    height: 255px;
+  }
+.individual-modality:hover {
+    box-shadow: 0 0 6px rgba(142,135,115,0.6);
+    border: none;
+}
+.icon-video {
+    content: "\e9c8";
+}
+.icon-interactive_practice {
+    content: "\e968";
+}
+.imagewrap{
+    background: url(../images/sprite_icons.png) no-repeat;
+}
+.plane_image{
+    background: url('../images/plane_static.svg') no-repeat center center;
+    width: 70px;
+    height: 70px;
+    background-size: 70px;
+}
+
+.nolink{
+    color: #707070;
+}
+.block{
+    display: block;
+}
+.icon-arrow3_right {
+    position: absolute;
+    right: 0;
+    top: 6px;
+    width: 13px;
+    height: 21px;
+    font-size: 22px;
+    color: #b5b1a8;
+}
+.navartifactlinkwrap {
+    position: relative;
+    padding-right: 30px;
+    right: 0;
+}
+
+figure.book{
+  -webkit-transform-style: flat;
+  transform-style: flat;
+}

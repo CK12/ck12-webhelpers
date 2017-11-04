@@ -1,0 +1,125 @@
+Text from https://insight.ck12.org/wiki/index.php/Talk:Projects_Admin_App_2.0 :
+
+= About this page =
+Using this Discussion page for Regalix's Design Decisions/thoughts made for the Admin app.   ''(Please include your name during editing/commenting if you are from CK12)''.
+
+<br>
+
+= General Design Discussions =
+== Design Goals ==
+Since the admin application is for internal use, the general design goals will be for usability, efficiency, and customization.
+
+== General Usability Design ==
+* All data displayed are links where it makes sense and possible
+* Most data displayed are reformatted from the raw api data to be as easy to visually consume as possible
+* All actions in details page that makes sense to be shown in listings will be shown and made actionable in listings for ease of use
+* All task statues are shown color coded
+* Pages with task(s) are polled until all task(s) are SUCCESS or FAILURE
+
+== Listings Design ==
+The listing pages such as User Profiles and Artifact listings are done via ajax calls on the client side.  The admin app server calls the API and returns rendered listing results.  Since this is an internal app, calling the API directly from the client side and have the client side render the JSON data has been thought of.  However, that not only requires working with different templating engine than the server side templating engine that is being used in all one CK12 code, but it would also not help much in the bottleneck that is mostly dominated by the API calls.
+
+Listings will:
+* Highlight currently sorted column
+* Have clickable [X] to clear search inputs and filters
+* Show incompatible filters and search combinations in error-like red messages
+
+<br>
+= FB.AA.01x: Base Application =
+== Login ==
+* The login page error message has been changed from flxweb's field specific messages to a single error message of "Username, password or credentials is invalid".  Since this is an admin application, security (less chance of guessing user logins) are more important than a slightly less informative error message for legit users.
+
+=== Single Sign On (aka SSO, Main app and Admin app in same browser) ===
+* Added as a P4
+==== Works as follows (test scenarios): ====
+# User is neither signed into MAINAPP nor ADMINAPP (/flxadmin)
+# User signs into MAINAPP as admin, then switches user as guest.  User accesses ADMINAPP, it requires admin signin.  User signs in as admin, user confirms admin is the user by seeing ‘Admin’ on right top nav bar.
+# User signs out from MAINAPP.  User accesses ADMINAPP and is forced out as well.
+# User signs into MAINAPP as admin.  User accesses ADMINAPP and is auto-login as admin.  User then switches user as guest on MAINAPP.  User refreshes or accesses a new page on ADMINAPP and remains logged in as admin since this time, the admin session in ADMINAPP was established before user switches user as guest on MAINAPP.
+# User signs out from MAINAPP.  User accesses ADMINAPP and is forced out as well.
+
+==== SSO session timeout: ====
+* As discussed with EZ, with SSO, 1hr session expiration can not be realized if user has signed into main app since main app’s session is more than 1hr.  The only way to enforce 1hr session may be to have auth api validate session across different apps.
+
+<br>
+=  FB.AA.02x: User Management =
+== User/Admin Management ==
+* Combine admin and user management in the same page/interface rather than separated in spec'd 
+* Grant/disable of users with admin roles can be done in the user editing page
+* Filter functionality will allow listing of admins be done on the same user listing page
+* Search functionality will be needed to find users
+* Sort functionality will allow sorting on listing columns
+* Activate/deactivate users will be clickable from both User Profile edit page and listing page for convenience.
+* current user's activate/deactivate should be disabled to prevent accidental deactivating self.
+* current user's role assignment should be disabled to prevent accidental disabling one's own admin role.
+* current user's login is displayed on upper right corner, left of the signout link.  It will be a link to user's own profile
+
+== Users Listing ==
+* Emails in email column can have mailto links by simply setting a flag on client side (currently disabled since usernames can be emails and they are links to the profile page, so having emails be links also will be very visually confusing).
+
+<br>
+=  FB.AA.03x. Artifact Management =
+== Artifact Details ==
+* Format artifact's "children" list of {type: artifact info} into a list of artifact titled links labeled by the artitfacts' type
+* Order artifact fields so related fields appear close to one another
+* Artifact prints and resources are shown and [Generate Prints] and [View List] are to go to artifact's resource listing
+* Raw Content can be shown/hide and it is automatically selected for easy copy/paste
+* Content rendering opens on a new page
+* Artifact Revisions are shown as a paginated listing within the artifact page
+* Publish/Unpublish actions are available for all revisions on the revisions list
+* Cover image replacement form opens up in a separate page to avoid clutter
+
+== Bulk Uploads ==
+* For those with task assigned such as upload of Browse Terms, the result status is displayed on the same page and is refreshed until its status is SUCCESS or FAILURE.
+* For all others, api does not assign it a task, so just the standard “Success/Fail” message is displayed after the upload
+
+<br>
+=  FB.AA.04x. Content Import =
+== Wiki Import ==
+* Since wiki imports are already implemented to run as queueing tasks, the form is made to take new imports without waiting for current import to finish  
+
+=== Wiki Import Status ===
+* Since the import tasks do not save the wiki url, each import task's id and url are saved in the session  
+* Client then polls recent wiki import tasks for status, if task id is found in session, the url is displayed
+
+<br>
+=  FB.AA.05x. Task Management =
+==  Task Listing ==
+* Added auto refresh selector so user don't have to manually refresh page for task updates
+
+<br>
+=  FB.AA.06x. Search Index Management =
+* Link to artifact reindex is on both artifact details and listing pages
+* Recent re/indexes are shown so user can tell if reindex is needed
+
+<br>
+=  FB.AA.07x. Media and Resource Management =
+== Resource ==
+* resource rendering is hidden to avoid clutter, and can be shown(and hide again) with a single click
+* downloadable resource is shown as a link
+* shows link to abuses, if any, along with the ability to create an abuse report
+== Print Triggers ==
+* Existing print formats, if any, are shown
+* User can trigger or Re-trigger prints formats
+* Current print jobs are polled for status til finished or failed (but doesn't show on page refresh since print tasks doesn't provide any artifact id data)
+
+<br>
+= FB.AA.??? Statistics =
+== Say Thanks Stats ==
+* Since AppStore and Kindle Store update uses 2 separate APIs, each update API will be called only if value changed
+
+<br>
+= 2 Panes View =
+== Design and Usage ==
+* All listings that have detailed item views will now has the option to view item details that opens in new window (just like before) or opens in a pane to the right of the listing.
+* The default behavior is when the linked item in the listing is clicked, it opens the detail page in new window, and when the "open on right" icon is clicked, it is opened on the right in the same page.
+* This default behavior can be configured to be the reversed, such that the linked item opens the item detail on the right, and a different icon -- "open in new window" is displayed next to it instead of "open on right" icon.  This is done via setting  link_viewmodes_order  in forms/options.py from  ['full', 'pane'] to ['pane', 'full'].  ['full', 'pane'] is set as default because this is consistent with the behavior of links in the admin app.
+* Views can be switched via the "View Mode" buttons on top
+* Views Mode buttons are updated automatically when "open on right" icon/link is clicked.
+* Item is listing being shown is highlighted.
+== Development, To create new listings with 2 panes views: ==
+* Object Detail view template: extend details.html, and if there's form, give it id="mainform".
+* Objects template: define formAjax and viewmode for Listings().
+* Defining short pane fields: Decide which fields are to be included in short pane view and define them in forms and objects list template. See profiles_list.html and artifacts_list.html for examples.
+* Define new context for templates in controller.
+* Look into existing code if when special care is needed.

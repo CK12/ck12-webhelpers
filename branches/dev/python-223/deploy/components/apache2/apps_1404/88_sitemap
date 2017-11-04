@@ -1,0 +1,6 @@
+    <Directory /opt/2.0/flxweb/>
+        Require all granted
+    </Directory>
+
+    RewriteEngine On
+    RewriteRule ^/(sitemap-.*) /sitemaps/$1 [L,PT]

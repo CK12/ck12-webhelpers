@@ -1,0 +1,588 @@
+{% extends "details.html" %}  
+{% from "macros/form_errors.html" import form_errors with context %}  
+
+{% block admincontent %} 
+{% if c.question %} 
+    {% set enableQuestionEdit = 0 %}
+	{% if c.question.questionTypeName=='multiple-choice' or c.question.questionTypeName=='short-answer' or c.question.questionTypeName=='true-false' or c.question.questionTypeName=='select-all-that-apply' or c.question.questionTypeName == 'discussion'%}
+		{% set enableQuestionEdit = 1 %}
+	{% endif %}
+<div class="sectionhead sectiontitle">{{c.pagetitle}}</div>
+<div class="section withfloatedsubmit">
+  <form id="mainform" method="post" onKeyPress="return disableEnterKey(event)" onsubmit="return validateForm()" >
+    <div class="leftaligned">
+      {{ h.labelreadonly('Id', '_id', 'info med')}}
+      {% if c.question.copiedFrom %}
+         {{ h.labeldiv('Copied From')}}<div>
+           <a href="/flxadmin/assessment/question/{{ c.question.copiedFrom }}" class="">{{ c.question.copiedFrom }}</a>
+      {% endif %}
+      {{ h.labeldiv('Owner')}}<div>
+        {{h.userlink(c.question.owner, 'email', 'uID')}}
+      </div>
+      {{ h.labelreadonly('Created On', 'created', 'info med')}}
+      {{ h.labelreadonly('Updated On', 'updated', 'info med')}}
+
+      {{ h.labelradio('Question Type', 'questionTypeID', c.form.question_types)}}
+      {{ h.labelradio('Difficulty', 'difficultyLevel', c.form.question_levels)}}
+      {{ h.labelinput('', "questionTypeName",'hide')}}
+
+      {{ h.labelinput("Encoded IDs",'encodedIDs','elong')}}
+      {{ h.labelreadonly("Concepts", 'conceptNodes', 'info elong') }}
+      
+      {{ h.labelreadonly('Published', 'isPublic', 'info med')}}
+      {% if c.question.isPublic %}
+    	{{ h.labelreadonly('Published Comment', 'publishComment', 'info med') }}
+      {% endif %}
+      
+      {% if c.question.rejected is defined %}
+        {{ h.labelreadonly('Rejection Reason', 'rejected_reason', 'info med') }}
+      {% endif %}
+      
+      {% if c.question.artifactID %}
+        {% set artifactIDParam = '&artifactID=' ~ c.question.artifactID %}
+        {{ h.labeldiv('Artifact', (h.idlink('/artifact/', c.question, 'artifactID', 'artifactID')) ) }}
+      {% endif %}
+
+      {{ h.labeltextarea("Hints",'hints', 3, 79)}}
+      {{ h.labelinput("Grades",'grades','elong')}}
+      {{ h.labelinput("References",'references','elong')}}
+      {{ h.labelinput("Search Terms",'searchTerms','elong')}}
+      {{ h.labelinput("Credits",'credits','elong')}}
+      {{ h.labelinput("Source",'source','elong')}}
+      {{ h.labelinput("Standards",'standards','elong')}}
+      {{ h.labelinput("Groups",'qgrp','elong')}}
+      {{ h.labelinput("Collections",'collectionHandles','elong')}}
+      {{ h.labelinput("Associated Modalities",'pSet','elong')}}
+      <div style="padding-left:150px;">{{ c.question.pLink }}</div>
+	  {% if c.question.iloIDs %}
+	  	{{ h.labelreadonly("Associated PLIX Id(s)",'iloIDs','elong')}}
+	  	<div style="padding-left:150px;">{{ c.question.plixLink }}</div>
+	  {% endif %}
+	  {% if c.question.interactivePIDs %}
+	  	{{ h.labelreadonly("Interactive Practice Id(s)",'interactivePIDs','elong')}}
+	  	<div style="padding-left:150px;">{{ c.question.interactivePLink }}</div>
+	  {% endif %}
+	  {{ h.labelinput("Associated Simulation(s)",'simIDs','elong')}}
+	  	<div style="padding-left:150px;">{{ c.question.simLink }}</div>
+      {{ h.labelreadonly("Serial Number", 'docSerialNumber', 'info elong')}}
+      {{ h.labelreadonly('Generative', 'generative', 'info med')}}
+      {{ h.labelinput('Language', 'language', 'info med')}}
+      {{ h.labeltextarea('Policies', 'policies', 3, 79) }}
+      
+      {% if c.question.generative %}
+        {{ h.labelselect('No.of pre-generated instances', 'instances', c.question.instances_list, 'filter',selected=c.question.iinstances)}}
+      {% endif %}
+      <br>
+    {% if enableQuestionEdit %}
+    	<hr class="formDataCol xlong">
+    	<span class="formDataCol">If you edit the HTML markup(question and answer choices) directly, please make sure to preview the question to make sure it still displays correctly.</span>
+    	{{ h.labeltextarea('Question', 'displayText', 6, 79)}}
+    	{{ h.ae_answer_widget(c.question, c.question.generative, input_type='text')}}
+    {% else %}
+    	{{ h.labelreadonlyarea('Question', 'displayText', 6, 79)}}
+    	{{ h.ae_answer_widget(c.question, c.question.generative)}}
+    {% endif %}
+    {{ h.htmlinput('question_options', 'hide')}}
+    
+   {% if c.question.irt %}
+	   <hr class="formDataCol xlong">
+	   <span class="formDataCol">IRT fields</span>
+	   {% if c.question.disc  and c.question.disc <= 0.1   %}
+	    {{ h.labelreadonly('Discrimination', 'disc', 'info med red')}}
+	   {% else %}
+		 {{ h.labelreadonly('Discrimination', 'disc', 'info med')}}
+	   {% endif %}
+		 {{ h.labelreadonly('Difficulty', 'difficulty', 'info med')}}
+		 {{ h.labelreadonly('Guessing', 'guessing', 'info med')}}
+		 {{ h.labelreadonly('IRT Difficulty Level', 'irtLevel', 'info med')}}
+		 {{ h.labelreadonly('Last Updated', 'lastUpdated', 'info med')}}
+	     {{ h.labelreadonly('Question Difficulty Level', 'qLevel', 'info med')}}
+	{% endif %}
+    {{ h.labeldiv('Action')}}<div>
+    {% if c.question.questionTypeName != 'sim-interactive' %}
+	    {% if c.question.questionTypeName == 'geometry-interactive' or c.question.questionTypeName == 'ilo-component' %}
+          {{ h.htmla('/assessment/tools/geometry-tool/plix_builder.html?preview=true&ownedByMe=true&eId=%s&questionId=%s&backUrl=/flxadmin/assessment/question/%s'%(c.question.eIDs|join(','), c.Qid, c.Qid), 'Edit', 'edit')}} |
+        <!--
+	      {{ h.htmla('/assessment/ui/views/question.builder.html?edit/%s&impersonateMemberID=%s&ep=/flxadmin/assessment/question/%s'%(c.Qid, c.question.owner.uID, c.Qid), 'Edit', 'edit')}} |
+        -->
+	      {% if c.question.questionTypeName == 'geometry-interactive' %}
+	        <!-- Provide a separate preview link for each associated EID -->
+	        Preview:
+	        {% for eid in c.question.eIDs %}
+	          [{{ h.htmla('/assessment/tools/geometry-tool/plix.html?eId=%s&questionId=%s%s&preview=true&backUrl=/flxadmin/assessment/question/%s' % (eid, c.Qid, artifactIDParam, c.Qid), '%s' % eid, 'preview', target='_blank')}}]
+	        {% endfor %} | 
+	      {% else %}
+	        {{ h.htmla('/assessment/tools/geometry-tool/embed.html?url=/assessment/api/render/questionInstance?qID=%s'%(c.Qid), 'Preview', 'preview', target='_blank')}} |
+	      {% endif %}
+	    {% else %}
+	      {{ h.htmla('/assessment/ui/?question/edit/%s&impersonateMemberID=%s&ep=/flxadmin/assessment/question/%s'%(c.Qid, c.question.owner.uID, c.Qid), 'Edit', 'edit')}} |
+	      {{ h.htmla('/assessment/ui/views/test.view.new.html?%s&type=previewQuestion'%(c.Qid), 'Preview', 'preview', target='_blank')}} |
+	    {% endif %}
+	{% endif %}
+    {{ h.htmla('/assessment/ui/?question/create', 'New Question', 'newQuestion', target='_blank')}} |
+    {% if c.question.isPublic %}
+    	{{ h.htmla('/assessment/api/unpublish/question/%s'%(c.Qid), 'UnPublish', 'unpublishQuestion')}} |
+    {% else %}
+    	{% if c.question.rejected is defined %}
+    		{{ h.htmla('/assessment/api/approve/question/%s'%(c.Qid), 'Approve', 'approveQuestion')}} |
+    	{% else %}
+    		{{ h.htmla('/assessment/api/publish/question/%s'%(c.Qid), 'Publish', 'publishQuestion')}} |
+    		{{ h.htmla('/assessment/api/reject/question/%s'%(c.Qid), 'Reject', 'rejectQuestion')}} |
+    	{% endif %}
+    {% endif %}
+    
+    {{ h.htmla('/assessment/api/copy/question/%s'%(c.Qid), 'Copy Question', 'copyQuestion')}} |
+    {{ h.htmla('/assessment/api/copy/question/%s?submit=False'%(c.Qid), 'Customize', 'customizeQuestion')}} |
+    {{ h.htmla('/assessment/api/remove/question/%s/tests'%(c.Qid), 'Remove Question from Tests', 'removeQuestion')}}
+ 
+    {% if c.question.isQTSmartphoneReady == true %}
+    |
+        {% if c.question.isQSmartphoneReady == true %}
+    		{{ h.htmla('/assessment/api/update/question/%s'%(c.Qid), 'Not ready for smartphone', 'smartphoneNotReady')}}
+        {% else %}
+    		{{ h.htmla('/assessment/api/update/question/%s'%(c.Qid), 'Ready for smartphone', 'smartphoneReady')}} 
+        {% endif %}
+    {% endif %}
+      
+  
+    </div>
+    </div>
+
+      {{ h.deletebutton('Delete')}}
+      {{ h.submitbutton(c.valid_text, name='saveas')}}
+      {{ h.cancelbutton(c.cancel)}}
+  </form>
+</div>
+{% endif %} 
+{% endblock %}
+
+{% block js_scripts %}
+<script type="text/javascript" src="{{ h.url_js('colorbox_popup_resize.js') }}"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  var 
+  $form = $('#mainform');
+
+  window.action = '';
+  window.is_pane = '{{c.is_pane}}';
+
+  $('[name="questionTypeID"]').prop('disabled', true);
+  // Disable editing of answers directly from question detail page for the following question types 
+  {% if c.question.questionTypeName=='fill-in-the-blanks' or c.question.questionTypeName=='geometry-interactive' or c.question.questionTypeName=='ilo-component' %}
+      $('[name="answer"]').prop('disabled', true);
+  {% endif %}
+  //Bug 29742-
+  $('#difficultyLevel label:nth-child(4)').text('Medium');
+  
+  var show_empty_validation_message = false
+  $('#newQuestion').click(function(event, eIDs){
+     if (!eIDs){
+         if (! show_empty_validation_message){
+             eIDs = prompt("Encoded IDs(Separated by comma)", '');
+         }else{
+             eIDs = prompt("At least one encoded ID must be specified,\n(Multiple encoded IDs separated by comma)", '');
+         }
+         if (!eIDs){
+             if (eIDs === null){
+                 show_empty_validation_message = false;
+                 return false;
+             }
+             show_empty_validation_message = true;
+             $(this).trigger('click');
+             return false;
+         }
+         if (!admin.utils.validateEids(eIDs)) {
+            return false;
+         }
+     }
+     params='';
+     if (eIDs){
+        var href = $('#newQuestion').attr('href');
+        href = href.substring(0,href.indexOf('/create')+'/create'.length);
+        if (eIDs){
+            href += '/' + eIDs 
+        }
+        if ('{{c.loggedInUserID}}'){
+            if (href.indexOf('?impersonateMemberID') == -1 ){
+                href +=  escape('?impersonateMemberID=') + '{{c.loggedInUserID}}'
+            }
+        }
+        // Back button reference 
+        href += escape('&ep=/flxadmin/assessment/question/') + '{{ c.Qid }}';
+        window.action = 'add';
+        $('#newQuestion').attr("href", href);
+     }else{
+        event.stopPropagation();
+        event.preventDefault();
+    }
+  });
+  
+  
+  // Publish question 
+  $('#publishQuestion').click(function(event){
+      event.preventDefault();
+      var publishMessage = prompt("Message to publish question");
+      var successMessage = "Question published successfully";
+      
+      if(publishMessage !== null){
+	      if(publishMessage.trim() === ''){
+	    	  alert("You must provide a message before publishing question");
+	      }else{
+	          $.ajax({
+	              "url" : $(this).attr("href"),
+	              "type" : "POST",
+	              "data" : {
+	                  "publishComment" : publishMessage
+	              },
+	              "dataType" : "JSON",
+	              "success" : function(response){
+	                  if(response.responseHeader.status === 0){
+	                	  alert(successMessage);
+	                      window.location.reload();
+			  }else{
+			      alert(response.response.message);
+			  }
+		      },
+	              "error" : function(){
+	                  alert("There is some problem while publishing question");
+	              }
+		  })
+	      }
+      } 
+  });
+  
+  // Unpublish question 
+  $('#unpublishQuestion').click(function(event){
+      event.preventDefault();
+      var confirmUnpublish = confirm("Are you sure want to unpublish this question!");
+      var successMessage = "Question unpublished successfully";
+      if(confirmUnpublish){
+          $.ajax({
+	      "url" : $(this).attr("href"),
+	      "type" : "POST",
+	      "dataType" : "JSON",
+	      "success" : function(response){
+	          if(response.responseHeader.status === 0){
+	        	  alert(successMessage);
+	              window.location.reload();
+		  }else{
+		      alert(response.response.message);
+		  }
+	      },
+	      "error" : function(){
+	          alert("There is some problem while unpublishing question");
+	      }
+	  })
+      }
+  });
+  
+  //Reject question 
+  $('#rejectQuestion').click(function(event){
+      event.preventDefault();
+      var rejectReason = prompt("Reason to reject question");
+      var successMessage = "Question rejected successfully";
+      
+      if(rejectReason !== null){
+	      if(rejectReason.trim() === ''){
+	    	  alert("You must provide a reason before rejecting question");
+	      }else{
+	          $.ajax({
+	              "url" : $(this).attr("href"),
+	              "type" : "POST",
+	              "data" : {
+	                  "reason" : rejectReason
+	              },
+	              "dataType" : "JSON",
+	              "success" : function(response){
+	                  if(response.responseHeader.status === 0){
+	                	  alert(successMessage);
+	                      window.location.reload();
+			  }else{
+			      alert(response.response.message);
+			  }
+		      },
+	              "error" : function(){
+	                  alert("There is some problem while rejecting question");
+	              }
+		  })
+	      }
+      }
+  });
+
+  //Mark the question as smartphone ready
+  $('#smartphoneReady').click(function(event){
+      event.preventDefault();
+      var successMessage = "Question successfully marked ready for smartphone.";
+      
+      $.ajax({
+              "url" : $(this).attr("href"),
+              "type" : "POST",
+              "data" : {
+                  "policies" : '[{"name": "smartphone-ready", "value": true}]'
+              },
+              "dataType" : "JSON",
+              "success" : function(response){
+                  if(response.responseHeader.status === 0){
+                          alert(successMessage);
+                      window.location.reload();
+                  }else{
+                      alert(response.response.message);
+                  }
+              },
+              "error" : function(){
+                  alert("There is some problem while marking the question as smartphone ready");
+              }
+       });
+
+  });
+
+  //Mark the question as not ready for smartphone.
+  $('#smartphoneNotReady').click(function(event){
+      event.preventDefault();
+      var successMessage = "Question successfully marked not ready for smartphone.";
+      
+      $.ajax({
+              "url" : $(this).attr("href"),
+              "type" : "POST",
+              "data" : {
+                  "policies" : '[{"name": "smartphone-ready", "value": false}]'
+              },
+              "dataType" : "JSON",
+              "success" : function(response){
+                  if(response.responseHeader.status === 0){
+                          alert(successMessage);
+                      window.location.reload();
+                  }else{
+                      alert(response.response.message);
+                  }
+              },
+              "error" : function(){
+                  alert("There is some problem while marking the question as not ready for smartphone");
+              }
+       });
+
+  });
+  
+  //Approve question
+  $('#approveQuestion').click(function(event){
+      event.preventDefault();
+      var confirmApprove = confirm("Are you sure want to approve this question!");
+      var successMessage = "Question approved successfully";
+      if(confirmApprove){
+          $.ajax({
+	      "url" : $(this).attr("href"),
+	      "type" : "POST",
+	      "dataType" : "JSON",
+	      "success" : function(response){
+	          if(response.responseHeader.status === 0){
+	        	  alert(successMessage);
+	              window.location.reload();
+		  }else{
+		      alert(response.response.message);
+		  }
+	      },
+	      "error" : function(){
+	          alert("There is some problem while approving question");
+	      }
+	  })
+      }
+  });
+  
+  // Copy question
+  $('#copyQuestion').click(function(event){
+      event.preventDefault();
+      var confirmMessage = "Are you sure want to make copy of this question";
+      var successMessage = "Question copied successfully";
+      
+      if(confirm(confirmMessage)){
+    	  $.ajax({
+              "url" : $(this).attr("href"),
+              "type" : "POST",
+              "dataType" : "JSON",
+              "success" : function(response){
+                  if(response.responseHeader.status === 0){
+                      alert(successMessage);
+                      window.location.href = CK12.admUrl('assessment/question/' + response.response.question._id);
+		  }else{
+		      alert(response.response.message);
+		  }
+	      },
+              "error" : function(){
+            	  alert("There is some problem while copying question");
+              }
+	  })
+      }
+  });
+
+  // Copy question
+  $('#customizeQuestion').click(function(event){
+      event.preventDefault();
+      var confirmMessage = "Are you sure want to make copy of this question and customize it";
+      var successMessage = "Question copied successfully";
+      
+      if(confirm(confirmMessage)){
+    	  $.ajax({
+              "url" : $(this).attr("href"),
+              "type" : "POST",
+              "dataType" : "JSON",
+              "success" : function(response){
+                  if(response.responseHeader.status === 0){
+                      alert(successMessage);
+                      var qID = response.response.question._id;
+                      var copiedFrom = response.response.question.copiedFrom;
+                      window.location.href = '/assessment/ui/views/question.builder.html?edit/'+qID+'&ep=/flxadmin/assessment/question/'+copiedFrom;
+
+		  }else{
+		      alert(response.response.message);
+		  }
+	      },
+              "error" : function(){
+            	  alert("There is some problem while copying question");
+              }
+	  })
+      }
+  });
+  
+  // Remove Question from all Tests 
+  $('#removeQuestion').click(function(event){
+      event.preventDefault();
+      var confirmMessage = "Are you sure want to remove this question from all tests";
+      var successMessage = "Question removed successfully";
+        
+      if(confirm(confirmMessage)){
+          $.ajax({
+  	    "url" : $(this).attr("href"),
+  	    "type" : "POST",
+  	    "dataType" : "JSON",
+  	    "success" : function(response){
+  	        if(response.responseHeader.status === 0){
+  	      	    alert(successMessage);
+  	      		window.location.href = CK12.admUrl('assessment/task/' + response.response.taskID);
+  		}else{
+  		    alert(response.response.message);
+  		}
+  	    },
+  	    "error" : function(){
+  	        alert("There is some problem while removing question from tests");
+  	    }
+  	})
+      }
+  });
+  
+  Fns.set_question_options = function(){ //define for use in listings.js
+    var 
+      opts = [],
+      typeID = '{{c.question.questionTypeID}}',
+      isGenerative = '{{c.question.generative}}'=='True',
+      isShortAnswer = typeID=='1',
+      isTrueFalse   = typeID=='2',
+      isMultiChoice = typeID=='3';
+  }
+
+  var deleteQuestion = {
+      confirmMsg : 'Are you sure to delete the Question?',
+      successMsg : 'Question deleted successfully',
+      this : null,
+              
+      deleteQuestionTask : function(){
+          if (confirm(deleteQuestion.confirmMsg)){
+            deleteQuestion.this = $(this)
+            $(this).hide();
+            $.ajax({url: CK12.admroot + 'assessment/delete/question/{{ c.question._id }}', 
+              type: 'POST', 
+              data:{'error_response_format':'JSON'},
+              success: function(data, status, xhr){
+                  $(deleteQuestion.this).show();
+                  try{
+                      data = $.parseJSON(data);
+                  }catch (e){
+                  }
+                  if (data && data.status == 'error'){
+                      var message = '';
+                      if(data.api_status_code){
+                          message += data.api_status_code;
+                      }
+                      if (data.response){
+                          message += ' - ' + data.response;
+                      }else{
+                          message += 'Unknow Reason'
+                      }
+                      alert('API Error: ' + message);
+                  }else{
+                      alert(deleteQuestion.successMsg);
+                      window.action = 'delete';
+                      reloadQuestionsListingPage();
+                  }
+              },
+              error: function(xhr, textStatus, errorThrown){
+                  alert('API Error: '+ Fns.formatResponseError(
+                  xhr, textStatus, errorThrown));
+              }
+           });
+         }
+      }
+    };
+    $("#delete").click(deleteQuestion.deleteQuestionTask);
+  });
+
+function  reloadQuestionsListingPage(options){
+    if (window.action === 'add' || window.action == 'delete'){
+        window.action = '';
+        window.location.href = CK12.admUrl('assessment/questions');
+    }else{
+        window.action = '';
+        if (window.is_pane && window.is_pane.toLowerCase() == 'true'){
+            $('#cboxClose').click()
+            $('.active .paneview').click();
+        }
+        else{
+            window.location.reload();
+        }
+    }
+}
+
+function createAssessmentListener(){
+    window.scrollToTop=true;
+    window.assessmentFrameListener = {
+        "resize": resize,
+        "loadTestDetailsPage" : reloadQuestionsListingPage
+    };
+}
+
+createAssessmentListener();
+
+function disableEnterKey(e)
+{
+     var key;
+     if(window.event)
+          key = window.event.keyCode;     //IE
+     else
+          key = e.which;     //firefox
+
+     if(key == 13)
+          return false;
+     else
+          return true;
+}
+function validateForm(){
+	var policiesElement = $("#policies");
+    try {
+      policies = JSON.parse($("#policies").val());
+      var posting = $.post(window.location.href, {'formData': admin.utils.b64EncodeUnicode($('form').serialize())});
+      posting.done(function(data){
+          document.write(data);
+          document.close();
+      }).fail(function(data){
+            document.write(data.responseText);
+            document.close();
+      });
+      return false;
+    } catch (e) {
+		alert("Policies are not in correct format");
+		$("#spinner img").hide();
+		return false;
+    }
+}
+
+</script>
+{% endblock %}

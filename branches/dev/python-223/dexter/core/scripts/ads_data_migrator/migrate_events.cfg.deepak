@@ -1,0 +1,58 @@
+## Migration specific settings
+## Note: For query_dict, use "" for the keys and values.
+
+[event_details_1]
+event_name = FBS_MODALITY
+ads_table_name = F_modality
+pick_fields = ["ts","userID","artifactID","modality_type","context_eid","user_role","visited","shared","clicked","time_spent"]
+condition = ts > DATE_SUB(now(), INTERVAL 4 MONTH) and ts < DATE_SUB(now(), INTERVAL 3 MONTH)
+limit = None
+
+[event_details_2]
+event_name = FBS_MODALITY
+ads_table_name = F_modality
+pick_fields = ["ts","userID","artifactID","modality_type","context_eid","user_role","visited","shared","clicked","time_spent"]
+condition = ts > DATE_SUB(now(), INTERVAL 3 MONTH) and ts < DATE_SUB(now(), INTERVAL 2 MONTH)
+limit = None
+
+[event_details_3]
+event_name = FBS_MODALITY
+ads_table_name = F_modality
+pick_fields = ["ts","userID","artifactID","modality_type","context_eid","user_role","visited","shared","clicked","time_spent"]
+condition = ts > DATE_SUB(now(), INTERVAL 2 MONTH) and ts < DATE_SUB(now(), INTERVAL 1 MONTH)
+limit = None
+
+[event_details_4]
+event_name = FBS_MODALITY
+ads_table_name = F_modality
+pick_fields = ["ts","userID","artifactID","modality_type","context_eid","user_role","visited","shared","clicked","time_spent"]
+condition = ts > DATE_SUB(now(), INTERVAL 1 MONTH)
+limit = None
+
+[event_details_5]
+event_name = FBS_HIT
+ads_table_name = F_fbs_visit
+pick_fields = ["ts","artifactID","userID"]
+condition = ts > DATE_SUB(now(), INTERVAL 4 MONTH) and ts < DATE_SUB(now(), INTERVAL 3 MONTH)
+limit = None
+
+[event_details_6]
+event_name = FBS_HIT
+ads_table_name = F_fbs_visit
+pick_fields = ["ts","artifactID","userID"]
+condition = ts > DATE_SUB(now(), INTERVAL 3 MONTH) and ts < DATE_SUB(now(), INTERVAL 2 MONTH)
+limit = None
+
+[event_details_7]
+event_name = FBS_HIT
+ads_table_name = F_fbs_visit
+pick_fields = ["ts","artifactID","userID"]
+condition = ts > DATE_SUB(now(), INTERVAL 2 MONTH) and ts < DATE_SUB(now(), INTERVAL 1 MONTH)
+limit = None
+
+[event_details_8]
+event_name = FBS_HIT
+ads_table_name = F_fbs_visit
+pick_fields = ["ts","artifactID","userID"]
+condition = ts > DATE_SUB(now(), INTERVAL 1 MONTH)
+limit = None

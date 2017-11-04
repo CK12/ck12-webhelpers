@@ -1,0 +1,42 @@
+{% extends "master.html" %}  
+{% block header %}{% endblock %}
+{% block crumbs %}{% endblock %}
+{% block footer %}{% endblock %}
+{% block filters %}{% endblock %}
+{% block admincontent %}
+<div class="box switchusercontent">
+	<div>
+		{{ _('Note:') }}
+		<ul>
+			<li>{{ _('This will log you out of your account and automatically log you into the selected user account.') }}</li>
+			<li>{{ _('When you switch user, you will lose any unsaved changes.') }} </li>
+			<li>{{ _('Any changes you make after switching will be reflected in that user account.') }} </li>
+		</ul>
+	</div>
+	<form id="sw_form">
+		<div>
+			<div>
+				{{ _('To begin searching for a user, type at least 3 letters from user\'s first name, last name, email or username: ') }}
+			</div>
+			<div>
+				<input autocomplete="off" id="sw_search_text" class="forminput xlong" type="text" placeholder="{{ _('Enter first name, last name or email address') }}" />
+			</div>
+		</div>
+		<br>
+	</form>
+	<input type="hidden" id="sw_selected_id"/>
+	<input type="hidden" id="sw_auth_url" value="{{ h.url('auth-switchuser') }}" />
+	<input type="hidden" id="sw_returnto" value="{{ h.url('authorized_switch',qualified='True') }}" />
+	<input type="hidden" id="sw_listuser" value="{{ h.url('switchuser-list-users') }}" />
+	
+
+<div class="floatleft">
+        <input type="button" class=" btn cancelbtn floatright js_closeswitchuser" value="Cancel"/>
+        <input type="button" class="btn primaryaction floatright js_switchuser" value="Switch User" />
+</div>
+
+</div>
+{% endblock %}
+{% block js_scripts %}
+<script type="text/javascript" src="{{ h.url_js('switchuser.js') }}"></script>
+{% endblock %}

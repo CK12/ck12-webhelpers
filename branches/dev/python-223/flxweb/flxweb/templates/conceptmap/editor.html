@@ -1,0 +1,114 @@
+<div class="editor-widget hide">
+    <div class="editor-widget__base">
+
+        <!-- Slide 1 -->
+        <section class="slide slide-1 is-active hide">
+
+            <div class="row slide-1__top-row">
+                <div class="column small-12">
+                    Got a suggestion?
+                    <p>We want to hear it!</p>
+                </div>
+                <i class="icon-arrow3-down"></i>
+            </div>
+
+            <div class="slide-1__bottom">
+
+                <div class="row slide-1__bottom-row">
+                    <div class="slide-1__bottom-row__column column small-12 end">
+                        <p>You can add or remove connections.</p>
+                        <button data-slide="1" class="button turquoise bold small">Make a suggestion</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+        <!-- End Slide 1 -->
+
+        <!-- Slide 2 -->
+        <section class="slide slide-2">
+
+            <div class="row">
+                <div class="column small-6">
+                    <a href="#" id="cancelEditor"><strong>Cancel</strong></a>
+                </div>
+                <div class="column small-6">
+                    <button type="button" data-slide="2" class="button tangerine small" disabled>
+                        Submit
+                    </button>
+                </div>
+            </div>
+
+        </section>
+        <!-- End Slide 2 -->
+
+        <!-- Slide 3 -->
+        <section class="slide slide-3">
+            <form method="post">
+
+                <div class="row">
+                    <div class="column small-12">
+                        <h5>I'm suggesting this because...</h5>
+                        <textarea name="comments" rows="8" cols="40"></textarea>
+                    </div>
+                </div>
+
+                <!-- Logged in -->
+                <div class="row user--logged-in">
+                    <div class="column small-6 small-offset-3 text-center">
+                        <button type="submit" class="button tangerine small">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Anon -->
+                <div class="row user--anon">
+                    <div class="column small-8 small-offset-2 text-center">
+                        <button type="button" id="sign-in-to-submit" class="button tangerine small anon-button">
+                            Sign in to submit
+                        </button>
+                        <br>
+                        <button type="button" id="join-to-submit" class="link-button anon-button">
+                            Join to submit
+                        </button>
+                    </div>
+                </div>
+
+
+                <div class="row user--anon">
+                    <div class="column small-8 small-offset-2 text-center">
+                        <button type="submit" class="link-button">
+                            Submit anonymously
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+            <i class="icon-close2 conceptmap__close-button"></i>
+        </section>
+        <!-- End Slide 3 -->
+
+        <!-- Slide 4 -->
+        <section class="slide slide-4">
+
+            <div class="row">
+                <div class="column small-12">
+                    <i class="icon-checkmark"></i> Thanks for your feedback!<i class="icon-close2"></i>
+                </div>
+            </div>
+
+        </section>
+        <!-- End Slide 4 -->
+
+
+
+    </div>
+</div>
+
+<div id="editor-undo-widget" class="hide">
+    <div class="undo-label"><span>Removed</span></div>
+    <ul class="undo-list"></ul>
+</div>
+

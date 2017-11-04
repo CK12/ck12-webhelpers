@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>Create a Custom Cover resource</title>
+    </head>
+    <body>
+        <h1>Create a Custom Cover image resource</h1>
+        <form name="customCoverForm" method="POST" 
+            action="{{ c.prefix }}/create/customCover" 
+            enctype="multipart/form-data">
+            <table>
+                <tr>
+                    <td>
+                        Book Title <span style="color:red;">*</span>:
+                    </td>
+                    <td>
+                        <input type="text" name="bookTitle" value="" size="100" /><br/>
+			<span style="font-size:8pt;">Font size in the custom cover would be auto-adjusted based on the length of the title.</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Cover Image URI <span style="color:red;">*</span>:</td>
+                    <td><input type="text" name="coverImageUri" /> OR </td>
+                </tr>
+                <tr>
+                    <td>Cover Image File <span style="color:red;">*</span>:</td>
+                    <td><input type="file" name="coverImagePath" /></td>
+		</tr>
+    		<tr>
+                    <td>Book Perma:</td>
+		    <td>
+			<input type="text" name="bookPerma" /> <br/>
+			<span style="font-size:8pt;">If the book handle is specified, then the cover image is associated with that book (Book Title parameter is ignored)</span>
+		    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        <input type="submit" name="submit" value="Create" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
+

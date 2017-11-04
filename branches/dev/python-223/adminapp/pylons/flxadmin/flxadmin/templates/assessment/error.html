@@ -1,0 +1,274 @@
+
+{% extends "details.html" %}  
+{% from "macros/form_errors.html" import form_errors with context %}  
+
+{% block admincontent %} 
+    
+  <div id='boxes'>
+      <div id='dialog' class='overlay_form' style="/*height:150px;width:350px;*/height: auto;width: 70%;font-size: 15px !important;top: -10px;">
+        <form id="updateErrorReportsForm">
+          <table cellspacing="10" width="100%">
+              <tr>
+                  <td>
+                      <label>
+                          Comments / Response 
+                      </label>
+                  </td>
+                  <td>
+                      <div>
+                        <textarea id="response" class="floatleft" name="response" rows="5" cols="50"></textarea>
+                      </div>
+                  </td>
+              </tr>
+
+              <tr>
+                  <td>
+                      <label>
+                          Status
+                      </label>
+                  </td>
+                  <td>
+                      <select name="status" id="status" />
+                        <option value="nochange">No Changes</option>
+                        {% for item in c.form.status_sel %}
+                        <option value="{{item[0]}}">{{item[1]}}</option>
+                        {% endfor %}
+                      </select>
+                  </td>
+              </tr>
+
+              <tr>
+                  <td>
+                  </td>
+                  <td>
+                      <label id = "status_message"></label>
+                  </td>
+              </tr>
+
+              <tr>
+                  <td>
+                  </td>
+                  <td>
+                      <input type="button" class = "btn primaryaction floatright" style = "margin-top:0px;margin-bottom: 0px;" 
+                      id = "update_error_reports_from_dialog" value="Update" />
+                      <input type="button" class="btn cancelbtn close floatright" style = "margin-top:0px;margin-bottom: 0px;" value="Close" />
+                  </td>
+              </tr>
+          </table>
+        </form>
+      </div>
+      <div id="mask"></div>
+  </div>
+
+<div class="sectionhead sectiontitle">{{c.pagetitle}}</div>
+<div class="section withfloatedsubmit">
+  <form id="mainform" method="post" class="clickonly">
+    <div class="leftaligned">
+    {{ h.labelreadonly('Id', '_id', 'info xmed')}}
+    {% if c.assessment_error.question %}
+    {{ h.labeldiv('Question',
+       (h.idlink('/assessment/question/', c.assessment_error.question, '_id', '_id'),
+       '&nbsp; ',h.htmla('/assessment/ui/?question/preview/%s'%(c.assessment_error.question._id), '[Preview]', 'view'))) }}
+    {% else %}
+      {{ h.labeldiv('Question', 'None') }}
+    {% endif %}
+  {% for field in c.form.ordered_fields %}
+    {{ field }}
+  {% endfor %}
+    {{ h.labelselect('Error Type', 'errorTypeID', c.assessment_error.error_types, 'filter',selected=c.assessment_error.errorTypeID) }}
+    {{ h.labelselect('Status', 'status', c.form.status_sel, 'filter',selected=c.assessment_error.status)}}
+    {{ h.labelreadonly('EID(Branch)', 'branch', 'info xmed')}}
+    {{ h.labeltextarea('Error Reason', 'reason', 5, 82)}}
+    {{ h.labelreadonly('Type', 'type','info xmed')}}
+    {{ h.labelreadonly('TestID', 'testID','info xmed')}}
+    {{ h.labelreadonlyarea('ClientInfo', 'userAgent',2,80)}}
+    {{ h.labelreadonly('Attended In', 'attendedIn','info xmed')}}
+    {{ h.labelreadonly('screen Size', 'screenSize','info xmed')}}
+    {{ h.labeldiv('Updated By', h.userlink(c.assessment_error.reviewedBy, 'email', idkey='uID'))}}
+    {{ h.labeltextarea('Response', 'response', 5, 82)}} 
+    {{ h.labelreadonly('Reporter Role', 'reporterRole','info xmed','{{c.assessment_error.reporterRole}}')}}
+    {{ h.labelreadonly('Pending Count', 'unresolvedReportCount','info xmed','{{c.assessment_error.unresolvedReportCount}}')}}
+    </div>
+    {{ h.submitbutton(c.save_prefix, name='update')}}
+    {{ h.cancelbutton(c.cancel)}}
+  </form>
+</div> 
+
+<div class="sectionhead sectiontitle">Other error reports for the question</div>
+<div class="section withfloatedsubmit">
+  <div class="reports">
+  </div>
+  <input type="button" class = "short btn primaryaction floatright" style = "margin-top:0px;margin-bottom: 0px;" id = "update_error_reports" value="Update"/>  
+</div> 
+
+{% endblock %}
+{% block js_scripts %}
+<script type="text/javascript" src="{{ h.url_js('colorbox_popup_resize.js') }}"></script>
+{{ super() }}
+<script type="text/javascript">
+$(document).ready(function(){
+  var questionID = "{{ c.assessment_error.question._id }}";
+  //$("form#updateErrorReportsForm select#status").val("nochange");
+  var getErrorReports = function(params){
+    var link = params["link"];
+    delete params["link"]
+    $.get(link, params).done(function(data){
+      $(".reports").html(data);
+      $("a.pager_link").each(function(){
+        var data_href = $(this).attr("href");
+        $(this).attr("data-href",data_href);
+        $(this).attr("href","javascript:;");
+      });
+      //$(".reports").get(0).scrollIntoView();
+    });    
+  };
+
+  var params = {"questionID":questionID, "pageSize":25, "link":"/flxadmin/assessment/error_reports"};
+  getErrorReports(params);
+  $(document).on("click","a.pager_link",function(){
+    var params = {"questionID":questionID, "pageSize":25, "link":$(this).attr("data-href")};
+    getErrorReports(params);  
+  });
+  window.reloadPage = false;
+});
+
+$(document).on("click", "input#select_all",function(){
+  if ($(this).is(":checked")){
+    $("input.error_report_checkbox").prop("checked", true);
+  } else {
+    $("input.error_report_checkbox").prop("checked", false);
+  }
+});
+
+//if close button is clicked
+$('.overlay_form .close').click(function (e) {
+    //Cancel the link behavior
+    e.preventDefault();
+    e.stopPropagation();
+    hideOverlayPopup();
+    clearDialogFormFilledData();
+    if (window.reloadPage){
+      Fns.blockUI();
+      location.reload(forceGet=true);
+    }
+});        
+  
+//if mask is clicked
+$('#mask').click(function () {
+    $(this).hide();
+    $('.overlay_form').hide();
+    $(".overlay_form .close").click();
+}); 
+
+var clearDialogFormFilledData = function(){
+  $("form#updateErrorReportsForm textarea#response").val("");
+  $("form#updateErrorReportsForm select#status").val("nochange");
+  $('#status_message').text('');
+}
+
+var showUpdateErrorReportsDialog = function(){
+  
+    var maskHeight = $(document).height();
+    var maskWidth = $(window).width();
+    
+    //Set heigth and width to mask to fill up the whole screen
+    $('#mask').css({'width':maskWidth,'height':maskHeight});
+    
+    //transition effect        
+    $('#mask').fadeIn(1000);    
+    $('#mask').fadeTo("slow",0.8);    
+    
+    //Get the window height and width
+    var winH = $(window).height();
+    var winW = $(window).width();
+          
+    //Set the popup window to center
+    //$('#dialog').css('top',  winH/2-$('#dialog').height()/2);
+    $('#dialog').css('top',  "50px");
+    $('#dialog').css('left', winW/2-$('#dialog').width()/2);
+    
+    //transition effect
+    $('#dialog').fadeIn(2000);
+    //$('#status_message').text('');
+    clearDialogFormFilledData();
+};
+
+var hideOverlayPopup = function(){
+      $('#mask').hide();
+      $('.overlay_form').hide();
+  }  
+
+$(window).resize(function () {
+ 
+     var box = $('#boxes .overlay_form');
+
+    //Get the screen height and width
+    var maskHeight = $(document).height();
+    var maskWidth = $(window).width();
+  
+    //Set height and width to mask to fill up the whole screen
+    $('#mask').css({'width':maskWidth,'height':maskHeight});
+           
+    //Get the window height and width
+    var winH = $(window).height();
+    var winW = $(window).width();
+
+    //Set the popup window to center
+    //box.css('top',  winH/2 - box.height()/2);
+    box.css('top',  '50px');
+    box.css('left', winW/2 - box.width()/2);
+ 
+});  
+
+$("#update_error_reports").click(function(){
+    errorReportIDs = new Array();
+    $("input.error_report_checkbox").each(function(){
+      if ($(this).is(":checked")){errorReportIDs.push($(this).attr("data-id"))};
+    });
+    if (errorReportIDs.length == 0){alert("Please select at least one Error Report"); return false;}
+    showUpdateErrorReportsDialog();
+});
+
+$("input#update_error_reports_from_dialog").click(function(){
+  if($("textarea#response").val().length == 0){alert("Please put a comment/response for updating the error reports.");return false;}
+  var totalCount = errorReportIDs.length;
+  var api = "/update/questionErrors/"+errorReportIDs.join(",");
+  var status = $("form#updateErrorReportsForm select#status").find("option:selected").val();
+  if(status == "nochange")
+  {
+    var formData = $("form#updateErrorReportsForm").find("[name!=status]").serialize();
+  }
+  else
+  {
+    var formData = $("form#updateErrorReportsForm").serialize();
+  }
+  $('#status_message').text('Updating ' + totalCount + ' Error Reports.');
+  $.ajax({url: CK12.aeUrl(api),
+    type: 'POST', 
+    data:formData,
+    success: function(data, status, xhr){
+      if(data["responseHeader"]["status"] != 0)
+      {
+        alert("API Call was successful, but non-zero response status was returned. Please check console.");
+        console.log(data); 
+        console.log(status);
+        console.log(xhr);
+        window.reloadPage=false;
+      }
+      else
+      {
+        $('#status_message').text('Updated ' + totalCount + ' Error Reports.');  
+        window.reloadPage=true;
+      }
+    },
+    error: function(xhr, textStatus, errorThrown){
+      $('#status_message').text('Issues in updating ' + totalCount + ' Error Reports. Please check console.');
+      console.log(textStatus);
+      console.log(errorThrown);
+      window.reloadPage=false;
+    }
+ });
+});
+</script>
+
+{% endblock %}

@@ -1,0 +1,749 @@
+$error-color: #D44945;
+.roster-app{
+    .disabled{
+        i{
+            color: #B5B1A8;
+        }
+        a{
+            &.container-message{
+                color: #B5B1A8;
+                cursor: auto;
+            }
+        }
+    }
+    .class-name{
+        font-weight: bold;
+    }
+    .center{
+        text-align: center;
+    }
+    .row{
+        max-width: 100%;
+        position: relative;
+    }
+    .vertical-line{
+        height: 80px;
+        width: 1px;
+        background-color: #D8D8D8;
+        position: absolute;
+        top: 25px;
+        right: 0;
+    }
+    .icon-validated{
+        color: #B8D543;
+        background: #FFF;
+        border-radius: 25px;
+        vertical-align: middle;
+        margin-right: 10px;
+        &.for-row{
+            margin-right: 0;
+        }
+    }
+    .icon-notification{
+        color: $error-color;
+    }
+    .notification{
+        width: 41px;
+        height:35px;
+        margin-right: 15px;
+    }
+    .remove-row{
+        right: -22px;
+        top: 8px;
+        font-size: 17px;
+        color: #D1D1D1;
+        position: absolute;
+        &:hover{
+            cursor: pointer;
+            color:#A5A5A5;
+        }
+    }
+    .no-input-style{
+        border: none;
+        background: none;
+        color: black !important;
+        margin-top: -6px;
+    }
+    .image-wrapper{
+        img{
+            height: 34px;
+            width: 34px;
+            margin: 0 17px 0 22px;
+        }
+    }
+    .term-and-policy{
+        text-align: left;
+    }
+    .bottom-message{
+        font-size: 12px;
+        color: #8E8774;
+        line-height: 15px;
+        font-family: "ProximaNova";
+    }
+    .create-btn{
+        float: right;
+    }
+    .user-col{
+        float: left;
+        &.user-checkbox{
+            margin-top:10px;
+        }
+        .name{
+            font-family: "ProximaNova";
+            font-size: 20px;
+            color: #56544D;
+            line-height: 0.9;
+        }
+        .username{
+            font-family: "ProximaNova";
+            font-size: 14px;
+            color: #A5A5A5;
+        }
+    }
+    .added-student-names{
+        font-weight: bold;
+    }
+    .tooltip-error{
+        position:absolute;
+        top:0;
+        left: -200px;
+        background-color: #feeaef;
+        border: 1px solid $error-color;
+        width: 200px;
+        padding: 5px;
+        z-index: 100;
+        font-size: 12px;
+        &:before{
+            content:'';
+            border-left: 5px solid $error-color;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            position:absolute;
+            top: 8px;
+            right: -6px;
+        }
+        &:after{
+            content:'';
+            border-left: 5px solid #feeaef;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            position:absolute;
+            top: 8px;
+            right: -5px;
+        }
+        &.right{
+            &:before{
+                content:'';
+                border-right: 5px solid $error-color;
+                border-left: none;
+                right: auto;
+                left: -6px;
+            }
+            &:after{
+                content:'';
+                border-right: 5px solid #feeaef;
+                border-left: none;
+                left: -5px;
+                right: auto;
+            }
+        }
+    }
+    input[type=text], input[type=password] {
+      transition: all 0.30s ease-in-out;
+      outline: none;
+      padding: 3px 0px 3px 3px;
+      margin: 5px 1px 3px 0px;
+      border: 1px solid #E2E2E2;
+      box-shadow: none;
+      background-color: #F7F7FA;
+      border-radius: 3px;
+
+      &.no-input-style{
+          border: none;
+          background: none;
+          color: black !important;
+          height: auto !important;
+          color: #56544D !important;
+      }
+    }
+
+    input[type=text]:focus, input[type=password]:focus {
+      box-shadow: none;
+      padding: 3px 0px 3px 3px;
+      margin: 5px 1px 3px 0px;
+      border: 1px solid rgba(81, 203, 238, 1);
+    }
+
+    font-family: "ProximaNova";
+    .modal-container{
+        padding: 30px;
+    }
+    .modal-footer{
+        text-align: center;
+        font-family: "ProximaNova";
+        font-size: 18px;
+        color: #56544D;
+        border-top: 1px solid #E2E2E2;
+        background-color: #f9f9f5;
+        padding-bottom: 20px;
+        .footer-content{
+            margin-top: 25px;
+            margin-bottom: 20px;
+        }
+    }
+    .title{
+        font-size: 28px;
+        font-family: "ProximaNova";
+        color: #56544D;
+        margin: 0;
+        margin-bottom: 8px;
+    }
+    .subtitle{
+        font-size: 16px;
+        color: #56544D;
+    }
+    .menu-container{
+        margin-top: 35px;
+    }
+    .columns{
+        padding: 0;
+    }
+    .icon-wrapper-right{
+        text-align: right;
+        padding-right: 20px;
+        padding-top: 2px;
+    }
+    .option-container{
+        text-align: center;
+        padding: 20px 0;
+        .option-wrapper{
+            &.disabled{
+                &:hover{
+                    background: #FFFFFF;
+                    cursor: auto;
+                }
+            }
+            padding: 20px 0;
+            &:hover{
+                background: #b7e7e5;
+                cursor: pointer;
+            }
+        }
+    }
+    .middle-container{
+        padding: 0 10px;
+        text-align: center;
+    }
+    .right-container{
+        padding-left: 20px;
+        text-align: center;
+    }
+    .placeHolder{
+        width: 83px;
+        height: 55px;
+        border: 1px solid black;
+        margin: auto;
+        margin-top: 10px;
+        margin-bottom: 37px;
+    }
+    .option-img{
+        width:83px;
+        height: 55px;
+        margin-top: 10px;
+        margin-bottom: 35px;
+        font-size: 47px;
+        vertical-align: middle;
+        &.smaller-icon{
+            font-size: 40px;
+        }
+    }
+    .add-student-img{
+        width: 76px;
+        height: 72px;
+        margin-bottom: 28px;
+    }
+    .add-existing-img{
+        width: 64px;
+        height: 72px;
+        margin-bottom: 28px;
+    }
+    .image-container{
+        text-align: center;
+        padding-top: 5px;
+        display: inline-block;
+        width: 100px;
+    }
+    .container-message{
+        color: #00ABA5;
+        font-family: "ProximaNova";
+        font-size: 20px;
+        text-align: left;
+        max-width: 130px;
+        line-height: 17px;
+        display: inline-block !important;
+        vertical-align: middle;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+    .nav-btn{
+        width: 100%;
+        padding: 20px;
+        color: #FFFFFF;
+        font-size: 18px;
+    }
+    .email-wrapper{
+        width: 100%;
+        height: auto;
+        background: #eee;
+        padding: 15px;
+        border-radius: 5px;
+        font-size: 14px;
+        border: 1px solid #E2E2E2;
+        background-color: #F7F7FA;
+        margin-top: 20px;
+    }
+    .create-accounts-container{
+        .title{
+            padding: 30px 30px 45px 30px;
+            margin: 0;
+            &.add-student{
+                padding-bottom: 30px;
+            }
+        }
+    }
+    .add-existing-result-container{
+        .title{
+            padding: 45px 0;
+            margin: 0;
+        }
+    }
+    .table-title-container{
+        margin:0;
+        padding: 0 30px 10px 45px;
+        &.create-accounts{
+            padding-left: 20px;
+        }
+        &.add-students{
+            padding-left: 32px;
+        }
+        border-bottom: 1px solid #EEEEEE;
+        div{
+            font-size: 16px;
+            color:#8E8774;
+        }
+        a{
+            font-size: 12px;
+            color:#1087C0;
+        }
+        label{
+            margin-left: 10px;
+        }
+        .created-row{
+            padding-left: 15px;
+        }
+        .user-col{
+            font-family: "ProximaNova";
+            font-size: 20px;
+            color: #8E8774;
+            margin: 0 0 0 22px;
+            font-weight: normal;
+        }
+        .check-all{
+            margin: 0;
+            margin-top: 5px;
+        }
+        .input-info{
+            padding: 0 4px 15px 4px;
+            &:nth-child(1){
+                padding: 0 8px 15px 0;
+            }
+            &:nth-child(4){
+                padding: 0 0 15px 8px;
+            }
+        }
+    }
+    .table-content-container{
+        margin-top: -10px;
+        padding: 30px 10px 22px 0;
+        overflow: auto;
+        max-height: 206px;
+        .created-row{
+            padding-left: 25px;
+        }
+        .notification{
+            position: absolute;
+            top: 2px;
+        }
+        .input-wrapper, .input-result-wrapper{
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        .input-info{
+            word-wrap: break-word;
+            padding: 0 4px 15px 4px;
+            .tooltip-error{
+                left: -208px;
+                &.right{
+                    left: auto;
+                    right: -208px;
+                }
+            }
+            &:nth-child(1){
+                padding: 0 8px 15px 0;
+                .icon-notification{
+                    position: absolute;
+                    top:7px;
+                    right:6px;
+                }
+            }
+            &:nth-child(4){
+                padding: 0 0 15px 8px;
+                .icon-notification{
+                    right: 6px;
+                }
+            }
+            input{
+                box-sizing: border-box;
+                margin: 0;
+                height: 2em;
+            }
+            .icon-notification{
+                position: absolute;
+                top:7px;
+                right:7px;
+            }
+            .error-border{
+                border-color: $error-color;
+            }
+        }
+        .info-container{
+            margin-bottom: 10px;
+            padding-top: 10px;
+            padding-bottom: 5px;
+            padding-left: 32px;
+            &.selected{
+                background-color:#dcf6f9;
+            }
+        }
+        &.add-existing-student-result{
+            padding: 0 50px;
+        }
+        &.existing-student{
+            max-height: 310px;
+        }
+        .remove-btn-container{
+            position: relative;
+            float: left;
+            .remove-tooltip{
+                display: none;
+            }
+            &:hover{
+                .remove-tooltip{
+                    display: block;
+                    background-color: #56544D;
+                    position: absolute;
+                    top: -29PX;
+                    left: -23px;
+                    padding: 5px;
+                    color: #FFFFFF;
+                    font-size: 12px;
+                    &:before{
+                        content: '';
+                        border-top: 7px solid #56544D;
+                        border-left: 7px solid transparent;
+                        border-right: 7px solid transparent;
+                        position: absolute;
+                        right: 12px;
+                        bottom: -7px;
+                    }
+                }
+            }
+
+        }
+    }
+    .add-btn-container{
+        position: relative;
+        height: 35px;
+        border-radius: 3px;
+        background: #FFFFFF;
+        padding: 10px;
+        &:after{
+            content:'';
+            background: linear-gradient(#DDDDDD, transparent);
+            border-radius: 3px;
+            position: absolute;
+            top:-1px;
+            left: -1px;
+            right:-1px;
+            bottom:0;
+            z-index: -1;
+        }
+    }
+    .table-bottom{
+        background: #FFFFFF;
+        text-align: center;
+        &.row{
+            margin: 0;
+            max-width: 100%;
+            border-top: 1px solid #EEEEEE;
+            padding: 22px 30px 30px 30px;
+        }
+        .button-container{
+            max-width: 150px;
+        }
+    }
+    .optional{
+        font-size: 12px;
+        color: #CEC9BE;
+    }
+    .view-btn{
+        width: 150px;
+        height: 40px;
+        &.existing{
+            margin-top: 25px;
+            margin-bottom:30px;
+        }
+    }
+    .with-error-message{
+        .input-info{
+            padding-bottom: 7px !important;
+        }
+        .error-message{
+            color: $error-color;
+            margin-bottom: 15px;
+            font-size: 12px;
+        }
+        .error-color{
+            color: $error-color;
+            input{
+                color: $error-color !important;
+            }
+        }
+    }
+    .button-wrapper{
+        text-align: center;
+    }
+    .message-wrapper{
+        text-align: center;
+    }
+    .copy-btn{
+        width: 200px;
+        margin: 20px 0;
+    }
+    .footer-btn{
+        font-size: 16px;
+    }
+    .reminder-container{
+        overflow: hidden;
+    }
+    .reminder{
+        text-align: left;
+        padding-left: 15px;
+        width: 430px;
+        float: left;
+        position: absolute;
+        animation: showAlert 1.5s;
+        img{
+            width: 34px;
+            height: 34px;
+        }
+        .reminder-img{
+            display: inline-block;
+            vertical-align: top;
+            margin-right: 10px;
+            margin-top: 3px;
+        }
+        .reminder-message{
+            color: #1087c1;
+            text-align: left;
+            display: inline-block;
+            font-size: 18px;
+            div{
+                color: #1087c1;
+                font-size: 14px;
+            }
+        }
+    }
+    .upload-info-container{
+        text-align: center;
+        a{
+            color: #2ba6cb;
+        }
+        i{
+            color: #2ba6cb;
+            font-size: 12px;
+        }
+    }
+    .upload-class-roster{
+        font-size: 14px;
+        .question{
+            font-family: "ProximaNova";
+            font-weight: bold;
+            color: #56544D;
+            line-height: 17px;
+            font-size: 14px;
+        }
+        .content{
+            font-family: "ProximaNova";
+            font-size: 14px;
+            color: #56544D;
+            line-height: 17px;
+            padding: 0;
+        }
+        .example{
+            margin-top:20px;
+        }
+        .option-img{
+            width: 40px;
+            height: 30px;
+            margin: 0 0 20px 0;
+            font-size: 40px;
+            color: #dddfe7;
+        }
+    }
+}
+
+@keyframes showAlert {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@media all and (max-width: 768px) {
+    #myModal{
+        margin-left: -50%;
+        width: 100%;
+        top: 0 !important;
+        min-height: 100vh;
+    }
+    .create-accounts-container{
+        background: #FFFFFF;
+    }
+    .roster-app{
+        .modal-container{
+            padding: 10px;
+        }
+        .reminder{
+            width: auto;
+            float: none;
+            position: static;
+        }
+        .subtitle{
+            margin-bottom: 35px;
+        }
+        .view-btn{
+            width: 100%;
+        }
+        .option-container{
+            border: 1px solid #E2E2E2;
+            background-color: #F7F7FA;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            padding: 20px;
+            text-align: center;
+            .option-wrapper{
+                &:hover{
+                    background-color: inherit;
+                    cursor: auto;
+                }
+            }
+            .container-message{
+                width: auto;
+                height: auto;
+                &.hide-for-small{
+                    display: none !important;
+                }
+            }
+            .option-img{
+                width: 40px;
+                height: 30px;
+                margin: 0 0 20px 0;
+                font-size: 40px;
+                color: #dddfe7;
+            }
+            .add-student-img, .add-existing-img{
+                width: 40px;
+                height: 37px;
+                margin-bottom: 20px;
+            }
+        }
+        .image-container{
+            margin-bottom: 20px;
+        }
+        .nav-btn-small{
+            font-size: 20px;
+            color:#1077C0;
+            font-weight: bold;
+            text-align: center;
+        }
+        .email-wrapper-small{
+            width: 100%;
+            text-align: center;
+            padding: 80px 0 80px 0;
+        }
+        .container-message-small{
+            width: 200px;
+            margin: auto;
+        }
+        .copy-btn{
+            width: 100%;
+        }
+        .table-title-container{
+            padding-left: 42px;
+        }
+        .table-content-container{
+            max-height: none;
+            overflow: auto;
+            padding: 0 10px;
+            .input-wrapper{
+                padding: 0;
+                .input-info{
+                    padding: 0 0 10px 0;
+                }
+                .icon-notification{
+                    top: 7px !important;
+                    right: 7px !important;
+                }
+            }
+            .input-result-wrapper{
+                .input-info{
+                    padding: 0;
+                }
+            }
+            .input-label-small{
+                width: 90px;
+                display: inline-block;
+            }
+            &.existing-student{
+                overflow: auto;
+            }
+        }
+        .table-bottom{
+            &.row{
+                border: none;
+                padding: 0 10px;
+                margin-top: 30px;
+            }
+            .create-btn{
+                margin-top: 5px;
+                width: 100%;
+            }
+            .button{
+                width: 100%;
+            }
+            .button-container{
+                max-width: none;
+            }
+        }
+
+        .error-message{
+            color: $error-color;
+            font-size: 12px;
+        }
+    }
+}

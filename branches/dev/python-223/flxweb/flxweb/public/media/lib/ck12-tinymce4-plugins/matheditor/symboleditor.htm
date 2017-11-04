@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Math Editor</title>
+		<link rel="stylesheet" href="vendor/foundation/foundation.min.css" />
+		<link rel="stylesheet" href="vendor/tangerine-ui/tangerine-ui.css" />
+		<link rel="stylesheet" href="themes/tangerine/css/equationeditor.css" media="screen" />
+		<link rel="stylesheet" href="vendor/fonts/font-awesome/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="vendor/fonts/font-proximanova/font-proximanova.min.css" />
+		<link rel="stylesheet" href="vendor/fonts/TeX-Gyre-Schola/texgyreschola.css" />
+		<script type="text/javascript" data-main="resources/require_config.js" src="vendor/require/require.js"></script>
+		<link rel="stylesheet" type="text/css" href="vendor/colorpicker/themes.css" />
+		<link rel="stylesheet" type="text/css" href="vendor/foundation/foundation-icons/foundation-icons.css" />
+		<style>
+			html {
+				height:100%;
+				width:100%;
+			}
+			body {
+				height:100%;
+				width:100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="math-editor">
+			<!--<div class="row header">
+				<div class="large-2 columns">
+					<li class="logo-name">
+						<a href="#">
+							<img alt="CK-12 Logo" class="logo-img" src="themes/tangerine/images/CK12-logo-300dpi.png">
+						</a>
+					</li>
+				</div>
+				<div class="large-9 columns text-right">
+					<a class="app-name" href="#">Math Editor</a>
+				</div>
+			</div>-->
+			<div class="math-main-cont">
+				<div class="math-cont">
+					<div class="row">
+						<div class="font-cont">
+							<div class="font-tool-bar">
+								<div class="left">
+									<div class="logo-name">
+										<a href="javascript:;">
+											<img alt="CK-12 Logo" class="logo-img" src="themes/tangerine/images/CK12-logo-300dpi.png">
+										</a>
+									</div>
+								</div>
+								<div class="vBar"></div>
+								<div class="text-left left">
+									<a class="app-name" href="javascript:;"><strong>Math Editor</strong></a>
+								</div>
+								<div class="text-right right">
+									<a class="button tangerine small btn-faq" href="https://ck12support.zendesk.com/hc/en-us/articles/204320584-How-to-Use-the-Math-Editor" target="_blank">
+										<img alt="new window" src="themes/tangerine/images/new_window.png">
+										<span>How to use the Math Editor?</span>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="large-12 columns">
+							<div class="formulaselector">
+								<div class="formula-right-container">
+									<div class="formulacontainer"></div>
+								</div>
+								<div class="icons-left-container right">
+									<i id="variable" class="icon-sort-by-alphabet variableIcon variable-button right" title="Variables"></i>
+									<!-- <div class="colorSelector color-cont" title="Color">
+										<div id="color-picker" class="cp-default"></div>
+									</div>
+									<div class="font-size-dd left" data-dropdown="drop-simple">
+										<i class="icon-text-height fontSizeIcon" title = "Font Size" ></i>
+									</div> -->
+									<div id = "variableToolbar" class='variableToolbar'></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="leftcontainer">
+						<div class="row formula-row hide">
+							<div class="large-12 columns formula-column">
+								<div class="formula">
+									<div class="formula_container">
+										<span class="rendered-math" id="editableMath">
+											<input type="text" class = "first text mainbox" name ="math" id="math" position=0 custom-width=24 custom-height=24 autocomplete=off>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row latexRow">
+							<div class="large-12 columns">
+								<div class="latex">
+									<textarea  class="latexoutput" id="texoutput" autocomplete=off></textarea>
+								</div>
+							</div>
+						</div>
+						<div class="row preview-button-cont">
+							<div class="large-12 columns">
+								<div class="math-method">
+									<input type="radio" value="alignat"  data-mathClass="x-ck12-hwpmath" name="math-method">Alignat &nbsp;<i class="infoIcon fi-info"></i>&nbsp;&nbsp;
+									<div class="alignatInfo">HWP math uses alignat setting which allows aligning of multiple equations better while keeping the inline style.</div>
+									<input type="radio" value="inline" data-mathClass="x-ck12-math" name="math-method">Inline &nbsp;<i class="infoIcon fi-info"></i>&nbsp;&nbsp;
+									<div class="inlineInfo">Inline math allows math to be inserted within the text without breaking the text of the flow.</div>
+									<input type="radio" value="block" data-mathClass="x-ck12-block-math" name="math-method">Blockmath &nbsp;<i class="infoIcon fi-info"></i>
+									<div class="blockInfo">Block math is used for multiline equations. They are usually centered on the page width. No text or other entities can appear on the same lines as block math.</div>
+								</div>
+								<div class="button-inner">
+									<!-- <span class="add-variable button small secondary purple">Add Variable</span> -->
+									<span class="preview button small secondary">Preview</span>
+									<span class="render_canvas button small secondary">Save as Image</span>
+									<span class="clearMath button small secondary">Clear</span>
+								</div>
+							</div>
+						</div>
+						<div class="row preview-row">
+							<div class="large-12 columns">
+								<div class="equa-preview-container">
+									<span>Preview</span>
+									<div class="preview-container"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- <div class="row">
+						<div class="large-12 columns">
+							<div class="button-cont">
+								<span class=" button secondary limegreen renderlatex">Add</span>
+								<span class="button secondary purple clear">Clear</span>
+							</div>
+						</div>
+					</div> -->
+					<div class="rightcontainer">
+						<div class="mathdiv" id="mathdiv">
+							@${}@$
+						</div>
+						<span class="getWidth"></span>
+					</div>
+				</div>
+			</div>
+			<div class="reveal-modal modal-uikit" id="myModal">
+				<a class="close close-reveal-modal">+</a>
+				<div class="header">Preview</div>
+				<div id = "modalContainerPreview" class="modalContainer">
+					<div id = "modalContentPreview" class="modalContent"></div>
+				</div>
+				<div class="row preview-button-cont">
+					<div class="large-12 columns">
+						<div class="button-inner">
+							<span class="render_canvas button small secondary green_button">Save as Image</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="reveal-modal modal-uikit" id="addVariableModal">
+				<a class="close close-reveal-modal">+</a>
+				<div class="header">Add Variable</div>
+				<input type="radio" class="constantRadio" name="variableValueType" value="constant" checked="checked">Constant
+				<input type="radio" class="setRadio" name="variableValueType" value="set">Set
+				<label>Variable <span class="red asterik-font-size">&#42;</span><span data-tooltip class="icon-question-sign has-tip variable-name" data-selector="variable-name-tooltip"></span></label>
+				<span data-selector="variable-name-tooltip" class="tooltip variable-name-rules">
+					<span>
+						First character should be alphabet or underscore.<br/>
+						Blanks and commas are not allowed.<br/>
+						No special symbols other than underscore is allowed.
+					</span>
+					<span class="nub"></span>
+				</span>
+				<textarea class = "addVariableName validate validateVariableName"></textarea>
+				<label>Value<span class="red asterik-font-size">&#42;</span><span data-tooltip class="icon-question-sign has-tip variable-value " data-selector="variable-value-tooltip"></span></label>
+				<span data-selector="variable-value-tooltip" class="tooltip tip-bottom variable-value-rules">
+					<span>
+						A variable value should consist of digits.<br/>
+						Decimal values are allowed.<br/>
+						A value can be preceeded by + or - sign.<br/>
+						No other character is allowed.
+					</span>
+					<span class="nub"></span>
+				</span>
+				<textarea class = "addVariableValue validate validateVariableValue"></textarea>
+				<div class="row">
+					<div class="large-12 columns">
+						<div class="button-inner">
+							<span class="messageText"></span>
+							<span class="set_variables button small secondary disabled grey">Set</span>
+						</div>
+						<div class="red">* indicates mandatory fields</div>
+					</div>
+				</div>
+			</div>
+			<div class="reveal-modal modal-uikit confirmModal" id="confirmModal">
+				<a class="close close-reveal-modal">+</a>
+				<div id = "modalContainerConfirm" class="modalContainer">
+					<div id = "modalContentConfirm" class="modalContent"></div>
+				</div>
+				<div class="row confirm-message cont">
+					<div class="large-12 columns">
+						<div class="button-inner">
+							<span class="confirm button small secondary green_button">Confirm</span>
+							<span class="cancel button small secondary green_button">Cancel</span>
+							<span class="ok button small secondary green_button hidden">OK</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="reveal-modal modal-uikit infoModal" id="infoModal">
+				<a class="close close-reveal-modal">+</a>
+				<div id = "modalContainerInfo" class="modalContainer">
+					<div id = "modalContentInfo" class="modalContent"></div>
+				</div>
+				<div class="row confirm-message cont">
+					<div class="large-12 columns">
+						<div class="button-inner">
+							<span class="ok button small secondary green_button">OK</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="reveal-modal modal-uikit confirmModal" id="noEditorPreviewModal" showModal=0>
+				<a class="close close-reveal-modal">+</a>
+				<div class="modalContainer">
+					<div id="modalMessage" class="modalContent">Equations entered in LaTeX cannot be edited in the WYSIWYG editor.</div>
+				</div>
+				<div class="row confirm-message cont">
+					<div class="large-12 columns">
+						<div class="button-inner">
+							<span class="ok button small secondary green_button">OK</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<ul data-dropdown-content="" class="f-dropdown tangerine-list font-size-drd " id="drop-simple">
+				<li data-font=13px><a class="fontSize-10" href="javascript:;">10pt</a></li>
+				<li data-font=16px><a class="fontSize-12" href="javascript:;">12pt</a></li>
+				<li data-font=18px><a class="fontSize-14" href="javascript:;">14pt</a></li>
+				<li data-font=24px><a class="fontSize-18" href="javascript:;">18pt</a></li>
+				<li data-font=32px><a class="fontSize-24" href="javascript:;">24pt</a></li>
+				<li data-font=42px><a class="fontSize-36" href="javascript:;">32pt</a></li>
+				<li data-font=48px><a class="fontSize-48" href="javascript:;">36pt</a></li>
+			</ul>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,6 @@
+The ads_data_loader is Multiprocess and Multithreaded data loader.
+We used ads_data_loader for loading data into Artifacts.
+
+settings.py   - Use to define number of process and threads to run.
+load_data.cfg - Use to specify the csv files containing ArtifactID
+Running loader- python load_driver.py 

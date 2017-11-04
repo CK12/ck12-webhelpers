@@ -1,0 +1,280 @@
+$ns-module: "filter";
+
+$module-transition: 0.25s;
+
+$button-bg-active: #999685;
+$button-color-active: #FFFFFF;
+$button-radius: 3px;
+$button-font-size: 18px;
+
+$filter-button-width: rem-calc(20);
+$filter-button-height: $filter-button-width;
+$filter-button-border-radius: $filter-button-height * 2;
+$filter-hover-bg: #d5f4fa;
+$filter-scale-size: 1.5;
+$filter-font-size: 16px;
+
+$dropdown-arrow-size: 12px;
+$dropdown-bg: white;
+
+.#{$ns-module}{
+    margin-bottom: rem-calc(12);
+    transition: all $module-transition;
+
+    & + .tooltip-bottom {
+        @include tooltip-bottom();
+    }
+
+    &:hover {
+        & + .tooltip-bottom {
+            @include tooltip--visible();
+        }
+    }
+
+    // ===== Active =====
+    &.#{$ns-module}--is-active {
+        // When active hide tooltip on hover
+        &:hover {
+            & + .tooltip-bottom {
+                @include tooltip--hide();
+            }
+        }
+
+        // Active filter button
+        .#{$ns-module}__button {
+            background-color: $button-bg-active;
+            color: $button-color-active;
+
+            &__arrow:before {
+                transform: translateY((-$dropdown-arrow-size)) rotate(180deg);
+            }
+
+            &:hover {
+                background-color: $button-bg-active;
+                color: $button-color-active;
+            }
+
+            & + .#{$ns-module}__holder {
+                @include visible();
+                transform: translateY(0%);
+            }
+        }
+    }
+    // ===== End Active =====
+
+    // Filter button
+    .#{$ns-module}__button {
+        display: block;
+        position: relative;
+        font-size: $button-font-size;
+        font-weight: 500;
+        z-index: 2;
+        border: 0;
+
+        padding: rem-calc(7) rem-calc(35) rem-calc(7) rem-calc(10);
+        letter-spacing: rem-calc(1);
+        border-radius: $button-radius;
+
+        &:focus {
+            outline: none;
+        }
+
+        &.math::before {
+            height: 100%;
+            z-index: 1;
+        }
+
+        &.science::after {
+            top: 0;
+            height: 100%;
+        }
+
+        &.math::before, &.science::after {
+            border-radius: 0 $button-radius $button-radius 0;
+        }
+
+        &::before, &::after {
+            transition: all $module-transition;
+            content: '';
+            width: rem-calc(14);
+            height: 50%;
+
+            position: absolute;
+            right: 0;
+        }
+
+        // Math - blue
+        &::before {
+            top: 0;
+            background-color: $ui-blue;
+            border-radius: 0 $button-radius 0 0;
+        }
+
+        // Science - green
+        &::after {
+            top: 50%;
+            background-color: $ui-green;
+            border-radius: 0 0 $button-radius 0;
+        }
+
+        // Dropdown arrow
+        &__arrow {
+            display: inline-block;
+
+            &::before {
+                content: '\25BC';
+                font-size: $dropdown-arrow-size;
+                position: absolute;
+                transform: translateY((-$dropdown-arrow-size));
+            }
+        }
+    }
+
+    // Filter options
+    .#{$ns-module}__holder {
+        display: block;
+        position: absolute;
+        z-index: 1;
+        @include hidden();
+        background-color: $dropdown-bg;
+        list-style-type:  none;
+        margin: rem-calc(15) 0 0;
+        width: 120%;
+        max-width: $min-filter-size;
+        box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+        transform: translateY(-10%);
+        transition: all $module-transition;
+
+        // Arrow
+        &:before {
+            @include topArrow();
+            top: -15px;
+            left: 15px;
+
+        }
+
+        li {
+            border-bottom: 1px solid #eee;
+            padding: 0;
+            width: 100%;
+            position: relative;
+
+            &:last-child {
+                border-bottom-width: 0;
+            }
+
+            input[type="radio"] {
+                display: none; // Use next sibling label
+
+                & + label {
+                    color: $ui-dark;
+                    font-size: $filter-font-size;
+                    width: 100%;
+                    position: relative;
+                    min-height: rem-calc(24);
+                    margin-bottom: 0;
+                    padding: rem-calc(10) rem-calc(12.5) rem-calc(10) rem-calc(47.5);
+
+                    $filter-circle-offset: rem-calc(10);
+
+                    &::before, &::after {
+                        transition: all $module-transition;
+                        content: '';
+                        width: $filter-button-width;
+                        height: $filter-button-height;
+                        border-radius: $filter-button-border-radius;
+                        position: absolute;
+                        opacity: 0.5;
+                        left: $filter-circle-offset;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+
+                    &.filter__all {
+                        &::before {
+                            border-radius: $filter-button-border-radius 0 0 $filter-button-border-radius;
+
+                            left: $filter-circle-offset;
+                            transform: translate(-0%, -50%);
+                            width: $filter-button-width / 2;
+                        }
+
+                        &::after {
+                            border-radius: 0 $filter-button-border-radius $filter-button-border-radius 0;
+
+                            left: $filter-button-width / 2 + $filter-circle-offset;
+                            transform: translate(0%, -50%);
+                            width: $filter-button-width / 2;
+                        }
+
+                        span {
+                            font-size: 12px;
+                            font-weight: normal;
+                            color: $medium-gray;
+                        }
+                    }
+
+                    &.filter__all::after, &.filter__science::before {
+                        background-color: $ui-green;
+                    }
+
+                    &.filter__all::before, &.filter__math::before {
+                        background-color: $ui-blue;
+                    }
+
+                    &:hover {
+                        background-color: $filter-hover-bg;
+                    }
+                }
+
+                // === Selected input ===
+                &:checked + label {
+                    font-weight: bold;
+
+                    &::before, &::after {
+                        opacity: 1;
+                    }
+
+                    &.filter__all {
+                        &::before {
+                            transform: translate(-25%, -50%) scale($filter-scale-size);
+                        }
+                        &::after {
+                            transform: translate(25%, -50%) scale($filter-scale-size);
+                        }
+                    }
+
+                    &.filter__science::before, &.filter__math::before {
+                        transform: translateY(-50%) scale($filter-scale-size);
+                    }
+                }
+            }
+
+
+            .filter__tooltip {
+                @include tooltip-right(275px);
+                transition: all 0.25s;
+                padding: rem-calc(15);
+
+                i {
+                    position: absolute;
+                    right: rem-calc(7.5);
+                    top: rem-calc(7.5);
+                    cursor: pointer;
+                    color: $medium-gray;
+                }
+
+                a {
+                    margin-top: rem-calc(10);
+                    display: block;
+                    font-weight: bold;
+                }
+
+                &--visible {
+                    @include tooltip--visible();
+                }
+            }
+        }
+
+    }
+}

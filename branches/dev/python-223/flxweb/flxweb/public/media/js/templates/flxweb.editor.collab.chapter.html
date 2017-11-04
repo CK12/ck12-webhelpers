@@ -1,0 +1,25 @@
+<li class="ui-corner-all artifact_type_<%= data.section.artifactType %> js_artifact_list_item"
+	data-artifactId="<%= data.section.artifactID %>"
+	data-artifactType="<%= data.section.artifactType %>"
+	data-artifactRevisionID = "<%= data.section.artifactRevisionID %>"
+	data-draft="<%= data.section.hasDraft %>"
+	>
+	<div>
+		<div class="artifact_row js_artifact_row">
+			<div class="index_label js_index_label grandchild"><%= data.tocnumber %></div>
+			<div class="row_artifact_title js_artifact_title">
+				<span class="draft-chapter-title"><%= data.section.title %></span>
+				<% if (data.hasDraft) { %>
+					<span class="draft-section">DRAFT</span>
+				<% } %>
+			</div>
+			<div class="actions grandchild js_concept_actions">
+				<!-- condition to identify collaborator concept -->
+				<% if (data.assigned) { %>
+					<a class="js_row_edit" href="<%= data.href %>" title="Edit"><span class="icon-edit"></span></a>
+				<% } %>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+</li>

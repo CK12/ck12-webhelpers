@@ -1,0 +1,21 @@
+from celeryconfig_queues import *
+
+CELERYD_CONCURRENCY = 3
+CELERY_IMPORTS = ( "flx.controllers.celerytasks.flexr",
+                 )
+
+CELERY_DEFAULT_QUEUE = "migrator"
+
+from datetime import timedelta
+
+CELERYBEAT_SCHEDULE = {
+    "run-every-4-hours": {
+        "task": "flx.controllers.celerytasks.phonehome.PhoneHomeTask",
+        "schedule": timedelta(seconds=4*60*60),
+    },
+    "run-every-2-hours": {
+        "task": "flx.controllers.celerytasks.taskmaintainer.TasksMaintainerTask",
+        "schedule": timedelta(seconds=2*60*60),
+    },
+}
+

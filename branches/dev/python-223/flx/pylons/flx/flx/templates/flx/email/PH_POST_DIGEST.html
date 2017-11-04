@@ -1,0 +1,239 @@
+{% extends "MASTER_EMAIL_DIGESTS_TEMPLATE.html" %}
+{% macro get_view_on_ck12_link(group_type, group_id, group_url, postInfo) %}
+{% if group_type and group_type == 'public-forum' %}
+{{site}}{{"/forum/"}}{{group_id}}{{"/question/"}}{% if postInfo.postType == 'question' %}{{postInfo._id}}{% else%}{{postInfo.ancestorIDs[0]}}{% endif %}
+{% else %}
+{{group_url}}
+{% endif %}
+{% endmacro %}
+
+{% macro get_group_url(group_type, group_id) %}
+{% if group_type and group_type == 'public-forum' %}
+{{site}}{{"/forum/"}}{{group_id}}{{"/home"}}
+{% else %}
+{{ site }}{{"/group/"}}{{group_id}}
+{% endif %}
+{% endmacro %}
+
+{% macro get_group_qa_url(group_type, group_id) %}
+{% if group_type and group_type == 'public-forum' %}
+{{site}}{{"/forum/"}}{{group_id}}{{"/home"}}
+{% else %}
+{{ site }}{{"/group-discussions/"}}{{group_id}}
+{% endif %}
+{% endmacro %}
+
+{% macro get_group_settings_url(group_type, group_id) %}
+{% if group_type and group_type == 'public-forum' %}
+{{site}}{{"/forum/"}}{{group_id}}{{"/setting"}}
+{% else %}
+{{site}}{{"/group-settings/"}}{{group_id}}
+{% endif %}
+{% endmacro %}
+
+{% block email_body %}
+
+{% for phEvent in events %}
+
+<div class="post_item" style="-moz-box-shadow: 0 0 3px 1px #000; -webkit-box-shadow: 0 0 3px 1px #000; background-color: white; border-radius: 5px; box-shadow: 0 0 0 0 rgb(255,255,255); margin-top: 25px; padding-top: 1%;">
+  <table class="row" style="border-collapse: collapse; border-spacing: 0; display: table; padding: 0; position: relative; text-align: left; vertical-align: top; width: 100%;">
+    <tbody>
+      <tr style="padding: 0; text-align: left; vertical-align: top;">
+        <th class="small-12 large-12 columns first last" style="Margin: 0 auto; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 14px; font-weight: normal; line-height: 1.3; margin: 0 auto; padding: 0; /*padding-bottom: 16px;*/ padding-left: 16px; padding-right: 16px; text-align: left; /*width: 564px;*/ width: 100%;">
+          <table style="border-collapse: collapse; border-spacing: 0; padding: 0; text-align: left; vertical-align: top; width: 100%;">
+            <tbody>
+              <tr style="padding: 0; text-align: left; vertical-align: top;">
+                <th style="Margin: 0; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 14px; font-weight: normal; line-height: 1.3; margin: 0; padding: 0; text-align: left;">
+                  <table style="border-collapse: collapse; border-spacing: 0; padding: 0; text-align: left; vertical-align: top; width: 100%;">
+                    <tbody>
+                      <tr style="padding: 0; text-align: left; vertical-align: top;">
+                        <th style="Margin: 0; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 14px; font-weight: normal; line-height: 1.3; margin: 0; padding: 0; text-align: left;">
+                          <div class="post_item_line" style="display: inline; margin-bottom: 19px;">
+                            <span style="font-weight:bold;">{{phEvent['eventData']['ownerName']}}</span><span> from </span><span><a href="{{get_group_url(group_type=phEvent['eventData']['groupType'],group_id=phEvent['eventData']['groupID']) }}?{{ utm_email_title_link }}" class="group_name" style="Margin: 0; color: #0089a6; font-family: 'Helvetica'; font-size: 14px; font-weight: bold; line-height: 1.3; margin: 0; padding: 0; text-align: left; text-decoration: none;"> {{ phEvent['eventData']['groupName'] | escape }} </a></span>
+                            <!-- Bug 56236 : Removed "to" from answer and comment type posts -->
+                              <span>{{ phEvent['eventData']['action'] }}:</span>      
+                            <br />                          
+                          </div>
+
+                          <div class="question_text" style="Margin: 0; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 14px; font-weight: normal; line-height: 1.3; margin: 0; margin-bottom: 19px; margin-top: 19px; padding: 0; text-align: left;">
+
+                          {% if phEvent['eventData']['post']['postType'] != 'question' %}
+                            <a href="{{ get_view_on_ck12_link(group_type=phEvent['eventData']['groupType'], group_id=phEvent['eventData']['groupID'], group_url=phEvent['eventData']['postURL'], postInfo=phEvent['eventData']['post']) }}?{{ utm_email_view_on_ck12_link }}" style="Margin: 0; color: #0089a6; font-family: 'Helvetica'; font-size: 14px; font-style: italic; font-weight: bold; line-height: 1.3; margin: 0; margin-top: 34px; padding: 0; text-align: left; text-decoration: none;"> 
+                              <i>{{ phEvent['eventData']['title'] }}</i>
+                            </a>
+
+                          {% endif %}                            
+                          </div>
+
+                          {% if phEvent['eventData']['post']['postType'] != 'question' %}
+                          <div style="color: #4A4A4A; font-family: 'Helvetica'; font-size: 14px; font-weight: bold; overflow: hidden; white-space: nowrap; margin-bottom: 16px;" class="response_text">
+                            <span>Response : </span>
+                            <hr style="vertical-align: -20%; display:inline-block; width:85%; background:#F2F2F2; border:0; height:2px">
+                          </div>
+                          {% endif %}
+                        
+                        </th>
+
+                      </tr>
+                    </tbody>
+                  </table>
+                </th>
+              </tr>
+            </tbody>
+          </table>
+        </th>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="row" style="Margin: 0; border-collapse: collapse; border-spacing: 0; display: table; padding: 0; position: relative; text-align: left; vertical-align: top; width: 100%;">
+    <tbody>
+      <tr style="Margin: 0; padding: 0; text-align: left; vertical-align: top;">
+        <th class="small-2 large-1 columns" style="Margin: 0 auto; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 14px; font-weight: normal; line-height: 1.3; margin: 0 auto; padding: 0;/* padding-bottom: 16px;*/ padding-left: 16px; padding-right: 0px !important; text-align: left; /*width: 23.33333px;*/ width: 8%;">
+          <table style="Margin: 0; border-collapse: collapse; border-spacing: 0; padding: 0; text-align: left; vertical-align: top; width: 100%;">
+            <tbody>
+              <tr style="Margin: 0; padding: 0; text-align: left; vertical-align: top;">
+                <th align="left" style="Margin: 0; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 14px; font-weight: normal; line-height: 1.3; margin: 0; padding: 0; text-align: left;">
+
+                  <img class="small-float-left owner_image" src="{{ phEvent['eventData']['ownerImg'] }}" alt="{{ phEvent['eventData']['ownerName'] }}" style="border-radius: 50%; clear: both; display: block; max-width: 100%; outline: none; text-decoration: none; width: 35px; height: 35px;">
+
+                </th>
+              </tr>
+            </tbody>
+          </table>
+        </th>
+
+        <th class="small-10 large-11 columns " style="Margin: 0 auto; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 14px; font-weight: normal; line-height: 1.3; margin: 0 auto; padding: 0; /*padding-bottom: 16px;*/ padding-left: 8px; padding-right: 8px; text-align: left; width: 515.66667px;/* width:92%*/">
+          <table style="border-collapse: collapse; border-spacing: 0; padding: 0; text-align: left; vertical-align: top; width: 100%;">
+            <tbody>
+              <tr style="padding: 0; text-align: left; vertical-align: top;">
+                <th align="right" style="Margin: 0; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 14px; font-weight: normal; line-height: 1.3; margin: 0; padding: 0; text-align: left;">
+                  <div class="response_content" style="display: inline-block">
+
+                    <div style="Margin: 0; color: #000000; font-family: 'Helvetica'; font-size: 14px; font-weight: normal; line-height: 1.3; margin: 0; padding: 0; text-align: left;">
+                      {{ phEvent['eventData']['post']['content'] }}
+                    </div>
+                  </div>
+                </th>
+              </tr>
+            </tbody>
+          </table>
+        </th>
+
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="row" style="border-collapse: collapse; border-spacing: 0; display: table; padding: 0; position: relative; text-align: left; vertical-align: top; width: 100%;">
+    <tbody>
+      <tr style="padding: 0; text-align: left; vertical-align: top;">
+
+        <th class="small-2 large-1 columns first" style="Margin: 0 auto; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 14px; font-weight: normal; line-height: 1.3; margin: 0 auto; padding: 0; /*padding-bottom: 16px;*/ padding-left: 16px; padding-right: 0px !important; text-align: left; width: 23.33333px;">
+          <table style="border-collapse: collapse; border-spacing: 0; padding: 0; text-align: left; vertical-align: top; width: 100%;">
+            <tbody>
+              <tr style="padding: 0; text-align: left; vertical-align: top;">
+                <th style="Margin: 0; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 14px; font-weight: normal; line-height: 1.3; margin: 0; padding: 0; text-align: left;">
+                  &nbsp;
+                </th>
+              </tr>
+            </tbody>
+          </table>
+        </th>
+
+        <th class="small-10 large-11 columns last" style="Margin: 0 auto; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 14px; font-weight: normal; line-height: 1.3; margin: 0 auto; padding: 0; /*padding-bottom: 16px;*/ margin-bottom: 2%; padding-left: 8px; padding-right: 0px !important; text-align: left; width: 515.66667px; /*width: 92%;*/">
+          <table style="border-collapse: collapse; border-spacing: 0; padding: 0; text-align: left; vertical-align: top; width: 100%;">
+            <tbody>
+              <tr style="padding: 0; text-align: left; vertical-align: top;">
+                <th align="right" style="Margin: 0; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 14px; font-weight: normal; line-height: 1.3; margin: 0; padding: 0; /*text-align: left;*/">
+                  <a href="{{ get_view_on_ck12_link(group_type=phEvent['eventData']['groupType'], group_id=phEvent['eventData']['groupID'], group_url=phEvent['eventData']['postURL'], postInfo=phEvent['eventData']['post']) }}?{{ utm_email_read_more_link }}" class="view_post_btn" style="Margin: 0; background-color: #00aba4; border-bottom: 3px solid #0089a6; border-radius: 4px; color: #fff; display: inline-block; /*float: right;*/ font-family: Helvetica, Arial, sans-serif; font-size: 14px; font-weight: bold; line-height: 1.3; margin: 0; margin-right: 2%; padding: 1%; padding-left: 3%; padding-right: 3%; text-align: center; text-decoration: none; margin-bottom: 2%;">View Post
+                  </a>
+                </th>
+              </tr>
+            </tbody>
+          </table>
+        </th>
+
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<!-- Spacer -->
+<!--
+<table class="spacer" style="border-collapse:collapse;border-spacing:0;padding:0;text-align:left;vertical-align:top;width:100%">
+  <tbody>
+    <tr style="padding:0;text-align:left;vertical-align:top">
+      <td height="5%" style="-moz-hyphens:auto;-webkit-hyphens:auto;Margin:0;border-collapse:collapse!important;color:#0a0a0a;font-family:Helvetica,Arial,sans-serif;font-size:14px;font-weight:400;hyphens:auto;line-height:1.3;margin:0;mso-line-height-rule:exactly;padding:0;text-align:left;vertical-align:top;word-wrap:break-word">&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+-->
+<!-- End Spacer -->
+
+{% endfor %}
+
+{% endblock %}
+
+{% block see_all_new_posts %}
+
+<table class="button expanded" style="Margin: 0 0 16px 0;border-collapse: collapse;border-spacing: 0;/* display: none; */margin: 0 0 16px 0;padding: 0;text-align: left;vertical-align: top;width: 100% !important;">
+  <tbody>
+    <tr style="padding: 0; text-align: left; vertical-align: top;">
+      <td style="-moz-hyphens: auto; -webkit-hyphens: auto; Margin: 0; border-collapse: collapse !important; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 14px; font-weight: normal; hyphens: auto; line-height: 1.3; margin: 0; padding: 0; text-align: left; vertical-align: top; word-wrap: break-word;">
+        <table style="border-collapse: collapse; border-spacing: 0; padding: 0; text-align: left; vertical-align: top; width: 100%;">
+          <tbody>
+            <tr style="padding: 0; text-align: left; vertical-align: top;">
+              <td style="-moz-hyphens: auto; -webkit-hyphens: auto; Margin: 0; background: #0093F5; border: 0px !important; border-collapse: collapse !important; border-radius: 3px !important; color: #fefefe; font-family: Helvetica, Arial, sans-serif; font-size: 14px !important; font-weight: normal; hyphens: auto; line-height: 1.3; margin: 0; padding: 0; text-align: left; vertical-align: top; word-wrap: break-word;">
+                <center data-parsed="" style="min-width: 0; width: 100%;">
+                  <a href="{{ get_group_qa_url(group_type=events[0]['eventData']['groupType'],group_id=events[0]['eventData']['groupID'])}}?{{ utm_email_title_link }}" align="center" class="float-center" style="Margin: 0; border: 0 solid #2199e8; border-bottom: 3px solid #0067AC; border-radius: 3px; color: #fefefe; display: inline-block; font-family: 'Helvetica'; font-size: 16px !important; font-weight: bold; line-height: 1.3; margin: 0; padding: 8px 16px 8px 16px; padding-left: 0; padding-right: 0; text-align: center; text-decoration: none; width: 100%;">See All New Posts
+                  </a>
+                </center>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+      <td class="expander" style="-moz-hyphens: auto; -webkit-hyphens: auto; Margin: 0; border-collapse: collapse !important; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 14px; font-weight: normal; hyphens: auto; line-height: 1.3; margin: 0; padding: 0 !important; text-align: left; vertical-align: top; visibility: hidden; width: 0; word-wrap: break-word;"></td>
+    </tr>
+  </tbody>
+</table>
+
+{% endblock %}
+
+{% block footer %}
+
+<!--Footer -->
+
+<div class="digest_footer" style="background-color: #56544d; border-radius: 5px; color: #BBBBBB; font-family: 'Helvetica'; padding: 10px;">
+
+  <table class="row" style="border-collapse: collapse; border-spacing: 0; display: table; padding: 0; position: relative; text-align: left; vertical-align: top; width: 100%;">
+    <tbody>
+      <tr style="padding: 0; text-align: left; vertical-align: top;">
+        <th class="small-12 large-12 columns first" style="Margin: 0 auto; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 14px; font-weight: normal; line-height: 1.3; margin: 0 auto; padding: 0; padding-bottom: 16px; padding-left: 16px; padding-right: 8px; text-align: left; width: 564px;">
+          <table style="border-collapse: collapse; border-spacing: 0; padding: 0; text-align: left; vertical-align: top; width: 100%;">
+            <tbody>
+              <tr style="padding: 0; text-align: left; vertical-align: top;">
+                <th style="Margin: 0; color: #0a0a0a; font-family: Helvetica, Arial, sans-serif; font-size: 14px; font-weight: normal; line-height: 1.3; margin: 0; padding: 0; text-align: center;">
+                  <p style="Margin: 0; color: white; font-family: Helvetica, Arial, sans-serif; font-size: 14px; font-weight: normal; line-height: 1.3; margin: 0; margin-bottom: 1.5%; margin-top: 2%; padding: 0; text-align: center; vertical-align: center;">Prefer not to receive these messages?
+                    <a href="{{ get_group_settings_url(group_type=events[0]['eventData']['groupType'],group_id=events[0]['eventData']['groupID']) }}" style="Margin: 0; color: #919191; font-family: Helvetica, Arial, sans-serif; font-weight: normal; line-height: 1.3; margin: 0; padding: 0; text-align: left; text-decoration: none;">Change your notification settings
+                    </a>
+                  </p>
+                  <p style="Margin: 0; color: white; font-family: Helvetica, Arial, sans-serif; font-size: 14px; font-weight: normal; line-height: 1.3; margin: 0; padding: 0; text-align: center; vertical-align: center;">
+                    © CK-12 Foundation <u> 3430 West Bayshore Road, Palo Alto, CA 94303 </u>
+                  </p>
+                </th>
+              </tr>
+            </tbody>
+          </table>
+        </th>
+
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<!--Footer End -->
+
+{% endblock %}

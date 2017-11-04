@@ -1,0 +1,9 @@
+    WSGIScriptAlias /flxadmin /opt/2.0/adminapp/pylons/flxadmin/flxadmin.wsgi
+    <Directory /opt/2.0/adminapp/pylons/flxadmin/>
+        Order allow,deny
+        Allow from all
+    </Directory>
+    <Location /flxadmin>
+        WSGIProcessGroup flxadmin_wsgi
+    </Location>
+

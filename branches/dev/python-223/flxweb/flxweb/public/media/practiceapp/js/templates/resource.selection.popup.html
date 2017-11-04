@@ -1,0 +1,21 @@
+<div class="small-12 columns text-left lms-rsc-modal" style="font-size:16px;">To use this resource in your LMS, copy the following launch URL.</div>
+<div class="row">
+    <div class="small-9 columns">
+	<input type='text' style='' id="clip" value='<%= launchURL %>'>
+    </div>
+    <div class="small-3 columns">
+        <button id="copyBtn" class="button turquoise js-clipboard-copy" data-clipboard-target="#clip">Copy</button>
+    </div>
+ <br>
+</div>
+<div class="row" style="padding-bottom:5px;">
+    <div class="small-4 columns text-left">
+        <img src="/lmspractice/media/practiceapp/images/video_thumbnail_blank.png" style="height:60px;width:120px;">
+    </div>
+    <div class="small-8 columns text-left" style="padding-top:20px;font-size:15px;">
+        <a href= '<%= helpcenter_url %>' target="_blank">Show me how to use this resource in my LMS</a>
+    </div>
+</div>
+<span id="copy_success_text" class="hide small-12 text-center">Copied!</span>
+<span id="copy_failure_text" class="hide small-12 text-center">Press &#8984; 'c' to copy</span>
+</div>

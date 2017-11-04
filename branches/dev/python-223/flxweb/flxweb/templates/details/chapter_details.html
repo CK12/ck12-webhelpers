@@ -1,0 +1,113 @@
+{% extends "details/artifact_details_common.html" %}
+{% from "macros/artifact.html" import ck12_metadata_list_for_standards with context %}
+
+{% block hidden_divs %}
+{{ super() }}
+{% include "jstemplates/share_groups.html" %}
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+
+<script language="javascript" type="text/javascript">
+	page_type = 'chapter details';
+	require(['main'], function(){
+		require(['main-details'], function(){
+			require(['flxweb.details.chapter']);
+		});
+	});
+</script>
+{% endblock %}
+{% block artifact_edit_link %}{% endblock %}
+{% block add_to_library %}{% endblock %}
+{% block add_to_library_mobile %}{% endblock %}
+
+{% block artifact_downloads %} {{ super() }}{% endblock %}
+
+
+{% block artifact_coverimage %}
+	<div class="books hide-for-small">
+		<figure class="book">
+			<a href="{{ request.path }}" title="{{ artifact.title|escape }}">
+				<ul>
+					<li class="front">
+						<div class="cover">
+							<img src="{{ artifact|ck12_artifact_cover_thumbnail_large }}" title="{{ artifact.title|escape }}" alt="{{ artifact.title|escape }}">
+						</div>
+						<span class="shadow"></span>
+					</li>
+					<li class="pages">
+						<div class="thin page1"></div>
+						<div class="thin page2"></div>
+						<div class="thin page3"></div>
+					</li>
+					<li class="back"></li>
+					<span class="shadow"></span>
+				</ul>
+			</a>
+		</figure>
+	</div>
+{% endblock %}
+
+{% block artifact_view_learning_tree %}{% endblock %}
+
+{% block artifact_navigation %}
+{% endblock %}
+
+{% block artifact_title %}
+
+	<h1 id="artifact_title">
+		<!-- Artifact top small navigation -->
+		{% block artifact_navigation_top_small %}
+			{{ super() }}
+		{% endblock %}
+		<!-- /Artifact top small navigation -->
+		Chapter	{{ c.chapter_position }}: <span itemprop="name">{{ c.artifact.title|escape }}</span>
+	</h1>
+
+{% endblock %}
+
+{% block content_body %}
+	<div class="js_detailbody chapter">
+		{% if c.artifact.getChapterIntroduction() %}
+		<p>{{ c.artifact.getChapterIntroduction() }}</p>
+		{% endif %}
+		<div class="alternate-h2 listheading chapter-outline-header hide">{{ _("Chapter Outline" )}}</div>
+		<p class="listitemsummary messagetousers hide-for-small"></p>
+		<ul class="toc_list" data-chapter-position="{{c.chapter_position}}"">
+		{{ _("Loading...")}}&nbsp;<img title="{{ _('Loading...') }}" class="js_loadingplaceholder" src="{{ h.url_images('icon_loading.gif') }}" width="43" height="11" />
+		</ul>
+		<h3 class="listheading hide">{{ _("Chapter Summary" )}}</h3>
+	</div>
+{% endblock %}
+
+{% block artifact_navigation_bottom %}
+	<div>{{ ck12_artifact_navigation(c.prev_parent_artifact, c.url_prev_parent, c.post_parent_artifact, c.url_next_parent) }}</div>
+{% endblock %}
+
+{% block artifact_review_feedback %}{%endblock%}
+{% block voting %}{%endblock%}
+{% block extra_content %}
+{% endblock %}
+
+<!-- Overriding block from artifact_details_common -->
+{% block pageinfobottom %}
+{% endblock %}
+
+{% block after_content %}
+	<div class="clearfix">
+		<section id="img_attributions_wrapper" class="img_attribution">
+			<h3>Image Attributions</h3>
+			<ol id="img_attributions">
+			</ol>
+		</section>
+	</div>
+{% endblock %}
+
+{% block standard_correlations %}
+	<div class="columnwrap spacetopmedium js_standardboards_container"
+		data-loadurl="{{ h.url( controller='standards', action='ajaxStandardBoardsByArtifactID', artifact_id=c.artifact.get_artifact_id() ) }}">
+	</div>
+	<div class="clear"></div>
+	<div class="divider spacetop"></div>
+{% endblock %}

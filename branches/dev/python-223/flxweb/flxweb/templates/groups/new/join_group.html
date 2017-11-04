@@ -1,0 +1,30 @@
+{% extends "common/master.html" %}
+
+{% block title %}{{ _("Groups") }}{% endblock %}
+
+{% block stylesheets %}
+{{ super() }}
+	<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('groups/assets/css/tangerine.groups.css') }}" />
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+	<script>
+	    require(['main'], function(){
+	        require(['groups/controllers/groups.join'],function(groups){
+	        	groups.load();
+	        });
+	    });
+	</script>
+{% endblock %} 
+ 
+<!-- Main Page Content and Sidebar -->
+{% block content %}
+{{ super() }}
+	<div id="page-disable" class="page-disable js-page-disable hide"></div>
+	<div id="loading-icon" class="loading-icon js-loading-icon">
+        <img alt="loading" src="{{ h.asset_image('common/images/icon_loading.gif') }}">
+	</div>
+	<div class="row collapse groups-container"></div>
+{% endblock %}
+<!-- End Main Content and Sidebar -->

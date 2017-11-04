@@ -1,0 +1,19 @@
+{% from "macros/pagination.html" import paginate with context %}  
+{% if c.paginator.item_count > 0 %}
+  {% for i in c.paginator.items %}
+    <div class="tr fullview {{ h.hide_if_pane(c.viewmode)}}">
+      <div class="td id">{{h.htmla_('/artifact/%d'%i.artifactID, i.artifactID|string() )}} </div>
+      <div class="td">{{h.htmla_('/user/profile/%d'%i.memberID, i.memberID|string() )}} </div>
+      <div class="td viewtrigger tiptrigger word-break">{{ i.comment|escape }}</div>
+      <div class='hide tipdiv'>{{i.comment|escape}}</div>
+      <div class="td">{{h.htmla_('/user/profile/%d'% i.reporterID, i.reporterID|string() )}}</div>
+      <div class="td nowrap">{{i.creationTime|compact}}</div>
+      <div class="td nowrap">
+          <input type="checkbox" name = 'delete' value ="{{ i.memberID }}" class='linklike feedback_delete' data-member-id="{{ i.memberID }}" data-artifactID-id="{{ i.artifactID }}" >[Delete] |
+          <input type="checkbox" name = 'not_abused' value= "{{ i.memberID }}" class='linklike feedback_approve' data-commentType = "{{i.commentType}}" data-reviewID = {{ i.reviewID }} data-abused = "{{i.notAbuse}}" data-member-id="{{ i.memberID }}" 
+          data-artifactID-id="{{ i.artifactID }}" >{% if not i.notAbuse %} {{"[Not "}}{% else %} {{"["}}{% endif %}{{"Abused]"}}
+      </div>   
+    </div>
+  {% endfor %}
+  {{ paginate(c.paginator) }}
+{% endif %}

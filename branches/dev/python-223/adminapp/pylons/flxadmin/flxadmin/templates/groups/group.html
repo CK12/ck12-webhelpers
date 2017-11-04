@@ -1,0 +1,306 @@
+{% extends "details.html" %}
+
+{% block admincontent %}
+  <div class="sectionhead sectiontitle">Group {{ c.group.name }}</div>
+  <div class="section">
+    <div class="leftaligned">
+      {% for field in c.form.ordered_fields %}
+        {{ field }}
+      {% endfor %}
+      {% if c.group %}
+      {{ h.htmllabel('Actions')}}
+      <div>
+        <span id='deleteGroup' class='linklike red'>[Delete Group]</span>
+        &nbsp;|&nbsp;<span id='regenerateAccessCode' class='linklike'>[Re-generate Access Code]</span>
+        &nbsp;|&nbsp;<span id='showHideGroup' class='linklike'>{% if c.group.isVisible %}[Hide]{% else %}[Show]{% endif %}</span>
+        &nbsp;|&nbsp;<span id='updateScore' class='linklike' data-group-id="{{c.group.id}}">[Update Score]</span>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+  
+  <span class='ajaxError'></span>
+  <div>
+    <div class="prethead title col tiny">Members
+    </div>
+    <div class="col">
+        {{ h.labelselect('User Role', 'role_filter', [('', 'All'), ('student', 'Student'), ('teacher', 'Teacher')], 'filter')}}
+    </div>
+  </div>
+  <div class="inline table">
+    <div class="thead sectionhead">
+      <div class="tr">
+      {% for head in c.form.list_head %}
+        <div class="td">{{head}}</div>
+      {% endfor %}
+      </div>
+    </div>
+    <div class="tbody"></div>
+  </div>
+  
+  {% if c.group and c.group.lmsGroups %}
+   <br/><br/><div class="prethead title">LMS Association
+   </div>
+  <div class="js_lms_groups table actionstat">
+    <div class="thead sectionhead">
+      <div class="tr">
+      {% for head in c.form.lms_list_head %}
+        <div class="td">{{head}}</div>
+      {% endfor %}
+      </div>
+    </div>
+    <div class="tbody">
+        {% for lmsGroup in c.group.lmsGroups %}
+        <div class="tr">
+            <div class="td">{{lmsGroup.appName}}</div>
+            <div class="td">{{lmsGroup.title}}</div>
+            <div class="td">{{lmsGroup.providerGroupID}}</div>
+            <div class="td nowrap">{{lmsGroup.creationTime|parseISODate|compact}}</div>
+        </div>
+        {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+  
+  {% if c.groupAssignments %}
+   <br/><br/><div class="prethead title">Group Assignments
+   </div>
+  <div class="table actionstat">
+    <div class="thead sectionhead">
+      <div class="tr">
+      {% for head in c.form.assignment_list_head %}
+        <div class="td">{{head}}</div>
+      {% endfor %}
+      </div>
+    </div>
+    <div class="tbody">
+        {% for assignment in c.groupAssignments %}
+        <div class="tr">
+            <div class="td">{{assignment.id}}</div>
+            {% if assignment.assigned == 1 %} {%set artifactType = 'assignment'%} {% else %} {%set artifactType = 'study-track'%} {% endif %}
+            <div class="td">{{artifactType}}</div>
+            {% if assignment.assigned == 1 %} {%set link = '/assignment/'%} {% else %} {%set link = '/artifact/'%} {% endif %}
+            <div class="td">{{h.idlink(link, assignment, 'name', alttext=assignment.name|truncate(32))}}</div>
+            <div class="td">{% if assignment.due %} {{assignment.due | parseISODate|compact(onlyTimeStampForToday=False)}} {% endif %}</div>
+            <div class="td">{% if assignment.assigned == 1 %} {{"Assigned"}} {% else %} {{"Not Assigned"}} {% endif %}</div>
+            <div class="td nowrap">{{assignment.totalCount}}</div>
+        </div>
+        {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+{% endblock admincontent %} 
+
+{% block js_scripts %}
+{% if c.group %}
+<script type="text/javascript" src="{{ h.url_js('inlineList.js') }}"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+
+    var groupType = "{{ c.group.groupType }}";
+    var link = CK12.admUrl("/group_members_list/"+"{{c.group.id}}");
+    
+    // Removing the Inline Listing as it does not show paginated data presently.
+    //InlineList({
+    //  ajaxRoot: CK12.admUrl('/group_members_list/'+'{{c.group.id}}'),
+    //  postLoad: function(){
+    //    {% if c.group.groupType != 'public-forum' %}
+    //        $('.blockMember').addClass('hide');
+    //    {% endif %}
+    //  }
+    //});
+
+    var getMembersList = function(params){
+      $.get(link, params).done(function(data){
+        if($("div.pagination").length != 0)
+        {
+          $("div.pagination").remove();
+        }
+        $("div.inline .tbody").html(data);
+        $("a.pager_link").each(function(){
+          var prev_href = $(this).attr("href");
+          $(this).attr("prev_href",prev_href);
+          $(this).attr("href","javascript:;");
+        });
+        $("div.pagination").insertAfter($("div.inline .tbody"));
+        if (groupType!="public-forum"){
+          $('.blockMember').addClass('hide');
+        }
+      });    
+    }
+
+    getMembersList();
+
+    $(document).on("click","a.pager_link", function(){
+      getMembersList({ "page":$(this).text() });  
+    });
+
+    var groupActions = {
+      deleteConfirmMsg : 'Are you sure to delete the group?',
+      deleteSuccessMsg : 'Group deleted successfully',
+      accessCodeConfirmMes : 'Are you sure to re-generate group access code?',
+      accessCodeSuccessMsg : 'Group access code re-generated successfully',
+      visibilityConfirmMes : 'Are you sure to make this group ' + {% if c.group.isVisible %}"hidden"{% else %}"visible"{% endif %} + '?',
+      visibilitySuccessMsg : 'Group visibility changed successfully.',
+      this : null,
+              
+      deleteGroupTask : function(){
+          if (confirm(groupActions.deleteConfirmMsg)){
+            groupActions.this = $(this)
+            $(this).hide();
+            $.ajax({url: CK12.flxUrl('delete/group'), 
+              type: 'POST', 
+              data: {'groupID':'{{c.group.id}}'},
+              success: function(data, status, xhr){ //data is just {} for groups
+                  $(groupActions.this).show();
+                  alert(groupActions.deleteSuccessMsg);
+                  window.location.replace(CK12.admUrl('groups'));
+              },
+              error: function(xhr, textStatus, errorThrown){
+                  alert('API Error: '+ Fns.formatResponseError(
+                  xhr, textStatus, errorThrown));
+              }
+           });
+         }
+      },
+    
+      regenerateGroupAccessCode : function(){
+        if (confirm(groupActions.accessCodeConfirmMes)){
+            groupActions.this = $(this);
+            $(this).hide();
+            $.ajax({url: CK12.flxUrl('update/group'), 
+              type: 'POST', 
+              data: {'groupID':'{{c.group.id}}', 'doGenCode': true, 'groupType': '{{c.group.groupType}}', 'newGroupName': '{{c.group.name | escape}}', 'groupScope':'{{c.group.groupScope}}'},
+              success: function(data, status, xhr){ //data is just {} for groups
+                  $(groupActions.this).show();
+                  alert(groupActions.accessCodeSuccessMsg);
+                  window.location.reload(true);
+              },
+              error: function(xhr, textStatus, errorThrown){
+                  alert('API Error: '+ Fns.formatResponseError(
+                  xhr, textStatus, errorThrown));
+              }
+           });
+        }
+      },
+    
+      showHideGroup : function(){
+        if (confirm(groupActions.visibilityConfirmMes)){
+            groupActions.this = $(this);
+            $(this).hide();
+            $.ajax({url: CK12.flxUrl('update/group'), 
+              type: 'POST', 
+              data: {'groupID':'{{c.group.id}}', 'doGenCode': false, 'groupType': '{{c.group.groupType}}', 'newGroupName': '{{c.group.name | escape}}', 'groupScope':'{{c.group.groupScope}}', 'isVisible':"{{c.group.isVisible}}".toLowerCase() == 'false' },
+              success: function(data, status, xhr){ //data is just {} for groups
+                  $(groupActions.this).show();
+                  alert(groupActions.visibilitySuccessMsg);
+                  window.location.reload(true);
+              },
+              error: function(xhr, textStatus, errorThrown){
+                  alert('API Error: '+ Fns.formatResponseError(
+                  xhr, textStatus, errorThrown));
+              }
+           });
+        }
+      }
+    };
+    $("#deleteGroup").click(groupActions.deleteGroupTask);
+    $("#regenerateAccessCode").click(groupActions.regenerateGroupAccessCode);
+    $("#showHideGroup").click(groupActions.showHideGroup);
+    $('#content').on('click', '.deleteMember', function(){
+      var $t = $(this);
+      if (confirm('Are you sure to remove '+$t.data('name')+' from this Group?')){
+        $.ajax({url: CK12.flxUrl('group/delete/member'), 
+          type: 'POST',
+          data: {groupID: '{{c.group.id}}', memberID: $t.data('id')},
+          success: function(data, status, xhr){
+            $t.parentsUntil('.tr').parent().html('');
+          },
+          error: function(xhr, textStatus, errorThrown){
+            alert('API Error: '+Fns.formatResponseError(xhr, textStatus, errorThrown));
+          }
+        });
+      }
+    });
+    $('#content').on('click', '.blockMember', function(){
+        var $t = $(this),
+            data = {subObjectType: '{{c.group.groupType}}',
+                    memberID : $t.data('id'),
+                    objectType : 'group',
+                    action: 'block',
+                    check_status: false
+                  },
+            confirmMsg = 'Are you sure to block '+$t.data('name');
+        if('{{c.group.groupType}}' != 'public-forum'){
+            confirmMsg = 'Are you sure to block '+$t.data('name')+' from this Group?'
+            data.objectID = {{c.group.id}};
+        }
+        if (confirm(confirmMsg)){
+            var reason = prompt("Enter reason for restriction", '');
+            if (reason){
+                data.reason = reason;
+            }else{
+                return false;
+            }
+            $.ajax({url: CK12.flxUrl('/restrict/member/access/group'), 
+                type: 'POST',
+                data: data,
+                dataType: "json",
+                success: function(data, status, xhr){
+                    if (data.responseHeader.status!=0)
+                    {
+                      alert(data.response.message);
+                    }
+                    else
+                    {
+                      $t.parentsUntil('.tr').parent().html('');  
+                    }
+                },
+                error: function(xhr, textStatus, errorThrown){
+                    alert('API Error: '+Fns.formatResponseError(xhr, textStatus, errorThrown));
+                }
+            });
+        }
+    });
+
+    // Works, uncomment to use in console to test adding of current user (admin)
+    // to the group, modify this to allow adding any member if API allows it.
+    /*
+    AddMeToThisGroup = function(){
+      $.ajax({url: CK12.flxUrl('group/add/member?groupName={{c.group.name}}&accessCode={{c.group.accessCode}}'),
+        success: function(){
+          window.location.reload();
+        }
+      }); 
+    });
+    */
+    var updateScore = function(e,memberID){
+        var url = 'group/{{c.group.id}}';
+        url += memberID? '/member/' + memberID + '/update/scores' : '/update/scores';
+        $.ajax({url: CK12.flxUrl(url), 
+          success: function(data, status, xhr){
+            alert('Scores updated successfully.');
+          },
+          error: function(xhr, textStatus, errorThrown){
+            alert('API Error: '+Fns.formatResponseError(xhr, textStatus, errorThrown));
+          }
+        });
+    }
+
+    $('div.inline.table').off('click').on('click', '.updateScore', function(e){
+        var memberID = $(this).data('member-id');
+        updateScore(e,memberID);
+    });
+
+    $('#updateScore').off('click').on('click', updateScore);
+    
+    $('#role_filter').off('change').on('change', function(){
+        $(".inline.table .tbody .tr").removeClass('hide');
+        if ($(this).val()){
+            $(".inline.table .tbody .tr").not("." + $(this).val()).addClass('hide');
+        }
+    });
+  });
+</script>
+{% endif %}
+{% endblock %}

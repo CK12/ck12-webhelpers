@@ -1,0 +1,48 @@
+<div class="manage-collaborators-content">
+	<div class="collaborators-list-wrapper">
+		<div class="email-text">
+			Collaborator Email IDs
+		</div>
+		<div>
+			Add comma separated email ids of users who you want to collaborate for editing.
+		</div>
+		<div>
+			The email ids have to match with CK-12 user accounts.
+		</div>
+		<textarea class="email-list js-email-list hide"></textarea>
+		<div class="js-pre-mail-list-wrapper hide">
+			<div class="js-pre-mail-list pre-mail-list">
+				
+			</div>
+			<div class="add-email-wrapper">
+				<input class="email-text js-email-text">
+				<a class="button turquoise add-email save-disabled" id="addEmail" title="Add">Add</a>
+			</div>
+		</div>
+		<div class="collab-instructions-wrapper">
+			<div>
+				Note:
+			</div>
+			<div class="group-not-exists">
+				1. If you want to remove a user, delete the email and click save.
+			</div>
+			<div class="group-exists">
+				1. If you want to remove a user, click close icon in front of Email ID.
+			</div>
+			<div>
+				2. No email will be sent to collaborators. Please notify them about this collaboration.
+			</div>
+		</div>
+		<div class="collaborators-buttons-wrapper">
+			<a class="button turquoise save-collab save-disabled" id="saveCollab" title="Save">Save</a>
+			<a class="button dusty-grey cancel-collab" id="cancelCollab" title="Cancel">Cancel</a>
+		</div>
+	</div>
+	<div class="collaborators-share-wrapper">
+		<div>
+			Share following URL with collaborators for them to edit the FlexBook
+		</div>
+		<input class="share-url" type="text" id="shareUrl" readonly="readonly" />
+		<a class="button tangerine copy-url" id="copyUrl" title="Copy">Copy</a>
+	</div>
+</div>

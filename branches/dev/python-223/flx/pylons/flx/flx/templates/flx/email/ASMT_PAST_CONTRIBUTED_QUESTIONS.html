@@ -1,0 +1,20 @@
+{% extends "MASTER_CK12_LOGO.html" %}
+{% block email_body %}
+<html>
+    <body>
+		<p>Dear {{ events[0].eventData['contributedUser'] }},</p>
+
+		<p>Thank you for your all past contributions of questions to CK-12!</p>
+
+		<p>The final acceptance and publication of the question is based on the recommendations made by the Review Board.</p>
+
+		<p>We rely on you for continued support!</p> 
+
+		<p>Please do not hesitate to email support@ck12.org if you have additional questions or feedback.</p>
+
+		<p>Sincerely,</p>
+		<p>The CK-12 Team</p>
+
+	</body>
+</html>
+{% endblock %}

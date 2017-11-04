@@ -1,0 +1,89 @@
+$module-ns: "conceptmap-nav__middle";
+
+#{$editor-state}{
+    .#{$module-ns}{
+        z-index: $overlay-z-index + 1;
+
+        > *:not(.#{$module-ns}__editor-suggest) {
+            display: none;
+        }
+
+        .#{$module-ns}__editor-suggest {
+            display: block;
+        }
+    }
+
+    .#{$module-ns} + ul.conceptmap-nav__right {
+        > * {
+            display: none;
+        }
+    }
+}
+
+.conceptmap-nav__middle__editor-suggest__info-slide {
+    display: none;
+    max-width: rem-calc(315);
+    position: absolute;
+    background: white;
+    font-size: 15px;
+    font-weight: normal;
+    padding: rem-calc(20) rem-calc(20) rem-calc(10);
+    z-index: $overlay-z-index + 1;
+    border: 2px solid $light-gray;
+
+    &:before {
+        left: 54%;
+        transform: translateX(-50%);
+        top: -15px;
+        @include topArrow();
+    }
+}
+
+
+.#{$module-ns}{
+    &__editor-suggest {
+        display: none;
+        transform: translateX(-30%);
+        font-size: rem-calc(18);
+        color: $ui-dark;
+        line-height: rem-calc(52);
+        font-weight: bold;
+        margin-bottom: 0;
+
+        .tooltip-container {
+            display: inline-block;
+            position: relative;
+        }
+
+        i {
+            color: $ui-gray;
+            font-size: rem-calc(15);
+            cursor: pointer;
+
+
+            & + .tooltip-bottom {
+                @include tooltip-bottom();
+                white-space: nowrap;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            &:hover {
+                & + .tooltip-bottom {
+                    @include tooltip--visible();
+                }
+            }
+
+        }
+
+        &.is-active  {
+            .conceptmap-nav__middle__editor-suggest__info-slide {
+                display: block;
+            }
+
+            i + .tooltip-bottom:hover {
+                @include tooltip--hide();
+            }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns:dc="http://www.ck12.org/dc/will_create_ns"
+unique-identifier="chapterid" version="2.0">
+
+  <chapter>
+    <metadata>
+<chapterSeq>9</chapterSeq>
+
+<book>Biology I</book>
+
+      <chapterid></chapterid>
+      <title>Human Genetics</title>
+      <description>Topics in this chapter include:Human_Chromosomes_and_Genes,Human_Inheritance.
+     </description>
+    </metadata>
+    
+    <lessons>
+      <item id="Human_Chromosomes_and_Genes" href="Human_Chromosomes_and_Genes.html" sequence="1" />
+      <item id="Human_Inheritance" href ="Human_Inheritance.html" sequence="2" />
+    </lessons>
+  </chapter>
+
+</package>

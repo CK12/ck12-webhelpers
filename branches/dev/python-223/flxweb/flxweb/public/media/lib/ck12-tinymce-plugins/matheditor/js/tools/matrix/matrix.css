@@ -1,0 +1,121 @@
+.matrixContainer .bracketTransMat {
+	-ms-transform-origin-x :center;
+	-ms-transform-origin-y :bottom;
+	 transform-origin: center bottom 0;
+	 -webkit-transform-origin: center bottom 0;
+	 -moz-transform-origin: center bottom 0;
+    vertical-align: bottom;
+    font-size:18px !important;
+}
+.bracketTransMat {
+    font-style: normal;
+}
+.matrixContainer.unbracketedMatrix2X1 div:first-of-type { 
+	 height: 25px;
+    margin-top: -6px;
+}
+.matrixContainer.unbracketedMatrix2X1 div:nth-of-type(2){
+	 height: 10px;
+    margin-top: -8px;
+	
+}
+.matrixContainer.unbracketedMatrix3X1 div:first-of-type{
+	font-size: 19px;
+    margin-top: -7px;
+}
+.matrixContainer.unbracketedMatrix3X1 div:nth-of-type(2){
+	 font-size: 19px;
+    margin-top: -11px;
+}
+.matrixContainer.unbracketedMatrix3X1 div:nth-of-type(3){
+	font-size: 19px;
+    margin-top: -8px;
+}
+.matrixContainer .unbracketedMatrix2X2 div:first-of-type{
+	margin-top: -8px;
+}
+.matrixContainer.unbracketedMatrix2X2 div:nth-of-type(2){
+	margin-top: -12px;
+}
+.matrixContainer.unbracketedMatrix2X3.toolbarStyling{
+	font-size:19px;
+}
+.matrixContainer.unbracketedMatrix2X3 div:nth-of-type(2){
+	margin-top:-5px;
+}
+.matrixContainer.unbracketedMatrix3X2 div:first-of-type{
+	font-size:19px;
+	margin-top: -7px;
+}
+.matrixContainer.unbracketedMatrix3X2 div:nth-of-type(2){
+	font-size:19px;
+	margin-top: -8px;
+}
+.matrixContainer.unbracketedMatrix3X2 div:nth-of-type(3){
+	font-size:19px;
+	 margin-top: -9px;
+}
+.matrixContainer.unbracketedMatrix2X1Container {
+    display: inline-table;
+    vertical-align: middle;
+}
+.matrixContainer .matrixRowContainer{
+	 margin-bottom: -0.1em;
+    padding: 0 0.1em;
+   /*  width : auto;
+    height :auto; */
+    text-align : center;
+    display:block;
+}
+
+.matrixContainer.unbracketedMatrix3X1Container  {
+    display: inline-table;
+    vertical-align: middle;
+}
+.matrixContainer.unbracketedMatrix2X3Container{
+	display: inline-table;
+    vertical-align: middle;
+}
+.matrixContainer.unbracketedMatrix2X2Container{
+	display: inline-table;
+    vertical-align: middle;
+}
+.matrixContainer.unbracketedMatrix3X2Container{
+	display: inline-table;
+    vertical-align: middle;
+}
+/*.matrixContainer .tooltip-tools-inner {
+    line-height: 16px;
+}
+.matrixContainer .unbracketedMatrix1X2 {
+    line-height: 47px;
+}
+.matrixContainer .unbracketedMatrix2X1 {
+    line-height: 24px;
+}
+.matrixContainer .unbracketedMatrix1X3 {
+    line-height: 48px;
+}*/
+.matrixContainer .tooltip-tools-inner{
+    /*color: #FFFFFF;
+    cursor: pointer;
+    display: table-cell;
+    float: none;*/
+    font-size: 1em;
+    line-height: 14px;
+    /*position: relative;*/
+}
+.matrixContainer .unbracketedMatrix2X2 {
+     height: 38px;
+    line-height: 24px;
+    padding-top: 17px
+}
+.matrixContainer .unbracketedMatrix2X3 {
+    line-height: 24px;
+}
+.matrixRowContainer input[type="text"]{
+	margin-bottom:5px;
+}
+.matrixContainer .close-cont{
+	height:98%\9;
+}

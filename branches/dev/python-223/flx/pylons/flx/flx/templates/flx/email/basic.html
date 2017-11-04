@@ -1,0 +1,38 @@
+<html>
+  <head></head>
+  <body>
+    <p>Hello!<br>
+        As you requested, we are notifying you of the following events:<br/>
+    </p>
+        {% for event in events %}
+    <p>
+        <strong>{{ event['typeDesc'] }}</strong><br/>
+        On: {{ event['created'] }}<br/>
+        {% if event['objectDict'] %}
+            For {{ event['objectType'] }}: {{ event['objectID'] }}<br/>
+            <table style="margin-right:50px;">
+              {% for k in event['objectDict'].keys() %}
+                  {% if event['objectDict'][k] %}
+                  <tr>
+                    <td>{{ k }}</td>
+                    <td>{{ event['objectDict'][k] }}</td>
+                  </tr>
+                  {% endif %}
+              {% endfor %}
+            </table>
+            <br/><br/>
+        {% elif event['objectID'] %}
+            For {{ event['objectType'] }}: {{ event['objectID'] }}<br/>
+        {% endif %}
+        {% if event['eventData'] %}
+        Event Data: {{ event['eventData'] }}<br/>
+        {% endif %}
+    </p>
+        {% endfor %}
+    <hr/>
+    <p>
+        CK-12 FlexBook System
+    </p>
+    <p style="font-size:7pt;">You are receiving this notification because you have subscribed to it. Please contact <a href="mailto:support@ck12.org">support@ck12.org</a> if you do not want to receive these alerts.</p>
+  </body>
+</html>

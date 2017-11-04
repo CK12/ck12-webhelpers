@@ -1,0 +1,225 @@
+<% var index;%>
+<% for (index = 0; index < data.length; index++) { %>
+	<% if (data[index].isSpecial) { %>
+		<div class="listitem row collapse pointer exactmatch-item">
+		    <% if (data[index].entry.book) { %>
+		        <div class="books small-4 large-3 columns">
+			        <figure class="book" style="margin: 30px;">
+	                    <a href="<%= data[index].entry.URL %>" class="listitemimglink<% if (data[index].entry.defaultImage === 'camera') { %> default-camera-image<% } %>">
+	                        <ul>
+	                            <li class="front">
+	                                <div class="cover">
+	                                    <img src="<%= data[index].entry.thumbnailURL %>" title="<%= data[index].entry.title %>" alt="<%= data[index].entry.title %>">
+	                                </div>
+	                                <span class="shadow"></span>
+	                            </li>
+	                            <li class="pages">
+	                                <div class="thin page1"></div>
+	                                <div class="thin page2"></div>
+	                                <div class="thin page3"></div>
+	                            </li>
+	                            <li class="back"></li>
+	                        </ul>
+	                        <span class="shadow"></span>
+	                    </a>
+	                </figure>
+                </div>
+		    <% } else { %>
+				<div class="listitemimg small-3 large-2 columns">
+					<img title="<%= data[index].entry.title %>" alt="<%= data[index].entry.title %> - thumbnail" src="<%= data[index].entry.thumbnailURL || '' %>">
+				</div>
+			<% } %>
+			<div class="listiteminfo small-8 small-offset-1 large-offset-1 large-9 columns left">
+				<div class="listitemtitlewrapper hide-for-small">
+					<a title="<%= data[index].entry.title %>" class="listitemtitle" href="<%= data[index].entry.URL %>">
+						<%= _.escape(data[index].entry.title) %>
+					</a>
+				</div>
+				<div class="listitemtitlewrapper show-for-small">
+					<a title="<%= data[index].entry.title %>" class="listitemtitle" href="<%= data[index].entry.URL %>"><%= _.escape(data[index].entry.title) %></a>
+				</div>
+				<% if (data[index].entry.description) { %>
+					<div class="artifact_description"><%= _.escape(data[index].entry.description) %></div>
+				<% } %>
+			</div>
+		</div>
+	<% } else if ('domain' === data[index].type) { %>
+		<% if (true === data[index].exactMatch) { %>
+			<div class="listitem row collapse pointer exactmatch-item domain-item">
+				<div class="listitemimg small-3 large-2 columns">
+					<img title="<%= data[index].conceptCollectionTitle ||  data[index].name %>" alt="<%= data[index].conceptCollectionTitle || data[index].name %>" src="<%= data[index].previewImageUrl || '' %>">
+				</div>
+				<div class="listiteminfo small-8 small-offset-1 large-offset-1 large-9 columns left">
+					<div class="listitemtitlewrapper hide-for-small">
+						<a title="<%= data[index].conceptCollectionTitle || data[index].name %>" class="listitemtitle" href="<%= data[index].url %>">
+							<%= _.escape(data[index].conceptCollectionTitle || data[index].name) %>
+							<span class="modality-tag concept">CONCEPT</span>
+						</a>
+					</div>
+					<div class="listitemtitlewrapper show-for-small">
+						<a title="<%= data[index].conceptCollectionTitle || data[index].name %>" class="listitemtitle" href="<%= data[index].url %>"><%= _.escape(data[index].conceptCollectionTitle || data[index].name) %></a>
+						<span class="modality-tag concept">CONCEPT</span>
+					</div>
+					<div class="modality_details_wrapper ">
+						<% if (data[index].creator) { %>
+							<span class="creator">Created by:&nbsp;<%= data[index].creator %></span>
+						<% } %>
+						<% if (data[index].branchInfo.name) { %>
+							<span class="subjects subject-with-arrow"><%= data[index].collectionTitle || data[index].branchInfo.name %></span>
+							<% if (!data[index].collectionHandle && data[index].descendantOf.term) { %>
+								<i class="icon-arrow3_right subjects-arrow"></i>
+								<span class="concept-parent"><%= _.escape(data[index].descendantOf.term) %></span>
+							<% } %>
+						<% } %>
+						<% if (data[index].gradeGrid) { %>
+							<div class="bold hide-for-small">Grade:&nbsp;<%= data[index].gradeGrid %></div>
+						<% } %>
+						<% if (data[index].level) { %>
+							<span>Difficulty level:&nbsp;<%= data[index].level %></span>
+						<% } %>
+					</div>
+					<% if (data[index].description) { %>
+						<div class="artifact_description"><%= _.escape(data[index].description) %></div>
+					<% } %>
+					<ul class="modality_group_list">
+						<!-- <li class="modality_groups group_all">
+							<a href="<%= data[index].url %>/?difficulty=all#all">
+								<i class="icon-lightbulb"></i>
+								<span class="text">all modalities</span>
+							</a>
+						</li> -->
+						<% var index2; %>
+						<% for (index2 = 0; index2 < data[index].modalityGroups.label.length; index2++) { %>
+							<li class="left modality_groups">
+								<a href="<%= data[index].url %>/?difficulty=all&by=all#<%= data[index].modalityGroups.value[index2] %>">
+									<!-- <i class="<%= data[index].modalityGroups.icon[index2] %>"></i> -->
+									<div class= "modality_type_wrapper">
+										<img src = "/media/search/images/sprite.png" class="modality-group-icon modality_type_img modality_icon_<%= data[index].modalityGroups.label[index2] %>"></div>
+									<span class="text hide-for-small"><%= data[index].modalityGroups.label[index2] %></span>
+								</a>
+							</li>
+						<% } %>
+					</ul>
+					<div class="pointer modality-reveal hide-small js-modality-reveal hide"><i class="icon-arrow3-up"></i></div>
+					<!-- <i class="pointer modality-type icon-lightbulb modality_icon js-search-icon" title="Concept"></i> -->
+					<div class="tooltip-modality-icon hide">
+						<div class="tooltip-arrow"></div>
+						<div class="tooltip-content">Concept</div>
+					</div>				
+				</div>	
+			</div>
+		<% } else { %>
+			<div class="listitem row collapse domain-item">
+				<div class="listitemimg small-3 large-2 columns">
+					<a href="<%= data[index].url %>"><img title="<%= data[index].conceptCollectionTitle || data[index].name %>" alt="<%= data[index].conceptCollectionTitle || data[index].name %>" src="<%= data[index].previewImageUrl || '' %>"></a>
+				</div>
+				<div class="listiteminfo small-8 small-offset-1 large-offset-1 large-9 columns left">
+					<div class="listitemtitlewrapper">
+						<a title="<%= data[index].conceptCollectionTitle || data[index].name %>" class="listitemtitle" href="<%= data[index].url %>"><%= _.escape(data[index].conceptCollectionTitle || data[index].name) %></a>
+						<span class="modality-tag concept">CONCEPT</span>
+					</div>
+					<div class="modality_details_wrapper hide-for-small">
+						<% if (data[index].creator) { %>
+							<span class="creator">Created by:&nbsp;<%= data[index].creator %></span>
+						<% } %>
+						<% if (data[index].branchInfo.name) { %>
+							<span class="subjects subject-with-arrow"><%= data[index].collectionTitle || data[index].branchInfo.name %></span>
+							<% if (!data[index].collectionHandle && data[index].descendantOf.term) { %>
+								<i class="icon-arrow3_right subjects-arrow"></i>
+								<span class="concept-parent"><%= _.escape(data[index].descendantOf.term) %></span>
+							<% } %>
+						<% } %>
+						<% if (data[index].gradeGrid) { %>
+							<div class="bold hide-for-small">Grade:&nbsp;<%= data[index].gradeGrid %></div>
+						<% } %>
+						<% if (data[index].level) { %>
+							<span>Difficulty level:&nbsp;<%= data[index].level %></span>
+						<% } %>
+					</div>
+					<% if (data[index].description) { %>
+						<div class="artifact_description artifact_description_non_exact"><%= _.escape(data[index].description) %></div>
+					<% } %>
+					<ul class="hide-for-small modality_group_list">
+						<li class="modality_groups group_all">
+							<a href="<%= data[index].url %>/?difficulty=all&by=all#all">
+								<i class="icon-lightbulb"></i>
+								<span class="text">all modalities</span>
+							</a>
+						</li>
+						<% var index2; %>
+						<% for (index2 = 0; index2 < data[index].modalityGroups.label.length; index2++) { %>
+							<li class="modality_groups">
+								<a href="<%= data[index].url %>/?difficulty=all&by=all#<%= data[index].modalityGroups.value[index2] %>">
+									<i class="<%= data[index].modalityGroups.icon[index2] %>"></i>
+									<span class="text"><%= data[index].modalityGroups.label[index2] %></span>
+								</a>
+							</li>
+						<% } %>
+					</ul>
+					<!-- <i class="pointer modality-type icon-lightbulb modality_icon js-search-icon" title="Concept"></i> -->
+					<div class="tooltip-modality-icon hide">
+						<div class="tooltip-arrow"></div>
+						<div class="tooltip-content">Concept</div>
+					</div>				
+				</div>	
+			</div>
+		<% } %>
+	<% } else if (0 === data[index].isModality || 1 === data[index].isModality) { %>
+		<div class="listitem row collapse">
+			<% if (data[index].isBookType) { %>
+				<div class="books small-3 large-2 columns">
+					<figure class="book">
+						<a href="<%= data[index].url %>" class="listitemimglink<% if (data[index].defaultImage === 'camera') { %> default-camera-image<% } %>">
+	    					<ul>
+	        					<li class="front">
+	            					<div class="cover">
+	                					<img src="<%= data[index].coverImage || '' %>" title="<%= data[index].title %>" alt="<%= data[index].title %>">
+	            					</div>
+	            					<span class="shadow"></span>
+								</li>
+								<li class="pages">
+									<div class="thin page1"></div>
+									<div class="thin page2"></div>
+									<div class="thin page3"></div>
+								</li>
+								<li class="back"></li>
+								<span class="shadow"></span>
+							</ul>
+						</a>
+					</figure>
+				</div>
+			<% } else { %>
+				<div class="listitemimg small-3 large-2 columns">
+					<a href="<%= data[index].url %>" class="listitemimglink<% if (data[index].defaultImage === 'camera') { %> default-camera-image<% } %>"><img title="<%= data[index].title %>" alt="<%= data[index].title %>" src="<%= data[index].coverImage || '' %>"></a>
+				</div>
+			<% } %>
+			<div class="listiteminfo small-8 small-offset-1 large-offset-1 large-9 columns left">
+				<a class="bold" title="<%= data[index].title %>" href="<%= data[index].url %>"><%= _.escape(data[index].title) %></a>
+				<span class="modality-tag"><%= data[index].artifactGroup %></span>
+				<!-- Summary -->
+				<div class="summary"><%= _.escape(data[index].summary) %></div>
+				<div class="modality_details_wrapper">
+					<% if (data[index].gradeGrid) { %>
+						<div class="bold">Grade:&nbsp;<%= data[index].gradeGrid %></div>
+					<% } %>
+					<% if (data[index].creator) { %>
+						<span class="creator">Created by:&nbsp;<%= data[index].creator %></span>
+					<% } %>
+					<% if (data[index].subjectGrid) { %>
+						<span class="subjects hide-small">Subject:&nbsp;<%= data[index].subjectGrid %></span>
+					<% } %>
+					<% if (data[index].level) { %>
+						<span class="hide-small">Difficulty level:&nbsp;<%= data[index].level %></span>
+					<% } %>
+				</div>
+				<% if (data[index].icon.display && data[index].icon.icon) { %>
+					<!-- <i title="<%= data[index].icon.display %>" class="pointer modality-type <%= data[index].icon.icon %> modality_icon js-search-icon"></i> -->
+					<div class="tooltip-modality-icon hide">
+						<div class="tooltip-arrow"></div>
+						<div class="tooltip-content"><%= data[index].icon.display %></div>
+					</div>					
+				<% } %>
+			</div>
+		</div>
+	<% } %>
+<% } %>

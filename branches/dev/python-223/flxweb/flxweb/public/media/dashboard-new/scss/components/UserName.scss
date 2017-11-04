@@ -1,0 +1,10 @@
+@import '../main';
+
+:local {
+    .userName {
+        font-weight: bold;
+        font-size: rem-calc(22);
+        color: $EARTH;
+        @include truncateText();
+    }
+}

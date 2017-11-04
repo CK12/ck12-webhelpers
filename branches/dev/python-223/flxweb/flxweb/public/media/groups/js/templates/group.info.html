@@ -1,0 +1,192 @@
+<div id="rosterModal" class="reveal-modal modal-uikit small">
+      <div id="rosterApp"></div>
+      <a class="close-reveal-modal close">+</a>
+  </div>
+<div id="group-info-container" class="large-3 small-12 columns group-container hide-content js-large-edit" data-group-type="@@groupType@@">
+    <div class="group-placeholder">
+        <img src="#" id="group-image" alt="image for the group" class="js-group-image-main">
+<!--     	<a data-reveal-id="editImageModal" class="edit-image-container" href="javascript:;" id="image-edit-link">
+    		<i class="icon-edit app-icons"></i>
+            <span style="color:#fff; font-weight:bold;" class="edit-image-link">Edit Image</span>
+    	</a> -->
+    	<a id="image-edit-link" class="icon-edit pencil-size edit-image-container hide-for-small" data-reveal-id="editImageModal" title="Edit group image."></a>
+    </div>
+    <div class="group-title-wrapper">
+        <div class="group-title hide hide-small" id="no-description-conatiner">
+            <a id="no-description-link">Add a group description</a>
+        </div>
+        <div class="group-title show-small-title" id="description-container">
+            <span id="group-description"></span>
+            <a class="icon-edit js-group-detail-edit hide hide-small" title="Edit group description."></a>
+        </div>
+    </div>
+    <div class="group-activity">
+    	<ul class="side-nav">
+    		<li title="Home">
+    			
+    			<a id="group-home-link" class="ie8sidetext"><i class="icon-groups_home app-icons"></i> Home</a>
+    		</li>
+    		<li class="only-for-class" title="Assignments">
+               
+                <a id="group-assignments-link" class="ie8sidetext"><i class="icon-grps_assgnmts app-icons"></i> Assignments</a>
+                <span class="group-count" id="group-assignments-count"></span>
+            </li>
+    		<li class="only-for-class hide-small" title="Reports">
+                
+                <a id="group-reports-link" class="ie8sidetext"><i class="icon-grps_report app-icons"></i> Reports</a>
+            </li>
+            <li class="group-discussion-link relative" title="Q&amp;A"> 
+               
+                <a id="group-discussions-link" class="ie8sidetext group-discussion-anchor"><i class="icon-comments app-icons"></i> Q&amp;A</a>
+                <span class="group-count" id="group-discussions-count">0</span>
+                <div class="tooltip-top_header qa-setting-tooltip qa-on-tooltip">
+    				<div class="header">Turning off Q&amp;A</div>
+    				<div class="content">If you want to turn off Q&amp;A, go to the Group's Settings.</div>
+    			</div>
+    			<div class="tooltip-top_header qa-setting-tooltip qa-off-tooltip">
+    				<div class="header">Turning on Q&amp;A</div>
+    				<div class="content">If you want to turn on Q&amp;A, go to the Group's Settings.</div>
+    			</div>
+            </li>
+    		<li title="Shared Resources">
+    			
+    			<a id="group-resources-link" class="ie8sidetext"><i class="icon-shared_res app-icons"></i> Shared Resources</a>
+    			<span class="group-count" id="group-resources-count"></span>
+    		</li >
+    		<li title="Members">
+    			
+    			<a id="group-members-link" class="ie8sidetext"><i class="icon-members app-icons"></i> Members</a>
+    			<span class="group-count" id="group-members-count"></span>
+                        <div class="tooltip-top add-members-tooltip-once text-left hide-important only-for-class hide-for-medium-down">
+                          <p>Now you can add students without email addresses.</p>
+                          <span><div class="button standard add-members-tooltip-confirm-btn">Okay</div><a class="add-members-tooltip-cta-link dxtrack-user-action" data-dx-desc="roster_members_add_students_button" data-dx-referrer="roster_members_leftnav_tooltip">Add Students</a>
+                        </div>
+    		</li>
+    		<li title="Settings">
+    			
+    			<a id="group-settings-link" class="ie8sidetext"><i class="icon-settings_single app-icons"></i> Settings</a>
+    		</li>
+    	</ul>
+    	 <div class="assignments-app-link@@hide@@ hide-for-small @@web-hide-important@@">
+	   		<p id="appLinkPara" class="app-link-paragraph">Take your assignments anywhere. Get the app<i class="icon-mobile-phone app-icons get-app-link"></i></p>
+	   	    <p id="appLinkParaTablet" class="hide app-link-paragraph">Take your assignments anywhere. <a id="get-app-link-mobile" href="@@link-to-mobile-app@@" class="get-app-link">Get the app</a></p>
+			<div id="appLinks">
+				<a id="apple-store-link" class="apple-app-link" target="_blank" href="https://itunes.apple.com/us/app/ck-12/id909343639?ls=1&mt=8">
+					<img class="apple-store-image" alt="Download on the app store" src="/media/common/images/apple-app-store.svg" />
+				</a>
+				<a id="google-store-link" class="google-app-link" target="_blank" href="https://play.google.com/store/apps/details?id=org.ck12.app.practice">
+					<img class="google-store-image" alt="Get it on Google Play" src="/media/common/images/google-play-badge.png" />
+				</a>
+			</div>		
+		</div> 
+        <!-- Change the BrainFlex box after the end of program -->
+    	<div class="groups-bottom-brainflex-wrapper">
+    		<div class="groups-bottom-brainflex row collapse">
+    			<!-- <div class="groups-bottom-brainflex-msg groups-brainflex-maximize row collapse">Prevent the summer slide</div> -->
+    			<!-- <div class="groups-bottom-brainflex-msg groups-brainflex-maximize row collapse">with CK-12 BrainFlex</div> -->
+                
+                <div class="groups-bottom-brainflex-msg groups-brainflex-maximize row collapse">BrainFlex summer challenge complete! Stay ahead all year with CK-12 Adaptive Practice!</div>
+                <div class="groups-bottom-brainflex-msg groups-brainflex-maximize row collapse">with CK-12 BrainFlex</div>
+   				<div class="groups-bottom-brainflex-lower row collapse">
+   					<div class="groups-bottom-brainflex-brain">
+                        <!-- <a href="/summer?summerLearning=true">Learn More</a> -->
+                        <!-- <a href="/summer/2015">See my report</a> -->
+                        <a href="/summer/2017">See my report</a>
+   						<img title="BrainFlex" class="right" src="/media/groups/assets/images/brain-slideup.svg">
+   					</div>
+   				</div>
+    		</div>
+    	</div>
+    </div>
+</div>
+<div class="group-title-edit hide hide-small">
+	<div>
+		<textarea id="group-description-edit"
+			class="js-group-description-field"></textarea>
+	</div>
+	<div>
+		<a class="button standard turquoise js-group-detail-save"
+			id="description-save">Save</a> <a
+			class="js-group-detail-cancel link-green">Cancel</a>
+	</div>
+</div>
+<div id="group-details-container"  class="large-9 small-12 columns js-large-edit">
+	<div id="app-link-mobile" class="assignments-app-link show-for-small @@hide-important@@">
+   		<p class="app-link-paragraph">Take your Assignments anywhere.<a id="get-app-link-mobile" href="@@link-to-mobile-app@@" class="get-app-link">Get the App</a></p>
+	</div> 		
+    <div class="activity-header-wrapper hide-for-small">
+	    <!-- <div class="small-12 large-8 columns show-for-small group-menu-button">
+			<a class="button standard tangerine" id="group-home-menu">Group menu</a>
+		</div> -->
+    	<div class="activity-header show-small-title">
+    		<h1 id="group-name"></h1>
+    		<a class="icon-edit pencil-size js-group-detail-edit hide" title="Edit group title."></a>
+                <div  data-reveal-id="rosterModal" class="button js-members-add-students-btn group-members-add-students-btn right hide-important js-for-class dxtrack-user-action hide-for-medium-down" data-dx-desc="roster_members_add_students_button" data-dx-referrer="roster_members_page"> <img src="/media/groups/assets/images/add-members.svg" class="group-members-add-students-btn-icon"> Add Students</div>
+                <div class="hide-important js-group-members-add-member-tooltip group-members-add-member-tooltip tooltip-bottom only-for-class hide-for-medium-down"><span>You can click here to add more students.&nbsp;<span class="right group-members-add-member-tooltip-icon" style="cursor:pointer"><i class="icon-close"></i></span></span></div>
+        </div>        
+        <div class="activity-header-edit hide row collapse hide-small">
+    		<div class="edit-error-msg-wrapper">
+    			<span class="hide js-edit-group-error" id="group-edit-empty-error">Enter a name for your group. For example: Math Geeks Unite!</span>
+    			<span class="hide js-edit-group-error" id="group-edit-wrong-error">You already created a group with that name. Enter a unique name so you can tell them apart.</span>
+    		</div>
+            <div class="columns small-11 group-name-editor large-8">
+            	<input id="group-name-edit" type="text" class="text-group-name js-group-name-field" maxlength="60">
+            </div>
+    	    <div class="columns small-12 group-name-editor large-4">
+    	        <a class="button standard turquoise js-group-detail-save">Save</a>
+    	        <a class="js-group-detail-cancel link-green">Cancel</a>
+    	    </div>
+        </div>
+    </div>
+</div>
+
+<div class="row collapse hide-important js-small-edit edit-info-container show-for-small">
+	<div class="small-12 columns">
+		<div class="row collapse edit-info-header-wrapper">
+			<a id="group-info-cancel-small" class="left">Cancel</a>
+			<span class="edit-info-text">Edit</span>
+			<a id="group-info-save-small" class="right">Save</a>
+		</div>
+		<div class="row collapse edit-info-content-wrapper">
+			<div class="small-12 columns">
+				<div class="row collapse">
+					<div class="small-12 columns edit-name-input-container">
+						<input id="group-name-edit-small" type="text" class="js-group-name-field" maxlength="60"/>
+					</div>
+				</div>
+				<div class="row collapse">
+					<div class="small-12 columns edit-description-input-container">
+						<textarea id="group-description-edit-small" class="js-group-description-field"></textarea>
+					</div>
+				</div>
+				<div class="row collapse group-info-image-small"> <!-- give height and width to this as well -->
+					<img alt="group image" id="group-image-edit-small" class="js-group-image-main">
+				</div>
+				<div id="group-edit-image-small" class="row collapse pointer">
+					<div class="small-12 columns text-center link-green">
+						<i class="icon-image2"></i>
+						<span>Change Image</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+</div>
+<div class="reveal-modal app-reveal-modal modal-uikit edit-image-modal" id="editImageModal" style="display: none; opacity: 1; visibility: hidden;">
+    <a class="close-reveal-modal close hide-for-small">+</a>
+    <div class="row collapse edit-image-header-wrapper">
+    	<div class="small-12 columns show-for-small edit-image-header-container">
+		    <span class="show-for-small edit-image-header-text left">Group Image</span>
+		    <span class="close-icon edit-image-close-icon close-reveal-modal show-for-small right"></span>
+	    </div>
+	</div>
+    <div class="row collapse edit-image-wrapper js-group-image-edit">
+        <div class="edit-image-header ie8text hide-for-small hide-for-small">Choose an Image</div>
+    </div>
+    <div class="row collapse hide-for-small">
+        <div class="large-12 columns text-center edit-image-buttons">
+            <a class="button standard turquoise" id="save-edit-image">Save</a>
+            <a class="edit-image-cancel" id="cancel-edit-image">Cancel</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+{% from "macros/pagination.html" import paginate with context %}  
+
+{% if c.paginator.item_count > 0 %}
+  {% for i in c.paginator.items %}
+    <div class="tr paneview {{ h.hide_if_full(c.viewmode)}}">
+      <div class="td id">{{i.id}}</div>
+      <div class="td viewtrigger breakword" data-id="{{i.id}}">
+        {% if i.artifactType == 'assignment' %} {%set link = '/assignment/'%} {% else %} {%set link = '/artifact/'%} {% endif %}
+        {{h.idlink2(link, i, 'title')}}<br/>
+        ({{i.artifactType}})
+      </div>
+      <div class="td">{{h.userlink(i, 'creator', 'creatorID', truncate=15)}}</div>
+      <div class="td nowrap">{{i.modified|compact}}</div>
+    </div>
+    
+    <div class="tr fullview {{ h.hide_if_pane(c.viewmode)}}">
+      <div class="td id">{{i.id}}</div>
+      <div class="td">{{i.artifactType}}</div>
+      {% if i.artifactType == 'assignment' %} {%set link = '/assignment/'%} {% else %} {%set link = '/artifact/'%} {% endif %}
+      <div class="td viewtrigger" data-id="{{i.id}}">{{h.idlink2(link, i, 'title')}}</div>
+      <div class="td">{{h.userlink(i, 'creator', 'creatorID', truncate=15)}}</div>
+      <div class="td nowrap">{{i.created|compact}}</div>
+      <div class="td nowrap">{{i.modified|compact}}</div>
+      <div class="td">{{h.htmla_('/reindex/%d'%i.id, '[ReIndex]')}}</div>
+      <div class="td">
+        {{h.htmla_('/resources?search=artifactID,%d'%i.id, '[Resources]')}}&nbsp;
+        {% if i.artifactType in ['book', 'chapter', 'lesson', 'section', 'concept', 'tebook', 'workbook', 'labkit', 'quizbook'] %}
+            {{h.htmla_('/format/%d'%i.id, '[Prints]')}}
+        {% endif %}
+      </div>
+    </div>
+  {% endfor %}
+  {{ paginate(c.paginator) }}
+{% endif %}

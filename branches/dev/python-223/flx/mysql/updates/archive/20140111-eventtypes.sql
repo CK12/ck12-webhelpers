@@ -1,0 +1,1 @@
+INSERT INTO `EventTypes` (`name`, `description`) VALUES ('ASMT_PUBLISHED_QUESTIONS', 'Questions published by admin');

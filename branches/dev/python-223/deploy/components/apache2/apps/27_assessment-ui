@@ -1,0 +1,6 @@
+    Alias /assessment/ui/build-000 /opt/2.0/assessment/ui/build-000
+    Alias /assessment/ui /opt/2.0/assessment/ui/build-000
+    <Directory /opt/2.0/assessment/ui/build-000/>
+        Order allow,deny
+        Allow from all
+    </Directory>

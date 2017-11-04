@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <title>Add to Library</title>
+  </head>
+  <body>
+    <form name="library" method="POST" action="/flx/add/mylib/object">
+      <table>
+        <tr>
+          <td>Owner:</td>
+          <td><input type="text" name="impersonateMemberID" value="{{ c.member.id }}" /></td>
+        </tr>
+        <tr>
+          <td>Object ID:</td>
+          <td><input type="text" name="objectID" value="" /></td>
+        </tr>
+        <tr>
+          <td>Object Type:</td>
+          <td>
+            <select name="objectType">
+              <option name="artifactRevision">artifactRevision</option>
+              <option name="resourceRevision">resourceRevision</option>
+              <option name="domain">domain</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>Domain ID:</td>
+          <td><input type="text" name="domainID" value="" /></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td><input type="submit" value="Add to Library" /></td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,1205 @@
+Level 1,Level 2,Level 3,Level 4,Level 5,Level 6,Handle,EncodedID,Original EncodedIDs,Description
+Foundations of Biology ,,,,,,,SCI.BIO.001,,
+,The Science of Life,,,,,,SCI.BIO.002,,
+,,Nature of Science,,,,Nature-of-Science-in-Biology,SCI.BIO.003,,
+,,,"Science Goals 
+",,,,SCI.BIO.004,SCI.BIO.110.1,The goals of science are to answer questions through research and evidence.
+,,,"Scientific Ways of Thinking
+",,,,SCI.BIO.005,SCI.LSC.111,Introduces principles intrinsic to asking and answering scientific questions.
+,,,"A Scientific View of the World  
+",,,,SCI.BIO.006,SCI.BIO.110.2,Science is based on observation. Things that cannot be observed cannot be supported by scientific evidence. 
+,,,"Fields in the Life Sciences
+",,,,SCI.BIO.007,SCI.LSC.116.1,Discusses and defines different types of scientific careers.
+,,,"What is a Scientist?
+",,,,SCI.BIO.008,SCI.BIO.114.2,People who use a systematic approach to gain knowledge and explain the natural world.
+,,,"Nobel Prize
+ ",,,,SCI.BIO.009,SCI.BIO.114.5,"An international award given annually to honor outstanding achievements in physics, chemistry, medicine, literature and peace."
+,,Scientific Investigation,,,,Scientific-Investigation-in-Biology,SCI.BIO.010,,
+,,,"Scientific Method
+",,,Scientific-Method-in-Biology,SCI.BIO.011,"SCI.BIO.112,
+SCI.LSC.112,
+SCI.BIO.110.3",Describes the universal process of steps that scientists take to study the natural world. 
+,,,Scientific Reasoning ,,,,SCI.BIO.012,SCI.BIO.111,Outlines the use of inductive and deductive reasoning in the scientific method.
+,,,Experiment ,,,Experiment-in-Biology,SCI.BIO.013,"SCI.BIO.113
+","Explains the procedure carried out to support, refute, or validate a hypothesis under controlled conditions. "
+,,,Human Subjects Research ,,,,SCI.BIO.014,,Describes the Tuskegee syphilis study and how its ethical violations led to laws protecting human subjects in scientific research
+,,,Scientific Theories ,,,,SCI.BIO.015,"SCI.BIO.114,
+SCI.LSC.114",Introduces components of scientific theories as well as how they differ from scientific laws.
+,,,Basic and Applied Science ,,,,SCI.BIO.016,SCI.LSC.116.2,Differentiates between basic and applied science as well as their applications.
+,,,Safety in the Life Sciences,,,,SCI.BIO.017,SCI.LSC.116.4,Discusses the precautions taken by scientists to stay safe in the lab and in the field.
+,,,Scientific Model,,,,SCI.BIO.018,SCI.BIO.114.1,Explains models as representations of complex ideas or processes developed by scientists to help people understand and/or investigate a system or phenomena. 
+,,,Units of Measurement,,,,SCI.BIO.019,SCI.BIO.114.3,"In science, the units of measurement are based on a form of the metric system called the International System of Units (SI)."
+,,,Laboratory,,,,SCI.BIO.020,SCI.BIO.114.4,"A place that has controlled conditions in which scientific research, experiments, and measurement may be carried out."
+,,,Nonexperimental Scientific Investigations ,,,,SCI.BIO.021,,Describes types of observational studies and explains why observational studies are done. Outlines the use of models to advance scientific knowledge.
+,,,Pseudoscience and Other Misuses of Science ,,,,SCI.BIO.022,,"Defines and gives examples of pseudoscience, and describes other misuses of science and their consequences."
+,,What is Biology?,,,,,SCI.BIO.023,,
+,,,"Characteristics of Life
+
+",,,,SCI.BIO.024,"SCI.BIO.115,
+SCI.LSC.115","Describes characteristics shared by all living organisms. All organisms must be composed of cells, metabolize, reproduce, and respond to their environment. "
+,,,Principles of Biology ,,,,SCI.BIO.025,SCI.BIO.116,"Covers the four biological principles that unite organisms: cell theory, gene theory, homeostasis, and evolutionary theory. "
+,,,Interdependence of Living Things,,,,SCI.BIO.026,SCI.BIO.117,"Outlines interactions between living things and how they are vital for species survival.
+"
+,,,"Organization of Living Things
+",,,,SCI.BIO.027,"SCI.BIO.118,
+SCI.LSC.118","Describes how the organization of living things includes cells, tissues, and organs, and how they correspond with their environment above the individual organism."
+,,,"Evolution of Life
+",,,,SCI.BIO.028,SCI.BIO.119,"Overview of Darwin's theory of evolution, a theory that describes the process through which populations of organisms change over time."
+,The Chemistry of Life,,,,,,SCI.BIO.029,,
+,,Matter and Organic Compounds,,,,,SCI.BIO.030,,
+,,,Significance of Carbon,,,,SCI.BIO.031,SCI.BIO.211,Carbon is an element that has unique properties (exceptional ability to form bonds) that makes it essential to life on earth.
+,,,Elements and Compounds,,,,SCI.BIO.032,"
+SCI.LSC.210,
+SCI.BIO.210.1","Introduces elements, matter, atoms, molecules, compounds, and chemical reactions."
+,,,States of Matter ,,,States-of-Matter-in-Biology,SCI.BIO.033,SCI.BIO.216.4,"The amount of energy in molecules of matter determines the state of matter (solid, liquid or gas). "
+,,Biomolecules,,,,,SCI.BIO.034,,
+,,,Organic Compounds,,,,SCI.BIO.035,SCI.LSC.210.1,"Discusses the 4 classes of essential biomolecules: carbohydrates, proteins, lipids, and nucleic acids."
+,,,Carbohydrates,,,Carbohydrates-in-Biology,SCI.BIO.036,SCI.BIO.212,"Details the structure and function of the energy-rich organic compounds made of carbon, hydrogen, and oxygen."
+,,,Proteins,,,Proteins-in-Biology,SCI.BIO.037,SCI.BIO.213,"Introduces the large, complex organic copound composed of covalently linked amino acid subunits that contain carbon, hydrogen, oxygen, nitrogen, and sometimes sulfur."
+,,,Lipids,,,,SCI.BIO.038,SCI.BIO.214,Introduces the structure and function of fatty acids and other lipids that serve as energy storage and are important components of cell membranes.
+,,,Nucleic Acids,,,,SCI.BIO.039,SCI.BIO.215,"Introduces DNA and RNA which are composed of nucleotides made of three components: a 5-carbon sugar, a phosphate group, and a nitrogenous base."
+,,Biochemical Reactions Overview,,,,,SCI.BIO.040,,
+,,,Biochemical Reactions,,,,SCI.BIO.041,"SCI.BIO.216,
+SCI.BIO.216.3,
+SCI.PSC.182","Covers chemical reactions, chemical bonds, chemical equations, and the conservation of mass. Many forms of energy such as potential, kinetic, and ATP (energy within a cell) are also covered."
+,,,Energy and Biochemical Reactions,,,,SCI.BIO.042,SCI.BIO.216.1,Discusses endothermic and exothermic chemical reactions and the role of activation energy in chemical reactions
+,,,Types of Biochemical Reactions ,,,,SCI.BIO.043,SCI.BIO.216.2,Introduces what happens in biochemical reactions and distinguishes between catabolic and anabolic reactions.
+,,,Enzymes ,,,Enzymes-in-Biology,SCI.BIO.044,"SCI.BIO.217,
+SCI.BIO.217.3,
+SCI.PSC.181.33",Introduces enzymes that speed up chemical reactions in organisms by lowering the activation energy of reactions.
+,,,Enzyme Function,,,,SCI.BIO.045,"SCI.BIO.217.1
+",Describes the importance of enzymes to living organizmes and how they speed up biochemical reactions.
+,,,Enzymes and Activation Energy ,,,,SCI.BIO.046,SCI.BIO.217.2,"Covers activation energy in chemical reactions, or energy required to get a reaction started. "
+,,"Water, Acids, and Bases",,,,,SCI.BIO.047,,
+,,,Water,,,Water-in-Biology,SCI.BIO.048,SCI.BIO.218.1,Explores the simple molecule that is essential to life and found in many different forms on earth. 
+,,,Structure and Properties of Water ,,,,SCI.BIO.049,SCI.BIO.218.2,"Water molecules are polar, so they form hydrogen bonds, resulting in unique properties. "
+,,,Water and Life,,,,SCI.BIO.050,SCI.BIO.218,"Water is essential for most life processes, including photosynthesis, cellular respiration, and other chemical reactions that occur in organisms."
+,,,"Acids and Bases 
+
+",,,Acids-and-Bases-in-Biology,SCI.BIO.051,"SCI.BIO.219
+","Explains the concepts of acidity and pH, compares acids and bases, and identifies the role of acids and bases in enzyme action in living things."
+Cell Biology ,,,,,,,SCI.BIO.100,,
+,Cell Structure and Function ,,,,,,SCI.BIO.101,,
+,,The Cell Theory ,,,,,SCI.BIO.102,,
+,,,Cell Theory,,,,SCI.BIO.103,"SCI.BIO.221,
+SCI.LSC.200,
+SCI.BIO.220.4","Explores how all living things are made of one or more cells, cells are the basic unit of life, and cells come only from other cells."
+,,,Microscope,,,,SCI.BIO.104,"SCI.LSC.116.3,
+SCI.BIO.221.1",Introduces different types of microscopy and their individual roles in science.
+,,,Parts of the Cell,,,,SCI.BIO.105,"SCI.BIO.222,
+SCI.BIO.222.1","Describes the four common structures of cells: plasma membranes, cytoplasms, ribosomes, and DNA."
+,,"Size, Shape, and Types of Cells",,,,,SCI.BIO.106,,
+,,,Variation in Cells,,,,SCI.BIO.107,SCI.BIO.220.5,"Cells are limited by their surface area to volume ratio and they come in many different shapes. A cell's function is determined, in part, by its shape."
+,,,Prokaryotic and Eukaryotic Cells ,,,,SCI.BIO.108,"SCI.BIO.223,
+SCI.LSC.223",Discusses the major differences between prokaryotic and eukaryotic cells.
+,,,Cells,,,,SCI.BIO.109,SCI.BIO.220.1,Building blocks of life.  Cells are the smallest unit of structure and function of all living organisms.
+,,Cell Structures,,,,,SCI.BIO.110,,
+,,,Cell Membrane,,,,SCI.BIO.111,"SCI.LSC.225,
+SCI.BIO.225.3
+",Introduces the plasma membrane and discusses its composition and function in cells.
+,,,Phospholipid Bilayer ,,,,SCI.BIO.112,SCI.BIO.225.1,Introduces the cell membrane where phospholipid molecules orient to provide qualities necessary to maintain a cell in a water-based environment.
+,,,Membrane Proteins,,,,SCI.BIO.113,SCI.BIO.225.2,Describes the structure and function of proteins found in the cell membrane.
+,,,Fluid Mosaic Model,,,,SCI.BIO.114,SCI.BIO.225.4,A model of the cell membrane that shows that proteins are embedded throughout the bilayer.  
+,,,Cell Communication,,,,SCI.BIO.115,SCI.BIO.220.7,"Introduction to cell communication, or cell signaling, which is vital to your body's health, growth, and development. "
+,,,Signal Receptor,,,,SCI.BIO.116,SCI.BIO.220.8,Part of cell communication where specific specific receptor proteins bind with specific signal molecules.
+,,,Signal Transduction,,,,SCI.BIO.117,SCI.BIO.220.9,A step in cell communication where a cell changes a signal on its surface into a specific response inside the cell.
+,,,Cytoplasm and Cytoskelton,,,,SCI.BIO.118,SCI.BIO.222.2,Describes the structure and function of the cytoplasm and cytoskeleton of a cell.
+,,,Nucleus,,,,SCI.BIO.119,"SCI.BIO.226,
+SCI.LSC.226","Introduces the major distinguishing feature of eukaryotic cells and discusses its function. 
+"
+,,,Organelles,,,,SCI.BIO.120,SCI.LSC.227,Introduces cell organelles and outlines the structure and function of the nucleus and other major organelles in eukaryotic cells.
+,,,Ribosomes and Mitochondria ,,,,SCI.BIO.121,"
+SCI.BIO.227.1",Ribosomes are complex molecules made of ribosomal RNA molecules and proteins that form a factory for protein synthesis in cells. Mitochondria are organelles in the cytoplasm of cells that function in energy production.
+,,,Mitochondria ,,,,SCI.BIO.122,SCI.BIO.227.8,"Organelle that is referred to as the ""power-house of the cell.""  Within the mitochondria energy from organic compounds is used to make ATP. "
+,,,Ribosome ,,,,SCI.BIO.123,SCI.BIO.227.7,Structures in the cytoplasm in which proteins are made.
+,,,Endoplasmic Reticulum ,,,,SCI.BIO.124,SCI.BIO.227.3,Organelle that is involved in transport (moves proteins) and synthesis (produces lipids).
+,,,Golgi Apparatus ,,,,SCI.BIO.125,SCI.BIO.227.4,"Large organelle that modifies, sorts, and packages different substances for secretion out of the cell, or for use within the cell.  "
+,,,Vesicles and Vacuoles ,,,,SCI.BIO.126,SCI.BIO.227.5,Organelles that are involved in storing and transporting materials within the cell. 
+,,,Cell Structure,,,,SCI.BIO.127,"SCI.BIO.227.2,
+SCI.BIO.227.6,
+SCI.BIO.222.5","Covers the structure and role of the endoplasmic reticulum, Golgi apparatus, vesicle, vacuole, centriole, cilia, and flagella."
+,,,Plant Cell Structure,,,,SCI.BIO.128,"SCI.BIO.224,
+SCI.LSC.224","Describes distinguishing features of plant cells from other types of eukaryotic cells: a cell wall, a large central vacuole, and chloroplasts."
+,,,Cell Organization,,,,SCI.BIO.129,SCI.BIO.222.3,Multicelled organisms have specialized cells that do specific jobs. Single celled organisms exist without the help of other cells.
+,,Cell Transport Overview ,,,,,SCI.BIO.130,,
+,,,Cell Transport ,,,,SCI.BIO.131,"SCI.LSC.222.4,
+SCI.BIO.228",Discusses how the structure of the plasma membrane allows for selective transport.
+,,,Diffusion ,,,,SCI.BIO.132,"SCI.BIO.228.1,
+SCI.LSC.228.1",Introduces how small molecules or ions can move across the cell membrane without input of energy by the cell.
+,,,Osmosis ,,,,SCI.BIO.133,SCI.BIO.228.2,Describes the diffusion of water molecules across a selectively permeable membrane from an area of higher concentration to an area of lower concentration.
+,,,Passive Transport,,,,SCI.BIO.134,"SCI.BIO.228.3,
+SCI.LSC.228","Covers passive transport, including simple and facilitated diffusion."
+,,,Active Transport,,,,SCI.BIO.135,"SCI.BIO.229,
+SCI.LSC.229",Introduces energy-assisted cellular transport where molecules move across a membrane from an area of lower concentration to an area of higher concentration.
+,,,Sodium-Potassium Pump,,,,SCI.BIO.136,SCI.BIO.229.1,Discusses an example of active transport in which membrane protein moves sodium and potassium ions against large concentration gradients.
+,,,Electrochemical Gradient,,,,SCI.BIO.137,SCI.BIO.229.3,Describes how the electrochemical gradient allows for active transport.
+,,,Exocytosis and Endocytosis,,,,SCI.BIO.138,SCI.BIO.229.2,Describes vesicle-mediated cellular transport in which large molecules enter and leave the cell inside vesicles.
+,Photosynthesis Overview,,,,,,SCI.BIO.139,,
+,,The Process of Photosynthesis,,,,,SCI.BIO.140,,
+,,,Autotrophs and Heterotrophs,,,,SCI.BIO.141,SCI.BIO.231.1,Introduces general categories of how organisms obtain energy. Autotrophs make their own food while heterotrophs consume organic molecules originally produced by autotrophs.
+,,,Glucose and ATP,,,,SCI.BIO.142,SCI.BIO.231.2,Describes two forms of cellular energy. Glucose provides fuel for cells while ATP stores energy.
+,,,Chloroplast,,,,SCI.BIO.143,SCI.BIO.232,Describes the chloroplast and its role in photosynthesis.
+,,,Photosynthesis ,,,,SCI.BIO.144,"SCI.BIO.726.1,
+SCI.LSC.726.1,
+SCI.PSC.182.1",Introduces how plants use sunlight to produce sugars.
+,,,Light Reactions,,,,SCI.BIO.145,"SCI.BIO.233,
+SCI.LSC.233,
+SCI.BIO.231.3","Introduces the first stage of photosynthesis, otherwise known as the light reaction."
+,,,Calvin Cycle,,,,SCI.BIO.146,SCI.BIO.234,"Introduces the Calvin Cycle, otherwise known as the dark reactions which is the second stage of photosynthesis."
+,,,"Photosynthesis Summary
+",,,,SCI.BIO.147,"SCI.BIO.231
+",Provides an overview and summary of photosynthesis.
+,,,Cellular Respiration and Photosynthesis,,,,SCI.BIO.148,SCI.LSC.236.3,Explains the connection between photosynthesis and cellular respiration.
+,,,Chemosynthesis,,,,SCI.BIO.149,SCI.BIO.235,Describes energy production in non-photosynthetic environments.
+,Cellular Respiration Overview,,,,,,SCI.BIO.150,,
+,,The Process of Cellular Respiration,,,,,SCI.BIO.151,,
+,,,Aerobic vs Anaerobic Respiration,,,,SCI.BIO.152,"SCI.BIO.239,
+SCI.BIO.239.2
+","Compares cellular respiration in the presence or absence of oxygen.
+"
+,,,Cellular Respiration,,,,SCI.BIO.153,"SCI.BIO.236,
+SCI.LSC.236,
+SCI.BIO.236.5,
+SCI.BIO.236.4,
+SCI.PSC.182.2",Introduces the process of extracting energy from glucose.  
+,,,Cellular Respiration Process,,,,SCI.BIO.154,"SCI.LSC.236.2
+",Explains molecular processes cells use to make energy in the presence of oxygen.
+,,,Glycolysis,,,,SCI.BIO.155,SCI.BIO.236.1,"Describes the steps and products of glycolysis, the first of three stages of cellular respiration."
+,,,Krebs Cycle,,,,SCI.BIO.156,SCI.BIO.237,"Describes the steps and products of the Krebs Cycle, the second of three stages of cellular respiration."
+,,,Electron Transport,,,,SCI.BIO.157,SCI.BIO.238,"Describes the steps and products of the electron transport chain, the last of three stages of cellular respiration."
+,,,Fermentation,,,,SCI.BIO.158,"SCI.BIO.239.1,
+SCI.LSC.239.1",Introduces how cells can make energy without oxygen and discusses lactic acid and alcohol fermentation.
+,,,Anaerobic Respiration,,,,SCI.BIO.159,SCI.BIO.239.3,"Introduces respiration without oxygen, including fermentation."
+,,,Lactic Acid Fermenation,,,,SCI.BIO.160,SCI.BIO.239.4,In the absence of oxygen our muscles begin to ferment lactic acid to produce energy.
+,,,Alcoholic Fermentation,,,,SCI.BIO.161,SCI.BIO.239.5,Some microbes produce alcohol when forced to grow without oxygen.
+,,Cell Division and the Cell Cycle ,,,,,SCI.BIO.162,,
+,,,"Cell Division
+
+",,,,SCI.BIO.163,"SCI.BIO.241,
+SCI.LSC.241",Introduces the role and process of cellular replication/division.
+,,,Bacterial Cell Division ,,,,SCI.BIO.164,SCI.BIO.241.1,Prokaryotes must copy their genome and grow before they can divide.
+,,,Eukaryotic Cell Division,,,,SCI.BIO.165,SCI.BIO.241.2,"Eukaryotic cells must first divide their nucleus, followed by division of their cytoplasm, to complete cell division. "
+,,,Cell Cycle,,,,SCI.BIO.166,"SCI.BIO.242,
+SCI.LSC.242","The life of a eukaryotic cell can be divided into 4 distinct phases, ending with cell division."
+,,,Cell Cycle Regulation,,,,SCI.BIO.167,SCI.BIO.242.1,The cell cycle is controlled by proteins known as cyclins and cyclin-dependent kinases.
+,,Chromosomes and Mitosis,,,,,SCI.BIO.168,,
+,,,Chromosomes,,,,SCI.BIO.169,SCI.BIO.243,"Introduces chromosomes, their complex structure of DNA and proteins, as well as their property to divide. "
+,,,Mitosis,,,,SCI.BIO.170,"SCI.BIO.244,
+SCI.LSC.244",Describes the process by which eukaryotic cells divide to produce identical daughter cells.
+,,Reproduction and Meiosis,,,,,SCI.BIO.171,,
+,,,Reproduction,,,,SCI.BIO.172,"SCI.BIO.245,
+SCI.LSC.245","Introduces the processes by which organisms give rise to offspring, and discusses the difference between asexual reproduction and sexual reproduction."
+,,,Asexual Reproduction,,,,SCI.BIO.173,SCI.BIO.245.1,Descibes reproduction that involves only one parent and creates a genetically identical offspring.
+,,,Sexual Reproduction,,,,SCI.BIO.174,SCI.BIO.245.2,Describes reproduction involving two parents that creates genetically unique offspring.
+,,,Meiosis,,,,SCI.BIO.175,"SCI.BIO.246,
+SCI.LSC.246","Describes cell division in which the number of chromosomes is reduced by half, leading to the creation of germ cells.  "
+,,,Mitosis vs. Meiosis,,,,SCI.BIO.176,SCI.LSC.246.1,Distinguishes between mitosis and meiosis and summarizes the necessity for each.
+,,,Gametogenesis,,,,SCI.BIO.177,SCI.BIO.247,Describes how haploid cells become gametes.
+,,,Genetic Variation,,,,SCI.BIO.178,SCI.BIO.248,Discusses cellular processes that produce genetically unique individuals.
+,,,Life Cycle,,,,SCI.BIO.179,SCI.BIO.249,Introduces the series of life stages and events of sexually reproducing organisms.
+Genetics,,,,,,,SCI.BIO.200,,
+,Mendelian Genetics ,,,,,,SCI.BIO.201,,
+,,Mendel's Investigations,,,,,SCI.BIO.202,,
+,,,Mendel ,,,,SCI.BIO.203,SCI.BIO.310,Genetics is the study of heredity in organisms and was pioneered by Gregor Mendel's experiments.
+,,,"Pea Plants
+
+",,,,SCI.BIO.204,"SCI.BIO.311,
+SCI.LSC.311",Introduces Gregor Mendel and illustrates the experiments he used to identify dominant and recessive traits..
+,,,"Mendel's First Experiment
+",,,,SCI.BIO.205,SCI.BIO.312,Describes Mendel's first set of experiments involving monohybrid crosses and his conclusions.
+,,,Theory of Heredity,,,,SCI.BIO.206,SCI.BIO.312.1,"Explains the theory that genes usually have two alleles, one of which is passed from each parent into their offspring."
+,,,Mendel's Second Experiment,,,,SCI.BIO.207,"SCI.BIO.313,
+SCI.BIO.313.1",Describes Mendel's second set of experiments involving dihybrid crosses which demonstrated that alleles are transmitted individually.
+,,,Mendel's Laws,,,,SCI.BIO.208,"SCI.BIO.314,
+SCI.LSC.314
+","Describes genotype and phenotype, and how genes are inherited."
+,,Mendelian Inheritance Overview,,,,,SCI.BIO.209,,
+,,,Molecular Genetics Overview,,,,SCI.BIO.210,"SCI.LSC.330.1
+",Describes Mendelian inheritance patterns and the relation between genotype and phenotypes.
+,,,Probability,,,Probability-in-Biology,SCI.BIO.211,SCI.BIO.315,Incorporates the rules of probability into inheritance.
+,,,Punnett Squares,,,,SCI.BIO.212,"SCI.BIO.316,
+SCI.LSC.316",Describes the use and construction of Punnett Squares in inheritance.
+,,,Testcross,,,,SCI.BIO.213,SCI.BIO.316.1,Introduces the type of breeding that reveals the genotype of one parent based on the ratio of offspring observed.
+,,,Polygenic Traits,,,,SCI.BIO.214,"SCI.LSC.335.1,
+SCI.BIO.335.1",Introduces physical characteristics caused by multiple genes.
+,,,Complex Traits,,,,SCI.BIO.215,SCI.BIO.335.4,"For some genes, both alleles express together. Others combine to give an ""average"" phenotype."
+,,,Multiple Allele Traits,,,,SCI.BIO.216,SCI.BIO.335.3,"More than two alleles of a gene usually exist in a population, these interact and can generate many physical traits."
+,,,Environment and Genetics,,,,SCI.BIO.217,SCI.BIO.317.1,"Genes often interact with the environment, creating different phenotypes depending on where the organism lives."
+,Molecular Genetics,,,,,,SCI.BIO.218,,
+,,DNA and RNA,,,,DNA-and-RNA-in-Biology,SCI.BIO.219,,
+,,,Central Dogma,,,,SCI.BIO.220,SCI.BIO.321,Introduces the process of DNA → RNA → Protein.
+,,,DNA,,,,SCI.BIO.221,"SCI.BIO.322,
+SCI.LSC.322,
+SCI.BIO.322.1,
+SCI.BIO.322.2",Explores the structure and function of the genetic material.
+,,,DNA Structure and Replication,,,,SCI.BIO.222,"SCI.BIO.323,
+SCI.LSC.323,
+SCI.BIO.323.2,
+SCI.BIO.323.3",Describes the DNA double helix and how DNA is copied during DNA replication in a semi-conservative manner.
+,,,Base Pairing,,,,SCI.BIO.223,SCI.BIO.323.1,"Describe the importance of the finding that in DNA, the amount of adenine and thymine were about the same and that the amount of guanine and cytosine were about the same."
+,,,RNA,,,,SCI.BIO.224,"SCI.BIO.324,
+SCI.LSC.324
+",Introduces the structures and functions of the three types of the messenger molecule RNA. 
+,,,RNA Structure,,,,SCI.BIO.225,SCI.BIO.324.1,RNA is a single stranded nucleic acid with uracil in place of thymine.
+,,,RNA Types,,,,SCI.BIO.226,"SCI.BIO.324.2,                       SCI.BIO.325.2","Identifies the three types of RNA: messenger RNA, transfer RNA, and ribosomal RNA."
+,,Protein Synthesis Overview,,,,,SCI.BIO.227,,
+,,,Protein Synthesis,,,Protein-Synthesis-in-Biology,SCI.BIO.228,"SCI.LSC.326.1,
+SCI.BIO.325",Describes the formation and regulation of RNA from DNA through protein synthesis.
+,,,Transcription,,,,SCI.BIO.229,"SCI.LSC.325,
+SCI.BIO.325.1",Describes the formation of RNA from template DNA which is then translated into proteins.
+,,,Genetic Code,,,Genetic-Code-in-Biology,SCI.BIO.230,SCI.BIO.326,Explains how mRNAs are translated to proteins using a three-nucleotide code to specify for particular amino acids.
+,,,Translation,,,,SCI.BIO.231,"SCI.BIO.327,
+SCI.LSC.327
+",Describes the process in which genetic instructions in mRNA are read to synthesize a protein.
+,,Mutations,,,,,SCI.BIO.232,,
+,,,Mutation,,,,SCI.BIO.233,"SCI.BIO.328.1,
+SCI.LSC.328,
+SCI.BIO.328","Explores permanent changes in the common DNA sequence of a gene, known mutations."
+,,,Mutation Causes,,,,SCI.BIO.234,SCI.BIO.328.2,Introduces that mutations can be caused by mutagens in the environment or can occur randomly.
+,,,Mutation Effects,,,,SCI.BIO.235,"SCI.BIO.328.3
+","Explore the effects of different types of mutation and explains that there are neutral, beneficial, and harmful mutations."
+,,,Cancer,,,,SCI.BIO.236,SCI.BIO.328.5,Describes the relationship between gene mutations and cancer.
+,,,DNA Repair,,,,SCI.BIO.237,SCI.BIO.328.4,Examines the mechanisms and specialized enzymes that our cells use to find and correct mutations as they occur. 
+,,Regulation and Gene Expression,,,,,SCI.BIO.238,,
+,,,Gene Expression,,,,SCI.BIO.239,"SCI.BIO.329.1,
+SCI.BIO.329",Controlling gene expression allows cells to have the same genes but different functions.
+,,,Prokaryotic Gene Regulation,,,,SCI.BIO.240,SCI.BIO.329.2,Explores gene regulation strategies when transcription and translation occur in the same space and introduces the lac operon. 
+,,,Eukaryotic Gene Regulation,,,,SCI.BIO.241,"SCI.BIO.329.3
+",Introduces several types of gene regulation in eukaryotes and explains the role of the TATA box.
+,,,Transcription Factors,,,,SCI.BIO.242,SCI.BIO.329.4,Introduces proteins that bind DNA and either activate or inhibit gene expression.
+,,,Gene Regulation and Cancer,,,,SCI.BIO.243,"SCI.BIO.329.5,
+SCI.BIO.242.2",Cancers are typically caused by two mutations that lead to misregulation of cell cycle genes. Loss of cell cycle regulation can lead to cancer as the cells grow uncontrolled.
+,Human Genetics and Biotechnology ,,,,,,SCI.BIO.244,,
+,,Human Chromosomes and Genes,,,,,SCI.BIO.245,,
+,,,Human Genome,,,,SCI.BIO.246,"SCI.BIO.331,
+SCI.LSC.338.3,
+SCI.BIO.337.3",Describes the collection of DNA sequences that are contained on human chromosomes which includes genes and non-coding sequences. Also discusses the international endeavor to sequence the entire human genome. Completed in 2003.
+,,,Chromosome,,,,SCI.BIO.247,SCI.BIO.332,Covers human autosomes and sex chromosomes.
+,,,Genetic Variation Overview,,,,SCI.BIO.248,,"Describes and explains modern human genetic variation, and identifies how knowledge of genetic variation can be used"
+,,,Classifying Human Variation ,,,,SCI.BIO.249,,Explains and gives pros and cons of three different ways of classifying human genetic variation
+,,,Genetic Linkage,,,,SCI.BIO.250,SCI.BIO.333,Discusses linked genes and why some characteristics are inherited together. 
+,,Human Inheritance,,,,,SCI.BIO.251,,
+,,,Pedigree,,,,SCI.BIO.252,SCI.LSC.336.1,Explains how charts are used to study the inheritance of traits.
+,,,Autosomal Inheritance,,,,SCI.BIO.253,SCI.BIO.334.1,Covers the chromosomes do not determine an organism's sex. Genes on these chromosomes usually have two alleles.
+,,,Sex-linked Inheritance,,,,SCI.BIO.254,"SCI.LSC.335.2,
+SCI.BIO.334.2",Introduces how genes present on X and Y chromosomes are transmitted and expressed.
+,,,Mendelian Inheritance ,,,,SCI.BIO.255,"SCI.BIO.334,
+SCI.BIO.330",Discusses Mendelian Inheritance of autosomal and sex-linked traits in humans.      
+,,,Non-Mendelian Inheritance,,,,SCI.BIO.256,"SCI.BIO.317,
+SCI.LSC.317
+
+
+
+",Descibes traits do not follow mendelian patterns and are partially dominant or dependent on multiple genes also known as dominance and codominance.
+,,,Genetic Disorders,,,,SCI.BIO.257,"SCI.BIO.336,
+SCI.LSC.336, 
+SCI.LSC.336.2
+
+",Discusses how changes in the structure or number of chromosomes can affect an individual and cause human diseases.
+,,,Gene Therapy,,,,SCI.BIO.258,"SCI.LSC.338.4,                    SCI.BIO.336.3",Introduces the diagnosis of genetic diseases as well as the current usage of gene therapy as a treatment option.
+,,Biotechnology Overview,,,,,SCI.BIO.259,,
+,,,Biotechnology,,,,SCI.BIO.260,"SCI.BIO.337
+",Discusses how scientists are able to manipulate DNA in the lab to study genes.
+,,,Recombinant DNA,,,,SCI.BIO.261,"SCI.LSC.338.1,
+SCI.BIO.337.1",
+,,,Cloning,,,,SCI.BIO.262,"SCI.LSC.338.2,
+SCI.BIO.338.2",Introduces the process through which genes can be cloned into animals for research purposes.
+,,,PCR,,,,SCI.BIO.263,SCI.BIO.337.2,"Describes the process developed in the 1980's which allows us to rapidly copy and mutate genes, revolutionizing molecular biology."
+,,,Biotechnology Applications,,,,SCI.BIO.264,SCI.BIO.338,Describes how biotechnology can be applied to various applications including medicine and agriculture. 
+,,,Forensic Science,,,,SCI.BIO.265,SCI.BIO.338.6,Explores methods used by crime-solvers to identify the owner of a particular DNA sequence.
+,,,Medicine,,,Medicine-in-Biology,SCI.BIO.266,SCI.BIO.338.7,Describes how biotechnology has allowed us to identify drug targets and produce biological medicines.
+,,,Agriculture,,,Agriculture-in-Biology,SCI.BIO.267,"SCI.LSC.338.5,
+SCI.BIO.338.5
+","Describes how biotechnology allows us to insert beneficial genes into plants, creating better crops to feed the world."
+,,,"Ethical, Legal, and Social Issues in Biotechnology (ELSI)",,,,SCI.BIO.268,SCI.BIO.339,"Discusses ethical, legal, and social issues associated with biotechnology."
+Evolution ,,,,,,,SCI.BIO.300,,
+,Studying the History of Life ,,,,,,SCI.BIO.301,,
+,,Learning About the Past,,,,,SCI.BIO.302,,
+,,,History of Life,,,,SCI.BIO.303,"SCI.BIO.411
+",Describes how scientists learn about the past by examining and dating fossils.
+,,,Fossil Record,,,,SCI.BIO.304,"SCI.BIO.411.2,
+SCI.BIO.411.3",Describes how the positions of fossils in rocks indicate their relative ages and how carbon dating allows scientists to determine the relative age of fossils but not the exact age. 
+,,,Molecular Clocks,,,,SCI.BIO.305,SCI.BIO.411.4,Describes how molecular clocks measure the degree of similarity between different species.
+,,,Geologic Time Scale ,,,Geologic-Time-Scale-in-Biology ,SCI.BIO.306,"SCI.LSC.428.6,
+SCI.BIO.411.5",Describes how major events in the evolution of life are used to divide up the geologic time scale
+,,Early Life,,,,,SCI.BIO.307,,
+,,,Formation of Earth,,,Formation-of-Earth-in-Biology,SCI.BIO.308,SCI.BIO.411.1,Introduces how Earth was formed through the Big Bang theory.
+,,,First Organic Molecules,,,,SCI.BIO.309,SCI.BIO.412,Describes the formation of the organic compounds needed for life.
+,,,First Cell,,,,SCI.BIO.310,"SCI.BIO.413,
+SCI.LSC.428.5",Describes how the first organic molecules formed.
+,,,Evolution of Eukaryotes,,,,SCI.BIO.311,"SCI.BIO.414
+",Discusses how eukaryotes evolved through the endosymbiotic theory.
+,,Multicellular Life,,,,,SCI.BIO.312,,
+,,,Multicellular Organism,,,,SCI.BIO.313,SCI.BIO.414.1,Introduces the impact of the evolution of multicellular life on Earth's biodiversity.
+,,,Late Precambrian,,,,SCI.BIO.314,SCI.BIO.415,Describes events from 2 billion to half a billion years ago.
+,,,Paleozoic Era,,,,SCI.BIO.315,SCI.BIO.416,Describes events from 544 to 245 million years ago.
+,,,Mesozoic Era,,,,SCI.BIO.316,"SCI.BIO.417,
+SCI.BIO.428.7",Describes events from 245 to 65 million years ago.
+,,,Cenozoic Era,,,,SCI.BIO.317,SCI.BIO.418,Describes events from 65 million years ago to the present.
+,,,Evolution in the Human Family,,,,SCI.BIO.318,,"Describes the phylogeny of the hominid family, their evolutionary history, and their modern traits and species numbers."
+,,,Early Hominin Evolution,,,,SCI.BIO.319,,"Describes proto- and early-hominin evolution in East and South Africa, focusing on the evolution of the australopithecines."
+,,,Evolution of the Genus Homo,,,,SCI.BIO.320,,"Describes early evolution in the genus Homo, including the species Homo habilis, Homo erectus, and Homo heidelbergensis."
+,,,Neanderthals and Other Archaic Humans,,,,SCI.BIO.321,,"Outlines the complex pattern of evolution of archaic humans, including Homo neanderthalensis, Homo floresiensis, and Homo denisova."
+,,,Evolution of Modern Humans ,,,,SCI.BIO.322,,Describes evidence and models for the evolution of Homo sapiens and how it came to be the only human species worldwide.
+,,,Role of Climate in Human Evolution,,,,SCI.BIO.323,,Discusses the role of climate change in hominin evolution as a selective pressure for encephalization and greater behavioral adaptability.
+,,,Role of Culture in Human Evolution,,,,SCI.BIO.324,,Explains how the use of culture allowed humans to adapt behaviorally rather than biologically as they expanded into new habitats throughout the world.
+,,Classification Overview,,,,,SCI.BIO.325,,
+,,,Classification,,,,SCI.BIO.326,"SCI.BIO.419.1,
+SCI.BIO.419","Describes the Linnean taxonomy, a way of classifying organisms in a hierarchy based on similarities and physical traits, as well as binomial nomenclature."
+,,,Domain,,,,SCI.BIO.327,"SCI.LSC.118.1,
+SCI.BIO.419.5","Introduces the three major domains of life (Bacteria, Archaea, and Eukarya) and the distinguishing features of each domain. "
+,,,Kingdom,,,,SCI.BIO.328,SCI.BIO.419.4,Decribes the six Kingdoms used to organize living things.
+,,,Phylogeny and Cladistics,,,,SCI.BIO.329,"SCI.BIO.419.2,
+SCI.BIO.419.3",Introduces classifications where organisms are grouped based on shared characteristics that come from the group's last common ancestor.
+,Evolutionary Theory,,,,,,SCI.BIO.330,,
+,,Darwin and the Theory of Evolution,,,,,SCI.BIO.331,,
+,,,Theory of Evolution,,,,SCI.BIO.332,"SCI.BIO.424,
+SCI.LSC.424","Introduces Charles Darwin's research, findings, and theories."
+,,,Darwin,,,,SCI.BIO.333,"SCI.BIO.422,
+SCI.BIO.421",Describes Darwin's observations on the Galapagos islands that led to his theory of evolution.
+,,,Influences on Darwin,,,,SCI.BIO.334,"SCI.BIO.423,
+SCI.LSC.423",Discusses how early thinkers influenced Darwin's development of the theory of natural selection.
+,,Evidence for Evolution Overview,,,,,SCI.BIO.335,,
+,,,Fossils,,,Fossils-in-Biology,SCI.BIO.336,"SCI.BIO.425.1,
+SCI.LSC.425.1",Describes the fossil record and how it supports the theory of evolution.
+,,,Evolution Evidence,,,,SCI.BIO.337,"SCI.BIO.425,
+SCI.LSC.425.4
+","Introduces evidence for evolution that includes work from Darwin's ''Origin,'' and new knowledge from genetics and molecular biology."
+,,,Comparative Anatomy,,,,SCI.BIO.338,SCI.BIO.425.2,"Demonstrates how living species provide anatomical evidence of evolution including homologous structures, embryology, and vestigial srtuctures."
+,,,Molecular Evidence,,,,SCI.BIO.339,"SCI.LSC.425.5,
+SCI.BIO.425.5",Disccuses the genetic code and molecular clocks as evidence for evolution.
+,,,Biogeography,,,,SCI.BIO.340,"SCI.BIO.425.3,
+SCI.BIO.425.3",Demonstrates how changes in geographic features explain puzzling fossil species distributions.
+,,Microevolution and the Genetics of Populations,,,,,SCI.BIO.341,,
+,,,Population Genetics,,,,SCI.BIO.342,SCI.BIO.426,"Introduction to macroevolution, microevolution, and population genetics."
+,,,Alleles ,,,,SCI.BIO.343,"SCI.BIO.426.3,
+SCI.BIO.426.1",Examines Mendel's work on genes and alleles and discusses allele frequencies.
+,,,Sources of Genetic Variation ,,,,SCI.BIO.344,SCI.BIO.426.4,"Covers sources, such as mutations and sexual reproduction, that allow for variation among populations."
+,,,Hardy-Weinberg,,,,SCI.BIO.345,"SCI.BIO.427,
+SCI.LSC.427",Describes a model that states that allele and genotype frequencies in a population will remain constant from generation to generation in the absence of other evolutionary influences.
+,,,Forces of Evolution,,,,SCI.BIO.346,SCI.BIO.428.1,Explains factors that drive evolution by causing allele frequencies to change.
+,,,Gene Flow,,,,SCI.BIO.347,SCI.BIO.427.1,Discusses mutation and gene flow leading to the variation of populations. 
+,,,Genetic Drift,,,,SCI.BIO.348,SCI.BIO.427.2,Describes the effects of population size and genetic drift on microevolution. 
+,,,Natural Selection,,,,SCI.BIO.349,"SCI.BIO.428.2,
+SCI.LSC.428.2,
+SCI.BIO.427.3,
+SCI.LSC.424.2",Explains how organisms in a population develop traits that allow them to survive and reproduce.
+,,,Human Responses to Environmental Stress,,,,SCI.BIO.350,,Explains and gives examples of four major ways that humans may respond to environmental stress.
+,,,Skin Color Variation,,,,SCI.BIO.351,,"Describes the geographic distribution, physiology, and evolution of human skin color."
+,,,Adaptation to Malaria,,,,SCI.BIO.352,,Describes malaria as a selective agent and identifies genetic adaptations to malaria.
+,,,Human Responses to High Altitude,,,,SCI.BIO.353,,Explains the high altitude stress of hypoxia and the short- and long-term responses it may elicit in humans.
+,,,Human Responses to Extreme Climates,,,,SCI.BIO.354,,Describes variation in human acclimatization and adaptation to heat and cold stresses.
+,,,Nutritional Adaptation,,,,SCI.BIO.355,,"Explains human variation in lactose intolerance, and identifies hypotheses explaining why some populations have very high rates of obesity and diabetes."
+,,,Evolution of Resistance,,,,SCI.BIO.356,SCI.BIO.425.7,Bacteria are constantly evolving and have developed levels of resistance to antibiotics.
+,,,Evolution Overview,,,,SCI.BIO.357,SCI.BIO.420,Summarizes the theory of evolution through case studies.
+,,Macroevolution and the Origin of Species,,,,,SCI.BIO.358,,
+,,,Origin of Species,,,,SCI.BIO.359,"SCI.BIO.428.3,
+SCI.LSC.428.3
+","Discusses how species originate through artificial selection, and reproductive and geographic isolation."
+,,,Species,,,,SCI.BIO.360,SCI.BIO.428,A group of individuals indicated by similar features and a common name. 
+,,,Speciation,,,,SCI.BIO.361,SCI.BIO.428.9,Illustrates the evolution of new species and examines factors that affect the rate of speciation.
+,,,Isolating Mechanisms,,,,SCI.BIO.362,SCI.BIO.428.8,"Describes the factors that isolate species, leading to speciation. "
+,,,Coevolution,,,,SCI.BIO.363,"SCI.BIO.429.1,                       SCI.BIO.425.6","Examines how evolution can be directed by interactions between species, leading to specialized, co-dependent organisms."
+,,,Macroevolution,,,,SCI.BIO.364,"SCI.BIO.429.2,
+SCI.LSC.428.4,
+SCI.BIO.426.2,
+SCI.BIO.411.6",Compares gradualism and punctuated equilibrium.
+,,,Tracing Evolution,,,,SCI.BIO.365,SCI.LSC.424.1,
+,,Animal Evolution Overview,,,,,SCI.BIO.366,,
+,,,Animal Evolution ,,,,SCI.BIO.367,SCI.BIO.429.3,Emphasizes major trends in evolution from sponges to amniotes.
+Ecology,,,,,,,SCI.BIO.400,,
+,Principles of Ecology ,,,,,,SCI.BIO.401,,
+,,The Science of Ecology,,,,,SCI.BIO.402,,
+,,,Ecology Overview,,,,SCI.BIO.403,"SCI.LSC.510,
+SCI.BIO.510
+",Introduces basic concepts of ecology.
+,,,Ecosystems,,,Ecosystems-in-Biology,SCI.BIO.404,"SCI.BIO.511,
+SCI.LSC.511
+",An ecosystem consists of all nonliving and living organisms interacting in the same habitat.
+,,,Ecological Organization,,,,SCI.BIO.405,SCI.LSC.510.1,"Describes species, population, community, ecosystem, and biosphere as the levels of ecological organization."
+,,,Ecology Methods,,,,SCI.BIO.406,SCI.BIO.511.2,Explores how scientists study the ways living things interact with each other and their environment. 
+,,,Habitat and Niche,,,,SCI.BIO.407,SCI.LSC.510.2,"Explains the role a species plays in the ecosystem,as well as the physical area where a species lives."
+,,,Energy Flow,,,,SCI.BIO.408,"SCI.BIO.512,
+SCI.LSC.512","Introduces producers, consumers, and decomposers."
+,,,Producer,,,,SCI.BIO.409,"SCI.LSC.512.1,
+SCI.BIO.512.1",Types of organisms that use light or chemical energy to produce organic compounds for itself and other living things. 
+,,,Consumers and Decomposers,,,,SCI.BIO.410,"SCI.LSC.512.2,
+SCI.BIO.512.2,
+SCI.BIO.512.3","Consumers are organisms that obtain food by eating other organisms. Decomposers, on the other hand, obtain food by breaking down the remains of dead organisms or other organic wastes."
+,,,Food Chain,,,,SCI.BIO.411,"SCI.BIO.513,
+SCI.LSC.513
+",Describes how food chains and webs represent feeding relationships in an ecosystem. 
+,,,"Trophic Level
+",,,,SCI.BIO.412,SCI.BIO.514,Describes feeding positions in a food chain or web.
+,,Biogeochemical Cycles,,,,,SCI.BIO.413,,
+,,,Water Cycle,,,,SCI.BIO.414,"SCI.BIO.515.1,
+SCI.LSC.515.1",Introduces the interconnected pathways through which water is recycled through the biosphere.
+,,,Carbon Cycle,,,,SCI.BIO.415,"SCI.BIO.515.2,
+SCI.LSC.515.2",Introduces the pathways through which carbon is recycled through the biosphere.
+,,,Nitrogen Cycle,,,,SCI.BIO.416,"SCI.BIO.515.3,
+SCI.LSC.515.3",Introduces the pathways through which nitrogen is recycled through the biosphere.
+,,Biomes Overview,,,,,SCI.BIO.417,,
+,,,Biome,,,,SCI.BIO.418,SCI.LSC.510.3,Groups of similar ecosystems with the same general abiotic factor and primary producers. 
+,,,Biomes and Climate,,,,SCI.BIO.419,"SCI.BIO.516.1,
+SCI.BIO.516.2",Introduces how the distribution of life on earth is heavily controlled by the weather.
+,,,Biosphere,,,,SCI.BIO.420,SCI.LSC.511.1,Describes the highest level of organization in ecology that includes all part of Earth where life can be found. 
+,,,Terrestrial ,,,,SCI.BIO.421,"SCI.BIO.516,
+SCI.LSC.516,
+SCI.BIO.516.4","Introduces the group of land-based ecosystems, such as tropical rainforests, temperate grasslands, and tundras.              Identifies how terrestial biomes can be classified."
+,,,Arctic,,,,SCI.BIO.422,SCI.BIO.516.5,"Identifiies artic and subartic biomes, which are found near the north and south poles or at high altitudes in other climate zones."
+,,,Temperate,,,,SCI.BIO.423,SCI.BIO.516.6,Identifies biomes that are found at a moderate temperature range and support a wide variety of life. 
+,,,Desert,,,,SCI.BIO.424,SCI.BIO.516.7,"Deserts are biomes that occur in hot, harsh temperatures with very little water."
+,,,Tropical,,,,SCI.BIO.425,SCI.BIO.516.8,"Tropical biomes are characterized by high temperatures, great amounts of sunlight and varying water resources."
+,,,Aquatic ,,,,SCI.BIO.426,"SCI.BIO.517,
+SCI.LSC.517
+","Describes water-based biomes, which support extremely diverse population structures. "
+,,,Aquatic Organisms,,,,SCI.BIO.427,SCI.BIO.517.2,"Describes distinctions between the plankton, nekton, and benthos organisms."
+,,,Marine,,,,SCI.BIO.428,SCI.BIO.517.3,"Covers different types of marine biomes, including: neritic, oceanic, and benthic biomes. "
+,,,Freshwater and Wetlands ,,,,SCI.BIO.429,SCI.BIO.517.1,Introduces freshwater biomes and describes the importance of wetlands.
+,Communities and Populations,,,,,,SCI.BIO.430,,
+,,Community Interactions,,,,,SCI.BIO.431,,
+,,,Predation,,,,SCI.BIO.432,"SCI.BIO.521.1,
+SCI.LSC.521.1",Introduces predation as a relationship between species when a predator organism feeds on another living organism or organisms.
+,,,Competition,,,,SCI.BIO.433,"SCI.BIO.521.2,
+SCI.LSC.521.2",Discusses competition as a relationship thatb occurs between and/or among species when they strive for limited resources.
+,,,Symbiosis,,,,SCI.BIO.434,"SCI.BIO.522,
+SCI.LSC.522",Describes a close and long-term relationship between different species to promote the survival of one of both creatures.
+,,,Succession,,,,SCI.BIO.435,"SCI.BIO.523,
+SCI.LSC.523","Describes the constant replacement of one community by another, either in an area that has or has not previously been colonized."
+,,Populations Overview,,,,,SCI.BIO.436,,
+,,,Population,,,,SCI.BIO.437,"SCI.BIO.524.1,
+SCI.LSC.524","Introduces important characteristics of ecological populations such as population size, density, and distribution."
+,,,Population Structure,,,,SCI.BIO.438,SCI.BIO.524.2,"Introduces population growth, population pyramids, and survivorship curves."
+,,,Population Growth,,,Population-Growth-in-Biology,SCI.BIO.439,SCI.BIO.525,"Covers rates of birth, death, immigration, and emigration."
+,,,Births and Deaths,,,,SCI.BIO.440,SCI.BIO.525.4,Explores how reproductive rate and success influence natural population sizes.
+,,,Migration and Population Growth,,,,SCI.BIO.441,SCI.BIO.525.5,Describes how population growth is heavily affected by the movement of individuals into and out of a population. 
+,,,Population Growth Patterns,,,,SCI.BIO.442,"SCI.BIO.525.1,
+SCI.LSC.525.1,
+SCI.BIO.525.6",Compares expotential and logistic population growth patterns.
+,,,Population Growth Limits,,,,SCI.BIO.443,"SCI.BIO.525.7,
+SCI.LSC.525.3
+",Explore the factors that limit the expansion of a species.
+,,Human Population Growth,,,,,SCI.BIO.444,,
+,,,Human Population,,,,SCI.BIO.445,"SCI.BIO.525.2, SCI.LSC.525.2, SCI.BIO.525.8",Discusses past and future human population growth. 
+,,,Demographic Transition,,,,SCI.BIO.446,SCI.BIO.526,Describes population changes due to dramatic changes in birth and death rates.
+,,,Recent and Future Population Growth,,,,SCI.BIO.447,"SCI.BIO.526.1,
+SCI.BIO.526.2,
+SCI.BIO.526.3",Describes the future growth of the human population.
+,,Ecology and Human Actions,,,,,SCI.BIO.448,,
+,,,Biodiversity,,,,SCI.BIO.449,"SCI.BIO.527,
+SCI.BIO.516.3","Distinguishes between species diversity, genetic diversity, and ecosystem diversity. "
+,,,Importance of Biodiversity,,,,SCI.BIO.450,"SCI.BIO.527.1,
+SCI.LSC.527.1
+",Introduces the economic benefits and ecosystem services of biodiversity.
+,,,Protecting Biodiversity,,,,SCI.BIO.451,SCI.BIO.527.5,Diverse ecosystems are essential to a healthy planet; responsible use of resources can protect this diversity.
+,,,Mass Extinction,,,,SCI.BIO.452,"SCI.BIO.527.2,
+SCI.LSC.527.4,
+SCI.LSC.428.7",Describes the current human influenced mass extinction and ways humans cause destruction.                
+,,,Habitat Destruction ,,,,SCI.BIO.453,SCI.LSC.527.3,Describes the ways humans cause habitat loss and destruction.
+,,Natural Resources ,,,,Natural-Resources-in-Biology,SCI.BIO.454,,
+,,,Resources,,,,SCI.BIO.455,"SCI.BIO.528.1,
+SCI.BIO.528","Identifies renewable and nonrenewable resources based on the rate at which humans use a resource. Natural resources, such as water, oxygen, and soil, are supplied by nature and help support life."
+,,,Renewable Resources,,,,SCI.BIO.456,SCI.LSC.532.1,Describes resources that are remade by natural processes at the same rates they are used.
+,,,Nonrenewable Resources,,,,SCI.BIO.457,SCI.LSC.532.2,Describes natural resources that are consumed or used up faster than can be made by nature.
+,,,Conservation,,,,SCI.BIO.458,"SCI.BIO.528.9,
+SCI.LSC.532.3",Describes ways to responsibly conserve limited natural resources.  
+,,,Soil and Water ,,,,SCI.BIO.459,"SCI.BIO.528.2,
+SCI.LSC.531.4,
+SCI.BIO.528.8",Introduces soil and water as natural resources while discussing ways to preserve these resources.
+,,,Water Pollution,,,Water-Pollution-in-Biology,SCI.BIO.460,"SCI.LSC.531.2,
+SCI.LSC.531.3",Introduces various sources and effects of water polution.
+,,Air Pollutions,,,,,SCI.BIO.461,,
+,,,Air Pollution,,,,SCI.BIO.462,"SCI.BIO.528.3,
+SCI.LSC.528.4,
+SCI.BIO.528.4                  ","Introduces indoor/outdoor air pollution, acid rain, and ozone depletion as issues affecting the atmosphere."
+,,,Indoor Air Pollution,,,,SCI.BIO.463,SCI.LSC.528.5,"Covers causes of indoor air pollution, including biological sources, and how to limit exposure."
+,,,Health Hazards of Air Pollution,,,,SCI.BIO.464,SCI.LSC.531.1,Covers health issues related to air pollution and how to decrease exposure.
+,,,Acid Rain,,,Acit-Rain-in-Biology,SCI.BIO.465,SCI.BIO.528.6,"Describes how pollutants released into the air can rain back down, damaging ecosystems and eroding works of art."
+,,,Ozone Depletion,,,Ozone-Depletion-in-Biology,SCI.BIO.466,SCI.BIO.528.7,Explores how the stratosphere shields our planet from harmful UV radiation but has been depleted in some areas above the planet.
+,,Climate Change,,,,,SCI.BIO.467,,
+,,,Global Warming,,,Global-Warming-in-Biology,SCI.BIO.468,"SCI.BIO.529,
+SCI.BIO.529.2",Explains the greenhouse effect and global warming while Describing methods of preventing climate change.
+,,,Greenhouse Effect,,,Greenhouse-Effect-in-Biology,SCI.BIO.469,SCI.BIO.529.1,Explores how Earths atmosphere allows it to trap solar energy and maintain a consistent surface temperature.
+Microorganisms and Fungi,,,,,,,SCI.BIO.500,,
+,Bacteria and Viruses,,,,,,SCI.BIO.501,,
+,,Prokaryotes Overview,,,,,SCI.BIO.502,,
+,,,Prokaryotes,,,,SCI.BIO.503,"SCI.BIO.611,
+SCI.BIO.612",Describes single-celled organisms which lack a nucleus and membrane bound organelles.
+,,,Archaea,,,,SCI.BIO.504,"SCI.LSC.640,
+SCI.BIO.610.1","Examines the prokaryotic organisms Archaea, a distinct arm of prokaryotes which exist in extreme conditions few other organisms can survive."
+,,,Types of Archaea,,,,SCI.BIO.505,SCI.LSC.641,"Distinguishes between halophiles, thermophiles, and methanogens."
+,,Bacteria Overview,,,,,SCI.BIO.506,,
+,,,Bacteria ,,,,SCI.BIO.507,SCI.BIO.610.2,Examines different types of bacteria which are the most common prokaryotes and the most abundant and diverse forms of life on earth.
+,,,Bacteria Classification,,,,SCI.BIO.508,SCI.BIO.612.1,Describes the classification of Domain Bacteria and Archaea.
+,,,Gram Stain,,,,SCI.BIO.509,SCI.BIO.612.7,Examines the Gram Stain method that distinguishes different prokaryotes based on the structure of their cell wall.
+,,,Bacteria Structure,,,,SCI.BIO.510,"SCI.BIO.612.2,
+SCI.BIO.612.8,
+SCI.BIO.612.9","Explores the structures inside most prokaryotic cell as well as special structures for movement, protection and signaling present on the outside of prokaryotes."
+,,,Bacteria Characteristics,,,,SCI.BIO.511,SCI.LSC.631,Introduces bacterial cell shapes and structures.
+,,,Bacteria Nutrition,,,,SCI.BIO.512,"SCI.BIO.612.3,
+SCI.LSC.632",Covers the different types of metabolism bacteria use to obtain energy and nutrients.
+,,,Bacteria Habitat,,,,SCI.BIO.513,SCI.BIO.612.4,Introduces the different types of habitats prokaryotes live.
+,,,Bacteria Symbiosis,,,,SCI.BIO.514,SCI.BIO.612.6,"Examines symbiotic relationships in which prokaryotes usually live in close association with larger organisms where they can help, harm or have no effect."
+,,,Bacteria Reproduction,,,,SCI.BIO.515,"SCI.BIO.612.5,
+SCI.LSC.633",Covers binary fission and how bacteria exchange DNA.
+,,,Bacteria and Humans,,,,SCI.BIO.516,"SCI.BIO.613,
+SCI.LSC.613.1,
+SCI.LSC.613.2,  
+SCI.BIO.613.1",Introduces beneficial and harmful relationships between humans and bacteria.     
+,,,Bacteria and Research,,,,SCI.BIO.517,SCI.BIO.613.8,Explores how researchers use bacteria to produce biological products by transforming them with new genes.
+,,,Bacterial Diseases,,,,SCI.BIO.518,"SCI.BIO.613.3,
+SCI.BIO.613.4,
+SCI.BIO.613.5,
+SCI.BIO.613.6",Describes how bacteria can invade the body and cause disease by destroying tissues or releasing toxins as well as ways to prevent and treat bacterial infections.
+,,,Control of Bacteria,,,,SCI.BIO.519,SCI.BIO.613.7,"Identifies ways to protect from infectious disease such as disinfectants, bactericides and sterilizing agents to eliminate bacteria."
+,,Viruses Overview,,,,,SCI.BIO.520,,
+,,,Virus,,,,SCI.BIO.521,"SCI.BIO.223.1,
+SCI.LSC.223.1",Defines what viruses are and how they are different from living organisms.
+,,,Virus Characteristics,,,,SCI.BIO.522,"SCI.BIO.614,
+SCI.BIO.614.1","Introduces basic viral characteristics, including replication and habitats of sub-microscopic particles that can infect a cell to produce more of themselves."
+,,,Virus Structure,,,,SCI.BIO.523,SCI.BIO.615.1,"Describes the structure of helical, icosahedral, complex and enveloped viruses."
+,,,Virus Classification,,,,SCI.BIO.524,SCI.BIO.615.2,Introduces virus classification based on characteristics of the viral particles.
+,,,Virus Origin,,,,SCI.BIO.525,"SCI.BIO.616,
+SCI.BIO.616.1,
+SCI.BIO.616.2",Describes the discovery of viruses and two hypotheses for the origin of viruses.
+,,,Virus Replication,,,,SCI.BIO.526,SCI.BIO.615.3,Describes how viruses produce new copies of themselves.
+,,,Lytic Cycle,,,,SCI.BIO.527,SCI.BIO.615.4,Describes the life cycle where virus genome doesn't integrate into host and produces viral particles.
+,,,Lysogenic Cycle,,,,SCI.BIO.528,SCI.BIO.615.5,Describes the life cycle where virus genome integrates into host genome
+,,,Viral Disease,,,,SCI.BIO.529,SCI.BIO.617,Discusses the flu and emerging viral diseases.
+,,,HIV,,,,SCI.BIO.530,SCI.BIO.617.1,Introduces the virus that causes AIDS.
+,,,Virus Control,,,,SCI.BIO.531,SCI.BIO.618,Describes how viruses can be controlled by vaccines and antiviral drugs.
+,,,Viruses in Research,,,,SCI.BIO.532,SCI.BIO.619,Examines the beneficial roles of viruses in research and medicine.
+,,,Prions and Viroids,,,,SCI.BIO.533,SCI.BIO.619.1,Prions are infectious proteins that cause disease. Viroids are small nucleic acids that cause growth defects in plants.
+,Protists and Fungi ,,,,,,SCI.BIO.534,,
+,,Protists Overview ,,,,,SCI.BIO.535,,
+,,,Protists,,,,SCI.BIO.536,SCI.BIO.621,"Gives a general introduction to the non-plant, non-animal and non-fungi eukaryotes."
+,,,Importance of Protists,,,,SCI.BIO.537,SCI.LSC.622.5,Covers the importance of protists in the ecosystem and environment.
+,,,Protist Evolution,,,,SCI.BIO.538,SCI.BIO.621.1,"Introduces evolution of the non-plant, non-animal and non-fungi eukaryotes."
+,,,Protist Classification,,,,SCI.BIO.539,SCI.BIO.621.2,Examines how protists are classified based on molecular classifications rather than appearance.
+,,,Protist Characteristics,,,,SCI.BIO.540,"SCI.BIO.622,
+SCI.LSC.622","Introduces general characteristics of the non-plant, non-animal and non-fungi eukaryotes."
+,,,Protist Nutrition,,,,SCI.BIO.541,SCI.LSC.622.1,Covers the different techniques protists use to gain nutrition.
+,,Animal-Like Protists - Protozoa,,,,,SCI.BIO.542,,
+,,,Protozoa,,,,SCI.BIO.543,"SCI.BIO.623.1,
+SCI.LSC.622.2",Introduces the ecology and classification of animal-like protists.
+,,,Protozoa Characteristics,,,,SCI.BIO.544,SCI.BIO.650,"Describes protists that consume other organisms and move, known as protozoa."
+,,,Protozoa Classification,,,,SCI.BIO.545,SCI.BIO.650.1,Explores the many classes of plant-like protists and their characteristics based on their method of movement.
+,,,Ciliates,,,,SCI.BIO.546,SCI.BIO.650.2,Introduces protozoa that move using cilia that cover their exterior.
+,,,Flagellates,,,,SCI.BIO.547,SCI.BIO.650.3,Introduces protozoa that move using flagella and may or may not possess chloroplasts.
+,,,Sporozoans,,,,SCI.BIO.548,SCI.BIO.650.4,Introduces parasitic protozoa that possess an apical complex which allows them to enter host cells.
+,,Plant-Like Protists - Algae,,,,,SCI.BIO.549,,
+,,,Algae,,,,SCI.BIO.550,"SCI.BIO.623.2,
+SCI.LSC.622.3","Introduces algae, which are plant-like protists that are a large, diverse group of photosynthetic organisms."
+,,,Algae Characteristics,,,,SCI.BIO.551,SCI.BIO.660,Describes photosynthetic protists known as algae that can be uni- or multicellular.
+,,,Algae Reproduction,,,,SCI.BIO.552,SCI.BIO.660.1,"Explores how algae reproduce sexually and asexually, each method having different advantages."
+,,,Algae Classification,,,,SCI.BIO.553,SCI.BIO.660.2,Explores the many classes of plant-like protists and their characteristics.
+,,,Ecology of Algae,,,,SCI.BIO.554,SCI.BIO.660.3,Describes algae as important primary producers and how some form symbiotic relationships with other organisms.
+,,,Algae Use,,,,SCI.BIO.555,SCI.BIO.660.4,"Describes how algae are used to produce food, biofuel and help control pollution."
+,,Fungus-Like Protists - Molds,,,,,SCI.BIO.556,,
+,,,Mold,,,,SCI.BIO.557,"SCI.BIO.623.3,
+SCI.LSC.622.4","Discusses molds, which are fungus-like protists that rapidly grow and asexually reproduce."
+,,,Mold Characteristics and Classification,,,,SCI.BIO.558,SCI.BIO.670,Examines the characteristics and classification of fungus-like protists.
+,,,Slime Mold,,,,SCI.BIO.559,SCI.BIO.670.1,"Describes organisms that exist individually as amoebae but can aggregate into a larger ""slime mold"" when food is scarce."
+,,,Water Mold,,,,SCI.BIO.560,SCI.BIO.670.2,Describes protists that have tube-like bodies and prefer humid or running water conditions.
+,,,Protists and Disease,,,,SCI.BIO.561,"SCI.BIO.628, 
+SCI.BIO.650.5",Examines how some protozoa cause serious illness in humans and animals and have multi-host life cycles.
+,,Fungi Overview,,,,,SCI.BIO.562,,
+,,,Fungi,,,,SCI.BIO.563,"SCI.BIO.624,
+SCI.LSC.624",Introduces the heterotrophic organisms that build their cell walls from the polysaccharide chitin and explains their classification.
+,,,Fungi Structure,,,,SCI.BIO.564,"SCI.BIO.624.1,
+SCI.LSC.624.1","Introduces the hyphae, mycelium, and fruiting body."
+,,,Fungi Nutrition,,,,SCI.BIO.565,SCI.BIO.624.2,Describes that fungi are heterotrophs that are effective at breaking down and absorbing dead or living organic matter.
+,,,Fungi Reproduction,,,,SCI.BIO.566,"SCI.BIO.624.3,
+SCI.LSC.624.3",Introduces both sexual and asexual reproduction in fungi.
+,,,Fungi Evolution,,,,SCI.BIO.567,SCI.BIO.624.4,Describes the evolution of fungi from protists.
+,,Fungi Classification Overview,,,,,SCI.BIO.568,,
+,,,Fungi Classification ,,,,SCI.BIO.569,"SCI.BIO.625,
+SCI.LSC.625","Describes the difference between plants and fungi, and lists the common types of fungi."
+,,,Zygomycota,,,,SCI.BIO.570,SCI.BIO.625.1,Describes multicellular fungi that generate a zygospore during sexual reproduction.
+,,,Basidomycota,,,,SCI.BIO.571,SCI.BIO.625.2,Describes multicellular fungi that produce large fruiting bodies and club-like cells called basidia that produce spores.
+,,,Ascomycota,,,,SCI.BIO.572,SCI.BIO.625.3,Describes fungi that produce non-motile spores from a sac like cell called an ascus.
+,,Fungi Ecology,,,,,SCI.BIO.573,,
+,,,Fungi Symbiosis,,,,SCI.BIO.574,"SCI.BIO.626,
+SCI.LSC.626","Introduces relationships fungi have with other organisms, including mycorrhizae and lichen."
+,,,Fungi Habitat,,,,SCI.BIO.575,SCI.BIO.624.5,Explains how fungi exist in a variety of habitats and are important decomposers.
+,,,Use of Fungi,,,,SCI.BIO.576,"SCI.BIO.627,
+SCI.LSC.627","Introduces how many fungi are edible and delicious, while others can produce antibacterial compounds."
+,,,Fungi Diseases,,,,SCI.BIO.577,SCI.BIO.629,"Introduces fungal poisoning, parasites and allergies."
+Plants,,,,,,,SCI.BIO.600,,
+,Evolution and Classification of Plants,,,,,,SCI.BIO.601,,
+,,Plant Overview,,,,,SCI.BIO.602,,
+,,,Plant Characteristics,,,,SCI.BIO.603,"SCI.BIO.711,
+SCI.LSC.711
+",Introduction to plants and some of their common traits and needs.
+,,,Importance of Plants,,,,SCI.BIO.604,SCI.BIO.712                      ,Discusses the importance of plants to sustaining life on Earth through the production of oygen and food by photosynthesis.                      
+,,,Plant Life Cycle ,,,,SCI.BIO.605,SCI.BIO.726,"Introduction to the alternation of generations, a life cycle characteristic of all plants."
+,,,Plant Evolution,,,,SCI.BIO.606,"SCI.BIO.713.1, SCI.BIO.713, SCI.LSC.711.1",Explores the evolution of plants from simple mosses to flowering trees and the main ways that plants adapted to life on land.
+,,,Seed Plant Evolution,,,,SCI.BIO.607,SCI.BIO.713.2,Describes how plants with seeds evolved.
+,,,Plant Classification,,,,SCI.BIO.608,"SCI.BIO.710,
+SCI.LSC.710",Introduces a comparison between nonvascular and vascular plants.
+,,Nonvascular Plants Overview,,,,,SCI.BIO.609,,
+,,,Nonvascular Plants,,,,SCI.BIO.610,"SCI.BIO.714,
+SCI.LSC.714,
+SCI.BIO.714.1,
+SCI.BIO.714.2","Introduces nonvascular plants that lack roots, stems, leaves, and vascular tissues (xylem and phloem) and describes the three divisions of non-vascular plants: liverworts, hornworts, and mosses.            "
+,,,Bryophytes,,,,SCI.BIO.611,,"Introduces bryophytes which are small, nonvascular plants that live in moist, terrestrial habitats."
+,,Vascular Plants Overview,,,,,SCI.BIO.612,,
+,,,Vascular Plants,,,,SCI.BIO.613,"SCI.BIO.715,
+SCI.LSC.715.1,
+SCI.BIO.715.3",Introduces plants with vascular systems that have tissues for conducting water and minerals throughout the plant.
+,,,Vascular Plants Evolution,,,,SCI.BIO.614,SCI.BIO.715.4,Describes the methods by which vascular plants evolved and continue to evolve today.
+,,,Fern,,,,SCI.BIO.615,SCI.BIO.715.5,"Examines one of the phylum of seedless vasuclar plants that reproduce by spores, ferns."
+,,Seed Plants Overview,,,,,SCI.BIO.616,,
+,,,Seed Plants,,,,SCI.BIO.617,"SCI.BIO.716,
+SCI.LSC.716.1",Introduces plants that use seeds for reproduction.
+,,,Seed Dispersal,,,,SCI.BIO.618,SCI.LSC.726.8,Defines the seed and explains why plants with seeds are successful.
+,,,Evolution of Seed Plants,,,,SCI.BIO.619,SCI.BIO.716.2,Describes how reproduction in plants played an important role in their evolution.
+,,,Seed Plant Diversity,,,,SCI.BIO.620,SCI.BIO.716.3,Examines the six divisions of seed plants within the plant kingdom.
+,,Flowering Plants Overview,,,,,SCI.BIO.621,,
+,,,Angiosperm,,,,SCI.BIO.622,"SCI.BIO.717,
+SCI.LSC.717.1",Introduces flowering plants.                           Introduces plants that have flowers as reproductive structures.
+,,,Angiosperm Characteristics,,,,SCI.BIO.623,SCI.BIO.717.2,Examines the characteristics of flowering plants.
+,,,Angiosperm Evolution,,,,SCI.BIO.624,SCI.BIO.717.3,Examines how flowers probably began as a series of modified leaves spiraled around the stem and co-evolved with their pollinators.
+,,,Angiosperm Diversity ,,,,SCI.BIO.625,SCI.BIO.717.4,There are three major classes of angiosperms; classification continues to evolve.
+,,,Angiosperm Structure,,,,SCI.BIO.626,SCI.BIO.718.1,"Examines angiosperms’ organs of sexual reproduction, flowers."
+,,,Eudicots,,,,SCI.BIO.627,SCI.BIO.717.5,"Examines the largest family flowering plants, eudicots."
+,,,Monocots,,,,SCI.BIO.628,SCI.BIO.717.6,"Examines one of the largest families of flowering plants, monocots."
+,Structure and Function in Plants,,,,,,SCI.BIO.629,,
+,,Plant Tissues and Growth,,,,,SCI.BIO.630,,
+,,,Plant Cell,,,,SCI.BIO.631,SCI.BIO.721,Provides an introduction to the cells of plants.
+,,,Plant Tissue,,,,SCI.BIO.632,SCI.BIO.722,"Introduces the dermal, ground, and vascular tissues of plants."
+,,,Angiosperm Tissues,,,,SCI.BIO.633,SCI.BIO.717.7,"Introduces how pkants, like humans, are made of specialized cells which make up tissues."
+,,,Dermal Tissue,,,,SCI.BIO.634,SCI.BIO.722.2,Examines how the dermis of a plant covers and protects a plant just as skin covers and protects humans.
+,,,Ground Tissue,,,,SCI.BIO.635,SCI.BIO.722.3,"Examines how ground tissue conducts the basic functions of photosynthesis, food storage, and support."
+,,,Vascular Tissue ,,,,SCI.BIO.636,SCI.BIO.722.4,Examines how the structure of xylem and phloem helps vascular tissues to transport water and minerals throughout the plant.
+,,,Plant Growth,,,,SCI.BIO.637,SCI.BIO.722.1,Introduces meristem and its role in plant growth.
+,,Roots Overview,,,,,SCI.BIO.638,,
+,,,Roots,,,,SCI.BIO.639,SCI.BIO.723,"Introduces the structure, function, and growth of roots."
+,,,Root Types,,,,SCI.BIO.640,SCI.BIO.723.1,Examines how roots may specialize to help with adaptation to unusual environments.
+,,,Root Structure,,,,SCI.BIO.641,SCI.BIO.723.2,"Examines how roots have specialized structures to aid in absorption, storage, and support."
+,,,Root Function,,,,SCI.BIO.642,SCI.BIO.723.3,Describes the function of plant roots.
+,,,Root Growth,,,,SCI.BIO.643,SCI.BIO.723.4,Examines how specific tissue within plant roots accomplish primary and secondary growth
+,,Stems Overview,,,,,SCI.BIO.644,,
+,,,Stems,,,,SCI.BIO.645,SCI.BIO.724,"Introduces the structure, function, and growth of stems."
+,,,Stem Types,,,,SCI.BIO.646,SCI.BIO.724.1,Describes how the different types of stems depend on the environment.
+,,,Stem Structure and Function,,,,SCI.BIO.647,SCI.BIO.724.2,Examines how the structure of plants stems is related to the function they need to carry out.
+,,,Stem Growth,,,,SCI.BIO.648,SCI.BIO.724.3,Examines how stems grow in two different directions - primary and secondary growth.
+,,Leaves Overview,,,,,SCI.BIO.649,,
+,,,Leaves,,,,SCI.BIO.650,SCI.BIO.725,"Introduces the structure, function, and growth of leaves."
+,,,Leaf Types,,,,SCI.BIO.651,SCI.BIO.725.1,Describes different types of leaves and the reasons for their different structures.
+,,,Leaf Structure and Function,,,,SCI.BIO.652,SCI.BIO.725.2,Describes how leaves are made of several different kinds of specialized tissues.
+,,Reproduction of Plants,,,,,SCI.BIO.653,,
+,,,Plant Reproduction and Life Cycle,,,,SCI.BIO.654,"SCI.BIO.726.2,
+SCI.LSC.711.2",Introduces the alternation of generations life cycle of plants.
+,,,Life Cycle of Non-flowering Plants,,,,SCI.BIO.655,SCI.BIO.726.9,Describes the life cycles of non-flowering plants.
+,,,Life Cycle of Nonvascular Plants,,,,SCI.BIO.656,SCI.BIO.726.3,Introduces the bryophyte life cycle.
+,,,Life Cycle of Seedless Vascular Plants,,,,SCI.BIO.657,"SCI.BIO.726.4,
+SCI.LSC.726.7",Explains alternation of generations in vascular and nonvascular seedless plants.
+,,,Gymnosperm Life Cycle,,,,SCI.BIO.658,SCI.BIO.726.5,Introduces the life cycle of vascular plants that produce seeds in cones. 
+,,,Angiosperm Life Cycle,,,,SCI.BIO.659,SCI.BIO.726.6,Introduces the life cycle of plants with flowers.
+,,,Angiosperm Reproduction,,,,SCI.BIO.660,"SCI.BIO.718.2,
+SCI.BIO.718.3",Examines the methods of pollination and fertilization of angiosperms.  
+,,,Vegetative Reproduction,,,,SCI.BIO.661,SCI.BIO.718.8,"Examines how vegetative reproduction produces clones, which lack variation but rapidly reproduce in stable habitats."
+,,,Propagation,,,,SCI.BIO.662,SCI.BIO.718.9,Examines how plants are propagated in order to increase production rather than relying on them to reproduce naturally.
+,,,Seeds and Fruits,,,,SCI.BIO.663,"SCI.BIO.718.4, 
+SCI.BIO.718.5","Examines the fruits, or ripened ovaries which contains seeds, produced by angiosperms. Examines the seeds produced by angiosperms which serve specific purposes in reproduction among flowering plants."
+,,,Fruit and Seed Dispersal,,,,SCI.BIO.664,"SCI.BIO.718.6
+",Examines the methods by which angiosperms spread their fruit and seeds to reduce competition and promote colonization.
+,,,Dormancy and Germination,,,,SCI.BIO.665,SCI.BIO.718.7,Examines different environments where seeds germinate or are dormant.
+,,Plant Adaptations and Responses,,,,,SCI.BIO.666,,
+,,,Plant Adaptations,,,,SCI.BIO.667,"SCI.BIO.727,
+SCI.LSC.728.2",Introduces how plants have adapted to a diversity of environments.                               Discusses how plants sense changes of seasons.
+,,,Epiphytes,,,,SCI.BIO.668,SCI.BIO.719.3,Examines plants that are able to grow on other plants but get their nutrition from the surrounding environment.
+,,,Carnivorous Plants,,,,SCI.BIO.669,SCI.BIO.719.4,Examines plants that are carnivorous and the ways in which they obtain nutrients and energy.
+,,,Hydrophytes,,,,SCI.BIO.670,SCI.BIO.719.1,Examines plants that grow in or on water and their important adaptations.
+,,,Xerophytes,,,,SCI.BIO.671,SCI.BIO.719.2,Examines plants that are adapted to grow in dry environments and their special adaptations for water storage.
+,,,Plant Responses,,,,SCI.BIO.672,SCI.BIO.728,Introduces how plants use hormones to respond to different situations.
+,,Plant Hormones Overview ,,,,,SCI.BIO.673,,
+,,,Plant Hormones,,,,SCI.BIO.674,"SCI.BIO.727.1,
+SCI.LSC.727.1,
+SCI.BIO.728.3","Examines how hormones control growth, flowering, fruiting, aging, and even death of plants."
+,,,Abscisic Acid,,,,SCI.BIO.675,SCI.BIO.727.2,Covers the function of the plant hormone abscisic acid.
+,,,Auxins,,,,SCI.BIO.676,SCI.BIO.727.3,Covers the function of the plant hormone auxin.
+,,,Cytokines and Gibberellins,,,,SCI.BIO.677,SCI.BIO.727.4,Covers the function of the plant hormones cytokines and gibberllins.
+,,,Ethylene and Brassonsteroids,,,,SCI.BIO.678,SCI.BIO.727.5,Covers the functions of the plant hormones ethylene and brassonsteroids.
+,,Plant Growth and Responses,,,,,SCI.BIO.679,,
+,,,Tropisms,,,,SCI.BIO.680,"SCI.LSC.728.1,
+SCI.BIO.728.1",Examines how plants often move towards and away from stimulus.
+,,,Nastic Movements,,,,SCI.BIO.681,SCI.BIO.728.4,Examines how plants often move in response to a stimulus (like a bud opening in response to light).
+,,,Photoperodism and Circadian Rhythms,,,,SCI.BIO.682,SCI.BIO.728.5,Examines how plants often respond to daily fluctuations in light as well as seasonal changes in daylength.
+,,,Protective Responses,,,,SCI.BIO.683,SCI.BIO.728.6,Describes adapted protective responses of plants.
+Invertebrates,,,,,,,SCI.BIO.700,,
+,Animals and Invertebrates,,,,,,SCI.BIO.701,,
+,,Animal Overview,,,,,SCI.BIO.702,,
+,,,Animals,,,,SCI.BIO.703,SCI.BIO.811,Provides a general introduction to the animal kingdom.
+,,,Animal Classification,,,,SCI.BIO.704,SCI.BIO.812,Provides a general introduction to the nine animal phyla with the greatest number of species. 
+,,Animal Behavior Overview,,,,,SCI.BIO.705,,
+,,,Animal Behavior,,,,SCI.BIO.706,"SCI.LSC.849, 
+SCI.BIO.847.1",Gives examples and explains the importance of animal behavior.
+,,,Animal Behavior Evolution,,,,SCI.BIO.707,SCI.BIO.847,Introduces animal behavior and the nature-nurture debate.
+,,,Innate Behavior,,,,SCI.BIO.708,"SCI.BIO.848.1,
+SCI.LSC.848.1",Discusses instinctive behaviors that occurs naturally in all animals of a given species. 
+,,,Learned Behavior,,,,SCI.BIO.709,"SCI.BIO.848.2,
+SCI.LSC.848.2",Describes behavior that occurs only after experience or practice. 
+,,,Social Behavior,,,,SCI.BIO.710,"SCI.BIO.849.1,
+SCI.LSC.849.1","Describes forms of intraspecies communication include auditory, visual, display rituals, and pheromones."
+,,,Communication,,,,SCI.BIO.711,SCI.LSC.849.4,Identifies means of communication between animals.
+,,,Agression,,,,SCI.BIO.712,SCI.BIO.849.6,Examines animal aggression and why it may be favored by natural selection.
+,,,Animal Competition,,,,SCI.BIO.713,SCI.BIO.849.7,Examines reasons why competition is necessary for natural selection.
+,,,Cyclic Behavior,,,,SCI.BIO.714,"SCI.BIO.849.2,
+SCI.LSC.849.2",Describes behaviors that occur on a daily or yearly cycle.
+,,,Migration,,,,SCI.BIO.715,SCI.BIO.849.5,Describes how and why animals migrate.
+,,,Circadian Rhythm,,,,SCI.BIO.716,,Describes behaviors of animals that occur in cycles.
+,,,Reproductive Behavior,,,,SCI.BIO.717,"SCI.BIO.849.3,
+SCI.LSC.849.3",Describes behaviors of animals that have to do with the pairing of a male and female animal that can lead to the production of offspring.
+,,,Courtship,,,,SCI.BIO.718,SCI.BIO.849.8,"Covers the courtship behaviors, such as elaborate ""dances"" and/or vocal behaviors"" of animals."
+,,,Parental Care,,,,SCI.BIO.719,SCI.BIO.849.9,Covers the different methods of parental care that vary greatly from one species of animal to another.
+,,Invertebrate Overview,,,,,SCI.BIO.720,,
+,,,Invertebrate Diversity,,,,SCI.BIO.721,"SCI.BIO.814,
+SCI.LSC.820","Introduces eukaryotic, heterotrophic animals that lack a vertebral column and bony skeleton."
+,,,Invertebrate Evolution,,,,SCI.BIO.722,SCI.BIO.815,"Explore different types of body symmetry, tissue organization and embryonic development in invertebrates."
+,,,Invertebrate Classification,,,,SCI.BIO.723,SCI.BIO.816,Gives an overview of the classification of invertebrate animals into 30 phyla.
+,Sponges and Cnidarians,,,,,,SCI.BIO.724,,
+,,Sponges Overview,,,,,SCI.BIO.725,,
+,,,Sponges,,,,SCI.BIO.726,"SCI.BIO.821.1,
+SCI.LSC.821.1",Primitive multicellular organisms that do not move and are filter feeders.
+,,,Sponge Structure and Function,,,,SCI.BIO.727,SCI.BIO.821.3,Sponges have three different body plans of sponges and use flagellated cells to pull seawater into their bodies to obtain particles of food.
+,,,Sponge Reproduction,,,,SCI.BIO.728,SCI.BIO.821.4,Sponges reproduce sexually to produce motile larvae or asexually by budding or gemmule formation.
+,,,Sponge Ecology,,,,SCI.BIO.729,SCI.BIO.821.5,Sponges are primarily marine animals with some freshwater species. They often form symbiotic relationships and are used by humans.
+,,Cnidarians Overview,,,,,SCI.BIO.730,,
+,,,Cnidarians,,,,SCI.BIO.731,"SCI.BIO.821.2,
+SCI.LSC.821.2","Animals that exhibit radial symmetry, tissues but no organs and possess stinging cells called nematocysts."
+,,,Cnidarian Structure and Function,,,,SCI.BIO.732,SCI.BIO.821.6,"Cnidarians are carnivorous animals that possess muscle, nervous, reproductive and digestive tissues.
+"
+,,,Cnidarian Reproduction,,,,SCI.BIO.733,SCI.BIO.821.7,Cnidarians reproduce sexually and asexually. Most species alternate between sessile polyps and motile medusae.
+,,,Cnidarian Ecology,,,,SCI.BIO.734,SCI.BIO.821.8,Cnidarians inhabit the worlds oceans and some freshwater bodies. They are the major component of coral reefs.
+,Worms and Mollusks,,,,,,SCI.BIO.735,,
+,,Flatworm Overview,,,,,SCI.BIO.736,,
+,,,Flatworms,,,,SCI.BIO.737,"SCI.BIO.822.1,
+SCI.LSC.822.1","Animals with bilateral symmetry, 3 germ layers, organ systems, and distinct heads."
+,,,Flatworm Classification,,,,SCI.BIO.738,SCI.BIO.822.4,"Flatworms are divided into 4 classes, one free living class and three classes of obligate parasites."
+,,,Flatworms and Disease,,,,SCI.BIO.739,SCI.BIO.822.5,"Flukes and tapeworms, both flatworms, infect millions of humans worldwide and can have severe health impacts. "
+,,,Segmented Worms,,,,SCI.BIO.740,SCI.LSC.822.3,Describes worms whose bodies are separated into repeating units.
+,,Roundworm Overview,,,,,SCI.BIO.741,,
+,,,Roundworms,,,,SCI.BIO.742,"SCI.BIO.822.2,
+SCI.LSC.822.2",Animals similar to flatworms that have a complete digestive system and round bodies.
+,,,Roundworm Classification,,,,SCI.BIO.743,SCI.BIO.822.6,"Roundworms are divided into two classes, adenophorea and secernenta."
+,,,Roundworms and Disease,,,,SCI.BIO.744,SCI.BIO.822.7,There are a large number of parasitic roundworms but infections are usually not deadly and only involve a single host.
+,,Annelid Overview,,,,,SCI.BIO.745,,
+,,,Annelids,,,,SCI.BIO.746,SCI.BIO.824,Annelids are commonly described as segmented worms and possess a distinct coelom like mollusks.
+,,,Annelid Classification,,,,SCI.BIO.747,SCI.BIO.824.1,"Two major classes of annelids exist, polychaetea and clitellata. "
+,,,Annelid Structure and Function,,,,SCI.BIO.748,SCI.BIO.824.2,"Annelids have developed digestive systems, nervous systems and possess an enclosed circulatory system."
+,,,Annelid Reproduction,,,,SCI.BIO.749,SCI.BIO.824.3,Annelids can generally reproduce both sexually and asexually but strategies very greatly among the different classes.
+,,,Annelid Ecology,,,,SCI.BIO.750,SCI.BIO.824.4,Annelids can be found in most environments. Every molecule in your body has passed through an earthworm at some point.
+,,Mollusk Overview,,,,,SCI.BIO.751,,
+,,,Mollusks,,,,SCI.BIO.752,"SCI.BIO.823,
+SCI.LSC.823",Soft-bodied animals with developed organ systems and nervous systems and a defined coelom.
+,,,Types of Mollusks,,,,SCI.BIO.753,"SCI.LSC.823.1,
+SCI.BIO.823.1","Mollusks are divided into seven classes with most species residing in gastropoda, bivalvia or cephalopoda."
+,,,Importance of Mollusks,,,,SCI.BIO.754,SCI.LSC.823.2,"Identifies why mollusks are important to humans as food, decoration, and in scientific studies."
+,,,Mollusk Structure and Function,,,,SCI.BIO.755,SCI.BIO.823.3,Most mollusks have a scraping feeding appendage known as a radula and an organ at the top of their bodies called a mantle.
+,,,Mollusk Organ Systems,,,,SCI.BIO.756,SCI.BIO.823.4,Mollusks have complex nervous systems and usually reproduce sexually.
+,,,Mollusk Body ,,,,SCI.BIO.757,SCI.BIO.823.5,Mollusks have distinct body plans that vary between the different classes.
+,,,Mollusk Ecology,,,,SCI.BIO.758,SCI.BIO.823.6,Mollusks are generally aquatic with some terrestrial gastropods existing. Only cephalopods are strictly carnivorous.
+,,Arthropod Overview,,,,,SCI.BIO.759,,
+,,,Arthropods,,,,SCI.BIO.760,"SCI.BIO.825,
+SCI.LSC.825","Animals possessing bilateral symmetry, segmented bodies and jointed exoskeletons."
+,,,Arthropod Importance,,,,SCI.BIO.761,SCI.LSC.825.4,Describes the ecological roles and human uses of arthropods.
+,,,Arthropod Structure and Function,,,,SCI.BIO.762,SCI.BIO.825.5,"Arthropods have three primary body segments, tough exoskeletons and an open circulatory system."
+,,,Arthropod Development,,,,SCI.BIO.763,SCI.BIO.825.6,Arthropods generally grow several new segments before adulthood and shed their exoskeleton several times.
+,,,Arthropod Evolution,,,,SCI.BIO.764,SCI.BIO.825.7,Early arthropods likely had a head and many identical body segments that gradually specialized over millenia.
+,,,Classification of Arthropods,,,,SCI.BIO.765,SCI.BIO.825.8,Arthropods consist of over one million species divided into five sub phyla based on physical characteristics.
+,,,Crustaceans,,,,SCI.BIO.766,"SCI.LSC.825.1,
+SCI.BIO.825.1",A group of primarily aquatic arthropods. Crustaceans exhibit branched appendages that other arthropods lack.
+,,,Centipedes and Millipedes,,,,SCI.BIO.767,SCI.LSC.825.2,Describes the types and characteristics of the Myriapoda.
+,,,Arachnids,,,,SCI.BIO.768,"SCI.LSC.825.3,
+SCI.BIO.825.3","Describes the characteristics of spiders, scorpions, daddy-long-legs, ticks, and mites."
+,,Insect Overview,,,,,SCI.BIO.769,,
+,,,Insects,,,,SCI.BIO.770,"SCI.BIO.826,
+SCI.LSC.826","A class of hexapods that possess three body segments, six legs and make up half of the living animals on earth."
+,,,Insect Food,,,,SCI.BIO.771,SCI.LSC.826.1,Describes the four methods insects use to obtain nutrients.
+,,,Insect Structure and Function,,,,SCI.BIO.772,SCI.BIO.826.5,"Insects possess an open circulatory system, tracheal tubes for breathing and specialized mouthparts."
+,,,Insect Flight,,,,SCI.BIO.773,SCI.BIO.826.6,Two different types of insect flight have been identified and are distinguished by the muscles that power their wings.
+,,,Insect Reproduction,,,,SCI.BIO.774,"SCI.LSC.826.2,
+SCI.BIO.826.2",All insects can reproduce sexually. Most insects hatch as larva and undergo several metamorphoses.
+,,,Importance of Insects ,,,,SCI.BIO.775,SCI.LSC.826.3,Describes the ecological roles and human uses of insects.
+,,,Insect Control,,,,SCI.BIO.776,SCI.LSC.826.4,Discusses the biological and chemical control of insects.
+,,,Insect Behavior,,,,SCI.BIO.777,SCI.BIO.826.7,Insects occasionally exhibit unique social structures and are capable of learning new behaviors.
+,,,Insects and Humans,,,,SCI.BIO.778,SCI.BIO.826.8,Insects are a food source for humans but can also destroy crops and spread disease.
+,Echinoderms and Nonvertebrate Chordates,,,,,,SCI.BIO.779,,
+,,Echinoderm Overview,,,,,SCI.BIO.780,,
+,,,Echinoderms,,,,SCI.BIO.781,"SCI.BIO.827,
+SCI.LSC.827",Marine organisms that exhibit five fold radial symmetry and have a water vascular system.
+,,,Echinoderm Structure and Function,,,,SCI.BIO.782,SCI.BIO.827.3,The echinoderm water vascular system is a circulatory system based on running external water through the organism.
+,,,Types of Echinoderms,,,,SCI.BIO.783,"SCI.LSC.827.1,
+SCI.BIO.827.1",Echinoderms are easily placed into five classes based on their morphology.
+,,,Importance of Echinoderms,,,,SCI.BIO.784,SCI.LSC.827.2,Covers the importance of echinoderms in the ecosystem and their uses by humans.
+,,,Echinoderm Ecology,,,,SCI.BIO.785,SCI.BIO.827.4,Echinoderms inhabit all oceans and interact with humans primarily as a minor food source.
+,,Nonvertebrate Chordates ,,,,,SCI.BIO.786,,
+,,,Invertebrate Chordates,,,,SCI.BIO.787,SCI.BIO.829,"Marine organisms that have a semi-rigid structure between their dorsal nerve cord and gut, such as Tunicates and Lancelets."
+,,,Evolution of Invertebrate Chordates,,,,SCI.BIO.788,SCI.BIO.829.3,Nonvertebrate chordates are the first steps in vertebrate evolution. 
+,,,Tunicates,,,,SCI.BIO.789,SCI.BIO.829.1,"Marine chordates that have a motile larval stage and generally sessile, filter feeding adult stage."
+,,,Lancelets,,,,SCI.BIO.790,SCI.BIO.829.2,Marine chordates that retain all chordate characteristics as adults and have repeating muscle units like fish.
+,,,Chordates,,,,SCI.BIO.791,"SCI.BIO.828,
+SCI.LSC.828",A phylum including organisms with bilateral symmetry and a nerve cord among other traits.
+,,,Classification of Chordates,,,,SCI.BIO.792,SCI.BIO.828.1,Chordates are classified into three subphyla. Vertebrata contains animals with backbones.
+,,,Chordate Evolution,,,,SCI.BIO.793,SCI.BIO.828.2,"First identified in fossils from 530 million years ago, chordates diversified as the adapted to new environments."
+Veterbrates,,,,,,,SCI.BIO.800,,
+,Fishes and Amphibians,,,,,,SCI.BIO.801,,
+,,Vertebrate Overview,,,,,SCI.BIO.802,,
+,,,Vertebrate Diversity,,,,SCI.BIO.803,"SCI.BIO.831,
+SCI.LSC.831",Describes the characteristics and classification of animals with a backbone.
+,,,Vertebrate Structure and Function,,,,SCI.BIO.804,SCI.BIO.831.1,Explore structures common to all vertebrates such as the cranium and nervous system.
+,,,Vertebrate Reproduction,,,,SCI.BIO.805,SCI.BIO.832.1,"Introduces the three types of reproductive strategies for vertebrates: ovipary, ovovivipary, or vivipary."
+,,,Classification of Vertebrates,,,,SCI.BIO.806,SCI.BIO.832.2,"Vertebrates consist of five groups: fishes, birds, reptiles, mammals, and amphibians."
+,,,Vertebrate Evolution,,,,SCI.BIO.807,SCI.BIO.833,Discusses the structures evolved by vertebrates such as a skeleton and endothermy.
+,,Fish Overview,,,,,SCI.BIO.808,,
+,,,Fish,,,,SCI.BIO.809,"SCI.BIO.834.1,
+SCI.LSC.834,
+SCI.BIO.834",Aquatic vertebrates that have gills and are primarily ectothermic. Comprise more than half of all vertebrates.
+,,,Fish Reproduction,,,,SCI.BIO.810,SCI.BIO.834.2,Most fish reproduce sexually. Fertilization most often occurs outside of the body.
+,,,Fish Classification,,,,SCI.BIO.811,SCI.BIO.834.3,Explore the five classes of fish and their physiological characteristics.
+,,,Jawless Fish,,,,SCI.BIO.812,SCI.LSC.834.5,Describes the characteristics of the first fish: the lampreys and hagfish.
+,,,Cartilagenous Fish,,,,SCI.BIO.813,SCI.LSC.834.6,"Describes the characteristics of cartilaginous fish: the sharks, rays, and skates."
+,,,Bony Fish,,,,SCI.BIO.814,SCI.LSC.834.7,Describes the characteristics of bony fish: the ray-finned fish and lobe-finned fish.
+,,,Fish Evolution and Ecology,,,,SCI.BIO.815,"SCI.BIO.834.4, 
+SCI.BIO.834.8,
+SCI.BIO.834.9",The transition from gills as feeding organs to respiratory organs was a primary step in fish evolution. Outlines the ecology of each individual class of fishes.
+,,Amphibian Overview,,,,,SCI.BIO.816,,
+,,,Amphibians,,,,SCI.BIO.817,"SCI.LSC.835, 
+SCI.BIO.835","The first true tetrapods, the amphibian life cycle requires both aquatic and terrestrial habitats."
+,,,Amphibian Structure and Function,,,,SCI.BIO.818,SCI.BIO.835.1,Amphibians have a permeable skin that they breathe through as well as a developed nervous system.
+,,,Amphibian Reproduction,,,,SCI.BIO.819,SCI.BIO.835.2,Amphibians usually reproduce sexually and often lay large numbers of eggs.
+,,,Classification of Amphibians,,,,SCI.BIO.820,SCI.BIO.835.3,Amphibians are classified into three subclasses based on their appearance and reproduction.
+,,,Salamanders,,,,SCI.BIO.821,SCI.LSC.835.5,Discusses the characteristics and classification of salamanders.
+,,,Frogs and Toads,,,,SCI.BIO.822,SCI.LSC.835.6,Discusses the characteristics of frogs and toads.
+,,,Amphibian Evolution and Ecology,,,,SCI.BIO.823,"SCI.BIO.835.4,
+SCI.BIO.835.8,
+SCI.LSC.835.7,
+SCI.BIO.835.9",Provides an introduction to the evolution and ecology of amphibians.
+,Reptiles and Birds,,,,,,SCI.BIO.824,,
+,,Reptile Overview,,,,,SCI.BIO.825,,
+,,,Reptiles,,,,SCI.BIO.826,"SCI.LSC.836, 
+SCI.BIO.836",Reptiles are land-dwelling tetrapods that have scales and lay amniotic eggs.
+,,,Reptile Structure and Function,,,,SCI.BIO.827,SCI.BIO.836.1,Most reptiles are ectotherms that possess three-chambered hearts and breathe using lungs.
+,,,Reptile Reproduction,,,,SCI.BIO.828,SCI.BIO.836.2,"Reptiles can reproduce sexually or asexually, utilize internal fertilization and lay amniotic eggs."
+,,,"
+Classification of Reptiles",,,,SCI.BIO.829,SCI.BIO.836.3,Reptiles are divided into four orders which contain between 2 and 7000+ species each.
+,,,Lizards and Snakes,,,,SCI.BIO.830,"SCI.LSC.836.6,
+SCI.BIO.836.6",Scaled reptiles that do not possess legs. Snakes have no eyelids or external ear openings.
+,,,Sphenodontia,,,,SCI.BIO.831,,A small order of reptiles isolated to new-zealand. The two existing species are in danger of extinction.
+,,,Squamata,,,,SCI.BIO.832,SCI.BIO.836.11,"Scaled reptiles, contains most reptile species (7000+). They possess movable eyelids and ear openings."
+,,,Turtles,,,,SCI.BIO.833,"SCI.LSC.836.8,
+SCI.BIO.836.8",Reptiles surrounded by a bony or cartilaginous shell including turtles and tortoises.
+,,,Crocodilia,,,,SCI.BIO.834,"SCI.LSC.836.7,
+SCI.BIO.836.7",Large predatory reptiles that have four-chambered hearts and are highly adapted to their environments.
+,,,"
+Evolution of Reptiles",,,,SCI.BIO.835,SCI.BIO.836.4,Amniotic reptiles evolved from reptiles that moved onto land and developed amniotic eggs.
+,,,Reptile Ecology ,,,,SCI.BIO.836,SCI.BIO.836.5,Reptiles are extremely diverse and inhabit every continent except Antarctica. Human activity threatens many reptile species.
+,,,Reptile Importance,,,,SCI.BIO.837,SCI.LSC.836.9,Discusses the roles of reptiles in the lives of humans. 
+,,Bird Overview,,,,,SCI.BIO.838,,
+,,,Birds ,,,,SCI.BIO.839,"SCI.LSC.837, 
+SCI.BIO.837","Bipedal, endothermic, amniotic vertebrates that have feathers and lay eggs."
+,,,Bird Structure and Function ,,,,SCI.BIO.840,SCI.BIO.837.1,Birds are highly adapted for flight and possess hollow bones and very large pectoral muscles.
+,,,Importance of Birds ,,,,SCI.BIO.841,SCI.BIO.837.7,"Birds are used for food, pollinate plants and can occasionally spread disease."
+,,,Bird Reproduction ,,,,SCI.BIO.842,"SCI.BIO.837.2,
+SCI.LSC.837.2",Birds form mating pairs and male birds must attract females. Females lay eggs and often parents care for young after hatching.
+,,,Bird Classification ,,,,SCI.BIO.843,SCI.BIO.837.3,Modern birds lie in the neornithes class and are classified as either Palaeognathae (ground birds) or neognathae.
+,,,Bird Diversity ,,,,SCI.BIO.844,SCI.LSC.837.6,"Describes differences among birds in diet, and types of beaks and feet. "
+,,,Bird Evolution ,,,,SCI.BIO.845,SCI.BIO.837.4,Birds likely descended from a group of theropod dinosaurs that evolved during the Mesozoic era.
+,,,Bird Ecology ,,,,SCI.BIO.846,"SCI.BIO.837.5,
+SCI.LSC.837.7",Birds occupy many different habitats. Their mode of nutrition can often be inferred by the shape of their beak.
+,Mammals,,,,,,SCI.BIO.847,,
+,,Mammalian Traits,,,,,SCI.BIO.848,,
+,,,Mammals Overview,,,,SCI.BIO.849,"SCI.BIO.841,
+SCI.LSC.841","Large, endothermic animals that have well developed internal ears."
+,,,Importance of Mammals ,,,,SCI.BIO.850,SCI.LSC.841.5,Discusses the ecological roles and human uses of mammals.
+,,,Mammal Structure and Function ,,,,SCI.BIO.851,SCI.BIO.841.1,Mammals require large amounts of oxygen and food to maintain their metabolism. They are often social animals.
+,,,Endothermy,,,,SCI.BIO.852,SCI.BIO.841.2,Mammals generate heat internally and have many strategies to keep their internal temperature constant.
+,,,Locomotion,,,,SCI.BIO.853,SCI.BIO.841.3,Mammals have adapted many methods of locomotion from flying to swimming to burrowing.
+,,Reproduction in Mammals,,,,,SCI.BIO.854,,
+,,,Mammal Reproduction ,,,,SCI.BIO.855,SCI.LSC.841.4,"Introduces the monotreme, marsupial, and placental mammals."
+,,,Placental Mammals,,,,SCI.BIO.856,SCI.BIO.842,Mammals that develop their young internally with the help of a specialized structure known as a placenta.
+,,,Marsupials ,,,,SCI.BIO.857,SCI.BIO.843,Mammals that give birth to undeveloped young that attach to the mother until they can feed themselves.
+,,,Monotremes ,,,,SCI.BIO.858,SCI.BIO.844,Mammals that lay eggs. Only five species are known to exist.
+,,Evolution and Classification of Mammals,,,,,SCI.BIO.859,,
+,,,Mammal Ancestors ,,,,SCI.BIO.860,SCI.BIO.845.1,Mammals evolved from amniotic tetrapods and diversified greatly in the cretaceous period.
+,,,"
+Evolution of Mammals",,,,SCI.BIO.861,"SCI.BIO.845.2,
+SCI.BIO.845.4,
+SCI.BIO.845.3","Describes evolution of early monotreme, marsupial, and placental mammals."
+,,,"
+Classification of Mammals",,,,SCI.BIO.862,"SCI.BIO.846,
+SCI.LSC.846","Introduces the grouping of mammals based on anatomy, habitats, and feeding habits."
+,,Humans and Other Primates,,,,,SCI.BIO.863,,
+,,,Primates,,,,SCI.BIO.864,SCI.LSC.846.1,"Discusses characteristics of primates, including habitat."
+,,,Primates and Humans,,,,SCI.BIO.865,SCI.LSC.846.2,Discusses humans as members of the Great Apes.
+Human Biology ,,,,,,,SCI.BIO.900,,
+,"Skeletal, Muscular, and Integumentary Systems",,,,,,SCI.BIO.901,,
+,,The Human Body,,,,,SCI.BIO.902,,
+,,,Human Body,,,,SCI.BIO.903,"SCI.BIO.911,
+SCI.LSC.911","Introduces cells, tissues, organs, and organ systems in the human body."
+,,,Body Cells,,,,SCI.BIO.904,SCI.BIO.911.1,The human body is comprised of billions of cells that all have specific purposes.
+,,,Body Tissues,,,,SCI.BIO.905,SCI.BIO.911.2,Cells organize together to form specialized structures in our bodies like muscles and adipose tissue.
+,,,Human Organs ,,,,SCI.BIO.906,SCI.BIO.911.3,Tissues work together to form organs which in turn function together as organ systems.
+,,,Body Cavities,,,,SCI.BIO.907,,Describes human body cavities and the organs they hold and protect.
+,,,Homeostasis ,,,,SCI.BIO.908,"SCI.BIO.912,
+SCI.LSC.912",Explains the process in which organ systems work to maintain a stable internal environment.
+,,,Homeostasis Imbalance,,,,SCI.BIO.909,SCI.BIO.912.2,"Genetic, lifestyle or environmental factors can cause an imbalance of homeostasis."
+,,,System Interactions,,,,SCI.BIO.910,SCI.BIO.912.1,Organ systems in the body are constantly interacting to maintain homeostasis.
+,,The Skeletal System,,,,,SCI.BIO.911,,
+,,,Skeletal System,,,,SCI.BIO.912,"SCI.BIO.913,
+SCI.LSC.913",Introduces the skeletal system by discussing the structure and function of bones.
+,,,Divisions of the Skeletal System,,,,SCI.BIO.913,,Outlines the structure and function of the axial and appendicular skeletons.
+,,,Bones,,,,SCI.BIO.914,SCI.BIO.913.1,Describes the cells and tissues that comprise bones.
+,,,Bone Growth,,,,SCI.BIO.915,SCI.BIO.913.2,Introduces how bones form and grow.
+,,,Joints,,,,SCI.BIO.916,"SCI.BIO.914,
+SCI.LSC.914",Describes skeletal system joints and how they move.
+,,,Skeletal Diseases,,,,SCI.BIO.917,SCI.BIO.913.3                    ,Fractures are the most common bone injury but nutrient deficiency and old age can also lead to bone problems.
+,,,Bone Health,,,,SCI.BIO.918,SCI.LSC.913.4,"Identifies bone injuries and diseases, and ways to maintain a healthy skeletal system."
+,,The Muscular System,,,,,SCI.BIO.919,,
+,,,Introduction to the Muscular System,,,,SCI.BIO.920,,"Introduces the muscular system and muscle cells, considers type of muscle tissue, and gives causes of muscle hypertrophy and atrophy."
+,,,Muscles,,,,SCI.BIO.921,"SCI.BIO.915,
+SCI.LSC.915","Compares and contrasts three types of muscle tissue: skeletal muscle, smooth muscle, and cardiac muscle"
+,,,Skeletal Muscles,,,,SCI.BIO.922,"SCI.BIO.916,
+SCI.LSC.916.1",Skeletal muscles are comprised bundles of muscle fibers. Muscles can only contract and must work in pairs.
+,,,Muscle Contraction ,,,,SCI.BIO.923,SCI.BIO.917,Introduces muscle contraction and the sliding filament theory.
+,,,Muscle Contraction Energy ,,,,SCI.BIO.924,SCI.BIO.917.1,Muscles use ATP to contract which is produced by aerobic and anaerobic glycolysis in muscle tissues.
+,,,Muscle Contraction Function,,,,SCI.BIO.925,SCI.BIO.917.2,Muscles contract in two ways which are distinguished by the change in length of the muscle.
+,,,Muscle Diseases,,,,SCI.BIO.926,SCI.BIO.915.1,Explores a few different diseases and disorders that affect the muscular system and their causes.
+,,,Exercise,,,,SCI.BIO.927,SCI.LSC.916.2,Discusses health benefits and problems related to muscles and exercise.
+,,The Integumentary System,,,,,SCI.BIO.928,,
+,,,Skin ,,,,SCI.BIO.929,"SCI.BIO.918,
+SCI.LSC.918","Discusses skin layers, functions, and problems."
+,,,Skin Structure and Function,,,,SCI.BIO.930,SCI.BIO.918.2,Examines the function of skin and distinguishes between the two layers that make up the skin.
+,,,Skin Diseases,,,,SCI.BIO.931, SCI.BIO.918.3,Ultraviolet radiation promotes the production of vitamin D in our skin but can also cause cancer.
+,,,Skin Health,,,,SCI.BIO.932,SCI.LSC.918.1,Discusses common skin disorders and ways to maintain healthy skin.
+,,,Nails and Hair ,,,,SCI.BIO.933,"SCI.BIO.919,
+SCI.LSC.919","Introduces the structure, function, and beneficial role of hair and nails."
+,Nervous and Endocrine Systems,,,,,,SCI.BIO.999.001,,
+,,The Nervous System,,,,,SCI.BIO.999.002,,
+,,,Neuron,,,,SCI.BIO.999.003,SCI.BIO.921.1,Neurons transmit electrical and chemical signals while the glial cells support them.
+,,,Nervous System,,,,SCI.BIO.999.004,SCI.LSC.920.1,"Describes the nervous system, nerve impulses, and divisions of the nervous system."
+,,,Nerve Impulse,,,,SCI.BIO.999.005,"SCI.BIO.921.2,
+SCI.LSC.921",An electrical impulse generated by neurons that allows them to rapidly signal throughout the body.
+,,,Synapse,,,,SCI.BIO.999.006,SCI.BIO.921.3,Neurons communicate using small chemical signals released into a tiny space between an axon and dendrite.
+,,,Central Nervous System ,,,,SCI.BIO.999.007,"SCI.BIO.922,
+SCI.LSC.922",A functional unit consisting of the brain and spinal cord. It controls sensory perception and homeostatic functions.
+,,,Peripheral Nervous System ,,,,SCI.BIO.999.008,"SCI.BIO.923,
+SCI.LSC.923",Comprised of all neurons not in the brain or spinal cord. Mediates signaling between the CNS and the rest of the body.
+,,"The Eyes, Vision, and Other Senses",,,,,SCI.BIO.999.009,,
+,,,Senses ,,,,SCI.BIO.999.010,SCI.BIO.924,"Introduces hearing, sight, taste, touch, and smell."
+,,,Vision ,,,,SCI.BIO.999.011,SCI.LSC.924.1                                                 ,"Introduces human sight, and seeing in three-dimensions and in color."
+,,,Eyes,,,,SCI.BIO.999.012,SCI.LSC.924.2,Introduces the structures of the eye and how an image is formed.
+,,,Vision Correction ,,,,SCI.BIO.999.013,SCI.LSC.924.3,"Defines nearsightedness and farsightedness, and how vision can be corrected."
+,,,Hearing and Balance ,,,,SCI.BIO.999.014,SCI.LSC.924.4,"Introduces the structures of the ear, and how ears sense sound, and how the ears help with balance."
+,,,Touch ,,,,SCI.BIO.999.015,SCI.LSC.924.5,"Explains the sense of touch, reflex arcs, and touch receptors."
+,,,Taste and Smell,,,,SCI.BIO.999.016,SCI.LSC.924.6,Introduces the roles of sensory neurons in taste and smell.
+,,,Drugs and the Nervous System,,,,SCI.BIO.999.017,SCI.BIO.925,"Describes how sensory neurons on the tongue detect five types of tastes, and can also sense chemicals in your nose that allow you to detect smells."
+,,,Nervous System Diseases,,,,SCI.BIO.999.018,"SCI.BIO.926,
+SCI.LSC.926.1","Describes diseases of the nervous system, such as encephalitis, meningitis, tumors, cerebral palsy, epilepsy, and migraines."
+,,,Nervous System Injuries,,,,SCI.BIO.999.019,SCI.LSC.926.2,"Covers injuries of the nervous system, such as brain injuries and spinal cord injuries."
+,,,Nervous System Health,,,,SCI.BIO.999.020,SCI.LSC.926.3                      ,"Discusses ways to keep the nervous system healthy, such as consuming vitamins and minerals."
+,,The Endocrine System,,,,,SCI.BIO.999.021,,
+,,,Endocrine System,,,,SCI.BIO.999.022,"
+
+SCI.BIO.927
+
+","Introduces the system of organs and glands that secrete hormones into our bloodstream, regulating homeostasis and behavior. "
+,,,Hypothalamus and Pituitary Gland,,,,SCI.BIO.999.023,"
+SCI.BIO.927.3
+",The hypothalamus and the pituitary glands are the functional unit that allows the endocrine system to signal to the brain.
+,,,Endocrine Glands,,,,SCI.BIO.999.024,SCI.BIO.927.1,Explores the different endocrine glands involved in endocrine signaling.
+,,,Hormone ,,,,SCI.BIO.999.025,SCI.BIO.927.2,Discusses molecules that signal a change in specific cells and can be amino-acid or steroid based.
+,,,Hormone Regulation ,,,,SCI.BIO.999.026,SCI.BIO.928,The endocrine system is regulated through feedback loops that prevent signals from becoming too strong.
+,,,Endocrine System Diseases,,,,SCI.BIO.999.027,SCI.BIO.929,Discusses how improper secretion of hormones can lead to many health problems.
+,,,Diabetes ,,,,SCI.BIO.999.028,SCI.LSC.940.3,Describes type 1 and type 2 diabetes and why it occurs.
+,Circulatory and Respiratory Systems,,,,,,SCI.BIO.999.100,,
+,,The Circulatory System,,,,,SCI.BIO.999.101,,
+,,,Heart,,,,SCI.BIO.999.102,"SCI.BIO.931.1,
+SCI.LSC.931.1",Covers the components of the heart and the heartbeat.
+,,,Blood Vessels,,,,SCI.BIO.999.103,"SCI.BIO.931.2,
+SCI.LSC.931.2","Describes arteries, veins, and capillaries, and distinguishes between the pulmonary and systemic circulations."
+,,,Circulatory System,,,,SCI.BIO.999.104,SCI.BIO.932,Follows the path blood takes through your body and describes where it receives oxygen and where it delivers oxygen to.
+,,,Cardiovascular System,,,,SCI.BIO.999.105,SCI.LSC.930.1,Introduces the organs and functions of the cardiovascular system.
+,,,Systemic and Pulmonary Circulations,,,,SCI.BIO.999.106,,"Differentiate between the different portions of the cardiovascular system: pulmonary circulation, systemic circulation, and coronary circulation."
+,,,Blood Pressure ,,,,SCI.BIO.999.107,SCI.LSC.931.7,Covers blood pressure and the effects of high blood pressure.
+,,,Lymphatic System,,,,SCI.BIO.999.108,"SCI.BIO.943,
+SCI.LSC.943,
+SCI.LSC.930.2,
+SCI.BIO.932.1",Our bodies have a second circulatory system that scans fluids in the body for pathogens.
+,,,Cardiovascular Diseases,,,,SCI.BIO.999.109,"SCI.BIO.933,
+SCI.LSC.933.1","Explains cardiovascular disease, atherosclerosis, and heart attack."
+,,,Cardiovascular Health,,,,SCI.BIO.999.110,SCI.LSC.933.2,Introduces ways to maintain health of the cardiovascular system.
+,,Blood Overview,,,,,SCI.BIO.999.111,,
+,,,Blood ,,,,SCI.BIO.999.112,"SCI.BIO.931.3,
+SCI.LSC.931.4,
+SCI.BIO.931.4","Defines and describes red blood cells and white blood cells, and describes the roles of platelets."
+,,,Blood Functions,,,,SCI.BIO.999.113,,Blood carries oxygen to your tissues and waste away from them. It also helps you maintain a comfortable temperature.
+,,,Blood Type,,,,SCI.BIO.999.114,"SCI.LSC.931.5,
+SCI.BIO.931.5",Introduces the ABO blood group system and explains that carbohydrates present or absent on the surface of red blood cells determine what blood type you are.
+,,,Blood Diseases,,,,SCI.BIO.999.115,"SCI.BIO.931.6,
+SCI.LSC.931.6","Introduces sickle-cell anemia, leukemia, lymphoma, and hemophilia."
+,,The Respiratory System,,,,,SCI.BIO.999.116,,
+,,,Respiratory System,,,,SCI.BIO.999.117,"SCI.BIO.934,
+SCI.LSC.934",Introduces the respiratory system and the means used by our body to intake oxygen and export carbon dioxide.
+,,,Respiratory System Organs,,,,SCI.BIO.999.118,"SCI.BIO.934.1,
+SCI.LSC.934.1","Describes respiration, the organs of the respiratory system, and the role each organ plays in respiration"
+,,,Gas Exchange,,,,SCI.BIO.999.119,,Describes the process of gas exchange in the alveoli of the lungs and explains how it occurs
+,,,Breathing,,,,SCI.BIO.999.120,"SCI.BIO.935,
+SCI.LSC.935","Describes the processes of ventilation, gas exchange, and gas transport."
+,,,Regulation of Breathing,,,,SCI.BIO.999.121,SCI.BIO.934.2,Breathing is one of the few things we can control consciously and unconsciously.
+,,,Respiratory System Disorders,,,,SCI.BIO.999.122,"SCI.BIO.934.3,
+SCI.LSC.934.3","Introduces bronchitis, asthma, pneumonia, tuberculosis, lung cancer, and emphysema."
+,,,Respiratory System Health,,,,SCI.BIO.999.123,SCI.LSC.934.4,Introduces ways to maintain health of the respiratory system.
+,Digestive and Excretory Systems,,,,,,SCI.BIO.999.200,,
+,,The Digestive System,,,,,SCI.BIO.999.201,,
+,,,"Digestive System Organs
+
+",,,,SCI.BIO.999.202,"SCI.BIO.936.1,
+SCI.LSC.936.1",Introduces the function of the digestive system and its organs.
+,,,"Digestive System
+",,,,SCI.BIO.999.203,"SCI.BIO.936.2,
+SCI.LSC.936",Digestion begins by breaking down food with the structures in the mouth and stomach.
+,,,Upper Gastrointestinal Tract,,,,SCI.BIO.999.204,,Describes in detail the structures and functions of upper gastrointestinal tract organs.
+,,,Lower Gastrointestinal Tract,,,,SCI.BIO.999.205,,Describes in detail the structures and functions of lower gastrointestinal tract organs.
+,,,"Small Intestine
+",,,,SCI.BIO.999.206,SCI.BIO.936.3,The organ that absorbs nutrients from digested food and delivers them to our bloodstream.
+,,,Digestive System Enzymes,,,,SCI.BIO.999.207,SCI.LSC.936.7,Introduces the functions of enzymes and hormones in the digestive system.
+,,,"Large Intestine
+",,,,SCI.BIO.999.208,SCI.BIO.936.4,The organ responsible for removing water from material passed through the small intestine and compacting it.
+,,,Digestive System Bacteria,,,,SCI.BIO.999.209,SCI.LSC.936.8,Discusses the roles of helpful bacteria in the digestive system.
+,,,Digestive System Diseases,,,,SCI.BIO.999.210,SCI.BIO.936.5,"Describes food allergies, ulcers, and heartburn."
+,,,Digestive System Health,,,,SCI.BIO.999.211,SCI.LSC.936.9,"Discusses food borne illnesses, food allergies and food intolerance."
+,,"Food, Nutrients, and Balanced Eating",,,,,SCI.BIO.999.212,,
+,,,Food and Nutrients ,,,,SCI.BIO.999.213,"SCI.BIO.936.6,
+SCI.LSC.936.6","Discusses classes of nutrients and their functions in the human body.                         Describes the roles of carbohydrates, proteins, and lipids."
+,,,Types of Nutrients,,,,SCI.BIO.999.214,SCI.LSC.937.1,"Describes the roles of carbohydrates, proteins, and lipids."
+,,,Vitamins and Minerals ,,,,SCI.BIO.999.215,"SCI.LSC.937.2,
+SCI.BIO.937.2",Describes the roles of vitamins and nutrients in a balanced diet.
+,,,Balanced Eating ,,,,SCI.BIO.999.216,"SCI.BIO.937,
+SCI.LSC.937.3","Explains My Plate and MyPyramid, food labels, and introduces eating disorders."
+,,,Eating Disorders,,,,SCI.BIO.999.217,SCI.BIO.937.4,Introduces psychiatric illnesses that cause a person to eat food in an unhealthy pattern.
+,,,Obesity,,,,SCI.BIO.999.218,,"Describes obesity, how it is diagnosed and categorized, factors that cause obesity, health consequences of obesity, and treatments for obesity."
+,,,Undernutrition,,,,SCI.BIO.999.219,,"Describes types of undernutrition, global trends in undernutrition, causes of undernutrition, and approaches to solving the problem of global undernutrition."
+,,The Excretory System,,,,,SCI.BIO.999.220,,
+,,,Excretory System,,,,SCI.BIO.999.221,"SCI.BIO.938,
+SCI.LSC.938",The body must excrete waste to maintain itself. There are four primary methods of waste excretion in humans.
+,,,"Urinary System
+",,,,SCI.BIO.999.222,"SCI.BIO.938.1,
+SCI.LSC.938.1","Describes the structure and function of organs that comprise the urinary system, and explains how the production of urine and the process of urination are controlled."
+,,,"Ureters, Urinary Bladder, and Urethra",,,,SCI.BIO.999.223,,"Outlines the structure and functions of the ureters, urinary bladder, and urethra; and explains how the nervous system controls their functions."
+,,,Kidneys,,,,SCI.BIO.999.224,"SCI.BIO.939,
+SCI.LSC.939","Details the anatomy and functions of the kidneys, including the role of the kidneys in the control of blood pressure and the endocrine hormones secreted by the kidney."
+,,,Kidneys and Homeostasis,,,,SCI.BIO.999.225,SCI.BIO.939.1,Our Kidneys also help control our blood by sending signals that maintain pH and red blood cell number.
+,,,Excretory System Diseases,,,,SCI.BIO.999.226,"SCI.BIO.938.2,
+SCI.LSC.938.3","Introduces kidney stones, kidney failure, and urinary tract infections."
+,Immune System and Disease,,,,,,SCI.BIO.999.300,,
+,,Disease and Defense,,,,,SCI.BIO.999.301,,
+,,,Introduction to the Immune System,,,,SCI.BIO.999.302,,Gives an overview of the immune system and the human body's ability defends itself against foreign and potentially dangerous invaders.
+,,,Pathogen,,,,SCI.BIO.999.303,SCI.LSC.940.1,Defines pathogens and discusses how they spread.
+,,,Infectious Diseases,,,,SCI.BIO.999.304,SCI.LSC.941.1,"Identifies pathogens that cause infectious diseases, how pathogens are transmitted, how infectious diseases are treated, the importance of herd immunity, and why new infectious diseases are emerging in human populations."
+,,,Noninfectious Diseases,,,,SCI.BIO.999.305,SCI.LSC.941.2,"Explains causes of and risk factors for noninfectious disease, with a focus on cystic fibrosis, cancer, cardiovascular disease, and type 2 diabetes."
+,,,Innate Immune System ,,,,SCI.BIO.999.306,"SCI.BIO.941,
+SCI.LSC.941                                ","Explains the body's first line of defense against pathogens, such as the skin and body fluids."
+,,,Inflammatory Response,,,,SCI.BIO.999.307,"SCI.BIO.942,
+SCI.LSC.942.1","When pathogens are detected in the body our capillaries expand, allowing immune cells to reach the infection."
+,,The Immune System,,,,,SCI.BIO.999.308,,
+,,,Humoral Response,,,,SCI.BIO.999.309,"SCI.BIO.944,
+SCI.LSC.943.1,
+SCI.BIO.943.2",B cells become activated by pathogens and can secrete antibodies or live to fight the infection next time.
+,,,Adaptive Immune System,,,,SCI.BIO.999.310,,Details the structures and functions of the adaptive immune system and the nature of immunity.
+,,,Cell-Mediated Response,,,,SCI.BIO.999.311,SCI.BIO.945,T cells guide the immune response and help turn it off when the infection is cleared.
+,,,Immunity ,,,,SCI.BIO.999.312,"SCI.BIO.946,
+SCI.LSC.946","Describes how immunity is the ability to resist pathogens, and how vaccinations work."
+,,,Disorders of the Immune System,,,,SCI.BIO.999.313,,"Describes examples of three different types of immune system disorders: allergies, autoimmune diseases, and immunodeficiency diseases."
+,,Immune System Diseases,,,,,SCI.BIO.999.314,,
+,,,Allergies,,,,SCI.BIO.999.315,SCI.BIO.946.1,Describes a disease in which the immune system makes a response to a harmless antigen.
+,,,Autoimmune Disease,,,,SCI.BIO.999.316,"SCI.BIO.947,
+SCI.LSC.947","Occasionally our immune system can become confused and attack our bodies, causing a great amount of harm."
+,,,Immunodeficiency,,,,SCI.BIO.999.317,SCI.BIO.947.1,When the immune system stops working minor infections can become life-threatening.
+,,,HIV/AIDS,,,,SCI.BIO.999.318,"SCI.BIO.948,
+SCI.LSC.948","Describes human immunodeficiency virus (HIV); how HIV is transmitted, diagnosed, and treated; how HIV causes acquired immunodeficiency syndrome (AIDS); and how transmission of HIV can be reduced"
+,,,Foodborne Diseases,,,,SCI.BIO.999.319,,"Identifies causes of foodborne diseases, concepts of incubation period and infectious dose, sporadic cases vs. disease outbreaks, ways food becomes contaminated, and home food safety practices."
+,,Environmental Problems and Human Health,,,,,SCI.BIO.999.320,,
+,,,Carcinogens and Cancer,,,,SCI.BIO.999.321,"SCI.BIO.910.1,
+SCI.LSC.940.2",Cancers are generally cause by a pair of genetic changes which can be caused by dietary or environmental factors.
+,,,Air Pollution and Illness,,,,SCI.BIO.999.322,SCI.BIO.910.2,Defines indoor and outdoor air pollution and describes how air pollution affects human health.
+,,,Bioterrorism,,,,SCI.BIO.999.323,SCI.BIO.910.3,Our knowledge of biology can be used to harm people through the intentional spread of pathogenic organisms.
+,The Reproductive System and Human Development,,,,,,SCI.BIO.999.400,,
+,,The Male Reproductive System,,,,,SCI.BIO.999.401,,
+,,,Reproductive System,,,,SCI.BIO.999.402,,Introduces the major structures and functions of the male and female reproductive systems
+,,,Male Reproductive System ,,,,SCI.BIO.999.403,SCI.LSC.951,"Covers the two main functions of the male reproductive system, producing sperm and secreting testosterone."
+,,,Male Reproductive Organs,,,,SCI.BIO.999.404,"SCI.BIO.951.1,
+SCI.LSC.951.1",The male reproductive system primarily consists of the penis and testes.
+,,,Male Reproductive Development ,,,,SCI.BIO.999.405,SCI.BIO.951.2,The male reproductive system begins developing at puberty in response to hormone signals from the brain.
+,,,"Male Reproductive System Disoders
+",,,,SCI.BIO.999.406,,"Describes several male reproductive system disorders, including erectile dysfunction, epididymitis, prostate cancer, and testicular cancer"
+,,,Sperm,,,,SCI.BIO.999.407,"SCI.BIO.952,
+SCI.LSC.952","A haploid reproductive cell, the only human cell with a flagellum."
+,,The Female Reproductive System,,,,,SCI.BIO.999.408,,
+,,,Female Reproductive System ,,,,SCI.BIO.999.409,SCI.LSC.953,"Covers the functions of the female reproductive system, which includes producing eggs, secreting estrogen, and supporting a baby as it develops before birth."
+,,,Female Reproductive Organs,,,,SCI.BIO.999.410,"SCI.BIO.953.1,
+SCI.LSC.953.1","Female reproductive organs consist of the vulva, vagina, uterus, fallopian tubes and ovaries."
+,,,Female Reproductive Development,,,,SCI.BIO.999.411,SCI.BIO.953.2,The female reproductive system begins developing at puberty in response to hormone signals from the brain.
+,,,Female Reproductive System Disorders,,,,SCI.BIO.999.412,,"Summarizes causes of and treatments for cervical cancer, vaginitis, and endometriosis"
+,,,Egg Cells,,,,SCI.BIO.999.413,"SCI.BIO.954.1,
+SCI.LSC.954.1",Describes oogenesis and the maturation of a human egg cell.
+,,,"Menstrual Cycle
+",,,,SCI.BIO.999.414,"SCI.BIO.954.2,
+SCI.LSC.954.2",The menstrual cycle consists of four phases and progresses in response to hormones in the females body.
+,,,Contraception,,,,SCI.BIO.999.415,,Describes types and effectiveness of contraception methods.
+,,,Infertility,,,,SCI.BIO.999.416,,"Summarizes the causes of and treatments for male and female infertility, and discusses social and ethical issues related to infertility."
+,,"Fertilization, Gestation, and Development",,,,,SCI.BIO.999.417,,
+,,,Fertilization ,,,,SCI.BIO.999.418,"SCI.BIO.955,
+SCI.LSC.955",Introduces the fertilization process and the initial events within the fertilized egg.
+,,,"Embryo Growth
+",,,,SCI.BIO.999.419,SCI.BIO.956.1,Introduces growth and development through the eighth week following fertilization.
+,,,Prenatal Development,,,,SCI.BIO.999.420,SCI.BIO.956.2,Introduces growth and development from the end of the eighth week until birth.
+,,,The Placenta,,,,SCI.BIO.999.421,SCI.BIO.957.1,"Defines the role of the placenta, umbilical cord, and amniotic sac during fetal development."
+,,,Pregnancy,,,,SCI.BIO.999.422,"SCI.BIO.957.2,
+SCI.LSC.957.2","Identifies major events of pregnancy and childbirth, and describes major developmental events up to the eighth week after fertilization."
+,,,Birth to Adulthood,,,,SCI.BIO.999.423,SCI.BIO.958.1,Identifies milestones in growth and development from birth to adolescence.
+,,,Infancy and Childhood,,,,SCI.BIO.999.424,SCI.LSC.958.3,Discusses milestones that occur during infancy and the first few years of childhood.
+,,,Puberty and Adolescence ,,,,SCI.BIO.999.425,SCI.LSC.958.4,Discusses milestones that occur during puberty and adolescence.
+,,,Development,,,,SCI.BIO.999.426,SCI.BIO.958.5,"Covers the phases of infancy, childhood, and adolescence in human development."
+,,,Adulthood,,,,SCI.BIO.999.427,"SCI.BIO.958.2,
+SCI.LSC.958.2,
+SCI.BIO.958.6","Describes early adulthood, middle adulthood, and old age."
+,,Sexually Transmitted Infections,,,,,SCI.BIO.999.428,,
+,,,STIs,,,,SCI.BIO.999.429,"SCI.BIO.959,
+SCI.LSC.959",Discusses the causes of sexually transmitted infections and how they can be prevented.
+,,,Bacterial STIs,,,,SCI.BIO.999.430,SCI.BIO.959.1,"Provides an introduction to chlamydia, gonorrhea, and syphilis. "
+,,,Viral STIs,,,,SCI.BIO.999.431,SCI.BIO.959.2,"Provides an introduction to genital herpes, hepatitis B, genital warts, and cervical cancer. "
+,,,"Reproductive System Disorders
+",,,,SCI.BIO.999.432,SCI.LSC.959.3                                     ,Introduces non-STI reproductive system disorders and describes ways to keep your reproductive system healthy. 
+,,,Reproductive System Health ,,,,SCI.BIO.999.433,SCI.LSC.959.4,Discusses ways to keep the reproductive system healthy.
+College Human Biology,,,,,,,SCI.BIO.999.500,,
+,Human Biology Case Studies and Conclusions,,,,,,SCI.BIO.999.501,,
+,,Human Biology Case Studies and Conclusions Overview,,,,,SCI.BIO.999.502,,
+,,,Case Study and Conclusion - To Give a Shot or Not,,,,SCI.BIO.999.503,,Presents a case study about vaccination choices that introduces the chapter on the nature and process of science and builds interest in the study of science.
+,,,Case Study and Conclusion - Our Invisible Inhabitants,,,,SCI.BIO.999.504,,Describes a case study about mitochondrial diseases to introduce the chapter about cells.
+,,,Case Study and Conclusion - Diet Dilemma,,,,SCI.BIO.999.505,,Describes a case study on the importance of genetic matching in bone marrow donation to introduce the chapter on human variation.
+,,,Case Study and Conclusion - More Than Just Tired,,,,SCI.BIO.999.506,,"Describes a case study about genetic testing for mutations in the BRCA genes that can cause cancer to be inherited in a family, and introduces the chapter on genetics."
+,,,Case Study and Conclusion - Cancer in the Family,,,,SCI.BIO.999.507,,Describes a case study on lower back pain to introduce the chapter on human evolution.
+,,,"Case Study and Conclusion - Flu, from Pigs to You",,,,SCI.BIO.999.508,,"Presents a case study about the emergence of the swine flu virus and the associated 2009 pandemic to illustrate evolution in action, and introduces the chapter on biological evolution."
+,,,Case Study and Conclusion - Evolving Can Be a Pain,,,,SCI.BIO.999.509,,Introduces a case study on organic agriculture to introduce the chapter on ecology.
+,,,Case Study and Conclusion - Your Genes May Help You Save a Life ,,,,SCI.BIO.999.510,,"Introduces a case study on how the aging of the population influences job trends, to introduce the chapter on human populations."
+,,,Case Study and Conclusion - Under Pressure,,,,SCI.BIO.999.511,,Introduces a case study on air pollution from motor vehicles to introduce the chapter on humans and the biosphere.
+,,,Case Study and Conclusion - Fading Memory,,,,SCI.BIO.999.512,,Introduces a case study on Lyme disease to introduce the chapter on disease.
+,,,Case Study and Conclusion - Hormonal Havoc,,,,SCI.BIO.999.513,,Describes a case study about bacterial infections and antibiotic use to introduce the chapter on the common characteristics of living organisms and an introduction to human biology.
+,,,Case Study and Conclusion - Wearing His Heart on His Sleeve,,,,SCI.BIO.999.514,,Describes a case study about hydrocephalus to introduce the chapter on the general organization and basic functions of the human body.
+,,,Case Study and Conclusion - A Pain in the Foot,,,,SCI.BIO.999.515,,Describes a case study on pain and skeletal system injuries due to the wearing of high heels and introduces the chapter on the skeletal system.
+,,,Case Study and Conclusion - Needing to Relax,,,,SCI.BIO.999.516,,Introduces a case study on a muscular system disorder involving excessive muscle contraction — cervical dystonia — to introduce the chapter on the muscular system.
+,,,Case Study and Conclusion - Cough That Won't Quit,,,,SCI.BIO.999.517,,Introduces a case study about tattooing and henna body art to introduce the chapter on the integumentary system.
+,,,Case Study and Conclusion - Flight Risk,,,,SCI.BIO.999.518,,Presents a case study about Alzheimer's disease to introduce the chapter on the nervous system.
+,,,Case Study and Conclusion - Please Don't Pass the Bread,,,,SCI.BIO.999.519,,"Introduces a case study on polycystic ovary syndrome (PCOS), an endocrine disorder, to introduce the chapter on the endocrine system."
+,,,Case Study and Conclusion - Drink and Flush,,,,SCI.BIO.999.520,,Describes a case study on deep vein thrombosis to introduce the chapter on the cardiovascular system.
+,,,Case Study and Conclusion - Defending Your Defenses,,,,SCI.BIO.999.521,,Presents a case study on bronchitis to introduce the chapter on the respiratory system.
+,,,Case Study and Conclusion - Trying to Conceive,,,,SCI.BIO.999.522,,Describes a case study about celiac disease to introduce the chapter on the digestive system.
+,,,Case Study and Conclusion - Lead Danger,,,,SCI.BIO.999.523,,"This chapter provides the chemistry background needed to understand the human body, its functions, and its processes. The chapter describes biochemical compounds and reactions as well as the significance of water to life."
+,,,Case Study and Conclusion - What's Lurking in the Woods,,,,SCI.BIO.999.524,,Describes a case study on fast food consumption to introduce the chapter on nutrition.
+,,,Case Study and Conclusion - What's Wrong with Fast Food?,,,,SCI.BIO.999.525,,Describes a case study on the effects of alcohol on the excretory system to introduce the chapter.
+,,,Case Study and Conclusion - Farming for Balance,,,,SCI.BIO.999.526,,Introduces a case study on lymphoma to introduce the chapter on the immune system.
+,,,Case Study and Conclusion - Careers of the Future,,,,SCI.BIO.999.527,,Describes a case study about infertility to introduce the chapter on the reproductive system.
+,,,Case Study and Conclusion - A Cleaner Commute,,,,SCI.BIO.999.528,,Describes a case study about lead exposure to introduce the chapter on human growth and development.

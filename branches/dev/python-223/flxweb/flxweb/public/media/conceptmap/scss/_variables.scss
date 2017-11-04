@@ -1,0 +1,59 @@
+$small-screen: 640px;
+$medium-screen: 1024px;
+$large-screen: 1200px;
+
+$small-portrait: "only screen and (max-width: #{$small-screen}) and (orientation: portrait)";
+$medium-landscape: "only screen and (max-width: #{$medium-screen}) and (orientation: landscape)";
+$small-landscape: "only screen and (max-height: #{$small-screen}) and (orientation: landscape)";
+
+$breakpoints: (
+  small: 0,
+  medium: 640px,
+  large: 1024px,
+  xlarge: 1200px,
+  xxlarge: 1440px,
+);
+$breakpoint-classes: (small medium large xlarge xxlarge);
+
+$parent-ns-module: "conceptmap-wrapper";
+$zero-state: "##{$parent-ns-module}.zeroState";
+$zero-state-duration: 0.35s;
+$zero-state-duration-short: $zero-state-duration / 2;
+$editor-state: "##{$parent-ns-module}.editorState";
+
+$ui-blue: #4EC2F6;
+$ui-green: #A6E445;
+
+$light-gray: #EFEDE7;
+$medium-gray: #CDC9BE;
+$dark-gray: #57544E;
+
+$light-blue: #D7F1E9;
+
+$navy: #00899E;
+$turquoise: #1AABA3;
+
+$link-color: #00aba4;
+
+$ui-dark: #56544D;
+$ui-gray: #b1b5a8;
+
+$icon-font-size: rem-calc(28);
+$icon-line-height: rem-calc(40);
+
+$font-size-1: rem-calc(24);
+$font-size-2: rem-calc(18);
+$font-size-3: rem-calc(16);
+$font-size-4: rem-calc(14);
+$font-size-5: rem-calc(12);
+
+$button-height: rem-calc(40);
+$button-width: $button-height;
+$button-disabled-bg: #DDD;
+$button-disabled-color: #999;
+
+$min-filter-size: rem-calc(230);
+
+$nav-bar-bg: #f8f9f4;
+
+$overlay-z-index: 51;

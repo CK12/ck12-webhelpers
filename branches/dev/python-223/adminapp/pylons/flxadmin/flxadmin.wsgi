@@ -1,0 +1,1 @@
+../../../deploy/components/wsgi/flxadmin/flxadmin.wsgi

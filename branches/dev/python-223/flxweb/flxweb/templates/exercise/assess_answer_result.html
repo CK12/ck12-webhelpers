@@ -1,0 +1,6 @@
+{% set result = c.result %}
+{% if result.isCorrect == true %} 
+	{{ _("Yeah, you are correct!") }}
+{% else %} 
+	{{ _("Sorry, you are wrong! Correct Answer is ") }}<span class='correct_answer'>{{ result.correctAnswer|safe }}</span> 
+{% endif %} 

@@ -1,0 +1,4829 @@
+# Translations template for flxweb.
+# Copyright (C) 2014 ORGANIZATION
+# This file is distributed under the same license as the flxweb project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: flxweb 0.1\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2014-02-12 10:52+0530\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 1.3\n"
+
+#: flxweb/controllers/account.py:191
+msgid "Failed to save login / username"
+msgstr ""
+
+#: flxweb/controllers/exercise.py:111
+#, python-format
+msgid "Could not get artifact data for the exercise title %(exercise_title)s"
+msgstr ""
+
+#: flxweb/controllers/exercise.py:212
+msgid "Something went wrong with create workbook: "
+msgstr ""
+
+#: flxweb/controllers/exercise.py:249
+msgid "questionFromExercise: %(e.__str__())s"
+msgstr ""
+
+#: flxweb/controllers/exercise.py:263
+msgid "Declarative question: ? "
+msgstr ""
+
+#: flxweb/controllers/exercise.py:285
+msgid "This may be due to empty answer sent: %(e.__str__())s"
+msgstr ""
+
+#: flxweb/controllers/exercise.py:417
+msgid "stopTest: %(e.__str__())s"
+msgstr ""
+
+#: flxweb/controllers/exercise_generator.py:59
+msgid "Artifact obj: %(artifact[\"title\"])s"
+msgstr ""
+
+#: flxweb/controllers/mylibrary.py:48
+msgid "FlexBooks"
+msgstr ""
+
+#: flxweb/controllers/mylibrary.py:49
+msgid "Read Modalities"
+msgstr ""
+
+#: flxweb/controllers/mylibrary.py:50
+msgid "Files"
+msgstr ""
+
+#: flxweb/controllers/mylibrary.py:329
+msgid "Error delete label"
+msgstr ""
+
+#: flxweb/controllers/mylibrary.py:337
+msgid "Invalid label. A label can contain numbers, letters, spaces and hyphens"
+msgstr ""
+
+#: flxweb/controllers/mylibrary.py:346
+msgid "Label already exists"
+msgstr ""
+
+#: flxweb/controllers/mylibrary.py:349
+msgid "Error creating label"
+msgstr ""
+
+#: flxweb/lib/ck12/messages.py:22
+msgid "Your settings have been saved"
+msgstr ""
+
+#: flxweb/lib/ck12/messages.py:23
+msgid "There was an error saving your settings. Please try again later"
+msgstr ""
+
+#: flxweb/lib/ck12/messages.py:28
+msgid "Login Failed"
+msgstr ""
+
+#: flxweb/lib/ck12/messages.py:29
+msgid "Invalid email address and password!"
+msgstr ""
+
+#: flxweb/lib/ck12/messages.py:34
+msgid "There was an error saving your error report. Please try again later"
+msgstr ""
+
+#: flxweb/lib/ck12/messages.py:35
+msgid "There was an error displaying error report form. Please try again later"
+msgstr ""
+
+#: flxweb/lib/ck12/messages.py:40
+msgid "An artifact with this title already exists, please enter a new title."
+msgstr ""
+
+#: flxweb/lib/ck12/messages.py:41
+msgid ""
+"We couldn't save this FlexBook® textbook because there is already a book with
+the same title."
+msgstr ""
+
+#: flxweb/lib/ck12/messages.py:42
+msgid ""
+"A FlexBook&#174; textbook with this title already exist in your Inbox or "
+"Archived, please enter a new title."
+msgstr ""
+
+#: flxweb/lib/ck12/messages.py:43
+msgid "A concept with this title already exists, please enter a new title."
+msgstr ""
+
+#: flxweb/lib/ck12/messages.py:44
+msgid "A chapter with this title already exists, please enter a new title."
+msgstr ""
+
+#: flxweb/lib/ck12/messages.py:45
+msgid "You have already sent a publish request for this content."
+msgstr ""
+
+#: flxweb/lib/ck12/messages.py:46
+msgid "Artifact you are trying to save is not latest."
+msgstr ""
+
+#: flxweb/lib/ck12/messages.py:47
+msgid "FlexBook&#174; textbook you are trying to save is not latest."
+msgstr ""
+
+#: flxweb/lib/ck12/messages.py:48
+msgid "Concept you are trying to save is not latest."
+msgstr ""
+
+#: flxweb/lib/ck12/messages.py:49
+msgid "Chapter you are trying to save is not latest."
+msgstr ""
+
+#: flxweb/lib/ck12/messages.py:50
+msgid "Unknown Error."
+msgstr ""
+
+#: flxweb/lib/ck12/messages.py:51
+msgid "There was a problem saving the FlexBook&#174; textbook, please try again."
+msgstr ""
+
+#: flxweb/lib/ck12/messages.py:52
+msgid "Content validation failed."
+msgstr ""
+
+#: flxweb/lib/ck12/messages.py:53
+msgid "Image(s) got absolute URLs which are not allowed."
+msgstr ""
+
+#: flxweb/lib/ck12/messages.py:54
+msgid ""
+"More than one chapters have the same title. Please edit the chapter titles to"
+" make them unique"
+msgstr ""
+
+#: flxweb/lib/ck12/messages.py:55
+msgid "Modality must have some body."
+msgstr ""
+
+#: flxweb/lib/ck12/messages.py:59
+msgid ""
+"At present we don't have content for the selected standards. Please change "
+"the selection and try again"
+msgstr ""
+
+#: flxweb/lib/ck12/messages.py:64
+msgid "Duplicate entry for encodedID. Please change the encodedID and try again"
+msgstr ""
+
+#: flxweb/lib/ck12/messages.py:65
+msgid "Invalid domainEID or encodedID specified. Please correct and try again"
+msgstr ""
+
+#: flxweb/lib/ck12/messages.py:70
+msgid "This operation could not be completed, please try again"
+msgstr ""
+
+#: flxweb/lib/ck12/messages.py:75
+msgid "A resource with this name already exists. Please use a different name."
+msgstr ""
+
+#: flxweb/lib/ck12/messages.py:76
+msgid "There was an error attaching this file, please try again later."
+msgstr ""
+
+#: flxweb/lib/ck12/messages.py:77
+msgid "Uploaded file is too large. Maximum size allowed is 25 MB"
+msgstr ""
+
+#: flxweb/lib/ck12/messages.py:78
+msgid "The file you are trying to upload seems to be infected."
+msgstr ""
+
+#: flxweb/lib/ck12/messages.py:79
+msgid "Failed to upload the file. Unknown error."
+msgstr ""
+
+#: flxweb/lib/ck12/messages.py:80
+msgid "Failed to create or update the resource, Unknown error."
+msgstr ""
+
+#: flxweb/lib/ck12/messages.py:81
+msgid "Specified resource does not exist."
+msgstr ""
+
+#: flxweb/lib/ck12/messages.py:86
+msgid "Please enter the reason"
+msgstr ""
+
+#: flxweb/model/exercise.py:159
+msgid "API returned status code(%(e.status_code)s)=%(e.status_code)s"
+msgstr ""
+
+#: flxweb/model/exercise.py:160
+msgid "API returned with message: %(e.api_message)s"
+msgstr ""
+
+#: flxweb/model/exercise.py:379 flxweb/model/exercise.py:380
+#, python-format
+msgid ""
+"In %(namespace)s, There was an error found in response for %(api_endpoint)s "
+"with %(requestData)s params. Error code: %(status)s"
+msgstr ""
+
+#: flxweb/model/exercise.py:382 flxweb/model/exercise.py:383
+#, python-format
+msgid ""
+"In %(namespace)s, response not found for %(api_endpoint)s with "
+"%(requestData)s params"
+msgstr ""
+
+#: flxweb/model/library.py:53
+#: flxweb/templates/details/modalities/concept_modalities.html:38
+#: flxweb/templates/details/modalities/concept_modalities.html:95
+msgid "All"
+msgstr ""
+
+#: flxweb/model/library.py:54
+msgid "archived"
+msgstr ""
+
+#: flxweb/model/modality_configuration_processor.py:55
+#, python-format
+msgid "Error parsing modalities configuration. Invalid xml format : %s"
+msgstr ""
+
+#: flxweb/model/modality_configuration_processor.py:125
+#, python-format
+msgid "Error modalities configuration: %s "
+msgstr ""
+
+#: flxweb/model/modality_configuration_processor.py:139
+#: flxweb/model/modality_configuration_processor.py:154
+#: flxweb/model/modality_configuration_processor.py:157
+#, python-format
+msgid "Error modalities group configuration: %s "
+msgstr ""
+
+#: flxweb/model/modality_configuration_processor.py:194
+#: flxweb/model/modality_configuration_processor.py:199
+#: flxweb/model/modality_configuration_processor.py:204
+#: flxweb/model/modality_configuration_processor.py:276
+#: flxweb/model/modality_configuration_processor.py:296
+#: flxweb/model/modality_configuration_processor.py:346
+msgid "error"
+msgstr ""
+
+#: flxweb/model/modality_configuration_processor.py:195
+msgid "No changes made."
+msgstr ""
+
+#: flxweb/model/modality_configuration_processor.py:198
+#: flxweb/model/modality_configuration_processor.py:275
+#: flxweb/model/modality_configuration_processor.py:345
+#, python-format
+msgid "Error writing to xml: %s"
+msgstr ""
+
+#: flxweb/model/modality_configuration_processor.py:200
+#: flxweb/model/modality_configuration_processor.py:205
+#: flxweb/model/modality_configuration_processor.py:277
+#: flxweb/model/modality_configuration_processor.py:347
+#, python-format
+msgid "Error : %s"
+msgstr ""
+
+#: flxweb/model/modality_configuration_processor.py:203
+#, python-format
+msgid "Error updating settings: %s"
+msgstr ""
+
+#: flxweb/model/modality_configuration_processor.py:207
+#: flxweb/model/modality_configuration_processor.py:279
+#: flxweb/model/modality_configuration_processor.py:349
+msgid "success"
+msgstr ""
+
+#: flxweb/model/modality_configuration_processor.py:208
+msgid "Settings changed."
+msgstr ""
+
+#: flxweb/model/modality_configuration_processor.py:280
+msgid "Settings changed"
+msgstr ""
+
+#: flxweb/model/modality_configuration_processor.py:295
+#, python-format
+msgid "Error : Configuration for artifact type \"%s\" already exists: "
+msgstr ""
+
+#: flxweb/model/modality_configuration_processor.py:297
+#, python-format
+msgid "Error : Configuration for artifact type %s already exists: "
+msgstr ""
+
+#: flxweb/model/modality_configuration_processor.py:350
+msgid "New settings saved."
+msgstr ""
+
+#: flxweb/model/modality_configuration_processor.py:363
+#, python-format
+msgid "Error reading from xml: %s"
+msgstr ""
+
+#: flxweb/model/modality_configuration_processor.py:398
+#, python-format
+msgid "Error taking modality configuration backup : %s"
+msgstr ""
+
+#: flxweb/templates/dialog_addfromgdocs.html:22
+#: flxweb/templates/editor/dialog_addfromgdocs.html:21
+msgid "Documents"
+msgstr ""
+
+#: flxweb/templates/dialog_addfromgdocs.html:23
+#: flxweb/templates/editor/dialog_addfromgdocs.html:22
+msgid "Collections"
+msgstr ""
+
+#: flxweb/templates/dialog_addfromgdocs.html:29
+#: flxweb/templates/editor/dialog_addfromgdocs.html:28
+msgid "Select a document to import."
+msgstr ""
+
+#: flxweb/templates/dialog_addfromgdocs.html:30
+#: flxweb/templates/editor/dialog_addfromgdocs.html:29
+msgid "Select a collection to import."
+msgstr ""
+
+#: flxweb/templates/dialog_addfromgdocs.html:40
+#: flxweb/templates/editor/dialog_addfromgdocs.html:39
+msgid "Provide a title for import."
+msgstr ""
+
+#: flxweb/templates/dialog_addfromgdocs.html:48
+#: flxweb/templates/editor/dialog_addfromgdocs.html:47
+msgid "Select a Modality Type."
+msgstr ""
+
+#: flxweb/templates/dialog_addfromgdocs.html:66
+#: flxweb/templates/editor/dialog_addfromgdocs.html:65
+msgid "Import"
+msgstr ""
+
+#: flxweb/templates/account/settings.html:2
+#: flxweb/templates/account/settings.html:26
+msgid "Account Settings"
+msgstr ""
+
+#: flxweb/templates/account/settings.html:35
+msgid "Signing In"
+msgstr ""
+
+#: flxweb/templates/account/settings.html:41
+#: flxweb/templates/account/settings.html:153
+#: flxweb/templates/details/modalities/modality_common.html:385
+msgid "Email"
+msgstr ""
+
+#: flxweb/templates/account/settings.html:56
+msgid "Username"
+msgstr ""
+
+#: flxweb/templates/account/settings.html:80
+msgid "Password"
+msgstr ""
+
+#: flxweb/templates/account/settings.html:83
+msgid "Change password"
+msgstr ""
+
+#: flxweb/templates/account/settings.html:91
+msgid "Profile"
+msgstr ""
+
+#: flxweb/templates/account/settings.html:94
+msgid "Change profile"
+msgstr ""
+
+#: flxweb/templates/account/settings.html:102
+msgid "Time Zone"
+msgstr ""
+
+#: flxweb/templates/account/settings.html:132
+#: flxweb/templates/common/header.html:19 flxweb/templates/common/header.html:108
+#: flxweb/templates/common/header.html:113
+#: flxweb/templates/common/header_student.html:24
+#: flxweb/templates/common/header_student.html:29
+#: flxweb/templates/common/header_teacher.html:31
+#: flxweb/templates/common/header_teacher.html:36
+msgid "Notifications"
+msgstr ""
+
+#: flxweb/templates/account/settings.html:141
+msgid "On CK-12"
+msgstr ""
+
+#: flxweb/templates/account/settings.html:144
+msgid "Instant notifications on all activity"
+msgstr ""
+
+#: flxweb/templates/account/settings.html:178
+msgid "Email me notifications about:"
+msgstr ""
+
+#: flxweb/templates/account/settings.html:191
+msgid "New content or helpful tips"
+msgstr ""
+
+#: flxweb/templates/account/settings.html:195
+msgid "We'll always send you updates about your account, privacy, and security."
+msgstr ""
+
+#: flxweb/templates/account/settings.html:200
+#: flxweb/templates/get-real/judging.html:74
+#: flxweb/templates/get-real/judging.html:126
+#: flxweb/templates/get-real/judging.html:138
+#: flxweb/templates/get-real/judging.html:149
+msgid "Close"
+msgstr ""
+
+#: flxweb/templates/account/signin_complete.html:83
+msgid "...please wait while we sign you in..."
+msgstr ""
+
+#: flxweb/templates/base/master.html:23 flxweb/templates/common/master.html:29
+#: flxweb/templates/details/concept_embed.html:14
+msgid "CK-12 Foundation"
+msgstr ""
+
+#: flxweb/templates/base/master.html:23 flxweb/templates/common/master.html:29
+msgid "Welcome to CK-12 Foundation"
+msgstr ""
+
+#: flxweb/templates/base/master.html:91 flxweb/templates/base/master.html:107
+#: flxweb/templates/common/master.html:82 flxweb/templates/common/master.html:98
+msgid "Please wait..."
+msgstr ""
+
+#: flxweb/templates/base/master.html:96 flxweb/templates/common/master.html:87
+msgid "Close Sign In "
+msgstr ""
+
+#: flxweb/templates/base/master.html:96 flxweb/templates/common/master.html:87
+msgid "Close Sign In"
+msgstr ""
+
+#: flxweb/templates/base/master.html:101 flxweb/templates/common/master.html:92
+msgid "You need to be signed in to perform this action. Please sign-in and try again."
+msgstr ""
+
+#: flxweb/templates/base/master.html:117
+msgid "Add to library"
+msgstr ""
+
+#: flxweb/templates/base/master.html:122
+msgid "Switch User"
+msgstr ""
+
+#: flxweb/templates/base/master.html:126
+#: flxweb/templates/details/artifact_details_common.html:223
+#: flxweb/templates/details/modalities/modality_details_generic.html:446
+#: flxweb/templates/macros/modality_actions.html:136
+msgid "Submit a Publish Request"
+msgstr ""
+
+#: flxweb/templates/base/master.html:130
+#: flxweb/templates/details/modalities/modality_details_generic.html:451
+msgid "Standards Correlations"
+msgstr ""
+
+#: flxweb/templates/bookbuilder/dialog_addtobook.html:4
+#: flxweb/templates/common/header.html:142 flxweb/templates/common/header.html:144
+#: flxweb/templates/editor/dialog_addconceptnode.html:6
+#: flxweb/templates/editor/dialog_addcontent.html:6
+msgid "Search"
+msgstr ""
+
+#: flxweb/templates/bookbuilder/dialog_addtobook.html:12
+msgid "Load more"
+msgstr ""
+
+#: flxweb/templates/bookbuilder/dialog_addtobook.html:45
+msgid "Create a New FlexBook&#174; Textbook"
+msgstr ""
+
+#: flxweb/templates/bookbuilder/dialog_addtobook.html:54
+msgid "Untitled"
+msgstr ""
+
+#: flxweb/templates/browse/_browse_buttons.html:9
+msgid "List"
+msgstr ""
+
+#: flxweb/templates/browse/_browse_buttons.html:10
+msgid "Map"
+msgstr ""
+
+#: flxweb/templates/browse/browse.html:82 flxweb/templates/browse/browse_2.html:3
+#: flxweb/templates/browse/browse_2.html:81
+#: flxweb/templates/browse/browse_oldmap.html:3
+#: flxweb/templates/browse/browse_oldmap.html:112
+#: flxweb/templates/browse/browse_teacher.html:3
+#: flxweb/templates/browse/browse_teacher.html:50
+msgid "Browse"
+msgstr ""
+
+#: flxweb/templates/browse/browse.html:86 flxweb/templates/browse/browse_2.html:7
+#: flxweb/templates/browse/browse_2.html:94
+#: flxweb/templates/browse/browse_oldmap.html:7
+#: flxweb/templates/browse/browse_oldmap.html:116
+#: flxweb/templates/browse/browse_teacher.html:7
+#: flxweb/templates/browse/browse_teacher.html:63
+msgid "Misc. "
+msgstr ""
+
+#: flxweb/templates/browse/browse.html:99 flxweb/templates/browse/filters.html:28
+#: flxweb/templates/browse/filters.html:31 flxweb/templates/browse/filters.html:33
+#: flxweb/templates/taxonomy/index.html:24
+msgid "Concepts"
+msgstr ""
+
+#: flxweb/templates/browse/browse.html:103
+#: flxweb/templates/mylibrary/common.html:79
+#: flxweb/templates/mylibrary/common.html:85
+#: flxweb/templates/search/results_filters.html:12
+msgid "FlexBook&#174; Textbooks"
+msgstr ""
+
+#: flxweb/templates/browse/browse.html:177
+#: flxweb/templates/browse/browse_2.html:113
+#: flxweb/templates/browse/browse_oldmap.html:143
+#: flxweb/templates/browse/browse_teacher.html:85
+#: flxweb/templates/details/artifact_details_common.html:709
+#: flxweb/templates/editor/artifact_editor_common.html:387
+#: flxweb/templates/exercise/create_exercise.html:79
+#: flxweb/templates/exercise_ae/create_question.html:58
+#: flxweb/templates/related/results_grid.html:18
+#: flxweb/templates/standards/index.html:83 flxweb/templates/taxonomy/index.html:77
+msgid ""
+"Back to the <a href=\"#\" title=\"Back to top of the page\">top of the page "
+"&#8593;"
+msgstr ""
+
+#: flxweb/templates/browse/browse_2.html:90
+#: flxweb/templates/browse/browse_teacher.html:59
+#: flxweb/templates/browse/subjects.html:4 flxweb/templates/common/header.html:149
+#: flxweb/templates/common/header.html:151
+msgid "Subjects"
+msgstr ""
+
+#: flxweb/templates/browse/browse_oldmap.html:137
+#: flxweb/templates/conceptmap/index.html:26
+#: flxweb/templates/conceptmap/index.html:36
+msgid "Concept Map"
+msgstr ""
+
+#: flxweb/templates/browse/filters.html:3
+#: flxweb/templates/search/dialog_results_list.html:6
+#: flxweb/templates/search/dialog_results_list.html:18
+msgid "Show me:"
+msgstr ""
+
+#: flxweb/templates/browse/filters.html:6 flxweb/templates/browse/filters.html:9
+#: flxweb/templates/browse/filters.html:11
+msgid "Both"
+msgstr ""
+
+#: flxweb/templates/browse/filters.html:9 flxweb/templates/browse/filters.html:11
+msgid "Browse for both books and concept"
+msgstr ""
+
+#: flxweb/templates/browse/filters.html:17 flxweb/templates/browse/filters.html:20
+#: flxweb/templates/browse/filters.html:22
+msgid "Books"
+msgstr ""
+
+#: flxweb/templates/browse/filters.html:20 flxweb/templates/browse/filters.html:22
+msgid "Browse for books"
+msgstr ""
+
+#: flxweb/templates/browse/filters.html:31 flxweb/templates/browse/filters.html:33
+msgid "Browse for concepts"
+msgstr ""
+
+#: flxweb/templates/common/footer.html:8
+#: flxweb/templates/common/header_student.html:17
+#: flxweb/templates/common/header_teacher.html:24
+msgid "About CK-12 Foundation"
+msgstr ""
+
+#: flxweb/templates/common/footer.html:8
+msgid "About Us"
+msgstr ""
+
+#: flxweb/templates/common/footer.html:9
+msgid "Contact"
+msgstr ""
+
+#: flxweb/templates/common/footer.html:10
+msgid "Partners"
+msgstr ""
+
+#: flxweb/templates/common/footer.html:15
+msgid "Braingenie"
+msgstr ""
+
+#: flxweb/templates/common/footer.html:16
+msgid "FlexMath"
+msgstr ""
+
+#: flxweb/templates/common/footer.html:23 flxweb/templates/common/header.html:14
+#: flxweb/templates/common/header.html:155 flxweb/templates/common/header.html:157
+msgid "Help"
+msgstr ""
+
+#: flxweb/templates/common/footer.html:28
+msgid "Privacy"
+msgstr ""
+
+#: flxweb/templates/common/footer.html:29 flxweb/templates/embed/embed.html:44
+msgid "Terms of Use"
+msgstr ""
+
+#: flxweb/templates/common/footer.html:36 flxweb/templates/embed/embed.html:43
+msgid ""
+"CK-12 Foundation is licensed under Creative Commons Attribution-NonCommercial"
+" 3.0 Unported (CC BY-NC 3.0)."
+msgstr ""
+
+#: flxweb/templates/common/footer.html:36 flxweb/templates/embed/embed.html:43
+msgid "Attribution-NonCommercial 3.0 Unported"
+msgstr ""
+
+#: flxweb/templates/common/footer.html:37
+msgid "CK-12 Attribution Requirements"
+msgstr ""
+
+#: flxweb/templates/common/footer.html:37
+msgid "Attribution Guide"
+msgstr ""
+
+#: flxweb/templates/common/header.html:12
+msgid "Select language"
+msgstr ""
+
+#: flxweb/templates/common/header.html:16 flxweb/templates/common/header.html:163
+msgid "Create an Account with CK-12"
+msgstr ""
+
+#: flxweb/templates/common/header.html:16 flxweb/templates/common/header.html:165
+msgid "Join"
+msgstr ""
+
+#: flxweb/templates/common/header.html:17 flxweb/templates/common/header.html:169
+msgid "Sign in with your Email, Facebook, Google, Twitter or Microsoft Live account"
+msgstr ""
+
+#: flxweb/templates/common/header.html:17 flxweb/templates/common/header.html:172
+msgid "Sign In"
+msgstr ""
+
+#: flxweb/templates/common/header.html:41 flxweb/templates/common/header.html:43
+#: flxweb/templates/common/header.html:197 flxweb/templates/common/header.html:199
+msgid "Administration"
+msgstr ""
+
+#: flxweb/templates/common/header.html:47 flxweb/templates/common/header.html:49
+#: flxweb/templates/common/header.html:203 flxweb/templates/common/header.html:205
+#: flxweb/templates/details/modalities/modality_configuration.html:2
+msgid "Modality Configuration"
+msgstr ""
+
+#: flxweb/templates/common/header.html:54 flxweb/templates/common/header.html:56
+#: flxweb/templates/common/header.html:210 flxweb/templates/common/header.html:212
+msgid "Settings"
+msgstr ""
+
+#: flxweb/templates/common/header.html:60 flxweb/templates/common/header.html:216
+msgid "Sign out"
+msgstr ""
+
+#: flxweb/templates/common/header.html:62 flxweb/templates/common/header.html:218
+msgid "Sign Out"
+msgstr ""
+
+#: flxweb/templates/common/header.html:74
+#: flxweb/templates/details/paginated_section_details.html:49
+msgid "CK-12 Foundation Home"
+msgstr ""
+
+#: flxweb/templates/common/header.html:75 flxweb/templates/common/header.html:76
+#: flxweb/templates/embed/embed.html:26 flxweb/templates/embed/embed_test.html:54
+msgid "CK-12"
+msgstr ""
+
+#: flxweb/templates/common/header.html:77
+msgid "CK-12 "
+msgstr ""
+
+#: flxweb/templates/common/header.html:117 flxweb/templates/common/header.html:119
+#: flxweb/templates/common/header_student.html:33
+#: flxweb/templates/common/header_student.html:49
+#: flxweb/templates/common/header_teacher.html:40
+#: flxweb/templates/common/header_teacher.html:55
+#: flxweb/templates/dashboard/common.html:34
+#: flxweb/templates/dashboard/dashboard.html:2
+msgid "Dashboard"
+msgstr ""
+
+#: flxweb/templates/common/header.html:123 flxweb/templates/common/header.html:125
+#: flxweb/templates/groups/new/group_assignments.html:3
+#: flxweb/templates/groups/new/group_discussions.html:3
+#: flxweb/templates/groups/new/group_home.html:3
+#: flxweb/templates/groups/new/group_members.html:3
+#: flxweb/templates/groups/new/group_reports.html:3
+#: flxweb/templates/groups/new/group_resources.html:3
+#: flxweb/templates/groups/new/group_settings.html:3
+#: flxweb/templates/groups/new/join_group.html:3
+#: flxweb/templates/groups/new/mygroups.html:3
+msgid "Groups"
+msgstr ""
+
+#: flxweb/templates/common/header.html:129 flxweb/templates/common/header.html:131
+#: flxweb/templates/mylibrary/favoritefiles.html:3
+#: flxweb/templates/mylibrary/favorites.html:4
+#: flxweb/templates/mylibrary/favorites.html:22
+msgid "Bookmarks"
+msgstr ""
+
+#: flxweb/templates/common/header.html:135 flxweb/templates/common/header.html:137
+#: flxweb/templates/dashboard/common.html:45
+#: flxweb/templates/dashboard/common.html:47
+#: flxweb/templates/mylibrary/archive.html:4
+#: flxweb/templates/mylibrary/common.html:4
+#: flxweb/templates/mylibrary/common.html:6
+#: flxweb/templates/mylibrary/files_archive.html:4
+#: flxweb/templates/search/dialog_results_list.html:22
+#: flxweb/templates/search/dialog_results_list.html:26
+msgid "My Content"
+msgstr ""
+
+#: flxweb/templates/common/header.html:230
+msgid "Browse Subjects"
+msgstr ""
+
+#: flxweb/templates/common/header.html:230
+msgid "SUBJECTS"
+msgstr ""
+
+#: flxweb/templates/common/header_student.html:5
+#: flxweb/templates/common/header_teacher.html:6
+msgid "CK-12 Foundation blog"
+msgstr ""
+
+#: flxweb/templates/common/header_student.html:7
+#: flxweb/templates/common/header_teacher.html:8
+msgid "BLOG"
+msgstr ""
+
+#: flxweb/templates/common/header_student.html:11
+msgid "Find information on how CK-12 can help teachers teach"
+msgstr ""
+
+#: flxweb/templates/common/header_student.html:13
+msgid "I AM A TEACHER"
+msgstr ""
+
+#: flxweb/templates/common/header_student.html:19
+#: flxweb/templates/common/header_teacher.html:26
+msgid "ABOUT"
+msgstr ""
+
+#: flxweb/templates/common/header_student.html:36
+#: flxweb/templates/common/header_student.html:52
+#: flxweb/templates/common/header_teacher.html:43
+#: flxweb/templates/common/header_teacher.html:58
+msgid "DASHBOARD"
+msgstr ""
+
+#: flxweb/templates/common/header_teacher.html:12
+msgid "Overview"
+msgstr ""
+
+#: flxweb/templates/common/header_teacher.html:14
+msgid "OVERVIEW"
+msgstr ""
+
+#: flxweb/templates/common/header_teacher.html:18
+msgid "Find information on how CK-12 can help Students learn"
+msgstr ""
+
+#: flxweb/templates/common/header_teacher.html:20
+msgid "I AM A STUDENT"
+msgstr ""
+
+#: flxweb/templates/conceptmap/index.html:39
+msgid "Subject &#187;"
+msgstr ""
+
+#: flxweb/templates/coursegen/dialog_coursegen.html:3
+msgid ""
+"Please select the subject, state and grade for auto generating a standards "
+"aligned FlexBook&#174; textbook"
+msgstr ""
+
+#: flxweb/templates/coursegen/dialog_coursegen.html:9
+#: flxweb/templates/editor/ajax_concept_nodes_list.html:23
+#: flxweb/templates/landing/teacher.html:132
+msgid "Subject"
+msgstr ""
+
+#: flxweb/templates/coursegen/dialog_coursegen.html:13
+#: flxweb/templates/standards/index.html:34
+msgid "Select subject"
+msgstr ""
+
+#: flxweb/templates/coursegen/dialog_coursegen.html:23
+msgid "State or Standard Set"
+msgstr ""
+
+#: flxweb/templates/coursegen/dialog_coursegen.html:27
+#: flxweb/templates/standards/index.html:40
+msgid "Select state or standard set"
+msgstr ""
+
+#: flxweb/templates/coursegen/dialog_coursegen.html:38
+#: flxweb/templates/landing/teacher.html:149
+msgid "Grade"
+msgstr ""
+
+#: flxweb/templates/coursegen/dialog_coursegen.html:42
+#: flxweb/templates/standards/index.html:52
+msgid "Select grade"
+msgstr ""
+
+#: flxweb/templates/coursegen/dialog_coursegen.html:52
+msgid "FlexBook&#174; textbook Title"
+msgstr ""
+
+#: flxweb/templates/coursegen/dialog_coursegen.html:57
+msgid "Enter your new FlexBook&#174; textbook title here"
+msgstr ""
+
+#: flxweb/templates/dashboard/common.html:53
+#: flxweb/templates/dashboard/common.html:55
+#: flxweb/templates/exercise_ae/my_tests.html:3
+#: flxweb/templates/exercise_ae/my_tests.html:5
+msgid "My Quizzes"
+msgstr ""
+
+#: flxweb/templates/details/ajax_conceptlist.html:5
+#: flxweb/templates/details/ajax_conceptlist.html:22
+msgid "Read More..."
+msgstr ""
+
+#: flxweb/templates/details/ajax_reviewfeedback_list.html:11
+#: flxweb/templates/jstemplates/reviews.html:11
+#: flxweb/templates/jstemplates/reviews.html:138
+#: flxweb/templates/jstemplates/reviews.html:174
+msgid "Not helpful"
+msgstr ""
+
+#: flxweb/templates/details/ajax_reviewfeedback_list.html:13
+#: flxweb/templates/details/modalities/modality_common.html:394
+#: flxweb/templates/jstemplates/reviews.html:13
+#: flxweb/templates/jstemplates/reviews.html:136
+#: flxweb/templates/jstemplates/reviews.html:171
+msgid "Helpful"
+msgstr ""
+
+#: flxweb/templates/details/ajax_vocabulary_list.html:7
+#: flxweb/templates/details/concept_details.html:90
+#: flxweb/templates/details/modalities/modality_details_read.html:110
+#: flxweb/templates/editor/concept_editor.html:81
+msgid "Vocabulary"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:142
+#: flxweb/templates/details/artifact_details_common.html:153
+#: flxweb/templates/details/modalities/modality_common.html:108
+#: flxweb/templates/details/modalities/modality_common.html:117
+#: flxweb/templates/details/modalities/modality_common.html:126
+#: flxweb/templates/details/modalities/modality_common.html:134
+msgid "Go to the latest version."
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:158
+msgid "Update this concept to latest."
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:191
+#: flxweb/templates/details/artifact_details_common.html:192
+#: flxweb/templates/details/artifact_details_common.html:198
+#: flxweb/templates/details/artifact_details_common.html:199
+#: flxweb/templates/editor/dialog_addcontent.html:51
+#: flxweb/templates/macros/modality_actions.html:19
+msgid "Add to FlexBook&#174; Textbook"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:224
+#: flxweb/templates/macros/modality_actions.html:137
+msgid "Publish"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:234
+#: flxweb/templates/details/resource_details.html:212
+#: flxweb/templates/details/modalities/modality_details_generic.html:230
+#: flxweb/templates/exercise_ae/modality_details_generic.html:262
+#: flxweb/templates/get-real/judging.html:97
+#: flxweb/templates/macros/modality_actions.html:41
+#: flxweb/templates/macros/modality_actions.html:178
+msgid "Download"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:235
+msgid "Download PDF"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:235
+#: flxweb/templates/exercise/workbook_details.html:133
+#: flxweb/templates/macros/modality_actions.html:47
+#: flxweb/templates/macros/modality_actions.html:184
+msgid "PDF"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:235
+#: flxweb/templates/macros/modality_actions.html:47
+#: flxweb/templates/macros/modality_actions.html:184
+#: flxweb/templates/macros/modality_actions.html:189
+msgid "Most Devices"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:236
+msgid "Download .mobi for Kindle"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:236
+#: flxweb/templates/macros/modality_actions.html:52
+msgid "mobi"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:236
+#: flxweb/templates/macros/modality_actions.html:52
+msgid "Kindle"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:237
+msgid "Download for iBooks"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:237
+#: flxweb/templates/macros/modality_actions.html:57
+msgid "ePub"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:237
+msgid "iPad &amp; Android"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:253
+#: flxweb/templates/details/resource_details.html:72
+#: flxweb/templates/details/modalities/modality_common.html:368
+#: flxweb/templates/jstemplates/contribute.html:18
+#: flxweb/templates/jstemplates/contribute.html:203
+#: flxweb/templates/macros/modality_actions.html:87
+msgid "Share on Twitter"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:255
+#: flxweb/templates/details/resource_details.html:73
+#: flxweb/templates/details/modalities/modality_common.html:375
+#: flxweb/templates/jstemplates/contribute.html:19
+#: flxweb/templates/jstemplates/contribute.html:204
+#: flxweb/templates/macros/modality_actions.html:88
+msgid "Share on Facebook"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:257
+#: flxweb/templates/details/resource_details.html:75
+#: flxweb/templates/details/modalities/modality_common.html:382
+#: flxweb/templates/jstemplates/contribute.html:20
+#: flxweb/templates/jstemplates/contribute.html:205
+#: flxweb/templates/macros/modality_actions.html:89
+msgid "Share via Email"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:259
+msgid "Share to a Group"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:329
+#: flxweb/templates/details/modalities/modality_details_generic.html:333
+#: flxweb/templates/exercise_ae/modality_details_generic.html:366
+msgid "Difficulty Level"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:341
+msgid "Created by"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:350
+#: flxweb/templates/details/resource_details.html:144
+#: flxweb/templates/details/modalities/modality_common.html:62
+#: flxweb/templates/details/modalities/modality_common.html:166
+msgid "Subject: "
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:375
+#: flxweb/templates/details/resource_details.html:172
+msgid "Read"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:380
+msgid "Practice"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:387
+#: flxweb/templates/details/modalities/modality_details_quiz.html:29
+#: flxweb/templates/details/modalities/modality_details_read.html:133
+#: flxweb/templates/details/modalities/modality_details_with_answerkey.html:29
+#: flxweb/templates/editor/artifact_editor_common.html:207
+#: flxweb/templates/macros/modality_actions.html:158
+msgid "Resources"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:395
+#: flxweb/templates/details/modalities/modality_details_generic.html:247
+#: flxweb/templates/editor/artifact_editor_common.html:212
+#: flxweb/templates/exercise/create_question.html:124
+#: flxweb/templates/exercise_ae/modality_details_generic.html:279
+#: flxweb/templates/macros/modality_actions.html:148
+msgid "Details"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:423
+#: flxweb/templates/details/book_details.html:54
+#: flxweb/templates/details/chapter_details.html:58
+#: flxweb/templates/details/modalities/modality_details_read.html:68
+msgid "Loading Contents"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:423
+#: flxweb/templates/details/book_details.html:54
+#: flxweb/templates/details/chapter_details.html:58
+#: flxweb/templates/details/modalities/modality_details_read.html:68
+msgid "Loading Contents..."
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:444
+#: flxweb/templates/details/modalities/modality_details_embed.html:9
+#: flxweb/templates/details/modalities/modality_details_link.html:9
+#: flxweb/templates/details/modalities/modality_details_read.html:92
+#: flxweb/templates/editor/artifact_editor_common.html:249
+msgid "Description"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:450
+#: flxweb/templates/details/modalities/modality_details_read.html:98
+msgid "No description available here..."
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:459
+#: flxweb/templates/details/modalities/modality_details_read.html:117
+msgid "Comments"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:493
+#: flxweb/templates/details/modalities/modality_details_generic.html:396
+#: flxweb/templates/exercise_ae/modality_details_generic.html:428
+msgid "Other Details"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:497
+msgid "Difficulty Level:"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:506
+#: flxweb/templates/details/modalities/modality_details_generic.html:260
+#: flxweb/templates/editor/artifact_editor_common.html:266
+#: flxweb/templates/exercise_ae/modality_details_generic.html:292
+msgid "Authors:"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:514
+#: flxweb/templates/details/modalities/modality_details_generic.html:267
+#: flxweb/templates/editor/artifact_editor_common.html:267
+#: flxweb/templates/exercise_ae/modality_details_generic.html:299
+msgid "Contributors:"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:522
+#: flxweb/templates/details/modalities/modality_details_generic.html:274
+#: flxweb/templates/editor/artifact_editor_common.html:268
+#: flxweb/templates/exercise_ae/modality_details_generic.html:306
+msgid "Editors:"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:530
+#: flxweb/templates/details/modalities/modality_details_generic.html:281
+#: flxweb/templates/editor/artifact_editor_common.html:269
+#: flxweb/templates/exercise_ae/modality_details_generic.html:313
+msgid "Translators:"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:538
+#: flxweb/templates/details/modalities/modality_details_generic.html:288
+#: flxweb/templates/editor/artifact_editor_common.html:271
+#: flxweb/templates/exercise_ae/modality_details_generic.html:320
+msgid "Reviewer:"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:546
+#: flxweb/templates/details/modalities/modality_details_generic.html:295
+#: flxweb/templates/editor/artifact_editor_common.html:272
+#: flxweb/templates/exercise_ae/modality_details_generic.html:327
+msgid "Technical Reviewer:"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:554
+#: flxweb/templates/details/modalities/modality_details_generic.html:308
+#: flxweb/templates/editor/artifact_editor_common.html:270
+#: flxweb/templates/exercise_ae/modality_details_generic.html:341
+msgid "Sources:"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:565
+#: flxweb/templates/details/modalities/modality_details_generic.html:386
+#: flxweb/templates/exercise_ae/modality_details_generic.html:418
+msgid "Tags:"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:572
+#: flxweb/templates/details/modalities/modality_details_generic.html:368
+#: flxweb/templates/exercise_ae/modality_details_generic.html:401
+msgid "Categories:"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:581
+#: flxweb/templates/details/modalities/modality_details_generic.html:377
+#: flxweb/templates/exercise_ae/modality_details_generic.html:409
+msgid "Search Keywords:"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:594
+msgid "Grades:"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:611
+#: flxweb/templates/details/modalities/modality_details_generic.html:356
+#: flxweb/templates/exercise_ae/modality_details_generic.html:389
+msgid "Date Created:"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:615
+#: flxweb/templates/details/modalities/modality_details_generic.html:360
+#: flxweb/templates/exercise_ae/modality_details_generic.html:393
+msgid "Last Modified:"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:643
+msgid "detail/"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:646
+#: flxweb/templates/exercise/exercise_macros.html:49
+msgid "We need you!"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:664
+#: flxweb/templates/details/modalities/modality_details_exercise.html:23
+msgid "Loading Interactive Practice.."
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:722
+msgid "Image Detail"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:728
+msgid "Sizes:"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:729
+msgid "Medium"
+msgstr ""
+
+#: flxweb/templates/details/artifact_details_common.html:730
+msgid "Original"
+msgstr ""
+
+#: flxweb/templates/details/book_details.html:34
+#: flxweb/templates/details/book_details.html:36
+msgid "Request for solutions"
+msgstr ""
+
+#: flxweb/templates/details/book_details.html:34
+#: flxweb/templates/details/book_details.html:36
+msgid "Request Solutions"
+msgstr ""
+
+#: flxweb/templates/details/book_details.html:51
+#: flxweb/templates/editor/book_editor.html:46
+msgid "Table of Contents"
+msgstr ""
+
+#: flxweb/templates/details/chapter_details.html:55
+msgid "Chapter Outline"
+msgstr ""
+
+#: flxweb/templates/details/chapter_details.html:60
+msgid "Chapter Summary"
+msgstr ""
+
+#: flxweb/templates/details/concept_details.html:60
+#: flxweb/templates/details/modalities/modality_details_read.html:105
+#: flxweb/templates/editor/concept_editor.html:77
+msgid "Learning Objectives"
+msgstr ""
+
+#: flxweb/templates/details/concept_details.html:73
+#: flxweb/templates/details/modalities/modality_details_read.html:154
+msgid "Concept Nodes:"
+msgstr ""
+
+#: flxweb/templates/details/concept_embed.html:14
+msgid "CK-12 FlexBook&#174; Textbooks"
+msgstr ""
+
+#: flxweb/templates/details/concept_embed.html:17
+#, python-format
+msgid "Share this %(type)s on Facebook"
+msgstr ""
+
+#: flxweb/templates/details/concept_embed.html:17
+msgid "Share This on Facebook"
+msgstr ""
+
+#: flxweb/templates/details/concept_embed.html:18
+#, python-format
+msgid "Share this %(type)s on Twitter"
+msgstr ""
+
+#: flxweb/templates/details/concept_embed.html:18
+msgid "Share this on Twitter"
+msgstr ""
+
+#: flxweb/templates/details/concept_embed.html:19
+#, python-format
+msgid "Share this %(type)s via email"
+msgstr ""
+
+#: flxweb/templates/details/concept_embed.html:19
+msgid "Share this via Email"
+msgstr ""
+
+#: flxweb/templates/details/paginated_section_details.html:150
+#: flxweb/templates/macros/attachments.html:303
+msgid "Reading"
+msgstr ""
+
+#: flxweb/templates/details/resource_details.html:92
+#: flxweb/templates/details/resource_details.html:93
+#: flxweb/templates/editor/artifact_editor_common.html:203
+#: flxweb/templates/editor/book_editor.html:76
+#: flxweb/templates/editor/book_editor.html:110
+#: flxweb/templates/editor/book_editor.html:158
+#: flxweb/templates/editor/concept_editor.html:141
+#: flxweb/templates/macros/artifact.html:424
+#: flxweb/templates/macros/artifact.html:468
+#: flxweb/templates/macros/artifact.html:478
+#: flxweb/templates/mylibrary/contents.html:54
+#: flxweb/templates/search/new/artifact.html:422
+#: flxweb/templates/search/new/artifact.html:466
+#: flxweb/templates/search/new/artifact.html:476
+msgid "Edit"
+msgstr ""
+
+#: flxweb/templates/details/resource_details.html:196
+#: flxweb/templates/details/modalities/modality_details_link.html:31
+msgid ""
+"Open this resource in a new window. If you need more support, be sure to "
+"visit CK-12's"
+msgstr ""
+
+#: flxweb/templates/details/resource_details.html:197
+#: flxweb/templates/details/modalities/modality_details_link.html:32
+msgid "studyHELP"
+msgstr ""
+
+#: flxweb/templates/details/resource_details.html:198
+#: flxweb/templates/details/modalities/modality_details_link.html:33
+msgid "for getting answers to your questions right when you need them."
+msgstr ""
+
+#: flxweb/templates/details/resource_details.html:219
+#: flxweb/templates/mylibrary/favoritefiles.html:20
+msgid "This file is marked as 'Private' and is only available to the uploader."
+msgstr ""
+
+#: flxweb/templates/details/modalities/concept_modalities.html:39
+msgid "CK-12 Content"
+msgstr ""
+
+#: flxweb/templates/details/modalities/concept_modalities.html:40
+msgid "Trending"
+msgstr ""
+
+#: flxweb/templates/details/modalities/concept_modalities.html:41
+msgid "Community Contributed"
+msgstr ""
+
+#: flxweb/templates/details/modalities/concept_modalities.html:59
+#: flxweb/templates/details/modalities/concept_modalities.html:72
+#: flxweb/templates/editor/artifact_editor_common.html:297
+#: flxweb/templates/exercise_ae/modality_details_generic.html:140
+msgid "Difficulty"
+msgstr ""
+
+#: flxweb/templates/details/modalities/concept_modalities.html:59
+#: flxweb/templates/details/modalities/concept_modalities.html:79
+msgid "All Levels"
+msgstr ""
+
+#: flxweb/templates/details/modalities/concept_modalities.html:150
+msgid "Learning Level Definition"
+msgstr ""
+
+#: flxweb/templates/details/modalities/concept_modalities.html:152
+msgid "Basic:"
+msgstr ""
+
+#: flxweb/templates/details/modalities/concept_modalities.html:152
+msgid "Students have partial mastery."
+msgstr ""
+
+#: flxweb/templates/details/modalities/concept_modalities.html:153
+msgid "At Grade (Proficient):"
+msgstr ""
+
+#: flxweb/templates/details/modalities/concept_modalities.html:153
+msgid "Students have demonstrated competency over challenging subject matter."
+msgstr ""
+
+#: flxweb/templates/details/modalities/concept_modalities.html:154
+msgid "Advance:"
+msgstr ""
+
+#: flxweb/templates/details/modalities/concept_modalities.html:154
+msgid ""
+"Students are ready for material that requires superior performance and "
+"mastery."
+msgstr ""
+
+#: flxweb/templates/details/modalities/modality_common.html:309
+msgid ""
+"Back to the <a href=\"#\" id=\"back_to_top_page\" title=\"Back to top of the "
+"page\">top of the page &#8593;"
+msgstr ""
+
+#: flxweb/templates/details/modalities/modality_common.html:371
+msgid "Twitter"
+msgstr ""
+
+#: flxweb/templates/details/modalities/modality_common.html:378
+msgid "Facebook"
+msgstr ""
+
+#: flxweb/templates/details/modalities/modality_common.html:394
+msgid " <%= data.feedbacks.voting.like %> "
+msgstr ""
+
+#: flxweb/templates/details/modalities/modality_common.html:396
+msgid "Not yet reviewed"
+msgstr ""
+
+#: flxweb/templates/details/modalities/modality_common.html:403
+#: flxweb/templates/macros/modality_actions.html:31
+msgid "Bookmark"
+msgstr ""
+
+#: flxweb/templates/details/modalities/modality_configuration.html:11
+msgid "/modality/configuration?confType=modality_groups"
+msgstr ""
+
+#: flxweb/templates/details/modalities/modality_configuration.html:14
+#: flxweb/templates/details/modalities/modality_configuration.html:101
+#: flxweb/templates/mylibrary/common.html:49
+msgid "New Modality"
+msgstr ""
+
+#: flxweb/templates/details/modalities/modality_configuration.html:15
+#: flxweb/templates/details/modalities/modality_configuration.html:23
+#: flxweb/templates/details/modalities/modality_configuration.html:102
+msgid "Update All"
+msgstr ""
+
+#: flxweb/templates/details/modalities/modality_configuration.html:20
+msgid "/modality/configuration?confType=modalities"
+msgstr ""
+
+#: flxweb/templates/details/modalities/modality_configuration.html:94
+#: flxweb/templates/details/modalities/modality_configuration.html:195
+#: flxweb/templates/editor/book_editor.html:81
+#: flxweb/templates/editor/book_editor.html:115
+#: flxweb/templates/macros/artifact.html:509
+#: flxweb/templates/search/new/artifact.html:507
+msgid "Update"
+msgstr ""
+
+#: flxweb/templates/details/modalities/modality_details_generic.html:50
+#: flxweb/templates/exercise_ae/modality_details_generic.html:63
+msgid "All Modalities"
+msgstr ""
+
+#: flxweb/templates/details/modalities/modality_details_generic.html:164
+#: flxweb/templates/exercise_ae/modality_details_generic.html:183
+msgid " Contributed "
+msgstr ""
+
+#: flxweb/templates/details/modalities/modality_details_generic.html:247
+#: flxweb/templates/details/modalities/modality_details_quiz.html:29
+#: flxweb/templates/details/modalities/modality_details_read.html:133
+#: flxweb/templates/details/modalities/modality_details_with_answerkey.html:29
+#: flxweb/templates/exercise_ae/modality_details_generic.html:279
+msgid "Show"
+msgstr ""
+
+#: flxweb/templates/details/modalities/modality_details_generic.html:247
+#: flxweb/templates/details/modalities/modality_details_quiz.html:29
+#: flxweb/templates/details/modalities/modality_details_read.html:133
+#: flxweb/templates/details/modalities/modality_details_with_answerkey.html:29
+#: flxweb/templates/exercise_ae/modality_details_generic.html:279
+msgid "Hide"
+msgstr ""
+
+#: flxweb/templates/details/modalities/modality_details_generic.html:340
+#: flxweb/templates/editor/artifact_editor_common.html:309
+#: flxweb/templates/exercise_ae/modality_details_generic.html:373
+msgid "Grades"
+msgstr ""
+
+#: flxweb/templates/dialogs/publish_artifact.html:3
+msgid ""
+"To make this content publicly available, please provide an explanation for "
+"your request. CK-12 foundation will evaluate your request and notify you via "
+"email soon."
+msgstr ""
+
+#: flxweb/templates/dialogs/publish_artifact.html:11
+msgid "Please explain why you would like to make this content publicly available."
+msgstr ""
+
+#: flxweb/templates/editor/ajax_concept_nodes_list.html:9
+#: flxweb/templates/search/dialog_results_list.html:35
+#, python-format
+msgid "%(from)s to %(to)s of %(total)s"
+msgstr ""
+
+#: flxweb/templates/editor/ajax_concept_nodes_list.html:21
+msgid "Name"
+msgstr ""
+
+#: flxweb/templates/editor/ajax_concept_nodes_list.html:22
+msgid "Encoded ID"
+msgstr ""
+
+#: flxweb/templates/editor/ajax_concept_nodes_list.html:24
+msgid "Branch"
+msgstr ""
+
+#: flxweb/templates/editor/ajax_concept_nodes_list.html:40
+msgid ""
+"No Concept nodes are found for entered search term. <br/> Please enter valid "
+"search term."
+msgstr ""
+
+#: flxweb/templates/editor/ajax_gdocs_list.html:27
+msgid "There are no collections to display."
+msgstr ""
+
+#: flxweb/templates/editor/ajax_gdocs_list.html:29
+msgid "There are no documents to display."
+msgstr ""
+
+#: flxweb/templates/editor/artifact_editor_common.html:94
+#: flxweb/templates/editor/book_editor.html:168
+#: flxweb/templates/editor/concept_editor.html:144
+msgid "Change Cover Image"
+msgstr ""
+
+#: flxweb/templates/editor/artifact_editor_common.html:94
+msgid "Change Image"
+msgstr ""
+
+#: flxweb/templates/editor/artifact_editor_common.html:102
+msgid "Deep copy"
+msgstr ""
+
+#: flxweb/templates/editor/artifact_editor_common.html:126
+msgid "View in Reader"
+msgstr ""
+
+#: flxweb/templates/editor/artifact_editor_common.html:164
+msgid "In"
+msgstr ""
+
+#: flxweb/templates/editor/artifact_editor_common.html:260
+msgid "Attributions"
+msgstr ""
+
+#: flxweb/templates/editor/artifact_editor_common.html:279
+#: flxweb/templates/search/results_filters.html:8
+msgid "Categories"
+msgstr ""
+
+#: flxweb/templates/editor/artifact_editor_common.html:281
+#: flxweb/templates/editor/artifact_editor_common.html:466
+msgid "Add Categories"
+msgstr ""
+
+#: flxweb/templates/editor/artifact_editor_common.html:299
+msgid "Select Difficulty:"
+msgstr ""
+
+#: flxweb/templates/editor/artifact_editor_common.html:311
+msgid "Select Grades:"
+msgstr ""
+
+#: flxweb/templates/editor/artifact_editor_common.html:340
+msgid "Tags"
+msgstr ""
+
+#: flxweb/templates/editor/artifact_editor_common.html:342
+#: flxweb/templates/editor/artifact_editor_common.html:479
+#: flxweb/templates/editor/artifact_editor_common.html:485
+msgid "Add Tags"
+msgstr ""
+
+#: flxweb/templates/editor/artifact_editor_common.html:358
+msgid "Search Keywords"
+msgstr ""
+
+#: flxweb/templates/editor/artifact_editor_common.html:360
+#: flxweb/templates/editor/artifact_editor_common.html:512
+#: flxweb/templates/editor/artifact_editor_common.html:519
+msgid "Add Search Keywords"
+msgstr ""
+
+#: flxweb/templates/editor/artifact_editor_common.html:408
+msgid "Add files:"
+msgstr ""
+
+#: flxweb/templates/editor/artifact_editor_common.html:428
+#: flxweb/templates/editor/artifact_editor_common.html:462
+msgid "Add Attribution"
+msgstr ""
+
+#: flxweb/templates/editor/artifact_editor_common.html:431
+msgid "Role:"
+msgstr ""
+
+#: flxweb/templates/editor/artifact_editor_common.html:435
+msgid "Author"
+msgstr ""
+
+#: flxweb/templates/editor/artifact_editor_common.html:436
+msgid "Editor"
+msgstr ""
+
+#: flxweb/templates/editor/artifact_editor_common.html:437
+msgid "Contributor"
+msgstr ""
+
+#: flxweb/templates/editor/artifact_editor_common.html:438
+msgid "Translator"
+msgstr ""
+
+#: flxweb/templates/editor/artifact_editor_common.html:439
+msgid "Source"
+msgstr ""
+
+#: flxweb/templates/editor/artifact_editor_common.html:440
+msgid "Reviewer"
+msgstr ""
+
+#: flxweb/templates/editor/artifact_editor_common.html:441
+msgid "Technical Reviewer"
+msgstr ""
+
+#: flxweb/templates/editor/artifact_editor_common.html:449
+msgid "Name:"
+msgstr ""
+
+#: flxweb/templates/editor/artifact_editor_common.html:458
+msgid "Please enter a valid name."
+msgstr ""
+
+#: flxweb/templates/editor/artifact_editor_common.html:473
+msgid "Please select one or more categories to add."
+msgstr ""
+
+#: flxweb/templates/editor/artifact_editor_common.html:475
+msgid "Add Category"
+msgstr ""
+
+#: flxweb/templates/editor/artifact_editor_common.html:480
+msgid "Add one or more tags seperated by comma:"
+msgstr ""
+
+#: flxweb/templates/editor/artifact_editor_common.html:483
+msgid "Please select one or more tags to add."
+msgstr ""
+
+#: flxweb/templates/editor/artifact_editor_common.html:489
+#: flxweb/templates/editor/artifact_editor_common.html:508
+msgid "Add States"
+msgstr ""
+
+#: flxweb/templates/editor/artifact_editor_common.html:491
+msgid "Select States:"
+msgstr ""
+
+#: flxweb/templates/editor/artifact_editor_common.html:503
+msgid "Please select one or more states."
+msgstr ""
+
+#: flxweb/templates/editor/artifact_editor_common.html:513
+msgid "Add one or more search keywords seperated by semicolon (;):"
+msgstr ""
+
+#: flxweb/templates/editor/artifact_editor_common.html:516
+msgid "Please add one or more search keywords."
+msgstr ""
+
+#: flxweb/templates/editor/artifact_editor_common.html:517
+msgid "Maximum 80 chars allowed for each search keyword."
+msgstr ""
+
+#: flxweb/templates/editor/book_editor.html:33
+msgid "Add Content"
+msgstr ""
+
+#: flxweb/templates/editor/book_editor.html:34
+#: flxweb/templates/editor/book_editor.html:164
+msgid "Add Content from Library"
+msgstr ""
+
+#: flxweb/templates/editor/book_editor.html:34
+msgid "Search CK12"
+msgstr ""
+
+#: flxweb/templates/editor/book_editor.html:35
+msgid "Add Content With Our Writer"
+msgstr ""
+
+#: flxweb/templates/editor/book_editor.html:35
+msgid "Write a Modality"
+msgstr ""
+
+#: flxweb/templates/editor/book_editor.html:36
+msgid "Add a Chapter"
+msgstr ""
+
+#: flxweb/templates/editor/book_editor.html:36
+msgid "New Chapter"
+msgstr ""
+
+#: flxweb/templates/editor/book_editor.html:38
+msgid "Upload Word File"
+msgstr ""
+
+#: flxweb/templates/editor/book_editor.html:38
+msgid "Word File"
+msgstr ""
+
+#: flxweb/templates/editor/book_editor.html:39
+msgid "Import from Google Doc"
+msgstr ""
+
+#: flxweb/templates/editor/book_editor.html:39
+msgid "Google Doc"
+msgstr ""
+
+#: flxweb/templates/editor/book_editor.html:67
+#: flxweb/templates/editor/book_editor.html:105
+msgid "Rearrange"
+msgstr ""
+
+#: flxweb/templates/editor/book_editor.html:68
+#: flxweb/templates/editor/book_editor.html:106
+#: flxweb/templates/jstemplates/reviews.html:193
+msgid "Remove"
+msgstr ""
+
+#: flxweb/templates/editor/book_editor.html:147
+#: flxweb/templates/editor/book_editor.html:152
+#: flxweb/templates/editor/book_editor.html:180
+#: flxweb/templates/editor/concept_editor.html:130
+#: flxweb/templates/editor/concept_editor.html:135
+#: flxweb/templates/editor/concept_editor.html:157
+msgid "Apply"
+msgstr ""
+
+#: flxweb/templates/editor/book_editor.html:148
+#: flxweb/templates/editor/book_editor.html:153
+#: flxweb/templates/editor/concept_editor.html:131
+#: flxweb/templates/editor/concept_editor.html:136
+#: flxweb/templates/jstemplates/reviews.html:41
+#: flxweb/templates/jstemplates/reviews.html:195
+msgid "Cancel"
+msgstr ""
+
+#: flxweb/templates/editor/book_editor.html:161
+msgid "Saving FlexBook&#174; textbook..."
+msgstr ""
+
+#: flxweb/templates/editor/book_editor.html:165
+#: flxweb/templates/mylibrary/common.html:223
+msgid "Import from Google Docs"
+msgstr ""
+
+#: flxweb/templates/editor/book_editor.html:166
+#: flxweb/templates/mylibrary/common.html:224
+msgid "Import a Word Document"
+msgstr ""
+
+#: flxweb/templates/editor/book_editor.html:167
+msgid "Edit Chapter"
+msgstr ""
+
+#: flxweb/templates/editor/book_editor.html:176
+#: flxweb/templates/editor/concept_editor.html:153
+msgid "Upload Image"
+msgstr ""
+
+#: flxweb/templates/editor/concept_editor.html:109
+msgid "Concept Node"
+msgstr ""
+
+#: flxweb/templates/editor/concept_editor.html:111
+#: flxweb/templates/editor/concept_editor.html:143
+msgid "Choose a Concept Node"
+msgstr ""
+
+#: flxweb/templates/editor/concept_editor.html:131
+#: flxweb/templates/editor/concept_editor.html:136
+msgid "Discard"
+msgstr ""
+
+#: flxweb/templates/editor/dialog_addconceptnode.html:11
+msgid "Search for concept node and add it to this concept/lesson."
+msgstr ""
+
+#: flxweb/templates/editor/dialog_addconceptnode.html:21
+#: flxweb/templates/editor/dialog_addcontent.html:36
+msgid "Loading results..."
+msgstr ""
+
+#: flxweb/templates/editor/dialog_addconceptnode.html:24
+msgid "Please enter search term to get concept nodes."
+msgstr ""
+
+#: flxweb/templates/editor/dialog_addconceptnode.html:27
+msgid "Note: Only one concept node can be associated with Concept."
+msgstr ""
+
+#: flxweb/templates/editor/dialog_addcontent.html:12
+msgid "Search for exercises and add them to this Workbook."
+msgstr ""
+
+#: flxweb/templates/editor/dialog_addcontent.html:16
+msgid "Search for books or concepts and add them to this FlexBook&#174; textbook."
+msgstr ""
+
+#: flxweb/templates/editor/dialog_addcontent.html:28
+msgid "Please enter search term to get excercises."
+msgstr ""
+
+#: flxweb/templates/editor/dialog_addcontent.html:30
+msgid "Please enter search term to get books or concepts."
+msgstr ""
+
+#: flxweb/templates/editor/dialog_addcontent.html:40
+msgid "Please select a exercise to add."
+msgstr ""
+
+#: flxweb/templates/editor/dialog_addcontent.html:42
+msgid "Please select a Content to add."
+msgstr ""
+
+#: flxweb/templates/editor/dialog_addcontent.html:49
+msgid "Add to Workbook"
+msgstr ""
+
+#: flxweb/templates/editor/dialog_chapteredit.html:5
+msgid "Basic Information"
+msgstr ""
+
+#: flxweb/templates/editor/dialog_chapteredit.html:8
+msgid "Introduction"
+msgstr ""
+
+#: flxweb/templates/editor/dialog_chapteredit.html:11
+msgid "Summary"
+msgstr ""
+
+#: flxweb/templates/editor/dialog_chapteredit.html:17
+msgid "Chapter Title:"
+msgstr ""
+
+#: flxweb/templates/editor/dialog_chapteredit.html:23
+msgid "Chapter Description:"
+msgstr ""
+
+#: flxweb/templates/editor/dialog_chapteredit.html:42
+msgid "Save Chapter"
+msgstr ""
+
+#: flxweb/templates/editor/dialog_chapteredit.html:46
+msgid "Saving Chapter..."
+msgstr ""
+
+#: flxweb/templates/editor/dialog_uploadworddoc.html:10
+msgid "Title cannot be blank."
+msgstr ""
+
+#: flxweb/templates/editor/dialog_uploadworddoc.html:20
+msgid "Please select a .docx file to upload."
+msgstr ""
+
+#: flxweb/templates/editor/dialog_uploadworddoc.html:25
+msgid "Upload"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:2
+msgid "eFlex Email Interface"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:10
+msgid "About the eFlex"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:19
+msgid "What is eFlex?"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:21
+msgid ""
+"eFlex is an email interface to CK-12's FlexBook&#174; textbook authoring "
+"system by which one can send request and get dynamically collated book out of"
+" the sent request in various digital formats such as PDF, Mobi, EPUB."
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:24
+msgid "How to Use eFlex?"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:27
+msgid "You can use this interface to:"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:29
+msgid "Create a new FlexBook&#174; textbook"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:30
+msgid "Contribute a Lesson"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:35
+msgid "Creating a New FlexBook&#174; textbook"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:37
+msgid "To create a new FlexBook&#174; textbook, please send an email to"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:37 flxweb/templates/eflex/about.html:152
+#: flxweb/templates/eflex/about.html:188 flxweb/templates/eflex/about.html:222
+#: flxweb/templates/eflex/about.html:262 flxweb/templates/eflex/about.html:302
+#: flxweb/templates/eflex/about.html:341 flxweb/templates/eflex/about.html:444
+#: flxweb/templates/eflex/about.html:476
+msgid "eflex@ck12.org"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:37
+msgid ", with:"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:39
+msgid "A subject line in the format of \"Create: Book Title\""
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:40
+msgid ""
+"And mail body containing one or more lines in the format of \n"
+"\t\t\t\"Subject: topic keywords\", for the book content."
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:42
+msgid "(Optional in the mail content): @Forward"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:42
+msgid "digital format"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:42
+msgid "list of Email IDs"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:42
+msgid "Digital format can be pdf, epub or mobi."
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:45
+#: flxweb/templates/exercise/create_question_hints.html:15
+#: flxweb/templates/exercise/create_question_hints.html:42
+#: flxweb/templates/exercise/create_question_hints.html:65
+#: flxweb/templates/exercise/create_question_hints.html:81
+#: flxweb/templates/exercise/create_question_hints.html:92
+#: flxweb/templates/exercise/create_question_hints.html:108
+#: flxweb/templates/exercise/create_question_hints.html:126
+#: flxweb/templates/exercise/create_question_hints.html:127
+#: flxweb/templates/exercise/create_question_hints.html:158
+#: flxweb/templates/exercise/create_question_hints.html:159
+#: flxweb/templates/exercise/create_question_hints.html:171
+#: flxweb/templates/exercise/create_question_hints.html:179
+#: flxweb/templates/exercise/create_question_hints.html:195
+#: flxweb/templates/exercise/create_question_hints.html:243
+msgid "Example:"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:48
+msgid ""
+"The following is an email for requesting a book titled \"My Small Physics "
+"Book\" containing 2 concepts; the first covering gravity, and the second "
+"covering optics. Also, the EPUB version of the resulting book will be "
+"forwarded to the specified Email IDs."
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:54 flxweb/templates/eflex/about.html:135
+#: flxweb/templates/eflex/about.html:171 flxweb/templates/eflex/about.html:204
+#: flxweb/templates/eflex/about.html:244 flxweb/templates/eflex/about.html:284
+#: flxweb/templates/eflex/about.html:324 flxweb/templates/eflex/about.html:360
+#: flxweb/templates/eflex/about.html:396 flxweb/templates/eflex/about.html:428
+#: flxweb/templates/eflex/about.html:460
+msgid "Subject line:"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:57 flxweb/templates/eflex/about.html:138
+#: flxweb/templates/eflex/about.html:174 flxweb/templates/eflex/about.html:207
+#: flxweb/templates/eflex/about.html:247 flxweb/templates/eflex/about.html:287
+#: flxweb/templates/eflex/about.html:327 flxweb/templates/eflex/about.html:363
+#: flxweb/templates/eflex/about.html:399 flxweb/templates/eflex/about.html:431
+msgid "Create: My Small Physics Book"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:62 flxweb/templates/eflex/about.html:143
+#: flxweb/templates/eflex/about.html:179 flxweb/templates/eflex/about.html:212
+#: flxweb/templates/eflex/about.html:252 flxweb/templates/eflex/about.html:292
+#: flxweb/templates/eflex/about.html:332 flxweb/templates/eflex/about.html:368
+#: flxweb/templates/eflex/about.html:404 flxweb/templates/eflex/about.html:436
+#: flxweb/templates/eflex/about.html:468
+msgid "Mail body:"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:65 flxweb/templates/eflex/about.html:146
+#: flxweb/templates/eflex/about.html:182 flxweb/templates/eflex/about.html:215
+#: flxweb/templates/eflex/about.html:255 flxweb/templates/eflex/about.html:295
+#: flxweb/templates/eflex/about.html:335 flxweb/templates/eflex/about.html:371
+msgid "Physics: gravity"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:66 flxweb/templates/eflex/about.html:147
+#: flxweb/templates/eflex/about.html:183 flxweb/templates/eflex/about.html:216
+#: flxweb/templates/eflex/about.html:256 flxweb/templates/eflex/about.html:296
+#: flxweb/templates/eflex/about.html:336 flxweb/templates/eflex/about.html:372
+msgid "Physics: optics"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:67
+msgid "@Forwardepub: friend1@maildomain.com, friend2@maildomain.com"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:73
+msgid "Contributing a Lesson"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:76
+msgid "To contribute a Lesson, please send an email to <b>eflex@ck12.org</b>, with:"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:79
+msgid "A subject line in the format of \"Contribute: lesson title\""
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:80
+msgid "Mail body containing a line in the format of"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:81
+msgid "\"@Googledoc: "
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:85
+msgid "Note: Google document should be provided with public access."
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:92
+msgid "eFlex - Various Cases"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:96
+msgid "Create book request from new user"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:99
+msgid "Create book request from new user for second time"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:102
+msgid "Create book request from registered user with forward PDF option"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:105
+msgid "Create book request from registered user with forward EPUB option"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:108
+msgid "Create book request from registered user with forward MOBI option"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:111
+msgid "Create book request from registered user with a title already used by him/her"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:114
+msgid "Create book request from new user with a title used by different new user"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:117
+msgid "Invalid request from new user"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:120
+msgid "Invalid request from new user after threshold times"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:123
+msgid "Contribute Lesson request"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:128
+msgid "Create Book Request from New User"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:131 flxweb/templates/eflex/about.html:167
+#: flxweb/templates/eflex/about.html:200 flxweb/templates/eflex/about.html:240
+#: flxweb/templates/eflex/about.html:280 flxweb/templates/eflex/about.html:320
+#: flxweb/templates/eflex/about.html:356 flxweb/templates/eflex/about.html:392
+#: flxweb/templates/eflex/about.html:424 flxweb/templates/eflex/about.html:456
+msgid "Build an Email with the following:"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:152 flxweb/templates/eflex/about.html:188
+#: flxweb/templates/eflex/about.html:222 flxweb/templates/eflex/about.html:262
+#: flxweb/templates/eflex/about.html:302 flxweb/templates/eflex/about.html:341
+#: flxweb/templates/eflex/about.html:412 flxweb/templates/eflex/about.html:444
+#: flxweb/templates/eflex/about.html:476
+msgid "Send the Email to "
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:155 flxweb/templates/eflex/about.html:225
+#: flxweb/templates/eflex/about.html:265 flxweb/templates/eflex/about.html:305
+#: flxweb/templates/eflex/about.html:344 flxweb/templates/eflex/about.html:380
+msgid "Email from eFlex is received stating the book is being processed."
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:158
+msgid ""
+"Then, the book order email will be received which has info of the contents "
+"collated, links to PDF, reader."
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:164
+msgid "Create Book Request from New User for Second Time"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:191
+msgid ""
+"Email from eFlex is received asking the user to register with our system. "
+"Registration link is also provided in the response."
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:197
+msgid "Create Book Request from Registered User with Forward PDF Option"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:217
+msgid "@Forwardpdf: friend1@maildomain.com"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:228
+msgid ""
+"Book order email along with PDF attachment of the book, info of the contents "
+"collated, links to PDF, reader will be received by friend1@maildomain.com"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:231
+msgid ""
+"Also, the book order email will be received by the sender, which has info of "
+"the contents collated, links to PDF, reader."
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:237
+msgid "Create Book Request from Registered User with Forward EPUB Option"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:257
+msgid "@Forwardepub: friend1@maildomain.com"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:268
+msgid ""
+"Book order email along with EPUB attachment of the book, info of the contents"
+" collated, links to EPUB, reader will be received by friend1@maildomain.com"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:271
+msgid ""
+"Also, the book order email will be received by the sender, which has info of "
+"the contents collated, links to EPUB, reader."
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:277
+msgid "Create Book Request from Registered User with Forward MOBI Option"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:297
+msgid "@Forwardmobi: friend1@maildomain.com"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:308
+msgid ""
+"Book order email along with MOBI attachment of the book, info of the contents"
+" collated, links to MOBI, reader will be received by friend1@maildomain.com"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:311
+msgid ""
+"Also, the book order email will be received by the sender, which has info of "
+"the contents collated, links to MOBI, reader."
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:317
+msgid "Create Book Request from Registered User with a Title Already Used by Him/Her"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:347 flxweb/templates/eflex/about.html:383
+msgid ""
+"Then, the book order email will be received which has info of the contents "
+"collated, links to PDF, reader. Also, email will explain that the book title "
+"is changed to \"book title "
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:347 flxweb/templates/eflex/about.html:383
+msgid "next number"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:347
+msgid "\", as there exists a book titled \"User requested title\" in the library."
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:353
+msgid "Create Book Request from New User with a Title Used by Different New User"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:377
+msgid "Send the Email to <b>eflex@ck12.org"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:383
+msgid "\", as the \"User requested title\" is unavailable."
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:389
+msgid "Invalid Request from New User"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:407 flxweb/templates/eflex/about.html:439
+msgid "Random text"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:415
+msgid "Help Email from eFlex is received."
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:421
+msgid "Invalid Request from New User after Threshold Times"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:447
+msgid "There won't be any response from eFlex."
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:453
+msgid "Contribute Lesson Request"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:463
+msgid "Contribute: My Physics Lesson"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:471
+msgid "@Googledoc: "
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:471
+msgid "Public version - Google doc ID"
+msgstr ""
+
+#: flxweb/templates/eflex/about.html:479
+msgid "Email from eFlex is received which contains artifact viewer and reader links."
+msgstr ""
+
+#: flxweb/templates/embed/embed.html:44
+msgid "Terms <span class=\"hide-for-small\">of Use</span>"
+msgstr ""
+
+#: flxweb/templates/embed/embed.html:45
+msgid "Attribution"
+msgstr ""
+
+#: flxweb/templates/embed/embed.html:50
+msgid "Powered by FlexBook&#174; textbook Platform &reg;"
+msgstr ""
+
+#: flxweb/templates/errors/404.html:2
+msgid "File Not Found Error"
+msgstr ""
+
+#: flxweb/templates/errors/404.html:12
+msgid "This content is no longer available"
+msgstr ""
+
+#: flxweb/templates/errors/404.html:14
+msgid ""
+"This content has been removed from our site and is no longer available. We "
+"apologize for the inconvenience caused."
+msgstr ""
+
+#: flxweb/templates/errors/404.html:19
+msgid "Oops, the file's not here"
+msgstr ""
+
+#: flxweb/templates/errors/404.html:21
+msgid "That's &#34;404: File not found&#34; for the technically inclined."
+msgstr ""
+
+#: flxweb/templates/errors/404.html:22
+msgid ""
+"For the not-so-technically inclined, that means that the link you clicked, or"
+" the URL you typed into your browser, didn't work for some reason."
+msgstr ""
+
+#: flxweb/templates/errors/404.html:24 flxweb/templates/errors/408.html:17
+msgid "Here are some possible reasons why:"
+msgstr ""
+
+#: flxweb/templates/errors/404.html:26
+msgid ""
+"We have a &#34;bad&#34; link floating out there and you were unlucky enough "
+"to click it."
+msgstr ""
+
+#: flxweb/templates/errors/404.html:27
+msgid "You may have typed the page address incorrectly."
+msgstr ""
+
+#: flxweb/templates/errors/404.html:28 flxweb/templates/errors/408.html:21
+msgid "This web server is going nutty."
+msgstr ""
+
+#: flxweb/templates/errors/404.html:31
+msgid "So now what?"
+msgstr ""
+
+#: flxweb/templates/errors/404.html:33
+msgid "How about trying again?"
+msgstr ""
+
+#: flxweb/templates/errors/404.html:34
+msgid "If you have a keyword or two, you might try a Search."
+msgstr ""
+
+#: flxweb/templates/errors/404.html:35
+msgid "Go use your browser back button to return to the previous page."
+msgstr ""
+
+#: flxweb/templates/errors/404.html:39
+msgid "(By the way, this 404 has been recorded so that we can fix it.)"
+msgstr ""
+
+#: flxweb/templates/errors/404.html:40 flxweb/templates/errors/408.html:26
+#: flxweb/templates/errors/500.html:14
+msgid "Error ID: "
+msgstr ""
+
+#: flxweb/templates/errors/408.html:10
+msgid "Oops, the request timed out."
+msgstr ""
+
+#: flxweb/templates/errors/408.html:15
+msgid "It took longer than expected to process that last request."
+msgstr ""
+
+#: flxweb/templates/errors/408.html:19
+msgid "Our servers are extremely busy."
+msgstr ""
+
+#: flxweb/templates/errors/408.html:20
+msgid "We are experiencing some technical issues."
+msgstr ""
+
+#: flxweb/templates/errors/408.html:25
+msgid ""
+"Try to <a href='#' onclick='window.location.reload()''>reload</a> the page "
+"after some time."
+msgstr ""
+
+#: flxweb/templates/errors/500.html:2
+msgid "Internal Server Error"
+msgstr ""
+
+#: flxweb/templates/errors/500.html:10
+msgid "Oops, Internal Server Error"
+msgstr ""
+
+#: flxweb/templates/errors/500.html:12
+msgid ""
+"There has been a &#34;500 internal application error&#34;. Please check back "
+"shortly."
+msgstr ""
+
+#: flxweb/templates/errors/500.html:13
+msgid "Thanks for your patience!"
+msgstr ""
+
+#: flxweb/templates/exercise/add_question_message.html:3
+msgid ""
+"We encounter following error while adding your question. Please check the "
+"variables that you have added and then try again."
+msgstr ""
+
+#: flxweb/templates/exercise/add_question_message.html:7
+msgid ""
+"Your question has been successfully added to this exercise, you can preview "
+"of your question here"
+msgstr ""
+
+#: flxweb/templates/exercise/add_question_message.html:10
+msgid "We encounter errors while adding your question. Please try again later."
+msgstr ""
+
+#: flxweb/templates/exercise/add_question_message.html:13
+msgid ""
+"We encounter errors while adding your question. Please make sure you are "
+"creating the question in correct format. Additional quidelines are available "
+"in the help box <span style=\"position:relative;top:3px;\" class=\"ex-help-"
+"icon\"></span> on each input field."
+msgstr ""
+
+#: flxweb/templates/exercise/add_question_message.html:18
+msgid ""
+"Thank you for your contribution! We will quickly review your question before "
+"using them in our exercise bank. Feel free to add more questions for this "
+"exercise."
+msgstr ""
+
+#: flxweb/templates/exercise/add_question_message.html:19
+msgid "We encounter error while keeping this question. Please try again later."
+msgstr ""
+
+#: flxweb/templates/exercise/ajax_exercise_details.html:13
+msgid "Back to Exercises"
+msgstr ""
+
+#: flxweb/templates/exercise/ajax_exercise_details.html:14
+#: flxweb/templates/exercise/ajax_exercise_details.html:72
+msgid "Retake Quiz"
+msgstr ""
+
+#: flxweb/templates/exercise/ajax_exercise_details.html:25
+msgid "Practice what you&rsquo;ve learned"
+msgstr ""
+
+#: flxweb/templates/exercise/ajax_exercise_details.html:31
+msgid "Report issues about this question"
+msgstr ""
+
+#: flxweb/templates/exercise/ajax_exercise_details.html:44
+msgid "This is our embed code."
+msgstr ""
+
+#: flxweb/templates/exercise/ajax_exercise_details.html:49
+#, python-format
+msgid "%(url)s?in_etitle=%(title)s&in_enid=%(encodedid)s&in_ehandle=%(handle)s&in_artifactType=%(artifactType)s&in_realm=%(realm)s&in_branch=%(branch)s&in_domain=%(domain)s"
+msgstr ""
+
+#: flxweb/templates/exercise/ajax_exercise_details.html:49
+#: flxweb/templates/exercise/workbook_details.html:2
+#: flxweb/templates/exercise/workbook_details.html:36
+#: flxweb/templates/exercise/workbook_details.html:38
+#: flxweb/templates/exercise/workbook_details.html:146
+#: flxweb/templates/exercise/workbook_details.html:148
+msgid "Create Workbook"
+msgstr ""
+
+#: flxweb/templates/exercise/ajax_exercise_details.html:51
+#: flxweb/templates/exercise/ajax_exercise_details.html:53
+#: flxweb/templates/exercise_ae/modality_details_generic.html:215
+msgid "Help us by contributing questions for this exercise"
+msgstr ""
+
+#: flxweb/templates/exercise/ajax_exercise_details.html:51
+#: flxweb/templates/exercise/ajax_exercise_details.html:53
+msgid "Create Your Own Questions"
+msgstr ""
+
+#: flxweb/templates/exercise/ajax_exercise_details.html:65
+msgid "Ready to Retest Yourself?"
+msgstr ""
+
+#: flxweb/templates/exercise/ajax_exercise_details.html:67
+msgid "Ready to Test Yourself?"
+msgstr ""
+
+#: flxweb/templates/exercise/ajax_exercise_details.html:73
+#: flxweb/templates/exercise/ajax_exercise_details.html:76
+msgid "See Quiz Results"
+msgstr ""
+
+#: flxweb/templates/exercise/ajax_exercise_details.html:75
+#: flxweb/templates/exercise/ajax_exercise_details.html:79
+#: flxweb/templates/exercise/practice_end_form.html:10
+msgid "Take Quiz"
+msgstr ""
+
+#: flxweb/templates/exercise/ajax_exercise_details.html:88
+msgid "Sorry, There was an error starting the quiz. Please try again later"
+msgstr ""
+
+#: flxweb/templates/exercise/ajax_exercise_details.html:89
+msgid "Fetching Quiz Results ..."
+msgstr ""
+
+#: flxweb/templates/exercise/ajax_quiz_details.html:11
+msgid "Quiz Starting in:"
+msgstr ""
+
+#: flxweb/templates/exercise/ajax_quiz_details.html:17
+msgid "No. of Questions"
+msgstr ""
+
+#: flxweb/templates/exercise/ajax_quiz_details.html:17
+msgid "questions"
+msgstr ""
+
+#: flxweb/templates/exercise/ajax_quiz_details.html:20
+msgid "Quiz Duration"
+msgstr ""
+
+#: flxweb/templates/exercise/ajax_quiz_details.html:20
+msgid "minutes"
+msgstr ""
+
+#: flxweb/templates/exercise/ajax_quiz_details.html:26
+msgid "Cancel Quiz"
+msgstr ""
+
+#: flxweb/templates/exercise/ajax_quiz_details.html:37
+msgid "Quiz"
+msgstr ""
+
+#: flxweb/templates/exercise/ajax_quiz_details.html:72
+msgid "Previously Skipped"
+msgstr ""
+
+#: flxweb/templates/exercise/ajax_quiz_details.html:87
+msgid "The quiz has ended"
+msgstr ""
+
+#: flxweb/templates/exercise/ajax_quiz_details.html:90
+msgid "See Quiz Result"
+msgstr ""
+
+#: flxweb/templates/exercise/assess_answer_result.html:3
+msgid "Yeah, you are correct!"
+msgstr ""
+
+#: flxweb/templates/exercise/assess_answer_result.html:5
+msgid "Sorry, you are wrong! Correct Answer is "
+msgstr ""
+
+#: flxweb/templates/exercise/create_exercise.html:4
+#: flxweb/templates/exercise_ae/create_question.html:11
+msgid "Contribute exericse for"
+msgstr ""
+
+#: flxweb/templates/exercise/create_exercise.html:40
+#: flxweb/templates/exercise/create_exercise.html:42
+#: flxweb/templates/exercise_ae/create_question.html:37
+#: flxweb/templates/exercise_ae/create_question.html:39
+#: flxweb/templates/exercise_ae/modality_details_generic.html:215
+msgid "Create Your Own Questions"
+msgstr ""
+
+#: flxweb/templates/exercise/create_exercise.html:55
+#: flxweb/templates/exercise/create_exercise.html:57
+msgid "Add This Question"
+msgstr ""
+
+#: flxweb/templates/exercise/create_exercise.html:59
+#: flxweb/templates/exercise/workbook_details.html:150
+msgid "Reset"
+msgstr ""
+
+#: flxweb/templates/exercise/create_exercise.html:62
+msgid "Creating question..."
+msgstr ""
+
+#: flxweb/templates/exercise/create_exercise.html:68
+msgid "Sorry, There was an error deleting the question. Please try again later"
+msgstr ""
+
+#: flxweb/templates/exercise/create_exercise.html:69
+msgid "Sorry, There was an error adding the question. Please try again later"
+msgstr ""
+
+#: flxweb/templates/exercise/create_exercise.html:70
+msgid ""
+"Sorry, There was an error getting preview of your question. Please recreate "
+"your question and try again later"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:5
+msgid "Choose Question Type"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:8
+msgid "Static"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:11
+msgid "Algorithmic"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:14
+msgid "Programmatic"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:21
+msgid ""
+"Static Questions are the simplest to author. They display exactly the way "
+"they were written."
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:26
+msgid ""
+"The author specifies the question text and all the answer choices.  \n"
+"\t\t\t\t\tStatic Questions are similar to the ones you would find on a "
+"traditional paper-based test; \n"
+"\t\t\t\t\tthey appear the same way to each student. \n"
+"\t\t\t\t\tThey may be authored in the forms of short-answer, true/false, or "
+"multiple-choice. \n"
+"\t\t\t\t\tChoose Static Question when you need to author a simple fact-based "
+"question."
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:31
+msgid "Guideline"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:33
+#: flxweb/templates/exercise/create_question.html:84
+#: flxweb/templates/exercise/create_question.html:173
+msgid ""
+"Adding text enclosed with '<' and '>' from question and options text will "
+"treat as HTML tag in a page, which may not work as you expected in some HTML "
+"tags. So please make sure it is working as you expected if you use HTML tags "
+"inside the text."
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:39
+msgid ""
+"Algorithmic Questions allow some variability of question instances by "
+"substituting values in \n"
+"\t\t\t\t\tvarious placeholders throughout the question definition."
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:45
+msgid ""
+"The author specifies variables, and uses them in the question text and in the"
+" text for the options. \n"
+"\t\t\t\t\tVariables are authored using the variable widget. \n"
+"\t\t\t\t\tThey can hold constant value or a randomly chosen value from a set "
+"of parameters. \n"
+"\t\t\t\t\tVariable values can also be defined by performing arithmetic "
+"operations on previously defined variables."
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:51
+msgid ""
+"Each time the question is rendered, it may have different values.\n"
+"\t\t\t\t\t For example, one student might be asked to solve 4(2+4) while "
+"another student might be asked to solve 6(1+3). \n"
+"\t\t\t\t\t The Algorithmic Question type is an efficient way to author many "
+"practice questions for a given concept.\n"
+"\t\t\t\t\t Only multiple-choice format is currently supported."
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:56
+#: flxweb/templates/exercise/create_question.html:101
+#: flxweb/templates/exercise/create_question_hints.html:211
+msgid "Example"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:59
+msgid "Question Text:"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:60
+msgid "Anne has $a$ apples and $b$ oranges. How many fruits does she have?"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:63
+msgid "Variables:"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:64
+msgid "A <em>constant</em> variable: <strong>a</strong>, which has a value of 5."
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:65
+msgid ""
+"A <em>random</em> variable: <strong>b</strong>, which is between 3 and 10 "
+"with an interval of 1."
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:66
+msgid ""
+"A <em>rule based</em> variable: <strong>c</strong>, which has an arithmetic "
+"expression of  a + b - 1."
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:67
+msgid ""
+"A <em>rule based</em> variable: <strong>d</strong>, which has an arithmetic "
+"expression of  a + b."
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:68
+msgid ""
+"A <em>rule based</em> variable: <strong>e</strong>, which has an arithmetic "
+"expression of  a + b + 1."
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:69
+msgid ""
+"A <em>rule based</em> variable: <strong>f</strong>, which has an arithmetic "
+"expression of  a + b + 2."
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:73
+msgid "Options:"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:74
+msgid "Option 1: $c$"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:75
+msgid "Option 2: $d$, tick the checkbox to denote the correct answer."
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:76
+msgid "Option 3: $e$"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:77
+msgid "Option 4: $f$"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:81
+#: flxweb/templates/exercise/create_question.html:170
+msgid "Guidelines"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:83
+#: flxweb/templates/exercise/create_question.html:172
+msgid ""
+"In Python, any number prefixed with 0 is Octal (base-8 number system, which "
+"uses the digits 0 to 7) and number prefixed with 0x is Hexadecimal (base-16 "
+"number system, which uses digits 0 to 9 and symbols A to F (or alternatively "
+"a to f) to represent values from 0 to 15). To avoid confusion while using "
+"these numeral systems, skip leading 0 or 0x to any number. For Example: <br "
+"/>1. 030(Octal) = 24(Decimal)<br />2. 0x18(Hexadecimal) = 24(Decimal)"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:91
+msgid ""
+"Programmatic Questions provide the expressive power of the Python programming"
+" language. \n"
+"\t\t\t\t\tThey are the most flexible and powerful, albeit more complex "
+"compared to questions of the other two types."
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:97
+msgid ""
+"The author defines variables and use them in the question texts in the same "
+"way as when authoring Algorithmic Questions.\n"
+"                                                However, authors can also "
+"programmatically define rules on how to evaluate each components of the "
+"question.\n"
+"                                                They may be authored in the "
+"forms of short-answer, true/false, or multiple-choice. "
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:104
+msgid "Question Text"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:105
+msgid ""
+"Suzanne wants to write $s$ novels and Marcos wants to write $m$ novels. Each "
+"novel requires $novel_length$ sheets of paper. How much paper will they need "
+"for all the novels?"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:108
+msgid "Answer Expression"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:109
+msgid "$sheets_required$=novel_length * ( s + m )"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:112
+msgid "Answer Associated Text"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:113
+msgid "$sheets_required$ sheets of paper"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:116
+msgid "Variable Rules"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:118
+msgid "s = choice([3,6,9,12])"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:119
+msgid "m = choice([5,6,7,8])"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:120
+msgid "novel_length = choice(range(120,250))"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:126
+msgid ""
+"Generative rules should be written in Python syntax. The following python "
+"functions are available:"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:129
+msgid "acos"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:130
+msgid "asin"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:131
+msgid "atan"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:132
+msgid "atan2"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:133
+msgid "ceil"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:134
+msgid "cos"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:135
+msgid "cosh"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:136
+msgid "degrees"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:137
+msgid "exp"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:138
+msgid "fabs"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:140
+msgid "floor"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:141
+msgid "fmod"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:142
+msgid "frexp"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:143
+msgid "hypot"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:144
+msgid "ldexp"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:145
+msgid "log"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:146
+msgid "log10"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:147
+msgid "modf"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:148
+msgid "pow"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:149
+msgid "radians"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:151
+msgid "sin"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:152
+msgid "sinh"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:153
+msgid "sqrt"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:154
+msgid "tan"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:155
+msgid "tanh"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:156
+msgid "choice"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:157
+msgid "shuffle"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:158
+msgid "range"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:159
+msgid "Fraction"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:160
+msgid "gcd"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:162
+msgid "e2n"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:163
+msgid "n2e"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:167
+msgid ""
+"Variables within text elements are enclosed by the dollar sign. For example: "
+"Each cat can catch $a$ rats. How many cats are needed to catch  $b$ rats?"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:168
+msgid ""
+"Mathematical expressions within text may be written using latex syntax. For "
+"example: \"&amp; $a$ \\ + &amp; $b$\""
+msgstr ""
+
+#: flxweb/templates/exercise/create_question.html:179
+msgid "Create Your Question"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:4
+msgid "English words to number converter"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:7
+msgid "This package is used to convert the number in English words to number"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:8
+#: flxweb/templates/exercise/create_question_hints.html:35
+msgid "Usage:"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:9
+msgid ">> e2n('fifteen') "
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:10
+msgid "15"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:11
+msgid ">> e2n('three hundred and sixty five')"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:12
+msgid "365"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:13
+msgid ">> e2n('one hundred seven thousand seven hundred seventy-five')"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:14
+msgid "107775"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:17
+#: flxweb/templates/exercise/create_question_hints.html:44
+#: flxweb/templates/exercise/create_question_hints.html:172
+#: flxweb/templates/exercise/create_question_hints.html:180
+#: flxweb/templates/exercise/create_question_hints.html:196
+#: flxweb/templates/exercise/create_question_hints.html:212
+#: flxweb/templates/exercise/create_question_hints.html:244
+msgid "Question:"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:17
+msgid "Translate the following number from words to digit : $words$"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:18
+#: flxweb/templates/exercise/create_question_hints.html:45
+#: flxweb/templates/exercise/create_question_hints.html:173
+#: flxweb/templates/exercise/create_question_hints.html:181
+#: flxweb/templates/exercise/create_question_hints.html:197
+#: flxweb/templates/exercise/create_question_hints.html:213
+#: flxweb/templates/exercise/create_question_hints.html:245
+msgid "Answer Expression:"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:18
+msgid "number"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:19
+#: flxweb/templates/exercise/create_question_hints.html:46
+msgid "Variable Rule 1:"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:19
+msgid "number=choice([1,10,15,20,25,30])"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:20
+#: flxweb/templates/exercise/create_question_hints.html:47
+msgid "Variable Rule 2:"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:20
+msgid "words=n2e(number)"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:21
+#: flxweb/templates/exercise/create_question_hints.html:48
+msgid "Question Format:"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:21
+msgid "Short Answer Question"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:31
+msgid "Number to English words converter"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:34
+msgid "This package is used to convert the number to English words"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:36
+msgid ">> n2e('110') "
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:37
+msgid "one hundred ten "
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:38
+msgid ">> n2e('365')"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:39
+msgid "three hundred sixty-five"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:40
+msgid ">> n2e('107775')"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:41
+msgid "one hundred seven thousand seven hundred seventy-five"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:44
+msgid "What is the sum of $a$ and $b$ in words?"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:45
+msgid "c=n2e(a+b)"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:46
+msgid "a = choice([20,30,60,75,80,105])"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:47
+msgid "b = choice([10,15,20,30,90,100])"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:48
+msgid "Multiple-Choice Question"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:49
+msgid "False Option 1:"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:49
+msgid "c=n2e(a+b+5)"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:50
+msgid "False Option 2:"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:50
+msgid "c=n2e(a+b-5)"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:51
+msgid "False Option 3:"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:51
+msgid "c=n2e(a+b+10)"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:61
+msgid "Create declarative question help"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:64
+msgid ""
+"A Declarative Question is one which the question text and the correct answer "
+"are precisely determined"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:66
+msgid "What is the biggest animal in the world?"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:73
+msgid "Choose question format help"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:76
+#: flxweb/templates/exercise/create_question_hints.html:228
+msgid "For Short Answer questions"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:78
+msgid "Make sure that the answer will require only a few words."
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:79
+msgid "Design for recall of specific names, facts, and basic knowledge"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:80
+msgid ""
+"Focus the question so there a limited number of possible correct responses "
+"(or only one) in order to discriminate achievement."
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:82
+msgid "What is the the name of Earth's natural satellite?"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:83
+msgid "moon"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:87
+msgid "For Multi-Choice questions"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:89
+#: flxweb/templates/exercise/create_question_hints.html:235
+msgid ""
+"The multiple choice question consists of a stem, which presents a problem "
+"situation, and several alternatives, which provide possible solutions to the "
+"problem. The stem may be a question or an incomplete statement."
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:90
+msgid ""
+"The alternatives include the correct answer and several plausible wrong "
+"answers, called distracters."
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:91
+msgid ""
+"The function of the distracters is to distract those students who are "
+"uncertain of the answer."
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:92
+msgid "Thailand is located in:"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:94
+msgid "Southeast Asia"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:95
+msgid "South Asia"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:96
+msgid "Southwest Asia"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:97
+msgid "West Asia"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:102
+#: flxweb/templates/exercise/create_question_hints.html:176
+#: flxweb/templates/exercise/create_question_hints.html:240
+msgid "For True/False questions"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:104
+msgid ""
+"The true-false item format is straightforward. Write the stem as a direct "
+"statement and label the two alternatives “true” or “false.”"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:105
+msgid ""
+"Make the statement concise and clear, include all relevant information and "
+"conditions required for the students to correctly answer the item in the "
+"descriptive statement."
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:106
+msgid "When possible, make a false statement consistent with a typical misconception"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:107
+msgid ""
+"Keep items short. Long items are harder to read and more difficult to judge "
+"true or false."
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:108
+msgid "The smallest living thing is a cell"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:110
+msgid "True"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:111
+msgid "False"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:122
+msgid "Algorithmic question text help"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:125
+#: flxweb/templates/exercise/create_question_hints.html:157
+msgid "Variables are enclosed betwen dollar signs."
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:127
+#: flxweb/templates/exercise/create_question_hints.html:159
+msgid "You can use the math symbol editor("
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:127
+#: flxweb/templates/exercise/create_question_hints.html:159
+msgid ""
+"to insert mathematical expressions, or you can write latex notation by hand. "
+"Enclose variable inside latex expressions with dollar signs."
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:128
+#: flxweb/templates/exercise/create_question_hints.html:160
+msgid "When the question is rendered, all the variables("
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:128
+#: flxweb/templates/exercise/create_question_hints.html:160
+msgid "will be substituted into values based on the variable rules."
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:135
+msgid "Variable generation help"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:138
+msgid "Click the 'Add Variable' button to open the variable editor widget."
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:139
+msgid "Use 'Constant' type if you want to fix your variable to a specific value."
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:140
+msgid ""
+"Use 'Random' type if you want to assign a value that is chosen from a certain"
+" parameters."
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:141
+msgid ""
+"Use 'Rule Based' type if you want to assign a value that is defined by "
+"performing arithmetic operations on previously defined variables."
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:142
+msgid "Guidelines: "
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:143
+msgid "The constant value must be a valid number."
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:144
+msgid "Variable names must be unique."
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:145
+msgid ""
+"Only simple arithmetic operations can be used for the Rule Based\n"
+"                                    expression. Use the Python Language "
+"operator\n"
+"                                    notations, i.e. (), +, -, *, /, and %."
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:154
+msgid "Programmatic question text help"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:167
+msgid "Create answer expression help"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:170
+msgid "This expression represents the correct answer for the question."
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:172
+msgid "Find the value of"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:174
+msgid "While evaluating the answer, All the variables("
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:174
+#: flxweb/templates/exercise/create_question_hints.html:194
+msgid "eg:"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:174
+msgid ""
+"a) will be replaced with numbers based on the variable rules and then the "
+"mathematical expression will be evaluated."
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:178
+#: flxweb/templates/exercise/create_question_hints.html:242
+msgid ""
+"This field must define a variable (i.e. c=a+b) which is used in the question "
+"(i.e $c$). Below, you will provide an alternative definition for the same "
+"variable which makes the question false."
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:180
+#: flxweb/templates/exercise/create_question_hints.html:244
+msgid "The sum of $a$+$b$ is $c$."
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:181
+#: flxweb/templates/exercise/create_question_hints.html:245
+msgid "c=a+b"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:190
+msgid "Answer associated text help"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:193
+msgid ""
+"Answer associated text is used for adding additional text with the answer. "
+"This is optional."
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:194
+msgid "It is mainly used for adding units("
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:194
+msgid "m, cm"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:194
+msgid "2"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:194
+msgid ", m/s, m"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:194
+msgid "3"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:194
+msgid ") with evaluated answer"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:196
+msgid "Find the area of circle if radius of the circle is $radius$."
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:197
+msgid "area = 3.14*radius^2"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:198
+msgid "Answer associated text:"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:198
+msgid "$area$ m^2"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:206
+msgid "Variable input rules help"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:209
+msgid ""
+"Variable rules are used to define the value of a variable. Once defined, "
+"variables can be used in question text (i.e. I have $x$ cookies.), answer "
+"options, and even subsequent variable definitions."
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:210
+msgid ""
+"Variable rules allow questions to have different values each time they are "
+"displayed."
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:212
+msgid "Find the value of $a$/$b$."
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:213
+msgid "a/b"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:214
+msgid "Variable rules for a and b:"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:215
+msgid "a = choice(range(1,100))"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:216
+msgid "b = choice([5,10,15,20,25,30])"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:217
+msgid "In the above example the value"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:217
+msgid "would be any number between 1 to 100 and the the value"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:217
+msgid "b"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:217
+msgid "would be any number within [5,10,15,20,25,30]"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:218
+msgid "When this question is displayed, it will look like: Find the value of 22/15."
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:225
+msgid "Choose question format Help"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:230
+msgid ""
+"In a short answer programmatic question, the student inputs free text answer "
+"in response to the question. The submitted answer will be evaluated using the"
+" question's answer expression and the value assigned to each variable."
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:233
+msgid "For Multiple-Choice questions"
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:236
+msgid ""
+"The alternatives include the correct answer and several plausible but "
+"incorrect answers, called distracters."
+msgstr ""
+
+#: flxweb/templates/exercise/create_question_hints.html:237
+msgid ""
+"Write an expression in Python code to define the form of each distractor. You"
+" may also optionally add answer text (usually this is to add units to "
+"answers)."
+msgstr ""
+
+#: flxweb/templates/exercise/create_worksheet_result.html:3
+#, python-format
+msgid "Download %(type)s worksheet"
+msgstr ""
+
+#: flxweb/templates/exercise/display_result.html:13
+msgid "Good job"
+msgstr ""
+
+#: flxweb/templates/exercise/display_result.html:15
+msgid "you successfully ended your test"
+msgstr ""
+
+#: flxweb/templates/exercise/display_result.html:19
+msgid "Here is your test report"
+msgstr ""
+
+#: flxweb/templates/exercise/display_result.html:22
+msgid "Total questions you have attempted : "
+msgstr ""
+
+#: flxweb/templates/exercise/display_result.html:27
+msgid "Test Duration"
+msgstr ""
+
+#: flxweb/templates/exercise/display_result.html:30
+msgid "Hr"
+msgstr ""
+
+#: flxweb/templates/exercise/display_result.html:33
+msgid "Mins"
+msgstr ""
+
+#: flxweb/templates/exercise/display_result.html:35
+msgid "Secs"
+msgstr ""
+
+#: flxweb/templates/exercise/display_result.html:40
+msgid "Correct Answers"
+msgstr ""
+
+#: flxweb/templates/exercise/display_result.html:45
+msgid "Wrong Answers"
+msgstr ""
+
+#: flxweb/templates/exercise/display_result.html:50
+msgid "Skipped"
+msgstr ""
+
+#: flxweb/templates/exercise/display_result.html:60
+msgid "Test Percentage"
+msgstr ""
+
+#: flxweb/templates/exercise/embed_exercise_details.html:11
+msgid "Exercise On"
+msgstr ""
+
+#: flxweb/templates/exercise/embed_exercise_details.html:13
+#: flxweb/templates/exercise/embed_exercise_details.html:52
+msgid "Exercise not Found"
+msgstr ""
+
+#: flxweb/templates/exercise/embed_exercise_details.html:44
+msgid "powered by"
+msgstr ""
+
+#: flxweb/templates/exercise/embed_exercise_details.html:50
+#: flxweb/templates/exercise/embed_exercise_end_form.html:9
+msgid "Exercise on"
+msgstr ""
+
+#: flxweb/templates/exercise/embed_exercise_end_form.html:12
+#: flxweb/templates/exercise/exercise_macros.html:34
+msgid "Try Again"
+msgstr ""
+
+#: flxweb/templates/exercise/embed_exercise_end_form.html:21
+msgid "Related Exercise"
+msgstr ""
+
+#: flxweb/templates/exercise/embed_exercise_end_form.html:23
+msgid "Related Exercises"
+msgstr ""
+
+#: flxweb/templates/exercise/exercise_macros.html:16
+msgid "Fetching question..."
+msgstr ""
+
+#: flxweb/templates/exercise/exercise_macros.html:22
+msgid "Submit Answer"
+msgstr ""
+
+#: flxweb/templates/exercise/exercise_macros.html:24
+#: flxweb/templates/exercise/exercise_macros.html:27
+#: flxweb/templates/exercise/exercise_macros.html:30
+msgid "Skip this question"
+msgstr ""
+
+#: flxweb/templates/exercise/exercise_macros.html:24
+#: flxweb/templates/exercise/exercise_macros.html:27
+#: flxweb/templates/exercise/exercise_macros.html:30
+msgid "Skip This"
+msgstr ""
+
+#: flxweb/templates/exercise/exercise_macros.html:25
+#: flxweb/templates/exercise/exercise_macros.html:28
+#: flxweb/templates/exercise/exercise_macros.html:31
+msgid "Go to the next question"
+msgstr ""
+
+#: flxweb/templates/exercise/exercise_macros.html:25
+#: flxweb/templates/exercise/exercise_macros.html:28
+#: flxweb/templates/exercise/exercise_macros.html:31
+#: flxweb/templates/macros/artifact.html:204
+#: flxweb/templates/macros/carousel.html:172
+#: flxweb/templates/macros/pagination.html:94
+#: flxweb/templates/macros/pagination.html:96
+#: flxweb/templates/search/new/artifact.html:204
+msgid "Next"
+msgstr ""
+
+#: flxweb/templates/exercise/exercise_macros.html:32
+msgid "Go to Exercise Page"
+msgstr ""
+
+#: flxweb/templates/exercise/exercise_macros.html:66
+msgid "We're sorry..."
+msgstr ""
+
+#: flxweb/templates/exercise/exercise_macros.html:71
+msgid "At the moment, we could not provide exercise for you. Please try again later"
+msgstr ""
+
+#: flxweb/templates/exercise/practice_end_form.html:2
+msgid "You have reached the maximum practice questions."
+msgstr ""
+
+#: flxweb/templates/exercise/practice_end_form.html:4
+msgid "Would you like to test your understanding in this concept?"
+msgstr ""
+
+#: flxweb/templates/exercise/practice_end_form.html:16
+msgid "OR"
+msgstr ""
+
+#: flxweb/templates/exercise/practice_end_form.html:20
+msgid "Would you like to learn the next concept?"
+msgstr ""
+
+#: flxweb/templates/exercise/preview_question.html:29
+msgid "Keep This"
+msgstr ""
+
+#: flxweb/templates/exercise/preview_question.html:30
+msgid "Delete"
+msgstr ""
+
+#: flxweb/templates/exercise/question_form.html:24
+msgid "Enter your answer here"
+msgstr ""
+
+#: flxweb/templates/exercise/quiz_scorecard.html:81
+msgid ""
+"At the moment, You do not have any quiz results in this exercise. Please go "
+"back to Exercise and take quiz and test yourself your learning skills."
+msgstr ""
+
+#: flxweb/templates/exercise/report_error.html:3
+#: flxweb/templates/exercise/report_error.html:113
+#: flxweb/templates/exercise/report_error.html:116
+#: flxweb/templates/exercise/report_error_complete.html:2
+msgid "Report Error"
+msgstr ""
+
+#: flxweb/templates/exercise/report_error.html:58
+msgid "Reporting Question"
+msgstr ""
+
+#: flxweb/templates/exercise/report_error.html:66
+msgid "Give us more details"
+msgstr ""
+
+#: flxweb/templates/exercise/report_error.html:70
+msgid "Status"
+msgstr ""
+
+#: flxweb/templates/exercise/report_error.html:74
+msgid "Erroneous question"
+msgstr ""
+
+#: flxweb/templates/exercise/report_error.html:75
+msgid "Question does not match concept/topic"
+msgstr ""
+
+#: flxweb/templates/exercise/report_error.html:76
+msgid "Copyright issue"
+msgstr ""
+
+#: flxweb/templates/exercise/report_error.html:77
+msgid "Others"
+msgstr ""
+
+#: flxweb/templates/exercise/report_error.html:87
+msgid "Your email id"
+msgstr ""
+
+#: flxweb/templates/exercise/report_error.html:96
+msgid "Reason"
+msgstr ""
+
+#: flxweb/templates/exercise/report_error.html:107
+msgid "You have reported a similar issue in the past. Would you like to:"
+msgstr ""
+
+#: flxweb/templates/exercise/report_error.html:108
+msgid "Submit Anyway"
+msgstr ""
+
+#: flxweb/templates/exercise/report_error.html:109
+msgid "Discard This Report"
+msgstr ""
+
+#: flxweb/templates/exercise/report_error_complete.html:12
+msgid "Thank you for your feedback!"
+msgstr ""
+
+#: flxweb/templates/exercise/report_error_complete.html:13
+msgid "We will review your report in a timely manner"
+msgstr ""
+
+#: flxweb/templates/exercise/workbook_details.html:51
+msgid "Untitled Workbook"
+msgstr ""
+
+#: flxweb/templates/exercise/workbook_details.html:54
+msgid "Select Exercises"
+msgstr ""
+
+#: flxweb/templates/exercise/workbook_details.html:59
+msgid "No"
+msgstr ""
+
+#: flxweb/templates/exercise/workbook_details.html:62
+msgid "Exercise Title"
+msgstr ""
+
+#: flxweb/templates/exercise/workbook_details.html:65
+msgid "No. of Questions "
+msgstr ""
+
+#: flxweb/templates/exercise/workbook_details.html:68
+msgid "Max Questions"
+msgstr ""
+
+#: flxweb/templates/exercise/workbook_details.html:74
+#: flxweb/templates/exercise/workbook_details.html:99
+msgid "Click 'Add Exercise', search for exercises and add them to this Workbook."
+msgstr ""
+
+#: flxweb/templates/exercise/workbook_details.html:87
+#: flxweb/templates/exercise/workbook_details.html:111
+msgid "No of questions"
+msgstr ""
+
+#: flxweb/templates/exercise/workbook_details.html:126
+#: flxweb/templates/exercise/workbook_details.html:162
+msgid "Add Exercise"
+msgstr ""
+
+#: flxweb/templates/exercise/workbook_details.html:131
+msgid "Formats"
+msgstr ""
+
+#: flxweb/templates/exercise/workbook_details.html:132
+#: flxweb/templates/macros/modality_actions.html:189
+msgid "HTML"
+msgstr ""
+
+#: flxweb/templates/exercise/workbook_details.html:137
+msgid "Answer Key Options"
+msgstr ""
+
+#: flxweb/templates/exercise/workbook_details.html:138
+msgid "With full answer keys"
+msgstr ""
+
+#: flxweb/templates/exercise/workbook_details.html:139
+msgid "With partial answer keys (odd numbered questions)"
+msgstr ""
+
+#: flxweb/templates/exercise/workbook_details.html:140
+msgid "No answer keys"
+msgstr ""
+
+#: flxweb/templates/exercise/workbook_details.html:148
+msgid "Create workbook"
+msgstr ""
+
+#: flxweb/templates/exercise/workbook_details.html:150
+msgid "Reset fields"
+msgstr ""
+
+#: flxweb/templates/exercise/workbook_details.html:153
+msgid "Creating Workbook..."
+msgstr ""
+
+#: flxweb/templates/exercise/workbook_details.html:160
+msgid "Sorry, There was an error creating your workbook. Please try again later"
+msgstr ""
+
+#: flxweb/templates/exercise/workbook_details.html:161
+msgid "Workbook has reached the maximum exercises limit"
+msgstr ""
+
+#: flxweb/templates/exercise_ae/create_test.html:22
+#: flxweb/templates/exercise_ae/modality_details_generic.html:218
+msgid "Create Quiz"
+msgstr ""
+
+#: flxweb/templates/exercise_ae/modality_details_generic.html:222
+msgid "Edit Quiz"
+msgstr ""
+
+#: flxweb/templates/exercise_ae/my_tests.html:9
+msgid "Loading..."
+msgstr ""
+
+#: flxweb/templates/exercise_ae/my_tests.html:10
+msgid "/assessment-ui/#tests/home"
+msgstr ""
+
+#: flxweb/templates/external/link.html:10
+msgid "Go to original website -"
+msgstr ""
+
+#: flxweb/templates/external/link.html:10
+msgid "Go to original website"
+msgstr ""
+
+#: flxweb/templates/external/link.html:14
+msgid ""
+"This URL is currently not in our white list. Please contact <a "
+"href=\"mailto:support@ck12.org\">support@ck12.org</a> for further queries"
+msgstr ""
+
+#: flxweb/templates/get-real/judging.html:3
+msgid "Get-Real Competition | Judging"
+msgstr ""
+
+#: flxweb/templates/get-real/judging.html:94
+msgid "This contest entry is a downloadable file."
+msgstr ""
+
+#: flxweb/templates/get-real/judging.html:102
+msgid "Open in new window."
+msgstr ""
+
+#: flxweb/templates/healthcheck/ajax_health.html:21
+#: flxweb/templates/healthcheck/health.html:49
+msgid "Service is operating normally."
+msgstr ""
+
+#: flxweb/templates/healthcheck/ajax_health.html:27
+#: flxweb/templates/healthcheck/health.html:56
+msgid "Re-check"
+msgstr ""
+
+#: flxweb/templates/healthcheck/health.html:3
+msgid "CK12 Service Health"
+msgstr ""
+
+#: flxweb/templates/healthcheck/health.html:9
+#: flxweb/templates/healthcheck/health.html:10
+msgid "Re-check All Services"
+msgstr ""
+
+#: flxweb/templates/healthcheck/health.html:16
+msgid "Please Wait.."
+msgstr ""
+
+#: flxweb/templates/jstemplates/contribute.html:5
+msgid "Real World Application Competition"
+msgstr ""
+
+#: flxweb/templates/jstemplates/contribute.html:81
+msgid ""
+"Take some time to sketch out your entry.  Please check and ensure accuracy "
+"and completeness.  Just have one chance to submit!"
+msgstr ""
+
+#: flxweb/templates/jstemplates/contribute.html:87
+msgid ""
+"To submit your project using an embed code, upload your file to the site of "
+"your choice (e.g. YouTube, SlideShare), <b>copy the embed code</b> (to find "
+"select \"Share\" or \"Embed\"), and paste the code in the box below."
+msgstr ""
+
+#: flxweb/templates/jstemplates/contribute.html:134
+msgid ""
+"I certify I have read all the <a target=\"new\" "
+"href=\"http://www.ck12.org/about/get-real-rules/\">terms and conditions</a> "
+"for this contest and all the content is my original work and not a "
+"duplication or replica of other content."
+msgstr ""
+
+#: flxweb/templates/jstemplates/reviews.html:31
+msgid "Post a Comment"
+msgstr ""
+
+#: flxweb/templates/jstemplates/reviews.html:34
+#: flxweb/templates/jstemplates/reviews.html:87
+msgid ""
+"Give reply about this review. Why was it helpful or not? Limit to 1000 max "
+"characters."
+msgstr ""
+
+#: flxweb/templates/jstemplates/reviews.html:39
+msgid "Post"
+msgstr ""
+
+#: flxweb/templates/jstemplates/reviews.html:84
+msgid "Edit a Comment"
+msgstr ""
+
+#: flxweb/templates/jstemplates/reviews.html:113
+msgid "Load More"
+msgstr ""
+
+#: flxweb/templates/jstemplates/reviews.html:125
+msgid "Edit Your Review"
+msgstr ""
+
+#: flxweb/templates/jstemplates/reviews.html:132
+#, python-format
+msgid "% of people thought this content was helpful."
+msgstr ""
+
+#: flxweb/templates/jstemplates/reviews.html:150
+msgid "Most Helpful Reviews:"
+msgstr ""
+
+#: flxweb/templates/jstemplates/reviews.html:166
+msgid "Edit Review"
+msgstr ""
+
+#: flxweb/templates/jstemplates/reviews.html:168
+msgid "Was this helpful?"
+msgstr ""
+
+#: flxweb/templates/jstemplates/reviews.html:181
+msgid ""
+"Give feedback about this resource. Why was it helpful or not? Limit to 1000 "
+"max characters."
+msgstr ""
+
+#: flxweb/templates/jstemplates/reviews.html:189
+msgid "Submit Review"
+msgstr ""
+
+#: flxweb/templates/jstemplates/reviews.html:191
+msgid "Skip Review"
+msgstr ""
+
+#: flxweb/templates/jstemplates/share_groups.html:10
+msgid ""
+"You don't own any group.  Please create groups by clicking below link: <a "
+"href=\"/groups/my\" title=\"Group Management\" class=\"groupFresherLink\" "
+"style=\"float:inherit;\">My Groups</a>"
+msgstr ""
+
+#: flxweb/templates/jstemplates/share_groups.html:17
+msgid "Shared with the selected group(s)"
+msgstr ""
+
+#: flxweb/templates/jstemplates/share_groups.html:17
+msgid "Share with Group(s)"
+msgstr ""
+
+#: flxweb/templates/jstemplates/share_groups.html:19
+msgid "Create a New Group"
+msgstr ""
+
+#: flxweb/templates/jstemplates/share_groups.html:19
+#: flxweb/templates/mylibrary/common.html:45
+msgid "Create New"
+msgstr ""
+
+#: flxweb/templates/landing/nocookies.html:2
+msgid "Cookies are disabled on you browser"
+msgstr ""
+
+#: flxweb/templates/landing/nocookies.html:12
+msgid "Our site requires browser cookies to be enabled."
+msgstr ""
+
+#: flxweb/templates/landing/nocookies.html:15
+msgid ""
+"In order to use the CK-12 FlexBook&#174; textbook system, you will need to "
+"have browser cookies enabled in your browser."
+msgstr ""
+
+#: flxweb/templates/landing/nocookies.html:16
+#: flxweb/templates/landing/nojavascript.html:19
+msgid "To do so, please follow the instructions below:"
+msgstr ""
+
+#: flxweb/templates/landing/nocookies.html:17
+#: flxweb/templates/landing/nojavascript.html:20
+msgid "Internet Explorer (6.0 & 7.0)"
+msgstr ""
+
+#: flxweb/templates/landing/nocookies.html:20
+#: flxweb/templates/landing/nocookies.html:29
+#: flxweb/templates/landing/nojavascript.html:23
+#: flxweb/templates/landing/nojavascript.html:33
+msgid "Select 'Tools' from the top menu."
+msgstr ""
+
+#: flxweb/templates/landing/nocookies.html:21
+msgid "Choose 'Internet Options.'"
+msgstr ""
+
+#: flxweb/templates/landing/nocookies.html:22
+#: flxweb/templates/landing/nocookies.html:31
+msgid "Click the 'Privacy' tab."
+msgstr ""
+
+#: flxweb/templates/landing/nocookies.html:23
+msgid "Move the slider to Medium or Low."
+msgstr ""
+
+#: flxweb/templates/landing/nocookies.html:24
+#: flxweb/templates/landing/nocookies.html:34
+msgid "Click 'OK'."
+msgstr ""
+
+#: flxweb/templates/landing/nocookies.html:26
+#: flxweb/templates/landing/nojavascript.html:30
+msgid "Mozilla Firefox (1.5+ & Up)"
+msgstr ""
+
+#: flxweb/templates/landing/nocookies.html:30
+#: flxweb/templates/landing/nojavascript.html:34
+msgid "Choose 'Options'."
+msgstr ""
+
+#: flxweb/templates/landing/nocookies.html:32
+msgid ""
+"Check the boxes labeled 'Accept cookies from sites' and 'Accept third-party "
+"cookies'."
+msgstr ""
+
+#: flxweb/templates/landing/nocookies.html:33
+msgid "Select 'they expire' under the 'Keep until' drop-down menu'."
+msgstr ""
+
+#: flxweb/templates/landing/nocookies.html:36
+#: flxweb/templates/landing/nojavascript.html:38
+msgid "Google Chrome"
+msgstr ""
+
+#: flxweb/templates/landing/nocookies.html:39
+#: flxweb/templates/landing/nojavascript.html:41
+msgid "Click the wrench at upper right and click 'Options' from the drop-down menu."
+msgstr ""
+
+#: flxweb/templates/landing/nocookies.html:40
+#: flxweb/templates/landing/nojavascript.html:42
+msgid "Click the 'Under the Hood' tab."
+msgstr ""
+
+#: flxweb/templates/landing/nocookies.html:41
+#: flxweb/templates/landing/nojavascript.html:43
+msgid "Click 'Content Settings' button under 'Privacy' section."
+msgstr ""
+
+#: flxweb/templates/landing/nocookies.html:42
+msgid "Select 'Allow all cookies' under the 'Cookie settings' drop-down menu."
+msgstr ""
+
+#: flxweb/templates/landing/nocookies.html:43
+#: flxweb/templates/landing/nojavascript.html:45
+msgid "Click 'Close'."
+msgstr ""
+
+#: flxweb/templates/landing/nocookies.html:45
+#: flxweb/templates/landing/nojavascript.html:47
+msgid "Apple Safari"
+msgstr ""
+
+#: flxweb/templates/landing/nocookies.html:48
+#: flxweb/templates/landing/nojavascript.html:50
+msgid "Select 'Safari'/'Edit' from the top menu."
+msgstr ""
+
+#: flxweb/templates/landing/nocookies.html:49
+#: flxweb/templates/landing/nojavascript.html:51
+msgid "Choose 'Preferences'."
+msgstr ""
+
+#: flxweb/templates/landing/nocookies.html:50
+#: flxweb/templates/landing/nojavascript.html:52
+msgid "Click the 'Security' tab."
+msgstr ""
+
+#: flxweb/templates/landing/nocookies.html:51
+msgid "Select 'Always' under the 'Accept Cookies' section."
+msgstr ""
+
+#: flxweb/templates/landing/nocookies.html:52
+#: flxweb/templates/landing/nojavascript.html:54
+msgid ""
+"Close 'Preferences' by clicking the 'X' at the upper-right corner of the "
+"Preferences box."
+msgstr ""
+
+#: flxweb/templates/landing/nocookies.html:55
+msgid ""
+"Please keep in mind that upgrading your browser or installing new security "
+"software or security patches may affect your cookies settings. It is a good "
+"idea to double-check browser cookies setting is still enabled if you notice "
+"problems when using the CK-12 FlexBook&#174; textbook System."
+msgstr ""
+
+#: flxweb/templates/landing/nojavascript.html:2
+msgid "Javascript is Disabled"
+msgstr ""
+
+#: flxweb/templates/landing/nojavascript.html:15
+msgid "Our site requires Javascript to be enabled."
+msgstr ""
+
+#: flxweb/templates/landing/nojavascript.html:18
+msgid ""
+"In order to use the CK-12 FlexBook&#174; textbook System, you will need to "
+"have JavaScript enabled in your browser."
+msgstr ""
+
+#: flxweb/templates/landing/nojavascript.html:24
+msgid "Choose 'Internet Options'."
+msgstr ""
+
+#: flxweb/templates/landing/nojavascript.html:25
+msgid "Click on the 'Security' tab."
+msgstr ""
+
+#: flxweb/templates/landing/nojavascript.html:26
+msgid "Click on 'Custom Level'."
+msgstr ""
+
+#: flxweb/templates/landing/nojavascript.html:27
+msgid "Scroll down until you see section labled 'Scripting'."
+msgstr ""
+
+#: flxweb/templates/landing/nojavascript.html:28
+msgid "Under 'Active Scripting', select 'Enable' and click 'OK'."
+msgstr ""
+
+#: flxweb/templates/landing/nojavascript.html:35
+msgid "Choose 'Content' from the top navigation."
+msgstr ""
+
+#: flxweb/templates/landing/nojavascript.html:36
+msgid "Select the checkbox next to 'Enable JavaScript' and click 'OK'."
+msgstr ""
+
+#: flxweb/templates/landing/nojavascript.html:44
+msgid ""
+"Select 'Allow all sites to run JavaScript' under the 'JavaScript settings' "
+"drop-down menu."
+msgstr ""
+
+#: flxweb/templates/landing/nojavascript.html:53
+msgid "Select the checkbox next to 'Enable JavaScript'."
+msgstr ""
+
+#: flxweb/templates/landing/nojavascript.html:63
+msgid ""
+"Please keep in mind that upgrading your browser or installing new security "
+"software or security patches may affect your JavaScript settings. It is a "
+"good idea to double-check that JavaScript is still enabled if you notice "
+"problems displaying in the CK-12 FlexBook&#174; textbook System."
+msgstr ""
+
+#: flxweb/templates/landing/student.html:5 flxweb/templates/landing/teacher.html:4
+msgid "Free Online Textbooks, Flashcards, Practice, Real World Examples, Simulations"
+msgstr ""
+
+#: flxweb/templates/landing/student.html:121
+msgid "Examples: photosynthesis, equations, harmonic motion..."
+msgstr ""
+
+#: flxweb/templates/landing/teacher.html:101
+msgid "Search for free, standards-aligned STEM teaching resources."
+msgstr ""
+
+#: flxweb/templates/landing/teacher.html:105
+msgid "Find a topic for your class"
+msgstr ""
+
+#: flxweb/templates/landing/teacher.html:140
+msgid "State or standard set"
+msgstr ""
+
+#: flxweb/templates/learningtree/learningtree.html:16
+msgid "FlexConcept Learning Tree"
+msgstr ""
+
+#: flxweb/templates/learningtree/learningtree.html:20
+msgid "Please wait ..."
+msgstr ""
+
+#: flxweb/templates/macros/artifact.html:63
+#: flxweb/templates/search/new/artifact.html:63
+msgid "Created by:"
+msgstr ""
+
+#: flxweb/templates/macros/artifact.html:67
+#: flxweb/templates/search/new/artifact.html:67
+msgid "Difficulty level:"
+msgstr ""
+
+#: flxweb/templates/macros/artifact.html:106
+#: flxweb/templates/search/new/artifact.html:106
+msgid "Concept"
+msgstr ""
+
+#: flxweb/templates/macros/artifact.html:144
+#: flxweb/templates/search/new/artifact.html:144
+msgid "Reviews"
+msgstr ""
+
+#: flxweb/templates/macros/artifact.html:193
+#: flxweb/templates/macros/carousel.html:160
+#: flxweb/templates/macros/pagination.html:72
+#: flxweb/templates/macros/pagination.html:74
+#: flxweb/templates/search/new/artifact.html:193
+msgid "Previous"
+msgstr ""
+
+#: flxweb/templates/macros/artifact.html:489
+#: flxweb/templates/macros/artifact.html:500
+#: flxweb/templates/search/new/artifact.html:487
+#: flxweb/templates/search/new/artifact.html:498
+msgid "Make a Copy"
+msgstr ""
+
+#: flxweb/templates/macros/artifact.html:505
+#: flxweb/templates/search/new/artifact.html:503
+msgid "View Latest"
+msgstr ""
+
+#: flxweb/templates/macros/attachments.html:32
+msgid "Upload Files"
+msgstr ""
+
+#: flxweb/templates/macros/attachments.html:79
+#: flxweb/templates/macros/attachments.html:108
+#: flxweb/templates/macros/attachments.html:115
+msgid "Currently there are no resources to be displayed."
+msgstr ""
+
+#: flxweb/templates/macros/attachments.html:141
+#: flxweb/templates/macros/attachments.html:232
+msgid "Private"
+msgstr ""
+
+#: flxweb/templates/macros/attachments.html:178
+#: flxweb/templates/macros/attachments.html:182
+#: flxweb/templates/macros/attachments.html:251
+#: flxweb/templates/macros/attachments.html:252
+msgid "Make Public"
+msgstr ""
+
+#: flxweb/templates/macros/attachments.html:178
+#: flxweb/templates/macros/attachments.html:180
+#: flxweb/templates/macros/attachments.html:251
+msgid "Make Private"
+msgstr ""
+
+#: flxweb/templates/macros/attachments.html:203
+msgid "List of supported file types:"
+msgstr ""
+
+#: flxweb/templates/macros/attachments.html:261
+msgid "Click to see error message"
+msgstr ""
+
+#: flxweb/templates/macros/attachments.html:261
+msgid "Upload Failed"
+msgstr ""
+
+#: flxweb/templates/macros/attachments.html:262
+msgid "Remove Resouce"
+msgstr ""
+
+#: flxweb/templates/macros/attachments.html:280
+msgid "Edit Resource"
+msgstr ""
+
+#: flxweb/templates/macros/attachments.html:282
+msgid "Title:"
+msgstr ""
+
+#: flxweb/templates/macros/attachments.html:283
+msgid "Please enter valid title for resource"
+msgstr ""
+
+#: flxweb/templates/macros/attachments.html:284
+msgid "Description:"
+msgstr ""
+
+#: flxweb/templates/macros/attachments.html:285
+msgid "Please enter description to make resource public"
+msgstr ""
+
+#: flxweb/templates/macros/attachments.html:286
+msgid "Type:"
+msgstr ""
+
+#: flxweb/templates/macros/attachments.html:288
+msgid "Activity"
+msgstr ""
+
+#: flxweb/templates/macros/attachments.html:289
+msgid "Attachment"
+msgstr ""
+
+#: flxweb/templates/macros/attachments.html:290
+msgid "Assessment"
+msgstr ""
+
+#: flxweb/templates/macros/attachments.html:291
+msgid "Audio"
+msgstr ""
+
+#: flxweb/templates/macros/attachments.html:292
+msgid "Classwork"
+msgstr ""
+
+#: flxweb/templates/macros/attachments.html:293
+msgid "Critical Thinking"
+msgstr ""
+
+#: flxweb/templates/macros/attachments.html:294
+msgid "Handout"
+msgstr ""
+
+#: flxweb/templates/macros/attachments.html:295
+msgid "Homework"
+msgstr ""
+
+#: flxweb/templates/macros/attachments.html:296
+msgid "Image"
+msgstr ""
+
+#: flxweb/templates/macros/attachments.html:297
+msgid "Interactive Object"
+msgstr ""
+
+#: flxweb/templates/macros/attachments.html:298
+msgid "Lab"
+msgstr ""
+
+#: flxweb/templates/macros/attachments.html:299
+msgid "Lesson Plan"
+msgstr ""
+
+#: flxweb/templates/macros/attachments.html:300
+msgid "Notes"
+msgstr ""
+
+#: flxweb/templates/macros/attachments.html:301
+msgid "Presentation"
+msgstr ""
+
+#: flxweb/templates/macros/attachments.html:302
+msgid "Project"
+msgstr ""
+
+#: flxweb/templates/macros/attachments.html:304
+msgid "Rubric"
+msgstr ""
+
+#: flxweb/templates/macros/attachments.html:305
+msgid "Starter/Do now"
+msgstr ""
+
+#: flxweb/templates/macros/attachments.html:306
+msgid "Study Guide"
+msgstr ""
+
+#: flxweb/templates/macros/attachments.html:307
+msgid "Syllabus"
+msgstr ""
+
+#: flxweb/templates/macros/attachments.html:308
+msgid "Test/Quiz"
+msgstr ""
+
+#: flxweb/templates/macros/attachments.html:309
+msgid "Video"
+msgstr ""
+
+#: flxweb/templates/macros/attachments.html:310
+msgid "Web"
+msgstr ""
+
+#: flxweb/templates/macros/attachments.html:311
+msgid "Worksheet"
+msgstr ""
+
+#: flxweb/templates/macros/attachments.html:314
+msgid "Answer Key"
+msgstr ""
+
+#: flxweb/templates/macros/attachments.html:315
+msgid "Answer Demo"
+msgstr ""
+
+#: flxweb/templates/macros/attachments.html:321
+msgid "Published"
+msgstr ""
+
+#: flxweb/templates/macros/browse_listing.html:86
+#: flxweb/templates/macros/browse_listing.html:113
+msgid "Help us add content"
+msgstr ""
+
+#: flxweb/templates/macros/carousel.html:35
+#: flxweb/templates/macros/carousel.html:115
+msgid "From:"
+msgstr ""
+
+#: flxweb/templates/macros/carousel.html:40
+msgid "details"
+msgstr ""
+
+#: flxweb/templates/macros/carousel.html:119
+msgid "view exercise..."
+msgstr ""
+
+#: flxweb/templates/macros/modality_actions.html:17
+msgid "Add to FlexBook&#174; textbook"
+msgstr ""
+
+#: flxweb/templates/macros/modality_actions.html:57
+msgid "iPad and Android"
+msgstr ""
+
+#: flxweb/templates/macros/modality_actions.html:90
+msgid "Share via Groups"
+msgstr ""
+
+#: flxweb/templates/macros/modality_actions.html:102
+msgid "Share"
+msgstr ""
+
+#: flxweb/templates/macros/modality_actions.html:119
+msgid "Report an Error"
+msgstr ""
+
+#: flxweb/templates/macros/modality_actions.html:148
+msgid "Show Details"
+msgstr ""
+
+#: flxweb/templates/macros/modality_actions.html:158
+msgid "Show Resources"
+msgstr ""
+
+#: flxweb/templates/macros/pagination.html:23
+#: flxweb/templates/macros/pagination.html:72
+msgid "Previous page"
+msgstr ""
+
+#: flxweb/templates/macros/pagination.html:29
+#: flxweb/templates/macros/pagination.html:78
+msgid "First page"
+msgstr ""
+
+#: flxweb/templates/macros/pagination.html:29
+#: flxweb/templates/macros/pagination.html:78
+msgid "1"
+msgstr ""
+
+#: flxweb/templates/macros/pagination.html:45
+#: flxweb/templates/macros/pagination.html:94
+msgid "Next page"
+msgstr ""
+
+#: flxweb/templates/marketing/invite.html:2
+msgid "CK-12 Gift"
+msgstr ""
+
+#: flxweb/templates/marketing/invite_sent.html:2
+msgid "CK-12 Gift Sent"
+msgstr ""
+
+#: flxweb/templates/murugan/murugan.html:3
+msgid "Thanks, Murugan!"
+msgstr ""
+
+#: flxweb/templates/mylibrary/archive.html:8
+msgid "Restore items"
+msgstr ""
+
+#: flxweb/templates/mylibrary/archive.html:8
+#: flxweb/templates/mylibrary/files_archive.html:8
+msgid "Restore Items"
+msgstr ""
+
+#: flxweb/templates/mylibrary/archive.html:11
+#: flxweb/templates/mylibrary/files_archive.html:11
+msgid "View My Contents"
+msgstr ""
+
+#: flxweb/templates/mylibrary/archive.html:11
+#: flxweb/templates/mylibrary/files_archive.html:11
+msgid "View My Content"
+msgstr ""
+
+#: flxweb/templates/mylibrary/common.html:48
+msgid "New Read Modality - Concept"
+msgstr ""
+
+#: flxweb/templates/mylibrary/common.html:48
+msgid "Read Modality - Concept"
+msgstr ""
+
+#: flxweb/templates/mylibrary/common.html:49
+msgid "Modality"
+msgstr ""
+
+#: flxweb/templates/mylibrary/common.html:50
+msgid "New FlexBook&#174; Textbook"
+msgstr ""
+
+#: flxweb/templates/mylibrary/common.html:50
+msgid "FlexBook&#174; Textbook"
+msgstr ""
+
+#: flxweb/templates/mylibrary/common.html:51
+msgid "Standards Aligned FlexBook&#174; Textbook"
+msgstr ""
+
+#: flxweb/templates/mylibrary/common.html:52
+msgid "CK-12 Labs:"
+msgstr ""
+
+#: flxweb/templates/mylibrary/common.html:53
+msgid "Import from google docs"
+msgstr ""
+
+#: flxweb/templates/mylibrary/common.html:53
+msgid "Import from Google"
+msgstr ""
+
+#: flxweb/templates/mylibrary/common.html:54
+msgid "Import a word document"
+msgstr ""
+
+#: flxweb/templates/mylibrary/common.html:54
+msgid "Import from Word"
+msgstr ""
+
+#: flxweb/templates/mylibrary/common.html:61
+#: flxweb/templates/mylibrary/favoritefiles.html:7
+#: flxweb/templates/mylibrary/favorites.html:26
+msgid "Change Labels"
+msgstr ""
+
+#: flxweb/templates/mylibrary/common.html:64
+msgid "View Archived Items"
+msgstr ""
+
+#: flxweb/templates/mylibrary/common.html:64
+msgid "View Archived"
+msgstr ""
+
+#: flxweb/templates/mylibrary/common.html:74
+msgid "Filter by Type"
+msgstr ""
+
+#: flxweb/templates/mylibrary/common.html:95
+msgid "Filter by Label"
+msgstr ""
+
+#: flxweb/templates/mylibrary/common.html:126
+msgid "Delete label"
+msgstr ""
+
+#: flxweb/templates/mylibrary/common.html:170
+msgid ""
+"There are no items with this label. To apply this label, select items and "
+"click 'Change Labels'."
+msgstr ""
+
+#: flxweb/templates/mylibrary/common.html:181
+#: flxweb/templates/search/results_common.html:90
+#, python-format
+msgid "Displaying %(from)s to %(to)s of %(total)s"
+msgstr ""
+
+#: flxweb/templates/mylibrary/common.html:208
+msgid "Create standards aligned FlexBook&#174; Textbook"
+msgstr ""
+
+#: flxweb/templates/mylibrary/common.html:215
+msgid "Uploading"
+msgstr ""
+
+#: flxweb/templates/mylibrary/common.html:232
+msgid "Remove Label"
+msgstr ""
+
+#: flxweb/templates/mylibrary/contents.html:34
+msgid "FlexBook&#174; textbook"
+msgstr ""
+
+#: flxweb/templates/mylibrary/contents.html:50
+#: flxweb/templates/mylibrary/fileslist.html:44
+msgid "Move to Archived"
+msgstr ""
+
+#: flxweb/templates/mylibrary/dialog_addtolibrary.html:17
+msgid "New Label"
+msgstr ""
+
+#: flxweb/templates/mylibrary/dialog_addtolibrary.html:28
+msgid "Save Labels"
+msgstr ""
+
+#: flxweb/templates/mylibrary/favoritefiles.html:31
+#: flxweb/templates/mylibrary/favorites.html:50
+msgid "Remove from your Bookmarks"
+msgstr ""
+
+#: flxweb/templates/related/results_grid.html:4
+msgid "Related"
+msgstr ""
+
+#: flxweb/templates/related/results_grid.html:8
+#, python-format
+msgid "Related %(type)ss to: "
+msgstr ""
+
+#: flxweb/templates/saythanks/saythanks.html:4
+msgid "Thank you!"
+msgstr ""
+
+#: flxweb/templates/saythanks/saythanks.html:6
+msgid "contents delivered..."
+msgstr ""
+
+#: flxweb/templates/search/dialog_results_list.html:20
+#: flxweb/templates/search/dialog_results_list.html:24
+#: flxweb/templates/search/results_filters.html:29
+#: flxweb/templates/search/results_filters.html:32
+msgid "All Content"
+msgstr ""
+
+#: flxweb/templates/search/dialog_results_list.html:53
+msgid "We did not find what you were searching for. Here are some suggestions:"
+msgstr ""
+
+#: flxweb/templates/search/dialog_results_list.html:55
+#: flxweb/templates/search/results_common.html:53
+#: flxweb/templates/search/results_common.html:75
+msgid "Make sure all words are spelled correctly"
+msgstr ""
+
+#: flxweb/templates/search/dialog_results_list.html:56
+#: flxweb/templates/search/results_common.html:54
+#: flxweb/templates/search/results_common.html:76
+msgid "Try different keywords"
+msgstr ""
+
+#: flxweb/templates/search/dialog_results_list.html:57
+#: flxweb/templates/search/results_common.html:55
+#: flxweb/templates/search/results_common.html:77
+msgid "Try more general keywords"
+msgstr ""
+
+#: flxweb/templates/search/results_common.html:4
+#: flxweb/templates/search/results_common.html:36
+msgid "Search Results"
+msgstr ""
+
+#: flxweb/templates/search/results_common.html:36
+#, python-format
+msgid "(No results for \"%(term)s\")"
+msgstr ""
+
+#: flxweb/templates/search/results_common.html:42
+#, python-format
+msgid "(%(total_count)s %(result_string)s for \"%(term)s\")"
+msgstr ""
+
+#: flxweb/templates/search/results_common.html:51
+#: flxweb/templates/search/results_common.html:73
+msgid "We did not find what you were searching for. <br /> Here are some suggestions:"
+msgstr ""
+
+#: flxweb/templates/search/results_common.html:61
+msgid "Showing results for: "
+msgstr ""
+
+#: flxweb/templates/search/results_common.html:62
+#, python-format
+msgid "%(term)s"
+msgstr ""
+
+#: flxweb/templates/search/results_filters.html:4
+msgid "Search Tools"
+msgstr ""
+
+#: flxweb/templates/search/results_filters.html:30
+#: flxweb/templates/search/results_filters.html:33
+msgid "In My Library"
+msgstr ""
+
+#: flxweb/templates/search/results_filters.html:39
+msgid "Modalities"
+msgstr ""
+
+#: flxweb/templates/standards/ajax_list.html:22
+msgid ""
+"There are no books for the selected subject, grade and state. Please try a "
+"different selection"
+msgstr ""
+
+#: flxweb/templates/standards/ajax_standardboards.html:3
+msgid "Standards Correlations:"
+msgstr ""
+
+#: flxweb/templates/standards/artifact_standard_corrleation_rev.html:12
+#: flxweb/templates/standards/artifact_standards_correlations_with_boards.html:8
+msgid "Standards:"
+msgstr ""
+
+#: flxweb/templates/standards/artifact_standard_corrleation_rev.html:73
+msgid "There are no standard correlations aligned for "
+msgstr ""
+
+#: flxweb/templates/standards/index.html:2
+msgid "Standards Aligned"
+msgstr ""
+
+#: flxweb/templates/standards/index.html:27
+msgid "Standards Aligned FlexBook&#174; Textbooks"
+msgstr ""
+
+#: flxweb/templates/standards/index.html:32
+msgid "Filter:"
+msgstr ""
+
+#: flxweb/templates/standards/index.html:74
+msgid "Select a <strong>subject &#8593;</strong> to get started."
+msgstr ""
+
+#: flxweb/templates/taxonomy/index.html:2
+msgid "Taxonomy"
+msgstr ""
+
+#: flxweb/templates/taxonomy/index.html:70
+msgid ""
+"Select a <strong>subject</strong> & <strong>branch &#8593;</strong> to get "
+"started."
+msgstr ""
+
+#: flxweb/templates/urlmigration/unmigrated.html:51
+msgid ""
+"We are currently in the process of transferring the content to the new "
+"system. In the meantime, some content may not be immediately available."
+msgstr ""
+
+#: flxweb/templates/urlmigration/unmigrated.html:53
+msgid "How to transfer  your content"
+msgstr ""
+
+#: flxweb/templates/urlmigration/unmigrated.html:56
+msgid ""
+"For quicker access to your content, please log in and follow the instructions"
+" to begin the transfer of your content."
+msgstr ""
+
+#: flxweb/templates/urlmigration/unmigrated.html:58
+msgid "Begin"
+msgstr ""
+
+#: flxweb/templates/urlmigration/unmigrated.html:64
+#: flxweb/templates/urlmigration/welcome.html:64
+msgid "Thanks for your patience."
+msgstr ""
+
+#: flxweb/templates/urlmigration/welcome.html:43
+msgid "Darn! It looks like you've stumbled upon an old URL."
+msgstr ""
+
+#: flxweb/templates/urlmigration/welcome.html:50
+msgid "Some URLs from the older version may no longer work with our new site."
+msgstr ""
+
+#: flxweb/templates/urlmigration/welcome.html:53
+msgid "You may use the Search function (see above) to find what you are looking for,"
+msgstr ""
+
+#: flxweb/templates/urlmigration/welcome.html:54
+msgid "or click the  \"Explore Now\" button to browse our content."
+msgstr ""
+
+#: flxweb/templates/urlmigration/welcome.html:59
+msgid "Explore Now"
+msgstr ""
+

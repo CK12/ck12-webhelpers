@@ -1,0 +1,125 @@
+@import '../main';
+
+$completed-color: $SKY;
+$incomplete-color: $GREY_BROWN;
+
+:local {
+
+    .assignment {
+        user-select: none;
+    }
+
+    .totalAssignmentsCount {
+        text-transform: uppercase;
+        margin-bottom: $global-padding;
+    }
+
+    .date {
+        text-transform: uppercase;
+        color: $SMOKE_GREY;
+        margin-bottom: $global-padding;
+
+        i { margin-right: rem-calc(5); }
+
+        strong { color: $EARTH; }
+
+    }
+
+
+
+    .progressCircle {
+        width: 100%;
+        height: 100%;
+        max-height: rem-calc(200);
+
+        .inner {
+            fill: white;
+        }
+
+        .background, .foreground {
+            fill: none;
+        }
+
+        .background {
+            stroke: $incomplete-color;
+        }
+
+        .foreground {
+            transition: stroke-dashoffset .5s ease-in-out;
+            stroke: $completed-color;
+            transform: rotate(-90deg);
+            transform-origin: center;
+        }
+
+        .percentage {
+            font-size: rem-calc(36);
+            fill: $EARTH;
+        }
+    }
+
+    .arrow {
+        font-size: rem-calc(32);
+        cursor: pointer;
+        color: $EARTH;
+    }
+
+    .selector {
+        @include selectBox();
+    }
+
+
+    .counts {
+        margin-top: $global-padding;
+
+        .completed, .incomplete {
+            position: relative;
+            padding-left: rem-calc(25);
+            font-size: rem-calc(14);
+            line-height: rem-calc(14);
+            text-transform: uppercase;
+            height: rem-calc(14);
+            color: $SMOKE_GREY;
+            font-weight: bold;
+
+            strong { color: $EARTH; }
+
+            &:before {
+                position: absolute;
+                content: '';
+                height: 100%;
+                width: rem-calc(20);
+                max-height: rem-calc(16);
+                transform: translateX(-100%)translateX(-(rem-calc(5)));
+            }
+        }
+
+        .completed {
+            margin-right: rem-calc(10);
+            &:before {
+                background-color: $completed-color;
+            }
+        }
+
+        .incomplete:before {
+            background-color: $incomplete-color;
+        }
+    }
+
+    .assignmentDropdownTooltip, .circleGraphTooltip  {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 100%;
+        max-width: rem-calc(300);
+        z-index: 1;
+    }
+
+    .assignmentDropdownTooltip {
+        transform: translate(-50%, -50%);
+    }
+
+    .circleGraphTooltip {
+        transform: translate(-50%, -100%);
+    }
+
+}

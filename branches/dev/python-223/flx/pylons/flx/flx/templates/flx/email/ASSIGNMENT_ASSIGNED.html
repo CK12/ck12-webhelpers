@@ -1,0 +1,42 @@
+{% extends "MASTER_CK12_LOGO.html" %}
+{% block email_body %}
+<html>
+    <body>
+        <p>Hi {{ events[0]['eventData']['memberName'] }},</p>
+
+        {% for event in events %}
+          <p>{{ event['eventData']['creator'] }} from <a href="{{ site }}{{ event['eventData']['groupURL'] }}">{{ event['eventData']['group'] }}</a> has given this assignment to you:</p>
+
+          <p><a href="{{ site }}{{ event['eventData']['assignmentURL'] }}"><b>{{ event['eventData']['assignment'] }}</b></a></p>
+
+          <p>Check your <a href="{{ site }}{{ event['eventData']['assignmentURL'] }}">assignment list</a> to see when it's due. Good luck!</p>
+          <p><hr></p>
+        {% endfor %}
+
+        <p>The CK-12 Team</p>
+        <table style="width:100%">
+            <tr>
+                <td align="center" style="background-color:#56544d; color:#BBBBBB; padding:10px; height:100px; font-family:Arial, Helvetica, sans-serif; font-size:12px;">
+                    <table style="width:600px; padding:0px 30px; text-align:left;font-family:Arial, Helvetica, sans-serif;font-size:12px;" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td style="padding: 10px;">
+                                <span>Please do not reply to this email.</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px;">
+                                <span>Prefer not to receive these emails? <a href="{{ site }}/group-settings/{{ events[0]['eventData']['groupID'] }}" style="color:#FFFFFF;text-decoration:none;">Change your email settings for this group</a></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px;">
+                                © CK-12 Foundation | 3430 West Bayshore Road, Palo Alto, CA 94303
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
+{% endblock %}

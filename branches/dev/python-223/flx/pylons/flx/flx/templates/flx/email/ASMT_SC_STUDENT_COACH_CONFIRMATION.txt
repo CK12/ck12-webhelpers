@@ -1,0 +1,38 @@
+<!DOCTYPE html>	
+<html>
+
+<head>
+	<title>CK-12 BrainFlex</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+	<div style="height:100%; background:#fff; max-width:600px; margin:0 auto; height:100%; font-family:'Helvetica Neue','Helvetica',Helvetica,Arial,sans-serif;">
+		<div class="main-container">
+			<div style="text-align: center;padding: 20px;">
+				<img class="ck12-logo" alt="ck12 logo" src="{{ site }}/assessment/ui/public/lib/summer/logo-2x.png" width="92px" style="margin-right: 22px;display: inline-block;vertical-align: middle;">
+				<span class="heading-logo" style="font-size: 24px;font-weight: bold;color: #56544d;display: inline-block;vertical-align: middle;">BrainFlex</span>
+			</div>
+			<div class="coach-heading">
+				<div class="blue-band" style="height: auto;background: #d5f4fa;padding-left: 20px;">
+				    <div class="heading-coach" style="font-size: 27px;font-weight: bold;color: #56544d;display: inline-block;width: 280px;padding-top: 31px;vertical-align: top;">
+				    Who actually seeks out a coach? Winners.
+				    </div>
+					<img class="brain-img" alt="brain logo" src="{{ site }}/assessment/ui/public/lib/summer/brain-2x.png" width="142px" style="display: inline-block;vertical-align: text-bottom;margin-top: 38px;margin-left: 72px;">
+				</div>
+				<div class="green-band" style="height: 24px;background: #c1d963;"></div>
+			</div>
+			<div class="main-cont" style="padding-left: 42px;padding-right: 42px;padding-top: 34px;font-size: 16px;color: #56544d;line-height: 21px;">
+				<p style="margin-top:1em;margin-bottom:1em;">Dear {{ events[0].eventData['studentName'] }},</p>
+				<p style="margin-top:1em;margin-bottom:1em;"> Congratulations! Coach <span class="student-name">{{ events[0].eventData['coachName'] }}</span> has accepted the invitation to be your coach! 
+				You are on your way to reaching your goals in BrainFlex 2017.</p>
+				<p style="margin-top:1em;margin-bottom:1em;">Your coach will have access to your daily progress, but be sure to share your personal BrainFlex goals with them. 
+				Do you want to complete five math concepts a week? Do you want to try for a perfect score on a concept at least once a week? Do you want to make sure you log on every day? 
+				Let them know so they can support you!  </p>
+				<p style="margin-top:1em;margin-bottom:1em;">See you on June 19!</p>
+				<p style="margin-top:1em;margin-bottom:1em;">Good luck!</p>
+			</div>
+		</div>
+	</div>	
+</body>
+</html>

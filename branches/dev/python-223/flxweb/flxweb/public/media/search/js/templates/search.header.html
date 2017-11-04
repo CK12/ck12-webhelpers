@@ -1,0 +1,6 @@
+<span class="bold search-header-title hide-small">Search Results</span>
+<span class="search-header-query"><span class="hide-small">(</span><span><% if(data.total === 0){ %>No<%}else{%><%= data.total %><% } %> results <% if (data.searchString) { %>for "<%= data.searchString %>" <% } %></span><span class="hide-small">)</span></span>
+<span class="show-small right pointer filter-link-container js-filter-link-container">
+	<span class="filter-link bold">Filters</span>
+	<i class="icon-arrow3_right"></i>
+</span>

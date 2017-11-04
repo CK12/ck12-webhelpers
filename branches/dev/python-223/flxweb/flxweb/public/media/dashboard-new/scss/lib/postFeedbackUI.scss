@@ -1,0 +1,240 @@
+#uploadError {
+    color: red;
+    padding-top: 3%
+}
+
+div#ReportIssueView .reportIssue-container {
+    padding: 3.5%;
+    height: auto;
+    box-sizing: border-box;
+    max-width: 685px;
+    padding-bottom: 5.3%;
+    background: #fff;
+    z-index: 51;
+    position: relative;
+    top: 24%;
+    margin: auto;
+    border-radius: 2px
+}
+
+div#ReportIssueView .header {
+    font-size: 1.6em;
+    padding-bottom: 2vh;
+    color: rgba(0,0,0,.8)
+}
+
+div#ReportIssueView .title {
+    font-size: 1.6vh
+}
+
+div#ReportIssueView .text {
+    font-size: 2vh;
+    padding-bottom: 2vh
+}
+
+div#ReportIssueView .info-block {
+    -webkit-column-break-inside: avoid;
+    -moz-column-break-inside: avoid;
+    -o-column-break-inside: avoid;
+    -ms-column-break-inside: avoid;
+    column-break-inside: avoid
+}
+
+.send-button.report-button.Active:before {
+    position: absolute;
+    height: 180%;
+    width: 100%;
+    bottom: -40%;
+    background-color: #2981f1;
+    left: 0;
+    content: "";
+    z-index: -1;
+    border-radius: 2px;
+    color: #fff
+}
+
+.report-button:after {
+    position: absolute;
+    height: 180%;
+    width: 100%;
+    bottom: -40%;
+    background-color: rgba(41,129,241,0);
+    left: 0;
+    content: "";
+    z-index: 1;
+    cursor: pointer
+}
+
+.report-button {
+    bottom: 0;
+    position: relative;
+    height: auto;
+    padding: .2% 5%;
+    vertical-align: baseline;
+    float: right;
+    text-align: center;
+    margin-left: 1%;
+    box-sizing: border-box;
+    margin-top: 3%;
+    letter-spacing: 1px;
+    background-color: rgba(255,255,255,0);
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    display: inline-block;
+    cursor: pointer;
+    color: #0c0c0c;
+    font-family: inherit;
+    font-weight: inherit;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #fff
+}
+
+.report-button.Active {
+    color: #fff;
+    text-shadow: none;
+    border: none
+}
+
+.report-button:active {
+    position: relative;
+    top: 1px
+}
+
+.cancel-button {
+    right: 0;
+    padding: 0;
+    margin-right: 5%;
+}
+
+.button-container {
+    position: relative;
+    height: 20%;
+    bottom: 0;
+    margin-bottom: 5%;
+    vertical-align: bottom
+}
+
+.input-image {
+    opacity: 0;
+    height: 40%;
+    width: 25%;
+    z-index: 1;
+    position: absolute;
+    cursor:pointer;
+}
+.comment-box {
+    margin: 0;
+    color: #808089
+}
+
+div#ReportIssueView .info-container {
+    border-bottom: 1px solid #ccc;
+    height: 34%;
+    position: relative;
+    width: 90%
+}
+
+div#ReportIssueView .info-container .comment-box {
+    color: rgba(0,0,0,.8);
+    width: 100%;
+    bottom: 0;
+    border: none;
+    resize: none;
+    overflow: auto;
+    font-family: inherit;
+    font-size: 1em;
+    outline: 0;
+    position: relative;
+    margin: 0;
+    background-color: transparent;
+    box-shadow:none;
+    padding: .5rem 0;
+}
+div#ReportIssueView .info-container .comment-box::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: grey;
+}
+div#ReportIssueView .info-container .comment-box::-moz-placeholder { /* Firefox 19+ */
+  color: grey;
+}
+div#ReportIssueView .info-container .comment-box:-ms-input-placeholder { /* IE 10+ */
+  color: grey;
+}
+div#ReportIssueView .info-container .comment-box:-moz-placeholder { /* Firefox 18- */
+  color: grey;
+}
+.upload-images {
+    padding: 2% 0;
+    margin: 3% 0 0;
+    cursor: pointer;
+    position: relative;
+    max-width: 210px;
+}
+
+.upload-img-list {
+    display: block;
+    width: 90%;
+    margin: 3% 0 0;
+    max-height: 8em;
+    overflow:auto;
+}
+
+.upload-img {
+    display: inline-block;
+    margin: 5px;
+    background: #f3eaea;
+    padding: 5px;
+    transition: all .2s ease;
+}
+.upload-img:hover{
+    box-shadow: 1px 1px 1px grey;
+}
+
+.delete-icon {
+    cursor: pointer;
+    opacity: .4;
+    position: relative;
+    display: inline-block;
+    margin-left: 5px;
+	vertical-align: text-top;
+}
+
+.delete-icon:hover {
+    opacity: 1
+}
+
+.img-name {
+    color: #4182EF;
+    display: inline-block;
+    font-size: 2vh;
+    vertical-align: top;
+    word-wrap: break-word;
+    width: 100%
+}
+
+.upload-icon {
+    background-image: url(../../images/upload-image.png);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    cursor: pointer;
+    height: 3.5vh;
+    opacity: .7;
+    min-height: 25px;
+    min-width: 25px;
+    position: relative;
+    width: 3.5vh;
+    display: inline-block;
+    margin: 2% 3% 0 0
+}
+
+input[type=file]::-webkit-file-upload-button {
+    cursor: pointer
+}
+
+.upload-text {
+    color: #808089;
+    font-size: 1em;
+    vertical-align: top;
+    padding: 3% 0 0;
+    display: inline-block
+}

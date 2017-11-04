@@ -1,0 +1,1 @@
+ALTER TABLE `MemberExtData` ADD COLUMN `sharePermissionGrantedTime` timestamp NULL DEFAULT NULL COMMENT 'time at which permisson is granted to CK-12 by the member to share information with the partner.';

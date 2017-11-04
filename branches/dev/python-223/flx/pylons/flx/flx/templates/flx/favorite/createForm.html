@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>Create Favorite</title>
+    </head>
+    <body>
+        <form name="favoritedata" method="POST" action="{{ c.prefix }}/create/favorite">
+            <table>
+                <tr>
+                    <td>
+                        Favorite for user {{ c.userName }}:
+                    </td>
+                    <td>
+                        <select name="revisionID">
+                            <option value="">Choose an artifact revision...</option>
+                            {% for key in c.artifactRevisionKeys %}
+                            <option value="{{ c.artifactRevisionDict[key] }}">{{ key }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" name="submit" value="OK" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

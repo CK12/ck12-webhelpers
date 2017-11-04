@@ -1,0 +1,20 @@
+--- /usr/local/lib/python2.7/dist-packages/formencode/htmlfill.py	2013-02-21 17:07:57.109839487 +0530
++++ /usr/local/lib/python2.7/dist-packages/formencode/htmlfill.py	2013-02-21 17:07:09.257841488 +0530
+@@ -432,7 +432,16 @@
+             self.skip_next = True
+             self.add_key(name)
+         elif t == 'radio':
+-            if self.str_compare(value, self.get_attr(attrs, 'value', '')):
++            #if self.str_compare(value, self.get_attr(attrs, 'value', '')):
++            str1 = value
++            str2 = self.get_attr(attrs, 'value', '')
++            try:
++                str1 = unicode(value).encode('utf8')
++                str2 = unicode(self.get_attr(attrs, 'value', '')).encode('utf8')
++            except Exception as e:
++                str1 = value
++                str2 = self.get_attr(attrs, 'value', '')
++            if self.str_compare(str1, str2):
+                 self.set_attr(attrs, 'checked', 'checked')
+             elif self.force_defaults or name in self.defaults:
+                 self.del_attr(attrs, 'checked')

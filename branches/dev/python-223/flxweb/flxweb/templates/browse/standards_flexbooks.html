@@ -1,0 +1,28 @@
+{% extends "common/master.html" %}
+{% block title %}{{ _("Standards Flexbooks") }}{% endblock %}
+
+{% block stylesheets %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('common/css/3d-book.css') }}" />
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+<script>
+require(['main'], function(){});
+</script>
+{% endblock %}
+
+{% block reactConfig %}
+<script src="{{ h.asset_js('standards-flexbooks/dist/standards-flexbooks.js') }}"></script>
+<script>
+    StandardsFlexbooks.init({'elm': document.getElementById('standardsFlexbooks')});
+</script>
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+<div id="standardsFlexbooks" class="standards-flexbooks">
+    
+</div>
+{% endblock %}

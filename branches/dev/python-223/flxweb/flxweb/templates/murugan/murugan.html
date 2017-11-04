@@ -1,0 +1,65 @@
+{% extends "base/1column.html" %}
+
+{% block title %}{{ _("Thanks, Murugan!") }}{% endblock %}
+
+{% block pageinfotop %}
+<div class="contenttop"></div>
+{% endblock %}
+
+{% block content %}
+<h1>Thanks, Murugan!</h1>
+<div class="spacetoplarge"></div>
+<div class="contentarea">
+  <div id="view_content">
+    <div id="murugan" style="float:left; width:70%;">
+    Please tell <strong>Murugan</strong> how he has inspired you to what you have become today.
+    </div>
+    <div style="float:right; width:30%; text-align:right;">
+      <a href="javascript:void(0);" id="sayThanks" class="button turquoise" style="display:inline-block">Add your message</a>
+    </div>
+    <div class="clear"></div>
+    <!-- The messages go here -->
+    <h2 style="border-bottom:1px solid #ccc; padding:30px 0 10px 0;">See what others are saying</h2>
+    <div id="thanks"></div>
+  </div>
+
+  {% block js %}
+
+  {{ super() }}
+
+  <script language="JavaScript" type="text/javascript">
+	require(['main'], function(){
+      require(['jquery','jquery-ui','flxweb.settings', 'flxweb.global'],
+        function($) {
+            function showThanks() {
+                $.flxweb.showLoading();
+                $.ajax({
+                    url: $.flxweb.settings.webroot_url + 'ajax/murugan/comments',
+                    success: function(data) {
+                        $.flxweb.hideLoading();
+                        $('#thanks').html(data);
+                    },
+                    error: showThanksError
+                });
+            }
+
+            function showThanksError(data){
+                $.flxweb.hideLoading();
+            }
+                
+            function domReady() {
+                var formKey = '{{ c.formKey }}';
+                $('#sayThanks').click(function() {
+                    $.flxweb.showDialog('<iframe src="https://docs.google.com/a/ck12.org/spreadsheet/embeddedform?formkey=' + formKey + '" width="760" height="626" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>', 
+                        {'buttons': [], 'width': 790, 'maxHeight': 750, title:'Say Thanks to Murugan', 'close':function(){showThanks();}});
+                });
+                showThanks();
+            }
+            $(document).ready(domReady);
+      });
+	});
+  </script>
+  {% endblock js %}
+</div>
+
+{% endblock content %}

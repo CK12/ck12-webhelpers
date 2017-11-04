@@ -1,0 +1,18 @@
+{% extends "common/master.html" %}
+
+{% block js %}
+{{ super() }}
+<script type="text/javascript">
+    require(['main'], function(){
+       require(['groups/controllers/group']);
+    });
+</script>
+{% endblock %}
+
+{% block content %}
+<div id="page-disable" class="page-disable js-page-disable hide"></div>
+<div id="loading-icon" class="loading-icon">
+	<img alt="loading" src="{{ h.asset_image('common/images/icon_loading.gif') }}">
+</div>
+<div id="group_contentwrap"></div>
+{% endblock %}

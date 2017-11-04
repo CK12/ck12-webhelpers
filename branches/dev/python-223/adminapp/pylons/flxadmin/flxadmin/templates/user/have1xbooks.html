@@ -1,0 +1,146 @@
+{% extends "listings.html" %}  
+
+{% block filters %} 
+  <div class="col tiny">Filter by:</div>
+  <div class="col">
+    {{ h.labelselect('Status', '', c.form.status_sel, 'filter') }}
+  </div>
+  <div class="col wider">
+    {{ h.labelinput('Email', 'email-filter', 'search-filter medx')}}
+  </div>
+{% endblock %} 
+
+{% block searches %} 
+  <div class="col tiny">Search by:</div>
+  <div class="col med">
+    {{ h.labelinput('User Id', 'search', 'short')}}
+  </div>
+{% endblock %}
+
+{% block js_scripts %}
+{{ super() }}
+<script type='text/javascript'>
+var
+  updateInterval = Defaults.interval.med, 
+  needsUpdate = false,
+  alwaysShowBooksLinkOnFailedImports = false, // see updateBooksLink() comment
+  pollUrl = '',
+
+  setBooksLink = function($elm, id, setLink){
+  // Helper for updateBooksLink() to do the actual setting of the div.
+    $elm.html(setLink?
+      '<a href="'+CK12.admUrl('/user/1xbooks?userid='+id)+'">List Books</a>'
+      :'None');
+  },
+  updateBooksLink = function($row, status, oldStatus){
+  // Update link to Imported Books, forces link to update if:
+  //  both status & oldStatus is not passed (do this when list is first loaded),
+  //  OR status != oldStatus (when status has actually updated).
+  // Currently, on Failed status, it does an ajax call to check if some of the
+  //  books has been imported to decide to show link or not (discussed w/ Ravi).
+  //  If this becomes heavy in bandwidth (up to 25 API calls, but ONLY on new page
+  //  loads), set alwaysShowBooksLinkOnFailedImports to true to just display the
+  //  link on all Failed statuses w/o calling API to determine if there are any 
+  //  imported books.
+    var 
+      updateLink = (!status && !oldStatus) || (status != oldStatus),
+      oldStatus = oldStatus || $row.find('.status').html(),
+      status    = status || oldStatus,
+      success   = status=='Done' || status=='Acknowledged',
+      userid    = $row.find('.userID').attr('id'),
+      $bookslnk = $row.find('.bookslink');
+
+    if (updateLink && status=='Failed'){
+      if (alwaysShowBooksLinkOnFailedImports){
+        setBooksLink($bookslnk, userid, true);
+      }
+      else{
+        $.get(CK12.flxUrl('get/1x/books/'+userid), {pageSize:1}, function(d){
+          setBooksLink($bookslnk, userid, d.response && d.response.total);
+        });
+      }
+    }else if (updateLink){
+      setBooksLink($bookslnk, userid, success);
+    }
+  },
+  updateRow = function($row, data){
+  // Updates $row based on data, which is expected to be a json with:
+  //  status, started, migrated attrs, or a row data wrapped in jQuery like $row
+    var 
+      dataIsJq = data instanceof jQuery,
+      status   = dataIsJq? data.find('.status').html() : data.status,
+      started  = dataIsJq? data.find('.started').html() : data.started,
+      migrated = dataIsJq? data.find('.migrated').html() : data.migrated,
+      started  = started?  started.split('.')[0] : started,
+      migrated = migrated? migrated.split('.')[0] : migrated,
+      success  = status=='Done' || status=='Acknowledged',
+      userid   = $row.find('.userID').attr('id'),
+      $bookslnk= $row.find('.bookslink');
+
+    updateBooksLink($row, status);
+    if (status) $row.find('.status').html(status);
+    if (started) $row.find('.started').html(started);
+    if (migrated) $row.find('.migrated').html(migrated);
+    if (status=='Failed')
+      $row.find('.actionitem').html('[Re-Import]');
+  };
+
+// Poll to update stats if they are still in progress
+Fns.pollStatus = function(){
+  needsUpdate = needsUpdate || _.any($('.status'), function(stat){ 
+    return Fns.inProgress($(stat).html());
+  });
+  if (needsUpdate && pollUrl){
+    $.get(pollUrl, function(polledHtml){
+      $(polledHtml).filter('.datarow').each(function(i, polledRow){
+        var 
+          $polledRow = $(polledRow),
+          userID = $polledRow.find('.userID').attr('id'),
+          $row = $('#'+userID).parent();
+        updateRow($row, $polledRow);
+      }); 
+      Fns.colorStatus();
+      needsUpdate = _.any($('.status'), function(statusDiv){ 
+        return Fns.inProgress($(statusDiv).html());
+      });
+    }); 
+  }
+};
+
+// Import Handler
+$(document).on('click', '.actionitem', function(){
+  var 
+    $this = $(this),
+    userID = $this.parent().siblings('.userID').attr('id');
+  $.get(CK12.flxUrl('import/1x/books/'+userID), function(data){
+    var 
+      $row = $this.parent().parent(),
+      result = data.response? data.response.result : [];
+    if (result){
+      updateRow($row, result);
+      Fns.colorStatus();
+      if (result.taskID){
+        $this.html('');
+        $this.siblings('.actionlink').html('<a href="'+
+          CK12.admUrl('/task/'+result.taskID)+'">Import Details</a>');
+      }
+      needsUpdate = true;
+    }
+  });
+});
+
+Listings({
+  sort: 'started,desc',
+  ajaxRoot: CK12.admUrl('users/have1xbooks_list'),
+  searchFilters: ['email'],
+  postLoad: function(url, params){
+    Fns.colorStatus();
+    pollUrl = url;
+    if (!Poll) Poll = setInterval("Fns.pollStatus()", updateInterval);
+    $('.datarow').each(function(i, row){
+      updateBooksLink($(row));
+    });
+  }
+});
+</script>
+{% endblock %}

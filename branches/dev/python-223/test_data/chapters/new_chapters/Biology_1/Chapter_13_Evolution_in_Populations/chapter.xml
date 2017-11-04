@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns:dc="http://www.ck12.org/dc/will_create_ns"
+unique-identifier="chapterid" version="2.0">
+
+  <chapter>
+    <metadata>
+<chapterSeq>13</chapterSeq>
+
+<book>Biology I</book>
+
+      <chapterid></chapterid>
+      <title>Evolution in Populations</title>
+      <description>Topics in this chapter include:Genetic_Change_in_Populations,Genetics_of_Populations,The_Origin_of_Species.
+     </description>
+    </metadata>
+    
+    <lessons>
+      <item id="Genetics_of_Populations" href="Genetics_of_Populations.html" sequence="1" />
+      <item id="Genetic_Change_in_Populations" href ="Genetic_Change_in_Populations.html" sequence="2" />
+      <item id="The_Origin_of_Species" href ="The_Origin_of_Species.html" sequence="3" />
+    </lessons>
+  </chapter>
+
+</package>

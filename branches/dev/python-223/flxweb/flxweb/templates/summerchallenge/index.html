@@ -1,0 +1,148 @@
+{% extends "common/master.html" %}
+{% block title %}{{ _("BrainFlex: Summer Education Math & Science Practice Questions | CK-12") }}{% endblock %}{% block common_title %}{% endblock %}
+
+{% block meta_extra %}
+{{ super() }}
+<meta name="description" content="Commit to continuing your education this summer by signing up for BrainFlex! Stay learning with helpful practice questions from concepts in math and science">
+<meta property="og:image" content="http://www.ck12.org/assessment/ui/public/lib/summer/brainflex_fb_preview.png" />
+<meta itemprop="image" content="http://www.ck12.org/assessment/ui/public/lib/summer/brainflex_fb_preview.png">
+<meta name="google-play-app" content="app-id=org.ck12.app.practice">
+<meta name="apple-itunes-app-internal" content="app-id=909343639">
+<style type="text/css">
+		.loader.three-bounce {
+		  text-align: center;
+		  font-size: 26px;
+		  position: relative;
+		  margin-left : 10px;
+		}
+		.three-bounce > div {
+		  display: inline-block;
+		  width: 10px;
+		  height: 10px;
+		  border-radius: 100%;
+		  background-color: #999;
+		  margin:8px;
+		  -webkit-animation: bouncedelay 1s infinite ease-in-out;
+		  animation: bouncedelay 1s infinite ease-in-out;
+		  /* Prevent first frame from flickering when animation starts */
+		   -webkit-animation-fill-mode: both;
+		   animation-fill-mode: both;
+		}
+		.three-bounce .one {
+		  -webkit-animation-delay: -0.32s;
+		  animation-delay: -0.32s;
+		}
+		.three-bounce .two {
+		  -webkit-animation-delay: -0.16s;
+		  animation-delay: -0.16s;
+		}
+		@-webkit-keyframes bouncedelay {
+		  0%, 80%, 100% { -webkit-transform: scale(0.0) }
+		  40% { -webkit-transform: scale(1.0) }
+		}
+		@keyframes bouncedelay {
+		  0%, 80%, 100% {
+		    transform: scale(0.0);
+		    -webkit-transform: scale(0.0);
+		  } 40% {
+		    transform: scale(1.0);
+		    -webkit-transform: scale(1.0);
+		}
+</style>
+
+{% endblock %}
+
+{% block stylesheets %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('common/vendor/jquery-plugins/appdownload/css/jquery.appdownload.css') }}" />
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+<script>
+	var classList = document.getElementsByClassName('content-wrap')[0].classList;
+	classList.remove('row');
+	classList.add('no-padding');
+	require(['main'], function () {
+	    require(['common/utils/assessmentFrameListener'], function (assessmentframeListener) {
+            var afr = assessmentframeListener.init({
+                apis: ["showSigninDialog","resize"]
+            });
+            var pushed_states = [];
+            afr.on('summerPageChange', function(e){
+                if ( pushed_states.indexOf(e.pagePath) === -1){
+                    if (window.history && window.history.pushState){
+                        window.history.pushState({},'', e.pagePath);
+                    } else {
+                        if (window.location.href.indexOf(e.pagePath) === -1){
+                            window.location.href = e.pagePath.replace('/summer/', '/summer/#'); 
+                        }
+                    }
+                    pushed_states.push(e.pagePath);
+                } else {
+                    console.log("State already pushed. Skipping " + e.pagePath);
+                }
+            	
+            });
+            $('#assessmentFrame').before('<div id="smr-loading" class="three-bounce loader hide"><div class="one"></div><div class="two"></div><div class="three"></div></div>');
+	       var pathName = window.location.pathname ;
+	       if(/\/summer\/coach\/authenticated/.test(pathName)){
+	    	   $('#assessmentFrame').attr('src', '/assessment/ui/public/lib/summer/summer.html');
+	       }else if(/\/summer\/coach\/\d{4}/.test(pathName)){
+	    	   $('#assessmentFrame').attr('src', '/assessment/ui/public/lib/summer/coach.html');
+	       }else if(/\/summer\/coach/.test(pathName)){
+	    	   $('#assessmentFrame').attr('src', '/assessment/ui/public/lib/summer/coach.html');
+	       }else{
+	    	   $('#assessmentFrame').attr('src', '/assessment/ui/public/lib/summer/summer.html');
+	       }
+	    });
+	    require(['jquery', 'jquery.appdownload', 'common/views/footer.view'], function ($, smartbanner, FooterView) {
+	    	var payload = {
+                    memberID : ads_userid,
+                    page : 'summer'
+                };
+            var imageUrl = '{{ h.asset_image("images/brain_email.png") }}';
+            if (imageUrl.indexOf('//') === 0) {
+              imageUrl = window.location.protocol + imageUrl;
+            } else if (imageUrl.indexOf('http') !== 0) {
+              imageUrl = window.location.protocol + "//" + window.location.host + imageUrl;
+            }
+	    	FooterView.initShare({
+	    	    'shareImage': imageUrl,
+	            'shareUrl': window.location.href.replace("/dashboard", ""),
+	            'shareTitle': 'CK-12 BrainFlex',
+	            'payload': payload,
+	            'context': 'Share CK-12 BrainFlex',
+	            '_ck12': true
+	    	});
+
+            function addSmartBanner(){
+              if($.smartbanner){
+                  $.smartbanner({
+                    title: 'CK-12',
+                    author : "CK-12 Foundation",
+                    daysHidden: 2,
+                    daysReminder : 2,
+                    icon : '{{ h.asset_image("images/logo_120.png") }}',
+                    appendToSelector: $('.content-wrap')
+                  });
+              }
+            }
+            addSmartBanner();
+	    });
+	});
+</script>
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+	<iframe id="assessmentFrame" src="" width="100%" frameborder="0" scrolling="no"></iframe>
+	<div class="desktop_view">
+		<div class="small-12 columns">
+			<div class="backtotop clear">Back to the <a href="#" id="back_to_top_page" title="Back to top of the page">top of the page ↑</a></div>
+			<div class="divider"></div>
+			<div class="gclear"></div>
+		</div>
+	</div>
+{% endblock %}
+

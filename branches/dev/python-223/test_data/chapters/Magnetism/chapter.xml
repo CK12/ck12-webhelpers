@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns:dc="http://www.ck12.org/dc/will_create_ns"
+unique-identifier="chapterid" version="2.0">
+
+  <chapter>
+    <metadata>
+      <chapterid>16</chapterid>
+      <title>Magnetism</title>
+      <description>Topics in this chapter include: the big idea,sources of magnetic fields,effects of magnetic fields,magnetism problem set.    
+     </description>
+    </metadata>
+    
+    <lessons>
+      <item id="the_big_idea" href="the_big_idea.html" sequence="1" />
+      <item id="sources_of_magnetic_fields" href ="sources_of_magnetic_fields.html" sequence="2" />
+      <item id="effects_of_magnetic_fields" href ="effects_of_magnetic_fields.html" sequence="3" />
+      <item id="magnetism_problem_set" href ="magnetism_problem_set.html" sequence ="4" />
+     
+    </lessons>
+  </chapter>
+
+</package>

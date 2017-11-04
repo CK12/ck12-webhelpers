@@ -1,0 +1,36 @@
+#! /bin/bash
+# -----------------------------------------------------------------------------------
+# CHANGE SET [16266]
+#   1. Add tag filed to Dimension model
+#   2. Set tag=True for artifacts dimension
+#   3. Replace artifacts dimension load and update scripts to populate tag column
+#      of artifacts dimension with subject
+#   4. Repopulate artifacts dimension 
+# -----------------------------------------------------------------------------------
+
+source funcs.sh
+
+echo 'Apply change set 16266 (FlexBook-specific changes)'
+
+echo '... Patch ADS schema'
+mysql -h ${db_host} -u ${db_user} -p${db_password} ${db} <<EOF
+update Dimensions set tag=true where name='artifacts';
+alter table D_artifacts add column tag varchar(256) DEFAULT NULL;
+EOF
+
+#prompt_graceful_apache
+
+echo '... Reset load script of artifacts dimension'
+set_loadscript 'artifacts' 'artifacts.load'
+
+echo '... Reload artifacts dimension'
+http 'meta/load/dimension' 'dimension_name=artifacts'
+
+echo '... Reset update script of artifacts dimension'
+set_updatescript 'artifacts' 'artifacts.trigger'
+
+echo '... Promote hwp_attempt.ts to be an event'
+http 'meta/register/event' 'name=ts&event_group=hwp_attempt'
+
+echo 'Done'
+

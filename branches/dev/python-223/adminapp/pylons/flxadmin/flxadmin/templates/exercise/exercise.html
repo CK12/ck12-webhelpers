@@ -1,0 +1,46 @@
+{% extends "details.html" %}  
+{% from "macros/form_errors.html" import form_errors with context %}  
+
+{% block admincontent %} 
+{% if c.exercise %} 
+<div class="sectionhead sectiontitle">{{c.pagetitle}}</div>
+<div class="section withfloatedsubmit">
+  <form id="mainform" method="post">
+    <div class="leftaligned">
+    {% for field in c.form.ordered_fields %}
+      {{ field }}
+    {% endfor %}
+      {{ h.labeldiv('Difficulty Levels', h.pprint(c.levels), 'td')}}
+
+      {{ h.labeltextarea('Declarative Questions', 'declarative_questions', 3, 82)}}
+      {{ h.htmla_('/questions/declarative/'+c.id, '[Show/Edit]', 'declarative', 'wiz')}}
+
+      {{ h.labeltextarea('Generative Questions', 'generative_questions', 3, 82)}}
+      {{ h.htmla_('/questions/generative/'+c.id, '[Show/Edit]', 'generative', 'wiz')}}
+    </div>
+      {{ h.submitbutton('Update', 'short')}}
+      {{ h.cancelbutton(c.cancel)}}
+  </form>
+</div>
+{% endif %} 
+{% endblock %}
+
+{% block js_scripts %}
+<script type='text/javascript'>
+$(document).ready(function(){
+  $('#declarative_questions, #generative_questions').attr(
+    'placeholder', 'IDs, eg: 1, 2, 3');
+  $('.wiz').colorbox(Defaults.overlay('listing'));
+  $('.wiz').click(function(){
+    var 
+      $this = $(this),
+      input = $this.prev().val(),
+      ids = _.filter(input.split(/,\s*/), function(i){return i}),
+      id_filters = _.map(ids, function(id){return 'id,'+id}),
+      filter_param = id_filters.join(';');
+    $this.attr('href', CK12.admUrl(
+      '/questions/'+$this.attr('id')+'/{{c.id}}?filters='+filter_param));
+  });
+});
+</script>
+{% endblock %}

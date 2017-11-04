@@ -1,0 +1,164 @@
+{% extends "base/1column.html" %}
+{% block title %}{{ _("Create Workbook") }}{% endblock %}
+
+{% block stylesheets %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.url_css('details.css') }}" />
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.url_css('editor_common.css') }}" />
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+<script language="JavaScript" type="text/javascript">
+	require(['main'], function(){
+		require(['flxweb.models.artifact','jquery.validate','flxweb.editor.addcontent','flxweb.createworkbook.exercise']);
+	});
+</script>
+{#
+<script language="javascript" type="text/javascript" src="{{ h.url_js('flxweb.createworkbook.exercise.js') }}"></script>
+<script language="javascript" type="text/javascript" src="{{ h.url_lib('jquery-plugins/jquery.validate.js') }}"></script>
+<script language="javascript" type="text/javascript" src="{{ h.url_js('flxweb.editor.addcontent.js') }}"></script>
+<script language="javascript" type="text/javascript" src="{{ h.url_js('flxweb.models.artifact.js') }}"></script>
+#}
+{% endblock %}
+
+{% block pageinfotop %}
+<div class="contenttop container_12">
+	<nav id="pageinfotop grid_12"></nav>
+	<div class="gclear"></div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div id="workbookcontainer">
+	<div id="createworkbookwrapper">
+		{% if c.exercise_page_url %}
+            <h1><a href="{{ c.exercise_page_url }}">{{ c.incoming_ex_title }}</a> / {{ _('Create Workbook') }}</h1>
+        {% else %}
+            <h1><a href="{{ h.url('modality_branch',branch=c.branch,handle=c.domain,mtype=c.incoming_ex_artifact_type,mhandle=c.incoming_ex_handle,qualified=True) }}">{{ c.incoming_ex_title }}</a> / {{ _('Create Workbook') }}</h1>
+        {% endif %}
+        <div class="contentarea">
+			<div id="view_workbook" class="contentview">
+				<div id="learningtreeholder" class="invisible">
+					<div id="container">
+				 		<div id="infovis"></div>
+					</div>
+		        </div>
+    			<input type="hidden" id="selectedNode" value="{{ c.selectedNode }}" />
+    			<input type="hidden" id="encodedID" value="{{ c.encodedID }}" />
+				<div id="workbookformholder">
+					<form id="createworkbookform">
+						<input type="text" class="forminput" maxlength="100" placeholder="{{ _('Untitled Workbook') }}" name="workbooktitle"/>
+						<div class="error hide"></div>
+						<div class="spacetoplarge"></div>
+						<h2>{{ _('Select Exercises') }}</h2>
+						<div id="middleform" class="ui-rounded-box">
+							<ul id="workbooktocform">
+							<li id="tocheadermenu" class="oddrow">
+								<div class="exerciseno">
+									<span>{{ _('No') }}</span>
+								</div>
+								<div class="exercisedata">
+									<span>{{ _('Exercise Title') }}</span>
+								</div>
+								<div class="exercisenoq">
+									<span>{{ _('No. of Questions ') }}</span>
+								</div>
+								<div class="exercisemaxq">
+									<span>{{ _('Max Questions') }}</span>
+								</div>
+							</li>
+							{% if c.incoming_ex_title and c.incoming_ex_encodedid and c.incoming_ex_handle %}
+							<li class="tocerror evenrow hide">
+								<div class="errormessage">
+									{{ _("Click 'Add Exercise', search for exercises and add them to this Workbook.") }}
+								</div>
+							</li> 
+							<li class="toccontent tocrow evenrow">
+								<div class="exerciseno">
+									<span >1</span>
+								</div>
+								<div class="exercisedata">
+									<span class="input_execisedetails">
+										{{ c.incoming_ex_title }}
+									</span>
+								</div>
+								<div class="exercisenoq">
+									<input type="text" class="input_noq" name="noq" placeholder="{{ _('No of questions') }}" value="{{ c.incoming_ex_max_question_count }}"></input>
+								</div>
+								<div class="exercisemaxq">
+									<span class="maxquestions">{{ c.incoming_ex_max_question_count }}</span><input class="hide max_questions" value={{ c.incoming_ex_max_question_count }}></input>
+                                                                </div>
+								<input type="hidden" class="input_conceptid" name="conceptid" value="{{ c.incoming_ex_encodedid }}"></input>
+								<input type="hidden" class="input_handle" value="{{ c.incoming_ex_handle }}"></input>
+							 	<img class="x-ck12-img-nopopup removeexercise_btn" title="Remove this Exercise" alt="Remove Exercise" src="{{ h.asset_image('images/icon_removeexercise.png') }}"/>
+							</li>
+							{% else %}
+							<li class="tocerror evenrow">
+								<div class="errormessage">
+									{{ _("Click 'Add Exercise', search for exercises and add them to this Workbook.") }}
+								</div>
+							</li> 
+							<li class="toccontent tocrow evenrow hide">
+								<div class="exerciseno">
+									<span >1</span>
+								</div>
+								<div class="exercisedata">
+									<span class="input_execisedetails">
+									</span>
+								</div>
+								<div class="exercisenoq">
+									<input type="text" class="input_noq" name="noq" placeholder="{{ _('No of questions') }}" value="{{ c.incoming_ex_max_question_count }}"></input>
+								</div>
+								<div class="exercisemaxq">
+									<span class="maxquestions">{{ c.incoming_ex_max_question_count }}</span><input class="hide max_questions" value={{ c.incoming_ex_max_question_count }}></input>
+                                                                </div>
+								<input type="hidden" class="input_conceptid" name="conceptid"></input>
+								<input type="hidden" class="input_handle" ></input>
+							 	<img class="x-ck12-img-nopopup removeexercise_btn" title="Remove this Exercise" alt="Remove Exercise" src="{{ h.asset_image('images/icon_removeexercise.png') }}"/>
+							</li>
+							{% endif %}
+							</ul>
+							<div class="clearRow"></div>
+						</div>
+						<div class="middleformerrors error"></div>
+						<div class="toctools">
+							<a id="addexercise_btn" class="btn x-ck12-img-nopopup" title="{{ _('Add Exercise') }}">{{ _('Add Exercise') }}</a>
+						</div>
+						<div id="workbookoptionsform">
+							<ul>
+			                <li>
+			                    <h2>{{ _('Formats') }}</b></h2>
+			                    <input type="checkbox" id="html_type" name="formattype" class="formattype" checked="checked" value="1" >{{ _("HTML") }} </input> <br />
+			                    <input type="checkbox" id="pdf_type"  name="formattype" class="formattype" value="1" >{{ _("PDF") }} </input><br/>
+				            <div class="optionserrors error"></div>
+			                </li>
+			                <li>
+			                   	<h2>{{ _('Answer Key Options') }}</h2>
+			                   	<input type="radio" name="answer_key" checked="checked" value="full" >{{ _("With full answer keys") }} </input> <br />
+			                   	<input type="radio" name="answer_key" value="odd" >{{ _("With partial answer keys (odd numbered questions)") }} </input><br/>
+			                   	<input type="radio" name="answer_key" value="none" >{{ _("No answer keys") }} </input><br/>
+			                </li>
+							</ul>
+						</div>
+						<div id="bottomform" style="clear:both;">
+						{% if c.user %}
+							<a class="btn createworkbook_btn ui-corner-all" title="{{ _('Create Workbook') }}">{{ _("Create Workbook") }}</a>
+						{% else %}
+							<a class="btn ui-corner-all" onClick="javascript:$.flxweb.alertToSignin();return false;" title="{{ _('Create Workbook') }}">{{ _("Create workbook") }}</a>
+	        				{% endif %}
+						<a class="btn resetworkbookform_btn ui-corner-all" title="{{ _('Reset fields') }}">{{ _("Reset") }}</a>
+						</div>
+						<div class="workbookresultpanel"></div>
+						<div id="wb_loading_div" class="hide">{{ _('Creating Workbook...') }}<img class="x-ck12-img-nopopup" src="{{ h.asset_image('images/icon_loading.gif') }}" width="43" height="11" /></div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="hide" id="js_workbook_failed_message">{{ _('Sorry, There was an error creating your workbook. Please try again later') }}</div>
+<div class="hide" id="js_workbook_reached_limitation">{{ _('Workbook has reached the maximum exercises limit') }}</div>
+<div id="js_dialog_addcontent" data-dialogurl="{{ h.url('dialog/addcontent/',qualified=True) }}?mode=workbookDialog" data-dialogtitle="{{ _("Add Exercise") }}"></div>
+{% endblock %}
+

@@ -1,0 +1,996 @@
+subject,branch,book,chapter,Encode ID,Level 1,Level 2,Level 3,Level 4
+SCI,BIO,CK-12 Biology,What is Biology?,SCI.BIO.000,What is Biology?,,,
+SCI,BIO,CK-12 Biology,What is Biology?,SCI.BIO.001,,Science and the Natural World,,
+SCI,BIO,CK-12 Biology,What is Biology?,SCI.BIO.002,,,The Goal of Science,
+SCI,BIO,CK-12 Biology,What is Biology?,SCI.BIO.003,,,Experiments,
+SCI,BIO,CK-12 Biology,What is Biology?,SCI.BIO.004,,,,Medicine From the Ocean Floor
+SCI,BIO,CK-12 Biology,What is Biology?,SCI.BIO.005,,,,Variables
+SCI,BIO,CK-12 Biology,What is Biology?,SCI.BIO.006,,,,Sample Size and Repetition
+SCI,BIO,CK-12 Biology,What is Biology?,SCI.BIO.007,,,Other Types of Scientific Investigations,
+SCI,BIO,CK-12 Biology,What is Biology?,SCI.BIO.008,,,,Natural Studies
+SCI,BIO,CK-12 Biology,What is Biology?,SCI.BIO.009,,,,Modeling
+SCI,BIO,CK-12 Biology,What is Biology?,SCI.BIO.010,,,Scientific Theories,
+SCI,BIO,CK-12 Biology,What is Biology?,SCI.BIO.011,,,Bio-Inspiration: Nature as Muse,
+SCI,BIO,CK-12 Biology,What is Biology?,SCI.BIO.012,,Biology: The Study of Life,,
+SCI,BIO,CK-12 Biology,What is Biology?,SCI.BIO.013,,,Characteristics of Life,
+SCI,BIO,CK-12 Biology,What is Biology?,SCI.BIO.014,,,,Response to the Environment
+SCI,BIO,CK-12 Biology,What is Biology?,SCI.BIO.015,,,,Growth and Development
+SCI,BIO,CK-12 Biology,What is Biology?,SCI.BIO.016,,,,Reproduction
+SCI,BIO,CK-12 Biology,What is Biology?,SCI.BIO.017,,,,Keeping Things Constant
+SCI,BIO,CK-12 Biology,What is Biology?,SCI.BIO.018,,,,Complex Chemistry
+SCI,BIO,CK-12 Biology,What is Biology?,SCI.BIO.019,,,,Cells
+SCI,BIO,CK-12 Biology,What is Biology?,SCI.BIO.020,,,Unifying Principles of Biology,
+SCI,BIO,CK-12 Biology,What is Biology?,SCI.BIO.021,,,,The Cell Theory
+SCI,BIO,CK-12 Biology,What is Biology?,SCI.BIO.022,,,,The Gene Theory
+SCI,BIO,CK-12 Biology,What is Biology?,SCI.BIO.023,,,,Homeostasis
+SCI,BIO,CK-12 Biology,What is Biology?,SCI.BIO.024,,,,Evolution
+SCI,BIO,CK-12 Biology,What is Biology?,SCI.BIO.025,,,Interdependence of Living Things,
+SCI,BIO,CK-12 Biology,What is Biology?,SCI.BIO.026,,,,Symbiosis
+SCI,BIO,CK-12 Biology,What is Biology?,SCI.BIO.027,,,,Competition
+SCI,BIO,CK-12 Biology,What is Biology?,SCI.BIO.028,,,,Levels of Organization
+SCI,BIO,CK-12 Biology,What is Biology?,SCI.BIO.029,,,,Diversity of Life
+SCI,BIO,CK-12 Biology,What is Biology?,SCI.BIO.030,,,Evolution of Life,
+SCI,BIO,CK-12 Biology,What is Biology?,SCI.BIO.031,,,,Darwin and the Theory of Evolution
+SCI,BIO,CK-12 Biology,What is Biology?,SCI.BIO.032,,,,Evolutionary Theory After Darwin
+SCI,BIO,CK-12 Biology,What is Biology?,SCI.BIO.033,,,,Misconceptions About Evolution
+SCI,BIO,CK-12 Biology,The Chemistry of Life,SCI.BIO.034,The Chemistry of Life,,,
+SCI,BIO,CK-12 Biology,The Chemistry of Life,SCI.BIO.035,,Matter and Organic Compounds,,
+SCI,BIO,CK-12 Biology,The Chemistry of Life,SCI.BIO.036,,,Chemical Substances,
+SCI,BIO,CK-12 Biology,The Chemistry of Life,SCI.BIO.037,,,,Elements
+SCI,BIO,CK-12 Biology,The Chemistry of Life,SCI.BIO.038,,,,Compounds
+SCI,BIO,CK-12 Biology,The Chemistry of Life,SCI.BIO.039,,,The Significance of Carbon,
+SCI,BIO,CK-12 Biology,The Chemistry of Life,SCI.BIO.040,,,,Energy From Carbon?
+SCI,BIO,CK-12 Biology,The Chemistry of Life,SCI.BIO.041,,,Carbohydrates,
+SCI,BIO,CK-12 Biology,The Chemistry of Life,SCI.BIO.042,,,,Monosaccharides
+SCI,BIO,CK-12 Biology,The Chemistry of Life,SCI.BIO.043,,,,Polysaccharides
+SCI,BIO,CK-12 Biology,The Chemistry of Life,SCI.BIO.044,,,,Biofuels: From Sugar to Energy
+SCI,BIO,CK-12 Biology,The Chemistry of Life,SCI.BIO.045,,,Lipids,
+SCI,BIO,CK-12 Biology,The Chemistry of Life,SCI.BIO.046,,,,Saturated Fatty Acids
+SCI,BIO,CK-12 Biology,The Chemistry of Life,SCI.BIO.047,,,,Unsaturated Fatty Acids
+SCI,BIO,CK-12 Biology,The Chemistry of Life,SCI.BIO.048,,,,Types of Lipids
+SCI,BIO,CK-12 Biology,The Chemistry of Life,SCI.BIO.049,,,Proteins,
+SCI,BIO,CK-12 Biology,The Chemistry of Life,SCI.BIO.050,,,,Protein Structure
+SCI,BIO,CK-12 Biology,The Chemistry of Life,SCI.BIO.051,,,,Functions of Proteins
+SCI,BIO,CK-12 Biology,The Chemistry of Life,SCI.BIO.052,,,Nucleic Acids,
+SCI,BIO,CK-12 Biology,The Chemistry of Life,SCI.BIO.053,,,,Structure of Nucleic Acids
+SCI,BIO,CK-12 Biology,The Chemistry of Life,SCI.BIO.054,,,,Roles of Nucleic Acids
+SCI,BIO,CK-12 Biology,The Chemistry of Life,SCI.BIO.055,,Biochemical Reactions,,
+SCI,BIO,CK-12 Biology,The Chemistry of Life,SCI.BIO.056,,,What Are Chemical Reactions?,
+SCI,BIO,CK-12 Biology,The Chemistry of Life,SCI.BIO.057,,,,Chemical Equations
+SCI,BIO,CK-12 Biology,The Chemistry of Life,SCI.BIO.058,,,,Conservation of Matter
+SCI,BIO,CK-12 Biology,The Chemistry of Life,SCI.BIO.059,,,Chemical Reactions and Energy,
+SCI,BIO,CK-12 Biology,The Chemistry of Life,SCI.BIO.060,,,,Exothermic Reactions
+SCI,BIO,CK-12 Biology,The Chemistry of Life,SCI.BIO.061,,,,Endothermic Reactions
+SCI,BIO,CK-12 Biology,The Chemistry of Life,SCI.BIO.062,,,,Activation Energy
+SCI,BIO,CK-12 Biology,The Chemistry of Life,SCI.BIO.063,,,Biochemical Reactions and Enzymes,
+SCI,BIO,CK-12 Biology,The Chemistry of Life,SCI.BIO.064,,,,Types of Biochemical Reactions
+SCI,BIO,CK-12 Biology,The Chemistry of Life,SCI.BIO.065,,,,Enzymes
+SCI,BIO,CK-12 Biology,The Chemistry of Life,SCI.BIO.066,,"Water, Acids, and Bases",,
+SCI,BIO,CK-12 Biology,The Chemistry of Life,SCI.BIO.067,,,"Water, Water Everywhere",
+SCI,BIO,CK-12 Biology,The Chemistry of Life,SCI.BIO.068,,,Structure and Properties of Water,
+SCI,BIO,CK-12 Biology,The Chemistry of Life,SCI.BIO.069,,,,Chemical Structure of Water
+SCI,BIO,CK-12 Biology,The Chemistry of Life,SCI.BIO.070,,,,Properties of Water
+SCI,BIO,CK-12 Biology,The Chemistry of Life,SCI.BIO.071,,,Acids and Bases,
+SCI,BIO,CK-12 Biology,The Chemistry of Life,SCI.BIO.072,,,,Acidity and pH
+SCI,BIO,CK-12 Biology,The Chemistry of Life,SCI.BIO.073,,,,Acids
+SCI,BIO,CK-12 Biology,The Chemistry of Life,SCI.BIO.074,,,,Bases
+SCI,BIO,CK-12 Biology,The Chemistry of Life,SCI.BIO.075,,,Acids and Bases in Organisms,
+SCI,BIO,CK-12 Biology,The Chemistry of Life,SCI.BIO.076,,,Water and Life,
+SCI,BIO,CK-12 Biology,Cellular Structure and Function,SCI.BIO.077,Cellular Structure and Function,,,
+SCI,BIO,CK-12 Biology,Cellular Structure and Function,SCI.BIO.078,,Cell Structures,,
+SCI,BIO,CK-12 Biology,Cellular Structure and Function,SCI.BIO.079,,,Overview of Cell Structures,
+SCI,BIO,CK-12 Biology,Cellular Structure and Function,SCI.BIO.080,,,The Plasma Membrane,
+SCI,BIO,CK-12 Biology,Cellular Structure and Function,SCI.BIO.081,,,,The Phospholipid Bilayer
+SCI,BIO,CK-12 Biology,Cellular Structure and Function,SCI.BIO.082,,,,Other Molecules in the Plasma Membrane
+SCI,BIO,CK-12 Biology,Cellular Structure and Function,SCI.BIO.083,,,,Extensions of the Plasma Membrane
+SCI,BIO,CK-12 Biology,Cellular Structure and Function,SCI.BIO.084,,,Cytoplasm and Cytoskeleton,
+SCI,BIO,CK-12 Biology,Cellular Structure and Function,SCI.BIO.085,,,,Functions of the Cytoplasm
+SCI,BIO,CK-12 Biology,Cellular Structure and Function,SCI.BIO.086,,,,Cytoskeleton
+SCI,BIO,CK-12 Biology,Cellular Structure and Function,SCI.BIO.087,,,The Nucleus and Other Organelles,
+SCI,BIO,CK-12 Biology,Cellular Structure and Function,SCI.BIO.088,,,,The Nucleus
+SCI,BIO,CK-12 Biology,Cellular Structure and Function,SCI.BIO.089,,,,Mitochondria
+SCI,BIO,CK-12 Biology,Cellular Structure and Function,SCI.BIO.090,,,,Endoplasmic Reticulum
+SCI,BIO,CK-12 Biology,Cellular Structure and Function,SCI.BIO.091,,,,Ribosomes
+SCI,BIO,CK-12 Biology,Cellular Structure and Function,SCI.BIO.092,,,,Golgi Apparatus
+SCI,BIO,CK-12 Biology,Cellular Structure and Function,SCI.BIO.093,,,,Vesicles and Vacuoles
+SCI,BIO,CK-12 Biology,Cellular Structure and Function,SCI.BIO.094,,,,Centrioles
+SCI,BIO,CK-12 Biology,Cellular Structure and Function,SCI.BIO.095,,,Special Structures in Plant Cells,
+SCI,BIO,CK-12 Biology,Cellular Structure and Function,SCI.BIO.096,,,,Cell Wall
+SCI,BIO,CK-12 Biology,Cellular Structure and Function,SCI.BIO.097,,,,Central Vacuole
+SCI,BIO,CK-12 Biology,Cellular Structure and Function,SCI.BIO.098,,,,Plastids
+SCI,BIO,CK-12 Biology,Cellular Structure and Function,SCI.BIO.099,,,Organization of Cells,
+SCI,BIO,CK-12 Biology,Cellular Structure and Function,SCI.BIO.100,,,,From One Cell to Many
+SCI,BIO,CK-12 Biology,Cellular Structure and Function,SCI.BIO.101,,,,Levels of Organization in Multicellular Organisms
+SCI,BIO,CK-12 Biology,Cellular Structure and Function,SCI.BIO.102,,Cell Transport and Homeostasis,,
+SCI,BIO,CK-12 Biology,Cellular Structure and Function,SCI.BIO.103,,,Transport Across Membranes,
+SCI,BIO,CK-12 Biology,Cellular Structure and Function,SCI.BIO.104,,,Passive Transport,
+SCI,BIO,CK-12 Biology,Cellular Structure and Function,SCI.BIO.105,,,,Simple Diffusion
+SCI,BIO,CK-12 Biology,Cellular Structure and Function,SCI.BIO.106,,,,Osmosis
+SCI,BIO,CK-12 Biology,Cellular Structure and Function,SCI.BIO.107,,,,Facilitated Diffusion
+SCI,BIO,CK-12 Biology,Cellular Structure and Function,SCI.BIO.108,,,Active Transport,
+SCI,BIO,CK-12 Biology,Cellular Structure and Function,SCI.BIO.109,,,,Sodium-Potassium Pump
+SCI,BIO,CK-12 Biology,Cellular Structure and Function,SCI.BIO.110,,,,Vesicle Transport
+SCI,BIO,CK-12 Biology,Cellular Structure and Function,SCI.BIO.111,,,Homeostasis and Cell Function,
+SCI,BIO,CK-12 Biology,Photosynthesis and Cellular Respiration,SCI.BIO.112,Photosynthesis and Cellular Respiration,,,
+SCI,BIO,CK-12 Biology,Photosynthesis and Cellular Respiration,SCI.BIO.113,,Energy for Life,,
+SCI,BIO,CK-12 Biology,Photosynthesis and Cellular Respiration,SCI.BIO.114,,,Why Living Things Need Energy,
+SCI,BIO,CK-12 Biology,Photosynthesis and Cellular Respiration,SCI.BIO.115,,,How Organisms Get Energy: Autotrophs and Heterotrophs,
+SCI,BIO,CK-12 Biology,Photosynthesis and Cellular Respiration,SCI.BIO.116,,,,Autotrophs
+SCI,BIO,CK-12 Biology,Photosynthesis and Cellular Respiration,SCI.BIO.117,,,,Heterotrophs
+SCI,BIO,CK-12 Biology,Photosynthesis and Cellular Respiration,SCI.BIO.118,,,Energy Molecules: Glucose and ATP,
+SCI,BIO,CK-12 Biology,Photosynthesis and Cellular Respiration,SCI.BIO.119,,,,Glucose
+SCI,BIO,CK-12 Biology,Photosynthesis and Cellular Respiration,SCI.BIO.120,,,,ATP
+SCI,BIO,CK-12 Biology,Photosynthesis and Cellular Respiration,SCI.BIO.121,,,,Why Organisms Need Both Glucose and ATP
+SCI,BIO,CK-12 Biology,Photosynthesis and Cellular Respiration,SCI.BIO.122,,,Making and Using Food,
+SCI,BIO,CK-12 Biology,Photosynthesis and Cellular Respiration,SCI.BIO.123,,,,Photosynthesis
+SCI,BIO,CK-12 Biology,Photosynthesis and Cellular Respiration,SCI.BIO.124,,,,Cellular Respiration
+SCI,BIO,CK-12 Biology,Photosynthesis and Cellular Respiration,SCI.BIO.125,,Photosynthesis: Sugar as Food,,
+SCI,BIO,CK-12 Biology,Photosynthesis and Cellular Respiration,SCI.BIO.126,,,Stages of Photosynthesis,
+SCI,BIO,CK-12 Biology,Photosynthesis and Cellular Respiration,SCI.BIO.127,,,The Chloroplast: Theater for Photosynthesis,
+SCI,BIO,CK-12 Biology,Photosynthesis and Cellular Respiration,SCI.BIO.128,,,Photosynthesis Stage I: The Light Reactions,
+SCI,BIO,CK-12 Biology,Photosynthesis and Cellular Respiration,SCI.BIO.129,,,,Steps of the Light Reactions
+SCI,BIO,CK-12 Biology,Photosynthesis and Cellular Respiration,SCI.BIO.130,,,Photosynthesis Stage II: The Calvin Cycle,
+SCI,BIO,CK-12 Biology,Photosynthesis and Cellular Respiration,SCI.BIO.131,,,,Steps of the Calvin Cycle
+SCI,BIO,CK-12 Biology,Photosynthesis and Cellular Respiration,SCI.BIO.132,,,Chemosynthesis,
+SCI,BIO,CK-12 Biology,Photosynthesis and Cellular Respiration,SCI.BIO.133,,Powering the Cell: Cellular Respiration,,
+SCI,BIO,CK-12 Biology,Photosynthesis and Cellular Respiration,SCI.BIO.134,,,Stages of Cellular Respiration,
+SCI,BIO,CK-12 Biology,Photosynthesis and Cellular Respiration,SCI.BIO.135,,,Cellular Respiration Stage I: Glycolysis,
+SCI,BIO,CK-12 Biology,Photosynthesis and Cellular Respiration,SCI.BIO.136,,,,Splitting Glucose
+SCI,BIO,CK-12 Biology,Photosynthesis and Cellular Respiration,SCI.BIO.137,,,,Results of Glycolysis
+SCI,BIO,CK-12 Biology,Photosynthesis and Cellular Respiration,SCI.BIO.138,,,Anaerobic and Aerobic Respiration,
+SCI,BIO,CK-12 Biology,Photosynthesis and Cellular Respiration,SCI.BIO.139,,,Structure of the Mitochondrion: Key to Aerobic Respiration,
+SCI,BIO,CK-12 Biology,Photosynthesis and Cellular Respiration,SCI.BIO.140,,,Cellular Respiration Stage II: The Krebs Cycle,
+SCI,BIO,CK-12 Biology,Photosynthesis and Cellular Respiration,SCI.BIO.141,,,,Steps of the Krebs Cycle
+SCI,BIO,CK-12 Biology,Photosynthesis and Cellular Respiration,SCI.BIO.142,,,,Results of the Krebs Cycle
+SCI,BIO,CK-12 Biology,Photosynthesis and Cellular Respiration,SCI.BIO.143,,,Cellular Respiration Stage III: Electron Transport,
+SCI,BIO,CK-12 Biology,Photosynthesis and Cellular Respiration,SCI.BIO.144,,,,Transporting Electrons
+SCI,BIO,CK-12 Biology,Photosynthesis and Cellular Respiration,SCI.BIO.145,,,,Making ATP
+SCI,BIO,CK-12 Biology,Photosynthesis and Cellular Respiration,SCI.BIO.146,,,How Much ATP?,
+SCI,BIO,CK-12 Biology,Photosynthesis and Cellular Respiration,SCI.BIO.147,,Anaerobic Respiration,,
+SCI,BIO,CK-12 Biology,Photosynthesis and Cellular Respiration,SCI.BIO.148,,,Fermentation,
+SCI,BIO,CK-12 Biology,Photosynthesis and Cellular Respiration,SCI.BIO.149,,,,Lactic Acid Fermentation
+SCI,BIO,CK-12 Biology,Photosynthesis and Cellular Respiration,SCI.BIO.150,,,,Alcoholic Fermentation
+SCI,BIO,CK-12 Biology,Photosynthesis and Cellular Respiration,SCI.BIO.151,,,Aerobic vs. Anaerobic Respiration: A Comparison,
+SCI,BIO,CK-12 Biology,Photosynthesis and Cellular Respiration,SCI.BIO.152,,,,Advantages of Aerobic Respiration
+SCI,BIO,CK-12 Biology,Photosynthesis and Cellular Respiration,SCI.BIO.153,,,,Advantages of Anaerobic Respiration
+SCI,BIO,CK-12 Biology,"The Cell Cycle, Mitosis, and Meiosis",SCI.BIO.154,"The Cell Cycle, Mitosis, and Meiosis",,,
+SCI,BIO,CK-12 Biology,"The Cell Cycle, Mitosis, and Meiosis",SCI.BIO.155,,Cell Division and the Cell Cycle,,
+SCI,BIO,CK-12 Biology,"The Cell Cycle, Mitosis, and Meiosis",SCI.BIO.156,,,Cell Division,
+SCI,BIO,CK-12 Biology,"The Cell Cycle, Mitosis, and Meiosis",SCI.BIO.157,,,,Cell Division in Prokaryotes
+SCI,BIO,CK-12 Biology,"The Cell Cycle, Mitosis, and Meiosis",SCI.BIO.158,,,,Cell Division in Eukaryotes
+SCI,BIO,CK-12 Biology,"The Cell Cycle, Mitosis, and Meiosis",SCI.BIO.159,,,The Cell Cycle,
+SCI,BIO,CK-12 Biology,"The Cell Cycle, Mitosis, and Meiosis",SCI.BIO.160,,,,Eukaryotic Cell Cycle
+SCI,BIO,CK-12 Biology,"The Cell Cycle, Mitosis, and Meiosis",SCI.BIO.161,,,,Interphase
+SCI,BIO,CK-12 Biology,"The Cell Cycle, Mitosis, and Meiosis",SCI.BIO.162,,,,Control of the Cell Cycle
+SCI,BIO,CK-12 Biology,"The Cell Cycle, Mitosis, and Meiosis",SCI.BIO.163,,,,Cancer and the Cell Cycle
+SCI,BIO,CK-12 Biology,"The Cell Cycle, Mitosis, and Meiosis",SCI.BIO.164,,Chromosomes and Mitosis,,
+SCI,BIO,CK-12 Biology,"The Cell Cycle, Mitosis, and Meiosis",SCI.BIO.165,,,Chromosomes,
+SCI,BIO,CK-12 Biology,"The Cell Cycle, Mitosis, and Meiosis",SCI.BIO.166,,,,Chromatids and the Centromere
+SCI,BIO,CK-12 Biology,"The Cell Cycle, Mitosis, and Meiosis",SCI.BIO.167,,,,Chromosomes and Genes
+SCI,BIO,CK-12 Biology,"The Cell Cycle, Mitosis, and Meiosis",SCI.BIO.168,,,,Human Chromosomes
+SCI,BIO,CK-12 Biology,"The Cell Cycle, Mitosis, and Meiosis",SCI.BIO.169,,,Mitosis and Cytokinesis,
+SCI,BIO,CK-12 Biology,"The Cell Cycle, Mitosis, and Meiosis",SCI.BIO.170,,,,Prophase
+SCI,BIO,CK-12 Biology,"The Cell Cycle, Mitosis, and Meiosis",SCI.BIO.171,,,,Metaphase
+SCI,BIO,CK-12 Biology,"The Cell Cycle, Mitosis, and Meiosis",SCI.BIO.172,,,,Anaphase
+SCI,BIO,CK-12 Biology,"The Cell Cycle, Mitosis, and Meiosis",SCI.BIO.173,,,,Telophase
+SCI,BIO,CK-12 Biology,"The Cell Cycle, Mitosis, and Meiosis",SCI.BIO.174,,,,Cytokinesis
+SCI,BIO,CK-12 Biology,"The Cell Cycle, Mitosis, and Meiosis",SCI.BIO.175,,Reproduction and Meiosis,,
+SCI,BIO,CK-12 Biology,"The Cell Cycle, Mitosis, and Meiosis",SCI.BIO.176,,,Reproduction: Asexual vs. Sexual,
+SCI,BIO,CK-12 Biology,"The Cell Cycle, Mitosis, and Meiosis",SCI.BIO.177,,,,Asexual Reproduction
+SCI,BIO,CK-12 Biology,"The Cell Cycle, Mitosis, and Meiosis",SCI.BIO.178,,,,Sexual Reproduction
+SCI,BIO,CK-12 Biology,"The Cell Cycle, Mitosis, and Meiosis",SCI.BIO.179,,,Meiosis,
+SCI,BIO,CK-12 Biology,"The Cell Cycle, Mitosis, and Meiosis",SCI.BIO.180,,,,Phases of Meiosis
+SCI,BIO,CK-12 Biology,"The Cell Cycle, Mitosis, and Meiosis",SCI.BIO.181,,,Gametogenesis,
+SCI,BIO,CK-12 Biology,"The Cell Cycle, Mitosis, and Meiosis",SCI.BIO.182,,,Sexual Reproduction and Genetic Variation,
+SCI,BIO,CK-12 Biology,"The Cell Cycle, Mitosis, and Meiosis",SCI.BIO.183,,,Sexual Reproduction and Life Cycles,
+SCI,BIO,CK-12 Biology,"The Cell Cycle, Mitosis, and Meiosis",SCI.BIO.184,,,,Haploid Life Cycle
+SCI,BIO,CK-12 Biology,"The Cell Cycle, Mitosis, and Meiosis",SCI.BIO.185,,,,Diploid Life Cycle
+SCI,BIO,CK-12 Biology,"The Cell Cycle, Mitosis, and Meiosis",SCI.BIO.186,,,,Alternation of Generations
+SCI,BIO,CK-12 Biology,Gregor Mendel and Genetics,SCI.BIO.187,Gregor Mendel and Genetics,,,
+SCI,BIO,CK-12 Biology,Gregor Mendel and Genetics,SCI.BIO.188,,Mendel’s Investigations,,
+SCI,BIO,CK-12 Biology,Gregor Mendel and Genetics,SCI.BIO.189,,,Mendel and His Pea Plants,
+SCI,BIO,CK-12 Biology,Gregor Mendel and Genetics,SCI.BIO.190,,,,Blending Theory of Inheritance
+SCI,BIO,CK-12 Biology,Gregor Mendel and Genetics,SCI.BIO.191,,,,Why Study Pea Plants?
+SCI,BIO,CK-12 Biology,Gregor Mendel and Genetics,SCI.BIO.192,,,,Controlling Pollination
+SCI,BIO,CK-12 Biology,Gregor Mendel and Genetics,SCI.BIO.193,,,Mendel’s First Set of Experiments,
+SCI,BIO,CK-12 Biology,Gregor Mendel and Genetics,SCI.BIO.194,,,,F1 and F2 Generations
+SCI,BIO,CK-12 Biology,Gregor Mendel and Genetics,SCI.BIO.195,,,,Law of Segregation
+SCI,BIO,CK-12 Biology,Gregor Mendel and Genetics,SCI.BIO.196,,,Mendel’s Second Set of Experiments,
+SCI,BIO,CK-12 Biology,Gregor Mendel and Genetics,SCI.BIO.197,,,,F1 and F2 Generations
+SCI,BIO,CK-12 Biology,Gregor Mendel and Genetics,SCI.BIO.198,,,,Law of Independent Assortment
+SCI,BIO,CK-12 Biology,Gregor Mendel and Genetics,SCI.BIO.199,,,Mendel’s Laws and Genetics,
+SCI,BIO,CK-12 Biology,Gregor Mendel and Genetics,SCI.BIO.200,,,,Rediscovering Mendel’s Work
+SCI,BIO,CK-12 Biology,Gregor Mendel and Genetics,SCI.BIO.201,,,,Genetics of Inheritance
+SCI,BIO,CK-12 Biology,Gregor Mendel and Genetics,SCI.BIO.202,,,,Genotype and Phenotype
+SCI,BIO,CK-12 Biology,Gregor Mendel and Genetics,SCI.BIO.203,,Mendelian Inheritance,,
+SCI,BIO,CK-12 Biology,Gregor Mendel and Genetics,SCI.BIO.204,,,Probability,
+SCI,BIO,CK-12 Biology,Gregor Mendel and Genetics,SCI.BIO.205,,,Probability and Inheritance,
+SCI,BIO,CK-12 Biology,Gregor Mendel and Genetics,SCI.BIO.206,,,,Probability and Gamete Formation
+SCI,BIO,CK-12 Biology,Gregor Mendel and Genetics,SCI.BIO.207,,,,Probability and Fertilization
+SCI,BIO,CK-12 Biology,Gregor Mendel and Genetics,SCI.BIO.208,,,Using a Punnett Square,
+SCI,BIO,CK-12 Biology,Gregor Mendel and Genetics,SCI.BIO.209,,,,Predicting Offspring Genotypes
+SCI,BIO,CK-12 Biology,Gregor Mendel and Genetics,SCI.BIO.210,,,,Predicting Offspring Phenotypes
+SCI,BIO,CK-12 Biology,Gregor Mendel and Genetics,SCI.BIO.211,,,,Determining Missing Genotypes
+SCI,BIO,CK-12 Biology,Gregor Mendel and Genetics,SCI.BIO.212,,,,Punnett Square for Two Characteristics
+SCI,BIO,CK-12 Biology,Gregor Mendel and Genetics,SCI.BIO.213,,,How Mendel Worked Backward to Get Ahead,
+SCI,BIO,CK-12 Biology,Gregor Mendel and Genetics,SCI.BIO.214,,,Non-Mendelian Inheritance,
+SCI,BIO,CK-12 Biology,Gregor Mendel and Genetics,SCI.BIO.215,,,,Codominance and Incomplete Dominance
+SCI,BIO,CK-12 Biology,Gregor Mendel and Genetics,SCI.BIO.216,,,,Multiple Alleles
+SCI,BIO,CK-12 Biology,Gregor Mendel and Genetics,SCI.BIO.217,,,,Polygenic Characteristics
+SCI,BIO,CK-12 Biology,Gregor Mendel and Genetics,SCI.BIO.218,,,,Effects of Environment on Phenotype
+SCI,BIO,CK-12 Biology,Molecular Genetics: From DNA to Proteins,SCI.BIO.219,Molecular Genetics: From DNA to Proteins,,,
+SCI,BIO,CK-12 Biology,Molecular Genetics: From DNA to Proteins,SCI.BIO.220,,DNA and RNA,,
+SCI,BIO,CK-12 Biology,Molecular Genetics: From DNA to Proteins,SCI.BIO.221,,,Central Dogma of Molecular Biology,
+SCI,BIO,CK-12 Biology,Molecular Genetics: From DNA to Proteins,SCI.BIO.222,,,DNA,
+SCI,BIO,CK-12 Biology,Molecular Genetics: From DNA to Proteins,SCI.BIO.223,,,,The Double Helix
+SCI,BIO,CK-12 Biology,Molecular Genetics: From DNA to Proteins,SCI.BIO.224,,,,DNA Replication
+SCI,BIO,CK-12 Biology,Molecular Genetics: From DNA to Proteins,SCI.BIO.225,,,RNA,
+SCI,BIO,CK-12 Biology,Molecular Genetics: From DNA to Proteins,SCI.BIO.226,,,,RNA vs. DNA
+SCI,BIO,CK-12 Biology,Molecular Genetics: From DNA to Proteins,SCI.BIO.227,,,,Types of RNA
+SCI,BIO,CK-12 Biology,Molecular Genetics: From DNA to Proteins,SCI.BIO.228,,Protein Synthesis,,
+SCI,BIO,CK-12 Biology,Molecular Genetics: From DNA to Proteins,SCI.BIO.229,,,Transcription,
+SCI,BIO,CK-12 Biology,Molecular Genetics: From DNA to Proteins,SCI.BIO.230,,,,Steps of Transcription
+SCI,BIO,CK-12 Biology,Molecular Genetics: From DNA to Proteins,SCI.BIO.231,,,,Processing mRNA
+SCI,BIO,CK-12 Biology,Molecular Genetics: From DNA to Proteins,SCI.BIO.232,,,The Genetic Code,
+SCI,BIO,CK-12 Biology,Molecular Genetics: From DNA to Proteins,SCI.BIO.233,,,,Reading the Genetic Code
+SCI,BIO,CK-12 Biology,Molecular Genetics: From DNA to Proteins,SCI.BIO.234,,,,Characteristics of the Genetic Code
+SCI,BIO,CK-12 Biology,Molecular Genetics: From DNA to Proteins,SCI.BIO.235,,,Translation,
+SCI,BIO,CK-12 Biology,Molecular Genetics: From DNA to Proteins,SCI.BIO.236,,Mutation,,
+SCI,BIO,CK-12 Biology,Molecular Genetics: From DNA to Proteins,SCI.BIO.237,,,Causes of Mutation,
+SCI,BIO,CK-12 Biology,Molecular Genetics: From DNA to Proteins,SCI.BIO.238,,,Types of Mutations,
+SCI,BIO,CK-12 Biology,Molecular Genetics: From DNA to Proteins,SCI.BIO.239,,,,Chromosomal Alterations
+SCI,BIO,CK-12 Biology,Molecular Genetics: From DNA to Proteins,SCI.BIO.240,,,,Point Mutations
+SCI,BIO,CK-12 Biology,Molecular Genetics: From DNA to Proteins,SCI.BIO.241,,,,Frameshift Mutations
+SCI,BIO,CK-12 Biology,Molecular Genetics: From DNA to Proteins,SCI.BIO.242,,,Effects of Mutations,
+SCI,BIO,CK-12 Biology,Molecular Genetics: From DNA to Proteins,SCI.BIO.243,,,,Beneficial Mutations
+SCI,BIO,CK-12 Biology,Molecular Genetics: From DNA to Proteins,SCI.BIO.244,,,,Harmful Mutations
+SCI,BIO,CK-12 Biology,Molecular Genetics: From DNA to Proteins,SCI.BIO.245,,Regulation of Gene Expression,,
+SCI,BIO,CK-12 Biology,Molecular Genetics: From DNA to Proteins,SCI.BIO.246,,,How Gene Expression is Regulated,
+SCI,BIO,CK-12 Biology,Molecular Genetics: From DNA to Proteins,SCI.BIO.247,,,Prokaryotic Gene Regulation,
+SCI,BIO,CK-12 Biology,Molecular Genetics: From DNA to Proteins,SCI.BIO.248,,,,The Role of Operons
+SCI,BIO,CK-12 Biology,Molecular Genetics: From DNA to Proteins,SCI.BIO.249,,,,The Lac Operon
+SCI,BIO,CK-12 Biology,Molecular Genetics: From DNA to Proteins,SCI.BIO.250,,,Eukaryotic Gene Regulation,
+SCI,BIO,CK-12 Biology,Molecular Genetics: From DNA to Proteins,SCI.BIO.251,,,,The TATA Box
+SCI,BIO,CK-12 Biology,Molecular Genetics: From DNA to Proteins,SCI.BIO.252,,,,Regulation During Development
+SCI,BIO,CK-12 Biology,Molecular Genetics: From DNA to Proteins,SCI.BIO.253,,,,Gene Expression and Cancer
+SCI,BIO,CK-12 Biology,Human Genetics and Biotechnology,SCI.BIO.254,Human Genetics and Biotechnology,,,
+SCI,BIO,CK-12 Biology,Human Genetics and Biotechnology,SCI.BIO.255,,Human Chromosomes and Genes,,
+SCI,BIO,CK-12 Biology,Human Genetics and Biotechnology,SCI.BIO.256,,,The Human Genome,
+SCI,BIO,CK-12 Biology,Human Genetics and Biotechnology,SCI.BIO.257,,,Chromosomes and Genes,
+SCI,BIO,CK-12 Biology,Human Genetics and Biotechnology,SCI.BIO.258,,,,Autosomes
+SCI,BIO,CK-12 Biology,Human Genetics and Biotechnology,SCI.BIO.259,,,,Sex Chromosomes
+SCI,BIO,CK-12 Biology,Human Genetics and Biotechnology,SCI.BIO.260,,,,Human Genes
+SCI,BIO,CK-12 Biology,Human Genetics and Biotechnology,SCI.BIO.261,,,Linkage,
+SCI,BIO,CK-12 Biology,Human Genetics and Biotechnology,SCI.BIO.262,,,,Sex-Linked Genes
+SCI,BIO,CK-12 Biology,Human Genetics and Biotechnology,SCI.BIO.263,,,,Mapping Linkage
+SCI,BIO,CK-12 Biology,Human Genetics and Biotechnology,SCI.BIO.264,,Human Inheritance,,
+SCI,BIO,CK-12 Biology,Human Genetics and Biotechnology,SCI.BIO.265,,,Mendelian Inheritance in Humans,
+SCI,BIO,CK-12 Biology,Human Genetics and Biotechnology,SCI.BIO.266,,,,Autosomal Traits
+SCI,BIO,CK-12 Biology,Human Genetics and Biotechnology,SCI.BIO.267,,,,Sex-Linked Traits
+SCI,BIO,CK-12 Biology,Human Genetics and Biotechnology,SCI.BIO.268,,,,Pedigree Analysis Activity
+SCI,BIO,CK-12 Biology,Human Genetics and Biotechnology,SCI.BIO.269,,,Non-Mendelian Inheritance,
+SCI,BIO,CK-12 Biology,Human Genetics and Biotechnology,SCI.BIO.270,,,,Multiple Allele Traits
+SCI,BIO,CK-12 Biology,Human Genetics and Biotechnology,SCI.BIO.271,,,,Polygenic Traits
+SCI,BIO,CK-12 Biology,Human Genetics and Biotechnology,SCI.BIO.272,,,,Pleiotropy
+SCI,BIO,CK-12 Biology,Human Genetics and Biotechnology,SCI.BIO.273,,,,Epistasis
+SCI,BIO,CK-12 Biology,Human Genetics and Biotechnology,SCI.BIO.274,,,Genetic Disorders,
+SCI,BIO,CK-12 Biology,Human Genetics and Biotechnology,SCI.BIO.275,,,,Genetic Disorders Caused by Mutations
+SCI,BIO,CK-12 Biology,Human Genetics and Biotechnology,SCI.BIO.276,,,,Chromosomal Disorders
+SCI,BIO,CK-12 Biology,Human Genetics and Biotechnology,SCI.BIO.277,,,,Diagnosing Genetic Disorders
+SCI,BIO,CK-12 Biology,Human Genetics and Biotechnology,SCI.BIO.278,,,,Treating Genetic Disorders
+SCI,BIO,CK-12 Biology,Human Genetics and Biotechnology,SCI.BIO.279,,Biotechnology,,
+SCI,BIO,CK-12 Biology,Human Genetics and Biotechnology,SCI.BIO.280,,,Biotechnology Methods,
+SCI,BIO,CK-12 Biology,Human Genetics and Biotechnology,SCI.BIO.281,,,,Gene Cloning
+SCI,BIO,CK-12 Biology,Human Genetics and Biotechnology,SCI.BIO.282,,,,Polymerase Chain Reaction
+SCI,BIO,CK-12 Biology,Human Genetics and Biotechnology,SCI.BIO.283,,,Applications of Biotechnology,
+SCI,BIO,CK-12 Biology,Human Genetics and Biotechnology,SCI.BIO.284,,,,Applications in Medicine
+SCI,BIO,CK-12 Biology,Human Genetics and Biotechnology,SCI.BIO.285,,,,Pharmacogenomics
+SCI,BIO,CK-12 Biology,Human Genetics and Biotechnology,SCI.BIO.286,,,,Synthetic Biology
+SCI,BIO,CK-12 Biology,Human Genetics and Biotechnology,SCI.BIO.287,,,,Applications in Agriculture
+SCI,BIO,CK-12 Biology,Human Genetics and Biotechnology,SCI.BIO.288,,,"Ethical, Legal, and Social Issues",
+SCI,BIO,CK-12 Biology,Life: From the First Organism Onward,SCI.BIO.289,Life: From the First Organism Onward,,,
+SCI,BIO,CK-12 Biology,Life: From the First Organism Onward,SCI.BIO.290,,Earth Forms and Life Begins,,
+SCI,BIO,CK-12 Biology,Life: From the First Organism Onward,SCI.BIO.291,,,Earth in a Day,
+SCI,BIO,CK-12 Biology,Life: From the First Organism Onward,SCI.BIO.292,,,Learning About the Past,
+SCI,BIO,CK-12 Biology,Life: From the First Organism Onward,SCI.BIO.293,,,,The Fossil Record
+SCI,BIO,CK-12 Biology,Life: From the First Organism Onward,SCI.BIO.294,,,,Molecular Clocks
+SCI,BIO,CK-12 Biology,Life: From the First Organism Onward,SCI.BIO.295,,,,Geologic Time Scale
+SCI,BIO,CK-12 Biology,Life: From the First Organism Onward,SCI.BIO.296,,,How Earth Formed: We Are Made of Stardust!,
+SCI,BIO,CK-12 Biology,Life: From the First Organism Onward,SCI.BIO.297,,,The First Organic Molecules,
+SCI,BIO,CK-12 Biology,Life: From the First Organism Onward,SCI.BIO.298,,,,Which Organic Molecule Came First?
+SCI,BIO,CK-12 Biology,Life: From the First Organism Onward,SCI.BIO.299,,,,RNA World Hypothesis
+SCI,BIO,CK-12 Biology,Life: From the First Organism Onward,SCI.BIO.300,,,The First Cells,
+SCI,BIO,CK-12 Biology,Life: From the First Organism Onward,SCI.BIO.301,,,,LUCA
+SCI,BIO,CK-12 Biology,Life: From the First Organism Onward,SCI.BIO.302,,,,Photosynthesis and Cellular Respiration
+SCI,BIO,CK-12 Biology,Life: From the First Organism Onward,SCI.BIO.303,,,Evolution of Eukaryotes,
+SCI,BIO,CK-12 Biology,Life: From the First Organism Onward,SCI.BIO.304,,The Evolution of Multicellular Life,,
+SCI,BIO,CK-12 Biology,Life: From the First Organism Onward,SCI.BIO.305,,,Setting the Stage: The Late Precambrian,
+SCI,BIO,CK-12 Biology,Life: From the First Organism Onward,SCI.BIO.306,,,,Life During the Late Precambrian
+SCI,BIO,CK-12 Biology,Life: From the First Organism Onward,SCI.BIO.307,,,,The Precambrian Extinction
+SCI,BIO,CK-12 Biology,Life: From the First Organism Onward,SCI.BIO.308,,,Life During the Paleozoic,
+SCI,BIO,CK-12 Biology,Life: From the First Organism Onward,SCI.BIO.309,,,,Paleozoic Era
+SCI,BIO,CK-12 Biology,Life: From the First Organism Onward,SCI.BIO.310,,,Mesozoic Era: Age of Dinosaurs,
+SCI,BIO,CK-12 Biology,Life: From the First Organism Onward,SCI.BIO.311,,,Cenozoic Era: Age of Mammals,
+SCI,BIO,CK-12 Biology,Life: From the First Organism Onward,SCI.BIO.312,,,,The Last Ice Age
+SCI,BIO,CK-12 Biology,Life: From the First Organism Onward,SCI.BIO.313,,Classification,,
+SCI,BIO,CK-12 Biology,Life: From the First Organism Onward,SCI.BIO.314,,,Linnaean Classification,
+SCI,BIO,CK-12 Biology,Life: From the First Organism Onward,SCI.BIO.315,,,,Binomial Nomenclature
+SCI,BIO,CK-12 Biology,Life: From the First Organism Onward,SCI.BIO.316,,,,Revisions in Linnaean Classification
+SCI,BIO,CK-12 Biology,Life: From the First Organism Onward,SCI.BIO.317,,,Phylogenetic Classification,
+SCI,BIO,CK-12 Biology,The Theory of Evolution,SCI.BIO.318,The Theory of Evolution,,,
+SCI,BIO,CK-12 Biology,The Theory of Evolution,SCI.BIO.319,,Darwin and the Theory of Evolution,,
+SCI,BIO,CK-12 Biology,The Theory of Evolution,SCI.BIO.320,,,Darwin’s Theory at a Glance,
+SCI,BIO,CK-12 Biology,The Theory of Evolution,SCI.BIO.321,,,,Darwin’s Observations
+SCI,BIO,CK-12 Biology,The Theory of Evolution,SCI.BIO.322,,,,The Galápagos Islands
+SCI,BIO,CK-12 Biology,The Theory of Evolution,SCI.BIO.323,,,Influences on Darwin,
+SCI,BIO,CK-12 Biology,The Theory of Evolution,SCI.BIO.324,,,,Artificial Selection
+SCI,BIO,CK-12 Biology,The Theory of Evolution,SCI.BIO.325,,,,Wallace’s Theory
+SCI,BIO,CK-12 Biology,The Theory of Evolution,SCI.BIO.326,,,Darwin’s Theory of Evolution by Natural Selection,
+SCI,BIO,CK-12 Biology,The Theory of Evolution,SCI.BIO.327,,,,Evolution of Darwin’s Theory
+SCI,BIO,CK-12 Biology,The Theory of Evolution,SCI.BIO.328,,,,Applying Darwin’s Theory
+SCI,BIO,CK-12 Biology,The Theory of Evolution,SCI.BIO.329,,,,"Chasing Beatles, Finding Darwin"
+SCI,BIO,CK-12 Biology,The Theory of Evolution,SCI.BIO.330,,,The California Academy of Sciences,
+SCI,BIO,CK-12 Biology,The Theory of Evolution,SCI.BIO.331,,Evidence for Evolution,,
+SCI,BIO,CK-12 Biology,The Theory of Evolution,SCI.BIO.332,,,Fossil Evidence,
+SCI,BIO,CK-12 Biology,The Theory of Evolution,SCI.BIO.333,,,Evidence from Living Species,
+SCI,BIO,CK-12 Biology,The Theory of Evolution,SCI.BIO.334,,,,Comparative Anatomy
+SCI,BIO,CK-12 Biology,The Theory of Evolution,SCI.BIO.335,,,,Comparative Embryology
+SCI,BIO,CK-12 Biology,The Theory of Evolution,SCI.BIO.336,,,,Vestigial Structures
+SCI,BIO,CK-12 Biology,The Theory of Evolution,SCI.BIO.337,,,,Comparing DNA
+SCI,BIO,CK-12 Biology,The Theory of Evolution,SCI.BIO.338,,,,The Reverse Evolution Machine
+SCI,BIO,CK-12 Biology,The Theory of Evolution,SCI.BIO.339,,,Evidence from Biogeography,
+SCI,BIO,CK-12 Biology,The Theory of Evolution,SCI.BIO.340,,,,Biogeography of Camels: An Example
+SCI,BIO,CK-12 Biology,The Theory of Evolution,SCI.BIO.341,,,,Island Biogeography
+SCI,BIO,CK-12 Biology,The Theory of Evolution,SCI.BIO.342,,,,Eyewitness to Evolution
+SCI,BIO,CK-12 Biology,The Theory of Evolution,SCI.BIO.343,,Microevolution and the Genetics of Populations,,
+SCI,BIO,CK-12 Biology,The Theory of Evolution,SCI.BIO.344,,,The Scale of Evolution,
+SCI,BIO,CK-12 Biology,The Theory of Evolution,SCI.BIO.345,,,Genes in Populations,
+SCI,BIO,CK-12 Biology,The Theory of Evolution,SCI.BIO.346,,,,Gene Pool
+SCI,BIO,CK-12 Biology,The Theory of Evolution,SCI.BIO.347,,,,Allele Frequencies
+SCI,BIO,CK-12 Biology,The Theory of Evolution,SCI.BIO.348,,,The Hardy-Weinberg Theorem,
+SCI,BIO,CK-12 Biology,The Theory of Evolution,SCI.BIO.349,,,Forces of Evolution,
+SCI,BIO,CK-12 Biology,The Theory of Evolution,SCI.BIO.350,,,,Mutation
+SCI,BIO,CK-12 Biology,The Theory of Evolution,SCI.BIO.351,,,,Gene Flow
+SCI,BIO,CK-12 Biology,The Theory of Evolution,SCI.BIO.352,,,,Genetic Drift
+SCI,BIO,CK-12 Biology,The Theory of Evolution,SCI.BIO.353,,,,Natural Selection
+SCI,BIO,CK-12 Biology,The Theory of Evolution,SCI.BIO.354,,Macroevolution and the Origin of Species,,
+SCI,BIO,CK-12 Biology,The Theory of Evolution,SCI.BIO.355,,,Origin of Species,
+SCI,BIO,CK-12 Biology,The Theory of Evolution,SCI.BIO.356,,,,Allopatric Speciation
+SCI,BIO,CK-12 Biology,The Theory of Evolution,SCI.BIO.357,,,,Sympatric Speciation
+SCI,BIO,CK-12 Biology,The Theory of Evolution,SCI.BIO.358,,,Coevolution,
+SCI,BIO,CK-12 Biology,The Theory of Evolution,SCI.BIO.359,,,Timing of Macroevolution,
+SCI,BIO,CK-12 Biology,The Principles of Ecology,SCI.BIO.360,The Principles of Ecology,,,
+SCI,BIO,CK-12 Biology,The Principles of Ecology,SCI.BIO.361,,The Science of Ecology,,
+SCI,BIO,CK-12 Biology,The Principles of Ecology,SCI.BIO.362,,,Organisms and the Environment,
+SCI,BIO,CK-12 Biology,The Principles of Ecology,SCI.BIO.363,,,The Ecosystem,
+SCI,BIO,CK-12 Biology,The Principles of Ecology,SCI.BIO.364,,,,Niche
+SCI,BIO,CK-12 Biology,The Principles of Ecology,SCI.BIO.365,,,,Habitat
+SCI,BIO,CK-12 Biology,The Principles of Ecology,SCI.BIO.366,,,,Competitive Exclusion Principle
+SCI,BIO,CK-12 Biology,The Principles of Ecology,SCI.BIO.367,,,Flow of Energy,
+SCI,BIO,CK-12 Biology,The Principles of Ecology,SCI.BIO.368,,,,Producers
+SCI,BIO,CK-12 Biology,The Principles of Ecology,SCI.BIO.369,,,,Consumers
+SCI,BIO,CK-12 Biology,The Principles of Ecology,SCI.BIO.370,,,,Decomposers
+SCI,BIO,CK-12 Biology,The Principles of Ecology,SCI.BIO.371,,,,Banana Slugs: The Ultimate Recyclers
+SCI,BIO,CK-12 Biology,The Principles of Ecology,SCI.BIO.372,,,Food Chains and Food Webs,
+SCI,BIO,CK-12 Biology,The Principles of Ecology,SCI.BIO.373,,,,Food Chains
+SCI,BIO,CK-12 Biology,The Principles of Ecology,SCI.BIO.374,,,,Food Webs
+SCI,BIO,CK-12 Biology,The Principles of Ecology,SCI.BIO.375,,,Trophic Levels,
+SCI,BIO,CK-12 Biology,The Principles of Ecology,SCI.BIO.376,,,,Trophic Levels and Energy
+SCI,BIO,CK-12 Biology,The Principles of Ecology,SCI.BIO.377,,,,Trophic Levels and Biomass
+SCI,BIO,CK-12 Biology,The Principles of Ecology,SCI.BIO.378,,Recycling Matter,,
+SCI,BIO,CK-12 Biology,The Principles of Ecology,SCI.BIO.379,,,Biogeochemical Cycles,
+SCI,BIO,CK-12 Biology,The Principles of Ecology,SCI.BIO.380,,,The Water Cycle,
+SCI,BIO,CK-12 Biology,The Principles of Ecology,SCI.BIO.381,,,,"Evaporation, Sublimation, and Transpiration"
+SCI,BIO,CK-12 Biology,The Principles of Ecology,SCI.BIO.382,,,,Condensation and Precipitation
+SCI,BIO,CK-12 Biology,The Principles of Ecology,SCI.BIO.383,,,,Groundwater and Runoff
+SCI,BIO,CK-12 Biology,The Principles of Ecology,SCI.BIO.384,,,,Tracking Raindrops
+SCI,BIO,CK-12 Biology,The Principles of Ecology,SCI.BIO.385,,,The Carbon Cycle,
+SCI,BIO,CK-12 Biology,The Principles of Ecology,SCI.BIO.386,,,The Nitrogen Cycle,
+SCI,BIO,CK-12 Biology,The Principles of Ecology,SCI.BIO.387,,Biomes,,
+SCI,BIO,CK-12 Biology,The Principles of Ecology,SCI.BIO.388,,,Terrestrial Biomes,
+SCI,BIO,CK-12 Biology,The Principles of Ecology,SCI.BIO.389,,,,Terrestrial Biomes and Climate
+SCI,BIO,CK-12 Biology,The Principles of Ecology,SCI.BIO.390,,,,Climate and Plant Growth
+SCI,BIO,CK-12 Biology,The Principles of Ecology,SCI.BIO.391,,,,Climate and Biodiversity
+SCI,BIO,CK-12 Biology,The Principles of Ecology,SCI.BIO.392,,,,Climate and Adaptations
+SCI,BIO,CK-12 Biology,The Principles of Ecology,SCI.BIO.393,,,,Survey of Terrestrial Biomes
+SCI,BIO,CK-12 Biology,The Principles of Ecology,SCI.BIO.394,,,Aquatic Biomes,
+SCI,BIO,CK-12 Biology,The Principles of Ecology,SCI.BIO.395,,,,Aquatic Biomes and Sunlight
+SCI,BIO,CK-12 Biology,The Principles of Ecology,SCI.BIO.396,,,,Aquatic Biomes and Dissolved Substances
+SCI,BIO,CK-12 Biology,The Principles of Ecology,SCI.BIO.397,,,,Aquatic Organisms
+SCI,BIO,CK-12 Biology,The Principles of Ecology,SCI.BIO.398,,,,Marine Biomes
+SCI,BIO,CK-12 Biology,The Principles of Ecology,SCI.BIO.399,,,,Freshwater Biomes
+SCI,BIO,CK-12 Biology,The Principles of Ecology,SCI.BIO.400,,,,Wetlands
+SCI,BIO,CK-12 Biology,The Principles of Ecology,SCI.BIO.401,,,,Restoring Wetlands
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.402,Communities and Populations,,,
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.403,,Community Interactions,,
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.404,,,What Is a Community?,
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.405,,,Predation,
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.406,,,,Predation and Population
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.407,,,,Keystone Species
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.408,,,,Adaptations to Predation
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.409,,,Competition,
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.410,,,,Interspecific Competition and Extinction
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.411,,,,Interspecific Competition and Specialization
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.412,,,Symbiotic Relationships,
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.413,,,,Mutualism
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.414,,,,Commensalism
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.415,,,,Parasitism
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.416,,,Ecological Succession,
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.417,,,,Primary Succession
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.418,,,,Secondary Succession
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.419,,,,Climax Communities
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.420,,Characteristics of Populations,,
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.421,,,"Population Size, Density, and Distribution",
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.422,,,,Population Density
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.423,,,,Population Distribution
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.424,,,Population Structure,
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.425,,,,Population Pyramids
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.426,,,,Survivorship Curves
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.427,,,Population Growth,
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.428,,,,Population Growth Rate
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.429,,,,Dispersal and Migration
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.430,,,Patterns of Population Growth,
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.431,,,,Exponential Growth
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.432,,,,Logistic Growth
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.433,,Human Population Growth,,
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.434,,,Early Population Growth,
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.435,,,Demographic Transition,
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.436,,,,Death Rates Fall
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.437,,,,Birth Rates Fall
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.438,,,,Stages of the Demographic Transition
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.439,,,Recent Population Growth,
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.440,,,Future Population Growth,
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.441,,The Biodiversity Crisis,,
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.442,,,What Is Biodiversity?,
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.443,,,Why Is Biodiversity Important?,
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.444,,,,Economic Benefits of Biodiversity
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.445,,,,Ecosystem Services of Biodiversity
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.446,,,Human Actions and the Sixth Mass Extinction,
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.447,,,,Causes of Extinction
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.448,,,The Encyclopedia of Life,
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.449,,,,Field Guides
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.450,,,,EOL Podcasts
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.451,,,,One Species at a Time
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.452,,,The Biodiversity Heritage Library,
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.453,,Natural Resources and Climate Change,,
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.454,,,Renewable and Nonrenewable Resources,
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.455,,,,Renewable Resources
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.456,,,,Nonrenewable Resources
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.457,,,Soil and Water Resources,
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.458,,,,Soil
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.459,,,,Water
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.460,,,The Atmosphere,
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.461,,,,Air Pollution
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.462,,,,Acid Rain
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.463,,,,Ozone Depletion
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.464,,,Global Climate Change,
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.465,,,,What Is the Greenhouse Effect?
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.466,,,,Global Warming
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.467,,,,Effects of Climate Change
+SCI,BIO,CK-12 Biology,Communities and Populations,SCI.BIO.468,,,,Giant Redwoods and Global Warming
+SCI,BIO,CK-12 Biology,Microorganisms: Prokaryotes and Viruses,SCI.BIO.469,Microorganisms: Prokaryotes and Viruses,,,
+SCI,BIO,CK-12 Biology,Microorganisms: Prokaryotes and Viruses,SCI.BIO.470,,Prokaryotes,,
+SCI,BIO,CK-12 Biology,Microorganisms: Prokaryotes and Viruses,SCI.BIO.471,,,Evolution and Classification of Prokaryotes,
+SCI,BIO,CK-12 Biology,Microorganisms: Prokaryotes and Viruses,SCI.BIO.472,,,,Prokaryote Evolution
+SCI,BIO,CK-12 Biology,Microorganisms: Prokaryotes and Viruses,SCI.BIO.473,,,,Domain Bacteria
+SCI,BIO,CK-12 Biology,Microorganisms: Prokaryotes and Viruses,SCI.BIO.474,,,,Domain Archaea
+SCI,BIO,CK-12 Biology,Microorganisms: Prokaryotes and Viruses,SCI.BIO.475,,,Prokaryote Structure,
+SCI,BIO,CK-12 Biology,Microorganisms: Prokaryotes and Viruses,SCI.BIO.476,,,,Plasma Membrane and Cell Wall
+SCI,BIO,CK-12 Biology,Microorganisms: Prokaryotes and Viruses,SCI.BIO.477,,,,Cytoplasm and Cell Structures
+SCI,BIO,CK-12 Biology,Microorganisms: Prokaryotes and Viruses,SCI.BIO.478,,,,Extracellular Structures
+SCI,BIO,CK-12 Biology,Microorganisms: Prokaryotes and Viruses,SCI.BIO.479,,,,Endospores
+SCI,BIO,CK-12 Biology,Microorganisms: Prokaryotes and Viruses,SCI.BIO.480,,,Prokaryote Metabolism,
+SCI,BIO,CK-12 Biology,Microorganisms: Prokaryotes and Viruses,SCI.BIO.481,,,Prokaryote Habitats,
+SCI,BIO,CK-12 Biology,Microorganisms: Prokaryotes and Viruses,SCI.BIO.482,,,,Temperature
+SCI,BIO,CK-12 Biology,Microorganisms: Prokaryotes and Viruses,SCI.BIO.483,,,Reproduction in Prokaryotes,
+SCI,BIO,CK-12 Biology,Microorganisms: Prokaryotes and Viruses,SCI.BIO.484,,,,Binary Fission
+SCI,BIO,CK-12 Biology,Microorganisms: Prokaryotes and Viruses,SCI.BIO.485,,,,Genetic Transfer
+SCI,BIO,CK-12 Biology,Microorganisms: Prokaryotes and Viruses,SCI.BIO.486,,,Bacteria and Humans,
+SCI,BIO,CK-12 Biology,Microorganisms: Prokaryotes and Viruses,SCI.BIO.487,,,,Benefits of Bacteria
+SCI,BIO,CK-12 Biology,Microorganisms: Prokaryotes and Viruses,SCI.BIO.488,,,,Bacteria and Disease
+SCI,BIO,CK-12 Biology,Microorganisms: Prokaryotes and Viruses,SCI.BIO.489,,,,Controlling Bacteria
+SCI,BIO,CK-12 Biology,Microorganisms: Prokaryotes and Viruses,SCI.BIO.490,,Viruses,,
+SCI,BIO,CK-12 Biology,Microorganisms: Prokaryotes and Viruses,SCI.BIO.491,,,Characteristics of Viruses,
+SCI,BIO,CK-12 Biology,Microorganisms: Prokaryotes and Viruses,SCI.BIO.492,,,Structure and Classification of Viruses,
+SCI,BIO,CK-12 Biology,Microorganisms: Prokaryotes and Viruses,SCI.BIO.493,,,,Structure of Viruses
+SCI,BIO,CK-12 Biology,Microorganisms: Prokaryotes and Viruses,SCI.BIO.494,,,,Classification of Viruses
+SCI,BIO,CK-12 Biology,Microorganisms: Prokaryotes and Viruses,SCI.BIO.495,,,Discovery and Origin of Viruses,
+SCI,BIO,CK-12 Biology,Microorganisms: Prokaryotes and Viruses,SCI.BIO.496,,,,Discovery of Viruses
+SCI,BIO,CK-12 Biology,Microorganisms: Prokaryotes and Viruses,SCI.BIO.497,,,,Origin of Viruses
+SCI,BIO,CK-12 Biology,Microorganisms: Prokaryotes and Viruses,SCI.BIO.498,,,Replication of Viruses,
+SCI,BIO,CK-12 Biology,Microorganisms: Prokaryotes and Viruses,SCI.BIO.499,,,Viruses and Human Disease,
+SCI,BIO,CK-12 Biology,Microorganisms: Prokaryotes and Viruses,SCI.BIO.500,,,Control of Viruses,
+SCI,BIO,CK-12 Biology,Microorganisms: Prokaryotes and Viruses,SCI.BIO.501,,,Viruses in Research and Medicine,
+SCI,BIO,CK-12 Biology,Eukaryotes: Protists and Fungi,SCI.BIO.502,Eukaryotes: Protists and Fungi,,,
+SCI,BIO,CK-12 Biology,Eukaryotes: Protists and Fungi,SCI.BIO.503,,Types of Protists,,
+SCI,BIO,CK-12 Biology,Eukaryotes: Protists and Fungi,SCI.BIO.504,,,Animal-Like Protists: Protozoa,
+SCI,BIO,CK-12 Biology,Eukaryotes: Protists and Fungi,SCI.BIO.505,,,,Ecology of Protozoa
+SCI,BIO,CK-12 Biology,Eukaryotes: Protists and Fungi,SCI.BIO.506,,,,Classification of Protozoa
+SCI,BIO,CK-12 Biology,Eukaryotes: Protists and Fungi,SCI.BIO.507,,,Plant-Like Protists: Algae,
+SCI,BIO,CK-12 Biology,Eukaryotes: Protists and Fungi,SCI.BIO.508,,,,Ecology of Algae
+SCI,BIO,CK-12 Biology,Eukaryotes: Protists and Fungi,SCI.BIO.509,,,,Classification of Algae
+SCI,BIO,CK-12 Biology,Eukaryotes: Protists and Fungi,SCI.BIO.510,,,,Reproduction of Algae
+SCI,BIO,CK-12 Biology,Eukaryotes: Protists and Fungi,SCI.BIO.511,,,,Algae Power
+SCI,BIO,CK-12 Biology,Eukaryotes: Protists and Fungi,SCI.BIO.512,,,Fungus-Like Protists: Molds,
+SCI,BIO,CK-12 Biology,Eukaryotes: Protists and Fungi,SCI.BIO.513,,,,Slime Molds
+SCI,BIO,CK-12 Biology,Eukaryotes: Protists and Fungi,SCI.BIO.514,,,,Water Molds
+SCI,BIO,CK-12 Biology,Eukaryotes: Protists and Fungi,SCI.BIO.515,,Ecology of Fungi,,
+SCI,BIO,CK-12 Biology,Eukaryotes: Protists and Fungi,SCI.BIO.516,,,Symbiotic Relationships of Fungi,
+SCI,BIO,CK-12 Biology,Eukaryotes: Protists and Fungi,SCI.BIO.517,,,,Fungi as Parasites
+SCI,BIO,CK-12 Biology,Eukaryotes: Protists and Fungi,SCI.BIO.518,,,,Mutualism in Fungi
+SCI,BIO,CK-12 Biology,Eukaryotes: Protists and Fungi,SCI.BIO.519,,,Human Uses of Fungi,
+SCI,BIO,CK-12 Biology,Eukaryotes: Protists and Fungi,SCI.BIO.520,,,,Fungi for Food
+SCI,BIO,CK-12 Biology,Eukaryotes: Protists and Fungi,SCI.BIO.521,,,,Fungi for Pest Control
+SCI,BIO,CK-12 Biology,Eukaryotes: Protists and Fungi,SCI.BIO.522,,,,Other Uses of Fungi
+SCI,BIO,CK-12 Biology,Eukaryotes: Protists and Fungi,SCI.BIO.523,,"Protists, Fungi, and Human Disease",,
+SCI,BIO,CK-12 Biology,Eukaryotes: Protists and Fungi,SCI.BIO.524,,,Protists and Human Disease,
+SCI,BIO,CK-12 Biology,Eukaryotes: Protists and Fungi,SCI.BIO.525,,,Fungi and Human Disease,
+SCI,BIO,CK-12 Biology,Eukaryotes: Protists and Fungi,SCI.BIO.526,,,,Fungal Poisoning
+SCI,BIO,CK-12 Biology,Eukaryotes: Protists and Fungi,SCI.BIO.527,,,,Fungal Parasites
+SCI,BIO,CK-12 Biology,Eukaryotes: Protists and Fungi,SCI.BIO.528,,,,Fungal Allergies
+SCI,BIO,CK-12 Biology,Plant Evolution and Classification,SCI.BIO.529,Plant Evolution and Classification,,,
+SCI,BIO,CK-12 Biology,Plant Evolution and Classification,SCI.BIO.530,,Four Types of Modern Plants,,
+SCI,BIO,CK-12 Biology,Plant Evolution and Classification,SCI.BIO.531,,,Nonvascular Plants,
+SCI,BIO,CK-12 Biology,Plant Evolution and Classification,SCI.BIO.532,,,,Characteristics of Nonvascular Plants
+SCI,BIO,CK-12 Biology,Plant Evolution and Classification,SCI.BIO.533,,,,Evolution of Nonvascular Plants
+SCI,BIO,CK-12 Biology,Plant Evolution and Classification,SCI.BIO.534,,,,Diversity of Nonvascular Plants
+SCI,BIO,CK-12 Biology,Plant Evolution and Classification,SCI.BIO.535,,,Vascular Plants,
+SCI,BIO,CK-12 Biology,Plant Evolution and Classification,SCI.BIO.536,,,,Vascular Tissues
+SCI,BIO,CK-12 Biology,Plant Evolution and Classification,SCI.BIO.537,,,,Evolution of Vascular Plants
+SCI,BIO,CK-12 Biology,Plant Evolution and Classification,SCI.BIO.538,,,,Diversity of Seedless Vascular Plants
+SCI,BIO,CK-12 Biology,Plant Evolution and Classification,SCI.BIO.539,,,Seed Plants,
+SCI,BIO,CK-12 Biology,Plant Evolution and Classification,SCI.BIO.540,,,,Parts of a Seed
+SCI,BIO,CK-12 Biology,Plant Evolution and Classification,SCI.BIO.541,,,,Classification of Seed Plants
+SCI,BIO,CK-12 Biology,Plant Evolution and Classification,SCI.BIO.542,,,,Parts of a Flower
+SCI,BIO,CK-12 Biology,Plant Evolution and Classification,SCI.BIO.543,,,,Flowers and Pollinators
+SCI,BIO,CK-12 Biology,Plant Evolution and Classification,SCI.BIO.544,,,,Other Characteristics of Flowering Plants
+SCI,BIO,CK-12 Biology,Plant Evolution and Classification,SCI.BIO.545,,,,Evolution of Flowering Plants
+SCI,BIO,CK-12 Biology,Plant Evolution and Classification,SCI.BIO.546,,,,Classification of Flowering Plants
+SCI,BIO,CK-12 Biology,Plant Biology,SCI.BIO.552,Plant Biology,,,
+SCI,BIO,CK-12 Biology,Plant Biology,SCI.BIO.553,,Plant Tissues and Growth,,
+SCI,BIO,CK-12 Biology,Plant Biology,SCI.BIO.554,,,Plant Cells,
+SCI,BIO,CK-12 Biology,Plant Biology,SCI.BIO.555,,,,Plant Cell Structures
+SCI,BIO,CK-12 Biology,Plant Biology,SCI.BIO.556,,,,Types of Plant Cells
+SCI,BIO,CK-12 Biology,Plant Biology,SCI.BIO.557,,,Plant Tissues,
+SCI,BIO,CK-12 Biology,Plant Biology,SCI.BIO.558,,,,Dermal Tissue
+SCI,BIO,CK-12 Biology,Plant Biology,SCI.BIO.559,,,,Ground Tissue
+SCI,BIO,CK-12 Biology,Plant Biology,SCI.BIO.560,,,,Vascular Tissue
+SCI,BIO,CK-12 Biology,Plant Biology,SCI.BIO.561,,,Growth of Plants,
+SCI,BIO,CK-12 Biology,Plant Biology,SCI.BIO.562,,"Plant Organs: Roots, Stems, and Leaves",,
+SCI,BIO,CK-12 Biology,Plant Biology,SCI.BIO.563,,,Roots,
+SCI,BIO,CK-12 Biology,Plant Biology,SCI.BIO.564,,,,Root Systems
+SCI,BIO,CK-12 Biology,Plant Biology,SCI.BIO.565,,,,Root Structures and Functions
+SCI,BIO,CK-12 Biology,Plant Biology,SCI.BIO.566,,,,Root Growth
+SCI,BIO,CK-12 Biology,Plant Biology,SCI.BIO.567,,,Stems,
+SCI,BIO,CK-12 Biology,Plant Biology,SCI.BIO.568,,,Stem Diversity,
+SCI,BIO,CK-12 Biology,Plant Biology,SCI.BIO.569,,,,Stem Tissues and Functions
+SCI,BIO,CK-12 Biology,Plant Biology,SCI.BIO.570,,,,Stem Growth
+SCI,BIO,CK-12 Biology,Plant Biology,SCI.BIO.571,,,Leaves,
+SCI,BIO,CK-12 Biology,Plant Biology,SCI.BIO.572,,,,Leaf Variation
+SCI,BIO,CK-12 Biology,Plant Biology,SCI.BIO.573,,,,Factories for Photosynthesis
+SCI,BIO,CK-12 Biology,Plant Biology,SCI.BIO.574,,,,Seasonal Changes in Leaves
+SCI,BIO,CK-12 Biology,Plant Biology,SCI.BIO.575,,Variation in Plant Life Cycles,,
+SCI,BIO,CK-12 Biology,Plant Biology,SCI.BIO.576,,,General Plant Life Cycle,
+SCI,BIO,CK-12 Biology,Plant Biology,SCI.BIO.577,,,Life Cycle of Nonvascular Plants,
+SCI,BIO,CK-12 Biology,Plant Biology,SCI.BIO.578,,,Life Cycle of Seedless Vascular Plants,
+SCI,BIO,CK-12 Biology,Plant Biology,SCI.BIO.579,,,Life Cycle of Gymnosperms,
+SCI,BIO,CK-12 Biology,Plant Biology,SCI.BIO.580,,,Life Cycle of Angiosperms,
+SCI,BIO,CK-12 Biology,Plant Biology,SCI.BIO.581,,Plant Adaptations and Responses,,
+SCI,BIO,CK-12 Biology,Plant Biology,SCI.BIO.582,,,Plant Adaptations,
+SCI,BIO,CK-12 Biology,Plant Biology,SCI.BIO.583,,,,Adaptations to Water
+SCI,BIO,CK-12 Biology,Plant Biology,SCI.BIO.584,,,,Adaptations to Extreme Dryness
+SCI,BIO,CK-12 Biology,Plant Biology,SCI.BIO.585,,,,Adaptations to Air
+SCI,BIO,CK-12 Biology,Plant Biology,SCI.BIO.586,,,Plant Responses,
+SCI,BIO,CK-12 Biology,Plant Biology,SCI.BIO.587,,,,Plant Tropisms
+SCI,BIO,CK-12 Biology,Plant Biology,SCI.BIO.588,,,,Daily and Seasonal Responses
+SCI,BIO,CK-12 Biology,Plant Biology,SCI.BIO.589,,,,Responses to Disease
+SCI,BIO,CK-12 Biology,Plant Biology,SCI.BIO.590,,,,Plant Plague: Sudden Oak Death
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.591,From Sponges to Invertebrate Chordates,,,
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.592,,"Sponges, Cnidarians, Flatworms, and Roundworms",,
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.593,,,Sponges,
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.594,,,,Structure and Function of Sponges
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.595,,,,Sponge Reproduction
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.596,,,,Ecology of Sponges
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.597,,,Cnidarians,
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.598,,,,Structure and Function of Cnidarians
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.599,,,,Cnidarian Reproduction
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.600,,,,Ecology of Cnidarians
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.601,,,,Amazing Jellies
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.602,,,Flatworms,
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.603,,,,Structure and Function of Flatworms
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.604,,,,Flatworm Reproduction
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.605,,,,Ecology of Flatworms
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.606,,,Roundworms,
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.607,,,,Structure and Function of Roundworms
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.608,,,,Roundworm Reproduction
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.609,,,,Ecology of Roundworms
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.610,,Mollusks and Annelids,,
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.611,,,Mollusks,
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.612,,,,Structure and Function of Mollusks
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.613,,,,Mollusk Reproduction
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.614,,,,Ecology of Mollusks
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.615,,,,Cool Critters: Dwarf Cuttlefish
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.616,,,Annelids,
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.617,,,,Structure and Function of Annelids
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.618,,,,Annelid Reproduction
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.619,,,,Ecology of Annelids
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.620,,Arthropods and Insects,,
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.621,,,Arthropods,
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.622,,,,Structure and Function of Arthropods
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.623,,,,Arthropod Reproduction
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.624,,,,Evolution of Arthropods
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.625,,,,Classification of Arthropods
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.626,,,Insects,
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.627,,,,Structure and Function of Insects
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.628,,,,Insect Flight
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.629,,,,Insect Reproduction
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.630,,,,Insect Behavior
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.631,,,,Ants: The Invisible Majority
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.632,,,,Insects and Humans
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.633,,,,Better Bees: Super Bee and Wild Bee
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.634,,Echinoderms and Invertebrate Chordates,,
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.635,,,Echinoderms,
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.636,,,,Structure and Function of Echinoderms
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.637,,,,Echinoderm Reproduction
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.638,,,,Echinoderm Classification
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.639,,,Invertebrate Chordates,
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.640,,,,Tunicates
+SCI,BIO,CK-12 Biology,From Sponges to Invertebrate Chordates,SCI.BIO.641,,,,Lancelets
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.642,From Fishes to Birds,,,
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.643,,Overview of Vertebrates,,
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.644,,,Characteristics of Vertebrates,
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.645,,,,Vertebrate Endoskeleton
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.646,,,,Other Vertebrate Traits
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.647,,,Vertebrate Reproduction,
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.648,,,Vertebrate Classification,
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.649,,,Vertebrate Evolution,
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.650,,,,Evolution of Fish
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.651,,,,Evolution of Other Vertebrate Classes
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.652,,,,Evolution of Endothermy
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.653,,Fish,,
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.654,,,Structure and Function in Fish,
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.655,,,,Adaptations for Water
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.656,,,,Fish Organ Systems
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.657,,,Fish Reproduction and Development,
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.658,,,,Spawning
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.659,,,,Fish Larvae
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.660,,,Classification of Fish,
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.661,,,,Hagfish
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.662,,,,Lampreys
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.663,,,,Cartilaginous Fish
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.664,,,,Ray-Finned Fish
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.665,,,,Lobe-Finned Fish
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.666,,,Evolution of Fish,
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.667,,,,Timing of Fish Evolution
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.668,,,,The Bony Fish
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.669,,,Ecology of Fish,
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.670,,,,Fish Food
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.671,,,,Fish at Risk
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.672,,Amphibians,,
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.673,,,Structure and Function in Amphibians,
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.674,,,,Amphibian Ectothermy
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.675,,,,Amphibian Organ Systems
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.676,,,Amphibian Reproduction and Development,
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.677,,,,Amphibian Eggs
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.678,,,,Amphibian Larvae
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.679,,,Classification of Amphibians,
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.680,,,,Frogs and Toads
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.681,,,,Salamanders and Newts
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.682,,,,Caecilians
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.683,,,Evolution of Amphibians,
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.684,,,Ecology of Amphibians,
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.685,,,,Amphibians as Prey and Predators
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.686,,,,The Threat of Amphibian Extinction
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.687,,Reptiles,,
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.688,,,Structure and Function in Reptiles,
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.689,,,,Reptile Respiration
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.690,,,,Ectothermy in Reptiles
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.691,,,,Other Reptile Structures
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.692,,,Reptile Reproduction,
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.693,,,,Amniotic Eggs
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.694,,,,Reptile Young
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.695,,,Classification of Reptiles,
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.696,,,Evolution of Reptiles,
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.697,,,,Synapsids and Sauropsids
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.698,,,,Rise and Fall of the Dinosaurs
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.699,,,,Evolution of Modern Reptile Orders
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.700,,,Ecology of Reptiles,
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.701,,,,Reptile Diets
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.702,,,,Reptiles at Risk
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.703,,Birds,,
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.704,,,Structure and Function in Birds,
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.705,,,,Wings and Feathers
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.706,,,,Organ Systems Adapted for Flight
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.707,,,,Nervous System and Sense Organs
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.708,,,Bird Reproduction,
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.709,,,,Courtship and Mating
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.710,,,,Nesting and Incubation
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.711,,,,Hatchlings
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.712,,,Classification of Birds,
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.713,,,,Flightless Birds
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.714,,,,Flying Birds
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.715,,,Evolution of Birds,
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.716,,,,Evolution of Flight
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.717,,,Ecology of Birds,
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.718,,,,Bird Diets
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.719,,,,Birds at Risk
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.720,,,,The Golden Eagle
+SCI,BIO,CK-12 Biology,From Fishes to Birds,SCI.BIO.721,,,,The Great Horned Owl
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.722,Mammals and Animal Behavior,,,
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.723,,Mammalian Traits,,
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.724,,,Characteristics of Mammals,
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.725,,,Structure and Function in Mammals,
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.726,,,,How Mammals Stay Warm
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.727,,,,How Mammals Stay Cool
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.728,,,,Eating and Digesting Food
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.729,,,,Lungs and Heart of Mammals
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.730,,,,The Mammalian Brain
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.731,,,,Intelligence of Mammals
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.732,,,,Social Living in Mammals
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.733,,,,Locomotion in Mammals
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.734,,Reproduction in Mammals,,
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.735,,,Therian Mammals,
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.736,,,Placental Mammals,
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.737,,,,The Placenta
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.738,,,,Pros and Cons of Placental Reproduction
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.739,,,Marsupials,
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.740,,,,The Marsupial Embryo
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.741,,,,Pros and Cons of Marsupial Reproduction
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.742,,,,The North American Marsupial: The Opossum
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.743,,,Monotremes,
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.744,,,,Eggs and Lactation in Monotremes
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.745,,,,Pros and Cons of Monotreme Reproduction
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.746,,Evolution and Classification of Mammals,,
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.747,,,Mammalian Ancestors,
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.748,,,,Pelycosaurs
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.749,,,,Therapsids
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.750,,,,Cynodonts
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.751,,,Evolution of Early Mammals,
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.752,,,,Evolution of Monotremes
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.753,,,,Evolution of Marsupials
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.754,,,,Evolution of Placental Mammals
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.755,,,Evolution of Modern Mammals,
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.756,,,,Traditional View
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.757,,,,View from the Mammalian Supertree
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.758,,,Classification of Placental Mammals,
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.759,,,,Traditional Classification
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.760,,,,Phylogenetic Classification
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.761,,Overview of Animal Behavior,,
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.762,,,Studying Animal Behavior,
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.763,,,Evolution of Animal Behavior,
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.764,,,,Nature vs. Nurture
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.765,,,,How Behaviors Evolve
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.766,,,Innate Behavior,
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.767,,,,Significance of Innate Behavior
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.768,,,,Intelligence and Innate Behavior
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.769,,,Learned Behavior,
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.770,,,Types of Animal Behavior,
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.771,,,,Social Behavior and Cooperation
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.772,,,,Communication
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.773,,,,Cyclic Behaviors
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.774,,,,Aggression
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.775,,,,Competition
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.776,,,,Mating and Courtship
+SCI,BIO,CK-12 Biology,Mammals and Animal Behavior,SCI.BIO.777,,,,Parental Care
+SCI,BIO,CK-12 Biology,The Nervous and Endocrine Systems,SCI.BIO.778,The Nervous and Endocrine Systems,,,
+SCI,BIO,CK-12 Biology,The Nervous and Endocrine Systems,SCI.BIO.779,,The Nervous System,,
+SCI,BIO,CK-12 Biology,The Nervous and Endocrine Systems,SCI.BIO.780,,,Nerve Cells,
+SCI,BIO,CK-12 Biology,The Nervous and Endocrine Systems,SCI.BIO.781,,,,Neuron Structure
+SCI,BIO,CK-12 Biology,The Nervous and Endocrine Systems,SCI.BIO.782,,,,Myelin Sheath
+SCI,BIO,CK-12 Biology,The Nervous and Endocrine Systems,SCI.BIO.783,,,,Types of Neurons
+SCI,BIO,CK-12 Biology,The Nervous and Endocrine Systems,SCI.BIO.784,,,Nerve Impulses,
+SCI,BIO,CK-12 Biology,The Nervous and Endocrine Systems,SCI.BIO.785,,,,Resting Potential
+SCI,BIO,CK-12 Biology,The Nervous and Endocrine Systems,SCI.BIO.786,,,,Action Potential
+SCI,BIO,CK-12 Biology,The Nervous and Endocrine Systems,SCI.BIO.787,,,,The Synapse
+SCI,BIO,CK-12 Biology,The Nervous and Endocrine Systems,SCI.BIO.788,,,Central Nervous System,
+SCI,BIO,CK-12 Biology,The Nervous and Endocrine Systems,SCI.BIO.789,,,,The Brain
+SCI,BIO,CK-12 Biology,The Nervous and Endocrine Systems,SCI.BIO.790,,,,Spinal Cord
+SCI,BIO,CK-12 Biology,The Nervous and Endocrine Systems,SCI.BIO.791,,,Peripheral Nervous System,
+SCI,BIO,CK-12 Biology,The Nervous and Endocrine Systems,SCI.BIO.792,,,,Somatic Nervous System
+SCI,BIO,CK-12 Biology,The Nervous and Endocrine Systems,SCI.BIO.793,,,,Autonomic Nervous System
+SCI,BIO,CK-12 Biology,The Nervous and Endocrine Systems,SCI.BIO.794,,,The Senses,
+SCI,BIO,CK-12 Biology,The Nervous and Endocrine Systems,SCI.BIO.795,,,,Sight
+SCI,BIO,CK-12 Biology,The Nervous and Endocrine Systems,SCI.BIO.796,,,,Hearing
+SCI,BIO,CK-12 Biology,The Nervous and Endocrine Systems,SCI.BIO.797,,,,Balance
+SCI,BIO,CK-12 Biology,The Nervous and Endocrine Systems,SCI.BIO.798,,,,Taste and Smell
+SCI,BIO,CK-12 Biology,The Nervous and Endocrine Systems,SCI.BIO.799,,,,Touch
+SCI,BIO,CK-12 Biology,The Nervous and Endocrine Systems,SCI.BIO.800,,,Drugs and the Nervous System,
+SCI,BIO,CK-12 Biology,The Nervous and Endocrine Systems,SCI.BIO.801,,,,Drug Abuse and Addiction
+SCI,BIO,CK-12 Biology,The Nervous and Endocrine Systems,SCI.BIO.802,,,Disorders of the Nervous System,
+SCI,BIO,CK-12 Biology,The Nervous and Endocrine Systems,SCI.BIO.803,,The Endocrine System,,
+SCI,BIO,CK-12 Biology,The Nervous and Endocrine Systems,SCI.BIO.804,,,Glands of the Endocrine System,
+SCI,BIO,CK-12 Biology,The Nervous and Endocrine Systems,SCI.BIO.805,,,,Hypothalamus
+SCI,BIO,CK-12 Biology,The Nervous and Endocrine Systems,SCI.BIO.806,,,,Pituitary Gland
+SCI,BIO,CK-12 Biology,The Nervous and Endocrine Systems,SCI.BIO.807,,,,Other Endocrine Glands
+SCI,BIO,CK-12 Biology,The Nervous and Endocrine Systems,SCI.BIO.808,,,How Hormones Work,
+SCI,BIO,CK-12 Biology,The Nervous and Endocrine Systems,SCI.BIO.809,,,,Steroid Hormones
+SCI,BIO,CK-12 Biology,The Nervous and Endocrine Systems,SCI.BIO.810,,,,Non-Steroid Hormones
+SCI,BIO,CK-12 Biology,The Nervous and Endocrine Systems,SCI.BIO.811,,,Hormone Regulation: Feedback Mechanisms,
+SCI,BIO,CK-12 Biology,The Nervous and Endocrine Systems,SCI.BIO.812,,,,Negative Feedback
+SCI,BIO,CK-12 Biology,The Nervous and Endocrine Systems,SCI.BIO.813,,,,Positive feedback
+SCI,BIO,CK-12 Biology,The Nervous and Endocrine Systems,SCI.BIO.814,,,Endocrine System Disorders,
+SCI,BIO,CK-12 Biology,The Nervous and Endocrine Systems,SCI.BIO.815,,,,Hypersecretion
+SCI,BIO,CK-12 Biology,The Nervous and Endocrine Systems,SCI.BIO.816,,,,Hyposecretion
+SCI,BIO,CK-12 Biology,The Nervous and Endocrine Systems,SCI.BIO.817,,,,Hormone Resistance
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.818,"The Circulatory, Respiratory, Digestive, and Excretory Systems",,,
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.819,,The Circulatory System,,
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.820,,,The Heart,
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.821,,,,Blood Flow Through the Heart
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.822,,,,Heartbeat
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.823,,,Blood Vessels,
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.824,,,,Blood Vessels and Homeostasis
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.825,,,,Blood Vessels and Blood Pressure
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.826,,,Pulmonary and Systemic Circulations,
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.827,,,,Pulmonary Circulation
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.828,,,,Systemic Circulation
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.829,,,Cardiovascular Disease,
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.830,,,,Atherosclerosis
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.831,,,,Coronary Heart Disease
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.832,,,,Preventing Cardiovascular Disease
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.833,,,Blood,
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.834,,,,Composition of Blood
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.835,,,,Blood Type
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.836,,The Respiratory System,,
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.837,,,Respiration,
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.838,,,Organs of the Respiratory System,
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.839,,,Journey of a Breath of Air,
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.840,,,,Ventilation
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.841,,,,Pulmonary Gas Exchange
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.842,,,,Gas Transport
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.843,,,,Peripheral Gas Exchange
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.844,,,Gas Exchange and Homeostasis,
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.845,,,Regulation of Breathing,
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.846,,,,How Breathing Occurs
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.847,,,,Control of Breathing
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.848,,,Diseases of the Respiratory System,
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.849,,The Digestive System,,
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.850,,,Overview of the Digestive System,
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.851,,,,The Gastrointestinal Tract
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.852,,,,Accessory Organs of Digestion
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.853,,,,Functions of the Digestive System
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.854,,,The Start of Digestion: Mouth to Stomach,
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.855,,,,Mouth
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.856,,,,Esophagus
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.857,,,,Stomach
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.858,,,Digestion and Absorption: The Small Intestine,
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.859,,,,Digestion in the Small Intestine
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.860,,,,Absorption in the Small Intestine
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.861,,,The Large Intestine and Its Functions,
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.862,,,,Absorption of Water and Elimination of Wastes
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.863,,,,Bacteria in the Large Intestine
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.864,,,Diseases of the Digestive System,
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.865,,,Food and Nutrients,
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.866,,,,Macronutrients
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.867,,,,Micronutrients
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.868,,,Balanced Eating,
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.869,,,,Food Labels
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.870,,,,Weight Gain and Obesity
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.871,,,,Eating Disorders
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.872,,,Interactive Puzzles,
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.873,,The Excretory System,,
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.874,,,Excretion,
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.875,,,Urinary System,
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.876,,,,Kidneys and Nephrons
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.877,,,,Filtering Blood and Forming Urine
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.878,,,,Excretion of Urine
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.879,,,Kidneys and Homeostasis,
+SCI,BIO,CK-12 Biology,"The Circulatory, Respiratory, Digestive, and Excretory Systems",SCI.BIO.880,,,Kidney Disease and Dialysis,
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.881,The Immune System and Disease,,,
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.882,,Nonspecific Defenses,,
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.883,,,The First Line of Defense,
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.884,,,,Mechanical Barriers
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.885,,,,Chemical Barriers
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.886,,,,Biological Barriers
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.887,,,The Second Line of Defense,
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.888,,,,Inflammatory Response
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.889,,,,Leukocytes
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.890,,The Immune Response,,
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.891,,,Lymphatic System,
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.892,,,,Structures of the Lymphatic System
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.893,,,,Lymphatic Vessels and Lymph
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.894,,,,Lymphocytes
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.895,,,,Antigen Recognition
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.896,,,Humoral Immune Response,
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.897,,,,B Cell Activation
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.898,,,,Plasma Cells and Antibody Production
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.899,,,,Memory Cells
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.900,,,Cell-Mediated Immune Response,
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.901,,,,T Cell Activation
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.902,,,,Helper T Cells
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.903,,,,Cytotoxic T Cells
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.904,,,,Regulatory T Cells
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.905,,,Immunity,
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.906,,,,Active Immunity
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.907,,,,Passive Immunity
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.908,,Immune System Diseases,,
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.909,,,Allergies,
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.910,,,Autoimmune Diseases,
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.911,,,Immunodeficiency,
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.912,,,HIV and AIDS,
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.913,,,,HIV Transmission
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.914,,,,HIV and the Immune System
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.915,,,,AIDS
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.916,,,,HIV Research: Beyond the Vaccine
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.917,,Environmental Problems and Human Health,,
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.918,,,Carcinogens and Cancer,
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.919,,,,Types of Carcinogens
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.920,,,,How Cancer Occurs
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.921,,,,Cancer Treatment and Prevention
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.922,,,Air Pollution and Illness,
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.923,,,,Outdoor Air Pollution
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.924,,,,Indoor Air Pollution
+SCI,BIO,CK-12 Biology,The Immune System and Disease,SCI.BIO.925,,,Bioterrorism,
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.926,Reproduction and Human Development,,,
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.927,,Male Reproductive System,,
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.928,,,Male Reproductive Structures,
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.929,,,,Penis
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.930,,,,Testes
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.931,,,,Epididymis
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.932,,,,Ducts and Glands
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.933,,,,Semen
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.934,,,Sexual Development in Males,
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.935,,,,Development Before Birth
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.936,,,,Puberty and Its Changes
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.937,,,,Adolescent Growth Spurt
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.938,,,Production and Delivery of Sperm,
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.939,,,,Spermatogenesis
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.940,,,,Sperm Maturation
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.941,,,,Ejaculation
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.942,,Female Reproductive System,,
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.943,,,Female Reproductive Structures,
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.944,,,,External Structures
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.945,,,,Vagina
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.946,,,,Uterus
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.947,,,,Ovaries
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.948,,,,Fallopian Tubes
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.949,,,,Breasts
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.950,,,Sexual Development in Females,
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.951,,,,Development Before Birth
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.952,,,,Changes of Puberty
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.953,,,,Adolescent Growth Spurt
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.954,,,,Menarche
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.955,,,Egg Production,
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.956,,,,Oogenesis
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.957,,,,Maturation of a Follicle
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.958,,,,Ovulation and Fertilization
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.959,,,Menstrual Cycle,
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.960,,,,Phases of the Menstrual Cycle
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.961,,,,Menopause
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.962,,From Fertilization to Old Age,,
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.963,,,Cleavage and Implantation,
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.964,,,,Morula and Blastocyst Stages
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.965,,,,Implantation
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.966,,,Growth and Development of the Embryo,
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.967,,,,Formation of Cell Layers
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.968,,,,Differentiation of Cells
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.969,,,,Organ Formation
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.970,,,Growth and Development of the Fetus,
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.971,,,Placenta and Related Structures,
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.972,,,,Placenta
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.973,,,,Amniotic Sac and Fluid
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.974,,,Pregnancy and Childbirth,
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.975,,,,The Mother’s Role
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.976,,,,Childbirth
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.977,,,From Birth to Adulthood,
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.978,,,,Infancy
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.979,,,,Childhood
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.980,,,,Adolescence
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.981,,,Adulthood and Aging,
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.982,,,,Early Adulthood
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.983,,,,Middle Adulthood
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.984,,,,Old Age
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.985,,,,Causes of Aging
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.986,,,Embryonic Stem Cell Research,
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.987,,Sexually Transmitted Infections,,
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.988,,,Understanding Sexually Transmitted Infections,
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.989,,,,Pathogens that Cause STIs
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.990,,,,How STIs Spread
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.991,,,,Preventing STIs
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.992,,,Bacterial STIs,
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.993,,,,Chlamydia
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.994,,,,Gonorrhea
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.995,,,,Syphilis
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.996,,,Viral STIs,
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.997,,,,Genital Herpes
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.998,,,,Hepatitis B
+SCI,BIO,CK-12 Biology,Reproduction and Human Development,SCI.BIO.999,,,,Genital Warts and Cervical Cancer

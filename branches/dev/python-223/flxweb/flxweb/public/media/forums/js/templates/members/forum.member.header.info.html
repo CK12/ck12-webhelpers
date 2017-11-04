@@ -1,0 +1,15 @@
+<div class="forum-info">
+  <%-group.membersCount%> Followers
+</div>
+<%if(!isMember){%>
+    <div class="forum-info link-follow"> 
+        <a> <i class="icon-plus"></i> Follow</a>
+    </div>
+<%}else{%>
+    <div class="forum-info link-unfollow"> 
+        <a> <i class="icon-checkmark"></i> Following</a>
+    </div>
+<%}%>
+<div class="forum-info link-share">
+    <a>Share</a>
+</div>

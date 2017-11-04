@@ -1,0 +1,97 @@
+# The ASF licenses this file to You under the Apache License, Version 2.0
+# (the "License"); you may not use this file except in compliance with
+# the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+#-----------------------------------------------------------------------
+Television, Televisions, TV, TVs
+#notice we use "gib" instead of "GiB" so any WordDelimiterFilter coming
+#after us won't split it into two words.
+GB,gib,gigabyte,gigabytes
+MB,mib,megabyte,megabytes
+
+## CK-12
+maths, math => mathematics
+mathematics, maths, math
+book, flexbook, textbook, ebook
+america, US, USA, United States Of America
+CK12, CK-12
+Ca => calcium
+
+## Grades-related
+kindergarten, kinder garten, k, K, KG, preschool, pre school, UKG
+I, 1, one, first, 1st, elementary, elementary school,
+II, 2, two, second, 2nd,  elementary, elementary school,
+III, 3, three, third, 3rd,  elementary, elementary school,
+IV, 4, four, fouth, 4th, elementary, elementary school,
+V, 5, five, fifth, 5th, elementary, elementary school,
+VI, 6, six, sixth, 6th, middle school,middleschool
+VII, 7, seven, seventh, 7th,middle school,middleschool
+VIII, 8, eight, eighth, 8th, middle school,middleschool
+IX, 9, nine, ninth,9th, high school,highschool
+X, 10, ten, tenth, 10th,high school,highschool
+XI, 11, eleven, eleventh, 11th, high school,highschool
+XII, 12, twelve, twelfth, 12th, high school,highschool
+higher-ed, Higher-Ed, higher education, Higher Education
+
+## States-related
+AL, alabama
+AK, alaska
+AR, arkansas
+AZ, arizona
+CA, california, calif.,
+CO, colorado
+CT, connecticut
+DC, district of columbia
+DE, delaware
+FL, florida
+GA, georgia
+HA, hawaii
+IA, iowa
+ID, idaho
+IL, illinois
+IN, indiana
+KS, kansas
+KY, kentucky
+LA, louisiana
+MA, massachussets
+MD, maryland
+ME, maine
+MI, michigan
+MN, minnesota
+MO, missouri
+MS, mississippi
+MT, montana
+NC, north carolina
+ND, north dakota
+NE, nebraska
+NH, new hampshire
+NJ, new jersey
+NM, new mexico
+NV, nevada
+NY, new york
+OH, ohio
+OK, oklahoma
+OR, oregon
+PA, pennsylvania
+PR, puerto rico
+RI, rhode island
+SC, south carolina
+SD, south dakota
+TN, tennessee
+TX, texas
+UT, utah
+VA, virginia
+VT, vermont
+WA, washington
+WI, wisconsin
+WV, west virginia
+WY, wyoming
+

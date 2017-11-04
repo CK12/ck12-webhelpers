@@ -1,0 +1,408 @@
+/* Dialog */
+
+.reader-dialog * {
+    /*To prevent CSS changes in SIM*/
+    box-sizing: border-box;
+}
+
+.reader-dialog p {
+    margin:0px;
+    padding:0px;
+}
+
+.reader-dialog {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    background-color: #ffffff;
+    border: 0px;
+    border-radius: 5px;
+    margin: 0 auto;
+    text-align: center;
+    width: 700px;
+    margin-left: -350px;
+    padding: 0px;
+    text-shadow: none;
+}
+.reader-dialog-close {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    color: #ffffff;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    font-size: 25px;
+}
+
+/***********************
+Dialog left panel styles
+************************/
+
+.reader-dialog-leftpanel {
+    background-color: #328dc7;
+    min-height: 400px;
+    padding: 0px;
+    color: #fff;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.reader-dialog-leftpanel ul {
+    color: #ffffff;
+    margin: 0 auto;
+    padding: 25px 0 25px 15px;
+    font-size: 16px;
+    text-align: left;
+    width: 50%;
+}
+.reader-dialog-leftpanel li {
+    line-height: 19px;
+    list-style-type: none;
+    margin: 0px;
+}
+.reader-dialog-leftpanel-title {
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 22px;
+    margin: 0 auto;
+    width: 50%;
+    padding: 50px 0 25px 0;
+}
+.reader-dialog-leftpanel-button {
+    width: 40%;
+}
+.reader-dialog-leftpanel-logo {
+    width: 50%;
+    margin: 0 auto;
+}
+
+/***********************
+Dialog right panel styles
+************************/
+
+.reader-dialog-rightpanel {
+    background-color: #ffffff;
+    min-height: 400px;
+    padding: 0px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.reader-dialog-rightpanel-title {
+    font-size: 18px;
+    color: #000000;
+    line-height: 22px;
+    width: 90%;
+    margin: 0 auto;
+    font-weight: bold;
+    padding: 50px 0 0 0;
+}
+.reader-dialog-rightpanel-storepanel {
+    margin: 0 auto;
+    height: 125px;
+    padding: 25px 0 25px 0;
+    width: 90%;
+}
+.reader-dialog-rightpanel-storelinks {
+    padding: 0;
+    position: relative;
+    left: 10px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.reader-dialog-rightpanel-storepanel img {
+    width: 85%;
+}
+.reader-dialog-rightpanel-emailpanel-instructions {
+    color: #4C4C4C;
+    font-size: 14px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px 0 10px 0;
+}
+.reader-dialog-rightpanel-emailpanel-email {
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+}
+.reader-dialog-rightpanel-emailpanel-email input {
+    background-color: #f2f2f2 !important;
+    font-size: 16px !important;
+    color: #B1B1;
+    border-radius: 5px !important;
+    padding: 10px 0 10px 0px !important;
+    height: inherit !important;
+    text-align: center;
+    margin: 0;
+    box-shadow: none;
+    border-color: #f2f2f2 !important;
+}
+.reader-dialog-rightpanel-emailpanel-email input.is-invalid {
+    border: 2px solid #d0241b !important;
+}
+.reader-dialog-rightpanel-emailpanel .tooltip-left {
+    background-color: #ffeaef;
+    position: absolute;
+    left: -205px;
+    width: 250px;
+    font-size: 16px;
+    font-weight: normal;
+    padding: 5px;
+    border: 1px solid #d0241b;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.reader-dialog-rightpanel-emailpanel .tooltip-left::before {
+    content: '';
+    border-left: 10px solid #d0241b;
+    position: absolute;
+    display: block;
+    right: -10px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.reader-dialog-rightpanel-emailpanel .tooltip-left::after {
+    content: '';
+    border-left: 9px solid #ffeaef;
+    border-bottom: 9px solid transparent;
+    border-top: 9px solid transparent;
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    width: 10px;
+    display: block;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.reader-dialog-rightpanel .emailpanel-sendlink {
+    background-color: #328dc7;
+    font-size: 16px;
+    color: #FFFFFF;
+    border: 0px;
+    border-radius: 5px;
+    padding: 10px;
+    width: 90%;
+    text-align: center;
+    margin-top: 10px;
+    cursor: pointer;
+    outline: none;
+}
+.reader-dialog-rightpanel .emailpanel-sendlink:hover, .reader-dialog-rightpanel .emailpanel-sendlink:focus {
+    background-color: #116295;
+}
+.reader-dialog-rightpanel .emailpanel-sendlink:focus {
+    background-color: #116295;
+}
+.reader-dialog-rightpanel-apple-store {
+    margin: 0 !important;
+    padding-bottom: 2px;
+}
+.reader-dialog-rightpanel-android-play {
+    padding-bottom: 5px;
+}
+.reader-dialog-rightpanel-flexbook-app-logo {
+    padding: 0;
+    right: 10px;
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+/***************************
+Success Panel
+***************************/
+
+.reader-dialog-rightpanel-successpanel {
+    width: 80%;
+    margin: 0 auto;
+    padding: 35px 0 0 0;
+}
+.reader-dialog-rightpanel-successpanel .successpanel-message {
+    color: #b6d820;
+}
+.reader-dialog-rightpanel-successpanel .successpanel-tickmark {
+    color: #b6d820;
+    font-size: 1em;
+    padding: 5px;
+    border: 3px solid;
+    border-radius: 20px;
+    display: inline-block;
+    margin: 5px;
+}
+.reader-dialog-rightpanel-successpanel .successpanel-tickmark::before {}
+.reader-dialog-rightpanel-successpanel .successpanel-email-msg {
+    font-size: 14px;
+}
+
+/*
+div#offline-reader-tooltip{
+    display: inline-block;
+    width: 173px;
+    border: 1px solid #d4d4d5;
+    position: absolute;
+    right: -158px;
+    top: -26px;
+    padding: 15px;
+    color: #0D1618;
+    border-radius: 10px;
+    z-index: 100;
+    background-color: #fff;
+    font-size: 14px;
+}
+div#offline-reader-tooltip .speech-text {
+    margin-top: 8px;
+    margin-bottom: 18px;
+    line-height: 17px;
+}
+div#offline-reader-tooltip .speech-btn{
+    width: 100%;
+    margin-bottom:0;
+}
+div#offline-reader-tooltip:before{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 28px;
+    left: -15px;
+    width: 0;
+    border-width: 15px 15px 15px 0px;
+    border-style: solid;
+    border-color: transparent #d4d4d5;
+}
+
+div#offline-reader-tooltip:after{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 31px;
+    left: -14px;
+    width: 0;
+    border-width: 12px 14px 12px 0px;
+    border-style: solid;
+    border-color: tr
+    border-color: tr
+r
+    border-color:
+order-color:
+
+/***********************
+Dialog2  styles
+************************/
+.reader-dialog2 {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    background-color: #ffffff;
+    border: 0px;
+    border-radius: 5px;
+    margin: 0 auto;
+    text-align: center;
+    width: 842px;
+    transform: translateX(-50%);
+    padding: 0px;
+    text-shadow: none;
+}
+.reader-dialog-card-container{
+    overflow: auto;
+    padding: 20px 0;
+}
+.reader-dialog-card-container .columns{
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+.pannel-container.row{
+    border-bottom: 1px solid #d8d8d8;
+    padding: 10px;
+}
+.reader-dialog-title{
+    font-size: 28px;
+    color: #56544D;
+    line-height: 33.6px;
+    padding-top: 30px;
+    padding-bottom: 10px
+}
+.reader-dialog-subtitle{
+    font-size: 16px;
+    color: #56544D;
+    line-height: 19.2px;
+}
+.reader-dialog-img-container{
+    padding: 43px 10px 10px 10px;
+    height: 150px;
+}
+.reader-dialog-img-container.distrction-free-container{
+    padding: 20px 20px 0 20px;
+}
+.reader-dialog-img-description{
+    font-size: 16px;
+    color: #56544D;
+    line-height: 19.2px;
+    padding: 36px 5px 10px 5px;
+}
+.reader-dialog-card{
+    height: 240px;
+    width: 240px;
+    box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.1);
+    border-radius: 3px;
+}
+.card-grey{
+    background: #ebe9e4;
+}
+.card-green{
+    background: #bfe8df;
+}
+.reader-dialog-keyword{
+    font-weight: bold;
+}
+.card-yellow{
+    background: #ffe189;
+}
+.reader-dialog-bottompanel{
+    padding: 20px;
+}
+.reader-dialog-bottompanel .emailpanel-notifyme, .emailpanel-signup{
+    background-color: #328dc7;
+    font-size: 16px;
+    color: #FFFFFF;
+    border: 0px;
+    border-radius: 5px;
+    font-weight: normal;
+    padding: 10px 0 6px 0;
+    width: 120px;
+    text-align: center;
+    margin-top: 10px;
+    cursor: pointer;
+    outline: none;
+    border-bottom: 3px solid #166191;
+}
+.reader-dialog-hint{
+    font-size: 16px;
+    color: #56544d;
+    line-height: 19.2px;
+}
+
+@media all and (min-width: 768px) and (max-width: 1023px){
+    .reader-dialog2{
+        width: 700px;
+    }
+    .reader-dialog-card{
+        height: 260px;
+        width: 200px;
+    }
+    .reader-dialog-subtitle{
+        padding: 0 50px;
+    }
+}

@@ -1,0 +1,37 @@
+{% extends "base/auth/1column.html" %}
+{% block title %}Request timed out.{% endblock %}
+
+{% block extra_head %}
+{{ super() }}
+<script type="text/javascript">
+var pageType = "408";
+</script>
+{% endblock %}
+
+
+{% block pageinfotop %}
+<div class="contenttop"></div>
+{% endblock %}
+
+{% block content %}
+<div class="prefix_3 grid_6 suffix_3">
+    <h1 class="sectiontitle toptitle">{{ _("Oops, the request timed out.") }}</h1>
+    <div class="sectiondivider divider spacetoplarge"></div>
+    {% if c.reason %}
+    <p>{{ c.reason }}</p>
+    {% endif %}
+    <p>{{ _("It took longer than expected to process that last request.") }}</p>
+    <div class="sectiondivider divider spacetop"></div>
+    <p class="sectiontop">{{ _("Here are some possible reasons why:") }}</p>
+    <ol>
+            <li>{{ _("Our servers are extremely busy.") }}</li>
+            <li>{{ _("We are experiencing some technical issues.") }}</li>
+            <li>{{ _("This web server is going nutty.") }}</li>
+    </ol>
+    <div class="sectiondivider divider"></div>
+    <p>
+       <p>{{ _("Try to <a href='#' onclick='window.location.reload()''>reload</a> the page after some time.") }}</p>
+       <p>{{ _("Error ID: ") }}{{ c.now }}</p>    
+    </p>
+</div>
+{% endblock %}

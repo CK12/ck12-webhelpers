@@ -1,0 +1,22 @@
+{% from "macros/pagination.html" import paginate with context %}  
+
+{% if c.paginator.item_count > 0 %}
+  {% for i in c.paginator.items %}
+  <div class="tr">
+    <div class="td">{{i.revision}}{% if i.isLatest %}(latest){% endif %}</div>
+    <div class="td revisionid">{{h.htmla_('/revision/%d'%i.id, i.id | string)}}</div>
+    <div class="td">{{h.pprint(i.statistics)}}</div>
+    <div class="td">{{i.created|compact}}</div>
+    <div class='td actionitemwrap'>
+      <div class="actionstat floatleft">
+        {% if i.published %}{{i.published|compact}}{% else %}Unpublished{% endif %}
+      </div>
+      <div class='actionitem'></div>
+      <div class='actionmsg hide'></div>
+    </div>
+    <div class="td id hide">{{i.id}}</div>
+    <div class="td creatorid hide">{{i.creatorID}}</div>
+  </div>
+  {% endfor %}
+  {{ paginate(c.paginator) }}
+{% endif %}

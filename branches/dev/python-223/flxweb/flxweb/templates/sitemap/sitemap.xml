@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    {% for concept in c.concepts %}
+    <url>
+      <loc>{{ h.url('home',qualified=True) }}{{ concept.getPermaHandle(include_version=False) }}</loc>
+      <lastmod>{{ concept.modified|ck12_date_format('%Y-%m-%d')  }} </lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    {% endfor %}
+</urlset> 
+

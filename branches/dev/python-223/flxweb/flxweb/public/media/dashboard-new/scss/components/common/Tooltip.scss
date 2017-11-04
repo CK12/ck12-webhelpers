@@ -1,0 +1,48 @@
+@import '../../main';
+
+$tooltip-border-width: rem-calc(3);
+$tooltip-border-color: $SMOKE_GREY;
+
+.tooltip {
+    background-color: $white;
+    box-shadow: $global-shadow;
+    position: relative;
+    border: $tooltip-border-width solid $tooltip-border-color;
+    border-radius: $global-radius;
+
+    .tooltipContent {
+        padding: $global-padding;
+        text-align: left;
+
+        button {
+            margin: $global-padding auto 0;
+            display: block;
+        }
+    }
+}
+
+.arrow {
+    @include top-arrow(
+        $bg-color: $white,
+        $border-color: $tooltip-border-color,
+        $border-width: $tooltip-border-width
+    );
+
+    &.top { position: relative; }
+    &.left, &.right, &.bottom { position: absolute; }
+    &.left, &.right { top: 50%; }
+
+    &.left {
+        transform: rotate(-90deg);
+    }
+    &.right {
+        transform: rotate(90deg)translateX(100%);
+        right: 0;
+    }
+    &.bottom {
+        bottom: 0;
+        left: 50%;
+        transform: rotate(180deg);
+    }
+}
+

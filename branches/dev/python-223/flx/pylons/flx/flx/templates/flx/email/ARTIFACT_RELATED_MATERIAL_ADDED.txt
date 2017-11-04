@@ -1,0 +1,23 @@
+Dear {{ member.name }},
+
+Greetings from CK-12 Foundation!
+
+We're happy to inform you that we have added some supporting materials.
+
+{% for event in events %}
+ * For the {{ event['objectDict']['title'] }} 
+     {% if event['objectDict']['artifactType'] in ['book', 'tebook', 'workbook', 'labkit'] %}
+      FlexBook
+    {% elif event['objectDict']['artifactType'] in ['concept', 'lesson', 'section'] %}
+      concept
+    {% endif %} in your library, now available at {{ site }} is {{ event['newObject']['title'] }} ({{ site }}{{ event['newObject']['perma'] }}). 
+    {% if event['newObject']['summary'] %}
+      Summary: {{ event['newObject']['summary'] }}.
+    {% endif %}
+
+{% endfor %}
+
+Do you have questions or feedback? Do not hesitate to email support@ck12.org.
+
+Sincerely,
+The CK-12 Team

@@ -1,0 +1,97 @@
+<a class="close-share-mail-modal js-close-share hide-small">+</a>
+<div class="right pointer close-share-modal close-modal-icon show-for-small js-close-share">
+	<i class="close-icon"></i>
+</div>
+<div id="email-box-container" class="row sh-collapse share-email-container">
+	<div class="columns share-email-wrapper">
+		<div class="share-email-header text-center"><span class="share-context"></span></div>
+		<div class="row sh-collapse share-content-wrapper">
+			<div class="row sh-collapse mail-header-row unregistered-user-row">
+				<div id="fullname-error-msg" class="hide recipient-error-msg">Enter your full name.</div>
+				<label class="user-label" for="fullname"><i class="icon-user"></i></label>
+				<input type="text" id="share-sender-name" name="fullname" class="fullname-box input-header" placeholder="Enter your full name"/>
+			</div>
+			<div class="row sh-collapse mail-header-row unregistered-user-row">
+				<div id="sender-email-error-msg" class="hide recipient-error-msg">Enter your email.</div>
+				<div id="sender-email-invalid-msg" class="recipient-error-msg hide">Enter a valid email.</div>
+				<label class="from-label" for="user-mail">From</label>
+				<input type="text" id="share-sender-mail" name="user-mail" class="user-email-box input-header" placeholder="Enter your email"/>
+			</div>
+			<div class="row sh-collapse relative mail-header-row">
+				<div class="recipient-error-msg empty-error-msg hide">Enter at least one friend's email.</div>
+				<div class="recipient-error-msg invalid-email-msg hide">Enter a valid email</div>
+				<span class="error-icon hide"></span>
+				<label class="to-label" for="recipient">To</label>				
+				<input type="text" id="recepients-list" name="recipient" class="recepient-box input-header" placeholder="Enter emails and use &ldquo;,&rdquo; to separate multiple emails"/>				
+			</div>
+			<div class="row sh-collapse mail-header-row hide">
+				<div id="share-mail-subject" class="subject-box input-header mail-header-row share-artifact-title"></div>
+			</div>
+			<div id="share-email-content" class="row sh-collapse share-email-body-container">
+				<div class="share-email-body-wrapper row sh-collapse relative">
+					<div class="share-email-body left">
+						Hi! I have found this great resource at CK-12...
+					</div>
+					<div class="share-email-artifact-container large-12">
+						<div class="columns share-image left">
+							<img class="artifact-email-image" src=""/>
+						</div>
+						<div class="columns share-details">
+							<div class="share-email-artifat-desc left">
+								<div class="share-eamil-artifact-title share-artifact-title"></div>
+								<a class="share-artifact-url" href="" target="_blank"></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row sh-collapse send-email-footer text-center relative">
+				<div id="sendShareEmail" class="tangerine button medium send-email-button"><i class="paperplane-send"></i>Send</div>
+			</div>
+		</div>
+	</div>
+	<div class="columns share-via-icons-wrapper">
+		<div class="share-via-social-links row sh-collapse text-center">
+			<div class="share-on-text">Share on</div>
+            <div id="googleClassroomContainer" class="share-via-email-google-classroom">
+              <a class="socialshare share-google-classroom-link g-sharetoclassroom" data-size="32" data-url="" ></a>
+            </div>
+			<a id="facebookLinkShare" class="socialshare share-facebook-link" data-sharetype="facebook" href="" target="_blank" title="Share on Facebook"></a>
+			<a id="twitterLinkShare" class="socialshare share-twitter-link" data-sharetype="twitter" href="" target="_blank" title="Share on Twitter"></a>
+			<a id="pinterestLinkShare" class="socialshare share-pinterest-link" data-sharetype="pinterest" href="" target="_blank" title="Share on Pinterest"></a>
+		</div>
+	</div>
+</div>
+<div id="email-sent-thanks" class="row sh-collapse email-sent-container text-center hide">
+	<div class="column large-12">
+		<div class="thanks-text">Thanks</div>
+		<div>
+			<div class="email-sent-icon">
+				<span class="tick-mark-icon"></span>
+			</div>
+		</div>
+		<div class="mail-sent-message">
+			<div>Your message has been sent.</div>
+			<div>Thank you for sharing this CK-12 resource!</div>
+		</div>
+		<div class="thanks-done tangerine button medium js-close-share close-share-modal">Done</div>
+	</div>
+</div>
+<div id="share-email-page-disable" class="share-email-page-disable page-disable js-page-disable hide"></div>
+<div id="share-mail-loading-icon" class="hide loading-icon">
+	<img alt="loading" src="//www.ck12.org/media/common/images/icon_loading.gif">
+</div>
+<div id="share-email-template" class="hide">
+	<div class="share-email-body" style="margin-top:15px;">
+			Hi! I have found this great resource at CK-12...
+	</div>
+	<div class="share-email-artifact-container" style="margin-top:15px;">
+		<div style="float:left;">
+			<img class="artifact-email-image" style="width:80px;height:auto;" src=""/>
+		</div>
+		<div style="float:left;width:70%;margin-left:10px;">
+			<div class="share-artifact-title" style="font-weight:bold;"></div>
+			<a class="share-artifact-url" href="" target="_blank"></a>
+		</div>
+	</div>
+</div>

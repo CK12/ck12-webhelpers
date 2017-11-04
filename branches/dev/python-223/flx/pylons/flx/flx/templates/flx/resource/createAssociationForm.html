@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>Create Resource Association</title>
+        <script src="{{ c.prefix }}/media/js/jquery-1.5.min.js"></script>
+    </head>
+    <body>
+        <form name="metadata" method="POST" action="{{ c.prefix }}/create/resource/association">
+            <table>
+                <tr>
+                    <td>
+                        Artifacts:
+                    </td>
+                    <td>
+                        <input name="artifactID" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Artifacts Revisions:
+                    </td>
+                    <td>
+                        <input name="artifactRevisionID" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Resource:
+                    </td>
+                    <td>
+                        <input name="resourceID" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Resource Revisions:
+                    </td>
+                    <td>
+                        <input name="resourceRevisionID" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" name="submit" value="OK" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

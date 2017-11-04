@@ -1,0 +1,27 @@
+#! /bin/bash
+# -----------------------------------------------------------------------------------
+# CHANGE SET [18152]
+#   1. Add min_value and max_value fields to Events
+#   2. Reload books dimension
+# -----------------------------------------------------------------------------------
+
+source funcs.sh
+
+echo 'Apply change set 18152'
+
+echo '... Patch ADS schema'
+mysql -h ${db_host} -u ${db_user} -p${db_password} ${db} <<EOF
+ALTER TABLE Events
+ ADD COLUMN min_value int(11) DEFAULT NULL,
+ ADD COLUMN max_value int(11) DEFAULT NULL;
+
+UPDATE Events SET max_value=7200 WHERE name='duration';
+EOF
+
+echo '... Reload books dimension'
+set_loadscript books books.load
+set_updatescript 'books' 'books.trigger'
+http 'meta/load/dimension' 'dimension_name=books'
+    
+#prompt_graceful_apache
+echo 'Done'

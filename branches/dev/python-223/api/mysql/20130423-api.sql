@@ -1,0 +1,4 @@
+ALTER TABLE application ADD UNIQUE (name);
+ALTER TABLE path MODIFY mask VARCHAR(255);
+ALTER TABLE path ADD UNIQUE (mask);
+

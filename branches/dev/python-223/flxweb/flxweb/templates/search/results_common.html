@@ -1,0 +1,102 @@
+{% extends "search/new/search.results.html" %}
+{% from "macros/pagination.html" import ck12_pagination with context%}
+
+{% block title %}{{ _("Search Results") }} - {{ c.search_term }}{% endblock %}
+
+{% block stylesheets %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.url_css('results.css') }}" />
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+<script>
+	require(['main'],function() {
+		require([
+		'js/flxweb.search']);
+	});
+	
+</script>
+{% endblock %}
+
+{% block pageinfotop %}
+<div class="contenttop row collapse">
+	<nav id="pageinfotop columns large-12 small-12"></nav>
+	<div class="gclear"></div>
+</div>
+{% endblock %}
+
+{% block content_left_inner %}
+<div class="row collapse filters-parent-container">
+{% include "search/results_filters.html" %}
+</div>
+{% endblock %}
+
+{% block content_right_inner %}
+	<h2 class="toptitle row collapse"><span>{{ _("Search Results") }}</span> {% if c.search_paginator.get_total_count() <= 0 and c.search_term %}<span id="toptitle_no_result" class="toptitleresulthint" data-term={{c.search_term}} data-result-count={{c.search_paginator.get_total_count()}}>{{ _("(No results for \"%(term)s\")") % {'term': c.search_term} }}</span>
+	{% else %}
+	{% set result_string = 'results' %}
+	{% if c.search_paginator.get_total_count() == 1 %}
+		{% set result_string = 'result' %}
+	{% endif %}
+	<span class="toptitleresulthint" data-term={{c.search_term}} data-result-count={{c.search_paginator.get_total_count()}}>{{ _("(%(total_count)s %(result_string)s for \"%(term)s\")") % {'term': c.search_term, 'result_string': result_string, 'total_count': c.search_paginator.get_total_count()} }}</span>
+	{% endif %}</h2>
+	<div class="spacetoplarge row collapse"></div>
+	{% if c.search_term %}
+		{% if c.suggested_term or c.search_paginator.get_total_count() == 0 %}
+		<!--  NO RESULTS -->
+		<div class="contentarea contentview row collapse">
+			<div id="view_search_result" class="emptyresult{% if c.suggested_term %}_spell_suggestion{% endif %}">
+				{% if c.suggested_term or c.search_paginator.get_total_count() == 0 %}
+					{{ _("We did not find what you were searching for. <br /> Here are some suggestions:") }}
+				<ul>
+					<li>{{ _("Make sure all words are spelled correctly") }} </li>
+					<li>{{ _("Try different keywords") }} </li>
+					<li>{{ _("Try more general keywords") }} </li>
+				</ul>
+				{% endif %}
+			</div>
+			{% if c.suggested_term and c.search_paginator.get_total_count() > 0 %}
+				<div id="suggested_term_box">
+					<label>{{ _("Showing results for: ") }}</label>&nbsp;
+					<span class="suggested_term">{{ _("%(term)s") % {'term': c.suggested_term} }}</span>
+				</div>
+			{% endif %}
+		</div>
+		{% endif %}
+		{% if c.search_paginator.get_total_count() > 0 %}
+			{% block results_area %} {% endblock %}
+		{% endif %}
+	{% else %}
+		<div class="contentarea contentview row collapse">
+			<div id="view_search_result" class="emptyresult">
+				{{ _("We did not find what you were searching for. <br /> Here are some suggestions:") }}
+				<ul>
+					<li>{{ _("Make sure all words are spelled correctly") }} </li>
+					<li>{{ _("Try different keywords") }} </li>
+					<li>{{ _("Try more general keywords") }} </li>
+				</ul>
+			</div>
+		</div>
+	{% endif %}
+{% endblock %}
+
+{% block pagination_bottom %}
+<!--  Pagination Bottom -->
+<div class="paginationbottom column large-offset-2 large-10">
+	{% if c.search_paginator.get_total_count() > 0 %}
+		<div class="js_resulttotal">
+			<span class="resultkey">
+			 {{ _("Displaying %(from)s to %(to)s of %(total)s") % {'from': c.search_paginator.first_itemnumber(),
+																	'to':c.search_paginator.last_itemnumber(),
+																	'total': c.search_paginator.get_total_count() } }} 
+			</span>
+		</div>
+		<div class="result_pagination">
+			{{ ck12_pagination(paginator=c.search_paginator,url_path=request.path, additional_params=c.m_query_params) }}
+		</div>
+		<div class="divider"></div>
+	{% endif %}
+</div>
+<!--  /Pagination Bottom -->
+{% endblock %}

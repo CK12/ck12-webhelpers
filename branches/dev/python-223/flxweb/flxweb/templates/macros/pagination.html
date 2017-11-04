@@ -1,0 +1,99 @@
+<!--
+*************************************************************************** 
+Macro: ck12_pagination
+Macro to display the pagination template. 
+
+Parameters:
+<paginator>
+The paginator object that will provide the details like how many total items,
+how many items per page, how many pages, etc.
+
+<url_path> 
+The path that will be prepended in the href attribute of the page links.
+
+***************************************************************************
+-->
+
+{% macro ck12_pagination (paginator,url_path, additional_params=None) %}
+	{% if not additional_params %}
+		{% set additional_params= '' %}
+	{% endif %}
+	{% if paginator and paginator.total_pages > 1 %}
+		{% if not paginator.is_first_page() %}
+			<a href="{{url_path}}{{request.url|ck12_query_parameters({'pageNum':paginator.prev_page_no()})}}{{additional_params}}" alt='{{ _("Previous page") }}' title='{{ _("Previous page") }}' ><span class="arrow-wrap"><span class="icon-arrow3_left"></span></span></a> &nbsp;
+		{% else %}
+			<span class="arrow-wrap unavailable"><span class="icon-arrow3_left"></span></span>
+		{% endif %}
+
+		{% if paginator.show_first_page() %}
+			<span class="number"><a href="{{url_path}}{{request.url|ck12_query_parameters({'pageNum':'1'})}}{{additional_params}}" alt='{{ _("First page") }}' title='{{ _("First page") }}'>{{_("1") }}</a></span> &nbsp;<span class="dots">…</span>&nbsp;
+		{% endif %}
+
+		{% for page_no in paginator.pages_to_show() %}
+			{% if not paginator.is_current_page(page_no) %}
+				<span class="number"><a href="{{url_path}}{{request.url|ck12_query_parameters({'pageNum':page_no}) }}{{additional_params}}">{{ page_no }}</a></span>
+			{% else %}
+				<span class="number">{{ page_no }}</span>
+			{% endif %}
+		{% endfor %}
+		
+		{% if paginator.show_last_page() %}
+			&nbsp;<span class="dots">…</span>&nbsp; <span class="number"><a href="{{url_path}}{{request.url|ck12_query_parameters({'pageNum':paginator.total_pages }) }}{{additional_params}}">{{ paginator.total_pages }}</a></span> &nbsp;
+		{% endif %}
+	
+		{% if not paginator.is_last_page() %}
+			<a href="{{url_path}}{{request.url|ck12_query_parameters({'pageNum':paginator.next_page_no()}) }}{{additional_params}}" alt='{{ _("Next page") }}' title='{{ _("Next page") }}'><span class="arrow-wrap"><span class="icon-arrow3_right"></span></span></a>
+		{% else %}
+			<span class="arrow-wrap unavailable"><span class="icon-arrow3_right"></span></span>
+		{% endif %}
+	{% endif %}
+{% endmacro %}
+
+<!--
+Macro: ck12_ajax_pagination
+Macro to display the ajax pagination template.
+
+Parameters:
+<paginator>
+The paginator object that will provide the details like how many total items,
+how many items per page, how many pages, etc.
+
+<url_path> 
+The path that will be prepended in the href attribute of the page links.
+
+This pagination differs with ck12_pagination in terms of behavior.
+Pagination links will work as ajax calls and user can not open these page links in new tab/window.
+This macro can be combined/merged in ck12_pagination but doing so may lead to more code maintenance and readibility issues.
+Keeping ajax pagination separate as its objective differs from ck12_pagination.
+-->
+{% macro ck12_ajax_pagination (paginator,url_path) %}
+	{% if paginator and paginator.total_pages > 1 %}
+		{% if not paginator.is_first_page() %}
+			<a href="javascript:void(0);" data-page_url="{{url_path}}{{request.url|ck12_query_parameters({'pageNum':paginator.prev_page_no()})}}" alt='{{ _("Previous page") }}' title='{{ _("Previous page") }}' >{{ _("Previous") }}</a> &nbsp;
+		{% else %}
+			{{ _("Previous") }}
+		{% endif %}
+
+		{% if paginator.show_first_page() %}
+			<a href="javascript:void(0);" data-page_url="{{url_path}}{{request.url|ck12_query_parameters({'pageNum':'1'})}}" alt='{{ _("First page") }}' title='{{ _("First page") }}'>{{_("1") }}</a> &nbsp;<span class="dots">…</span>&nbsp;
+		{% endif %}
+
+		{% for page_no in paginator.pages_to_show() %}
+			{% if not paginator.is_current_page(page_no) %}
+				<span class="number"><a href="javascript:void(0);" data-page_url="{{url_path}}{{request.url|ck12_query_parameters({'pageNum':page_no}) }}">{{ page_no }}</a></span>
+			{% else %}
+				<span class="number">{{ page_no }}</span>
+			{% endif %}
+		{% endfor %}
+		
+		{% if paginator.show_last_page() %}
+			&nbsp;<span class="dots">…</span>&nbsp; <a href="javascript:void(0);" data-page_url="{{url_path}}{{request.url|ck12_query_parameters({'pageNum':paginator.total_pages }) }}">{{ paginator.total_pages }}</a> &nbsp;
+		{% endif %}
+	
+		{% if not paginator.is_last_page() %}
+			<a href="javascript:void(0);" data-page_url="{{url_path}}{{request.url|ck12_query_parameters({'pageNum':paginator.next_page_no()}) }}" alt='{{ _("Next page") }}' title='{{ _("Next page") }}'>{{ _("Next") }}</a>
+		{% else %}
+			{{ _("Next") }}
+		{% endif %}
+	{% endif %}
+{% endmacro %}

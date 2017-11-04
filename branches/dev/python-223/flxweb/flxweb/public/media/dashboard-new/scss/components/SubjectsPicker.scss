@@ -1,0 +1,159 @@
+@import '../main';
+
+$checkbox-size: rem-calc(16);
+$checkmark-size: rem-calc(14);
+$border: 1px solid $transparent-black-deep;
+
+$subject-picker-width: rem-calc(225);
+$subject-picker-width-small: rem-calc(125);
+
+:local {
+    .subjectsPicker {
+        position: absolute;
+        max-width: $subject-picker-width;
+        min-width: $subject-picker-width;
+        z-index: 1;
+
+        .row {
+            background: $white;
+            border: $global-border;
+        }
+
+        .subjectBranch:first-child .branchName {
+            border-top-width: 0;
+            border-bottom-width: 0;
+        }
+        .subjectBranch.expanded:first-child .branchName {
+            box-shadow: none;
+        }
+
+        .subjectBranch:last-child .branchName{
+            border-bottom-width: 0;
+        }
+    }
+
+    .branchName {
+        transition: background-color 0.25s ease-out;
+        text-transform: uppercase;
+        cursor: pointer;
+        padding: $global-padding / 2;
+        line-height: 1.5;
+        font-size: rem-calc(14);
+        border-top: $border;
+        position: relative;
+
+
+        i {
+            display: inline-block;
+            transform: translateY(rem-calc(3))rotate(90deg);
+            transition: transform 0.1s ease-out;
+            color: $OCEAN;
+            font-size: rem-calc(18);
+            margin-right: rem-calc(5);
+            margin-bottom: 0;
+        }
+    }
+
+    .branches {
+        max-height: 0;
+        overflow: hidden;
+        background-color: $IVORY;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        transform: translateX(100%)translateX(-1px);
+        min-width: $subject-picker-width;
+
+        label {
+            @include checkbox($checkbox-size, $checkmark-size);
+        }
+
+        input[type=checkbox] {
+            display: none;
+        }
+
+        input[type=checkbox]:checked  + label {
+            @include checkedCheckbox();
+        }
+    }
+
+    .expanded {
+    	position:relative;
+        .branchName {
+            background-color: $IVORY;
+            box-shadow: inset 0 3px 1px $transparent-black;
+            border-bottom-width: 0;
+
+            i { transform: translateY(rem-calc(3))rotate(180deg); }
+
+            &:after {
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 100%;
+                height: 1px;
+                content: '';
+                border-bottom: $border;
+            }
+        }
+
+        .branches {
+            transition: all 0.25s ease-out;
+            max-height: rem-calc(190);
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding: 0.3em 0;
+            line-height: 2;
+            box-shadow: $global-shadow;
+
+            label { opacity: 1; }
+
+            @include breakpoint(small only) {
+                padding:0;
+            }
+        }
+    }
+
+    .expanded + .expanded {
+        .branchName {
+            box-shadow: none;
+            border-top-width: 0;
+        }
+    }
+
+    @include breakpoint(medium down){
+        .subjectsPicker {
+            min-width: $subject-picker-width-small;
+            max-width: $subject-picker-width-small;
+        }
+
+        .branches {
+            transform: translate( -50%, -(rem-calc(40)) );
+            right: initial;
+            left: 50%;
+            min-width: 100%;
+        }
+
+        .expanded .branchName i {
+            transform: translateY(rem-calc(3))rotate(0deg);
+        }
+    }
+
+    @include breakpoint(small only){
+        .expanded .branches {
+            max-height: rem-calc(150);
+        }
+    }
+
+    @media screen and #{$small-height-breakpoint} and #{breakpoint(medium up)} {
+        .branches {
+            transform: translate( -50%, -(rem-calc(40)) );
+            right: initial;
+            left: 50%;
+            min-width: 100%;
+        }
+    }
+}

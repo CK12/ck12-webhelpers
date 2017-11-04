@@ -1,0 +1,14 @@
+Hi {{ events[0]['eventData']['memberName'] }},
+
+{% for event in events %}
+{{ event['eventData']['creator'] }} from {{ event['eventData']['group'] }} ({{ site }}{{ event['eventData']['groupURL'] }}) has given this assignment to you:
+
+{{ event['eventData']['assignment'] }} ({{ site }}{{ event['eventData']['assignmentURL'] }})
+
+Check your assignment list ({{ site }}{{ event['eventData']['assignmentURL'] }}) to see when it's due. Good luck!
+--------------------------------------------------------------------------------------------------------
+{% endfor %}
+
+The CK-12 Team
+
+CK-12 Foundation | 3430 West Bayshore Road, Palo Alto, CA 94303

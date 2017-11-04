@@ -1,0 +1,35 @@
+#! /bin/bash
+# -----------------------------------------------------------------------------------
+# CHANGE SET [19655]
+#   Reduced number of dashboard/report requests to ADS
+#
+# CHANGE SET [19697]
+#   Avoid a deadlock between books dimension update and artifact revisions download
+#   counts update
+# -----------------------------------------------------------------------------------
+
+source funcs.sh
+
+echo 'Apply change set 19655 (FlexBook-specific changes)'
+
+#
+# [10655]
+#
+patch_cdos() {
+	workdir=${workdir:-$(dirname $0)}
+	sudo mkdir -p /opt/data/cdo
+	sudo cp ${workdir}/cdo__concepts_in_book.py /opt/data/cdo
+}
+
+patch_cdos
+
+#
+# [19697]
+#
+mysql -h ${db_host} -u ${db_user} -p${db_password} ${db} <<EOF
+SET GLOBAL event_scheduler = ON;
+EOF
+
+set_updatescript 'books' 'books.trigger'
+
+echo 'Done'

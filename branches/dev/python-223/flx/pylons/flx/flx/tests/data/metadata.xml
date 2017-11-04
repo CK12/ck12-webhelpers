@@ -1,0 +1,247 @@
+<!DOCTYPE RDF [
+	<!ENTITY rdf 'http://www.w3.org/1999/02/22-rdf-syntax-ns#'>
+	<!ENTITY rdfs 'http://www.w3.org/2000/01/rdf-schema#'>
+	<!ENTITY owl 'http://www.w3.org/2002/07/owl#'>
+	<!ENTITY swivt 'http://semantic-mediawiki.org/swivt/1.0#'>
+	<!ENTITY wiki 'http://ck12.org/wiki/index.php/Special:URIResolver/'>
+	<!ENTITY property 'http://ck12.org/wiki/index.php/Special:URIResolver/Property-3A'>
+	<!ENTITY wikiurl 'http://authors.ck12.org/wiki/index.php/'>
+]><metadata><book fileref="book.xhtml"><rdf:RDF xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:property="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3A" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:swivt="http://semantic-mediawiki.org/swivt/1.0#" xmlns:wiki="http://ck12.org/wiki/index.php/Special:URIResolver/">
+
+	<owl:Ontology rdf:about="http://authors.ck12.org/wiki/index.php/Special:ExportRDF/CK-12_Chemistry_-_Second_Edition_Rosetta_2.0">
+		<swivt:creationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-01-22T13:18:51-08:00</swivt:creationDate>
+		<owl:imports rdf:resource="http://semantic-mediawiki.org/swivt/1.0"/>
+	</owl:Ontology>
+	<swivt:Subject rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/CK-2D12_Chemistry_-2D_Second_Edition_Rosetta_2.0">
+		<rdfs:label>CK-12 Chemistry - Second Edition Rosetta 2.0</rdfs:label>
+		<swivt:page rdf:resource="http://authors.ck12.org/wiki/index.php/CK-12_Chemistry_-_Second_Edition_Rosetta_2.0"/>
+		<rdfs:isDefinedBy rdf:resource="http://authors.ck12.org/wiki/index.php/Special:ExportRDF/CK-12_Chemistry_-_Second_Edition_Rosetta_2.0"/>
+		<swivt:wikiNamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</swivt:wikiNamespace>
+		<property:Artifact_Type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">book</property:Artifact_Type>
+		<property:Authors rdf:datatype="http://www.w3.org/2001/XMLSchema#string">author:Richard Parsons, (RichardP); editor:Richard Parsons, (RParsons); editor:Shonna Robinson, (ShonnaR); author:Sharon Bewick, Ph.D. (SharonB); contributor:Jonathan Edge, (JonathanE); contributor:Therese Forsythe, (ThereseF); contributor:Jean Dupon, Ph.D. (JeanD)</property:Authors>
+		<property:Cover_image rdf:resource="http://ck12.org/wiki/index.php/Special:URIResolver/Http-3A//authors.ck12.org/wiki/images/6/68/CK12_Chemistry_Second_Edition.jpg"/>
+		<property:Description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CK-12 Chemistry: Scientific Method; Matter; Atomic Structure; Elements &amp; Their Properties; Chemical Reactions; Stoichiometry; Chemical Kinetics; Physical States of Matter; Thermodynamics; Nuclear &amp; Organic Chemistry.</property:Description>
+		<property:Encoded_ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CK.SCI.ENG.SE.2.Chemistry</property:Encoded_ID>
+		<property:Grades rdf:datatype="http://www.w3.org/2001/XMLSchema#string">10</property:Grades>
+		<property:Grades rdf:datatype="http://www.w3.org/2001/XMLSchema#string">11</property:Grades>
+		<property:Keywords rdf:datatype="http://www.w3.org/2001/XMLSchema#string">chemistry</property:Keywords>
+		<property:License rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CC BY NC SA</property:License>
+		<property:Owner rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CK-12 Foundation</property:Owner>
+		<property:States rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CA</property:States>
+		<property:Subjects rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Chemistry</property:Subjects>
+		<property:Subjects rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Science</property:Subjects>
+		<property:Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CK-12 Chemistry - Second Edition</property:Title>
+		<property:Type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Student Edition</property:Type>
+		<swivt:specialProperty_ERRP rdf:resource="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3ALevel"/>
+		<swivt:wikiPageModificationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-01-22T19:58:32Z</swivt:wikiPageModificationDate>
+		<swivt:wikiPageSortKey rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CK-12 Chemistry - Second Edition Rosetta 2.0</swivt:wikiPageSortKey>
+	</swivt:Subject>
+	<owl:DatatypeProperty rdf:about="http://semantic-mediawiki.org/swivt/1.0#creationDate"/>
+	<owl:ObjectProperty rdf:about="http://semantic-mediawiki.org/swivt/1.0#page"/>
+	<owl:DatatypeProperty rdf:about="http://semantic-mediawiki.org/swivt/1.0#wikiNamespace"/>
+	<owl:DatatypeProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3AArtifact_Type"/>
+	<owl:DatatypeProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3AAuthors"/>
+	<owl:ObjectProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3ACover_image"/>
+	<owl:DatatypeProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3ADescription"/>
+	<owl:DatatypeProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3AEncoded_ID"/>
+	<owl:DatatypeProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3AGrades"/>
+	<owl:DatatypeProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3AKeywords"/>
+	<owl:DatatypeProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3ALicense"/>
+	<owl:DatatypeProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3AOwner"/>
+	<owl:DatatypeProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3AStates"/>
+	<owl:DatatypeProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3ASubjects"/>
+	<owl:DatatypeProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3ATitle"/>
+	<owl:DatatypeProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3AType"/>
+	<owl:ObjectProperty rdf:about="http://semantic-mediawiki.org/swivt/1.0#specialProperty_ERRP"/>
+	<owl:DatatypeProperty rdf:about="http://semantic-mediawiki.org/swivt/1.0#wikiPageModificationDate"/>
+	<owl:DatatypeProperty rdf:about="http://semantic-mediawiki.org/swivt/1.0#wikiPageSortKey"/>
+	<!-- Created by Semantic MediaWiki, http://semantic-mediawiki.org/ -->
+</rdf:RDF></book><chapter fileref="chapter_1/chapter.xhtml"><rdf:RDF xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:property="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3A" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:swivt="http://semantic-mediawiki.org/swivt/1.0#" xmlns:wiki="http://ck12.org/wiki/index.php/Special:URIResolver/">
+
+	<owl:Ontology rdf:about="http://authors.ck12.org/wiki/index.php/Special:ExportRDF/Introduction_to_Chemistry_%28Rosetta_2.0%29">
+		<swivt:creationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-01-22T13:18:59-08:00</swivt:creationDate>
+		<owl:imports rdf:resource="http://semantic-mediawiki.org/swivt/1.0"/>
+	</owl:Ontology>
+	<swivt:Subject rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Introduction_to_Chemistry_(Rosetta_2.0)">
+		<rdfs:label>Introduction to Chemistry (Rosetta 2.0)</rdfs:label>
+		<swivt:page rdf:resource="http://authors.ck12.org/wiki/index.php/Introduction_to_Chemistry_(Rosetta_2.0)"/>
+		<rdfs:isDefinedBy rdf:resource="http://authors.ck12.org/wiki/index.php/Special:ExportRDF/Introduction_to_Chemistry_(Rosetta_2.0)"/>
+		<swivt:wikiNamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</swivt:wikiNamespace>
+		<property:Artifact_Type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">chapter</property:Artifact_Type>
+		<property:Authors rdf:datatype="http://www.w3.org/2001/XMLSchema#string">author:Sharon Bewick, Ph.D. (SharonB); author:Richard Parsons, (RichardP); editor:Shonna Robinson, (ShonnaR)</property:Authors>
+		<property:Description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This chapter details the scientific method and provides a brief history of chemistry.</property:Description>
+		<property:Encoded_ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CK.SCI.ENG.SE.2.Chemistry.1</property:Encoded_ID>
+		<property:Grades rdf:datatype="http://www.w3.org/2001/XMLSchema#string">9</property:Grades>
+		<property:Grades rdf:datatype="http://www.w3.org/2001/XMLSchema#string">10</property:Grades>
+		<property:Grades rdf:datatype="http://www.w3.org/2001/XMLSchema#string">11</property:Grades>
+		<property:Grades rdf:datatype="http://www.w3.org/2001/XMLSchema#string">12</property:Grades>
+		<property:ImageChapterURL rdf:resource="http://ck12.org/wiki/index.php/Special:URIResolver/File-3ACHEM-2DCH1-2DIM3-2DPlasticObjects.jpg"/>
+		<property:ImageChapterURL rdf:resource="http://ck12.org/wiki/index.php/Special:URIResolver/File-3ACHEM-2DCH1-2DIM2-2DAntoineLavoisier.jpg"/>
+		<property:ImageChapterURL rdf:resource="http://ck12.org/wiki/index.php/Special:URIResolver/File-3ACh-2D01-2D01-2DTheAlchymist.jpg"/>
+		<property:Keywords rdf:datatype="http://www.w3.org/2001/XMLSchema#string">experimental control</property:Keywords>
+		<property:Keywords rdf:datatype="http://www.w3.org/2001/XMLSchema#string">law</property:Keywords>
+		<property:Keywords rdf:datatype="http://www.w3.org/2001/XMLSchema#string">theory</property:Keywords>
+		<property:Keywords rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hypothesis</property:Keywords>
+		<property:Keywords rdf:datatype="http://www.w3.org/2001/XMLSchema#string">observation</property:Keywords>
+		<property:Keywords rdf:datatype="http://www.w3.org/2001/XMLSchema#string">history of chemistry</property:Keywords>
+		<property:Keywords rdf:datatype="http://www.w3.org/2001/XMLSchema#string">scientific method</property:Keywords>
+		<property:Keywords rdf:datatype="http://www.w3.org/2001/XMLSchema#string">alchemy</property:Keywords>
+		<property:License rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CC BY NC SA</property:License>
+		<property:States rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CA</property:States>
+		<property:Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Introduction to Chemistry</property:Title>
+		<property:Type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Student Edition</property:Type>
+		<swivt:specialProperty_ERRP rdf:resource="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3ACover_image"/>
+		<swivt:wikiPageModificationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-01-22T19:59:12Z</swivt:wikiPageModificationDate>
+		<swivt:wikiPageSortKey rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Introduction to Chemistry (Rosetta 2.0)</swivt:wikiPageSortKey>
+	</swivt:Subject>
+	<owl:DatatypeProperty rdf:about="http://semantic-mediawiki.org/swivt/1.0#creationDate"/>
+	<owl:ObjectProperty rdf:about="http://semantic-mediawiki.org/swivt/1.0#page"/>
+	<owl:DatatypeProperty rdf:about="http://semantic-mediawiki.org/swivt/1.0#wikiNamespace"/>
+	<owl:DatatypeProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3AArtifact_Type"/>
+	<owl:DatatypeProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3AAuthors"/>
+	<owl:DatatypeProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3ADescription"/>
+	<owl:DatatypeProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3AEncoded_ID"/>
+	<owl:DatatypeProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3AGrades"/>
+	<owl:ObjectProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3AImageChapterURL"/>
+	<owl:DatatypeProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3AKeywords"/>
+	<owl:DatatypeProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3ALicense"/>
+	<owl:DatatypeProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3AStates"/>
+	<owl:DatatypeProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3ATitle"/>
+	<owl:DatatypeProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3AType"/>
+	<owl:ObjectProperty rdf:about="http://semantic-mediawiki.org/swivt/1.0#specialProperty_ERRP"/>
+	<owl:DatatypeProperty rdf:about="http://semantic-mediawiki.org/swivt/1.0#wikiPageModificationDate"/>
+	<owl:DatatypeProperty rdf:about="http://semantic-mediawiki.org/swivt/1.0#wikiPageSortKey"/>
+	<!-- Created by Semantic MediaWiki, http://semantic-mediawiki.org/ -->
+</rdf:RDF></chapter><chapter fileref="chapter_2/chapter.xhtml"><rdf:RDF xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:property="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3A" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:swivt="http://semantic-mediawiki.org/swivt/1.0#" xmlns:wiki="http://ck12.org/wiki/index.php/Special:URIResolver/">
+
+	<owl:Ontology rdf:about="http://authors.ck12.org/wiki/index.php/Special:ExportRDF/Measurement_in_Chemistry%28Rosetta_2.0%29">
+		<swivt:creationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-01-22T13:19:15-08:00</swivt:creationDate>
+		<owl:imports rdf:resource="http://semantic-mediawiki.org/swivt/1.0"/>
+	</owl:Ontology>
+	<swivt:Subject rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Measurement_in_Chemistry(Rosetta_2.0)">
+		<rdfs:label>Measurement in Chemistry(Rosetta 2.0)</rdfs:label>
+		<swivt:page rdf:resource="http://authors.ck12.org/wiki/index.php/Measurement_in_Chemistry(Rosetta_2.0)"/>
+		<rdfs:isDefinedBy rdf:resource="http://authors.ck12.org/wiki/index.php/Special:ExportRDF/Measurement_in_Chemistry(Rosetta_2.0)"/>
+		<swivt:wikiNamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</swivt:wikiNamespace>
+		<property:Artifact_Type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">chapter</property:Artifact_Type>
+		<property:Authors rdf:datatype="http://www.w3.org/2001/XMLSchema#string">author:Richard Parsons, (RichardP); editor:Shonna Robinson, (ShonnaR); contributor:Jonathan Edge, (JonathanE)</property:Authors>
+		<property:Description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This chapter covers measurement and the mathematics of measurement and formulas.</property:Description>
+		<property:Encoded_ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CK.SCI.ENG.SE.2.Chemistry.2</property:Encoded_ID>
+		<property:Grades rdf:datatype="http://www.w3.org/2001/XMLSchema#string">9</property:Grades>
+		<property:Grades rdf:datatype="http://www.w3.org/2001/XMLSchema#string">10</property:Grades>
+		<property:Grades rdf:datatype="http://www.w3.org/2001/XMLSchema#string">11</property:Grades>
+		<property:Grades rdf:datatype="http://www.w3.org/2001/XMLSchema#string">12</property:Grades>
+		<property:ImageChapterURL rdf:resource="http://ck12.org/wiki/index.php/Special:URIResolver/File-3ACHEM-2DSECH2-2Dstandardmeter.png"/>
+		<property:ImageChapterURL rdf:resource="http://ck12.org/wiki/index.php/Special:URIResolver/File-3ACHEM-2DSECH2-2Dstandardkg.png"/>
+		<property:Keywords rdf:datatype="http://www.w3.org/2001/XMLSchema#string">the SI System</property:Keywords>
+		<property:Keywords rdf:datatype="http://www.w3.org/2001/XMLSchema#string">graphing data</property:Keywords>
+		<property:Keywords rdf:datatype="http://www.w3.org/2001/XMLSchema#string">metric system</property:Keywords>
+		<property:Keywords rdf:datatype="http://www.w3.org/2001/XMLSchema#string">measurements</property:Keywords>
+		<property:Keywords rdf:datatype="http://www.w3.org/2001/XMLSchema#string">dimensional analysis</property:Keywords>
+		<property:Keywords rdf:datatype="http://www.w3.org/2001/XMLSchema#string">density</property:Keywords>
+		<property:Keywords rdf:datatype="http://www.w3.org/2001/XMLSchema#string">unit conversions</property:Keywords>
+		<property:Keywords rdf:datatype="http://www.w3.org/2001/XMLSchema#string">scientific notation</property:Keywords>
+		<property:Keywords rdf:datatype="http://www.w3.org/2001/XMLSchema#string">significant figures</property:Keywords>
+		<property:Keywords rdf:datatype="http://www.w3.org/2001/XMLSchema#string">liter</property:Keywords>
+		<property:Keywords rdf:datatype="http://www.w3.org/2001/XMLSchema#string">gram</property:Keywords>
+		<property:Keywords rdf:datatype="http://www.w3.org/2001/XMLSchema#string">meter</property:Keywords>
+		<property:Keywords rdf:datatype="http://www.w3.org/2001/XMLSchema#string">qualitative observations</property:Keywords>
+		<property:Keywords rdf:datatype="http://www.w3.org/2001/XMLSchema#string">quantitative observations</property:Keywords>
+		<property:License rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CC BY NC SA</property:License>
+		<property:States rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CA</property:States>
+		<property:Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Measurement in Chemistry</property:Title>
+		<property:Type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Student Edition</property:Type>
+		<swivt:specialProperty_ERRP rdf:resource="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3ACover_image"/>
+		<swivt:wikiPageModificationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-01-22T19:59:55Z</swivt:wikiPageModificationDate>
+		<swivt:wikiPageSortKey rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Measurement in Chemistry(Rosetta 2.0)</swivt:wikiPageSortKey>
+	</swivt:Subject>
+	<owl:DatatypeProperty rdf:about="http://semantic-mediawiki.org/swivt/1.0#creationDate"/>
+	<owl:ObjectProperty rdf:about="http://semantic-mediawiki.org/swivt/1.0#page"/>
+	<owl:DatatypeProperty rdf:about="http://semantic-mediawiki.org/swivt/1.0#wikiNamespace"/>
+	<owl:DatatypeProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3AArtifact_Type"/>
+	<owl:DatatypeProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3AAuthors"/>
+	<owl:DatatypeProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3ADescription"/>
+	<owl:DatatypeProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3AEncoded_ID"/>
+	<owl:DatatypeProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3AGrades"/>
+	<owl:ObjectProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3AImageChapterURL"/>
+	<owl:DatatypeProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3AKeywords"/>
+	<owl:DatatypeProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3ALicense"/>
+	<owl:DatatypeProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3AStates"/>
+	<owl:DatatypeProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3ATitle"/>
+	<owl:DatatypeProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3AType"/>
+	<owl:ObjectProperty rdf:about="http://semantic-mediawiki.org/swivt/1.0#specialProperty_ERRP"/>
+	<owl:DatatypeProperty rdf:about="http://semantic-mediawiki.org/swivt/1.0#wikiPageModificationDate"/>
+	<owl:DatatypeProperty rdf:about="http://semantic-mediawiki.org/swivt/1.0#wikiPageSortKey"/>
+	<!-- Created by Semantic MediaWiki, http://semantic-mediawiki.org/ -->
+</rdf:RDF></chapter><chapter fileref="chapter_3/chapter.xhtml"><rdf:RDF xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:property="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3A" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:swivt="http://semantic-mediawiki.org/swivt/1.0#" xmlns:wiki="http://ck12.org/wiki/index.php/Special:URIResolver/">
+
+	<owl:Ontology rdf:about="http://authors.ck12.org/wiki/index.php/Special:ExportRDF/Matter_and_Energy%28Rosetta_2.0%29">
+		<swivt:creationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-01-22T13:19:30-08:00</swivt:creationDate>
+		<owl:imports rdf:resource="http://semantic-mediawiki.org/swivt/1.0"/>
+	</owl:Ontology>
+	<swivt:Subject rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Matter_and_Energy(Rosetta_2.0)">
+		<rdfs:label>Matter and Energy(Rosetta 2.0)</rdfs:label>
+		<swivt:page rdf:resource="http://authors.ck12.org/wiki/index.php/Matter_and_Energy(Rosetta_2.0)"/>
+		<rdfs:isDefinedBy rdf:resource="http://authors.ck12.org/wiki/index.php/Special:ExportRDF/Matter_and_Energy(Rosetta_2.0)"/>
+		<swivt:wikiNamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</swivt:wikiNamespace>
+		<property:Artifact_Type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">chapter</property:Artifact_Type>
+		<property:Authors rdf:datatype="http://www.w3.org/2001/XMLSchema#string">author:Sharon Bewick, Ph.D. (SharonB); author:Richard Parsons, (RichardP); editor:Shonna Robinson, (ShonnaR)</property:Authors>
+		<property:Description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This chapter details the concepts of matter and energy.</property:Description>
+		<property:Encoded_ID rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CK.SCI.ENG.SE.2.Chemistry.3</property:Encoded_ID>
+		<property:Grades rdf:datatype="http://www.w3.org/2001/XMLSchema#string">9</property:Grades>
+		<property:Grades rdf:datatype="http://www.w3.org/2001/XMLSchema#string">10</property:Grades>
+		<property:Grades rdf:datatype="http://www.w3.org/2001/XMLSchema#string">11</property:Grades>
+		<property:Grades rdf:datatype="http://www.w3.org/2001/XMLSchema#string">12</property:Grades>
+		<property:ImageChapterURL rdf:resource="http://ck12.org/wiki/index.php/Special:URIResolver/File-3AChem_JRS_Ch3_Pot_with_Water.png"/>
+		<property:ImageChapterURL rdf:resource="http://ck12.org/wiki/index.php/Special:URIResolver/File-3ACHEM-2DSECH3-2Dwindfarm.jpg"/>
+		<property:ImageChapterURL rdf:resource="http://ck12.org/wiki/index.php/Special:URIResolver/File-3ACHEM-2DSECH3-2Dfireworks1.jpg"/>
+		<property:ImageChapterURL rdf:resource="http://ck12.org/wiki/index.php/Special:URIResolver/File-3ACHEM-2DSECH3-2Dmeltingsnow.jpg"/>
+		<property:ImageChapterURL rdf:resource="http://ck12.org/wiki/index.php/Special:URIResolver/File-3AChemJRS_Ch3_Water_Molecule_CA.png"/>
+		<property:Keywords rdf:datatype="http://www.w3.org/2001/XMLSchema#string">energy</property:Keywords>
+		<property:Keywords rdf:datatype="http://www.w3.org/2001/XMLSchema#string">properties</property:Keywords>
+		<property:Keywords rdf:datatype="http://www.w3.org/2001/XMLSchema#string">volume</property:Keywords>
+		<property:Keywords rdf:datatype="http://www.w3.org/2001/XMLSchema#string">matter</property:Keywords>
+		<property:Keywords rdf:datatype="http://www.w3.org/2001/XMLSchema#string">work</property:Keywords>
+		<property:Keywords rdf:datatype="http://www.w3.org/2001/XMLSchema#string">heat</property:Keywords>
+		<property:Keywords rdf:datatype="http://www.w3.org/2001/XMLSchema#string">law of conservation of matter and energy</property:Keywords>
+		<property:Keywords rdf:datatype="http://www.w3.org/2001/XMLSchema#string">potential energy</property:Keywords>
+		<property:Keywords rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kinetic energy</property:Keywords>
+		<property:Keywords rdf:datatype="http://www.w3.org/2001/XMLSchema#string">chemical change</property:Keywords>
+		<property:Keywords rdf:datatype="http://www.w3.org/2001/XMLSchema#string">physical change</property:Keywords>
+		<property:Keywords rdf:datatype="http://www.w3.org/2001/XMLSchema#string">chemical formulas</property:Keywords>
+		<property:Keywords rdf:datatype="http://www.w3.org/2001/XMLSchema#string">symbols of elements</property:Keywords>
+		<property:Keywords rdf:datatype="http://www.w3.org/2001/XMLSchema#string">names of elements</property:Keywords>
+		<property:Keywords rdf:datatype="http://www.w3.org/2001/XMLSchema#string">compounds</property:Keywords>
+		<property:Keywords rdf:datatype="http://www.w3.org/2001/XMLSchema#string">elements</property:Keywords>
+		<property:Keywords rdf:datatype="http://www.w3.org/2001/XMLSchema#string">solutions</property:Keywords>
+		<property:Keywords rdf:datatype="http://www.w3.org/2001/XMLSchema#string">heterogeneous</property:Keywords>
+		<property:Keywords rdf:datatype="http://www.w3.org/2001/XMLSchema#string">homogeneous</property:Keywords>
+		<property:Keywords rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mixtures</property:Keywords>
+		<property:Keywords rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Substances</property:Keywords>
+		<property:License rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CC BY NC SA</property:License>
+		<property:States rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CA</property:States>
+		<property:Title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Matter and Energy</property:Title>
+		<property:Type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Student Edition</property:Type>
+		<swivt:specialProperty_ERRP rdf:resource="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3ACover_image"/>
+		<swivt:wikiPageModificationDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-01-22T20:00:40Z</swivt:wikiPageModificationDate>
+		<swivt:wikiPageSortKey rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Matter and Energy(Rosetta 2.0)</swivt:wikiPageSortKey>
+	</swivt:Subject>
+	<owl:DatatypeProperty rdf:about="http://semantic-mediawiki.org/swivt/1.0#creationDate"/>
+	<owl:ObjectProperty rdf:about="http://semantic-mediawiki.org/swivt/1.0#page"/>
+	<owl:DatatypeProperty rdf:about="http://semantic-mediawiki.org/swivt/1.0#wikiNamespace"/>
+	<owl:DatatypeProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3AArtifact_Type"/>
+	<owl:DatatypeProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3AAuthors"/>
+	<owl:DatatypeProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3ADescription"/>
+	<owl:DatatypeProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3AEncoded_ID"/>
+	<owl:DatatypeProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3AGrades"/>
+	<owl:ObjectProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3AImageChapterURL"/>
+	<owl:DatatypeProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3AKeywords"/>
+	<owl:DatatypeProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3ALicense"/>
+	<owl:DatatypeProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3AStates"/>
+	<owl:DatatypeProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3ATitle"/>
+	<owl:DatatypeProperty rdf:about="http://ck12.org/wiki/index.php/Special:URIResolver/Property-3AType"/>
+	<owl:ObjectProperty rdf:about="http://semantic-mediawiki.org/swivt/1.0#specialProperty_ERRP"/>
+	<owl:DatatypeProperty rdf:about="http://semantic-mediawiki.org/swivt/1.0#wikiPageModificationDate"/>
+	<owl:DatatypeProperty rdf:about="http://semantic-mediawiki.org/swivt/1.0#wikiPageSortKey"/>
+	<!-- Created by Semantic MediaWiki, http://semantic-mediawiki.org/ -->
+</rdf:RDF></chapter></metadata>

@@ -1,0 +1,30 @@
+{% from "macros/pagination.html" import paginate with context %}  
+
+{% if c.paginator.item_count > 0 %}
+  <div id="messages"></div>
+  {% for i in c.paginator.items %}
+    <div class="tr paneview {{ h.hide_if_full(c.viewmode)}}">
+      <div class="td id">{{i.schoolID}}</div>
+      <div class="td id">{{i.schoolName}}</div>
+      <div class="td id">{{i.state|title}}</div>
+      <div class="td id">{{i.city|title}}</div>
+      <div class="td nowrap">{{i.zipcode}}</div>
+      <div class="td nowrap">Action</div>
+    </div>
+    <div class="tr fullview {{ h.hide_if_pane(c.viewmode)}}">
+      <div class="td id">{{i.schoolID}}</div>
+      <div class="td id">{{i.schoolName}}</div>
+      <div class="td id">{{i.state|title}}</div>
+      <div class="td id">{{i.city|title}}</div>
+      <div class="td nowrap">{{i.zipcode}}</div>
+      <div class="td">{{h.htmla_('/update/school/%s'%i.schoolID, '[View/Edit School]')}}</div>      
+      {% if i.isDeleted %}
+          <div class="td"><a href="#" onClick="deleteRestoreSchool(this, 'Restore', '{{i.schoolID}}', '{{i.schoolName}}')">[Restore School]</a></div>      
+      {% else %}
+          <div class="td"><a href="#" onClick="deleteRestoreSchool(this, 'Delete', '{{i.schoolID}}', '{{i.schoolName}}')">[Delete School]</a></div>      
+      {% endif %}
+    </div>
+  {% endfor %}
+  {{ paginate(c.paginator) }}
+{% endif %}
+

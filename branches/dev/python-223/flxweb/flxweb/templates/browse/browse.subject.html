@@ -1,0 +1,33 @@
+{% extends "common/master.html" %}
+{% block title %}{{ _("") }}{% endblock %}
+
+{% block stylesheets %}
+{{ super() }}
+    <link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('browse/css/browse.subject.css') }}" />
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+<script type="text/javascript">
+    require(['main'], function () {
+       require(['browse/browse.subject'], function (browse) {
+            browse.render();
+        });
+    });
+</script>
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+    <div id="page-disable" class="page-disable js-page-disable hide"></div>
+    <div id="loading-icon" class="loading-icon js-loading-icon">
+        <img alt="loading" src="{{ h.asset_image('common/images/icon_loading.gif') }}">
+    </div>
+    <div id="browse_contentwrap" class="row collapse subject-container">
+        <h1 class="hide">
+            <a href="/browse/">Browse</a>
+            <span> / </span>
+            <span class="subject-name"></span>
+        </h1>
+    </div>
+{% endblock %}

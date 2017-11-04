@@ -1,0 +1,8 @@
+    RewriteEngine On
+    #RewriteLog "/var/log/apache2/rewrite.log"
+    #RewriteLogLevel 3
+    # This will enable the Rewrite capabilities
+    RewriteCond %{HTTPS} !=on
+    # This checks to make sure the connection is not already HTTPS
+    RewriteRule ^/?auth/(.*) https://%{SERVER_NAME}/auth/$1 [R,L]
+    # This means if you dont want to force HTTPS for all directories you can force it for a specific sub-section of the site.

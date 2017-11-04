@@ -1,0 +1,64 @@
+{% extends "common/master.html" %}
+{% block title %}{{ _("CK-12 Usage Map") }}{% endblock %}
+
+{% block stylesheets %}
+{{ super() }}
+<style>
+  .cartodb-header {
+    z-index: 0 !important;
+  }
+  div.cartodb-searchbox input.text{
+    height: auto !important;
+  }
+  #map {
+    height: 600px;
+    margin: 0;
+  }
+  .cartodb-zoom, .cartodb-searchbox{
+     z-index: 0 !important;
+   }
+</style>
+<link rel="stylesheet" href="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/themes/css/cartodb.css" />
+{% endblock %}
+
+{% block extra_head %}
+{{ super() }}
+<script src="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/cartodb.js"></script>
+<script type="text/javascript">
+function main() {
+        var url = 'https://ck12foundation.cartodb.com/api/v2/viz/567e24a0-2c34-11e6-b717-0e98b61680bf/viz.json';
+
+        cartodb.createVis('map', url, {
+          zoom: 2,
+          https: true,
+          tiles_loader: false,
+          center_lat: 0,
+          center_lon: 0,
+          cartodb_logo: false
+        })
+        .done(function(vis, layers) {
+
+          // Set max zoom
+          vis.map.set({
+            minZoom: 2
+          });
+
+        })
+        .error(function(err) {
+          console.log(err);
+        });
+      }
+ 
+      window.onload = main;
+</script>
+{% endblock %}
+
+{% block pageinfotop %}
+<div class="contenttop"></div>
+{% endblock %}
+
+{% block contentwrap %}
+<div class="clearfix">
+  <div id="map"></div>
+</div>
+{% endblock %}

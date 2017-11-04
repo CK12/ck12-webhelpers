@@ -1,0 +1,7 @@
+{% from "macros/artifact.html" import ck12_metadata_list_for_standards with context %}
+{% if c.standard_boards %}
+{{ ck12_metadata_list_for_standards( _("Standards Correlations:"), c.standard_boards,valuefield='id',artifactId=c.artifactID ) }}
+<script type="text/javascript">window.standardBoards = {{c.standard_boards|ck12_json}};</script>
+{% else %}
+NO_STANARD_BOARDS
+{% endif %}

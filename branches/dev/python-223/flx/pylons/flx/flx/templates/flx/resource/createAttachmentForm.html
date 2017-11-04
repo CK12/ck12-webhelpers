@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <title>Create a Native Attachment</title>
+    </head>
+    <body>
+        <h1>Create a Native Attachment for an artifact</h1>
+        <form name="resourceForm" method="POST" 
+            action="{{ c.prefix }}/create/attachment" 
+            enctype="multipart/form-data">
+            <table>
+                <tr>
+                    <td>
+                        Artifact Perma <span style="color:red;">*</span>:
+                    </td>
+                    <td>
+                        <input type="text" name="artifactPerma" value="" size="100" /><br/>
+                        <span style="font-size:8pt;">Only include '/type/handle[/realm]' (handle and realm could be url encoded)</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Attachment Name <span style="color:red;">*</span>:
+                    </td>
+                    <td>
+                        <input type="text" name="resourceName" />
+                        <input type="hidden" name="resourceType" value="attachment" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Attachment Handle:<br/>
+                    </td>
+                    <td><input type="text" name="resourceHandle" /><br/>
+                        <span style="font-size:8pt;">(Leave blank to create one automatically)</span>
+                    </td>
+                <tr>
+                    <td>Attachment Description:</td>
+                    <td><textarea name="resourceDesc"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Attachment URI <span style="color:red;">*</span>:</td>
+                    <td><input type="text" name="resourceUri" /> OR </td>
+                </tr>
+                <tr>
+                    <td>Attachment File <span style="color:red;">*</span>:</td>
+                    <td><input type="file" name="resourcePath" /></td>
+                </tr>
+                <tr>
+                    <td>Authors:</td>
+                    <td><input type="text" name="resourceAuthors" /></td>
+                </tr>
+                <tr>
+                    <td>License:</td>
+                    <td><input type="text" name="resourceLicense" /></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        <input type="submit" name="submit" value="Save" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
+

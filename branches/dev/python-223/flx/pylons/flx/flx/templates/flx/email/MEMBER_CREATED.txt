@@ -1,0 +1,16 @@
+Dear {% if member.name %}{{ member.name }}{% else %}{{ events[0]['eventData']['firstName'] }} {{events[0]['eventData']['lastName']}}{% endif %},
+
+Thank you for registering with CK-12's FlexBook System. We're sure you're eager to explore our excellent resources. Here are a few tips to help:
+
+
+    * Our content is divided into concepts and books. Concepts are great for learning or reviewing specific topics. Books provide in-depth details about a subject.
+    * Concepts and books can be edited to best match a teacher or learners needs.
+    * Please direct any questions or feedback to support@ck12.org. 
+
+
+Just get started from <a href="{{ site }}" target="_blank">here</a>. Enjoy these great resources!
+
+Sincerely,
+
+The CK-12 Team 
+

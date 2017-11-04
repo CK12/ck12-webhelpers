@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Create EmbeddedObject Association</title>
+    </head>
+    <body>
+        <form name="metadata" method="POST" action="{{ c.prefix }}/create/embeddedobject/association">
+            <table>
+                <tr>
+                    <td>
+                        Resource:
+                    </td>
+                    <td>
+                        <select name="resourceID" id="resource">
+                            <option value="" selected="selected">Select a resource</option>
+                            {% for resource in c.resources %}
+                            <option value="{{ resource['id'] }}">{{ resource['id'] }} - {{ resource['type'] }} - {{ resource['uri'] }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Embedded Objects:
+                    </td>
+                    <td>
+                        <select name="embeddedObjectID">
+                            <option value="" selected="selected">Select an embedded object</option>
+                            {% for eo in c.eos %}
+                            <option value="{{ eo['id'] }}">{{ eo['id'] }} - {{ eo['type'] }} - {{ eo['uri'] }} - {{ eo['hash'] }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" name="submit" value="OK" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

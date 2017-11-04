@@ -1,0 +1,14 @@
+{% extends "search/results_common.html" %}
+{% from "search/new/artifact.html" import ck12_grid_artifact with context %}
+{% block js %}
+{{ super() }}
+<script language="javascript" type="text/javascript" src="{{ h.url_js('flxweb.ui.grid.js') }}"></script>
+{% endblock %}
+
+{% block results_area %} 
+	<div id="contentgrid">
+	{% for artifact in c.search_paginator.current_page.items() %}
+		{{ ck12_grid_artifact(artifact) }}
+	{% endfor %}
+	</div>
+{% endblock %}

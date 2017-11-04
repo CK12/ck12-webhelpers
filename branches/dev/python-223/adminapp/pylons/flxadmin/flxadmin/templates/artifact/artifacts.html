@@ -1,0 +1,115 @@
+{% extends "listings.html" %}  
+
+{% block filters %} 
+  <div class="col tiny">Filter by:</div>
+  <div class="col med">
+    {{ h.labelselect('Type', 'type_filter', c.form.type_sel, 'filter')}}
+  </div>
+  <div class="col tiny">
+    {{ h.labelselect('Page Size', 'type_filter', c.form.pagesize_sel, 'filter')}}
+  </div>
+  <div class="col">
+    {{ h.labelinput('Creator Id', 'creatorID-filter', 'search-filter', placeholder='CK-12 Editor is 3')}}
+  </div>
+{% endblock %}
+
+{% block aftersearches %} 
+  {{ super() }}
+    <div class="clear efull">  
+        <div class="col">
+            {{ h.labelselect('Published Only', 'published', c.form.publish_sel, 'filter')}}
+        </div>
+        <div class="col wide">
+            {{ h.labelselect('Contribution Type', 'contribution_filter', c.form.contribution_sel, 'filter', disabled=True)}}
+        </div>
+        <div class="col xsml">
+            {{ h.labelreadonly('Start Date', 'fromDate', 'short searchby', '') }}
+        </div>
+        <div class="col xsml">
+            {{ h.labelreadonly('End Date', 'toDate', 'short searchby', '') }}
+        </div>
+  </div>
+  <div style="display:block">
+    <input id='disableListOnEmptySearch' type='checkbox' checked='true'>
+    <label>Disable Listing on Empty Searches</label>
+  </div>
+{% endblock %}
+
+{% block js_scripts %}
+{{ super() }}
+<script type='text/javascript'>
+  $(document).ready(function () {
+        $("#fromDate").datepicker({
+            dateFormat: 'dd-mm-yy',
+            maxDate: '+0d'
+        });
+        $("#toDate").datepicker({
+            dateFormat: 'dd-mm-yy',
+            maxDate: '+0d',
+            beforeShow: function () {
+                $(this).datepicker('option', 'minDate', $('#fromDate').val());
+            }
+        });
+                                 
+        function getDate(dayDiff){
+            var today = new Date();
+            today.setDate(today.getDate()-dayDiff);
+            var dd = today.getDate();
+            var mm = today.getMonth()+1; //January is 0!
+            var yyyy = today.getFullYear();
+            if(dd<10){
+                dd='0'+dd;
+            } 
+            if(mm<10){
+                mm='0'+mm;
+            } 
+            today = dd+'-'+mm+'-'+yyyy;
+        
+            return today
+        }
+        $('#published').off('change').on('change', function(e){
+            if ($(this).val() == 'published,true'){
+                $('#contribution_filter').removeAttr('disabled');
+                $('#search').val('');
+                $('#search').attr({'disabled':'disabled'});
+                $('#fromDate').removeAttr('disabled');
+                $('#toDate').removeAttr('disabled');
+                if (! $('#fromDate').val()){
+                    $('#fromDate').val(getDate(0));
+                    $('#toDate').val(getDate(30));
+                }
+            }else{
+                $('#contribution_filter').val("contribution_type,all");
+                $('#contribution_filter').attr({'disabled':'disabled'});
+                $('#search').removeAttr('disabled');
+                $('#fromDate').attr({'disabled':'disabled'});
+                $('#toDate').attr({'disabled':'disabled'});
+                $('#fromDate').val('');
+                $('#toDate').val('');
+            }
+        });
+        $('#fromDate').attr({'disabled':'disabled'});
+        $('#toDate').attr({'disabled':'disabled'});
+        
+        //Fix to select the filter, when opens artifact listing page from ugc contents page with artifact type
+        if (location.search.split('artifactType,')[1]){
+          $('#disableListOnEmptySearch').removeAttr('checked');
+          $('#type_filter').val('artifactType,' + location.search.split('artifactType,')[1]);
+        }
+        var updatePublishedFilter = true;
+        Listings({
+          sort: 'updateTime,desc',
+          ajaxRoot: CK12.admUrl('artifacts_list'),
+          formAjax: CK12.admUrl('artifact/'),
+          viewmode: '{{c.viewmode}}',
+          searchFilters: ['creatorID', 'groupID'],
+          postLoad: function(){
+            if (updatePublishedFilter){
+                updatePublishedFilter = false;
+                $('#published').change();
+            }
+          }
+        });
+    });
+</script>
+{% endblock %}

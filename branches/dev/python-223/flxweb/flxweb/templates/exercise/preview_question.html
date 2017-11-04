@@ -1,0 +1,35 @@
+{% extends "base/plain.html" %}
+{% from "exercise/exercise_macros.html" import ck12_display_exercise with context %}
+
+{% block stylesheets %}
+{% if not c.embed %}
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.url_css('details.css')}}"/>
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.url_css('style.css')}}"/>
+{% endif %}
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+{% if not c.embed %}
+<script>
+	require(['main'],function() {
+		require(['flxweb.exercise.common'],function(ExerciseModule) {
+			ExerciseModule.initExercise();
+		});
+	});
+</script>
+{% endif %}
+{% endblock %}
+
+{% block contentwrap %}
+<div class="questionpanel leftalign active">
+{{ ck12_display_exercise(c, render_context="preview") }}
+{% if c.embed %}
+<div class="acknowledge-message">
+<a id="keepquestion" > {{_('Keep This') }} </a>|
+<a id="deletequestion" > {{_('Delete') }} </a>
+</div>
+{% endif %}
+<div class="clear"></div>
+</div>
+{% endblock %}

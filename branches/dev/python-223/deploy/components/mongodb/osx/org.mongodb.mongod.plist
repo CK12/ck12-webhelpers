@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Copy to ~/Library/LaunchAgents/org.mongodb.mongod.plist -->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>org.mongodb.mongod</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/opt/runtime/mongodb/bin/mongod</string>
+    <string>run</string>
+    <string>--config</string>
+    <string>/opt/runtime/mongodb/conf/mongod.conf</string>
+    <string>--dbpath</string>
+    <string>/opt/runtime/mongodb-data/db</string>
+  </array>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>KeepAlive</key>
+  <false/>
+  <key>UserName</key>
+  <string>nimishr</string>
+  <key>WorkingDirectory</key>
+  <string>/opt/runtime</string>
+  <key>StandardErrorPath</key>
+  <string>/opt/runtime/mongodb/log/mongod.log</string>
+  <key>StandardOutPath</key>
+  <string>/opt/runtime/mongodb/log/mongod.log</string>
+</dict>
+</plist>

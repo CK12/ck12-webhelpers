@@ -1,0 +1,122 @@
+{% extends "details.html" %}  
+{% from "macros/form_errors.html" import form_errors with context %}  
+
+{% block admincontent %} 
+<div class="sectionhead sectiontitle">{{c.pagetitle}}</div>
+<div class="section withfloatedsubmit">
+  <form id="mainform" method="post" class="clickonly">
+    <div class="leftaligned">
+    {{ h.labelreadonly('Id', '_id', 'info xmed')}}
+    
+	{% for field in c.form.ordered_fields %}
+	    {{ field }}
+	{% endfor %}
+    {{ h.labeltextarea('Synonyms', 'synonyms', 5, 82)}}
+    </div>
+    {{ h.deletebutton('Delete')}}
+    {{ h.submitbutton(c.save_prefix, name='update')}}
+    {{ h.cancelbutton(c.cancel)}}
+    
+    <div><a id="newSynonym">New Synonym</a></div>
+  </form>
+</div>
+{% endblock %}
+{% block js_scripts %}
+<script type="text/javascript" src="{{ h.url_js('colorbox_popup_resize.js') }}"></script>
+<script type="text/javascript"> 
+$(document).ready(function(){
+    $('#view').colorbox(Defaults.overlay('flxweb'));
+    window.assessmentFrameListener = {
+            "resize": resize,
+    };
+    // Delete synonym 
+    var deleteSynonym = {
+	    confirmMsg : 'Are you sure to delete the Synonym?',
+	   	successMsg : 'Synonym deleted successfully',
+	   	this : null,
+   	              
+   	    deleteSynonymTask : function(){
+   	    	if (confirm(deleteSynonym.confirmMsg)){
+   	            deleteSynonym.this = $(this)
+   	            $(this).hide();
+   	            $.ajax({url: CK12.admroot + 'assessment/delete/answerSynonym/{{ c.synonym._id }}', 
+   	              type: 'POST', 
+   	              data:{'error_response_format':'JSON'},
+   	              success: function(data, status, xhr){
+   	                  $(deleteSynonym.this).show();
+   	                  try{
+   	                      data = $.parseJSON(data);
+   	                  }catch (e){
+   	                  }
+   	                  if (data && data.status == 'error'){
+   	                      var message = '';
+   	                      if(data.api_status_code){
+   	                          message += data.api_status_code;
+   	                      }
+   	                      if (data.response){
+   	                          message += ' - ' + data.response;
+   	                      }else{
+   	                          message += 'Unknow Reason'
+   	                      }
+   	                      alert('API Error: ' + message);
+   	                  }else{
+   	                      alert(deleteSynonym.successMsg);
+   	                      window.location.href = CK12.admUrl('assessment/synonyms');
+   	                  }
+   	              },
+   	              error: function(xhr, textStatus, errorThrown){
+   	                  alert('API Error: '+ Fns.formatResponseError(
+   	                  xhr, textStatus, errorThrown));
+   	              }
+   	           });
+   	         }
+   	      }
+   	    };
+   	    $("#delete").click(deleteSynonym.deleteSynonymTask);
+    
+	 
+   	// New synonym 
+   	var show_empty_validation_message = false;
+   	  $('#newSynonym').click(function(event, synonyms){
+   		  if (! show_empty_validation_message){
+   			  synonyms = prompt("Synonyms(Separated by comma)", '');
+   	      } else{
+   	    	  synonyms = prompt("Atleast two synonyms(words) must be specified (Separated by comma)", '');
+   	      }
+   		  if(synonyms){
+   			  data = {}
+   			  data['synonyms'] = synonyms
+   			  // AJAX call to create synonyms 
+   			  $.ajax({
+   		          "url" : "/assessment/api/create/answerSynonym",
+   		          "type" : "POST",
+   		          "dataType" : "json",
+   		          "data" : data,
+   		          "success" : function(response){
+   		              if(response.responseHeader.status === 0){
+   		                  alert("Synonyms created successfully");
+   		                  window.location.href = CK12.admUrl('/assessment/synonym/' + response.response.answerSynonym._id);
+   		              }else{
+   		                  alert(response.response.message);
+   		              }
+   		          },
+   		          "error" : function(){
+   		              alert("There is some problem while creating the synonym");
+   		          }
+   		      });
+   		  } else{
+   			  // If cancel is clicked 
+   			  if (synonyms === null){
+   	              show_empty_validation_message = false;
+   	              return false;
+   	          }
+   	          show_empty_validation_message = true;
+   	          $(this).trigger('click');
+   	          return false;
+   		  }
+   	  });   	    
+	
+});
+</script>
+{% endblock %}
+

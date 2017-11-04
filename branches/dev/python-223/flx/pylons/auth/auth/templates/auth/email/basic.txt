@@ -1,0 +1,25 @@
+Hello!
+
+As you requested, we are notifying you of the following events:
+
+{% for event in events %}
+    
+    {{ event['typeDesc'] }}
+
+    On: {{ event['created'] }}
+    {% if event['objectDict'] %}
+        For {{ event['objectType'] }}: {{ event['objectID'] }}
+        {{ event['objectDict'] }} 
+    {% elif event['objectID'] %}
+        For {{ event['objectType'] }}: {{ event['objectID'] }}
+    {% endif %}
+    {% if event['eventData'] %}
+    Event Data: {{ event['eventData'] }}
+    {% endif %}
+
+{% endfor %}
+
+--
+    CK-12 FlexBook System
+
+You are receiving this notification because you have subscribed to it. Please send an email to support@ck12.org if you do not want to receive these alerts.

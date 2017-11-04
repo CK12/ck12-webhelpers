@@ -1,0 +1,101 @@
+{% set artifact = c.artifact %}
+{% set exercise = c.exercise %}
+{% set scorecards = c.scorecards %}
+{% set exercise_mode = c.exercise_mode %}
+{% from "exercise/exercise_macros.html" import ck12_display_exercise with context %}
+{% from "exercise/exercise_macros.html" import ck12_display_add_exercise with context %}
+{% from "exercise/exercise_macros.html" import ck12_display_error_exercise with context %}
+<div id="exercisewrapper" class="active">
+{% if artifact.encodedID %}
+	{% if c.exercise_exist %}
+	<div id="quizresultwrapper" class="hide">  
+		<div id="quiz_results_tools">
+			<a class="btn secondary back_to_exercise_btn" title="{{ _('Back to Exercises')}}">{{ _('Back to Exercises')}}</a>
+			<a class="btn secondary take_quiz_btn" title="{{ _('Retake Quiz')}}">{{ _('Retake Quiz')}}</a>
+		</div>
+		<div id="quizresultssection">
+			{# include 'exercise/quiz_scorecard.html' #}
+		</div>
+	</div>
+	<div id="endpracticewrapper" class="hide">
+		{% include 'exercise/practice_end_form.html' %}
+	</div>	
+	<div id="exercisedetailwrapper">
+	<div id="leftexercisesection">
+		<h2 id="exercisetopbanner">{{ _('Practice what you&rsquo;ve learned')}}</h2>
+		<div class="divider"></div>
+		<div class="spacetoplarge"></div>
+	
+		<!-- Exercise content -->
+		{{ ck12_display_exercise(c) }}
+                <span id="js_reportExerciseError" class="js_disableContextmenu reportexerciseerror"><a href="{{ h.url(controller='exercise',action='reportError') }}" title="{{ _('Report issues about this question') }}">Report an Error</a></span>
+                <div class="clear"></div>
+	</div>
+	<div id="rightexercisesection" class="in"> 
+		<div id="arrow_marker">
+			<span class="banner_in_btn js_expand_toggle row_expand_toggle"><span class="imgwrap"></span></span>
+		</div>
+		
+		<div class="exercisebarwrap">
+		<!-- Embed Code -->
+		<div id="embed_exercise">
+		<h2>Embed</h2>
+		<textarea readonly name="embed_exercise_code" onClick="this.select();if(event.stopPropagation){event.stopPropagation;}event.cancelBubble=true;return false;" ><iframe width="540" height="440" frameborder="0" src="{{ request.host_url }}{{ h.url(controller='exercise', action='exercise_perma', exercise_title=artifact.handle, realm=None, ext=None, render_context="embed" ) }}"></iframe></textarea>
+		<p class="embed_txt">{{ _('This is our embed code.') }}</p>
+		</div>
+		<!--END Embed Code -->
+
+		<div id="exercise_extra_tools">
+			<a title="Create your own workbook with compiled exercises" class="exercise_tools_link" href="{{ _('%(url)s?in_etitle=%(title)s&in_enid=%(encodedid)s&in_ehandle=%(handle)s&in_artifactType=%(artifactType)s&in_realm=%(realm)s&in_branch=%(branch)s&in_domain=%(domain)s') % {'url':h.url(controller='exercise',action='create_workbook'),'title':artifact.title,'encodedid':artifact.encodedID,'handle':artifact.handle,'artifactType':artifact.artifactType,'realm':artifact.realm,'branch':artifact.branch,'domain':artifact.domain} }}">{{ _('Create Workbook') }}</a>
+			{% if c.user %}
+				<a class="exercise_tools_link" href="{{ h.url(controller='exercise_generator',action='addQuestionForExercise',exercise_title=artifact.handle, artifact_type=artifact.artifactType) }}" title="{{ _('Help us by contributing questions for this exercise') }}">{{ _("Contribute Questions") }}</a>
+			{% else %}
+				<a href="#" onClick="javascript:$.flxweb.alertToSignin();return false;" title="{{ _('Help us by contributing questions for this exercise') }}">{{ _("Contribute Questions") }}</a>
+			{% endif %}
+		</div>
+		</div> <!-- /excercisebarwrap -->
+
+		<div class="clear"></div>
+	</div>
+	<div class="clear"></div>
+	<div id="bottomexercisesection" >
+		<div class="divider"></div>
+		<div id="exercise_tools_wrapper" class="spacetoplarge">
+			{% if c.scorecardscount > 0 %}
+				<span id="quiz_btn_pretext">{{ _('Ready to Retest Yourself?') }}</span>
+			{% else %}
+				<span id="quiz_btn_pretext">{{ _('Ready to Test Yourself?') }}</span>
+			{% endif %}
+			<span id="exercise_tools">
+				{% if c.user %}
+					{% if c.scorecardscount > 0 %}
+						<a id="take_quiz_btn" class="btn take_quiz_btn" title="{{ _('Retake Quiz') }}">{{ _('Retake Quiz') }}</a>
+						<a class="view_quiz_results_btn" title="{{ _('See Quiz Results') }}">{{ _('See Quiz Results') }}</a>
+					{% else %}
+						<a id="take_quiz_btn" class="btn take_quiz_btn" title="{{ _('Take Quiz') }}">{{ _('Take Quiz') }}</a>
+						<a class="view_quiz_results_btn quiz_result_link_disable" title="{{ _('See Quiz Results') }}">{{ _('See Quiz Results') }}</a>
+					{% endif %}
+				{% else %}
+					<a class="btn" href="#" onClick="javascript:$.flxweb.alertToSignin();return false;" title="{{ _('Take Quiz') }}">{{ _('Take Quiz') }}</a>
+				{% endif %}
+
+			</span>
+		</div>
+	</div>
+        <div class="hide">
+		<div id="concept_encoding">{% if artifact.encodedID %}{{ artifact.encodedID }}{% endif %}</div>
+		<div id="concept_id">{% if artifact.artifactID %}{{ artifact.artifactID }}{% endif %}</div>
+		<div id="js_start_quiz_failed_message">{{ _('Sorry, There was an error starting the quiz. Please try again later') }}</div>
+        	<div id="loading_fetchquizresults" ><img src="{{ h.asset_image('images/icon_loading.gif') }}" width="43" height="11" class="x-ck12-img-nopopup" /> {{ _('Fetching Quiz Results ...') }} </div>
+        	<div data-dialogurl="/ajax/exercise/quiz/{{ artifact.encodedID }}?title={{ artifact.title }}" id="js_dialog_quiz"></div>
+	</div>
+	</div>
+
+	{% else %}
+		{{ ck12_display_add_exercise(c.artifact.title) }}
+	{% endif %}
+{% else %}
+	{{ ck12_display_error_exercise(c.artifact.title) }}
+{% endif %}
+<div id="exercise_mode" data-mode={{ exercise_mode }}></div>
+</div>

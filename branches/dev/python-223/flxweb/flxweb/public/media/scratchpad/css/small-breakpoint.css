@@ -1,0 +1,63 @@
+/** FOR MOBILE VIEW  */
+
+@media screen and (max-width: 600px) {
+  
+  .annotation-tool-wrapper.hide {
+    display:none !important;
+  }
+
+  .annotation-tool-wrapper {
+    position: fixed;
+    z-index : 2;
+  }
+  .mobile-state-1 {
+    padding-top: 20px;
+    position: absolute;
+    right: 10px;
+    top: -42px;
+    color: #F63;
+  }
+
+  .mobile-tools {
+    padding-top: 20px;
+  }
+
+  .hide-tools-mobile .mobile-state-1 {
+    right: 10px;
+    top: 10px;
+    left: inherit;
+  }
+  .mobile-only {
+    display: inherit !important; /* BUG in IE, IE doesn't handle 'initial' like the others do... */
+  }
+  .annotation-tools .tool {
+    display: inline-block;
+    color: #00ABA4;
+  }
+  .tools{
+    padding-top: 20px;
+  }
+  .tools .js-back {
+    margin-right: 2px;
+    margin-left: 2px;
+    display: inline-block !important;
+  }
+  .tools .js-back::before {
+    position: absolute;
+    left:0;
+    -webkit-transform: matrix(-1,0,0,1,8,4);
+    -moz-transform: matrix(-1,0,0,1,8,4);
+    -ms-transform: matrix(-1,0,0,1,8,4);
+    transform: matrix(-1,0,0,1,8,4);
+  }
+  .hide-tools-mobile .tools {
+    right: -500px;
+  }
+  .mobile-state-1 .tool {
+    font-size: 22px;
+  }
+  .mobile-state-1 .icon-close {  /*story #85254482 */
+		font-size: 16px;
+		line-height : 25px;
+  }		
+}

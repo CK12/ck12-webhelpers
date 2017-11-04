@@ -1,0 +1,82 @@
+<div class="modal-like-content-wrapper">
+    <div class="modal-like-content">
+        <div class="corner-image">
+            <img src="/media/forums/images/girl_happy2.png">
+        </div>
+        <h5 class="modal-like-header">Start a Discussion</h5>
+        <div class="row collapse new-forum-title">
+            <div class="large-7 column large-offset-4 create-error-message"></div>
+            <div class="large-3 large-offset-1 columns">
+                <span class="forum-name-label banner-label">Title: </span>
+                <div class="hint">(required)</div>
+            </div>
+            <div class="large-7 columns left">
+                <input type="text" id="forum-name" placeholder="What's your headline?" class="username-textbox banner-text" maxlengdiv="60">
+            </div>
+        </div>
+        <div class="row collapse new-forum-tagline">
+            <div class="large-3 large-offset-1 columns">
+                <span class="left inline user-data">
+                    <span class="forum-name-label">Tagline: </span>
+                    <div class="hint">(optional - limited to 80 characters)</div>
+                </span>
+            </div>
+            <div class="large-7 columns left">
+                <input type="text" id="forum-tagline" placeholder="Tagline" class="username-textbox banner-text" maxlength="80">
+            </div>
+        </div>
+        <div class="row collapse new-forum-description">
+            <div class="large-3 large-offset-1 columns">
+                <span class="left inline user-data">
+                    <span class="forum-name-label">Describe your discussion: </span>
+                    <div class="hint">(optional)</div>
+                </span>
+            </div>
+            <div class="large-7 columns left">
+                <textarea id="forum-description" placeholder="What's this discussion about." class="tangerine-textarea new-forum-description"></textarea>
+            </div>
+        </div>
+        <div class="row collapse new-forum-tagline">
+            <div class="large-3 large-offset-1 columns">
+                <span class="left inline user-data">
+                    <span class="forum-name-label">Who can see this? </span>
+                    <div class="hint">(choose roles that apply)</div>
+                </span>
+            </div>
+            <div class="large-7 columns left">
+                <div class="custom-box large-4 columns">
+					<input type="checkbox" id="checkbox1">
+					<label for="checkbox1" class="checkbox"><span><i class="icon-validated"></i></span> Students</label>
+				</div>
+                <div class="custom-box large-8 columns">
+					<input type="checkbox" id="checkbox2">
+					<label for="checkbox2" class="checkbox"><span><i class="icon-validated"></i></span> Teachers</label>
+				</div>
+            </div>
+        </div>
+        <div class="row collapse">
+            <div class="large-3 large-offset-1 columns">
+                <span class="left inline user-data">
+                    <span class="forum-name-label">Upload Image: </span>
+                </span>
+            </div>
+            <div class="large-7 columns left">
+                <input type="file" id="forum_image"/>
+            </div>
+        </div>
+        <div class="row collapse modal-like-buttons">
+            <div class="large-8 large-offset-4 columns">
+                <a class="button standard tangerine dusty-grey hide-for-small left create-cancel-btn" id="create-forum-cancel">Cancel</a>
+
+                <div class="button-center">
+                    <a class="show-for-small create-cancel-btn" id="create-forum-cancel">Cancel</a>
+                    <div class="spin-container hide">
+                        <div class="spinner"></div>
+                    </div>
+                    <a class="button standard tangerine" id="create-forum-final">
+                    Create Discussion</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

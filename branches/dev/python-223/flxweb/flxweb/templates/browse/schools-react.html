@@ -1,0 +1,26 @@
+{% extends "common/master.html" %}
+{% block title %}{{ _("Schools using CK-12") }}{% endblock %}
+
+{% block stylesheets %}
+{{ super() }}
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('schools/css/schools.css') }}" />
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+<script>
+    require(['main'], function(){
+        require(['schools/schools-react']);
+    });
+</script>
+{% endblock %}
+
+
+{% block header %}
+{{ super() }}
+
+{% endblock %}
+{% block contentwrap %}
+<div id="schoolMainContainer" class="collapse smooth-text"></div>
+<div id="sharePlaneWrapper" class="row relative share-plane-container hide"></div>
+{% endblock %}

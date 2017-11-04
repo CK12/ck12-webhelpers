@@ -1,0 +1,1300 @@
+Level 1,Level 2,Level 3,Level 4,Level 5,Level 6,Handle,EncodedID,Original EncodedIDs,Description
+Overview of Chemistry,,,,,,,SCI.CHE.001,,
+,Introduction to Chemistry ,,,,,,SCI.CHE.002,,
+,,Scope of Chemistry,,,,,SCI.CHE.003,"SCI.CHE.111.1, 
+SCI.PSC.111.51,
+SCI.CHE.100,
+SCI.CHE.110","Composition, structure, properties, characteristics, and reactions of matter."
+,,Scope of Physical Science,,,,,SCI.CHE.004,"SCI.PSC.111.5,
+SCI.CHE.115",The study of matter and energy.
+,,History of Science,,,,,SCI.CHE.005,"SCI.PSC.111.4,
+SCI.CHE.114",Examples of major events in science and how they have shaped the field.
+,,History of Chemistry ,,,,,SCI.CHE.006,"SCI.CHE.111.2,
+SCI.PSC.111.12",Names early scientists and their findings.
+,,Alchemy,,,,,SCI.CHE.007,"SCI.CHE.113.7,
+SCI.PSC.111.37",Science that was used in the Middle Ages with the goal of changing ordinary metals into gold.
+,,Areas of Chemistry,,,,,SCI.CHE.008,"SCI.CHE.113,
+SCI.PSC.111.3",Defines the five branches of chemistry.
+,,Pure and Applied Chemistry,,,,,SCI.CHE.009,"SCI.CHE.113.1,
+SCI.PSC.111.31",Defines two different types of research.
+,,Energy in Chemistry ,,,,,SCI.CHE.010,"SCI.CHE.113.2,
+SCI.PSC.111.32",Exchange of energy during chemical reactions.
+,,Medicine,,,,Medicine-in-Chemistry,SCI.CHE.011,"SCI.CHE.113.3,
+SCI.PSC.111.33",Chemical contributions to the medical sciences.
+,,Agriculture,,,,Agriculture-in-Chemistry,SCI.CHE.012,"SCI.CHE.113.4,
+SCI.PSC.111.34",Chemical contributions to farming and agriculture.
+,,Materials,,,,,SCI.CHE.013,"SCI.CHE.113.5,
+SCI.PSC.111.35",Describes the role of chemistry in electronics and textiles.
+,,The Environment ,,,,,SCI.CHE.014,"SCI.CHE.113.6,
+SCI.PSC.111.36",Environmental waste produced by chemistry and the role of chemistry in recycling.
+,,Research,,,,,SCI.CHE.015,SCI.CHE.112,"Describes collaboration, communication, research, and funding within the scientific community."
+,,Women and People of Color in Science ,,,,,SCI.CHE.016,"SCI.PSC.111.42,
+SCI.CHE.114.2",Contributions to the sciences by specific groups and challenges that they have faced.
+,,Ethics in Science ,,,,,SCI.CHE.017,"SCI.PSC.111.44,
+SCI.CHE.114.4",Ethics guide scientific research and application of new technologies.
+,,Physical Science Careers,,,,,SCI.CHE.018,"SCI.PSC.111.53,
+SCI.CHE.115.3",Describes some careers in the physical sciences and the preparation needed to become a physical scientist.
+,Scientific Investigation ,,,,,,SCI.CHE.019,,  
+,,"
+Nature of Science ",,,,,SCI.CHE.020,"
+SCI.PSC.111.2",Defines science and discusses how science advances.
+,,Inductive Reasoning ,,,,,SCI.CHE.021,"SCI.PSC.111.22,
+SCI.CHE.112.2",Drawing general conclusions from evidence as the basis for scientific method.
+,,Scientific Theory,,,,,SCI.CHE.022,"SCI.PSC.111.23,
+SCI.CHE.112.3",A summary of a hypothesis or group of hypotheses that have been supported with repeated testing and data.
+,,Scientific Law,,,,,SCI.CHE.023,"SCI.PSC.111.24,
+SCI.CHE.112.4",Statements describing what always happens under certain conditions and how that differs from a scientific theory.
+,,Scientific Method ,,,,Scientific-Method-in-Chemistry,SCI.CHE.024,"SCI.CHE.112.1,
+SCI.PSC.111.7",Early Greek Philosophers role in developing the scientific method.
+,,Observation,,,,,SCI.CHE.025,"SCI.PSC.111.71,
+SCI.CHE.117.1","We use our senses to gather evidence for scientific investigations, they're our most powerful tools."
+,,Hypothesis,,,,,SCI.CHE.026,"SCI.PSC.111.72,
+SCI.CHE.117.2","Testable, falsifiable statements are essential to the scientific process."
+,,Experiment,,,,Experiment-in-Chemistry,SCI.CHE.027,"SCI.PSC.111.73,
+SCI.CHE.117.3",The controlled study of real world phenomena.
+,,Scientific Measuring Devices,,,,,SCI.CHE.028,"SCI.PSC.113.7,
+SCI.CHE.137",Discusses how to correctly use instruments for measuring volume and mass.
+,,Field Study ,,,,,SCI.CHE.029,"SCI.PSC.111.74,
+SCI.CHE.117.4",Discusses the scientific analysis of real-world environments.
+,,Communication in Science,,,,,SCI.CHE.030,"SCI.PSC.111.75,
+SCI.CHE.117.5",Emphasizes the importance of scientists sharing their knowledge with each other.
+,,Replication in Science,,,,,SCI.CHE.031,"SCI.PSC.111.76,
+SCI.CHE.117.6",Scientific experiments must be repeated to show they consistently produce the same result.
+,,Laboratory Safety ,,,,,SCI.CHE.032,"SCI.PSC.111.8,
+SCI.CHE.118        ",Outlines the hazards of scientific research and how scientists stay safe.
+,Technology ,,,,,,SCI.CHE.033,,  
+,,Nature of Technology,,,,,SCI.CHE.034,"SCI.PSC.111.61,
+SCI.CHE.116.1,
+SCI.CHE.116,
+SCI.PSC.111.6",Discusses how science and knowledge are applied to solve real-world problems.
+,,Technological Design Process,,,,,SCI.CHE.035,"SCI.PSC.111.62,
+SCI.CHE.116.2",The process by which knowledge is developed into physical solutions to solve problems.
+,,Technological Design Constraints,,,,,SCI.CHE.036,"SCI.PSC.111.63,
+SCI.CHE.116.3",Many factors guide and limit the creation of new technologies.
+,,Technology and Science,,,,,SCI.CHE.037,"SCI.PSC.111.64,
+SCI.CHE.116.4",Illustrates how inventions made using scientific knowledge support new scientific exploration.
+,,Technology and Society,,,,,SCI.CHE.038,"SCI.PSC.111.65,
+SCI.CHE.116.5",New inventions can have positive and negative influences on society.
+,,Technology Careers,,,,,SCI.CHE.039,"SCI.PSC.111.66,
+SCI.CHE.116.6","Engineers are professionals that design, build and repair technology."
+Matter and Change,,,,,,,SCI.CHE.050,,  
+,Properties of Matter,,,,,,SCI.CHE.051,,  
+,,"Matter, Mass, and Volume    ",,,,,SCI.CHE.052,"SCI.PSC.112.12,
+SCI.CHE.121.2",Defines what makes up our physical world and how we measure it.
+,,Pure Substance,,,,,SCI.CHE.053,SCI.CHE.121.5,Difference between compounds and elements.
+,,Physical Properties,,,,,SCI.CHE.054,"SCI.CHE.121.3,
+SCI.PSC.112.13,
+SCI.CHE.121,
+SCI.PSC.112.1",Discusses characteristics used to describe matter and what they mean.
+,,Extensive and Intensive Properties,,,,,SCI.CHE.055,SCI.CHE.121.6,Types of attributes used to describe matter.
+,,States of Matter ,,,,,"SCI.CHE.056
+","SCI.CHE.121.1,
+SCI.PSC.141,
+SCI.CHE.410",Characteristics associated with three different states of matter.
+,,Solid,,,,,SCI.CHE.057,"SCI.PSC.141.3,
+SCI.CHE.413",Introduction to one of the four states of matter.
+,,Liquid,,,,,SCI.CHE.058,"SCI.PSC.141.2,
+SCI.CHE.412",Introduction to one of the four states of matter where particles can slip past one another and take the shape of their container.
+,,Gas,,,,,SCI.CHE.059,"SCI.PSC.141.1,
+SCI.CHE.411",Introduction to one of the four states of matter that has no fixed volume or shape.
+,,Plasma,,,,,SCI.CHE.060,"SCI.PSC.141.5,
+SCI.CHE.415",Introduces the state of matter that resembles a gas but has certain unique properties.
+,,"Physical Change
+",,,,,"SCI.CHE.061
+","SCI.CHE.122,
+SCI.PSC.112.2,
+SCI.CHE.120,
+SCI.PSC.112",Discusses how matter can change its shape without changing its chemical identity.
+,Classification of Matter,,,,,,SCI.CHE.062,,  
+,,Mixture,,,,,SCI.CHE.063,"SCI.PSC.112.21,
+SCI.CHE.122.1",Distinguishes combinations of compounds from true compounds.
+,,Homogeneous Mixture,,,,,SCI.CHE.064,"SCI.CHE.122.2,
+SCI.PSC.112.22",Uniform composition throughout.
+,,Heterogeneous Mixture,,,,,SCI.CHE.065,"SCI.CHE.122.3,
+SCI.PSC.112.23",MIxtures that have an inconsistent composition.
+,,Separating Mixtures ,,,,,SCI.CHE.066,"SCI.CHE.122.4,
+SCI.PSC.112.24",Outlines five common ways to separate mixtures.
+,,"Element
+",,,,,SCI.CHE.067,"SCI.CHE.123.1,
+SCI.PSC.112.31,
+SCI.CHE.123",The simplest form of matter.
+,,"Compound
+",,,,,SCI.CHE.068,"SCI.CHE.123.2,
+SCI.PSC.112.32",Two or more elements combined in a fixed proportion.
+,Changes in Matter,,,,,,SCI.CHE.069,,  
+,,"Chemical Change
+",,,,,SCI.CHE.070,"SCI.CHE.124.1,
+SCI.PSC.112.41,
+SCI.CHE.124,
+SCI.PSC.112.4,
+SCI.PSC.112.3",Combination or breakdown of elements to form new substances.
+,,Chemical Symbols and Formulas,,,,,SCI.CHE.071,"SCI.CHE.124.2,
+SCI.PSC.112.42",How to write chemical reactions. 
+,,Chemical Properties and Chemical Reactions,,,,,SCI.CHE.072,"SCI.CHE.124.3,
+SCI.PSC.112.14",Describes characteristics of matter that may or may not allow them to undergo chemical changes.
+,,"Reactants and Products
+",,,,,SCI.CHE.073,"SCI.CHE.124.4,
+SCI.PSC.112.44",The materials involved in a chemical reaction.
+,,Recognizing Chemical Reactions,,,,,SCI.CHE.074,SCI.CHE.124.5,Visual clues that indicate a chemical reaction is occurring.
+Measurements,,,,,,,SCI.CHE.100,,
+,International System of Units ,,,,,,SCI.CHE.101,,  
+,,SI Base Units ,,,,,SCI.CHE.102,"SCI.CHE.131.1,
+SCI.PSC.113.1,
+SCI.CHE.131,
+SCI.PSC.113.1",Seven units that all other metric units are based on.
+,,Metric Prefixes,,,,,SCI.CHE.103,"SCI.CHE.131.2,
+SCI.PSC.113.12",Abbreviations used to distinguish units of different size.
+,,Scientific Notation,,,,Scientific-Notation-in-Chemistry,SCI.CHE.104,"SCI.CHE.131.3,
+SCI.PSC.113.13",Express very large or very small numbers in a convenient way.
+,,Length and Volume,,,,,SCI.CHE.105,"SCI.CHE.131.4,
+SCI.PSC.113.14",Measurements that represent space and length. 
+,,Mass and Weight ,,,,,SCI.CHE.106,"SCI.CHE.131.5,
+SCI.PSC.113.15",Measurements that represent matter or the force of gravity related to an object.
+,,Kinetic Energy,,,,Kinetic-Energy-in-Chemistry,SCI.CHE.107,"SCI.CHE.131.6,
+SCI.PSC.113.16",Measurements that represent matter or the force of gravity related to an object.
+,,Temperature and Temperature Scales,,,,,SCI.CHE.108,"SCI.CHE.131.7,
+SCI.PSC.113.17",Measure of particle movement within matter. 
+,Unit Conversions ,,,,,Unit-Conversions-in-Chemistry,SCI.CHE.109,,  
+,,Dimensional Analysis,,,,Dimensional-Analysis-in-Chemistry,SCI.CHE.110,"SCI.CHE.132.1,
+SCI.PSC.113.21",Use ratios of equivalent units to solve problems.
+,,Metric Unit Conversions,,,,,SCI.CHE.111,"SCI.CHE.132.2,
+SCI.PSC.113.22,
+SCI.CHE.132,
+SCI.PSC.113.2",Convert from one unit to another.  Example: Convert from meters to millimeters.
+,,Derived Units,,,,,SCI.CHE.112,"SCI.CHE.132.3,
+SCI.PSC.113.23",A combination of SI base units.  Example: Joules. 
+,,"Density
+",,,,,SCI.CHE.113,"SCI.CHE.132.4,
+SCI.PSC.113.24",A measure of how tightly the matter in a substance is packed together. The ratio of the mass of an object to its volume.
+,,Calculating Derived Quantities,,,,,SCI.CHE.114,"SCI.PSC.113.32,
+SCI.CHE.133.2",Measurements can be used in combination to describe physical objects in greater detail.
+,Uncertainty in Measurement,,,,,,SCI.CHE.115,,  
+,,"Accuracy and Precision 
+",,,,,SCI.CHE.116,"SCI.CHE.133.1,
+SCI.PSC.113.31",Data that is close to a measured value versus data that is grouped closely together.
+,,Percent Error,,,,,SCI.CHE.117,"SCI.CHE.133.3,
+SCI.PSC.113.33",Calculating mistakes in measurements.
+,,Measurement Uncertainty,,,,,SCI.CHE.118,"SCI.CHE.133.4,
+SCI.PSC.113.34,
+SCI.CHE.133,
+SCI.PSC.113.3,",Data that is affected by the quality of the measuring tool.
+,,"Significant Figures
+",,,,,SCI.CHE.119,"SCI.CHE.133.5,
+SCI.PSC.113.35,
+SCI.PSC.113",Measurements and calculations with scientific units that reflect the accuracy of original measurements.
+,,Rounding,,,,,SCI.CHE.120,"SCI.CHE.133.6,
+SCI.PSC.113.36",Adjust number to account for the proper number of significant digits.
+,,Significant Figures in Addition and Subtraction,,,,,SCI.CHE.121,"SCI.CHE.133.8,
+SCI.PSC.113.38",Rounding according to the measurement with the least number of decimal places.
+,,Significant Figures in Multiplication and Division,,,,,SCI.CHE.122,"SCI.CHE.133.7,
+SCI.PSC.113.37",Round according to the number with the least number of significant figures.
+,,Descriptive Statistics ,,,,,SCI.CHE.123,"SCI.PSC.113.4,
+SCI.CHE.134",Describes statistical terms that allow rapid understanding of large amounts of data.
+,,Graphing,,,,,SCI.CHE.124,"SCI.PSC.113.5,
+SCI.CHE.135",Illustrates how scientific data is presented visually.
+,,Modeling,,,,,SCI.CHE.125,"SCI.PSC.113.6,
+SCI.CHE.136",Scientists use simple representations of complex processes to develop ideas.
+Atomic Structure,,,,,,,SCI.CHE.150,,  
+,Atomic Models and Theories,,,,,,SCI.CHE.151,,  
+,,"Democritus' Idea of the Atom
+",,,,,SCI.CHE.152,"SCI.CHE.211.1,
+SCI.PSC.121.11","Introduces the idea of the atom as the basic, indivisible building block of matter."
+,,"Law of Conservation of Mass
+",,,,,SCI.CHE.153,"SCI.CHE.211.2,
+SCI.PSC.121.12",Mass of products equals mass of the reactants.
+,,Law of Definite Proportions,,,,,SCI.CHE.154,"SCI.CHE.211.3,
+SCI.PSC.121.13",Compounds contain the same elements in the same proportion by mass.
+,,Law of Multiple Proportions,,,,,SCI.CHE.155,"SCI.CHE.211.4,
+SCI.PSC.121.14",Elements combine in the ratio of small whole numbers.
+,,Mass Ratio Calculation,,,,,SCI.CHE.156,"SCI.CHE.211.5,
+SCI.PSC.121.15",The mass of an element that is found in combination with another element.
+,,"Dalton's Atomic Theory
+",,,,,SCI.CHE.157,"SCI.CHE.211.6,
+SCI.PSC.121.16",Pioneering work in the development of the modern understanding of the atom. Matter consists of indivisible particles called atoms.
+,,Atom,,,,,SCI.CHE.158,"SCI.PSC.121.1,
+SCI.CHE.211,
+SCI.CHE.210,
+SCI.PSC.121",Describes the building blocks of matter.
+,The Nuclear Model of the Atom,,,,,,SCI.CHE.159,,  
+,,"Electron
+",,,,,SCI.CHE.160,"SCI.CHE.212.2,
+SCI.PSC.121.22,
+SCI.CHE.220,
+SCI.PSC.122",Defining characteristics of negatively charged subatomic particles and their role in atomic structure.
+,,"Proton
+",,,,,SCI.CHE.161,"SCI.CHE.212.4,
+SCI.PSC.121.24",Defining characteristics of positively charged sub atomic particles and their role in atomic structure.
+,,"Neutron
+",,,,,SCI.CHE.162,"SCI.CHE.212.5,
+SCI.PSC.121.25",Defining characteristics of neutrally charged sub atomic particles and their role in atomic structure.
+,,Cathode Ray Tube,,,,,SCI.CHE.163,"SCI.CHE.212.1,
+SCI.PSC.121.21",Famous experiment that proved the existence of electrons.
+,,Oil Drop Experiment,,,,,SCI.CHE.164,"SCI.CHE.212.3,
+SCI.PSC.121.23",Experiments that prove the charge of a single electron.
+,,Plum Pudding Atomic Model ,,,,,SCI.CHE.165,"SCI.CHE.212.6,
+SCI.PSC.121.26",Thomson's discovery of the electron and the plum pudding model of the atom. Negative electrons embedded in a positively charged sphere.
+,,Gold Foil Experiment,,,,,SCI.CHE.166,"SCI.CHE.212.7,
+SCI.PSC.121.27",Rutherford's discovery of the nucleus and the planetary model of the atom. Role of gold foil experiment in refining the atomic model.
+,,Fundamental Particles ,,,,Fundamental-Particles-in-Chemistry,SCI.CHE.167,SCI.PSC.251.3,Introduction to the theory known as The Standard Model.
+,,Atomic Forces,,,,Atomic-Forces-in-Chemistry,SCI.CHE.168,SCI.PSC.251.4,Introduction to the three different forces acting inside of an atom.
+,,"Atomic Nucleus
+",,,,,SCI.CHE.169,"SCI.CHE.213.1,
+SCI.PSC.121.31,
+SCI.CHE.212,
+SCI.PSC.121.2",Multiple theories on what is at the center of the atom.
+,Isotopes and Atomic Mass,,,,,,SCI.CHE.170 ,,  
+,,"Atomic Number 
+",,,,,SCI.CHE.171,"SCI.CHE.213.2,
+SCI.PSC.121.32",Explains the arrangement of the periodic table and the relationship between subatomic particles.
+,,Mass Number,,,,,SCI.CHE.172,"SCI.CHE.213.3,
+SCI.PSC.121.33",Numerical relationship between protons and neutrons.
+,,"Isotope
+",,,,,SCI.CHE.173,"SCI.CHE.213.4,
+SCI.PSC.121.34,
+SCI.CHE.213,
+SCI.PSC.121.3",Forms of the same element that contain different numbers of neutrons.
+,,Atomic Mass Unit,,,,,SCI.CHE.174,"SCI.CHE.213.5,
+SCI.PSC.121.35",Standard unit based on Carbon-12: 1.66 x 10 to the 27th kg.
+,,Calculating Atomic Mass,,,,,SCI.CHE.175,"SCI.CHE.213.6,
+SCI.PSC.121.36",Protons and Neutrons make up the mass of an atom.
+,Light and The Bohr Model,,,,,Light-in-Chemistry,SCI.CHE.201,,  
+,,Electromagnetic Spectrum ,,,,Electromagnetic-Spectrum-in-Chemistry,SCI.CHE.202,"SCI.CHE.221.1,
+SCI.PSC.122.11,
+SCI.CHE.221,
+SCI.PSC.122.1",Characteristics of the electromagnetic spectrum. 
+,,Wavelength and Frequency Calculations,,,,,SCI.CHE.203,"SCI.CHE.221.2,
+SCI.PSC.122.12",Relationship between the repeating pattern of peaks and valleys within a wave.  
+,,Quantization of Energy,,,,,SCI.CHE.204,"SCI.CHE.221.3,
+SCI.PSC.122.13",Relationship between the energy gained or lost by an object.
+,,Photoelectric Effect,,,,Photoelectric-Effect-in-Chemistry,SCI.CHE.205,"SCI.CHE.221.4,
+SCI.PSC.122.14",Light acts like both a particle and a wave.
+,,Atomic Emission Spectra,,,,,SCI.CHE.206,"SCI.CHE.221.5,
+SCI.PSC.122.15",Light emitted by an element when electricity is run through it.
+,,"Bohr's Atomic Model
+",,,,Bohrs-Atomic-Model-in-Chemistry,"SCI.CHE.207
+","SCI.CHE.221.6,
+SCI.PSC.122.16",Model of atom showing energy levels where electrons are orbiting the nucleus.  
+,,Spectral Lines of Hydrogen,,,,,SCI.CHE.208,"SCI.CHE.221.7,
+SCI.PSC.122.17",Emission lines are related to electron transitions.
+,The Quantum Mechanical Model,,,,,,SCI.CHE.209,,  
+,,de Broglie Wave Equation,,,,,SCI.CHE.210,"SCI.CHE.222.3,
+SCI.PSC.122.23",Calculate the wavelength of a moving object.
+,,Quantum Mechanics,,,,,SCI.CHE.211,"SCI.CHE.222.4,
+SCI.PSC.122.24",Study of motion of atomic or subatomic particles.
+,,Heisenberg Uncertainty Principle,,,,,SCI.CHE.212,"SCI.CHE.222.5,
+SCI.PSC.122.25",Determine the position and the velocity of a particle.
+,,"Quantum Mechanical Atomic Model
+",,,,Quantum-Mechanical-Atomic-Model-in-Chemistry,SCI.CHE.213,"SCI.CHE.222.6,
+SCI.PSC.122.22,
+SCI.CHE.222","Electrons travel in waves, which means their exact positions cannot be determined. This model estimates the location of an electron within an atom."
+,,"Energy Levels, Orbitals, and Quantum Numbers ",,,,,SCI.CHE.214,,"Overview of electron shells, electron mapping, and the location of electrons within atoms."
+,,Energy Level ,,,,,SCI.CHE.215,"SCI.PSC.122.21,
+SCI.CHE.222.1",Introduction to electron shells; fixed distances from the nucleus of an atom where electrons may be found.
+,,Orbital,,,,,SCI.CHE.216,"SCI.CHE.222.8,
+SCI.PSC.122.28",Map of electrons for a given atom.
+,,Quantum Numbers,,,,,SCI.CHE.217,"SCI.CHE.222.7,
+SCI.PSC.122.27",Determining the location of an electron within an atom.
+,Electron Arrangement in Atoms,,,,,,SCI.CHE.218,,  
+,,Aufbau Principle,,,,,SCI.CHE.219,"SCI.CHE.223.2,
+SCI.PSC.122.32",Describes electron configuration within an atom.
+,,Pauli Exclusion Principle,,,,,SCI.CHE.220,"SCI.CHE.223.3,
+SCI.PSC.122.33",Spin differentiates electrons within the same orbital.
+,,Hund's Rule and Orbital Filling Diagrams,,,,,SCI.CHE.221,"SCI.CHE.223.4,
+SCI.PSC.122.34",The order that electrons fill atomic orbitals.
+,,Electron Configurations,,,,,SCI.CHE.222,"SCI.CHE.223.6,
+SCI.PSC.122.36,
+SCI.CHE.223.1,
+SCI.PSC.122.31",Notation used to indicate electrons location within an atom.
+,,"Valence Electrons
+",,,,,SCI.CHE.223,"SCI.CHE.223.7,
+SCI.PSC.122.37",Relationship between outer shell electrons and atomic reactivity.
+,,Noble Gas Configuration,,,,,SCI.CHE.224,"SCI.CHE.223.8,
+SCI.PSC.122.38",Shortening electron configurations using symbols.
+The Periodic Table,,,,,,,SCI.CHE.250,,  
+,History of the Periodic Table,,,,,,SCI.CHE.251,,  
+,,Early History of the Periodic Table,,,,,SCI.CHE.252,"SCI.CHE.231.1,
+SCI.PSC.123.11,
+SCI.PSC.123.1,
+SCI.CHE.231",Two early attempts to organize the known elements.
+,,"Mendeleev's Periodic Table
+       ",,,,,SCI.CHE.253,"SCI.CHE.231.2,
+SCI.PSC.123.12",A method for organizing elements based on their atomic mass.
+,,Periodic Law,,,,,SCI.CHE.254,"SCI.CHE.231.3,
+SCI.PSC.123.13",Properties of elements are periodic functions of their atomic numbers.
+,,"
+Modern Periodic Table        ",,,,,SCI.CHE.255,"SCI.CHE.231.4,
+SCI.PSC.123.14,
+SCI.CHE.230,
+SCI.PSC.123",Elements are arranged by increasing atomic number instead of atomic mass.
+,,"Metals
+  ",,,,,SCI.CHE.256,"SCI.CHE.231.5,
+SCI.PSC.123.15",Introduces properties and characteristics of the largest group of elements.
+,,"Nonmetals
+",,,,,"SCI.CHE.257
+","SCI.CHE.231.6,
+SCI.PSC.123.16",Introduces properties and characteristics of the second largest group of elements. 
+,,"Metalloids
+",,,,,"SCI.CHE.258
+","SCI.CHE.231.7,
+SCI.PSC.123.17",Introduces properties and characteristics of the smallest group of elements. 
+,Electron Configuration and the Periodic Table ,,,,,,SCI.CHE.259,,  
+,,Blocks of the Periodic Table,,,,,SCI.CHE.260,"
+SCI.CHE.232.1,
+SCI.CHE.232,
+SCI.PSC.123.2",Introduces properties of the largest group of elements.
+,,"Hydrogen and Alkali Metals
+",,,,,SCI.CHE.261,"SCI.CHE.232.2,
+SCI.PSC.123.22",Characteristics of Group 1 of the periodic table.
+,,"Alkaline Earth Metals
+",,,,,SCI.CHE.262,"SCI.CHE.232.3,
+SCI.PSC.123.23",Characteristics of Group 2 of the periodic table.
+,,"Noble Gases
+",,,,,SCI.CHE.263,"SCI.CHE.232.4,
+SCI.PSC.123.24",Electron configuration and compounds of Group 18 of the periodic table.
+,,"Halogens
+",,,,,SCI.CHE.264,"SCI.CHE.232.5,
+SCI.PSC.123.25",Properties of Group 17 of the periodic table.
+,,"Transition Metals 
+",,,,,SCI.CHE.265,"SCI.CHE.232.6,
+SCI.PSC.123.26",Characteristics and electron configuration of Group 3-12 of the periodic table.
+,,Groups with Metalloids ,,,,,SCI.CHE.266,"SCI.PSC.123.28,
+SCI.CHE.232.8",Characteristics of Groups 13 - 16 of the periodic table.
+,,Lanthanides and Actinides,,,,,SCI.CHE.267,"SCI.CHE.232.7,
+SCI.PSC.123.27",Electron configuration and general uses.
+,Periodic Trends,,,,,,SCI.CHE.268,,  
+,,Periodic Trends: Atomic Radius,,,,,SCI.CHE.269,"SCI.CHE.233.1,
+SCI.PSC.123.31,
+SCI.CHE.233,
+SCI.PSC.123.3",The size of an atom.  Measured from the center of the nucleus to the outside of the electron cloud. 
+,,Ions and Ion Formation,,,,,SCI.CHE.270,"SCI.PSC.125.1,
+SCI.CHE.251,
+SCI.PSC.125",Atoms with a positive or negative charge.
+,,Periodic Trends: Ionization Energy,,,,,SCI.CHE.271,"SCI.CHE.233.2,
+SCI.PSC.123.32",The minimum amount of energy required to remove an electron. 
+,,Electron Shielding,,,,,SCI.CHE.272,"SCI.CHE.233.3,
+SCI.PSC.123.33",Attraction between electrons and the nucleus within an atom.
+,,Periodic Trends: Electron Affinity,,,,,SCI.CHE.273,"SCI.CHE.233.4,
+SCI.PSC.123.34",Energy is released when an anion is created.
+,,Periodic Trends: Ionic Radii,,,,,SCI.CHE.274,"SCI.CHE.233.5,
+SCI.PSC.123.35",Measure of the diameter of an atom's ion in a crystal lattice.
+,,Periodic Trends: Electronegativity,,,,,SCI.CHE.275,"SCI.CHE.233.6,
+SCI.PSC.123.36",Measure of the tendency of an atom to attract a bonding pair of electrons.
+,,Periodic Trends: Metallic and Nonmetallic Character,,,,,SCI.CHE.276,"SCI.CHE.233.7,
+SCI.PSC.123.37	",Reactivity of metals and nonmetals.
+Chemical Nomenclature,,,,,,,SCI.CHE.300,,  
+,Ionic Compounds,,,,,,SCI.CHE.301,,  
+,,"Chemistry of Compounds
+",,,,,"SCI.CHE.303
+","SCI.PSC.112.34,
+SCI.CHE.123.4,
+SCI.CHE.242
+",Introduction to substances that form when two or more elements combine chemically.
+,,"Molecular Formula
+",,,,,"SCI.CHE.304
+","SCI.CHE.242.1,
+SCI.PSC.124.1",The use of chemical symbols and subscripts to represent elements in a compound.
+,,Empirical Formula,,,,,SCI.CHE.305,"SCI.CHE.242.2,
+SCI.PSC.124.22",How to write simplified molecular formulas.
+,Monoatomic Ions,,,,,,SCI.CHE.306,,
+,,Cation,,,,,SCI.CHE.307,"SCI.CHE.243.1,
+SCI.PSC.124.31,
+SCI.PSC.124.3",Formation and uses of positive ions.
+,,Anion,,,,,SCI.CHE.308,"SCI.CHE.243.2,
+SCI.PSC.124.32",Formation and uses of negative ions.
+,,Transition Metal Ions,,,,,SCI.CHE.309              ,"SCI.CHE.243.3,
+SCI.PSC.124.33,
+SCI.CHE.243",Characteristics and applications of Transition Metals.
+,Binary Ionic Compounds,,,,,,SCI.CHE.310             ,,
+,,The Stock System of Nomenclature,,,,,SCI.CHE.311,"SCI.CHE.244.2,
+SCI.PSC.124.42",Role of the subscript in the naming of compounds.
+,,Naming Binary Ionic Compounds,,,,,SCI.CHE.312,"SCI.CHE.244.1,
+SCI.PSC.124.41,
+SCI.PSC.124.4,
+SCI.CHE.244",Rules for naming monatomic metal and nonmetal ions.
+,,Formulas for Binary Ionic Compounds,,,,,SCI.CHE.313,"SCI.CHE.244.3,
+SCI.PSC.124.43",Role of charges in compound formation and naming.
+,Ternary Ionic Compounds,,,,,,SCI.CHE.314,,
+,,"Polyatomic Ions
+",,,,,"SCI.CHE.315
+","SCI.CHE.245.1,
+SCI.PSC.124.51,
+SCI.CHE.245,
+SCI.PSC.124.5","Definition, naming system and role of charges within compounds."
+,,Names and Formulas of Ternary Ionic Compounds,,,,,SCI.CHE.316,"SCI.CHE.245.2,
+SCI.PSC.124.52","Definition, naming system and role of charges."
+,Molecular Compound Names and Formulas,,,,,,SCI.CHE.317,,  
+,,Naming Binary Molecular Compounds,,,,,SCI.CHE.318,"SCI.CHE.246.1,
+SCI.PSC.124.61",Prefixes used in naming compounds.
+,Acid and Base Names and Formulas,,,,,,SCI.CHE.319,,  
+,,Acids - Naming and Formulas,,,,,SCI.CHE.320,"SCI.CHE.247.1,
+SCI.PSC.124.71,
+SCI.CHE.550",Definition and rules for naming acids.
+,,Bases - Naming and Formulas ,,,,,SCI.CHE.321,"SCI.CHE.247.3,
+SCI.PSC.124.73",Role of cation and anion in naming compounds.
+Ionic and Metallic Bonding,,,,,,,SCI.CHE.350,,  
+,Ions,,,,,,SCI.CHE.351,,  
+,,Ion Formation ,,,,,SCI.CHE.352,,
+,,Electron Dot Diagrams,,,,,"SCI.CHE.353
+","SCI.CHE.251.1,
+SCI.PSC.125.11,
+SCI.CHE.250",Bonding based on electrons.
+,,Octet Rule,,,,,SCI.CHE.354,"SCI.CHE.251.2,
+SCI.PSC.125.12",Atoms gain or lose electrons in order to attain eight valence electrons.
+,,Cation Formation,,,,,SCI.CHE.355,"SCI.CHE.251.3,
+SCI.PSC.125.13",Loss of electrons results in an ion.
+,,Anion Formation,,,,,SCI.CHE.356,"SCI.CHE.251.4,
+SCI.PSC.125.14",Gain of electrons results in an ion.
+,,Transition Metal Ion Formation,,,,,SCI.CHE.357,"SCI.CHE.251.5,
+SCI.PSC.125.15",Incoming electrons fill lowest value orbitals first.
+,Ionic Bonds and Compounds,,,,,,SCI.CHE.358,,  
+,,"Ionic Bond
+",,,,,SCI.CHE.359,"SCI.CHE.252.1,
+SCI.PSC.125.21,
+SCI.CHE.252,
+SCI.PSC.125.2",Introduction to the forces of attraction that holds positive and negative ions together.
+,,Ionic Crystal Structure,,,,,SCI.CHE.360,"SCI.CHE.252.2,
+SCI.PSC.125.22",Ions bond and form specific molecular structures.
+,,Coordination Number,,,,,"SCI.CHE.361
+","SCI.CHE.252.3,
+SCI.PSC.125.23",Number of atoms immediately surrounding a central atom.
+,,"Physical Properties of Ionic Compounds
+",,,,,SCI.CHE.362,"SCI.CHE.252.4,
+SCI.PSC.124.2,
+SCI.PSC.124",Characteristics shared by ionic compounds.
+,Metallic Bonds and Properties,,,,,,"SCI.CHE.363
+",,  
+,,"Metallic Bond
+",,,,,"SCI.CHE.364
+","SCI.CHE.253.1,
+SCI.PSC.125.31",Introduction to the forces of attraction between positive metal ions.
+,,"Crystal Structures of Metals
+",,,,,"SCI.CHE.365
+","SCI.CHE.253.2,
+SCI.PSC.125.32",Pure metals adopt one of three packing arrangements.
+,,"Alloys
+",,,,,"SCI.CHE.366
+","SCI.CHE.253.3,
+SCI.PSC.125.33",Mixtures of metals form substances.
+Chemical Bonding,,,,,,,SCI.CHE.400,,  
+,Nature of the Chemical Bond,,,,,,SCI.CHE.401,,
+,,Chemical Bond,,,,,SCI.CHE.402,"SCI.PSC.112.33,
+SCI.CHE.123.3",Introduction to the different types of forces of attraction between atoms or ions.
+,The Covalent Bond,,,,,,SCI.CHE.403,,  
+,,Covalent Bond,,,,,SCI.CHE.404,"SCI.PSC.126,
+SCI.CHE.260",A chemical bond that involves the sharing of electron pairs between atoms.
+,,Molecular Compounds,,,,,SCI.CHE.405,"SCI.PSC.124.6,
+SCI.CHE.246,
+SCI.CHE.240",Molecular compounds or covalent compounds are those in which the elements share electrons via covalent bonds.
+,,Energy and Covalent Bond Formation,,,,,SCI.CHE.406,"SCI.CHE.261.1,
+SCI.PSC.126.11",Introduction to the force of attraction that holds together two atoms that share a pair of valence electrons.
+,,Lewis Electron-Dot Structures,,,,,SCI.CHE.407,"SCI.CHE.261.2,
+SCI.PSC.126.12",Representations of molecular structure.
+,,Single Covalent Bonds,,,,,SCI.CHE.408,"SCI.CHE.261.3,
+SCI.PSC.126.13",Only one pair of electrons is shared between atoms.
+,,Multiple Covalent Bonds,,,,,SCI.CHE.409,"SCI.CHE.261.4,
+SCI.PSC.126.14",Role of the octet rule in bond formation.
+,,Coordinate Covalent Bond,,,,,SCI.CHE.410,"SCI.CHE.261.5,
+SCI.PSC.126.15",Bond where one atom provides a lone pair of electrons.
+,,Covalent Bonding in Polyatomic Ions,,,,,SCI.CHE.411,"SCI.CHE.261.6,
+SCI.PSC.126.16",Lewis dot structures represent ion and charge.
+,,Resonance,,,,,SCI.CHE.412,"SCI.CHE.261.7,
+SCI.PSC.126.17",Use of two or more Lewis structures to represent covalent bonding in a molecule.
+,,Exceptions to the Octet Rule,,,,,SCI.CHE.413,"SCI.CHE.261.8,
+SCI.PSC.126.18",Electrons surrounding a central atom in a stable molecule can be fewer than eight.
+,,Bond Energy,,,,,SCI.CHE.414,"SCI.CHE.261.9,
+SCI.PSC.126.19",Energy required to break a covalent bond between two atoms.
+,Molecular Geometry ,,,,,,SCI.CHE.415,,  
+,,VSEPR Theory,,,,,SCI.CHE.416,"SCI.CHE.262.1,
+SCI.PSC.126.21,
+SCI.PSC.126.2,
+SCI.CHE.262",Predictions of molecular shape based on valence electrons.
+,,Molecular Shapes: No Lone Pairs on Central Atom,,,,,SCI.CHE.417,"SCI.CHE.262.2,
+SCI.PSC.126.22",Electron pairs influence bond angles and molecular shape.
+,,Molecular Shapes: Lone Pair(s) on Central Atom,,,,,SCI.CHE.418,"SCI.CHE.262.3,
+SCI.PSC.126.23",Electron pairs influence bond angles and molecular shape.
+,Polarity and Intermolecular Forces,,,,,,SCI.CHE.419,,  
+,,"Bond Polarity
+",,,,,SCI.CHE.420,"SCI.CHE.263.1,
+SCI.PSC.126.31,
+SCI.CHE.263,
+SCI.PSC.126.3","Covalent compounds may have polar or nonpolar bonds, depending on their arrangement of atoms."
+,,Polar Molecules,,,,,SCI.CHE.421,"SCI.CHE.263.2,
+SCI.PSC.126.32",Structure of and factors that contribute to dipoles within molecules.
+,,Van der Waals Forces,,,,,SCI.CHE.422,SCI.CHE.263.6,First type of intermolecular force.
+,,"Hydrogen Bond
+",,,,,SCI.CHE.423,"SCI.CHE.263.5,
+SCI.PSC.126.35",Introduction to the electrostatic attraction between polar molecules. Bond where a hydrogen atom of one molecule is attracted to an electronegative atom.
+,,Physical Properties and Intermolecular Forces,,,,,SCI.CHE.424,"SCI.CHE.412.1,
+SCI.PSC.126.41",Physical properties are affected by forces holding molecules together.
+,Hybridization and Molecular Orbitals,,,,,,SCI.CHE.425,,  
+,,Valence Bond Theory,,,,,SCI.CHE.426,"SCI.CHE.264.2,
+SCI.PSC.126.42,
+SCI.CHE.264,
+SCI.PSC.126.4",Bonds result from the overlap of atomic orbitals.
+,,Hybrid Orbitals - sp3,,,,,SCI.CHE.427,SCI.CHE.264.5,Combination of two or more non equivalent orbitals from the same atom.
+,,Hybrid Orbitals - sp and sp2,,,,,SCI.CHE.428,SCI.CHE.264.6,Geometry of molecules based on electron pairs.
+,,Sigma and Pi Bonds,,,,,SCI.CHE.429,"SCI.CHE.264.4,
+SCI.PSC.126.44",Bond types associated with hybridization of electrons.
+The Mole,,,,,,,SCI.CHE.450,,  
+,The Mole Concept,,,,,,SCI.CHE.451,,  
+,,Avogadro's Number,,,,,SCI.CHE.452,"SCI.CHE.311.1,
+SCI.PSC.131.11,
+SCI.CHE.311",Defines concept of the mole as a counting unit.
+,,Conversions Between Moles and Atoms,,,,,SCI.CHE.453,SCI.CHE.311.2,Unit conversion techniques.
+,,Molar Mass,,,,,SCI.CHE.454,SCI.CHE.311.3,How to calculate the mass in grams of one mole of a compound.
+,,Conversions between Moles and Mass,,,,,SCI.CHE.455,"SCI.CHE.312.1,
+SCI.PSC.131.21",Unit conversion techniques.
+,,Conversions between Mass and Number of Particles,,,,,SCI.CHE.456,"SCI.CHE.312.2,
+SCI.PSC.131.22	",Unit conversion techniques.
+,"Mass, Volume, and the Mole",,,,,,SCI.CHE.457,,  
+,,Avogadro's Hypothesis and Molar Volume,,,,,SCI.CHE.458,"SCI.CHE.312.3,
+SCI.PSC.131.23","Relationship between gas volume, temperature, pressure and particle number."
+,,Conversions between Moles and Gas Volume,,,,,SCI.CHE.459,"SCI.CHE.312.4,
+SCI.PSC.131.24,
+SCI.CHE.312,
+SCI.PSC.131.2",Unit conversion techniques.
+,,Gas Density,,,,,SCI.CHE.460,"SCI.CHE.312.5,
+SCI.PSC.131.25",Calculations of conversions between molar mass and the mass per unit volume of gases.
+,,Mole Road Map,,,,,SCI.CHE.461,"SCI.CHE.312.6,
+SCI.PSC.131.26","Calculations for interconversions of mass, mole, and volume of a gas."
+,Chemical Formulas,,,,,,SCI.CHE.462,,  
+,,Percent Composition,,,,,SCI.CHE.463,"SCI.CHE.313.1,
+SCI.PSC.131.31",Calculating the percentage by mass of each element in a compound.
+,,Percent of Water in a Hydrate,,,,,SCI.CHE.464,"SCI.CHE.313.2,
+SCI.PSC.131.32",Calculating the percentage of water in a hydrate.
+,,Determining Empirical Formulas,,,,,SCI.CHE.465,"SCI.CHE.313.3,
+SCI.PSC.131.33,
+SCI.PSC.131.3,
+SCI.CHE.313",Determining the lowest whole-number ratio of the elements in a compound.
+,,Determining Molecular Formulas,,,,,SCI.CHE.466,"SCI.CHE.313.4,
+SCI.PSC.131.34",Calculating the kind and number of atoms of each element in a molecule.
+Chemical Equations and Reactions,,,,,,,SCI.CHE.500,,  
+,Chemical Equations,,,,,,SCI.CHE.501,,  
+,,Chemical Reaction ,,,,,SCI.CHE.502,"SCI.PSC.112.43,
+SCI.CHE.500,
+SCI.PSC.150",Introduces chemical process in which some substances change into different substances.
+,,Word Equations,,,,,SCI.CHE.503,"SCI.CHE.321,
+SCI.PSC.132.1,
+SCI.CHE.320",Using words to describe chemical reactions.
+,,"Writing Chemical Equations
+",,,,,SCI.CHE.504,"SCI.CHE.322,
+SCI.PSC.132",A shorthand way to sum up what occurs in a chemical reaction. Using symbols to write chemical equations.
+,,"Balancing Equations
+
+",,,,,"SCI.CHE.505
+
+","SCI.CHE.323,
+SCI.PSC.132.3",Using coefficients so the same number of each atom occurs in both reactants and products of a chemical equation.
+,,Conservation of Mass in Chemical Reactions,,,,,SCI.CHE.506,"SCI.PSC.132.4,
+SCI.CHE.324",Matter cannot be created or destroyed in chemical reactions.
+,Types of Chemical Reactions,,,,,,SCI.CHE.507,   ,  
+,,Signs of Chemical Reactions,,,,,SCI.CHE.508,SCI.PSC.112.45,Describes the four main signs that a chemical reaction has occurred.
+,,Combination Reactions,,,,,SCI.CHE.509,"SCI.CHE.331,
+SCI.PSC.133.1",Two or more substances combine to form a new substance.
+,,Synthesis Reaction,,,,,SCI.CHE.510,"SCI.PSC.133.3,
+SCI.CHE.333",Chemical reaction where two or more reactants combine to form a single product.
+,,"Decomposition Reactions
+",,,,,SCI.CHE.511,"SCI.CHE.332,
+SCI.PSC.133.2",Chemical reaction where one reactant breaks down into two or more products.
+,,"Combustion Reaction
+",,,,,"SCI.CHE.512
+","SCI.CHE.334,
+SCI.PSC.133.4","Commonly called burning, a chemical reaction where a substance reacts quickly with oxygen gas realeasing energy in the form of light and heat. "
+,,"Single-Replacement Reactions
+",,,,,"SCI.CHE.513
+","SCI.CHE.335.1,
+SCI.PSC.133.5",Chemical reaction involving ions where one element is replaced by another in a compound.
+,,Activity Series,,,,,SCI.CHE.514,"SCI.CHE.335.5,
+SCI.PSC.133.55",Illustrates how to predict the outcome of reactions.
+,,Double-Replacement Reactions,,,,,SCI.CHE.515,"SCI.CHE.335.6,
+SCI.PSC.133.56",Ions of two compounds exchange places to form two new compounds.
+Stoichiometry,,,,,,,SCI.CHE.550,,  
+,Stoichiometric Calculations,,,,,,SCI.CHE.551,,  
+,,Everyday Stoichiometry,,,,,SCI.CHE.552,"SCI.CHE.341.1,
+SCI.PSC.134.11",The quantitative relationship between reactants and products in a chemical reaction.
+,,Mole Ratios,,,,,SCI.CHE.553,"SCI.CHE.341,
+SCI.PSC.134.1,
+SCI.PSC.134,
+SCI.CHE.340",Determine amounts of materials involved in a reaction.
+,,Mass-Mole Stoichiometry,,,,,SCI.CHE.554,"SCI.CHE.342.1,
+SCI.PSC.134.21,
+SCI.PSC.134.2,
+SCI.CHE.342",Calculations involving conversions of mass to moles and moles to mass.
+,,Mass-Mass Stoichiometry,,,,,SCI.CHE.555,"SCI.CHE.342.2,
+SCI.PSC.134.22",Calculations for converting between masses of different reactants and products.
+,,Volume-Volume Stoichiometry,,,,,SCI.CHE.556,"SCI.CHE.342.3,
+SCI.PSC.134.23",Calculations for converting between volumes of different reactants and products.
+,,Mass-Volume Stoichiometry,,,,,SCI.CHE.557,"SCI.CHE.342.4,
+SCI.PSC.134.24",Determining the amount of gas or the material needed to react with a gas in a reaction.
+,Limiting Reactant and Percent Yield,,,,,,SCI.CHE.558,,  
+,,Limiting Reactant,,,,,SCI.CHE.559,"SCI.CHE.343.1,
+SCI.PSC.134.31,
+SCI.PSC.134.3,
+SCI.CHE.343",Which substance will run out first in a reaction.
+,,Determining the Limiting Reactant,,,,,SCI.CHE.560,"SCI.CHE.343.2,
+SCI.PSC.134.32",Use molar ratios to determine which reactant will run out first in a reaction.
+,,Theoretical Yield and Percent Yield,,,,,SCI.CHE.561,"SCI.CHE.343.4,
+SCI.PSC.134.34",The ratio of expected yield to actual yield.
+Matter and Its States,,,,,,,SCI.CHE.600,,  
+,Gases,,,,,,SCI.CHE.601,,  
+,,"Kinetic Molecular Theory
+",,,,,"SCI.CHE.602
+","SCI.CHE.411.2, 
+SCI.PSC.141.11","Properties of gas molecules.
+"
+,,Gas Pressure,,,,,SCI.CHE.603,"SCI.CHE.411.3,
+SCI.PSC.141.13",Calculations involving the force per unit area on a surface.
+,,Atmospheric Pressure,,,,Atmospheric-Pressure-in-Chemistry,SCI.CHE.604,"SCI.CHE.411.4,
+SCI.PSC.141.14",The pressure exerted by gas particles in the Earth's atmosphere.
+,,Pressure Units and Conversions,,,,,SCI.CHE.605,"SCI.CHE.411.5,
+SCI.PSC.141.15",Calculations using unit conversions.
+,,Average Kinetic Energy,,,,,SCI.CHE.606,"SCI.CHE.411.6,
+SCI.PSC.141.16",Energy of motion and how it relates to temperature.
+,Liquids,,,,,,SCI.CHE.607,,  
+,,Surface Tension,,,,,SCI.CHE.608,SCI.CHE.412.7,Factors that influence the elastic force in a liquid's surface.
+,,"Evaporation
+",,,,,SCI.CHE.609,"SCI.CHE.412.2,
+SCI.PSC.141.22",Describes process of and factors influencing liquid to gas state change.
+,,Vapor Pressure,,,,,SCI.CHE.610,"SCI.CHE.412.3,
+SCI.PSC.141.23	",Pressure exerted by a gas above a liquid in a sealed container.
+,,"
+Boiling ",,,,,SCI.CHE.611,"SCI.CHE.412.4,
+SCI.PSC.141.24",Relationship between temperature and vapor pressure.
+,,Vapor Pressure Curves,,,,,SCI.CHE.612,"SCI.CHE.412.6,
+SCI.PSC.141.26",Describes effect of atmospheric pressure on boiling point and intermolecular forces.
+,,Freezing ,,,,,SCI.CHE.613,"SCI.PSC.141.31,
+SCI.CHE.413.1",Describes the process in which a liquid changes to a solid.
+,,Condensation,,,,,SCI.CHE.614,"SCI.PSC.141.25,
+SCI.CHE.412.5",Describes process in which a gas changes to a liquid.
+,Solids,,,,,,SCI.CHE.615,,  
+,,"
+Melting
+",,,,,SCI.CHE.616,"SCI.CHE.413.3, 
+SCI.PSC.141.32",The temperature at which a solid changes into a liquid.
+,,"Sublimation
+",,,,,SCI.CHE.617,"SCI.CHE.413.4,
+SCI.PSC.141.34",State change from a solid to a gas without passing through the liquid state.
+,,Deposition ,,,,,SCI.CHE.618,"SCI.PSC.141.35,
+SCI.CHE.413.5",Describes the process where a gas changes directly to a solid without going through the liquid state.
+,,Crystal Systems,,,,,SCI.CHE.619,"SCI.CHE.413.6,
+SCI.PSC.141.36","Substances in which the particles arrangement is orderly, repeating, three-dimensional."
+,,Unit Cells,,,,,SCI.CHE.620,"SCI.CHE.413.7,
+SCI.PSC.141.37",Smallest portion of a crystal lattice that shows the three-dimensional pattern of the entire crystal.
+,,Classes of Crystalline Solids,,,,,SCI.CHE.621,"SCI.CHE.413.8,
+SCI.PSC.141.38",Reviews the four types of crystalline solids.
+,,Amorphous Solid,,,,,SCI.CHE.622,"SCI.CHE.413.9,
+SCI.PSC.141.39",Examples of solids that lacks an ordered internal structure.
+,State Changes ,,,,,,SCI.CHE.623,,  
+,,Changes of State ,,,,,SCI.CHE.624,"SCI.PSC.141.4,
+SCI.CHE.414        ","Introduction to the process of matter changing between solid, liquid, and gas."
+,,Heating and Cooling Curves,,,,,SCI.CHE.625,"SCI.CHE.414.1,
+SCI.PSC.141.41",Graphs used to describe changes of state.
+,,Phase Diagrams,,,,,SCI.CHE.626,"SCI.CHE.414.2,
+SCI.PSC.141.42",How to use graphs to indicate the state of a material at different temperatures and pressures.
+,,Phase Diagram for Water,,,,,SCI.CHE.627,"SCI.CHE.414.3,
+SCI.PSC.141.43",Using a pressure/temp graph to examine the properties of water.
+The Behavior of Gases,,,,,,,SCI.CHE.650,,  
+,Gas Properties,,,,,,SCI.CHE.651,,  
+,,Compressibility,,,,,SCI.CHE.652,"SCI.CHE.421.1,
+SCI.PSC.142.11",Introduces relationship between changes in volume due to applied pressure.
+,,Factors Affecting Gas Pressure,,,,,SCI.CHE.653,"SCI.CHE.421.2,
+SCI.PSC.142.12,
+SCI.CHE.421,
+SCI.PSC.142.1","Temperature, pressure, volume and the amount of a gas influence its pressure."
+,Gas Laws,,,,,,SCI.CHE.654,,  
+,,"Boyle's Law
+",,,,,SCI.CHE.655,"SCI.CHE.422.1,
+SCI.PSC.142.21",Calculating the relationship between volume and pressure of a gas.
+,,Amontons' Law,,,,,SCI.CHE.656,"SCI.PSC.142.22,
+SCI.CHE.422.2",Calculating the relationship between the temperature and pressure of a gas.
+,,"Charles's Law
+",,,,,SCI.CHE.657,"SCI.CHE.422.3,
+SCI.PSC.142.23",Calculating the relationship between volume and temperature of a gas.
+,,Gay-Lussac's Law,,,,,SCI.CHE.658,"SCI.CHE.422.4,
+SCI.PSC.142.24",Calculations involving pressure-temperature relationships.
+,,Combined Gas Law,,,,Combined-Gas-Law-in-Chemistry,SCI.CHE.659,"SCI.CHE.422.5,
+SCI.PSC.142.25,
+SCI.CHE.422,
+SCI.PSC.142.2","Calculations involving temperature, volume, and pressure for different gases."
+,,Avogadro's Law,,,,,SCI.CHE.660,"SCI.CHE.422.6,
+SCI.PSC.142.26",Calculations for relationships between volume and number of moles of a gas.
+,Ideal Gases,,,,,,SCI.CHE.661,,  
+,,Ideal Gas Law,,,,,SCI.CHE.662,"SCI.CHE.423.1,
+SCI.PSC.142.31,
+SCI.PSC.142.3,
+SCI.CHE.423        ",Introduces law based on the Combined Gas Law and Avogadro's Law.
+,,Calculating the Molar Mass of a Gas,,,,,SCI.CHE.663,"SCI.CHE.423.2,
+SCI.PSC.142.32",Describes calculating the molar mass of a gas.
+,,Gas Stoichiometry,,,,,SCI.CHE.664,"SCI.CHE.423.3,
+SCI.PSC.142.33",The ideal gas law is used to balance equations involving gases.
+,,Real and Ideal Gases,,,,,SCI.CHE.665,"SCI.CHE.423.4,
+SCI.PSC.142.34,
+SCI.CHE.420,
+SCI.PSC.142",Defines two different types of gases.
+,Gas Mixtures and Molecular Speeds,,,,,,SCI.CHE.666,,  
+,,Dalton's Law of Partial Pressures,,,,,SCI.CHE.667,"SCI.CHE.424.1,
+SCI.PSC.142.41",Introduction to calculating pressures of gas mixtures.
+,,Mole Fraction,,,,,SCI.CHE.668,"SCI.CHE.424.2,
+SCI.PSC.142.42",Introduction to calculations used to express relative amounts of substances in a mixture.
+,,Gas Collection by Water Displacement,,,,,SCI.CHE.669,"SCI.CHE.424.3,
+SCI.PSC.142.43",Procedure used to collect gas pressure for water vapor present in the sample.
+,,Diffusion and Effusion and Graham's Law,,,,,SCI.CHE.670,"SCI.CHE.424.4,
+SCI.PSC.142.44,
+SCI.CHE.424,
+SCI.PSC.142.4     ",Perform calculations involving the movement of gases.
+Water,,,,,,,SCI.CHE.700,,  
+,Properties of Water,,,,,,SCI.CHE.701,,  
+,,Structure of Water,,,,,SCI.CHE.702,"SCI.CHE.431.1,
+SCI.PSC.143.11,
+SCI.CHE.430,
+SCI.PSC.143",Explains characteristics of the water molecule.
+,,Structure of Ice,,,,,SCI.CHE.703,"SCI.CHE.431.2,
+SCI.PSC.143.12        ",Explains molecular makeup of ice.
+,,Physical Properties of Water,,,,,SCI.CHE.704,"SCI.CHE.431.3,
+SCI.PSC.143.13,
+SCI.CHE.431, 
+SCI.PSC.143.1",Introduces surface tension and vapor pressure of water.
+,Aqueous Solutions,,,,,,SCI.CHE.705,,  
+,,Solute and Solvent,,,,,SCI.CHE.706,"SCI.CHE.432.1,
+SCI.PSC.143.21,
+SCI.CHE.432,
+SCI.PSC.143.2",Introduces the components of a solution and how compounds are dissolved.
+,,Dissolving Process,,,,,SCI.CHE.707,"SCI.CHE.432.2,
+SCI.PSC.143.22",Describes solution formation and interaction of solute with water.
+,,Liquid-Liquid Solutions,,,,,SCI.CHE.708,"SCI.CHE.432.3,
+SCI.PSC.143.23",Introduces solubility in water and polar molecules.
+,,Electrolytes and Nonelectrolytes,,,,,SCI.CHE.709,"SCI.CHE.432.4,
+SCI.PSC.143.24	",Discusses the conductivity of solutions.
+,,Dissociation,,,,,SCI.CHE.710,"SCI.CHE.432.5,
+SCI.PSC.143.25",Introduction to process where molecules separate or split into smaller particles.
+,,Strong and Weak Electrolytes,,,,,SCI.CHE.711,"SCI.CHE.432.6,
+SCI.PSC.143.26",Distinguishes types of electrolytes.
+,Colloids and Suspensions,,,,,,SCI.CHE.712,,  
+,,Suspensions,,,,,SCI.CHE.713,"SCI.CHE.433.1,
+SCI.PSC.143.31,
+SCI.CHE.433,
+SCI.PSC.143.3",Introduction to types of heterogeneous mixtures.
+,,Colloids,,,,,SCI.CHE.714,"SCI.CHE.433.2,
+SCI.PSC.143.32",Examples and descriptions of heterogeneous mixtures.
+"Solutions, Solutes, and Solvents ",,,,,,,SCI.CHE.750,,  
+,Solubility Overview,,,,,,SCI.CHE.751,,  
+,,Solutions ,,,,,SCI.CHE.752,"SCI.PSC.144,
+SCI.CHE.440,
+SCI.PSC.144,
+SCI.CHE.440","Provides an overview of solutions, defines soluble and insoluble, and gives examples of solutions in different states of matter."
+,,Solute-Solvent Combinations,,,,,SCI.CHE.753,"SCI.CHE.441.1,
+SCI.PSC.144.11",Explanation of different types of solutions.
+,,"Rate of Dissolving
+",,,,,SCI.CHE.754,"SCI.CHE.441.2,
+SCI.PSC.144.12",Factors that affect the process of dissolving.
+,,"Saturated and Unsaturated Solutions
+",,,,,SCI.CHE.755,"SCI.CHE.441.3,
+SCI.PSC.144.16",Solutions which have dissolved the maximum amount of a substance.
+,,"
+Solubility 
+",,,,,SCI.CHE.756,"SCI.CHE.441.4,
+SCI.PSC.144.1,
+SCI.CHE.441",Introduction to solubility curves. Discusses compounds dissolved in solutions and factors that affect their ability to do this.
+,,Supersaturated Solutions,,,,,SCI.CHE.757,"SCI.CHE.441.7,
+SCI.PSC.144.17",Introduction to a solution that contains more solute than is capable of being dissolved.
+,,Henry's Law of Solubility,,,,,SCI.CHE.758,"SCI.CHE.441.8,
+SCI.PSC.144.18",Relationship between pressure and solubility of gases.
+,Solution Concentration,,,,,,SCI.CHE.759,,  
+,,Percent Solutions,,,,,SCI.CHE.760,"SCI.CHE.442.2,
+SCI.PSC.144.22,
+SCI.CHE.442",Calculations for percent mass and percent volume solution concentrations.
+,,Molarity,,,,,SCI.CHE.761,"SCI.CHE.442.3,
+SCI.PSC.144.23",How to calculate the number of moles of solute dissolved in one liter of solution.
+,,"Molality
+",,,,,SCI.CHE.762,"SCI.CHE.442.6,
+SCI.PSC.144.2",Describes calculations involving molal solutions. The amount of compound dissolved in a solution can be calculated and expressed numerically.
+,,Preparing Solutions,,,,,SCI.CHE.763,"SCI.CHE.442.4,
+SCI.PSC.144.24",Procedure for making solutions.
+,,Dilution,,,,,SCI.CHE.764,"SCI.CHE.442.5,
+SCI.PSC.144.25",Process is described for changing the concentration of solutions.
+,Colligative Properties,,,,,,SCI.CHE.765,,  
+,,Vapor Pressure Lowering,,,,,SCI.CHE.766,"SCI.CHE.443.1,
+SCI.PSC.144.31",Introduction to colligative properties.
+,,"Freezing Point Depression
+",,,,,SCI.CHE.767,"SCI.CHE.443.2,
+SCI.PSC.144.3",Explains process of adding a solute to a solvent to affect the freezing point.
+,,"Boiling Point Elevation
+",,,,,SCI.CHE.768,"SCI.CHE.443.3
+",Difference in temperature between the boiling point of the pure solvent and that of the solution.
+,,Electrolytes and Colligative Properties,,,,,SCI.CHE.769,"SCI.CHE.443.4,
+SCI.PSC.144.34",Describe effect of ionization on properties of solutions.
+,,Osmotic Pressure,,,,,SCI.CHE.770,,The tendency for solvent to flow through a semipermeable membrane from a low solute concentration to a higher solute concentration.
+,,Calculating Molar Mass,,,,,SCI.CHE.771,"SCI.CHE.443.5,
+SCI.PSC.144.35",Describes calculations for determining molar mass from changes in boiling or freezing point.
+,Net Ionic Equation Overview,,,,,,SCI.CHE.772,,  
+,,Molecular and Ionic Equations,,,,,SCI.CHE.773,"SCI.CHE.444.1,
+SCI.PSC.144.41",Examples of different types of chemical equations.
+,,Net Ionic Equation ,,,,,SCI.CHE.774,"SCI.CHE.444,
+SCI.PSC.144.4",Simplifying chemical equations and introduction to spectator ions.
+,,Predicting Precipitates Using Solubility Rules,,,,,SCI.CHE.775,"SCI.CHE.444.2,
+SCI.PSC.144.42",Outlines the rules for predicting solubility of inorganic compounds.
+Thermochemistry,,,,,,,SCI.CHE.800,,  
+,Heat Flow,,,,,,SCI.CHE.801,,  
+,,Chemical Potential Energy,,,,,SCI.CHE.802,"SCI.CHE.511.1,
+SCI.PSC.151.11",Defines and gives examples of the energy available in the chemical bonds of a compound.
+,,Heat,,,,Heat-in-Chemistry,SCI.CHE.803,"SCI.CHE.511.2,
+SCI.PSC.151.12,
+SCI.CHE.510,
+SCI.PSC.151",Transferred energy from a site of higher energy to a site of lower energy.
+,,Exothermic Reaction,,,,,"SCI.CHE.804
+","SCI.PSC.151.15,
+SCI.CHE.511.5",Chemical reactions that release energy as a product.
+,,Endothermic Reaction,,,,,SCI.CHE.805,"SCI.PSC.151.14,
+SCI.CHE.511.4",Chemical reactions that require energy input to occur.
+,,"Exothermic and Endothermic Processes
+",,,,,"SCI.CHE.806
+","SCI.CHE.511.3,
+SCI.PSC.132.5,
+SCI.CHE.511,
+SCI.PSC.151.1",Describes process of heat exchange and the units of heat. Chemical reactions that either require energy input to occur or that release energy as a product. 
+,,Heat Capacity and Specific Heat,,,,,SCI.CHE.807,"SCI.CHE.511.6,
+SCI.PSC.151.16	",Defines two specific extensive properties of matter related to heat.
+,,Specific Heat Calculations,,,,,SCI.CHE.808,"SCI.CHE.511.7,
+SCI.PSC.151.17",Calculating the heat required to raise the temperature of a unit mass by a given amount.
+,Thermochemical Equations Overview,,,,,,SCI.CHE.809,,  
+,,Enthalpy,,,,,SCI.CHE.810,"SCI.CHE.512.1,
+SCI.PSC.151.21",Calculating changes in heat within a system.
+,,Calorimetry,,,,,SCI.CHE.811,"SCI.CHE.512.2,
+SCI.PSC.151.22,
+SCI.PHY.247.2",Measurement of the transfer of heat into or out of a system.
+,,Thermochemical Equation,,,,,SCI.CHE.812,"SCI.CHE.512,
+SCI.PSC.151.2",Describes the incorporation of enthalpy into a reaction equation.
+,,Stoichiometry and Thermochemical Equations,,,,,SCI.CHE.813,"SCI.CHE.512.3,
+SCI.PSC.151.23",Explains the calculation of energy changes involved in chemical reactions.
+,Heat and Changes of State,,,,,,SCI.CHE.814,,  
+,,Heats of Fusion and Solidification,,,,,SCI.CHE.815,"SCI.CHE.513.1,
+SCI.PSC.151.31",Calculations of energy changes during the transition from solid to liquid or liquid to solid.
+,,Heats of Vaporization and Condensation,,,,,SCI.CHE.816,"SCI.CHE.513.2,
+SCI.PSC.151.32,
+SCI.CHE.513,
+SCI.PSC.151.3",Calculations of energy changes during chemical processes.
+,,Multi-Step Problems with Changes of State,,,,,SCI.CHE.817,"SCI.CHE.513.3,
+SCI.PSC.151.33",Explains the calculation process when multiple changes of state are involved.
+,,Heat of Solution,,,,,SCI.CHE.818,"SCI.CHE.513.4,
+SCI.PSC.151.34",Amount of heat absorbed or released in the formation of a solution.
+,Hess's Law,,,,,,SCI.CHE.819,,  
+,,Hess's Law of Heat Summation,,,,,SCI.CHE.820,"SCI.CHE.514.1,
+SCI.PSC.151.41,
+SCI.CHE.514,
+SCI.PSC.151.4",Energy change in a chemical reaction is equal to the sum of the energy in the individual reactions.
+,,Heat of Combustion,,,,,SCI.CHE.821,"SCI.CHE.513.5,
+SCI.PSC.151.35",Introduction to combustion reactions.
+,,Standard Heat of Formation,,,,,SCI.CHE.822,"SCI.CHE.514.2,
+SCI.PSC.151.42",Describes enthalpy change associated with the formation a compound.
+,,Heat of Reaction ,,,,,SCI.CHE.823,"SCI.CHE.514.3,
+SCI.PSC.151.43",An application of Hess's Law.
+Kinetics,,,,,,,SCI.CHE.850,,  
+,Rates of Reactions,,,,,,SCI.CHE.851,,  
+,,"Reaction Rate
+",,,,,SCI.CHE.852,"SCI.CHE.521.1,
+SCI.PSC.152.11,
+SCI.CHE.521,
+SCI.PSC.152.1",Explores the factors that influence how rapidly a chemical reaction occurs.
+,,Collision Theory,,,,,SCI.CHE.853,"SCI.CHE.521.2,
+SCI.PSC.152.12",Explains how materials can collide and become new materials.
+,,"Activation Energy
+",,,,,SCI.CHE.854,"SCI.CHE.521.3,
+SCI.PSC.152.13",Minimum energy required to get chemical reactions started.
+,,Potential Energy Diagrams,,,,,SCI.CHE.855,"SCI.CHE.521.4,
+SCI.PSC.152.14",Graphs of the energy changes that occur during a chemical reaction.
+,,Activated Complex,,,,,SCI.CHE.856,"SCI.CHE.521.5,
+SCI.PSC.152.15",Configurations that atoms pass through during a chemical reaction.
+,,Factors Affecting Reaction Rate,,,,,SCI.CHE.857,"SCI.CHE.521.6,
+SCI.PSC.152.16,
+SCI.PSC.152,   
+SCI.CHE.520",Items that influence the rate of a given chemical reaction.
+,,"Catalyst
+",,,,,SCI.CHE.858,"SCI.CHE.521.7,
+SCI.PSC.152.17",Introduction to substances that speed up chemical reactions.
+,Rate Laws,,,,,,SCI.CHE.859,,  
+,,Rate Law and Rate Constant,,,,,SCI.CHE.860,"SCI.CHE.522.1,
+SCI.PSC.152.21,
+SCI.CHE.522,
+SCI.PSC.152.2",Relationship of reaction rate to concentrations of each reactant.
+,,Reaction Order,,,,,SCI.CHE.861,"SCI.CHE.522.2,
+SCI.PSC.152.22",Describe the kinetic characteristics of a first-order reaction.
+,,Determining the Rate Law from Experimental Data,,,,,SCI.CHE.862,"SCI.CHE.522.3,
+SCI.PSC.152.23",Process of using experimental data to determine reaction time.
+,Mechanisms,,,,,,SCI.CHE.863,,  
+,,Reaction Mechanisms and the Elementary Step,,,,,SCI.CHE.864,"SCI.CHE.523.1,
+SCI.PSC.152.31,
+SCI.PSC.152.3,
+SCI.CHE.523",Chemical reactions can be broken down into a series of small steps.
+,,Reaction Intermediate,,,,,SCI.CHE.865,"SCI.CHE.523.2,
+SCI.PSC.152.32",Describes how reactants become products within a chemical reaction.
+,,Molecularity,,,,,SCI.CHE.866,"SCI.CHE.523.3,
+SCI.PSC.152.33",Determine the number of molecules reacting in steps of a reaction.
+,,Rate-Determining Step,,,,,SCI.CHE.867,"SCI.CHE.523.4,
+SCI.PSC.152.34",Determining the slowest step in the sequence of steps in a reaction.
+,,Reaction Mechanisms and Potential Energy Diagrams,,,,,SCI.CHE.868,"SCI.CHE.523.5,
+SCI.PSC.152.35",Explores how potential energy diagrams can describe the mechanism of a chemical reaction.
+Equilibrium,,,,,,,SCI.CHE.900,,  
+,The Nature of Equilibrium,,,,,,SCI.CHE.901,,  
+,,"Reversible Reaction
+",,,,,SCI.CHE.902,"SCI.CHE.531.1,
+SCI.PSC.153.11",Chemical reactions that result in an equilibrium mixture of reactants and products.
+,,Chemical Equilibrium,,,,,SCI.CHE.903,"SCI.CHE.531.2,
+SCI.PSC.153.12,
+SCI.CHE.530,
+SCI.PSC.153",Explores what a chemical equilibrium is and the elements that define it.
+,,Equilibrium Constant,,,,,SCI.CHE.904,"SCI.CHE.531.3,
+SCI.PSC.153.13",Defines the equilibrium constant and explains how it is useful in chemistry.
+,,Calculations with Equilibrium Constants,,,,,SCI.CHE.905,"SCI.CHE.531.4,
+SCI.PSC.153.14",Demonstrates how equilibrium constants can be used to predict concentrations at equilibrium.
+,,Nonreversible Reactions,,,,,SCI.CHE.906,"SCI.CHE.532.6,
+SCI.PSC.153.26",Explores the factors that cause some reactions to be driven to completion instead of reaching equilibrium.
+,Equilibrium and Le Chatelier's Principle,,,,,,SCI.CHE.907,,  
+,,LeChatelier's Principle ,,,,,SCI.CHE.908,SCI.CHE.532.2,Introduces LeChatelier's Principle and how it governs chemical equilibria.
+,,Effect of Concentration,,,,,SCI.CHE.909,"SCI.CHE.532.3,
+SCI.PSC.153.23",Explains how concentrations of reactants and products drive the equilibrium of a reaction.
+,,Effect of Temperature,,,,,SCI.CHE.910,"SCI.CHE.532.4,
+SCI.PSC.153.24",Explains how temperature affects equilibrium direction.
+,,Effect of Pressure,,,,,SCI.CHE.911,"SCI.CHE.532.5,
+SCI.PSC.153.25",Discusses how pressure affects equilibrium direction in systems involving gaseous components.
+,,LeChatelier's Principle and the Equilibrium Constant,,,,,SCI.CHE.912,"SCI.CHE.532.7,
+SCI.PSC.153.27",Predicting the effect of a change in conditions on a chemical equilibrium.
+,Solubility Equilibrium,,,,,,SCI.CHE.913,,  
+,,Solubility Product Constant (Ksp),,,,,SCI.CHE.914,"SCI.CHE.533.1,
+SCI.PSC.153.31,
+SCI.CHE.533,
+SCI.PSC.153.3",Introduces and defines solubility product constant (Ksp).
+,,Calculating Solubility from Ksp,,,,,SCI.CHE.915,"SCI.CHE.533.2,
+SCI.PSC.153.32",Demonstrates how solubility constants can be derived from experimentally determined solubility.
+,,Calculating Ksp from Solubility,,,,,SCI.CHE.916,"SCI.CHE.533.3,
+SCI.PSC.153.33",Demonstrates calculations used to relate solubility constants to solute concentration.
+,,Predicting Precipitates,,,,,SCI.CHE.917,"SCI.CHE.533.4,
+SCI.PSC.153.34	",Demonstrates how solubility constants can be used to predict the formation of precipitates.
+,,Common Ion Effect,,,,,SCI.CHE.918,SCI.CHE.533.5,Describes how the solubility of salts is affected by the addition of another salt.
+Entropy and Free Energy,,,,,,,SCI.CHE.950,,  
+,"Entropy Overview
+",,,,,,SCI.CHE.951,,  
+,,Entropy ,,,,,SCI.CHE.952,"SCI.CHE.541,
+SCI.PSC.154.1,
+SCI.CHE.540,
+SCI.PSC.154",Defines entropy and gives examples of systems with higher or lower relative entropy.
+,,Standard Entropy,,,,,SCI.CHE.953,"SCI.CHE.541.2,
+SCI.PSC.154.12	",Defines Standard entropy in relation to absolute atomic movement.
+,Spontaneous Reactions and Free Energy,,,,,,SCI.CHE.954,,  
+,,Spontaneous and Nonspontaneous Reactions,,,,,SCI.CHE.955,"SCI.CHE.542.1,
+SCI.PSC.154.21,
+SCI.CHE.542,
+SCI.PSC.154.2",Defines spontaneous and nonspontaneous reactions in terms of entropy and enthalpy.
+,,Free Energy,,,,,SCI.CHE.956,"SCI.CHE.542.3,
+SCI.PSC.154.23",Defines free energy and how entropy and enthalpy affect its value.
+,,Calculating Free Energy Change ,,,,,SCI.CHE.957,"SCI.CHE.542.4,
+SCI.PSC.154.24",Demonstrates equations used to describe free energy changes in chemical reactions.
+,Free Energy and Equilibrium ,,,,,,SCI.CHE.958,,  
+,,Temperature and Free Energy,,,,,SCI.CHE.959,"SCI.CHE.543.1,
+SCI.PSC.154.3",Discusses the relationships between temperature and free energy in chemical equilibria.
+,,Changes of State and Free Energy,,,,,SCI.CHE.960,"SCI.CHE.543.2,
+SCI.PSC.154.32",Demonstrates calculations used to demonstrate entropy change at phase transition temperatures.
+,,Calculations of Free Energy and Keq,,,,,SCI.CHE.961,"SCI.CHE.543.3,
+SCI.PSC.154.33,
+SCI.CHE.543",Demonstrates equations used to relate free energy and equilibrium constants.
+Acids and Bases,,,,,,,SCI.CHE.999.000,"
+",  
+,Properties of Acids and Bases,,,,,,SCI.CHE.999.001,,  
+,,Acid,,,,,SCI.CHE.999.002,"SCI.CHE.551.1,
+SCI.PSC.155.11,
+SCI.CHE.551,
+SCI.PSC.155.1",Defines what an acid is and discusses their common characteristics.
+,,Base,,,,,SCI.CHE.999.003,"SCI.CHE.551.2,
+SCI.PSC.155.12",Defines what a base is and discusses their common characteristics.
+,,Arrhenius Acids,,,,,SCI.CHE.999.004,"SCI.CHE.551.3,
+SCI.PSC.155.13",Defines acids as compounds that ionize to produce protons and illustrates common uses of bases.
+,,Arrhenius Bases,,,,,SCI.CHE.999.005,"SCI.CHE.551.4,
+SCI.PSC.155.14",Defines bases as compounds that ionize to produce hydroxide; illustrates common uses of bases.
+,,Bronsted-Lowry Acids and Bases,,,,,SCI.CHE.999.006,SCI.CHE.551.8,Defines acids and bases as proton donors or acceptors.
+,,Bronsted-Lowry Acid-Base Reactions,,,,,SCI.CHE.999.007,"SCI.CHE.551.5,
+SCI.PSC.155.15",Defines conjugate acids and bases.
+,,Conjugate Acids and Bases,,,,,SCI.CHE.999.008,,A conjugate acid is the particle formed when a base gains a hydrogen ion. A conjugate base is the particle that remains when an acid has donated a hydrogen ion.
+,,Lewis Acids and Bases,,,,,SCI.CHE.999.009,"SCI.CHE.551.7,
+SCI.PSC.155.17",Defines acids and bases in terms of electron acceptors or donors.
+,pH Concept,,,,,,SCI.CHE.999.010,,  
+,,Self-Ionization of Water (Kw),,,,,SCI.CHE.999.011,"SCI.CHE.552.1,
+SCI.PSC.155.21",Explains the self-ionization of water and how it relates to pH.
+,,"pH
+",,,,,SCI.CHE.999.012,"SCI.CHE.552.3,
+SCI.PSC.155.2,
+SCI.PSC.155.2,
+SCI.CHE.552
+",Defines the pH scale and shows the pH of many common solutions. Outlines how the acidity of water is measured and what makes solutions acidic or basic.
+,,Calculating pH,,,,,SCI.CHE.999.013,SCI.CHE.552.2,Introduces and gives examples of pH calculation from the concentration of strong acids or bases.
+,,pOH Scale and Calculations,,,,,SCI.CHE.999.014,"SCI.CHE.552.5,
+SCI.PSC.155.25",Defines pOH and how it relates to pH.
+,Acid and Base Strength,,,,,,SCI.CHE.999.015,,  
+,,Strong and Weak Acids and Acid Ionization Constant (Ka),,,,,SCI.CHE.999.016,"SCI.CHE.553.1, 	
+SCI.PSC.155.31",Introduces and defines ionization constant for acids.
+,,Strong and Weak Bases and Base Ionization Constant (Kb),,,,,SCI.CHE.999.017,"SCI.CHE.553.3,
+SCI.PSC.155.33",Introduces and defines ionization constant for bases.
+,,Calculating Ka and Kb,,,,,SCI.CHE.999.018,"SCI.CHE.553.5,
+SCI.PSC.155.35,
+SCI.CHE.553,
+SCI.PSC.155.3",Discusses methods of calculating ionization constants.
+,,Calculating pH of Weak Acid and Base Solutions,,,,,SCI.CHE.999.019,"SCI.CHE.553.6,
+SCI.PSC.155.36",Calculations used to determine pH in solutions of weak acids or bases.
+,Acid-Base Neutralization,,,,,,SCI.CHE.999.020,,  
+,,"
+Neutralization Reaction and Net Ionic Equations
+",,,,,SCI.CHE.999.021,"SCI.CHE.554.1,
+SCI.PSC.155.4,
+SCI.PSC.155.4,
+SCI.CHE.554",Discusses chemical reactions that occur when acids and bases interact. Acids and bases react with each other to produce water and ions.
+,,Titration Experiment,,,,,SCI.CHE.999.022,"SCI.CHE.554.3,
+SCI.PSC.155.43",Defines titration and explains how it is used to determine the concentration of solutes.
+,,Titration Calculations,,,,,SCI.CHE.999.023,"SCI.CHE.554.4,
+SCI.PSC.155.44",Calculations used to determine analyte concentrations in titration experiments.
+,,Titration Curves,,,,,SCI.CHE.999.024,"SCI.CHE.554.5,
+SCI.PSC.155.45",Explores methods of analyzing titration experiments graphically.
+,,Indicators,,,,,SCI.CHE.999.025,"SCI.CHE.554.6,
+SCI.PSC.155.46",Defines pH indicators and explains how they function.
+,Salt Solutions,,,,,,SCI.CHE.999.026,,  
+,,Salt Hydrolysis,,,,,SCI.CHE.999.027,"SCI.CHE.555.1,
+SCI.PSC.155.5",Defines salt hydrolysis and how it is influenced by solution pH.
+,,Calculating pH of Salt Solutions,,,,,SCI.CHE.999.028,"SCI.CHE.555.2,
+SCI.PSC.155.52",Describes the ICE method and gives examples.
+,,Buffers,,,,,SCI.CHE.999.029,"SCI.CHE.555.3,
+SCI.PSC.155.53","Defines buffers, their essential components and how they balance pH."
+Oxidation-Reduction Reactions,,,,,,,SCI.CHE.999.050,,  
+,The Nature of Oxidation and Reduction ,,,,,,SCI.CHE.999.051,,  
+,,Oxygen in Reactions,,,,,SCI.CHE.999.052,"SCI.CHE.561.1,
+SCI.PSC.156.11,
+SCI.CHE.560,
+SCI.PSC.156",Introduces oxidation from the perspective of oxide compounds.
+,,Redox Reactions and Ionic Compounds,,,,,SCI.CHE.999.053,"SCI.CHE.561.3,
+SCI.PSC.156.13	",Defines oxidation and reduction and discusses how ions are involved in this process.
+,,Redox Reactions and Molecular Compounds,,,,,SCI.CHE.999.054,"SCI.CHE.561.5,
+SCI.PSC.156.15",Defines molecular redox reactions.
+,,Oxidizing and Reducing Agents,,,,,SCI.CHE.999.055,"SCI.CHE.561.4,
+SCI.PSC.156.14,
+SCI.CHE.561,
+SCI.PSC.156.1",Introduces oxidizing and reducing agents and redox half reactions.
+,,Corrosion,,,,,SCI.CHE.999.056,"SCI.CHE.561.6,
+SCI.PSC.156.16",Introduces corrosion and how it relates to chemical oxidation and reduction.
+,Oxidation Numbers,,,,,,SCI.CHE.999.057,,  
+,,Assigning Oxidation Numbers,,,,,SCI.CHE.999.058,"SCI.CHE.562.1,
+SCI.PSC.156.21,
+SCI.CHE.562,
+SCI.PSC.156.2",Introduces oxidation numbers and describes how to determine them.
+,,Oxidation-Number Changes in Reactions,,,,,SCI.CHE.999.059,"SCI.CHE.562.2,
+SCI.PSC.156.22",Discusses how to identify reduced and oxidized molecules in chemical equations.
+,,Identifying Redox Reactions ,,,,,SCI.CHE.999.060,"SCI.CHE.563.1,
+SCI.PSC.156.31,
+SCI.CHE.563     ",Discusses methods for identifying redox reactions from chemical equations.
+,Balancing Redox Reactions,,,,,,SCI.CHE.999.061,,  
+,,Balancing Redox Reactions: Oxidation Number Change Method,,,,,SCI.CHE.999.062,"SCI.CHE.563.2,
+SCI.PSC.156.32,
+SCI.PSC.156.3",Explains how to balance redox reactions by observing the change in oxidation state.
+,,Balancing Redox Reactions: Half-Reaction Method,,,,,SCI.CHE.999.063,"SCI.CHE.563.3,
+SCI.PSC.156.33",Explains how redox reactions can be balanced as two separate half-reactions.
+,,Balancing Redox Reactions: Half-Reaction Method in Basic Solution,,,,,SCI.CHE.999.064,SCI.CHE.563.4,Explains how to balance redox half-reactions in basic solutions.
+Electrochemistry,,,,,,,SCI.CHE.999.100,,  
+,Electrochemical Cells,,,,,,SCI.CHE.999.101,,  
+,,Direct Redox Reactions,,,,,SCI.CHE.999.102,"SCI.CHE.571.1,
+SCI.PSC.157.11",Introduces reduction/oxidation reactions and shows relative oxidation activity of many metals.
+,,Electrochemical Reaction,,,,,SCI.CHE.999.103,"SCI.CHE.571.2,
+SCI.PSC.157.12,
+SCI.CHE.570,
+SCI.PSC.157",Describes the elements necessary to produce electricity from chemical potential energy.
+,,Voltaic Cells,,,,,SCI.CHE.999.104,"SCI.CHE.571.3,
+SCI.PSC.157.13,
+SCI.CHE.571,
+SCI.PSC.157.1","Introduces voltaic cells, the elements essential to their function and discusses how they are quantified."
+,,Batteries,,,,,SCI.CHE.999.105,SCI.CHE.572.4,Defines dry-cells and batteries and explains the function. of both in relation to voltaic cells.
+,Cell Potentials,,,,,,SCI.CHE.999.106,,  
+,,Electrical Potential,,,,,SCI.CHE.999.107,"SCI.CHE.572.1,
+SCI.PSC.157.21,
+SCI.CHE.572,
+SCI.PSC.157.2",Discusses how reduction potentials of elements in a battery relate to voltage in a circuit.
+,,Standard Hydrogen Electrode,,,,,SCI.CHE.999.108,"SCI.CHE.572.2,
+SCI.PSC.157.22",Discusses how reduction potential of half-cells are determined.
+,,Calculating Standard Cell Potentials,,,,,SCI.CHE.999.109,"SCI.CHE.572.3,
+SCI.PSC.157.23",Introduces cell potentials and discusses how to mathematically predict reduction potential of different types of chemical cells.
+,Electrolysis,,,,,,SCI.CHE.999.110,,  
+,,Electrolytic Cells,,,,,SCI.CHE.999.111,"SCI.CHE.573.1,
+SCI.PSC.157.31,
+SCI.CHE.573,
+SCI.PSC.157.3",Introduces cells that drive chemical reactions using introduced electricity.
+,,Electrolysis of Molten Salts,,,,,SCI.CHE.999.112,"SCI.CHE.573.2,
+SCI.PSC.157.32",Discusses how water can be turned into hydrogen and oxygen gas using an electrical current.
+,,Electrolysis of Water,,,,,SCI.CHE.999.113,"SCI.CHE.573.3,
+SCI.PSC.157.33",Discusses how sodium metal can be produced from molten salt and what water does to this reaction.
+,,Electroplating,,,,,SCI.CHE.999.114,"SCI.CHE.573.5,
+SCI.PSC.157.35",Discusses how metals can be deposited on conductive surfaces using electric currents.
+Nuclear Chemistry,,,,,,,SCI.CHE.999.150,,  
+,Nuclear Radiation,,,,,,SCI.CHE.999.151,,
+,,"
+Radioactivity",,,,Radioactivity-in-Chemistry,SCI.CHE.999.152,"SCI.CHE.616.1,
+SCI.PSC.161,
+SCI.PSC.162,
+SCI.CHE.620",Introduces the early history of nuclear chemistry and covers elements that emit radioactive particles and how they were discovered.
+,,Radioisotopes,,,,,SCI.CHE.999.153,"SCI.PSC.161.4,
+SCI.CHE.614",Explores what makes elements radioactive and which elements are always radioactive.
+,,Nuclear Stability,,,,,SCI.CHE.999.154,"SCI.CHE.612,
+SCI.PSC.161.2,
+SCI.CHE.600,
+SCI.PSC.160",The neutron/proton ratio and the total number of nucleons in the nucleus are the two primary factors that determine nuclear stability.
+,,Mass Defect and Nuclear Binding Energy,,,,,SCI.CHE.999.155,,Describes how the missing mass of the nucleus can be used to determine its binding energy.
+,,"Types of Radioactive Decay
+ 
+",,,,,"SCI.CHE.999.156
+
+","SCI.CHE.611,
+SCI.PSC.161.1","Introduces how radioactive nuclei break apart and identifies the particles released from these reactions.
+"
+,,Alpha Decay,,,,,SCI.CHE.999.157,"SCI.PSC.161.11,
+SCI.CHE.611.1",Radioactive decay in which radioisotopes shed large helium-like particles.
+,,Beta Decay,,,,,SCI.CHE.999.158,"SCI.PSC.161.12,
+SCI.CHE.611.2",Radioactive decay of elements involving the conversion of protons or neutrons into different atomic particles.
+,,Gamma Decay,,,,,SCI.CHE.999.159,"SCI.PSC.161.13,
+SCI.PSC.161.13        ",Radioactive decay that results in the release of high-energy waves instead of particles.
+,Rates of Radioactive Decay,,,,,,SCI.CHE.999.160,,  
+,,Half-Life,,,,Half-Life-in-Chemistry,SCI.CHE.999.161,"SCI.CHE.613,
+SCI.PSC.161.3","Discusses the rate at which radioisotopes break down into smaller atomic nuclei, how the rate of radioactive decay is modeled, and introduces decay chains."
+,,Radioactive Dating,,,,Radioactive-Dating-in-Chemistry,SCI.CHE.999.162,"SCI.PSC.161.31,
+SCI.CHE.613.1","Radioactive dating and how it works, how Carbon-14 is used to date the remains of living things, and how radioactive decay can be used to measure the age of rocks and fossils."
+,,Decay Series,,,,,SCI.CHE.999.163,"SCI.PSC.161.32,	
+SCI.CHE.613.2",A series of decay in which a radioactive element is decomposed in different elements until it produces one stable atom.
+,,Artificial Transmutation,,,,,SCI.CHE.999.164,"SCI.CHE.613.3,
+SCI.PSC.161.33",The conversion of one element into another by artificial means. 
+,Nuclear Fission and Fusion,,,,,,SCI.CHE.999.165,,  
+,,"Nuclear Fission 
+",,,,Nuclear-Fission-in-Chemistry,SCI.CHE.999.166,"SCI.CHE.631,
+SCI.PSC.163.1",Introduces how neutrons can be used to break apart heavy atomic nuclei.
+,,"Nuclear Fusion
+",,,,Nuclear-Fusion-in-Chemistry,SCI.CHE.999.167,"SCI.CHE.632,
+SCI.PSC.163.2",Discusses how energy can be obtained from the fusion of atomic nuclei.
+,,Nuclear Power ,,,,Nuclear-Power-in-Chemistry,SCI.CHE.999.168,SCI.CHE.633,Discusses harvesting of energy from radioactive emissions for use in modern nuclear reactors.
+,Effects and Applications of Nuclear Chemistry,,,,,,SCI.CHE.999.169,,  
+,,"Detection of Radioactivity
+",,,,,SCI.CHE.999.170,"SCI.CHE.616.2
+","Discusses radiation that is present in the environment, how radiation is detected and the dangers it presents."
+,,"Background Radiation
+",,,,,SCI.CHE.999.171,"SCI.CHE.616.3
+","Discusses radiation in the environment, its sources and the side effects of exposure."
+,,Penetrating Ability of Emissions,,,,,SCI.CHE.999.172,SCI.CHE.616.4,Discusses how different radioactive particles can travel through matter and how this occurs.
+,,"Effects of Radiation
+",,,,,SCI.CHE.999.173,"SCI.CHE.616.5,
+SCI.PSC.162.1,
+SCI.CHE.616",Discusses how radioactive exposure can damage living systems.
+,,Radioisotopes in Medical Diagnosis and Treatment,,,,,SCI.CHE.999.174,"SCI.CHE.616.6,
+SCI.PSC.162.4,
+SCI.CHE.624",Specific radioactive molecules are used to study internal anatomy.
+,,PET Scan,,,,,SCI.CHE.999.175,SCI.CHE.616.7,A technique that is especially useful in studying the processes in the brain. 
+,,Conservation of Mass and Energy in Nuclear Reactions,,,,Conservation-of-Mass-and-Energy-in-Nuclear-Reactions-in-Chemistry,SCI.CHE.999.176,SCI.PSC.161.5,"When atoms break apart, energy and matter become interchangeable according to Albert Einstein's famous equation E=mc^2."
+Organic Chemistry,,,,,,,SCI.CHE.999.200,,  
+,Hydrocarbons,,,,,,SCI.CHE.999.201,,
+,,Organic Chemistry Overview ,,,,,SCI.CHE.999.202,"SCI.CHE.700,
+SCI.PSC.170",Introduces the study of carbon chemistry and defines organic compounds.
+,,Carbon Bonding,,,,,SCI.CHE.999.203,"SCI.PSC.171.1,
+SCI.CHE.711",Introduces ways carbon atoms can bond together to create the most important molecules on earth. 
+,,Forms of Crystalline Carbon ,,,,,SCI.CHE.999.204,"SCI.PSC.171.3,
+SCI.CHE.713",Explores the three forms of pure-carbon compounds.
+,,Hydrocarbon ,,,,,SCI.CHE.999.205,"SCI.PSC.172,
+SCI.CHE.720","Compounds containing only carbon and hydrogen, their properties and classification."
+,Saturated Hydrocarbons,,,,,,SCI.CHE.999.206,,
+,,"Straight-Chain Alkanes
+",,,,,"SCI.CHE.999.207
+","SCI.CHE.721.1,
+SCI.PSC.172.1,
+SCI.CHE.721","Physical properties, structure of linear, saturated hydrocarbons."
+,,Branched Alkanes,,,,,SCI.CHE.999.208,"SCI.CHE.721.2,
+SCI.PSC.172.12","Introduces structure and nomenclature of branched, saturated hydrocarbons."
+,Unsaturated Hydrocarbons,,,,,,SCI.CHE.999.209,,
+,,"Alkenes and Alkynes
+",,,,,SCI.CHE.999.210,"SCI.CHE.722.1,
+SCI.PSC.172.2,
+SCI.CHE.722,
+SCI.PSC.172.2",Hydrocarbons that contain one or more double bonds between carbon atoms.
+,Isomers,,,,,,SCI.CHE.999.211,,
+,,Structural Isomers and Stereoisomers ,,,,,SCI.CHE.999.212,"SCI.CHE.723,
+SCI.PSC.172.3",Molecules can share the same chemical formula but differ in the arrangement of their atoms.
+,,Structural Isomers ,,,,,SCI.CHE.999.213,,Molecules can share the same chemical formula but have different structures.
+,,Stereoisomers,,,,,SCI.CHE.999.214,,Molecules can share the same order of atomic bonding but differ in the arrangement of their atoms.
+,Hydrocarbon Rings,,,,,,SCI.CHE.999.215,,  
+,,Cyclic Hydrocarbons,,,,,SCI.CHE.999.216,"SCI.CHE.724.1,
+SCI.PSC.172.41,
+SCI.CHE.724,
+SCI.PSC.172.4",Structure and function of molecules where the carbon chain forms a ring. 
+,,Aromatic Hydrocarbons,,,,,SCI.CHE.999.217,"SCI.CHE.724.2,
+SCI.PSC.172.42",Structure and properties of compounds with a benzene ring.
+,Functional Groups,,,,,,SCI.CHE.999.218,,  
+,,Alcohols,,,,,SCI.CHE.999.219,"SCI.CHE.725.1,
+SCI.PSC.172.51,
+SCI.CHE.725,
+SCI.PSC.172.5",Structure and properties of organic compounds whose molecule contains one or more hydroxyl groups attached to a carbon atom.
+,,Ethers,,,,,SCI.CHE.999.220,"SCI.CHE.725.2,
+SCI.PSC.172.52",Structure and properties of a class of organic compounds that contain an oxygen atom connected to two alkyl or aryl groups.
+,,Aldehydes and Ketones,,,,,SCI.CHE.999.221,"SCI.CHE.725.3,
+SCI.PSC.172.53",Structure and properties of an organic compound which incorporate a carbonyl functional group.
+,,Carboxylic Acids,,,,,SCI.CHE.999.222,"SCI.CHE.725.4,
+SCI.PSC.172.54",Structure and properties of an organic acid containing a carboxyl group.  
+,,Esters,,,,,SCI.CHE.999.223,"SCI.CHE.725.5,
+SCI.PSC.172.55",Structure and properties of organic compounds made by replacing the hydrogen of an acid with an alkyl or other organic group.
+,,Amines,,,,,SCI.CHE.999.224,"SCI.CHE.725.6,
+SCI.PSC.172.56",Structure and properties of an organic compound derived from ammonia.
+,,Alkyl Halides,,,,,SCI.CHE.999.225,SCI.CHE.725.7,Structure and properties of an organic compound in which one or more halogen atoms are substituted for one or more hydrogen atoms in a hydrocarbon.
+,Organic Reactions,,,,,,SCI.CHE.999.226,,  
+,,Substitution Reactions,,,,,SCI.CHE.999.227,"SCI.CHE.726.1,
+SCI.PSC.172.61,
+SCI.PSC.172.6",A chemical reaction where one functional group in a chemical compound is replaced by another functional group.
+,,Addition Reactions,,,,,SCI.CHE.999.228,"SCI.CHE.726.2,
+SCI.PSC.172.62",One molecule combines with another to form a larger molecule with no other products.
+,,Oxidation Reactions,,,,,SCI.CHE.999.229,"SCI.CHE.726.3,
+SCI.PSC.172.63",Introduces reactions where there is an addition of oxygen or the removal of hydrogen from a molecule.
+,,Condensation Reactions,,,,,"SCI.CHE.999.230
+
+","SCI.CHE.726.7,
+SCI.CHE.726",Two molecules combine to form a single molecule and water is a product.
+,,"Polymerization
+
+",,,,,"SCI.CHE.999.231
+
+","SCI.CHE.726.5,
+SCI.CHE.726.6,
+SCI.PSC.171.2","Introduces polymers, shows how addition polymers are formed and gives common examples of these compounds."
+Biochemistry,,,,,,,SCI.CHE.999.250,,  
+,Carbohydrates,,,,,,SCI.CHE.999.251,,  
+,,Biochemical Compound,,,,,SCI.CHE.999.252,"SCI.PSC.181,
+SCI.CHE.810,
+SCI.CHE.800,
+SCI.PSC.180",There are four major categories of biologically important molecules.
+,,"Monosaccharides
+",,,,,"SCI.CHE.999.253
+","SCI.CHE.811.4,
+SCI.PSC.181.1","Carbohydrates; structure, function and terms used to discuss them. Defines and illustrates cyclic and straight chain structures of important monosaccharides."
+,,"Disaccharides
+",,,,,SCI.CHE.999.254,"SCI.CHE.811.5,
+","Carbohydrates; structure, function and terms used to discuss them. A simple sugar that cannot be decomposed."
+,,Polysaccharides,,,,,SCI.CHE.999.255,SCI.CHE.811.6,Combination of simple sugars (from multiple condensation reactions).
+,Amino Acids and Proteins,,,,,,SCI.CHE.999.256,,  
+,,Amino Acids,,,,,SCI.CHE.999.257,"SCI.CHE.812.1,
+SCI.PSC.181.21",Organic compounds that serve as the building blocks of proteins.
+,,Peptides,,,,,SCI.CHE.999.258,"SCI.CHE.812.2,
+SCI.PSC.181.22",Introduces compounds consisting of two or more amino acids linked in a chain.
+,,"Proteins
+",,,,,SCI.CHE.999.259,"SCI.CHE.813,
+SCI.PSC.181.3","Proteins; structure, function and terms used to discuss them. Introduces the four levels of structure for polypeptides."
+,,Enzymes,,,,Enzymes-in-Chemistry,SCI.CHE.999.260,SCI.CHE.813.3,Substance that increase the rate of a chemical reaction.
+,Lipids Overview,,,,,,SCI.CHE.999.261,,  
+,,"Lipid 
+",,,,,"SCI.CHE.999.262
+","SCI.PSC.181.4,
+SCI.CHE.814","Provides an overview of lipid classification, fatty acids, and phospholipids. "
+,,"Triglycerides
+",,,,,SCI.CHE.999.263,SCI.CHE.814.4,"Summarizes the structure and synthesis of this specific lipid, as well as their role in metabolism."
+,,Phospholipids,,,,,SCI.CHE.999.264,SCI.CHE.814.5,Introduces structure and formation of lipid bilayers in cells.
+,,Waxes,,,,,SCI.CHE.999.265,SCI.CHE.814.6,Discusses the structure and biological properties of another lipid molecule.
+,Nucleic Acids Overview,,,,,,SCI.CHE.999.266,,  
+,,Nucleic Acid ,,,,,SCI.CHE.999.267,"SCI.CHE.815,
+SCI.PSC.181.5","Nucleic acids; structure, function and terms used to discuss them. Introduces specific organic compounds, such as DNA and RNA."
+,,DNA and RNA,,,,DNA-and-RNA-in-Chemistry,SCI.CHE.999.268,"SCI.CHE.815.1,
+SCI.PSC.181.51","Introduces the functional differences between DNA and RNA, and the structure of DNA polymers."
+,,Genetic Code,,,,Genetic-Code-in-Chemistry,SCI.CHE.999.269,SCI.CHE.815.6,"Illustrates how DNA is used for information storage, and how it is decoded."
+,,Protein Synthesis,,,,Protein-Synthesis-in-Chemistry,SCI.CHE.999.270,"SCI.CHE.815.5,
+SCI.PSC.181.55",Molecular events required to generate a polypeptide from a DNA sequence in eukaryotes.

@@ -1,0 +1,27 @@
+{% from "macros/pagination.html" import paginate with context %}  
+{% if c.paginator.item_count > 0 %}
+  {% for i in c.paginator.items %}
+    <div class="tr">
+      <div class="td id">{{i.id}}</div>
+      <div class="td">{{i.title}}</div>
+      <div class="td">{{ i.branch }} - {{ i.domain.handle }}</div>
+      {% if i.revisions[0].attachments and i.revisions[0].attachments[0].type == 'web' %}
+        <div class="td"> {{_("Link")}} </div>
+      {% elif i.revisions[0].attachments and i.revisions[0].attachments[0].type == 'attachment' %}
+          <div class="td"> {{_("Attachment") }} </div>
+      {% else %}
+          <div class="td"> {{_("XHTML")}} </div>
+      {% endif %}
+      
+	  <div class="td">{{ i.creator }} </div>
+	  <div class="td">{{i.created}}</div>
+	  
+	  <div class="td">{{i.publicscore}}</div>
+	  <div class="td">{{i.officialscore}}</div>
+	  <div class="td">{{i.totalscore}}</div>
+	  
+      <div class="td"><a target="_blank" href="{{ i.newModalityURL }}">{{_("Preview")}}</a></div>
+    </div>
+  {% endfor %}
+ <!--  {{ paginate(c.paginator) }}  -->
+{% endif %}

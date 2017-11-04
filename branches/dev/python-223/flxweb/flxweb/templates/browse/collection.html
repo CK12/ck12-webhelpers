@@ -1,0 +1,60 @@
+{% extends "common/master.html" %}
+{% block title %}{{ _("CK-12 Foundation") }}{% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('lib/jquery-ui/css/smoothness/jquery-ui-1.8.17.custom.css') }}" />
+{{ super() }}
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('common/css/shareplane.css') }}" />
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('css/browse.css') }}" />
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('css/browse-toggle.css') }}" />
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('common/css/3d-book.css') }}" />
+<link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('collections/css/collections.css') }}" />
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+<script src="{{ h.asset_lib('collections/js/dist/collections.js') }}"></script>
+
+<script>
+  var isTeacher = false;
+  {% if c.is_teacher %}
+  	isTeacher = true;
+  {% endif %}
+  Collections.init(document.getElementById('collectionMain'));
+
+  require(['main'],function() {
+    require(['jquery', 'common/views/footer.view','common/utils/utils','js/flxweb.load.my.subjects'],function($, FooterView, util, loadMySubjects){
+        FooterView.initShare({
+        	'shareImage': window.location.protocol + '//' + window.location.host + '/media/common/images/logo_ck12.png',
+            'shareUrl': window.location.href,
+            'shareTitle': 'Concepts',
+            'context': 'Share Concepts',
+            'payload': {
+                    'memberID': ads_userid,
+                    'page': 'browse concepts'
+            },
+            'userSignedIn': window.ck12_signed_in || false,
+            '_ck12': true
+        });
+    });
+});
+
+</script>
+{% endblock %}
+
+
+{% block header %}
+{{ super() }}
+
+{% endblock %}
+{% block contentwrap %}
+<div id="content-container" >
+    <div id="debug"></div>
+    <div id="collectionMain" onscroll="onScroll()" class="content-wrap row"></div>
+   	<div id="sharePlaneWrapper" class="row relative share-plane-container">
+        <div class="share-plane-div js-share-plane absolute" style="right: 10px;">
+        	<div class="plane_image"></div></div>
+        </div>
+	</div>
+{% endblock %}
+
+

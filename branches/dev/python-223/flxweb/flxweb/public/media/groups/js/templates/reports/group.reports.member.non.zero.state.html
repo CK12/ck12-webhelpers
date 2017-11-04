@@ -1,0 +1,76 @@
+<div id = "member-templates">
+	<div id = "member-non-zero-body-container-template">
+		<div class="row ie8text">
+			<div class="large-12 columns assignment-wrapper">
+			</div>
+		</div>
+	</div>
+
+	<div id = "assignment-container-template">
+		<div class = "assignment-container clearfix">
+			<div id = "assignment-title" class="js-assignment-title" title="@@assignmentName@@"></div>
+			<hr>
+			<div class="row">
+				@@concept-container@@
+				</div>
+	
+		</div>
+	</div>
+
+	<div id="concept-container-template" class="row">
+		<!-- one concept-->
+		<div class = "large-4 small-6 columns end">
+			<div class="concept-container">
+				<div class="member-concept-detail-container" id ="concept-name" data-concept-id="@@conceptID@@" data-concept-type="@@conceptType@@" data-concept-handle="@@conceptHandle@@" data-realm="@@conceptRealm@@" data-concept-eid="@@conceptEID@@" data-assignment-id= "@@assignmentID@@" data-assignment-name="@@assignmentName@@" data-last-access-date="@@lastAccessDate@@" data-collection-handle="@@collectionHandle@@" data-collection-creator-id="@@collectionCreatorID@@">
+					<span class="icon-quiz yellow-quiz-icon @@quizIconState@@"></span>
+					<a class = "@@show-on-practice@@" title="Concept: @@conceptName@@">@@conceptName@@</a>
+					<span class = "reports-concept-name @@show-on-no-practice@@" title="Concept: @@conceptName@@">@@conceptName@@</span>
+				</div>
+				@@concept-score-container@@
+				<div id='last-access-container'>
+					@@last-access-container@@
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id ="last-access-template">
+		<div>
+			<span>
+				@@last-try-text@@
+			</span>
+			<span>
+				@@last-access-date@@
+			</span>
+		</div>
+	</div>
+	
+	<div id = "concept-more-score-template">
+		<div id = "concept-score-container">
+			<div id="concept-score" class="js-progress-bar progress-color-@@progress-bar-background-color@@" data-width="@@conceptScoreMax@@" style="width:@@conceptScoreMax@@;">
+				<span id = 'score'>
+					@@conceptScore@@
+				</span>
+			</div>
+		</div>
+		<div class="late-submission @@hide@@"></div>
+	</div>
+	
+	<div id = "concept-less-score-template">
+		<div id = "concept-score-container">
+			<div id="concept-score" class="js-progress-bar left progress-color-@@progress-bar-background-color@@" data-width="@@conceptScore@@" style="width:@@conceptScore@@;">
+			</div>
+			<span id="score">
+				@@conceptScore@@
+			</span>
+		</div>
+		<div class="late-submission @@hide@@"></div>
+	</div>
+
+	<div id = "concept-completion-template">
+		<div id="completed-tick-icon">
+			<span class="icon-checkmark app-icons"></span>
+		</div>
+	</div>
+	
+</div>

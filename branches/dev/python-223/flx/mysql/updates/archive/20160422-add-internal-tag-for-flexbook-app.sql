@@ -1,0 +1,1 @@
+INSERT IGNORE INTO `BrowseTerms` (`name`, `handle`, `description`, `termTypeID`) SELECT 'ready-for-fb-app', 'ready-for-fb-app', 'Ready for use in FlexBook app', `id` FROM `BrowseTermTypes` WHERE name = 'internal-tag';

@@ -1,0 +1,110 @@
+{% extends "common/master.html" %}
+{% block title %}{% if c.branch.parent and c.branch.parent.level > 0 %}{{ c.branch.name }}{% elif c.branch.level == 1 %}{{_('Misc. ')}}{{ c.branch.name }}{% endif %} | Concept Map{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <meta name="description" content="Explore {{ c.branch.name }} Connections in Math and Science">
+{% endblock %}
+
+{% block stylesheets %}
+{{ super() }}
+{% if c.branch.hasConceptMap() %}
+<link media="screen" type="text/css" href="{{ h.url_css('map.css') }}" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{{ h.asset_css('conceptmap/css/main.css')}}">
+{% endif %}
+<link media="screen" type="text/css" href="{{ h.url_css('browse.css') }}" rel="stylesheet">
+
+<!--[if gte IE 9]>
+  <style type="text/css">
+    .modalHeader,.node.not_start {
+       filter: none;
+    }
+  </style>
+<![endif]-->
+
+{% endblock %}
+
+{% block js %}
+
+<!--[if IE 8]>
+    <script charset="utf-8" type="text/javascript" src="{{ h.url_lib('jit-excanvas.js') }}">
+<![endif]-->
+
+{{ super() }}
+<script type="text/javascript">
+    require(['main'], function(){
+        require(['jquery', 'conceptmap/conceptmap'], function($){
+            $(document).ready(function(){
+                /**
+                 * Event binding for load concept map event
+                 */
+                var subject = "{{ c.branch.parent.encodedID }}";//$("#subjectSel").val(),
+                var branch = "{{ c.branch.encodedID }}";//$("#branchSel").val();
+                var branch_name = "{{ c.subject }}";
+
+                if(subject && branch && $("#holder").length > 0){
+                    $("#holder").conceptMap({
+                        "subject": subject,
+                        "branch": branch.split('.')[1],
+                        "branch_handle" : branch_name
+                    });
+                }
+                //Event binding for browse view tabs
+                $('.browse-buttons button').click(function(ev) {
+                        var view = $(ev.currentTarget).data('view');
+                        if (view) {
+                               window.location.href = view;
+                        }
+                });
+                var payload = {}
+                {% if c.branch.parent and c.branch.parent.level > 0 %}
+                    payload['subject'] = '{{ c.branch.parent.name }}';
+                    payload['branch'] = '{{ c.branch.name }}';
+                {% elif c.branch.level == 1 %}
+                    payload['branch'] = '{{ c.branch.name }}';
+                {% endif %}
+                payload['page'] = 'browse';
+                payload['page_view'] = 'map';
+
+                _ck12.logEvent('fbs_view', payload);
+            });
+        });
+    });
+</script>
+{% endblock %}
+
+{% block pageinfotop %}
+<div class="contenttop container_12">
+    <nav id="pageinfotop grid_12"></nav>
+    <div class="gclear"></div>
+</div>
+{% endblock %}
+
+{% block contentwrap %}
+
+<div class="browseheader browseheader--conceptmap row">
+    <div class="small-7 large-8 column">
+        <h1>
+            <a href="{{ h.url('subjects') }}">{{ _('Browse') }}</a>
+            {% if c.branch.parent and c.branch.parent.level > 0 %}
+            {{ c.branch.parent.name }}/ {{ c.branch.name }}
+            {% elif c.branch.level == 1 %}
+            {{_('Misc. ')}}{{ c.branch.name }}
+            {% endif %}
+        </h1>
+    </div>
+    <div class="small-5 large-4 column">
+        {% include "browse/_browse_buttons.html" with context %}
+    </div>
+</div>
+
+{% if c.show_concepts %}
+    {% if c.branch.hasConceptMap() %}
+        {% include "conceptmap/conceptmap.html" %}
+    {% else %}
+        <div id="view_map"> <h4>There is no map for this subject</h4> </div>
+    {% endif %}
+{% endif %}
+<div class="backtotop clear">{{ _('Back to the <a href="#" title="Back to top of the page">top of the page &#8593;') }}</a></div>
+<div class="divider"></div>
+{% endblock %}

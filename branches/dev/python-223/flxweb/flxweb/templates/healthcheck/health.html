@@ -1,0 +1,74 @@
+{% extends "base/1column.html" %}
+
+{% block title %}{{ _("CK12 Service Health") }}{% endblock %}
+
+{% block content %}
+  <div class="healthcheck" id='servicestopnav' style="margin-top:10px;">
+    <div class="topnavleft">Last Health Check Performed: <span id='healthCheckTime'>{{ c.time_stamp }}</span></div>
+    <div class="topnavright">
+         <a id = 'recheckservices' title="{{_('Re-check All Services') }}" href = "javascript:void(0);" >
+             <img class="health_reload_image" src="{{h.url_images('icon_reloadexercise.png')}}" alt="{{_('Re-check All Services') }}"></img>
+         </a>
+    </div>
+  </div>
+
+  <div id='spinner' class='hide' style="cursor:wait">
+    <img src="{{ h.url_images('loading.gif' )}}" alt="{{ _('Please Wait..') }}" />
+  </div>
+  
+<div class="healthcheck table clear">
+  <div class="thead sectionhead">
+    <div class="tr">
+    {% for head in c.form.listhead %}
+      <div class="td">
+        {{head}}<div class='sort-indicator hide'></div>
+      </div>
+    {% endfor %}
+    </div>
+  </div>
+  <div class="tbody">
+  {% for host in c.host_api.keys() %}
+    {% for services in c.host_api[host].keys() %}
+        {% set service = c.host_api[host][services] %}
+        <form class='tr' method="post">
+            <div class="td tdcenter" >
+            <div class='sort-indicator hide'></div>
+            </div>
+      
+            <div class="td">
+                {{host}}<div class='sort-indicator hide'></div>
+            </div>
+      
+            <div class="td">
+            	<a href = "{{c.host_name}}{{service['completeapi']}}" target="_blank">
+                {{services}}</a><div class='sort-indicator hide'></div>
+            </div>
+      
+            <div class="td">
+            {% if service['status'] == 0 %}
+                {{_("Service is operating normally.") }}<div class='sort-indicator hide'></div>
+            {% else %}
+                {{service['description']}}<div class='sort-indicator hide'></div>
+            {% endif %}
+            </div>
+            
+            <div class="td tdcenter" >
+                <div class='actionitem' title={{_("Re-check") }} ><img class="health_reload_image" src="{{h.url_images('icon_reloadexercise.png')}}" alt={{_("Re-check") }}></img></div>
+            </div>
+        </form>
+    {% endfor %}
+{% endfor %}
+  
+  </div>
+    
+</div>
+
+{% block js %}
+{{ super() }}
+<script language="JavaScript" type="text/javascript">
+	require(['main-health'], function(){
+	});
+</script>
+{% endblock js %}
+
+{% endblock content %}

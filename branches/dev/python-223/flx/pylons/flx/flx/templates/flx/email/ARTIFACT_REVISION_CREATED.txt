@@ -1,0 +1,15 @@
+Dear {{ member.name }},</p>
+
+Greetings from CK-12 Foundation!</p>
+
+We're happy to inform you that we have updated some supporting materials.</p>
+
+{% for event in events %}
+ * A new revision of the {{ event['objectDict']['title'] }} FlexBook in your library is now available. 
+      Summary: {{ event['objectDict']['summary'] }}
+{% endfor %}
+
+Do you have questions or feedback? Do not hesitate to email <a href="mailto:support@ck12.org">support@ck12.org</a>.
+
+Sincerely,
+The CK-12 Team

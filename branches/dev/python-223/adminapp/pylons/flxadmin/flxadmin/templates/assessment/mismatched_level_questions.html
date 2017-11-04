@@ -1,0 +1,249 @@
+{% extends "listings.html" %}  
+
+{% block header %}{{super()}}{% endblock %}
+{% block crumbs %}{{super()}}{% endblock %}
+
+{% block footer %}
+    {{super()}}
+{% endblock %}
+
+{% block admintop %}
+    {% block filters %} 
+        <div class="col topalign" style="margin:20px;">Filter by:</div>
+
+        <div class="col topalign">
+            {{ h.labelselect('Type', 'type_filter', c.form.type_sel, 'filter multisel', multiple=true)}}
+        </div>
+
+        <div class="col topalign">
+            {{ h.labelselect('Level', 'level_filter', c.form.level_sel, 'filter')}}
+        </div>
+
+        <div class="col topalign">
+            {{ h.labelselect('Grade', 'grade_filter', c.form.grade_sel, 'filter')}}
+        </div>
+
+        <div class="col topalign">
+            {{ h.labelselect('Published', 'public_filter', c.form.public_sel, 'filter')}}
+        </div>
+
+        <div class="col topalign">
+            {{ h.labelselect('Contributed', 'contributed_filter', c.form.contributed_sel, 'filter')}}
+        </div>
+
+        <div class="col topalign">
+            {{ h.labelselect('Algorithmic', 'generative_filter', c.form.generative_sel, 'filter')}}
+        </div>
+
+        <div class="col topalign">
+            {{ h.labelselect('Draft', 'draft_filter', c.form.draft_sel, 'filter')}}
+        </div>
+
+        <div class="col topalign">
+            {{ h.labelselect('Rejected?', 'rejected_filter', c.form.rejected_sel, 'filter')}}
+        </div>
+
+    {% endblock %}
+    <br/>
+
+    {% block searches %}
+        <div class="col wide padleft">
+            {{ h.labelinput('Question Stem', 'title', 'med searchby')}}
+            <img id="admin_search_icon" src="{{h.url_images('icon_magnifier2.png')}}"/>
+        </div>
+        <div class="col wide">
+            {{ h.labelinput('Encoded IDs', 'encodedIDs', 'med searchby')}}
+            <img id="admin_search_icon" src="{{h.url_images('icon_magnifier2.png')}}"/>
+        </div>
+        <div class="col wide">
+            {{ h.labelinput('Owner IDs', 'ownerID', 'med searchby')}}
+            <img id="admin_search_icon" src="{{h.url_images('icon_magnifier2.png')}}"/>
+        </div>
+        <div class="col wide">
+            {{ h.labelinput('Advanced (field,term)', 'special', 'med searchby')}}
+            <img id="admin_search_icon" src="{{h.url_images('icon_magnifier2.png')}}"/>
+        </div>
+    {% endblock %}
+
+    {% block aftersearches %}
+        {{ super() }}
+    {% endblock %} 
+    
+  <div id='resultmsgs'>
+    <p> <strong>Supported Advanced Fields</strong>: questionData.stem.displayText, questionData.responseObjects.displayText, docSerialNumber,
+            hints, tags.source, tags.license, tags.qgrp, tags.credits.name, tags.credits.role, tags.searchTerms, 
+            tags.standards
+    </p>  
+    <p class='ajaxError'></p>
+    <p id='resultmsg'></p>
+    <p id='clearactions'></p>
+  </div>    
+{% endblock %}
+
+{% block admincontent %}
+	<input type="checkbox" id="checkAll">Select All</input>
+    {{ super() }}
+    <div id="message">
+                <span></span>
+    </div>
+    <input class=" btn cancelbtn floatright" id="reject" style="width:70px;" value="Reject">
+    <input class=" btn primaryaction floatright" id="acceptSystemRecommendedLevel" style="width:70px;" value="Accept">
+{% endblock %}
+
+{% block js_scripts %}
+{{ super() }}
+<script type="text/javascript" src="{{ h.url_js('colorbox_popup_resize.js') }}"></script>
+<script type='text/javascript'>
+
+//Select 'All' option in the question types drop-down on page load 
+$("#type_filter option[value='questionTypeID,']").attr('selected', 'selected');
+$("#type_filter optgroup option:not([value*='selSiblings'])").attr('selected','selected');
+
+Listings({
+    sort: 'updated,desc',
+    postLoad: function(){
+        $('.tiptrigger').tooltip({
+            bodyHandler: function(){ return $(this).siblings('.tipdiv').html(); }
+        });
+        $('.tr .td a#preview').colorbox(Defaults.overlay('flxweb'));
+        $(".authored_level_header").closest("div.td").css({"white-space":"normal", "word-break":"break-word", "width":"55px"});
+        $(".deduced_level_header").closest("div.td").css({"white-space":"normal", "word-break":"break-word", "width":"100px"});
+    }, 
+    ajaxRoot: CK12.admUrl('assessment/questions_list/False/True')
+});
+
+    function showMessage(element, message, classToAdd){
+        element.removeClass().addClass(classToAdd).find("span").html(message);
+        element.fadeIn("slow", function(){
+            window.setTimeout(function(){
+                clearMessage(element);
+            },2000);
+        });
+    }
+
+    function clearMessage(element){
+        element.fadeOut("slow",function(){
+            element.removeClass();
+        });
+    }
+
+    // Update question 
+    function updateQuestion(questionId, settings){
+        data = {}
+        data['levelDeductionVerified'] = settings.levelDeductionVerified;
+    	
+        settings['successCount'].count = settings['successCount'].count + 1; 
+        $.ajax({
+            "url" : "/assessment/api/update/question/" + questionId,
+            "type" : "POST",
+            "dataType" : "json",
+            "data" : data,
+            "success" : function(response){
+            	// Show the success message once all questions are updated successfully 
+            	settings['successCount'].count = settings['successCount'].count - 1;
+            	if(response.responseHeader.status === 0){
+            		if(settings['successCount'].count === 0){
+            			alert(settings.success);
+            			window.location.href = CK12.admUrl('/assessment/mismatchedLevel/questions');
+            		}
+                }else{
+                	// Remove the attribute in case of error 
+                	$("#acceptSystemRecommendedLevel").removeAttr("data-status");
+                    alert(response.response.message);
+                }
+            },
+            "error" : function(){
+            	settings['successCount'].count = settings['x'].count - 1;
+                alert(settings.error);
+            }
+        });
+    }
+    
+    // Accept system recommended level 
+    $("#acceptSystemRecommendedLevel").click(function(event){
+        event.stopPropagation();
+        var id = "",
+        checkedInput = $("#leftpane .table .tbody").find("input:checkbox:checked"),
+        qid = [],
+        // Count to show success message once all questions are successfully updated(in AJAX) 
+        updatingQuestion = {
+        	"count" : 0
+        };
+            
+        if(checkedInput.length === 0){
+            showMessage($("#message"),"no question selected","error");
+            return false;
+        }
+
+         // Add an attribute on click of 'Accept system recommended level' link, it will deactivate the link once AJAX request is processed 
+        if($(this).attr("data-status") === "activated"){
+            return false;
+        }else{
+            $(this).attr("data-status", "activated");
+        }
+
+        checkedInput.each(function(){
+                qid.push(this.id);
+        });
+        
+        // Data to be passed in AJAX call 
+        var data = {};
+        data['levelDeductionVerified'] = true;
+        data['success'] = 'Successfully accepted system recommended level';
+        data['error'] = 'There is some problem while updating the question(s)';
+        
+        for(i=0; i<qid.length; i++){
+        	data['successCount'] = updatingQuestion;
+        	updateQuestion(qid[i], data);
+        }
+        
+    });
+    
+ 	// Reject system recommended level 
+    $("#reject").click(function(event){
+        event.stopPropagation();
+        var id = "",
+        checkedInput = $("#leftpane .table .tbody").find("input:checkbox:checked"),
+        qid = [],
+        // Count to show success message once all questions are successfully updated(in AJAX) 
+        updatingQuestion = {
+        	"count" : 0
+        };
+            
+        if(checkedInput.length === 0){
+            showMessage($("#message"),"no question selected","error");
+            return false;
+        }
+
+         // Add an attribute on click of 'Accept system recommended level' link, it will deactivate the link once AJAX request is processed 
+        if($(this).attr("data-status") === "activated"){
+            return false;
+        }else{
+            $(this).attr("data-status", "activated");
+        }
+
+        checkedInput.each(function(){
+                qid.push(this.id);
+        });
+        
+        // Data to be passed in AJAX call 
+        var data = {};
+        data['levelDeductionVerified'] = false;
+        data['success'] = 'Successfully rejected system recommended level';
+        data['error'] = 'There is some problem while updating the question(s)';
+        
+        for(i=0; i<qid.length; i++){
+        	data['successCount'] = updatingQuestion;
+        	updateQuestion(qid[i], data);
+        }
+        
+    });
+ 	
+ 	// Select or deselect all questions 
+	$("#checkAll").off("change").on("change", function(){
+		$("#leftpane .table .tbody .tr .td input").prop("checked", $(this).prop("checked"));
+	});
+
+</script>
+{% endblock %}
+

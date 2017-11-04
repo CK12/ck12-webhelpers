@@ -1,0 +1,39 @@
+<project name="AmazonS3Storage" basedir=".">
+    <path id="classpath">
+        <fileset dir="lib" includes="*.jar" />
+        <pathelement location="classes" />
+    </path>
+
+    <target name="clean">
+        <delete dir="classes" />
+    </target>
+
+    <target name="build-dev">
+        <mkdir dir="classes"/>
+        <javac srcdir="src/java" destdir="classes"
+            debug="true"
+            classpathref="classpath">
+        </javac>
+    </target>
+
+    <target name="build">
+        <mkdir dir="classes"/>
+        <javac srcdir="src/java" destdir="classes"
+            debug="false"
+            classpathref="classpath">
+        </javac>
+    </target>
+
+    <target name="jar" depends="build">
+        <jar destfile="dist/amazonS3llstore.jar"
+            basedir="classes" />
+    </target>
+
+    <property name="input" value="a penny saved is a penny you have!" />
+    <target name="encrypt" depends="build">
+        <java classpathref="classpath"
+            classname="org.fcrepo.server.storage.lowlevel.Crypto">
+            <arg value="${input}" />
+        </java>
+    </target>
+</project>

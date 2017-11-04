@@ -1,0 +1,21 @@
+{% extends "base/plain.html" %}
+{% block title %}{{ _("CK-12 Google classroom intergration") }}{% endblock %}
+
+{% block meta_extra %} {{ super() }} <meta name="robots" content="noindex" /> {% endblock %}
+{% block js %}
+{#{ super() }#}
+<script type="text/javascript">
+window.close();
+</script>
+{% endblock %}
+
+
+{% block pagewrap %}
+    {% block contentwrap %}
+        <div class="signincompletewrap">
+            <img src="{{ h.asset_image('common/images/icon_loading.gif') }}"/>
+            <br/>
+            <p>{{ _('Thank you! We are now able to connect with Google Classroom') }}</p>
+        </div>
+    {% endblock %}
+{% endblock %}

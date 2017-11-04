@@ -1,0 +1,117 @@
+{% extends "base/auth/plain.html" %}
+
+{% block js %}
+{{ super() }}
+<script>
+    require(['main'], function(){
+       require([
+           'jquery',
+           'jquery-ui',
+           'lib/json2.min',
+           'lib/jquery-plugins/jquery.validate.min',
+           'auth/flx.jquery.plugins',
+           'auth/flx.global',
+           '{{webroot_url}}/auth/js/settings/'
+       ], function($){
+           require(['auth/flx.member']);
+       }); 
+    });
+
+    function signin_click(provider, url) {
+        var url = '/auth/login/member/' + provider + '?url=' + encodeURIComponent(url);
+        window.open(url, provider + '_window', 'location=no, menubar=no, resizable=yes status=no, scrollbars=no, width=880, height=400');
+        return false;
+    }
+</script>
+{% endblock %}
+
+{% block cookies_message_bar %}
+{% endblock %} 
+{% block pagewrap %}
+{% block contentwrap %}
+<div class="loginwrap">
+	<div class="logincontent" >
+
+		<div id="signin_errors">
+		{% if c.form_errors %}
+                        <ul class="messaging error">
+                                {% for error in c.form_errors %}
+                                <span class="icon-close"></span>
+                                <li>
+                                        {% if c.form_errors[error] %}
+                                        {{ c.form_errors[error] }}
+                                        {% endif %}
+                                </li>
+                        {% endfor %}
+                        </ul>
+		{% endif %}
+		</div>
+
+
+		<div class="logincontentleft">
+			<h3>{{ _("Use one of the following:") }}</h3>
+			<div class="spacetopxlarge federated-login-space"></div>
+			<div class="loginbtnwrap google">
+				<a id="js_ck12googlesignin" class="loginbtn" onclick="signin_click('google', '{{ h.url(controller='google', action='authenticated', qualified=True) }}');" href="#" alt="{{ _('Sign In with Google') }}" title="{{ _('Sign In with Google') }}"><i class="icon icon-google"></i>{{ _("Sign In with Google") }}</a>
+			</div>
+			<div class="loginbtnwrap facebook">
+				<a id="js_ck12fbsignin" class="loginbtn" onclick="signin_click('facebook', '{{ h.url(controller='facebook', action='authenticated', qualified=True) }}');" href="#" alt="{{ _('Sign In with Facebook') }}" title="{{ _('Sign In with Facebook') }}"><i class="icon icon-facebook"></i></span>{{ _("Sign In with Facebook") }}</a>
+			</div>
+			<div class="loginbtnwrap twitter">
+				<a id="js_ck12twittersignin" onclick="signin_click('twitter', '{{ h.url(controller='twitter', action='authenticated', qualified=True) }}');" class="loginbtn" href="#" alt="{{ _('Sign In with Twitter') }}" title="{{ _('Sign In with Twitter') }}"><i class="icon icon-twitter"></i>{{ _("Sign In with Twitter") }}</a>
+			</div>
+			<div class="loginbtnwrap microsoft">
+				<a id="js_ck12microsoftsignin" onclick="signin_click('azure', '{{ h.url(controller='azure', action='authenticated', qualified=True) }}');" class="loginbtn" href="#" alt="{{ _('Sign In with Microsoft') }}" title="{{ _('Sign In with Microsoft') }}"><i class="icon icon-microsoftlive"></i>{{ _("Sign In with Microsoft") }}</a>
+			</div>
+		</div>
+		<div class="logincontentright">
+			<h3 class="heading-signin">{{ _("Use CK-12 account:") }}</h3>
+			<div class="spacetoplarge"></div>
+			<form id="signin_form" method="POST" action="{{ h.url('signin') }}?returnTo={{ h.urlQuote(c.returnTo) }}&requestor={{ h.urlQuote(c.requestor) }}">
+				<div>
+					<div class="formlabelwrap">
+						<label class="formlabel" for="username">{{ _("User Name or Email") }}:</label>
+					</div>
+					<div>
+						<input class="forminput" type="text" name="username" id="username" 
+                                autocapitalize="off" autocorrect="off"
+								data-required="{{ c.messages.ACCOUNT_USERNAME_EMPTY }}"
+								value="{{c.form.username}}" tabindex="1" />
+					</div>
+					<div class="error hide" data-for="username">{{ _("Enter user name") }}</div>
+				</div>
+				<div>
+					<div class="formlabelwrap">
+						<label class="formlabel" for="password">{{ _("Password") }}:</label>
+					</div>
+					<div>
+						<input class="forminput" type="password" name="password" id="password"
+								data-required="{{ c.messages.ACCOUNT_PASSWORD_EMPTY }}"
+								value="{{c.form.password}}" tabindex="2" />
+					</div>
+					<div class="error hide" data-for="password">{{ _("Enter password") }}</div>
+				</div>
+				<div class="forgotpasswordwrap spacetop">
+					<a href="{{ h.url('forgetPassword') }}?returnTo={{ h.urlQuote(c.returnTo) }}" target="_parent" title="{{ _('Forgot Password') }}">{{ _("Forgot Password?") }}</a>
+					<span>|</span>
+					<a href="{{ h.url('signup') }}?returnTo={{ h.urlQuote(c.returnTo) }}" target="_parent" title="{{ _('Create an Account') }}" rel="nofollow">{{ _("Create an Account") }}</a>
+				</div>
+				<div class="loginsubmitwrap">
+					<input type="hidden" name="next" value="{{ c.returnTo }}" />
+                                        <input type="hidden" name="authType" value="{{ 'ck-12' }}" />
+                                        <input type="hidden" name="returnTo" value="{{ c.returnTo }}" />
+                                        <input type="hidden" id="requestor" name="requestor" value="{{ c.requestor }}" />
+					<input type="hidden" name="popup" value="true" />
+					<input target="authiframe" class="button" type="submit" name="submitbutton" value="{{ _('Sign In') }}" tabindex="3" />
+					<!--<span class="keepsignedwrap hintcolor">
+                                                <input type="checkbox" name="remember" id="remember"></input> {{ _('Keep me signed in') }}
+					</span>-->
+				</div>
+			</form>
+			<div class="separator"><h3>{{ _("OR") }}</h3></div>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+{% endblock %}
+{% endblock %}

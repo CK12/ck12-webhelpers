@@ -1,0 +1,8 @@
+    WSGIScriptAlias /assessment/api /opt/2.0/assessment/engine/pyramid/assessment.wsgi
+    <Directory /opt/2.0/assessment/engine/pyramid/>
+        Require all granted
+    </Directory>
+    <Location /assessment/api>
+        WSGIProcessGroup assessment_wsgi
+    </Location>
+

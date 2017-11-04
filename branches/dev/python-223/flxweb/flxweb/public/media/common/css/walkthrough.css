@@ -1,0 +1,238 @@
+#walkthrough {
+    background-color: #f3f2f1;
+    min-height: 120%;
+    padding: 25px 40px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index : 99;
+}
+.close-walkthrough:before {
+    background: none repeat scroll 0 0 #FFFFFF;
+    color: #FF0000;
+    content: "";
+    height: 1px;
+    position: absolute;
+    right: 0;
+    top: 25px;
+    transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    width: 47px;
+    z-index: 2;
+}
+.close-walkthrough:after {
+    background: none repeat scroll 0 0 #FFFFFF;
+    content: "";
+    height: 1px;
+    position: absolute;
+    right: 1px;
+    top: 25px;
+    transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    width: 47px;
+}
+.close-walkthrough {
+    background: none repeat scroll 0 0 #FF6633;
+    float: right;
+    height: 50px;
+    position: relative;
+    width: 50px;
+    cursor: pointer;
+}
+.walkthrough-header {
+    color: #7b7972;
+    margin-top: 60px;
+}
+.walkthrough-header h3 {
+    color: #7b7972;
+}
+.btn-cnt {
+    margin-top: 30px;
+}
+#imgNavigation .dots.current {
+    background-color: #00aba4;
+}
+#imgNavigation .dots {
+    background: none repeat scroll 0 0 #cec9be;
+    border-radius: 10px;
+    display: inline-block;
+    height: 10px;
+    margin-left: 5px;
+    width: 10px;
+    cursor:pointer;
+}
+.img-navigation {
+    display: inline-block;
+    margin-top: 20px;
+}
+.desc-text {
+	/* left: 50%;
+	margin-left: -223px !important; */
+	position: absolute;
+	top: 44%;
+	/*width: 446px;*/
+	width : 100%;
+	padding : 0 10%;
+}
+#img_cont2 .desc-text {
+    top: 67%;
+}
+.yellow-text {
+	color: #ffcf2a;
+	font-size: 24px;
+	margin-bottom: 15px;
+	font-weight: bold;
+}
+.white-text {
+	color: #fff;
+	font-size: 20px;
+	line-height: 24px;
+}
+.walkthrough-image {
+    overflow: hidden;
+}
+#walkthrough #startPractice {
+    display: none;
+}
+.imgCarousal {
+    left: 0;
+    position: relative;
+   -webkit-transition: initial;
+	-webkit-transition-duration: 0.6s;
+	transition: initial;
+	transition-duration: 0.6s;
+}
+.embed-img {
+    float: left;
+    position: relative;
+}
+.test-adaptive-view .walkthrough-page .close-walkthrough{
+	margin-right: -15px;
+}
+div.left-arrow {
+    height: 0;
+    margin-top: -19px !important;
+    width: 0;
+}
+#walkthrough-cont .left-arrow {
+     font-size: 30px;
+    left: 9%;
+    position: absolute;
+    top: 58%;
+    z-index: 99;
+     color: #05aca5;
+     cursor:pointer;
+}
+#walkthrough-cont .right-arrow{
+	position: absolute;
+     z-index:99;
+}
+#walkthrough-cont{
+	position:relative;
+}
+div.right-arrow {
+	width: 0; 
+	height: 0; 
+	margin-top : -19px !important;
+	 color: #05aca5;
+    margin-top: -19px !important;
+    right: 11%;
+    top: 58%;
+    cursor:pointer;
+}
+div.right-arrow i{
+	 font-size: 30px;
+}
+#img_cont3 .desc-text {
+    top: 24%;
+    width: 71%;
+    left: 50%;
+    margin-left: -16%;
+}
+#imgNavigation img {
+    width: 100%;
+}
+.toolwrap {
+	position: absolute;
+	background: #E6B612;
+	height: 36px;
+	width: 36px;
+	border-radius: 50%;
+	padding: 3px;
+	font-size: 24px;
+	color: #fff;
+	cursor:pointer;
+}
+.tooltip-message {
+	width: 200px;
+	background: #FFCF2A;
+	position: absolute;
+	font-size: 14px;
+	padding: 3px;
+	color: #56544D;
+	font-weight: bold;
+	line-height: 21px;
+	margin-top: 25px;
+	z-index : 2;
+}
+p.heading-flow {
+font-size: 20px;
+}
+.tool-pointer {
+   	width: 0; 
+	height: 0; 
+	border-left: 9px solid transparent;
+	border-right: 9px solid transparent;
+	border-bottom: 9px solid #FFCF2A;
+	top: -9px;
+	position : absolute;
+	left: 9px; 
+}
+
+.tooltip-message.on-top {
+    margin-top: 0;
+}
+.tooltip-message.on-top .tool-pointer {
+    top: auto;
+    bottom: -8px;
+    -webkit-transform: rotate( 180deg );
+    		transform: rotate( 180deg );
+}
+
+@media all  and (max-width : 767px){
+	.walkthrough-image {
+	    margin: 0 auto;
+	    overflow: hidden;
+	    width: 90%;
+	}
+	#walkthrough-cont .left-arrow {
+    	left: 1%;
+   	    top: 59%;
+	}
+	#walkthrough-cont .right-arrow {
+   		 right: 5%;
+   	 	top: 58%;
+	}
+}
+
+@media all  and (max-width : 420px){
+	 .desc-text {
+   		 top: 21%;
+   		/* width: 258px;*/
+	} 
+	.yellow-text {
+	    font-size: 16px;
+	}
+	.white-text {
+    	font-size: 14px;
+	}
+}
+@media all  and (min-width : 600px) and (max-width : 1024px){
+		.embed-img:last-child .desc-text {
+	    	top: 68%;
+		}
+}

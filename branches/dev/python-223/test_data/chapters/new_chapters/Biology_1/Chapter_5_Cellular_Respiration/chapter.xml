@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns:dc="http://www.ck12.org/dc/will_create_ns"
+unique-identifier="chapterid" version="2.0">
+
+  <chapter>
+    <metadata>
+<chapterSeq>5</chapterSeq>
+
+<book>Biology I</book>
+
+      <chapterid></chapterid>
+      <title>Cellular Respiration</title>
+      <description>Topics in this chapter include:Powering_the_Cell,Into_the_Mitochondrion,Anaerobic_Respiration.
+     </description>
+    </metadata>
+    
+    <lessons>
+      <item id="Powering_the_Cell" href="Powering_the_Cell.html" sequence="1" />
+      <item id="Into_the_Mitochondrion" href ="Into_the_Mitochondrion.html" sequence="2" />
+      <item id="Anaerobic_Respiration" href ="Anaerobic_Respiration.html" sequence="3" />
+    </lessons>
+  </chapter>
+
+</package>

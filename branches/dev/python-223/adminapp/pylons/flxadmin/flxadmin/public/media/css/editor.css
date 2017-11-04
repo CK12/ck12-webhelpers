@@ -1,0 +1,45 @@
+/****
+ #
+ # Copyright 2007-2011 CK-12 Foundation
+ #
+ # All rights reserved
+ #
+ # Unless required by applicable law or agreed to in writing, software
+ # distributed under this License is distributed on an "AS IS" BASIS,
+ # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ # implied.  See the License for the specific language governing
+ # permissions and limitations.
+ #
+ # This file originally written by Nachiket Karve
+ #
+ # $Id$
+ ****/
+/* Page Elements */
+
+body {
+	font: 0.81em /150% Arial, Helvetica, sans-serif;
+}
+h3 {
+	font-size: 1.4em;
+}
+h1, h2, h3, h4, h5, h6 {
+	color: #000000;
+	line-height: 1.4em;
+	margin: 20px 0 0.4em;
+}
+.ck12-editor-editlink {
+	font-size:0.8em;
+}
+.ck12-media-placeholder{
+	display: block;
+	background:url(/media/lib/ck12-tinymce-plugins/ck12embed/images/embed_placeholder.jpg) no-repeat center center #FFFFE0;
+	border: 1px dotted #aaaaaa;
+}
+.x-ck12-mathEditor {
+    display: inline-block;
+}
+
+.x-ck12-mathEditor[data-mathmethod="block"] {
+    text-align: center;
+    width: 100%;
+}

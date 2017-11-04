@@ -1,0 +1,18 @@
+#! /bin/bash
+# -----------------------------------------------------------------------------------
+# CHANGE SET [16266]
+#   1. Add tag filed to Dimension model
+#   2. Allow promoting time stamp field to be an event
+# -----------------------------------------------------------------------------------
+
+source funcs.sh
+
+echo 'Apply change set 16266'
+
+echo '... Patch ADS schema'
+mysql -h ${db_host} -u ${db_user} -p${db_password} ${db} <<EOF
+alter table Dimensions add column tag tinyint(1) DEFAULT NULL;
+EOF
+
+#prompt_graceful_apache
+echo 'Done'

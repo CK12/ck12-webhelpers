@@ -1,0 +1,3 @@
+include sts/config/deployment.ini_tmpl
+recursive-include sts/public *
+recursive-include sts/templates *

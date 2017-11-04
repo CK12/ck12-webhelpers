@@ -1,0 +1,15 @@
+RewriteCond  %{SERVER_PORT} ^80$
+RewriteRule "^/reader/(.*)" "https://%{SERVER_NAME}%{REQUEST_URI}" [NE,L,R=301]
+Alias /reader /opt/reader-web/www
+<LocationMatch "(service-worker-registration|service-worker)\.js.*">
+    Header set Cache-Control "max-age=0, no-cache"
+</LocationMatch>
+
+<LocationMatch "/reader/.+\.html.*">
+    Header set Cache-Control "max-age=0, no-cache"
+</LocationMatch>
+
+<Directory /opt/reader-web/www>
+    Require all granted
+</Directory>
+

@@ -1,0 +1,3 @@
+include auth/config/deployment.ini_tmpl
+recursive-include auth/public *
+recursive-include auth/templates *

@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>Create Feedback</title>
+    </head>
+    <body>
+        <form name="feedbackdata" method="POST" action="{{ c.prefix }}/create/feedback">
+            <table>
+                <tr>
+                    <td>
+                        For user: {{ c.userName }}:
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ArtifactID:
+                    </td>
+                    <td>
+                        <input type="text"
+                               name="artifactID"
+                               value=""
+                               size="10"/>
+                        </select>
+                    </td>
+		</tr>
+    		<tr>
+                    <td>
+                        Vote (Overrides Rating):
+                    </td>
+		    <td>
+			<input type="radio" name="vote" value="1" />Like
+			<input type="radio" name="vote" value="-1" />DisLike
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        Rating:
+                    </td>
+                    <td>
+                        <input type="text"
+                               name="rating"
+                               value=""
+                               size="1"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Comments:
+                    </td>
+                    <td>
+                        <textarea name="comments" rows="20" cols="73" wrap="physical"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" name="submit" value="OK" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

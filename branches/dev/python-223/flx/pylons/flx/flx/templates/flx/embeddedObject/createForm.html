@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>Create Embedded Object</title>
+    </head>
+    <body>
+        <form name="eoForm" method="POST" action="{{ c.prefix }}/create/embeddedobject">
+        <!-- form name="eoForm" method="POST" action="{{ c.prefix }}/get/info/embeddedobject" -->
+            <table>
+                <tbody border="1">
+                    <tr>
+                        <td>
+                            Width: 
+                        </td>
+                        <td>
+                            <input type="text" name="width" size="10" value="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Height: 
+                        </td>
+                        <td>
+                            <input type="text" name="height" size="10" value="" />
+                        </td>
+                    </tr>
+                </tbody>
+                <tr>
+                    <td colspan="2">OR</td>
+                </tr>
+                <tbody border="1">
+                    <tr>
+                        <td>
+                            Embed Code: 
+                        </td>
+                        <td>
+                            <textarea name="code" rows="10" cols=100></textarea>
+                        </td>
+                    </tr>
+                </tbody>
+                <tr>
+                    <td>Authors:</td>
+                    <td><input type="text" name="authors" /></td>
+                </tr>
+                <tr>
+                    <td>License:</td>
+                    <td><input type="text" name="license" /></td>
+		</tr>
+                <tr>
+                    <td colspan="2" style="text-align:right;">
+                        <input type="submit" name="submit" value="Save" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
+

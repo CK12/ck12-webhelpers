@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>Register Event Type</title>
+    </head>
+    <body>
+        <form name="Event Type Data" method="POST" action="/dexter/register/event">
+            <table>
+                 <tr>
+                    <td> <label>Client</label> </td>
+                    <td> 
+                      <select name="clientID">
+                        {% for eachClient in clients %}
+                        <option value="{{ eachClient.clientID }}">{{ eachClient.name }}</option>
+                        {% endfor %}
+                      </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <label>Event Type Name</label> </td>
+		    <td><input size=30 type='text' name="eventType" placeholder="FBS HIT" ></input></td>
+                 </tr>
+                <tr>
+                    <td> <label>Parameters</label> </td>
+		    <td><input size=30 type='text' name="parameters" placeholder="[{'name':'artifactID','mandatory':true}]" ></input></td>
+                 </tr>
+                 <tr>
+                    <td>
+                        <input type="submit" name="submit" value="OK" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
+

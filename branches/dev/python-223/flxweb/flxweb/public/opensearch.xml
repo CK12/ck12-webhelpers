@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+  <ShortName>CK-12 Foundation</ShortName>
+  <Description>Search | CK-12 Foundation</Description>
+  <Contact>support@ck12.org</Contact>
+  <Url type="text/html" method="GET" template="https://ck12.org/search/?q={searchTerms}&amp;referrer=opensearch" />
+  <Url type="application/opensearchdescription+xml" rel="self" template="/opensearch.xml" />
+  <Image height="16" width="16">https://ck12.org/favicon.ico</Image>
+  <AdultContent>false</AdultContent>
+  <Language>en</Language>
+  <OutputEncoding>UTF-8</OutputEncoding>
+  <InputEncoding>UTF-8</InputEncoding>
+  <moz:SearchForm>https://ck12.org/search/</moz:SearchForm>
+</OpenSearchDescription>

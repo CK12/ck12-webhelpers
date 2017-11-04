@@ -1,0 +1,56 @@
+<div class="row collapse intial-signin-wrapper">
+	<div class="column large-centered large-8 initial-sigin-container ">
+		<div class="row collapse">
+			<div id="loading-icon" class="loading-icon js-loading-icon hide">
+				<img alt="loading" src="/lmspractice/media/common/images/icon_loading.gif">
+			</div>
+			<div class="column large-12">
+				<div class="row collapse large-12 text-center">
+					<div class="column initial-signin-header">
+							Get started with <%= data.app_display_name %>
+					</div>
+				</div>
+				<div class="row collapse initial-signin-body-wrapper">
+					<div class="large-12 initial-signin-body">
+						<div class="row collapse user-tile">
+								<span>Welcome, </span>
+								<span><%= data.first_name %></span>
+						</div>
+						<div class="row collapse welcome-text">
+							<div class="">
+								Thanks for joining us
+							</div>
+							<div class="">
+								Want to be updated with latest CK-12 news, content, and helpful tips?
+							</div>
+						</div>
+						<form id="email-form" method="post" class="margin-bottom-zero">
+						<div class="row collapse">
+							<div class="">
+								<label class="label-email">Email (optional)</label>
+							</div>
+							<div class="error-message email-error-message hide">
+								Please enter a valid email address (e.g emily@address.com).
+							</div>
+							<div class="large-10">
+								<input type="text" class="js_teacher_email" name="email-optional"/>
+							</div>
+						</div>
+						<div class="row collapse text-center">
+							<div class="email-submit-button">
+								<input type="submit" class="js_email_submit button turquoise medium margin-bottom-zero" value="Continue" />
+							</div>
+						</div>
+						</form>
+					</div>
+				</div>
+				<div class="row collapse">
+					<div class="large-12 initial-signin-footer">
+						<span>Have a CK-12 account?</span>
+						<a id="signInButton">Sign In</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

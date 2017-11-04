@@ -1,0 +1,33 @@
+{% extends "common/master.html" %}
+{% block title %}{{ _("Dashboard") }}{% endblock %}
+
+{% block stylesheets %}
+{{ super() }}
+    <link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('common/css/concept_coversheet.css') }}" />
+    <link rel="stylesheet" type="text/css" media="all" href="{{ h.asset_lib('dashboard/css/tangerine.dashboard.css') }}" />
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+<script type="text/javascript">
+    document.getElementsByClassName('page-title')[0].innerHTML = 'Dashboard';
+    require(['main'], function () {
+       require(['dashboard/controllers/dashboard'], function (dashboard) {
+            dashboard.load();
+            var payload = {};
+            payload['page'] = 'my_dashboard';
+            _ck12.logEvent('fbs_view', payload);
+        });
+    });
+</script>
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+    <div id="page-disable" class="page-disable js-page-disable hide"></div>
+     <div id="loading-icon" class="loading-icon js-loading-icon">
+        <img alt="loading" src="{{ h.asset_image('common/images/icon_loading.gif') }}">
+    </div>
+    <div id="dashboard_contentwrap" class="row collapse dashboard-container" data-user-role="{{c.user.role.description}}">
+    </div>
+{% endblock %}

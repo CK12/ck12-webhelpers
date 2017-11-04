@@ -1,0 +1,21 @@
+
+<% if (modality.resource.thumbnail){ %>
+<div class="thumb_imgwrap">
+<a href="/flx/show<%= modality.resource.permaUri %>"><img class="modality_resource_thumb" src="<%= modality.resource.thumbnail %>" title="<%= modality.resource.name %>" alt="<%= modality.resource.name %>" /></a> 
+</div>
+<% } %>
+<div class="modality_resource_desc break-word">
+    <%= _.escape(modality.resource.description).replace("None",'') %>
+</div>
+<div class="spacetoplarge">
+    <% if (modality.modality_group && modality.modality_group.group_classname == 'study_resource'){ %>
+        Open this resource in a new window. If you need more support, be sure to visit CK-12's
+            <a class="notificationlink" href="https://apps.facebook.com/studyhelp/">studyHELP</a>
+        for getting answers to your questions right when you need them.
+    <% } else { %>
+        Open the resource in a new window.
+    <% } %>
+</div> 
+<div>
+    <a class="break-all" target="_blank" href="/flx/show<%= modality.resource.permaUri %>"><%= modality.resource.uri %></a>
+</div>

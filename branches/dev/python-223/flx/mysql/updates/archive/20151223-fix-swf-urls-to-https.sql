@@ -1,0 +1,1 @@
+update EmbeddedObjects set uri = REPLACE(uri, 'http://download.ck12.org/', 'https://s3.amazonaws.com/download.ck12.org/'), code = REPLACE(code, 'http://download.ck12.org/', 'https://s3.amazonaws.com/download.ck12.org/') WHERE uri like 'http://download.ck12.org/%';

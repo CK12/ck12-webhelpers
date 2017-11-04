@@ -1,0 +1,56 @@
+<div id="wordDocsModal" class="xdtimport_container reveal-modal modal-uikit app-reveal-modal tiny">
+	<a class="close-reveal-modal close">+</a>
+	<div class="text-center bold google-docs-header">Import a Word Document</div>
+	<div class="js_dlg_content">
+		<form id="js_xdtupload_form" method="POST" name="xdtupload" action="/xdt/upload/">
+			<div class="js_xdt_titlecontainer">
+				<div>Title:</div>
+				<div>
+					<input id="txt_xdt_title" class="forminput" name="txt_xdt_upload" type="text" maxlength="100" />
+				</div>
+				<div class="error hide">
+					Title cannot be blank.
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="spacetop js_xdt_filecontainer">
+				Select a word file to upload:
+				<div>
+					<input id="file_xdt_upload" name="file_xdt_upload" type="file" />
+				</div>
+				<div class="error hide">
+					Please select a .docx file to upload.
+				</div>
+                <div id="modality_type_select" class="dropdown-wrapper">
+                    <div>
+                        <strong>
+                            <span class="">Select a Modality Type.</span>
+                        </strong>
+                    </div>
+                    <input type="hidden" name="artifactType" id="artifactType" value="lesson" >
+                    <a id="dropdown-modality" data-val="lesson" class="library-dropdown-secondary small button dropdown library-dropdown select-modality-dropdown js-dropdown-modality" data-dropdown="modality-types-dropdown-docs">Read</a>
+                    <ul class="f-dropdown" id="modality-types-dropdown-docs">
+                        <li class="js-dropdown-element" data-val="lesson"><a>Read</a></li>
+                        <li class="js-dropdown-element" data-val="rwa"><a>Real World Application</a></li>
+                        <li class="js-dropdown-element" data-val="preread"><a>Pre Read</a></li>
+                        <li class="js-dropdown-element" data-val="postread"><a>Post Read</a></li>
+                        <li class="js-dropdown-element" data-val="whileread"><a>While Read</a></li>
+                        <li class="js-dropdown-element" data-val="prepostread"><a>Pre And Post Read</a></li>
+                        <li class="js-dropdown-element" data-val="studyguide"><a>Study Guide</a></li>
+                        <li class="js-dropdown-element" data-val="flashcard"><a>Flashcards</a></li>
+                        <li class="js-dropdown-element" data-val="lecture"><a>Video</a></li>
+                        <li class="js-dropdown-element" data-val="web"><a>Link</a></li>
+                    </ul>
+                 </div>
+			</div>
+		</form>
+		<div class="dialogbuttons text-center">
+			<input class='button turquoise' id="js_addfromword_confirm" type="submit" value="Upload" />
+		</div>
+	</div>
+	<div class="dialog_msg hide">Word document import failed with errors.</div>
+	<div class="js_dialog_loading xdt_dialog_loading text-center hide">
+		<img width="43" height="11" title="loading" src="/media/images/icon_loading.gif">
+		<div class="msg"></div>
+	</div>
+</div>
